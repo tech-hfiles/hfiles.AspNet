@@ -1,0 +1,423 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    height: 100%;
+    font-family: serif;
+}
+
+/* add member */
+.inner-div {
+    width: 60%;
+    text-align: center;
+    padding: 30px 10px;
+    /* height: 100vh; */
+}
+
+.main-div {
+    height: 100%;
+    width: 100%;
+}
+
+.or {
+    padding: 15px;
+    text-align: center;
+}
+
+.active {
+    background-color: #ffd101;
+    color: #081466;
+}
+
+.inactive {
+    background-color: #f5f5f5;
+}
+
+.tab {
+    padding: 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 700;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-group input[type=checkbox]:checked {
+    accent-color: #081466;
+    color: green;
+}
+.input-group {
+    text-align: center;
+}
+
+.input-group input {
+    padding: 15px 20px;
+    margin: 0 5px;
+    margin: 7px;
+    border-radius: 50px;
+    background-color: #f5f5f5;
+    outline: 0;
+    border: 0;
+    color: #bfbfbf;
+}
+.input-group .relation-div {
+    padding: 15px 0;
+    margin: 0 5px;
+    margin: 7px;
+    border-radius: 50px;
+    background-color: #f5f5f5;
+    outline: 0;
+    border: 0;
+    width: 100%;
+    color: #bababa;
+    text-align: center;
+}
+.input-group select {
+    background: none;
+    border: 0;
+    color: #bfbfbf;
+    width: 120px;
+    outline: 0;
+}
+.input-group select option{
+    background-color: #f4f4f4;
+}
+.input-group select option:hover{
+    color: #081466;
+    background-color: #eec93a !important;
+}
+
+
+.input-group input::placeholder {
+    text-align: center;
+    color: #bababa;
+    font-family: serif;
+}
+
+.btn-div {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-div button {
+    padding: 15px 50px;
+    border-radius: 50px;
+    border: 0;
+    outline: 0;
+    background-image: linear-gradient(to right, #0512B9 0%, #081466 100%);
+    color: #ffffff;
+    cursor: pointer;
+    margin-top: 20px;
+    font-family: serif;
+    font-weight: 700;
+}
+
+.text-blue {
+    color: #0512B9;
+
+}
+
+.blue-t-top-left {
+    position: absolute;
+    top: 0;
+    left: 30px;
+    height: 100px;
+    z-index: -1;
+}
+
+.blue-t-top-right {
+    position: absolute;
+    top: 0;
+    right: 20%;
+    height: 50px;
+    z-index: -1;
+}
+
+.blue-t-right {
+    position: absolute;
+    top: 30%;
+    right: 0;
+    height: 200px;
+    z-index: -1;
+}
+
+.blue-t-bottom-left {
+    position: absolute;
+    height: 150px;
+    bottom: 60px;
+    z-index: -1;
+}
+
+.blue-t-bottom-right {
+    position: absolute;
+    left: 60%;
+    bottom: 0;
+    height: 100px;
+    z-index: -1;
+}
+
+.home-icon-top-right {
+    position: absolute;
+    top: 10px;
+    right: 2%;
+}
+
+.plus-bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    height: 300px;
+    z-index: -1;
+}
+
+.plus-top-left {
+    position: absolute;
+    top: 0;
+    left: 0%;
+    height: 300px;
+    z-index: -1;
+}
+
+/* avatar */
+.avatar {
+    background-color: #f4f4f4;
+}
+.avatar .main-div .row {
+    width: 100%;
+    margin: 0;
+}
+.avatar .blue-t-top-left {
+    position: absolute;
+    top: 0;
+    left: 20%;
+    height: 100px;
+    z-index: -1;
+}
+
+.avatar .blue-t-top-right {
+    position: absolute;
+    top: 0;
+    right: 20%;
+    height: 80px;
+    z-index: -1;
+}
+
+.avatar .blue-t-bottom-left {
+    position: relative;
+    bottom: 0;
+    height: 100px;
+    right: 20%;
+}
+.avatar .blue-t-bottom-right {
+    position: relative;
+    left: 70%;
+    bottom: 0;
+    height: 100px;
+    z-index: -1;
+}
+.avatar .circle-line {
+    position: relative;
+    right: 0;
+    height: 350px;
+    z-index: -1;
+}
+/* .avatar .plus-icon {
+    position: relative;
+    left: 150px;
+    height: 70px;
+    bottom: 150px;
+} */
+.avatar .add-report-txt {
+    position: relative;
+    left: 150px;
+    height: 70px;
+    bottom: 150px;
+}
+.menu-div .inner-menu-div{
+    text-align: end;
+
+}
+.avatar .top-home-icons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.avatar .top-home-icons img{
+    height: 20px;
+    margin: 10px 5px;
+}
+.avatar .avatar-img {
+    height: 350px;
+    margin-bottom: 30px;
+}
+ul {
+    list-style-type: none;
+    font-weight: bold;
+    font-size: 20px;
+    color: #447df0;
+}
+
+ul .plus {
+    font-size: 30px;
+}
+
+ul .plus-value {
+    font-size: 30px;
+    color: #eec93a;
+}
+.avatar .inner-menu-div {
+    padding-top: 20px;
+    height: 440px;
+}
+.avatar .inner-menu-div .menu-circle {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #447df0;
+    color: #ffffff;
+    text-align: center;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.avatar .inner-menu-div .menu-circle img {
+    height: 35px;
+}
+.avatar .inner-menu-div .lab-report {
+    position: relative;
+    bottom: 345px;
+    left: 60px;
+}
+.avatar .inner-menu-div .medication-prescription {
+    position: relative;
+    bottom: 350px;
+    right: 110px;
+}
+.avatar .inner-menu-div .radiology {
+    position: relative;
+    bottom: 340px;
+    right: 0;
+}
+.avatar .inner-menu-div .dentel-report {
+    position: relative;
+    bottom: 320px;
+    right: 35px;
+}
+.avatar .inner-menu-div .special-report {
+    position: relative;
+    bottom: 300px;
+    right: 10px;
+}
+.avatar .inner-menu-div .mediclaim-insurance {
+    position: relative;
+    bottom: 300px;
+    right: 0px;
+}
+.menu-circle-txt-color {
+    color: #447df0;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.avatar .h-50 {
+    height: 50%;
+}
+.avatar .menu-div .w-70 {
+    width: 70%;
+}
+/* popover */
+a {
+    text-decoration: none;
+}
+  .popover__wrapper {
+    cursor: pointer;
+    position: relative;
+    top: 50%;
+    left: 170px;
+    width: 100px;
+    /* margin-top: 1.5rem; */
+    /* display: inline-block; */
+  }
+  .popover__content {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    left: -45px;
+    transform: translate(0, 10px);
+    background-color: #bfbfbf;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    width: auto;
+  }
+  .popover__content:before {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    right: calc(50% - 10px);
+    top: -8px;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #bfbfbf transparent;
+    transition-duration: 0.3s;
+    transition-property: transform;
+  }
+  .popover__wrapper:hover .popover__content {
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, -20px);
+    transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+  }
+  .popover__message {
+    text-align: center;
+  }
+  
+@media only screen and (max-width: 420px) {
+    .blue-t-bottom-right {
+        position: relative;
+        left: 70px;
+        height: 60px;
+    }
+
+    .blue-t-right {
+        height: 170px;
+    }
+
+    .blue-t-bottom-left {
+        bottom: 250px;
+    }
+    .avatar .blue-t-bottom-left {
+        position: relative;
+        bottom: 0;
+        height: 51px;
+        right: 20%;
+    }
+    .avatar .blue-t-bottom-right {
+        position: relative;
+        left: 60%;
+        bottom: 0;
+        height: 50px;
+        z-index: -1;
+    }
+    .avatar .avatar-img {
+        height: 199px;
+    }
+    .avatar .blue-t-top-left {
+        position: absolute;
+        top: 0;
+        left: 20%;
+        height: 50px;
+        z-index: -1;
+    }
+    .avatar .blue-t-top-right {
+        position: absolute;
+        top: 0;
+        right: 35%;
+        height: 55px;
+        z-index: -1;
+    }
+}

@@ -1,0 +1,673 @@
+body {
+    height: 100vh;
+    background-color: #ffffff;
+    font-family: serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p,
+button,
+a {
+    font-family: serif !important;
+}
+
+a {
+    text-decoration: none;
+}
+.h-90 {
+    height: 90%;
+}
+.thm-button {
+    padding: 10px 40px;
+    background: #fdd001;
+    border-radius: 20px;
+    color: #08138f;
+    font-weight: 700;
+}
+
+.thm-back-button {
+    padding: 10px 60px;
+    background: #d6d6d6;
+    border-radius: 20px;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: serif;
+    outline: 0;
+    border: 1px solid #d6d6d6;
+}
+.thm-back-button:hover {
+    background: #ffffff;
+    border-color: #08138f;
+    color: #08138f;
+    border: 1px solid #d6d6d6;
+}
+.thm-blue-button {
+    padding: 10px 60px;
+    background: linear-gradient(to right, #0512B9 0%, #081466 100%);
+    border-radius: 20px;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: serif;
+}
+
+.thm-blue-button:hover {
+    background: #ffffff;
+    border-color: #08138f;
+    color: #08138f;
+}
+
+.thm-button:hover {
+    background: #ffffff;
+    border-color: #eec93a;
+    color: #eec93a;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 50px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #08138f;
+    border-radius: 50px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #081466;
+  }
+/* common design */
+.common-design .thm-blue-button {
+    padding: 10px 60px;
+    background: linear-gradient(to right, #0512B9 0%, #081466 100%);
+    border-radius: 20px;
+    color: #ffffff;
+    font-weight: 700;
+    border: 0;
+    outline: 0;
+}
+.common-design .thm-blue-button:hover {
+    border: 1px solid #d6d6d6 !important;
+    background: #f1f1f1 !important;
+    color: #08138f !important;
+}
+.common-design .blue-trangle-top-left {
+    position: absolute;
+    top: 0;
+    left: 80px;
+    height: 100px;
+    z-index: -1;
+}
+
+.common-design .blue-trangle-top-right {
+    position: absolute;
+    top: 0;
+    right: 300px;
+    height: 50px;
+    z-index: -1;
+}
+
+.common-design .blue-trangle-right {
+    position: absolute;
+    top: 100px;
+    right: 0;
+    height: 200px;
+    z-index: -1;
+}
+
+.common-design .blue-trangle-left {
+    position: absolute;
+    top: 370px;
+    left: 0;
+    height: 200px;
+    z-index: -1;
+}
+
+.common-design .plus-top-left {
+    position: absolute;
+    top: 0;
+    right: 100px;
+    height: 300px;
+    z-index: -1;
+}
+.common-design .plus-bottom-right {
+    position: absolute;
+    bottom: 0px;
+    left: 50px;
+    height: 250px;
+    z-index: -1;
+}
+.common-design .blue-trangle-bottom {
+    position: relative;
+    bottom: 0;
+    left: 60%;
+    height: 100px;
+
+}
+.heading {
+    color: #0512B9;
+    font-family: 700 !important;
+}
+/* login left side */
+.inner-body h1 {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.inner-body .login-input {
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #ffffff3d;
+    padding: 10px 40px;
+    margin: 10px;
+    color: #ffffff;
+    outline: 0;
+}
+
+.inner-body .login-input::-webkit-outer-spin-button,
+.inner-body .login-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.inner-body .login-input::placeholder {
+    color: #3652e4;
+    text-align: center;
+    font-weight: 700;
+}
+
+.inner-main {
+    background-image: url('../assets/blue-bg.png');
+    height: 100%;
+}
+
+.blue-trangle-left-side {
+    position: absolute;
+    top: 0;
+    height: 100px;
+    left: 40px;
+}
+
+.blue-trangle-left-side-bottom {
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    left: 20px;
+}
+
+.blue-trangle-left-side1 {
+    height: 175px;
+    position: absolute;
+    left: 340px;
+    top: 60px;
+    transform: rotate(-90deg);
+}
+
+.plus-left-side-bottom {
+    position: absolute;
+    bottom: -40px;
+    left: 270px;
+    height: 240px;
+}
+
+.resend-otp-div a {
+    border: 0 !important;
+    outline: 0;
+    text-decoration: none !important;
+}
+
+/* login right side */
+.language {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 100px;
+    color: #0512b9;
+}
+
+.blue-trangle-right-side-top {
+    position: absolute;
+    top: 0;
+    left: 100px;
+    height: 100px;
+    z-index: -1;
+
+}
+
+.blue-trangle-right-side-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    height: 100px;
+    z-index: -1;
+}
+
+.plus-right-side-top {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    height: 350px;
+    z-index: -1;
+}
+
+.plus-right-side-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 200px;
+    height: 400px;
+    z-index: -1;
+}
+
+.inner-body-right h1 {
+    font-weight: 700;
+}
+
+.inner-body-right h1,
+span {
+    color: #0512b9;
+}
+
+.inner-body-right span {
+    font-weight: 600;
+}
+
+.language select {
+    border: none !important;
+    padding: 0 !important;
+    border-radius: 5px;
+    color: #ffffff !important;
+    width: 80px;
+    scroll-behavior: smooth;
+    outline: none;
+    background: transparent;
+}
+
+.language select option {
+    background-color: #e6e6e6;
+    border: 0;
+    outline: 0;
+    text-decoration: none;
+    color: #08138f;
+}
+
+.language select:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+    border-color: #d6d6d6;
+}
+
+/* signin-form */
+.signin-main .samanta-stand-image {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.signin-heading h1 {
+    color: #0512b9;
+    font-weight: 700;
+}
+
+.signin-form input,
+select {
+    width: 100%;
+    border: 1px solid #e6e6e6 !important;
+    border-radius: 20px !important;
+    padding: 10px 40px !important;
+    /* margin: 10px 0px !important; */
+    outline: 0 !important;
+    box-shadow: none !important;
+    color: #e6e6e6;
+}
+
+.signin-form input:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+.signin-form input::placeholder {
+    color: #e6e6e6;
+    font-weight: 700;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #fdd001;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.signin-main .has-search .form-control-feedback {
+    margin-top: 12px !important;
+}
+
+.signin-main .triangle-top {
+    position: absolute;
+    top: 0;
+    height: 100px;
+    z-index: -1;
+}
+
+.signin-main .triangle-bottom-right {
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    left: 100px;
+    z-index: -1;
+}
+
+.signin-main .triangle-bottom-left {
+    position: absolute;
+    bottom: 0;
+    height: 75px;
+    right: 100px;
+    z-index: -1;
+}
+
+.signin-main .plus-top-right {
+    position: absolute;
+    top: 0;
+    height: 300px;
+    right: 50px;
+    z-index: -1;
+}
+
+.signin-main .plus-bottom-left {
+    position: absolute;
+    bottom: 0;
+    height: 300px;
+    left: 50px;
+    z-index: -1;
+}
+
+.signin-main .triangle-top-right-cancel {
+    position: absolute;
+    top: 0;
+    height: 40px;
+    right: 20px;
+    z-index: 1;
+    margin-top: 20px;
+}
+
+.signin-main input::-webkit-outer-spin-button,
+.signin-main input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.OTP-input::placeholder {
+    text-align: center;
+    color: #d6d6d6 !important;
+}
+
+.OTP-input {
+    background: #e9ecef;
+    margin-bottom: 0 !important;
+}
+
+/* userinfo */
+.iti {
+    display: flex !important;
+}
+
+.signin-form .form-select {
+    color: #e6e6e6;
+}
+
+.signin-form .imp-star {
+    position: relative;
+    left: 100%;
+    top: 15px;
+    color: red;
+}
+
+.signin-form .form-select option {
+    color: #a1a1a1;
+}
+
+.user-info-main {
+    height: auto;
+}
+
+.user-info-main .blue-trangle-top-left {
+    position: absolute;
+    top: 0;
+    height: 100px;
+    z-index: -1;
+}
+
+.user-info-main .plus-top-left {
+    position: absolute;
+    top: 0;
+    height: 300px;
+    left: 0;
+    z-index: -1;
+}
+
+.user-info-main .plus-bottom-right {
+    position: absolute;
+    bottom: 0;
+    height: 250px;
+    right: 50px;
+    z-index: -1;
+}
+
+.user-info-main .blue-trangle-top-right {
+    position: absolute;
+    top: 0;
+    right: 50px;
+    height: 50px;
+    z-index: -1;
+}
+
+.user-info-main .blue-trangle-bottom-left {
+    position: absolute;
+    bottom: 0;
+    left: 0px;
+    height: 100px;
+    transform: rotate(-180deg);
+    z-index: -1;
+}
+
+.user-info-main .blue-trangle-bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 50px;
+    height: 50px;
+    z-index: -1;
+
+}
+
+input[type="date"]:before {
+    color: lightgrey;
+    content: attr(placeholder) !important;
+}
+
+.home-icon-top-right {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+
+/* additional information */
+.additionl-main-div .hight-input {
+    width: 50px;
+    height: 24px;
+    border: 0;
+    outline: 0;
+    border-radius: 50px;
+    background-color: #f1f1f1;
+}
+
+.additionl-main-div .heading {
+    color: #0512b9;
+    font-weight: 600;
+}
+
+.additionl-main-div .sub-heading {
+    color: #0512b9;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.additionl-main-div p {
+    color: #0512b9;
+}
+.additionl-main-div .border-bottom {
+    border-bottom: 0.2px solid #f1f1f1 !important;
+}
+.additionl-main-div .surgeries-div input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    border-radius: 50px;
+    background-color: #f1f1f1;
+    padding: 5px 5px;
+}
+.additionl-main-div .add-surgeries {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #f1f1f1;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #08138f;
+    cursor: pointer;
+}
+.additionl-main-div .select-years {
+    width: 100%;
+    border: 1px solid #e6e6e6 !important;
+    border-radius: 20px !important;
+    padding: 5px 18px !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+.additionl-main-div select {
+    /* width: 100%; */
+    border: 0 !important;
+    border-radius: 20px !important;
+    padding: 2px 0px !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    color: #08138f;
+    font-family: serif;
+    font-weight: 700;
+}
+
+/* medical history */
+
+.medical-main-div .inner-main-div {
+    height: 300px;
+    overflow-y: auto;
+}
+
+@media only screen and (max-width: 912px) {
+    .common-design .blue-trangle-bottom {
+        position: absolute;
+        bottom: 0;
+
+    }
+
+}
+@media only screen and (max-width: 786px) {
+    .user-info-main .blue-trangle-bottom-right {
+        position: relative;
+        right: 0px;
+    }
+
+    .user-info-main .blue-trangle-bottom-left {
+        position: relative;
+        height: 50px;
+    }
+
+    .blue-trangle-right-side-bottom {
+        position: absolute;
+        bottom: -15px;
+        left: 20px;
+        height: 70px;
+    }
+
+    .plus-right-side-bottom {
+        position: relative;
+        bottom: 200px;
+        left: 0;
+        height: 250px;
+        z-index: -1;
+    }
+
+    .user-info-main .profile-img img {
+        width: 50% !important;
+        margin-top: 50px;
+    }
+
+    .h-70 {
+        height: 58% !important;
+    }
+    .signin-main .samanta-stand-image {
+        justify-content: center;
+        align-items: center;
+    }
+    
+}
+
+@media only screen and (max-width: 414px) {
+    .signin-main .triangle-bottom-left {
+        position: relative;
+        height: 50px;
+        left: 130px;
+        top:100px ;
+    }
+
+    .signin-main .triangle-bottom-right {
+        position: relative;
+        left: 10px;
+        height: 50px;
+        top: 100px;
+    }
+
+    .signin-main .triangle-top {
+        height: 70px;
+    }
+
+    .blue-trangle-right-side-top {
+        height: 70px;
+    }
+    .common-design .blue-trangle-left {
+        height: 140px;
+    }
+    .common-design .blue-trangle-bottom {
+        position: relative;
+        height: 70px;
+        left: 20%;
+    }
+    .signin-main .samanta-stand-image {
+        justify-content: center;
+        align-items: center;
+    }
+}
