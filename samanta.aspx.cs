@@ -53,7 +53,7 @@ namespace hfiles
                     da.Fill(dt);
                     if (dt != null && dt.Rows.Count > 0)
                     {
-                        lblUniqueId.Text = dt.Rows[0]["user_membernumber"].ToString();
+                        //lblUniqueId.Text = dt.Rows[0]["user_membernumber"].ToString();
                     }
                     else
                     {

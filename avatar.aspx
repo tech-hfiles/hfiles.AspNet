@@ -1,0 +1,171 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="avatar.aspx.cs" Inherits="hfiles.avatar" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href=" <%= ResolveUrl("~/css/style3.css") %>" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
+        integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-grid.min.css"
+        integrity="sha512-EAgFb1TGFSRh1CCsDotrqJMqB2D+FLCOXAJTE16Ajphi73gQmfJS/LNl6AsjDqDht6Ls7Qr1KWsrJxyttEkxIA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet' />
+    <title>Avatar</title>
+    <style type="text/css">
+        .modalBackground {
+            background-color: Black;
+            filter: alpha(opacity=90);
+            opacity: 0.8;
+        }
+
+        .modalPopup {
+            background-color: #FFFFFF;
+            border-width: 3px;
+            border-style: solid;
+            border-color: black;
+            padding-top: 10px;
+            padding-left: 10px;
+            width: 300px;
+            height: 140px;
+        }
+
+        td, th {
+            border: none;
+        }
+
+            td label {
+                margin-left: 8px;
+            }
+    </style>
+</head>
+<body class="avatar">
+    <form runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <img class="blue-t-top-left" src="<%= ResolveUrl("~/Avatar/blue-trangle-1.png") %>" alt="" />
+        <img class="blue-t-top-right" src="<%= ResolveUrl("~/Avatar/blue-trangle-2.png") %>" alt="" />
+        <img class="plus-top-left" src="<%= ResolveUrl("~/Add Members/plus-1.png") %>" alt="" />
+        <div class="top-home-icons d-flex">
+            <img class="" src="<%= ResolveUrl("~/Avatar/01.png") %>" alt="" />
+            <img class="" src="<%= ResolveUrl("~/Avatar/04.png") %>" alt="" />
+            <img class="" src="<%= ResolveUrl("~/Avatar/03.png") %>" alt="" />
+            <img class="" src="<%= ResolveUrl("~/Avatar/02.png") %>" alt="" />
+        </div>
+        <div class="main-div pt-5">
+            <div class="row">
+                <div class="col-lg-7 col-md-7 col-sm-12 h-50 d-flex justify-content-between align-items-center">
+                    <div class="row">
+                        <div class="col-6">
+                            <ul>
+                                <li><span class="plus">+ </span>&nbsp; <span class="plus-value">(70+)</span></li>
+                                <br />
+                                <li>&mdash; (70+)</li>
+                                <br />
+                                <li>&mdash; 46-70</li>
+                                <br />
+                                <li>&mdash; 46-70</li>
+                                <br />
+                                <li>&mdash; 22-45</li>
+                                <br>
+                                <li>&mdash; 13-21</li>
+                                <br>
+                                <li>&mdash; 7-13</li>
+                                <br>
+                                <li>&mdash; 3-6</li>
+                                <br>
+                                <li>&mdash; 0-3</li>
+                                <br>
+                                <li>&mdash; PET</li>
+                                <br>
+                            </ul>
+                        </div>
+                        <div class="col-6 d-flex align-items-end justify-content-end">
+                            <img class="avatar-img" src="<%= ResolveUrl("~/Avatar/avatar-shadow.png") %>" alt="" />
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-4 col-md-4 col-sm-12 d-flex justify-content-center align-items-end h-50">
+            </div> -->
+                <div class="col-lg-5 col-md-5 col-sm-12 p-0 d-flex align-items-center justify-content-end h-50">
+                    <div class="menu-div">
+                        <div class="inner-menu-div">
+                            <div class="popover__wrapper">
+                                <asp:LinkButton Text="text" runat="server" ID="lbtnAddReport" OnClick="lbtnAddReport_Click">
+                                <img class="plus-icon" src="<%= ResolveUrl("~/Avatar/add-report.png") %>" alt="" />
+                                </asp:LinkButton>
+                                <!-- <a href="#">
+                            </a> -->
+                                <div class="popover__content">
+                                    <p class="popover__message">User</p>
+
+                                </div>
+                            </div>
+
+                            <img class="circle-line" src="<%= ResolveUrl("~/Avatar/circle-line.png") %>" alt="">
+                            <div class="lab-report w-70 d-flex align-items-center menu-circle-txt-color">
+                                <span>lab report</span>
+                                <div class="menu-circle">
+                                    <img src="<%= ResolveUrl("~/Avatar/lab-report.png") %>" alt="">
+                                </div>
+                            </div>
+                            <div class="medication-prescription d-flex align-items-center menu-circle-txt-color">
+                                <span>medications/prescription</span>
+                                <div class="menu-circle">
+                                    <img src="<%= ResolveUrl("~/Avatar/medications.png") %>" alt="">
+                                </div>
+                            </div>
+                            <div class="radiology d-flex align-items-center menu-circle-txt-color">
+                                <span>radiology</span>
+                                <div class="menu-circle">
+                                    <img src="<%= ResolveUrl("~/Avatar/rediology.png") %>" alt="">
+                                </div>
+                            </div>
+                            <div class="dentel-report d-flex align-items-center menu-circle-txt-color">
+                                <span>dentel report</span>
+                                <div class="menu-circle">
+                                    <img src="<%= ResolveUrl("~/Avatar/dental.png") %>" alt="">
+                                </div>
+                            </div>
+                            <div class="special-report d-flex align-items-center menu-circle-txt-color">
+                                <span>spacial report</span>
+                                <div class="menu-circle">
+                                    <img src="<%= ResolveUrl("~/Avatar/spacial-report.png") %>" alt="">
+                                </div>
+                            </div>
+                            <div class="mediclaim-insurance d-flex align-items-center menu-circle-txt-color">
+                                <span>mediclam/insurance</span>
+                                <div class="menu-circle">
+                                    <img src="<%= ResolveUrl("~/Avatar/mediclaim.png") %>" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img class="plus-bottom-right" src="<%= ResolveUrl("~/Add Members/plus-2.png") %>" alt="" />
+        <img class="blue-t-bottom-right" src="<%= ResolveUrl("~/Add Members/blue-trangle-5.png") %>" alt="" />
+        <img class="blue-t-bottom-left" src="<%= ResolveUrl("~/Avatar/blue-trangle-3.png") %>" alt="" />
+        <asp:Button ID="btnShow" runat="server" Text="Show Modal Popup" Style="display: none" />
+        <cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panel1" TargetControlID="btnShow"
+            CancelControlID="btnClose" BackgroundCssClass="modalBackground">
+        </cc1:ModalPopupExtender>
+        <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center" Style="display: none">
+            <asp:DropDownList runat="server" ID="ddlReports">
+            </asp:DropDownList><br />
+            <asp:TextBox   runat="server" ID="txtReportName" /><br />
+            <asp:FileUpload ID="imageFileUpload1"  runat="server" /><br />
+            <br />
+            <asp:Button Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click" runat="server" />
+            <asp:Label Text="" ID="lblMsg" runat="server" />
+            <asp:Button ID="btnClose" runat="server" OnClick="okLinkButton_Click" Text="Close" />
+        </asp:Panel>
+    </form>
+</body>
+
+
+</html>

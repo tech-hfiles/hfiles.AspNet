@@ -1,8 +1,10 @@
 body {
-    height: 100vh;
+    /* height: 100vh; */
     background-color: #ffffff;
-    font-family: serif;
+    font-family: 'Playfair Display' !important;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Syne:wght@800&display=swap');
 
 h1,
 h2,
@@ -14,15 +16,17 @@ span,
 p,
 button,
 a {
-    font-family: serif !important;
+    font-family: 'Playfair Display' !important;
 }
 
 a {
     text-decoration: none;
 }
+
 .h-90 {
     height: 90%;
 }
+
 .thm-button {
     padding: 10px 40px;
     background: #fdd001;
@@ -37,23 +41,25 @@ a {
     border-radius: 20px;
     color: #ffffff;
     font-weight: 700;
-    font-family: serif;
+    font-family: 'Playfair Display' !important;
     outline: 0;
     border: 1px solid #d6d6d6;
 }
+
 .thm-back-button:hover {
     background: #ffffff;
     border-color: #08138f;
     color: #08138f;
     border: 1px solid #d6d6d6;
 }
+
 .thm-blue-button {
     padding: 10px 60px;
     background: linear-gradient(to right, #0512B9 0%, #081466 100%);
     border-radius: 20px;
     color: #ffffff;
     font-weight: 700;
-    font-family: serif;
+    font-family: 'Playfair Display' !important;
 }
 
 .thm-blue-button:hover {
@@ -71,24 +77,25 @@ a {
 /* scrollbar */
 ::-webkit-scrollbar {
     width: 5px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
+}
+
+/* Track */
+::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 50px;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
     background: #08138f;
     border-radius: 50px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
     background: #081466;
-  }
+}
+
 /* common design */
 .common-design .thm-blue-button {
     padding: 10px 60px;
@@ -99,11 +106,13 @@ a {
     border: 0;
     outline: 0;
 }
+
 .common-design .thm-blue-button:hover {
     border: 1px solid #d6d6d6 !important;
     background: #f1f1f1 !important;
     color: #08138f !important;
 }
+
 .common-design .blue-trangle-top-left {
     position: absolute;
     top: 0;
@@ -143,24 +152,38 @@ a {
     height: 300px;
     z-index: -1;
 }
+
 .common-design .plus-bottom-right {
     position: absolute;
     bottom: 0px;
     left: 50px;
-    height: 250px;
+    height: 300px;
     z-index: -1;
 }
+
 .common-design .blue-trangle-bottom {
     position: relative;
     bottom: 0;
     left: 60%;
     height: 100px;
-
+    z-index: -1;
 }
+
+.common-design .save-icon-top-right {
+    position: absolute;
+    right: 50px;
+    top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
 .heading {
     color: #0512B9;
-    font-family: 700 !important;
+    font-weight: 700 !important;
 }
+
 /* login left side */
 .inner-body h1 {
     color: #ffffff;
@@ -316,6 +339,7 @@ span {
     justify-content: end;
     align-items: center;
 }
+
 .signin-heading h1 {
     color: #0512b9;
     font-weight: 700;
@@ -340,7 +364,7 @@ select {
 
 .signin-form input::placeholder {
     color: #e6e6e6;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .has-search .form-control-feedback {
@@ -499,7 +523,7 @@ select {
 }
 
 input[type="date"]:before {
-    color: lightgrey;
+    color: #e8e6e6;
     content: attr(placeholder) !important;
 }
 
@@ -508,17 +532,19 @@ input[type="date"]:before {
     right: 10px;
     top: 10px;
     cursor: pointer;
+    width: 25px;
 }
 
 
 /* additional information */
 .additionl-main-div .hight-input {
-    width: 50px;
+    width: 60px;
     height: 24px;
     border: 0;
     outline: 0;
     border-radius: 50px;
     background-color: #f1f1f1;
+    padding: 1px 10px;
 }
 
 .additionl-main-div .heading {
@@ -528,31 +554,34 @@ input[type="date"]:before {
 
 .additionl-main-div .sub-heading {
     color: #0512b9;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 22px;
 }
 
 .additionl-main-div p {
     color: #0512b9;
 }
+
 .additionl-main-div .border-bottom {
     border-bottom: 0.2px solid #f1f1f1 !important;
 }
+
 .additionl-main-div .surgeries-div input {
     width: 100%;
     border: 0;
     outline: 0;
     border-radius: 50px;
     background-color: #f1f1f1;
-    padding: 5px 5px;
+    padding: 5px 20px;
 }
+
 .additionl-main-div .add-surgeries {
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid #f1f1f1;
     border-radius: 50%;
-    width: 35px;
+    width: 45px;
     height: 35px;
     padding: 5px;
     font-size: 30px;
@@ -560,14 +589,16 @@ input[type="date"]:before {
     color: #08138f;
     cursor: pointer;
 }
+
 .additionl-main-div .select-years {
-    width: 100%;
+    width: 150px;
     border: 1px solid #e6e6e6 !important;
     border-radius: 20px !important;
     padding: 5px 18px !important;
     outline: 0 !important;
     box-shadow: none !important;
 }
+
 .additionl-main-div select {
     /* width: 100%; */
     border: 0 !important;
@@ -576,25 +607,410 @@ input[type="date"]:before {
     outline: 0 !important;
     box-shadow: none !important;
     color: #08138f;
-    font-family: serif;
+    font-family: 'Playfair Display' !important;
     font-weight: 700;
 }
 
 /* medical history */
 
 .medical-main-div .inner-main-div {
-    height: 300px;
+    max-height: 60vh;
     overflow-y: auto;
+    padding: 10px;
+    width: 100% !important;
+}
+
+.medical-main-div .medic-icons {
+    margin: 0 20px 0 0;
+}
+
+.medical-main-div p {
+    color: #0512b9;
+    font-weight: 700;
+}
+
+.inner-main-div p {
+    font-size: 20px;
+}
+
+.allergy .others-input {
+    border: 0;
+    outline: 0;
+    border-radius: 50px;
+    background-color: #f1f1f1;
+    padding: 5px 20px;
+}
+
+.allergy .others-input::placeholder {
+    text-align: center;
+}
+
+/* journal page */
+.journal .heading-title {
+    padding-left: 110px;
+}
+
+.journal .heading-title h1 {
+    color: #172ab3;
+    font-size: 60px;
+    font-weight: 900;
+    margin: 0 10px;
+    font-family: 'Playfair Display Black' !important;
+}
+
+.journal .heading-title .hr {
+    padding-top: 20px;
+}
+
+.journal .heading-title .hr1 {
+    border: 2px solid #172ab3;
+    margin: 0 0 5px 0;
+    opacity: 1;
+}
+
+.journal .heading-title .hr2 {
+    border: 1px solid #172ab3;
+    margin: 0;
+    opacity: 1;
+}
+
+.journal .blog-div .blog-cards .card-image img {
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.journal .audio-div .blog-cards .card-image img {
+    border-radius: 30px 30px 0 0;
+    cursor: pointer;
+}
+
+.journal .audio-div .blog-cards .card-image audio {
+    border-radius: 0 0 30px 30px;
+    width: 100%;
+    background-color: #f1f3f4;
+}
+
+.journal .blog-div .blog-cards .card-image iframe {
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.journal .blog-div .blog-cards .card-name img {
+    cursor: pointer;
+}
+
+.journal .tab-div .tabs {
+    width: 50%;
+    font-weight: 700;
+    color: #d6d6d6;
+}
+
+.journal .tab-div .tabs a,
+span {
+    color: #d6d6d6;
+    text-decoration: none;
+}
+
+.journal .tab-div .tabs a.active span {
+    color: #172ab3;
+    text-decoration: none;
+}
+
+.filter-shorting-icon {
+    position: absolute;
+    right: 140px;
+    top: 120px;
+}
+
+.filter-shorting-icon img {
+    cursor: pointer;
+}
+
+.popover__title {
+    font-size: 24px;
+    line-height: 36px;
+    text-decoration: none;
+    color: rgb(228, 68, 68);
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.popover__wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.popover__content {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    left: -150px;
+    right: 0;
+    transform: translate(0, 10px);
+    background-color: #e0e0e0;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    width: auto;
+}
+
+.popover__content table tbody tr {
+    display: flex;
+    justify-content: start;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.popover__wrapper:hover .popover__content {
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, -20px);
+    transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+}
+
+.popover__message {
+    text-align: center;
+    margin-bottom: 0 !important;
+}
+
+.popover__title img {
+    filter: #cecece;
+    /* IE5+ */
+    -webkit-filter: grayscale(1);
+    /* Webkit Nightlies & Chrome Canary */
+    -webkit-transition: all .1s ease-in-out;
+    opacity: .4;
+}
+
+.popover__title img:hover {
+    filter: none;
+    -webkit-filter: grayscale(0);
+    -webkit-transform: scale(1.01);
+    opacity: 1;
+}
+
+/* support group */
+/*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*/
+.nav-pills-custom .nav-link span {
+    color: #ffffff;
+}
+
+.nav-pills-custom .nav-link {
+    color: #ffffff;
+    position: relative;
+}
+
+.nav-pills-custom .nav-link.active {
+    color: #ffffff;
+}
+
+.support-group .mental-health-link {
+    background-color: #b8b9f1 !important;
+}
+
+.support-group .skin-care-link {
+    background-color: #ffb4bb !important;
+}
+
+.support-group .dental-link {
+    background-color: #b9e2fe !important;
+}
+
+.support-group .nutrition-link {
+    background-color: #97c6a2 !important;
+}
+
+.support-group .pet-care-link {
+    background-color: #e5e26d !important;
+}
+
+.support-group .support-group-title h2 {
+    color: #053868;
+    padding: 15px 0;
+}
+
+.support-group .select-category {
+    padding: 15px 22px;
+}
+
+.support-group .select-category span {
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #053868;
+    padding: 5px 7px;
+    border-radius: 20px;
+    font-size: 10px;
+}
+
+.nav-pills-custom .nav-link.active::before {
+    opacity: 1;
+}
+
+.support-group .top-profile-div {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 999;
+}
+
+.support-group .top-profile-div span {
+    color: #090507;
+    margin-left: 10px;
+}
+
+.support-group .left-nav-bar {
+    height: 100vh;
+    background-color: #f8f8f8;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    /* padding: ; */
+}
+
+.support-group .top-menu-div {
+    position: absolute;
+    top: 20px;
+    left: 10%;
+    z-index: 999;
+}
+
+.support-group .top-menu-div img {
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.support-group .chat-input-div {
+    position: absolute;
+    bottom: 40px;
+    z-index: 999;
+
+}
+
+.support-group .chat-input-div input {
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-family: 'Playfair Display' !important;
+    font-weight: 400 !important;
+}
+
+.support-group .chat-input-div input::placeholder {
+    font-weight: 400 !important;
+    font-family: 'Playfair Display' !important;
+}
+
+.support-group .chat-history-div {
+    max-height: 70%;
+    overflow-y: auto;
+}
+
+.chat-container {
+    clear: both;
+    position: relative;
+    width: 100%;
+}
+
+.chat-container .arrow {
+    width: 12px;
+    height: 20px;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    top: 6px;
+    right: -1px;
+}
+
+.chat-container .arrow .outer {
+    width: 0;
+    height: 0;
+    border-right: 20px solid #CCC;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.chat-container .arrow .inner {
+    width: 0;
+    height: 0;
+    border-right: 20px solid #ffffff;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 2px;
+}
+
+.chat-container .message-body {
+    float: left;
+    width: 90%;
+    height: auto;
+    border: 1px solid #CCC;
+    background-color: #ffffff;
+    /* border: 1px solid #000000; */
+    padding: 6px 8px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.chat-container .message-body p {
+    margin: 0;
+}
+
+/* Add indicator arrow for the active tab */
+@media (min-width: 992px) {
+    .nav-pills-custom .nav-link::before {
+        content: '';
+        display: block;
+        border-top: 8px solid transparent;
+        border-left: 10px solid #fff;
+        border-bottom: 8px solid transparent;
+        position: absolute;
+        top: 50%;
+        right: -10px;
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .filter-shorting-icon {
+        right: 70px;
+    }
 }
 
 @media only screen and (max-width: 912px) {
     .common-design .blue-trangle-bottom {
         position: absolute;
         bottom: 0;
-
+        height: 70px;
     }
 
+    .allergy .others-div input {
+        width: 200px;
+    }
+
+    .journal .heading-title {
+        padding-left: 50px;
+    }
+
+    .filter-shorting-icon {
+        right: 90px;
+    }
 }
+
 @media only screen and (max-width: 786px) {
     .user-info-main .blue-trangle-bottom-right {
         position: relative;
@@ -629,11 +1045,47 @@ input[type="date"]:before {
     .h-70 {
         height: 58% !important;
     }
+
     .signin-main .samanta-stand-image {
         justify-content: center;
         align-items: center;
     }
-    
+
+    .common-design .blue-trangle-top-right {
+        right: 90px;
+    }
+
+    .common-design .blue-trangle-top-left {
+        height: 65px;
+    }
+
+    .common-design .blue-trangle-left {
+        height: 110px;
+    }
+
+    .common-design .blue-trangle-right {
+        height: 120px;
+    }
+
+    .medical-main-div .inner-main-div {
+        /* height: 50vh; */
+    }
+
+    .allergy .others-div input {
+        width: 150px;
+    }
+
+    .journal .heading-title {
+        padding-left: 20px;
+    }
+
+    .filter-shorting-icon {
+        right: 40px;
+    }
+
+    .support-group .left-nav-bar {
+        height: 80vh;
+    }
 }
 
 @media only screen and (max-width: 414px) {
@@ -641,7 +1093,7 @@ input[type="date"]:before {
         position: relative;
         height: 50px;
         left: 130px;
-        top:100px ;
+        top: 100px;
     }
 
     .signin-main .triangle-bottom-right {
@@ -658,16 +1110,115 @@ input[type="date"]:before {
     .blue-trangle-right-side-top {
         height: 70px;
     }
+
     .common-design .blue-trangle-left {
-        height: 140px;
+        height: 115px;
     }
+
     .common-design .blue-trangle-bottom {
         position: relative;
-        height: 70px;
-        left: 20%;
+        height: 60px;
+        left: 10%;
+        top: 5%;
     }
+
     .signin-main .samanta-stand-image {
         justify-content: center;
         align-items: center;
+    }
+
+    .medical-main-div p {
+        font-size: 12px;
+    }
+
+    .medical-main-div .medic-icons {
+        margin-right: 10px;
+    }
+
+    .medical-main-div .medic-icons img {
+        width: 30px;
+    }
+
+    .medical-main-div .thm-blue-button {
+        padding: 10px 45px;
+    }
+
+    .medical-main-div .thm-back-button {
+        padding: 10px 45px;
+    }
+
+    .additionl-main-div .heading {
+        font-size: 22px !important;
+    }
+
+    .additionl-main-div .sub-heading {
+        font-size: 18px !important;
+    }
+
+    .allergy .others-div {
+        display: block !important;
+    }
+
+    .allergy .others-div input {
+        width: 100px;
+    }
+
+    .journal .heading-title {
+        padding-left: 10px;
+    }
+
+    .journal .tab-div .tabs {
+        width: 80%;
+    }
+
+    .filter-shorting-icon img {
+        width: 20px;
+    }
+
+    .filter-shorting-icon {
+        top: 160px;
+        right: 20px;
+    }
+
+    .support-group .left-nav-bar {
+        height: 80vh;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .common-design .blue-trangle-bottom {
+        top: 20%;
+    }
+
+    .medical-main-div p {
+        font-size: 9px;
+    }
+
+    .medical-main-div .medic-icons img {
+        width: 20px;
+    }
+
+    .additionl-main-div .heading {
+        font-size: 18px !important;
+    }
+
+    .allergy .others-div {
+        display: block !important;
+    }
+
+    .allergy .others-div input {
+        width: 100px;
+    }
+
+    .journal .heading-title {
+        padding-left: 10px;
+    }
+
+    .journal .tab-div .tabs {
+        width: 90%;
+    }
+
+    .support-group .left-nav-bar {
+        height: 80vh;
     }
 }

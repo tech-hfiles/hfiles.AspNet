@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\..\..\Projects\Aminu\Aminu\bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
       <HintPath>packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
@@ -176,6 +179,7 @@
     <Content Include="assets\plus-1.png" />
     <Content Include="assets\plus-2.png" />
     <Content Include="assets\plus.png" />
+    <Content Include="avatar.aspx" />
     <Content Include="css\style.css" />
     <Content Include="login.aspx" />
     <Content Include="My Data\Asset 1.png" />
@@ -234,6 +238,7 @@
     <Content Include="My Data\Asset 8.png" />
     <Content Include="My Data\Asset 9.png" />
     <Content Include="My Data\default-user-profile.png" />
+    <Content Include="reports.aspx" />
     <Content Include="samanta.aspx" />
     <Content Include="signup.aspx" />
     <Content Include="Web.config" />
@@ -253,6 +258,13 @@
     <Compile Include="additionalinformation.aspx.designer.cs">
       <DependentUpon>additionalinformation.aspx</DependentUpon>
     </Compile>
+    <Compile Include="avatar.aspx.cs">
+      <DependentUpon>avatar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="avatar.aspx.designer.cs">
+      <DependentUpon>avatar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DAL.cs" />
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -262,6 +274,13 @@
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reports.aspx.cs">
+      <DependentUpon>reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reports.aspx.designer.cs">
+      <DependentUpon>reports.aspx</DependentUpon>
+    </Compile>
     <Compile Include="samanta.aspx.cs">
       <DependentUpon>samanta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

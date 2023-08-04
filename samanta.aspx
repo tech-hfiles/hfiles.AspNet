@@ -14,12 +14,14 @@
 </head>
 
 <body class="journal">
-
-
     <img class="about_top_icon" src="<%= ResolveUrl("~/Reception Page/about.png") %>" alt="about icon">
-    <img class="shutdown_top_icon" src="<%= ResolveUrl("~/Reception Page/shutdown.png") %>"  alt="home icon">
-    <img class="blue_trangle_top_left" src="<%= ResolveUrl("~/Terms & Conditions/blue-trangle6.png") %>"alt="">
-    <img class="plus_top_right" src="<%= ResolveUrl("~/Terms & Conditions/plus-1.png") %>"  alt="">
+    <img class="shutdown_top_icon" src="<%= ResolveUrl("~/Reception Page/shutdown.png") %>" alt="home icon">
+    <img class="blue_trangle_top_left" src="<%= ResolveUrl("~/Terms & Conditions/blue-trangle6.png") %>" alt="">
+    <img class="plus_top_right" src="<%= ResolveUrl("~/Terms & Conditions/plus-1.png") %>" alt="">
+
+    
+    <div class="HF_top_text">hf123456</div>
+
     <form id="form1" runat="server" class="journal_main">
         <div style="width: 85%;">
             <div class="row inner_div mt-5">
@@ -33,16 +35,21 @@
                         <div>
                             <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
                                 aria-expanded="false">My Profile
-                                <span class="caret"></span></a>
-                            <ul class="dropdown-menu p-0">
-                                <li>
-                                    <img class="dropdown-icon" src="<%= ResolveUrl("~/Reception Page/lock-icon.png") %>"  alt=""><a tabindex="-1" href="#"><asp:Label Text="" ID="lblUniqueId" runat="server" /></a></li>
-                                <li>
-                                    <img class="dropdown-icon" src="<%= ResolveUrl("~/Reception Page/user-icon.png") %>"  alt=""><a tabindex="-1" href="<%= ResolveUrl("~/additionalinformation.aspx") %>">MY INFO</a></li>
-                                <li>
-                                    <img class="dropdown-icon" src="<%= ResolveUrl("~/Reception Page/add-icon.png") %>"  alt=""><a tabindex="-1" href="#">ADD MY REPORTS</a></li>
-                                <li>
-                                    <img class="dropdown-icon" src="<%= ResolveUrl("~/Reception Page/add-icon.png") %>"  alt=""><a tabindex="-1" href="#">ADD MEMBERS</a></li>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu p-0 pt-2 px-4">
+                                <div>
+                                    <!-- <li><img class="dropdown-icon" src="../Reception Page/lock-icon.png" alt=""><a
+                                            tabindex="-1" href="#">UNIQUE ID</a></li> -->
+                                    <li>
+                                        <img class="dropdown-icon" src="../Reception Page/user-icon.png" alt=""><a tabindex="-1" href="#">My Info</a>
+                                    </li>
+                                    <!-- <li><img class="dropdown-icon" src="../Reception Page/add-icon.png" alt=""><a
+                                        tabindex="-1" href="#">ADD MY REPORTS</a></li> -->
+                                    <li style="border: 0;">
+                                        <img class="dropdown-icon" src="../Reception Page/add-icon.png" alt=""><a tabindex="-1" href="#">Add member</a>
+                                    </li>
+                                </div>
                             </ul>
                         </div>
                     </div>
@@ -52,20 +59,21 @@
                 <div class="col-lg-4 col-xl-4 col-md-4 col-sm-12 dropdown ">
                     <div class="my_profile">
                         <div>
-                            <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                aria-expanded="false">Support Group
-                                <span class="caret"></span></a>
-                            <ul class="dropdown-menu p-0">
-                                <li><a tabindex="-1" href="#">JOIN GROUP</a></li>
-                                <li class="disable-group"><a tabindex="-1" href="#">CREATE GROUP</a></li>
-                            </ul>
+                            <a class="support-group" href="#">Support Group</a>
+                            <!-- <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                            aria-expanded="false">Support Group
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu p-0 pt-2">
+                            <li class="px-4"><a tabindex="-1" href="#">JOIN GROUP</a></li>
+                            <li class="disable-group px-4"><a tabindex="-1" href="#">CREATE GROUP</a></li>
+                        </ul> -->
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 d-flex justify-content-center ">
-                    <img class="samanta-image" src="<%= ResolveUrl("~/Reception Page/Samanta.png") %>"  alt="">
+                    <img class="samanta-image" src="../Reception Page/Samanta.png" alt="">
                 </div>
             </div>
         </div>
@@ -83,8 +91,8 @@
             <span>Complete Your Profile</span>
         </div>
     </div>
-    <img class="blue_trangle_bottom_right" src="<%= ResolveUrl("~/Terms & Conditions/blue-trangle4.png") %>"  alt="">
-    <img class="plus_bottom_right" src="<%= ResolveUrl("~/Terms & Conditions/plus-2.png") %>"  alt="">
+    <img class="blue_trangle_bottom_right" src="<%= ResolveUrl("~/Terms & Conditions/blue-trangle4.png") %>" alt="">
+    <img class="plus_bottom_right" src="<%= ResolveUrl("~/Terms & Conditions/plus-2.png") %>" alt="">
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
