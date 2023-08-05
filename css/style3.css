@@ -5,15 +5,16 @@ body {
     height: 100%;
     font-family: 'Playfair Display' !important;
 }
-h1,
-h2,
-h3,
+
 h4,
 h5,
 h5,
 span a,
 p, button {
     font-family: 'Playfair Display' !important;
+}
+h1, h2, h3 {
+    font-family: 'Red Hat Display' !important;
 }
 /* add member */
 .inner-div {
@@ -288,22 +289,30 @@ ul .plus-value {
     padding-top: 20px;
     height: 440px;
 }
-.avatar .inner-menu-div .menu-circle {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    background-color: #447df0;
-    color: #ffffff;
-    text-align: center;
-    margin: 0 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-.avatar .inner-menu-div .menu-circle img {
-    height: 35px;
-}
+    .avatar .inner-menu-div .menu-circle {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        background-color: #447df0;
+        color: #ffffff;
+        text-align: center;
+        margin: 0 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+        .avatar .inner-menu-div .menu-circle:hover {
+            height: 55px;
+            width: 55px;
+            background: #fffae4;
+        }
+            .avatar .inner-menu-div .menu-circle:hover img {
+                filter: brightness(0.5) saturate(0%);
+            }
+            .avatar .inner-menu-div .menu-circle img {
+                height: 35px;
+            }
 .avatar .inner-menu-div .lab-report {
     position: relative;
     bottom: 345px;

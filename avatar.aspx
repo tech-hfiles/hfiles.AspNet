@@ -24,16 +24,54 @@
         }
 
         .modalPopup {
-            background-color: #FFFFFF;
+            background-color: #fffae4;
             border-width: 3px;
             border-style: solid;
             border-color: black;
-            padding-top: 10px;
-            padding-left: 10px;
-            width: 300px;
-            height: 140px;
+            padding:20px;
+            width: 25%;
+            height: 40%;
+            position: fixed;
+            z-index: 100001;
+            left: 20%;
+            top:20%;
+            user-select: auto;
+            border-radius:10px;
+            }
+        .select-report-dropdown{
+            width:100%;
+            padding:5px;
+            border-radius:10px;
         }
-
+        .modalPopup .lbl {
+            text-align:left !important;
+        }
+        .filename-txtbox {
+            width:95%;
+            padding:5px;
+            border-radius:10px;
+        }
+        .submit-btn {
+            padding:15px 20px;
+            background: linear-gradient(to right, #0512B9 0%, #081466 100%);
+            color: #fff;
+            border:none;
+            border-radius:50px;
+            font-size:14px;
+            width:100px;
+            cursor:pointer;
+        }
+        .close-btn {
+            padding:15px 20px;
+            background: linear-gradient(to right, #f57272 0%, #fa5656 100%);
+            color: #fff;
+             border:none;
+            border-radius:50px;
+            font-size:14px;
+             width:100px;
+            margin-left:10px;
+            cursor:pointer;
+        }
         td, th {
             border: none;
         }
@@ -41,6 +79,21 @@
             td label {
                 margin-left: 8px;
             }
+
+        @media only screen and (max-width: 414px) {
+            .modalPopup {
+                width: 90%;
+
+            }
+        }
+
+        @media only screen and (max-width: 300px) {
+            .modalPopup {
+                width: 90%;
+                height:50%;
+
+            }
+        }
     </style>
 </head>
 <body class="avatar">
@@ -100,48 +153,60 @@
                                 <!-- <a href="#">
                             </a> -->
                                 <div class="popover__content">
-                                    <p class="popover__message">User</p>
+                                    <p class="popover__message">Upload Report</p>
 
                                 </div>
                             </div>
 
                             <img class="circle-line" src="<%= ResolveUrl("~/Avatar/circle-line.png") %>" alt="">
-                            <div class="lab-report w-70 d-flex align-items-center menu-circle-txt-color">
+                           <a href="#" target="_blank">
+                                <div class="lab-report w-70 d-flex align-items-center menu-circle-txt-color">
                                 <span>lab report</span>
                                 <div class="menu-circle">
                                     <img src="<%= ResolveUrl("~/Avatar/lab-report.png") %>" alt="">
                                 </div>
                             </div>
-                            <div class="medication-prescription d-flex align-items-center menu-circle-txt-color">
+                           </a>
+                           <a href="#" target="_blank">
+                                <div class="medication-prescription d-flex align-items-center menu-circle-txt-color">
                                 <span>medications/prescription</span>
                                 <div class="menu-circle">
                                     <img src="<%= ResolveUrl("~/Avatar/medications.png") %>" alt="">
                                 </div>
                             </div>
-                            <div class="radiology d-flex align-items-center menu-circle-txt-color">
+                           </a>
+                           <a href="#" target="_blank">
+                                <div class="radiology d-flex align-items-center menu-circle-txt-color">
                                 <span>radiology</span>
                                 <div class="menu-circle">
                                     <img src="<%= ResolveUrl("~/Avatar/rediology.png") %>" alt="">
                                 </div>
                             </div>
-                            <div class="dentel-report d-flex align-items-center menu-circle-txt-color">
-                                <span>dentel report</span>
+                           </a>
+                            <a href="#"  target="_blank">
+                                <div class="dentel-report d-flex align-items-center menu-circle-txt-color">
+                                <span>dental report</span>
                                 <div class="menu-circle">
                                     <img src="<%= ResolveUrl("~/Avatar/dental.png") %>" alt="">
                                 </div>
                             </div>
-                            <div class="special-report d-flex align-items-center menu-circle-txt-color">
-                                <span>spacial report</span>
+                            </a>
+                            <a href="#" target="_blank">
+                                <div class="special-report d-flex align-items-center menu-circle-txt-color">
+                                <span>special report</span>
                                 <div class="menu-circle">
                                     <img src="<%= ResolveUrl("~/Avatar/spacial-report.png") %>" alt="">
                                 </div>
                             </div>
-                            <div class="mediclaim-insurance d-flex align-items-center menu-circle-txt-color">
+                            </a>
+                           <a href="#" target="_blank">
+                                <div class="mediclaim-insurance d-flex align-items-center menu-circle-txt-color">
                                 <span>mediclam/insurance</span>
                                 <div class="menu-circle">
                                     <img src="<%= ResolveUrl("~/Avatar/mediclaim.png") %>" alt="">
                                 </div>
                             </div>
+                           </a>
                         </div>
                     </div>
                 </div>
@@ -155,14 +220,45 @@
             CancelControlID="btnClose" BackgroundCssClass="modalBackground">
         </cc1:ModalPopupExtender>
         <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center" Style="display: none">
-            <asp:DropDownList runat="server" ID="ddlReports">
-            </asp:DropDownList><br />
-            <asp:TextBox   runat="server" ID="txtReportName" /><br />
-            <asp:FileUpload ID="imageFileUpload1"  runat="server" /><br />
+            <div class="row my-2">
+                <div class="col-12">
+                    <h2>Upload Report</h2>
+                </div>
+            </div>
+           <div class="row w-100 my-3" style="width:100%">
+               <div class="col-12">
+                  <div class="row">
+                      <div class="col-5 lbl">
+                           <label><strong>Select Report Type :</strong></label>
+                      </div>
+                      <div class="col-7">
+                    <asp:DropDownList runat="server" ID="ddlReports" CssClass="select-report-dropdown">
+                    </asp:DropDownList>
+                      </div>
+                  </div>
+               </div>
+           </div>
+            <div class="row my-3" style="width:100%">
+                <div class="col-5 lbl">
+                    <label><strong>File Name : </strong></label>
+                </div>
+                <div class="col-7">
+                    <asp:TextBox   runat="server" ID="txtReportName" CssClass="filename-txtbox" />
+                </div>
+            </div>
+            <div class="row my-3" style="width:100%">
+                 <div class="col-5 lbl">
+                     <label><strong>Select File :</strong></label>
+                 </div>
+                <div class="col-7">
+                     <asp:FileUpload ID="imageFileUpload1"  runat="server" />
+                </div>
+            </div>
+           <br />
             <br />
-            <asp:Button Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click" runat="server" />
+            <asp:Button Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click" runat="server" CssClass="submit-btn" />
             <asp:Label Text="" ID="lblMsg" runat="server" />
-            <asp:Button ID="btnClose" runat="server" OnClick="okLinkButton_Click" Text="Close" />
+            <asp:Button ID="btnClose" runat="server" OnClick="okLinkButton_Click" Text="Close" CssClass="close-btn" />
         </asp:Panel>
     </form>
 </body>

@@ -4,9 +4,6 @@ body {
     font-family: 'Playfair Display' !important;
 }
 
-h1,
-h2,
-h3,
 h4,
 h5,
 h5,
@@ -15,7 +12,9 @@ p,
 button {
     font-family: 'Playfair Display' !important;
 }
-
+h1, h2, h3 {
+    font-family: 'Red Hat Display' !important;
+}
 ::-webkit-scrollbar {
     width: 5px;
 }
