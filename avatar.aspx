@@ -30,7 +30,7 @@
             border-color: black;
             padding:20px;
             width: 25%;
-            height: 40%;
+            height: 48%;
             position: fixed;
             z-index: 100001;
             left: 20%;
@@ -114,30 +114,16 @@
                     <div class="row">
                         <div class="col-6">
                             <ul>
-                                <li><span class="plus">+ </span>&nbsp; <span class="plus-value">(70+)</span></li>
+                                <li><span class="plus"> - </span>&nbsp; <span class="plus-value">
+                                  <asp:Label Text="" ID="lblUserName" runat="server" /></span></li>
                                 <br />
-                                <li>&mdash; (70+)</li>
-                                <br />
-                                <li>&mdash; 46-70</li>
-                                <br />
-                                <li>&mdash; 46-70</li>
-                                <br />
-                                <li>&mdash; 22-45</li>
-                                <br>
-                                <li>&mdash; 13-21</li>
-                                <br>
-                                <li>&mdash; 7-13</li>
-                                <br>
-                                <li>&mdash; 3-6</li>
-                                <br>
-                                <li>&mdash; 0-3</li>
-                                <br>
-                                <li>&mdash; PET</li>
-                                <br>
+                                <li>&mdash; +</li>
+                               <br>
                             </ul>
                         </div>
                         <div class="col-6 d-flex align-items-end justify-content-end">
-                            <img class="avatar-img" src="<%= ResolveUrl("~/Avatar/avatar-shadow.png") %>" alt="" />
+                          <asp:Image class="avatar-img" ID="imgAvatar" runat="server" />
+                            <%--<img class="avatar-img" src="<%= ResolveUrl("~/Avatar/avatar-shadow.png") %>" alt="" />--%>
                         </div>
                     </div>
                 </div>
@@ -183,10 +169,11 @@
                                 </div>
                             </div>
                            </a>
-                            <a href="#"  target="_blank">
+                            <a href="<%= ResolveUrl("~/reports.aspx") %>"  target="_blank">
                                 <div class="dentel-report d-flex align-items-center menu-circle-txt-color">
                                 <span>dental report</span>
                                 <div class="menu-circle">
+                                
                                     <img src="<%= ResolveUrl("~/Avatar/dental.png") %>" alt="">
                                 </div>
                             </div>

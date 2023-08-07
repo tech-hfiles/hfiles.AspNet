@@ -44,7 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AjaxControlToolkit">
-      <HintPath>..\..\..\Projects\Aminu\Aminu\bin\AjaxControlToolkit.dll</HintPath>
+      <HintPath>..\..\Rohan\Aminu\bin\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
       <HintPath>packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
@@ -180,8 +180,11 @@
     <Content Include="assets\plus-2.png" />
     <Content Include="assets\plus.png" />
     <Content Include="avatar.aspx" />
+    <Content Include="blogdetail.html" />
     <Content Include="css\style.css" />
+    <Content Include="JournalPage.html" />
     <Content Include="login.aspx" />
+    <Content Include="mentalhealth.jpg" />
     <Content Include="My Data\Asset 1.png" />
     <Content Include="My Data\Asset 10.png" />
     <Content Include="My Data\Asset 11.png" />
@@ -240,6 +243,7 @@
     <Content Include="My Data\default-user-profile.png" />
     <Content Include="reports.aspx" />
     <Content Include="samanta.aspx" />
+    <Content Include="shobija.jpg" />
     <Content Include="signup.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>

@@ -8,6 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    <h2>Reports</h2>
         <div>
             Select Report Type
             <asp:DropDownList runat="server" ID="ddlReports" OnSelectedIndexChanged="ddlReports_SelectedIndexChanged" AutoPostBack="true">
@@ -17,12 +18,11 @@
             <asp:Repeater runat="server" ID="rptReports">
                 <ItemTemplate>
                     <div>
-
                         Report Type :<%# Eval("ReportType") %>  
                         <br />
                         Report Name :<%# Eval("ReportName") %>
                         <br />
-                        Report : <a class="thm-btn" href="<%# ResolveUrl( string.Format("~/upload/report/{0}", Eval("ReportUrl"))) %>">Download </a>
+                        Report : <a class="thm-btn" target="_blank" href="<%# ResolveUrl( string.Format("~/upload/report/{0}", Eval("ReportUrl"))) %>">View Report </a>
                    
                     </div><br /><br />
                 </ItemTemplate>
