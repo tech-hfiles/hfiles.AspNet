@@ -43,8 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit">
-      <HintPath>..\..\Rohan\Aminu\bin\AjaxControlToolkit.dll</HintPath>
+    <Reference Include="AjaxControlToolkit, Version=4.1.60919.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
       <HintPath>packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
@@ -126,8 +127,65 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Add Members\Asset 10.png" />
+    <Content Include="Add Members\Asset 11.png" />
+    <Content Include="Add Members\Asset 12.png" />
+    <Content Include="Add Members\Asset 13.png" />
+    <Content Include="Add Members\Asset 14.png" />
+    <Content Include="Add Members\Asset 15.png" />
+    <Content Include="Add Members\Asset 16.png" />
+    <Content Include="Add Members\Asset 17.png" />
+    <Content Include="Add Members\Asset 18.png" />
+    <Content Include="Add Members\Asset 19.png" />
+    <Content Include="Add Members\Asset 2.png" />
+    <Content Include="Add Members\Asset 20.png" />
+    <Content Include="Add Members\Asset 21.png" />
+    <Content Include="Add Members\Asset 22.png" />
+    <Content Include="Add Members\Asset 23.png" />
+    <Content Include="Add Members\Asset 24.png" />
+    <Content Include="Add Members\Asset 25.png" />
+    <Content Include="Add Members\Asset 26.png" />
+    <Content Include="Add Members\Asset 27.png" />
+    <Content Include="Add Members\Asset 28.png" />
+    <Content Include="Add Members\Asset 29.png" />
+    <Content Include="Add Members\Asset 3.png" />
+    <Content Include="Add Members\Asset 30.png" />
+    <Content Include="Add Members\Asset 31.png" />
+    <Content Include="Add Members\Asset 32.png" />
+    <Content Include="Add Members\Asset 33.png" />
+    <Content Include="Add Members\Asset 34.png" />
+    <Content Include="Add Members\Asset 35.png" />
+    <Content Include="Add Members\Asset 36.png" />
+    <Content Include="Add Members\Asset 39.png" />
+    <Content Include="Add Members\Asset 4.png" />
+    <Content Include="Add Members\Asset 40.png" />
+    <Content Include="Add Members\Asset 41.png" />
+    <Content Include="Add Members\Asset 42.png" />
+    <Content Include="Add Members\Asset 43.png" />
+    <Content Include="Add Members\Asset 44.png" />
+    <Content Include="Add Members\Asset 6.png" />
+    <Content Include="Add Members\Asset 7.png" />
+    <Content Include="Add Members\Asset 8.png" />
+    <Content Include="Add Members\Asset 9.png" />
+    <Content Include="Add Members\blue-trangle-3.png" />
+    <Content Include="Add Members\blue-trangle-4.png" />
+    <Content Include="Add Members\blue-trangle-5.png" />
+    <Content Include="Add Members\filter-icon-blue.png" />
+    <Content Include="Add Members\filter-icon.png" />
+    <Content Include="Add Members\home-icon-gray.png" />
+    <Content Include="Add Members\home-icon.png" />
+    <Content Include="Add Members\plus-1.png" />
+    <Content Include="Add Members\plus-2.png" />
+    <Content Include="Add Members\save-active-icon.png" />
+    <Content Include="Add Members\save-icon.png" />
+    <Content Include="Add Members\save-not-active.png" />
+    <Content Include="Add Members\share-active.png" />
+    <Content Include="Add Members\share-not-active.png" />
+    <Content Include="Add Members\shorting-icon-blue.png" />
+    <Content Include="Add Members\shorting-icon.png" />
     <Content Include="addbasicdetails.aspx" />
     <Content Include="additionalinformation.aspx" />
+    <Content Include="addmember.aspx" />
     <Content Include="assets\Asset 10.png" />
     <Content Include="assets\Asset 11.png" />
     <Content Include="assets\Asset 12.png" />
@@ -170,20 +228,174 @@
     <Content Include="assets\Asset 8.png" />
     <Content Include="assets\Asset 9.png" />
     <Content Include="assets\Asset44.png" />
+    <Content Include="assets\blue-background.png" />
     <Content Include="assets\blue-bg.png" />
     <Content Include="assets\blue-trangle-1.png" />
     <Content Include="assets\blue-trangle-bottom-1.png" />
     <Content Include="assets\blue-trangle-bottom.png" />
     <Content Include="assets\blue-trangle.png" />
     <Content Include="assets\cancel-icon.png" />
+    <Content Include="assets\h-file-sicon.png" />
+    <Content Include="assets\not-select-red.png" />
     <Content Include="assets\plus-1.png" />
     <Content Include="assets\plus-2.png" />
+    <Content Include="assets\plus-icon-3.png" />
     <Content Include="assets\plus.png" />
+    <Content Include="assets\samanta-stand-new.jpg" />
+    <Content Include="assets\select-icon-gray.png" />
     <Content Include="avatar.aspx" />
+    <Content Include="Avatar\01.png" />
+    <Content Include="Avatar\02.png" />
+    <Content Include="Avatar\03.png" />
+    <Content Include="Avatar\04.png" />
+    <Content Include="Avatar\05.png" />
+    <Content Include="Avatar\add-icon.png" />
+    <Content Include="Avatar\add-report-txt.png" />
+    <Content Include="Avatar\add-report.png" />
+    <Content Include="Avatar\Asset 489.png" />
+    <Content Include="Avatar\Asset 492.png" />
+    <Content Include="Avatar\Asset 493.png" />
+    <Content Include="Avatar\Asset 494.png" />
+    <Content Include="Avatar\Asset 495.png" />
+    <Content Include="Avatar\Asset 496.png" />
+    <Content Include="Avatar\Asset 497.png" />
+    <Content Include="Avatar\Asset 498.png" />
+    <Content Include="Avatar\Asset 499.png" />
+    <Content Include="Avatar\Asset 500.png" />
+    <Content Include="Avatar\Asset 501.png" />
+    <Content Include="Avatar\Asset 502.png" />
+    <Content Include="Avatar\Asset 503.png" />
+    <Content Include="Avatar\Asset 504.png" />
+    <Content Include="Avatar\Asset 505.png" />
+    <Content Include="Avatar\Asset 506.png" />
+    <Content Include="Avatar\Asset 507.png" />
+    <Content Include="Avatar\Asset 508.png" />
+    <Content Include="Avatar\Asset 509.png" />
+    <Content Include="Avatar\Asset 510.png" />
+    <Content Include="Avatar\Asset 511.png" />
+    <Content Include="Avatar\Asset 512.png" />
+    <Content Include="Avatar\Asset 514.png" />
+    <Content Include="Avatar\Asset 516.png" />
+    <Content Include="Avatar\Asset 523.png" />
+    <Content Include="Avatar\Asset 526.png" />
+    <Content Include="Avatar\Asset 527.png" />
+    <Content Include="Avatar\Asset 528.png" />
+    <Content Include="Avatar\Asset 529.png" />
+    <Content Include="Avatar\Asset 530.png" />
+    <Content Include="Avatar\Asset 531.png" />
+    <Content Include="Avatar\Asset 534.png" />
+    <Content Include="Avatar\Asset 535.png" />
+    <Content Include="Avatar\Asset 536.png" />
+    <Content Include="Avatar\Asset 537.png" />
+    <Content Include="Avatar\Asset 538.png" />
+    <Content Include="Avatar\Asset 539.png" />
+    <Content Include="Avatar\avatar-shadow.png" />
+    <Content Include="Avatar\avatar.png" />
+    <Content Include="Avatar\blue-trangle-1.png" />
+    <Content Include="Avatar\blue-trangle-2.png" />
+    <Content Include="Avatar\blue-trangle-3.png" />
+    <Content Include="Avatar\circle-line.png" />
+    <Content Include="Avatar\dental.png" />
+    <Content Include="Avatar\female\13.png" />
+    <Content Include="Avatar\female\21.png" />
+    <Content Include="Avatar\female\3.png" />
+    <Content Include="Avatar\female\45.png" />
+    <Content Include="Avatar\female\6.png" />
+    <Content Include="Avatar\female\70.png" />
+    <Content Include="Avatar\female\70plus.png" />
+    <Content Include="Avatar\immunization.png" />
+    <Content Include="Avatar\lab-report.png" />
+    <Content Include="Avatar\male\13.png" />
+    <Content Include="Avatar\male\21.png" />
+    <Content Include="Avatar\male\3.png" />
+    <Content Include="Avatar\male\45.png" />
+    <Content Include="Avatar\male\6.png" />
+    <Content Include="Avatar\male\70.png" />
+    <Content Include="Avatar\male\70plus.png" />
+    <Content Include="Avatar\medications.png" />
+    <Content Include="Avatar\mediclaim.png" />
+    <Content Include="Avatar\Opthalmologyicon.png" />
+    <Content Include="Avatar\others\others.png" />
+    <Content Include="Avatar\pet\cat.png" />
+    <Content Include="Avatar\pet\dog.png" />
+    <Content Include="Avatar\plus-blue.png" />
+    <Content Include="Avatar\rediology.png" />
+    <Content Include="Avatar\spacial-report.png" />
     <Content Include="blogdetail.html" />
+    <Content Include="blogdetails.aspx" />
     <Content Include="css\style.css" />
+    <Content Include="css\style2.css" />
+    <Content Include="css\style3.css" />
+    <Content Include="Help Page\Asset 10.png" />
+    <Content Include="Help Page\Asset 11.png" />
+    <Content Include="Help Page\Asset 12.png" />
+    <Content Include="Help Page\Asset 13.png" />
+    <Content Include="Help Page\Asset 14.png" />
+    <Content Include="Help Page\Asset 15.png" />
+    <Content Include="Help Page\Asset 16.png" />
+    <Content Include="Help Page\Asset 17.png" />
+    <Content Include="Help Page\Asset 18.png" />
+    <Content Include="Help Page\Asset 19.png" />
+    <Content Include="Help Page\Asset 20.png" />
+    <Content Include="Help Page\Asset 21.png" />
+    <Content Include="Help Page\Asset 22.png" />
+    <Content Include="Help Page\Asset 23.png" />
+    <Content Include="Help Page\Asset 24.png" />
+    <Content Include="Help Page\Asset 25.png" />
+    <Content Include="Help Page\Asset 26.png" />
+    <Content Include="Help Page\Asset 27.png" />
+    <Content Include="Help Page\Asset 28.png" />
+    <Content Include="Help Page\Asset 29.png" />
+    <Content Include="Help Page\Asset 30.png" />
+    <Content Include="Help Page\Asset 32.png" />
+    <Content Include="Help Page\Asset 33.png" />
+    <Content Include="Help Page\Asset 34.png" />
+    <Content Include="Help Page\Asset 36.png" />
+    <Content Include="Help Page\Asset 37.png" />
+    <Content Include="Help Page\Asset 38.png" />
+    <Content Include="Help Page\Asset 39.png" />
+    <Content Include="Help Page\Asset 4.png" />
+    <Content Include="Help Page\Asset 40.png" />
+    <Content Include="Help Page\Asset 5.png" />
+    <Content Include="Help Page\Asset 6.png" />
+    <Content Include="Help Page\Asset 7.png" />
+    <Content Include="Help Page\Asset 8.png" />
+    <Content Include="Help Page\Asset 9.png" />
+    <Content Include="Help Page\blue-trangle6.png" />
+    <Content Include="Help Page\blue-trangle7.png" />
+    <Content Include="Help Page\home-icon.png" />
+    <Content Include="journal-page-images\961B8877-6322-4557-9520-5D0C9F5D9506 %28enhanced%29.wav" />
+    <Content Include="journal-page-images\Article.jpg" />
+    <Content Include="journal-page-images\Audio.jpg" />
+    <Content Include="journal-page-images\Dental H files .jpeg" />
+    <Content Include="journal-page-images\Doctor H files .jpeg" />
+    <Content Include="journal-page-images\Mental Health H files .jpeg" />
+    <Content Include="journal-page-images\Pets H files .jpeg" />
+    <Content Include="journal-page-images\thumbnail -audio.jpg" />
+    <Content Include="journal-page-images\video-blog.mp4" />
+    <Content Include="journal-page-images\Video-thumb.jpg" />
+    <Content Include="journal-page-images\Video.jpg" />
+    <Content Include="journal-page-images\Youtube Thumbnail  %282%29_page-0001.jpg" />
+    <Content Include="journal.aspx" />
     <Content Include="JournalPage.html" />
     <Content Include="login.aspx" />
+    <Content Include="medical-history-icons\02.png" />
+    <Content Include="medical-history-icons\03.png" />
+    <Content Include="medical-history-icons\04.png" />
+    <Content Include="medical-history-icons\05.png" />
+    <Content Include="medical-history-icons\Alcoholism.png" />
+    <Content Include="medical-history-icons\Blood Pressure.png" />
+    <Content Include="medical-history-icons\Cancer.png" />
+    <Content Include="medical-history-icons\Cholesterol.png" />
+    <Content Include="medical-history-icons\Dental health.png" />
+    <Content Include="medical-history-icons\Diabetes.png" />
+    <Content Include="medical-history-icons\Heart disease.png" />
+    <Content Include="medical-history-icons\home-icon.png" />
+    <Content Include="medical-history-icons\Kidney Disease.png" />
+    <Content Include="medical-history-icons\Mental health.png" />
+    <Content Include="medical-history-icons\Obesity.png" />
+    <Content Include="medical-history-icons\Psoriasis.png" />
+    <Content Include="medical-history-icons\Thyroid.png" />
     <Content Include="mentalhealth.jpg" />
     <Content Include="My Data\Asset 1.png" />
     <Content Include="My Data\Asset 10.png" />
@@ -241,10 +453,125 @@
     <Content Include="My Data\Asset 8.png" />
     <Content Include="My Data\Asset 9.png" />
     <Content Include="My Data\default-user-profile.png" />
+    <Content Include="Pages\AdditionalInformation.html" />
+    <Content Include="Pages\AddMember.html" />
+    <Content Include="Pages\Allergies.html" />
+    <Content Include="Pages\Avatar.html" />
+    <Content Include="Pages\Contact.html" />
+    <Content Include="Pages\JournalPage.html" />
+    <Content Include="Pages\MedicalHistory.html" />
+    <Content Include="Pages\PrivacyPolicy.html" />
+    <Content Include="Pages\samanta.html" />
+    <Content Include="Pages\SignIn.html" />
+    <Content Include="Pages\SupportGroup.html" />
+    <Content Include="Pages\TermAndCondition.html" />
+    <Content Include="Pages\UserInfoPage.html" />
+    <Content Include="Pages\Welcome.html" />
+    <Content Include="Reception Page\about.png" />
+    <Content Include="Reception Page\add-icon.png" />
+    <Content Include="Reception Page\Asset 1.png" />
+    <Content Include="Reception Page\Asset 2.png" />
+    <Content Include="Reception Page\Asset 55.png" />
+    <Content Include="Reception Page\Asset 56.png" />
+    <Content Include="Reception Page\Asset 57.png" />
+    <Content Include="Reception Page\Asset 58.png" />
+    <Content Include="Reception Page\Asset 59.png" />
+    <Content Include="Reception Page\Asset 60.png" />
+    <Content Include="Reception Page\Asset 61.png" />
+    <Content Include="Reception Page\Asset 62.png" />
+    <Content Include="Reception Page\Asset 63.png" />
+    <Content Include="Reception Page\Asset 64.png" />
+    <Content Include="Reception Page\Asset 65.png" />
+    <Content Include="Reception Page\Asset 68.png" />
+    <Content Include="Reception Page\Asset 69.png" />
+    <Content Include="Reception Page\Asset 70.png" />
+    <Content Include="Reception Page\Asset 71.png" />
+    <Content Include="Reception Page\Asset 72.png" />
+    <Content Include="Reception Page\Asset 73.png" />
+    <Content Include="Reception Page\Asset 75.png" />
+    <Content Include="Reception Page\Asset 76.png" />
+    <Content Include="Reception Page\Asset 78.png" />
+    <Content Include="Reception Page\Asset 79.png" />
+    <Content Include="Reception Page\Asset 80.png" />
+    <Content Include="Reception Page\Asset 81.png" />
+    <Content Include="Reception Page\Asset 82.png" />
+    <Content Include="Reception Page\Asset 83.png" />
+    <Content Include="Reception Page\Asset 84.png" />
+    <Content Include="Reception Page\Asset 85.png" />
+    <Content Include="Reception Page\Asset 86.png" />
+    <Content Include="Reception Page\Asset 87.png" />
+    <Content Include="Reception Page\Asset 88.png" />
+    <Content Include="Reception Page\Asset 89.png" />
+    <Content Include="Reception Page\Asset 90.png" />
+    <Content Include="Reception Page\Asset 91.png" />
+    <Content Include="Reception Page\Asset 92.png" />
+    <Content Include="Reception Page\Asset 93.png" />
+    <Content Include="Reception Page\Asset 94.png" />
+    <Content Include="Reception Page\Asset 95.png" />
+    <Content Include="Reception Page\Asset 96.png" />
+    <Content Include="Reception Page\lock-icon.png" />
+    <Content Include="Reception Page\Samanta-stand.png" />
+    <Content Include="Reception Page\Samanta.png" />
+    <Content Include="Reception Page\shutdown.png" />
+    <Content Include="Reception Page\user-icon.png" />
     <Content Include="reports.aspx" />
     <Content Include="samanta.aspx" />
     <Content Include="shobija.jpg" />
     <Content Include="signup.aspx" />
+    <Content Include="style.css" />
+    <Content Include="style2.css" />
+    <Content Include="style3.css" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\Asset 166.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\Asset 167.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\Asset 168.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\Asset 169.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\Asset 170.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\Asset 172.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\Asset 173.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\Asset 174.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\Asset 188.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\Asset 189.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\bell-gray.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\default-profile.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\dental-icon.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\home-gray.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\mental-health-icon.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\message-active.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\message-gray.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\nutrition-icon.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\petcare-icon.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\pin-icon.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\search-gray.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\skin-icon.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\tab-check.png" />
+    <Content Include="Suppor Group %28BG  &amp; Icons%29\user-default.png" />
+    <Content Include="supportgroup.aspx" />
+    <Content Include="Terms &amp; Conditions\Asset 45.png" />
+    <Content Include="Terms &amp; Conditions\Asset 46.png" />
+    <Content Include="Terms &amp; Conditions\Asset 49.png" />
+    <Content Include="Terms &amp; Conditions\Asset 51.png" />
+    <Content Include="Terms &amp; Conditions\Asset 52.png" />
+    <Content Include="Terms &amp; Conditions\Asset 53.png" />
+    <Content Include="Terms &amp; Conditions\Asset 54.png" />
+    <Content Include="Terms &amp; Conditions\Asset 55.png" />
+    <Content Include="Terms &amp; Conditions\Asset 56.png" />
+    <Content Include="Terms &amp; Conditions\Asset 58.png" />
+    <Content Include="Terms &amp; Conditions\Asset 60.png" />
+    <Content Include="Terms &amp; Conditions\Asset 62.png" />
+    <Content Include="Terms &amp; Conditions\Asset 63.png" />
+    <Content Include="Terms &amp; Conditions\Asset 64.png" />
+    <Content Include="Terms &amp; Conditions\Asset 65.png" />
+    <Content Include="Terms &amp; Conditions\Asset 66.png" />
+    <Content Include="Terms &amp; Conditions\blue-trangle1.png" />
+    <Content Include="Terms &amp; Conditions\blue-trangle2.png" />
+    <Content Include="Terms &amp; Conditions\blue-trangle3.png" />
+    <Content Include="Terms &amp; Conditions\blue-trangle4.png" />
+    <Content Include="Terms &amp; Conditions\blue-trangle5.png" />
+    <Content Include="Terms &amp; Conditions\blue-trangle6.png" />
+    <Content Include="Terms &amp; Conditions\plus-1.png" />
+    <Content Include="Terms &amp; Conditions\plus-2.png" />
+    <Content Include="video-blog\video-blog.mp4" />
+    <Content Include="video-blog\Video-thumb.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -262,6 +589,13 @@
     <Compile Include="additionalinformation.aspx.designer.cs">
       <DependentUpon>additionalinformation.aspx</DependentUpon>
     </Compile>
+    <Compile Include="addmember.aspx.cs">
+      <DependentUpon>addmember.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addmember.aspx.designer.cs">
+      <DependentUpon>addmember.aspx</DependentUpon>
+    </Compile>
     <Compile Include="avatar.aspx.cs">
       <DependentUpon>avatar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -269,7 +603,21 @@
     <Compile Include="avatar.aspx.designer.cs">
       <DependentUpon>avatar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="blogdetails.aspx.cs">
+      <DependentUpon>blogdetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="blogdetails.aspx.designer.cs">
+      <DependentUpon>blogdetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DAL.cs" />
+    <Compile Include="journal.aspx.cs">
+      <DependentUpon>journal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="journal.aspx.designer.cs">
+      <DependentUpon>journal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -299,6 +647,13 @@
     <Compile Include="signup.aspx.designer.cs">
       <DependentUpon>signup.aspx</DependentUpon>
     </Compile>
+    <Compile Include="supportgroup.aspx.cs">
+      <DependentUpon>supportgroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="supportgroup.aspx.designer.cs">
+      <DependentUpon>supportgroup.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user.Master.cs">
       <DependentUpon>user.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -308,6 +663,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="journal-page-images\hfiles article 1 - shobhika jaju - Copy.pdf" />
+    <Content Include="journal-page-images\hfiles article 2- Dr. Shubhangini Sharma.pdf" />
     <None Include="packages.config" />
     <Content Include="user.Master" />
     <None Include="Web.Debug.config">
