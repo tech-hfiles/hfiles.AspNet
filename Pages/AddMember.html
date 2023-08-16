@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
+        integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-grid.min.css"
+        integrity="sha512-EAgFb1TGFSRh1CCsDotrqJMqB2D+FLCOXAJTE16Ajphi73gQmfJS/LNl6AsjDqDht6Ls7Qr1KWsrJxyttEkxIA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+    <link rel="stylesheet" href="./style3.css">
+
+    <title>Add Members</title>
+</head>
+
+<body>
+    <img class="blue-t-top-left" src="../Avatar/blue-trangle-1.png" alt="">
+    <img class="blue-t-top-right" src="../Avatar/blue-trangle-2.png" alt="">
+    <img class="blue-t-right" src="../Add Members/blue-trangle-3.png" alt="">
+    <a href="#"><img class="home-icon-top-right" src="../Add Members/home-icon.png" alt=""></a>
+    <img class="plus-top-left" src="../assets/plus-icon-3.png" alt="">
+    <div class="main-div">
+        <div class="container d-flex justify-content-center p-0">
+            <div class="inner-div pt-5">
+                <div class="row pt-5">
+                    <div class="col-12 text-blue">
+                        <h1>Add Members</h1>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div id="family" class="col-lg-5 col-md-5 col-sm-4 tab" style="color: #0116b8;" onclick="handleTabs('family')">
+                        Family
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 or" style="color: #bababa; font-size: 18px;"> OR </div>
+                    <div id="friends" class="col-lg-5 col-md-5 col-sm-4 tab" style="color: #bababa;" onclick="handleTabs('friend')">
+                        Friends
+                    </div>
+                </div>
+                <div class="row input-group">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <input type="text" placeholder="Name">
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <input type="text" placeholder="Last Name">
+                    </div>
+                    <div id="relation-input" class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="relation-div">
+                            <span class="fa-solid fa-earth-americas form-control-feedback"></span>
+                            <select id="relation" class="form-select form-control relation-select"
+                                aria-label="Default select example" onchange="handleRelation()">
+                                <option selected>Relation</option>
+                                <option value="father">Father</option>
+                                <option value="mother">Mother</option>
+                                <option value="sister">Sister</option>
+                                <option value="brother">Brother</option>
+                                <option value="wife">Wife</option>
+                                <option value="husband">Husband</option>
+                                <option value="grandMother">Grand Mother</option>
+                                <option value="grandFather">Grand Father</option>
+                                <option value="pet">Pet</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="friend-input" class="col-lg-4 col-md-4 col-sm-12 friend-input">
+                        <div class="">
+                            <input type="text" placeholder="Friend" value="Friend" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row input-group d-flex justify-content-center">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <input type="text" placeholder="Email ID">
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <input type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+                    </div>
+                    <div id="default-number" class="col-lg-5 col-md-5 col-sm-12">
+                        <div class="d-flex align-items-center">
+                            <img id="selected" src="../assets/select.png" onclick="handleMobile(true)" alt="">
+                            <img id="not-selected" src="../assets/not-select.png" onclick="handleMobile(false)" alt="">
+                            <input type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-div">
+                    <button class="btn submit-btn">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img class="plus-bottom-right" src="../Add Members/plus-2.png" alt="">
+    <img class="blue-t-bottom-left" src="../Add Members/blue-trangle-4.png" alt="">
+    <img class="blue-t-bottom-right" src="../Add Members/blue-trangle-5.png" alt="">
+    <script>
+        let selected = true
+        var relation = ''
+
+        const family = document.getElementById('family');
+        const friends = document.getElementById('friends');
+        const relationInput = document.getElementById('relation-input');
+        const friendInput = document.getElementById('friend-input');
+        const defaultNumber = document.getElementById('default-number');
+        const selectMobile = document.getElementById('selected')
+        const notSelectMobile = document.getElementById('not-selected')
+
+        selectMobile.style.display = 'block'
+        notSelectMobile.style.display = 'none'
+        defaultNumber.style.display = 'none'
+        relationInput.style.display = 'block'
+        friendInput.style.display = 'none'
+        
+        family.classList.add('active')
+        friends.classList.add('inactive')
+
+
+        function handleTabs(tab) {
+            if (tab === 'family') {
+                family.style.color = '#0512b9'
+                friends.style.color = '#bababa'
+                family.classList.remove('inactive')
+                friends.classList.remove('active')
+                family.classList.add('active')
+                friends.classList.add('inactive')
+                relationInput.style.display = 'block'
+                friendInput.style.display = 'none'
+                if (relation === 'grandFather' || relation === 'grandMother') {
+                    defaultNumber.style.display = 'block'
+                } else {
+                    defaultNumber.style.display = 'none'
+                }
+            } else if (tab === 'friend') {
+                family.style.color = '#bababa'
+                friends.style.color = '#0512b9'
+                family.classList.remove('active')
+                friends.classList.remove('inactive')
+                family.classList.add('inactive')
+                friends.classList.add('active')
+                relationInput.style.display = 'none'
+                friendInput.style.display = 'block'
+                defaultNumber.style.display = 'none'
+            }
+        }
+        function handleRelation() {
+            relation = document.getElementById('relation').value
+            if (relation === 'grandFather' || relation === 'grandMother') {
+                defaultNumber.style.display = 'block'
+            } else {
+                defaultNumber.style.display = 'none'
+            }
+            console.log(relation)
+        }
+        function handleMobile(e) {
+            selected = !selected
+
+            if (selected === true) {
+                selectMobile.style.display = 'block'
+                notSelectMobile.style.display = 'none'
+            } else if (selected === false) {
+                selectMobile.style.display = 'none'
+                notSelectMobile.style.display = 'block'
+            }
+        }
+    </script>
+</body>
+
+</html>

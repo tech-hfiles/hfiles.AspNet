@@ -4,6 +4,12 @@ body {
     font-family: 'Playfair Display' !important;
 }
 
+a {
+    text-decoration: none !important;
+}
+h1,
+h2,
+h3,
 h4,
 h5,
 h5,
@@ -12,9 +18,7 @@ p,
 button {
     font-family: 'Playfair Display' !important;
 }
-h1, h2, h3 {
-    font-family: 'Red Hat Display' !important;
-}
+
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -292,8 +296,8 @@ h1, h2, h3 {
 
 .home_top_icon {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 10px;
+    right: 10px;
     cursor: pointer;
 }
 
@@ -402,10 +406,11 @@ h1, h2, h3 {
 }
 
 .contact .contact-form .radio-btn label {
-    color: #0614aa;
-    font-weight: 500;
+    color: #000;
+    font-weight: 600;
     cursor: pointer;
     margin: 0px 5px;
+    font-family: 'Playfair Display Black' !important;
 }
 .contact .questions-list li {
    margin-bottom: 20px;
@@ -559,18 +564,20 @@ select:hover {
 
 .shutdown_top_icon {
     position: absolute;
-    top: 7px;
-    right: 60px;
+    top: 10px;
+    right: 20px;
 }
 
 .HF_top_text {
     position: absolute;
-    top: 12px;
-    right: 100px;
+    top: 10px;
+    right: 10px;
     color: #0614aa;
     font-weight: bolder;
 }
-
+.HF_top_text a {
+    color: #0614aa;
+}
 .journal .journal_main {
     display: flex;
     justify-content: center;
@@ -610,18 +617,20 @@ select:hover {
     align-items: center;
     color: #0614aa;
 }
-
-.journal .journal_main .inner_div .heading h3 {
-    background-color: #ffd101;
-    height: 60px;
-    width: 320px;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    font-weight: 600;
+.journal .journal_main .inner_div .heading h3{
+    color: #0614aa !important;
 }
+    .journal .journal_main .inner_div .heading h3 {
+        background-color: #ffd101;
+        height: 60px;
+        width: 320px;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        font-weight: 600;
+    }
 
 .my_profile .dropdown-toggle {
     text-decoration: none;
@@ -640,8 +649,10 @@ ul.dropdown-menu.show {
     background: linear-gradient(to bottom, #0614aa 0%, #081466 100%);
     ;
     transform: translate3d(14.6px, 57px, 21px) !important;
-    z-index: -1;
-    width: 75%;
+    /*z-index: -1;*/
+    width: 70%;
+    margin:8px 20px !important;
+    border-radius: 0 0 5px 5px;
 }
 
 ul.dropdown-menu.show li {
@@ -974,7 +985,8 @@ ul.dropdown-menu.show li a {
     .my_profile ul.dropdown-menu.show {
         z-index: 1;
         transform: translate3d(14.6px, 30px, 21px) !important;
-        width: 82%;
+        width: 80%;
+        margin: 0 5px !important;
     }
     .contact .contact-main .contact-card {
         margin-left: 0px;

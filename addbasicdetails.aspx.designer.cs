@@ -42,13 +42,13 @@ namespace hfiles
         protected global::System.Web.UI.HtmlControls.HtmlSelect selectgender;
 
         /// <summary>
-        /// dobTextBox control.
+        /// dobTextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText dobTextBox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dobTextBox1;
 
         /// <summary>
         /// bloodgroup control.
@@ -58,6 +58,15 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlSelect bloodgroup;
+
+        /// <summary>
+        /// countryTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText countryTextBox;
 
         /// <summary>
         /// stateTextBox control.
@@ -78,15 +87,6 @@ namespace hfiles
         protected global::System.Web.UI.HtmlControls.HtmlInputText cityTextBox;
 
         /// <summary>
-        /// countryTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText countryTextBox;
-
-        /// <summary>
         /// contactTextBox control.
         /// </summary>
         /// <remarks>
@@ -94,6 +94,15 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl contactTextBox;
+
+        /// <summary>
+        /// emailTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText emailTextBox;
 
         /// <summary>
         /// icecontactTextBox control.
@@ -112,15 +121,6 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText relativecontactTextBox;
-
-        /// <summary>
-        /// emailTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText emailTextBox;
 
         /// <summary>
         /// famdocTextBox control.

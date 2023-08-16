@@ -40,7 +40,7 @@ namespace hfiles
                     command.Parameters.AddWithValue("_user_firstname", firstNameTextBox.Value);
                     command.Parameters.AddWithValue("_user_lastname", lastNameTextBox.Value);
                     command.Parameters.AddWithValue("_user_gender", selectgender.Value);
-                    command.Parameters.AddWithValue("_user_dob", dobTextBox.Value);
+                    command.Parameters.AddWithValue("_user_dob", dobTextBox1.Value);
                     command.Parameters.AddWithValue("_user_bloodgroup", bloodgroup.Value);
                     command.Parameters.AddWithValue("_user_state", stateTextBox.Value);
                     command.Parameters.AddWithValue("_user_city", cityTextBox.Value);
@@ -75,7 +75,7 @@ namespace hfiles
             icecontactTextBox.Value = null;
             emailTextBox.Value = null;
             famdocTextBox.Value = null;
-            dobTextBox.Value = null;
+            dobTextBox1.Value = null;
             selectgender.Value = null;
         }
         #endregion

@@ -25,7 +25,7 @@
 <body>
     <form class="container h-100 signin-main" runat="server">
         <img class="triangle-top" src="<%= ResolveUrl("~/assets/blue-trangle.png") %>" alt="" />
-        <div class="row h-100">
+        <div class="row" style="height:100vh">
             <div class="col-lg-10 col-xl-10 col-md-11 col-sm-12 d-flex justify-content-center align-items-center">
                 <div class="row">
                     <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image">

@@ -1,0 +1,1323 @@
+body {
+    /* height: 100vh; */
+    background-color: #ffffff;
+    font-family: 'Playfair Display' !important;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Syne:wght@800&display=swap');
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p,
+button,
+a {
+    font-family: 'Playfair Display' !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+.h-90 {
+    height: 90%;
+}
+
+.thm-button {
+    padding: 10px 40px;
+    background: #fdd001;
+    border-radius: 20px;
+    color: #08138f;
+    font-weight: 700;
+}
+
+.thm-back-button {
+    padding: 10px 60px;
+    background: #d6d6d6;
+    border-radius: 20px;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: 'Playfair Display' !important;
+    outline: 0;
+    border: 1px solid #d6d6d6;
+}
+
+.thm-back-button:hover {
+    background: #ffffff;
+    border-color: #08138f;
+    color: #08138f;
+    border: 1px solid #d6d6d6;
+}
+
+.thm-blue-button {
+    padding: 10px 60px;
+    background: linear-gradient(to right, #0512B9 0%, #081466 100%);
+    border-radius: 20px;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: 'Playfair Display' !important;
+}
+
+.thm-blue-button:hover {
+    background: #ffffff;
+    border-color: #08138f;
+    color: #08138f;
+}
+
+.thm-button:hover {
+    background: #ffffff;
+    border-color: #eec93a;
+    color: #eec93a;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 50px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #08138f;
+    border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #081466;
+}
+
+/* common design */
+.common-design .thm-blue-button {
+    padding: 10px 60px;
+    background: linear-gradient(to right, #0512B9 0%, #081466 100%);
+    border-radius: 20px;
+    color: #ffffff;
+    font-weight: 700;
+    border: 0;
+    outline: 0;
+}
+
+.common-design .thm-blue-button:hover {
+    border: 1px solid #d6d6d6 !important;
+    background: #f1f1f1 !important;
+    color: #08138f !important;
+}
+
+.common-design .blue-trangle-top-left {
+    position: absolute;
+    top: 0;
+    left: 80px;
+    height: 100px;
+    z-index: -1;
+}
+
+.common-design .blue-trangle-top-right {
+    position: absolute;
+    top: 0;
+    right: 300px;
+    height: 50px;
+    z-index: -1;
+}
+
+.common-design .blue-trangle-right {
+    position: absolute;
+    top: 100px;
+    right: 0;
+    height: 200px;
+    z-index: -1;
+}
+
+.common-design .blue-trangle-left {
+    position: absolute;
+    top: 370px;
+    left: 0;
+    height: 200px;
+    z-index: -1;
+}
+
+.common-design .plus-top-left {
+    position: absolute;
+    top: 0;
+    right: 100px;
+    height: 300px;
+    z-index: -1;
+}
+
+.common-design .plus-bottom-right {
+    position: absolute;
+    bottom: 0px;
+    left: 50px;
+    height: 300px;
+    z-index: -1;
+}
+
+.common-design .blue-trangle-bottom {
+    position: relative;
+    bottom: 0;
+    left: 60%;
+    height: 100px;
+    z-index: -1;
+}
+
+.common-design .save-icon-top-right {
+    position: absolute;
+    right: 50px;
+    top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+.heading {
+    color: #0512B9;
+    font-weight: 700 !important;
+}
+
+/* login left side */
+.inner-body h1 {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.inner-body .login-input {
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #ffffff3d;
+    padding: 10px 40px;
+    margin: 10px;
+    color: #ffffff;
+    outline: 0;
+}
+
+.inner-body .login-input::-webkit-outer-spin-button,
+.inner-body .login-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.inner-body .login-input::placeholder {
+    color: #3652e4;
+    text-align: center;
+    font-weight: 700;
+}
+
+.inner-main {
+    background-image: url('../assets/blue-bg.png');
+    height: 100%;
+}
+
+.blue-trangle-left-side {
+    position: absolute;
+    top: 0;
+    height: 100px;
+    left: 40px;
+}
+
+.blue-trangle-left-side-bottom {
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    left: 20px;
+}
+
+.blue-trangle-left-side1 {
+    height: 175px;
+    position: absolute;
+    left: 340px;
+    top: 60px;
+    transform: rotate(-90deg);
+}
+
+.plus-left-side-bottom {
+    position: absolute;
+    bottom: -40px;
+    left: 270px;
+    height: 240px;
+}
+
+.resend-otp-div a {
+    border: 0 !important;
+    outline: 0;
+    text-decoration: none !important;
+}
+
+/* login right side */
+.language {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 100px;
+    color: #0512b9;
+}
+
+.blue-trangle-right-side-top {
+    position: absolute;
+    top: 0;
+    left: 100px;
+    height: 100px;
+    z-index: -1;
+
+}
+
+.blue-trangle-right-side-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    height: 100px;
+    z-index: -1;
+}
+
+.plus-right-side-top {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    height: 350px;
+    z-index: -1;
+}
+
+.plus-right-side-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 200px;
+    height: 400px;
+    z-index: -1;
+}
+
+.inner-body-right h1 {
+    font-weight: 700;
+}
+
+.inner-body-right h1,
+span {
+    color: #0512b9;
+}
+
+.inner-body-right span {
+    font-weight: 600;
+}
+
+.language select {
+    border: none !important;
+    padding: 0 !important;
+    border-radius: 5px;
+    color: #ffffff !important;
+    width: 80px;
+    scroll-behavior: smooth;
+    outline: none;
+    background: transparent;
+}
+
+.language select option {
+    background-color: #e6e6e6;
+    border: 0;
+    outline: 0;
+    text-decoration: none;
+    color: #08138f;
+}
+
+.language select:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+    border-color: #d6d6d6;
+}
+
+/* signin-form */
+.signin-main .samanta-stand-image {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.signin-heading h1 {
+    color: #0512b9;
+    font-weight: 700;
+}
+
+.signin-form input,
+select {
+    width: 100%;
+    border: 1px solid #e6e6e6 !important;
+    border-radius: 20px !important;
+    padding: 10px 40px 10px 50px !important;
+    /* margin: 10px 0px !important; */
+    outline: 0 !important;
+    box-shadow: none !important;
+    color: #e6e6e6;
+}
+
+.signin-form input:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+.signin-form input::placeholder {
+    color: #e6e6e6;
+    font-weight: 500;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #fdd001;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.signin-main .has-search .form-control-feedback {
+    margin-top: 12px !important;
+}
+
+.signin-main .triangle-top {
+    position: absolute;
+    top: 0;
+    height: 100px;
+    z-index: -1;
+}
+
+.signin-main .triangle-bottom-right {
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    left: 100px;
+    z-index: -1;
+}
+
+.signin-main .triangle-bottom-left {
+    position: absolute;
+    bottom: 0;
+    height: 75px;
+    right: 100px;
+    z-index: -1;
+}
+
+.signin-main .plus-top-right {
+    position: absolute;
+    top: 0;
+    height: 300px;
+    right: 50px;
+    z-index: -1;
+}
+
+.signin-main .plus-bottom-left {
+    position: absolute;
+    bottom: 0;
+    height: 300px;
+    left: 50px;
+    z-index: -1;
+}
+
+.signin-main .triangle-top-right-cancel {
+    position: absolute;
+    top: 0;
+    height: 40px;
+    right: 20px;
+    z-index: 1;
+    margin-top: 20px;
+}
+
+.signin-main input::-webkit-outer-spin-button,
+.signin-main input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.OTP-input::placeholder {
+    text-align: center;
+    color: #d6d6d6 !important;
+}
+
+.OTP-input {
+    background: #e9ecef;
+    margin-bottom: 0 !important;
+}
+
+/* userinfo */
+.iti {
+    display: flex !important;
+}
+
+.signin-form .form-select {
+    color: #e6e6e6;
+}
+
+.signin-form .imp-star {
+    position: relative;
+    left: 100%;
+    top: 15px;
+    color: red;
+}
+
+.signin-form .form-select option {
+    color: #a1a1a1;
+}
+
+.user-info-main {
+    height: auto;
+}
+
+.user-info-main .blue-trangle-top-left {
+    position: absolute;
+    top: 0;
+    height: 100px;
+    z-index: -1;
+}
+
+.user-info-main .plus-top-left {
+    position: absolute;
+    top: 0;
+    height: 300px;
+    left: 0;
+    z-index: -1;
+}
+
+.user-info-main .plus-bottom-right {
+    position: absolute;
+    bottom: 0;
+    height: 250px;
+    right: 50px;
+    z-index: -1;
+}
+
+.user-info-main .blue-trangle-top-right {
+    position: absolute;
+    top: 0;
+    right: 50px;
+    height: 50px;
+    z-index: -1;
+}
+
+.user-info-main .blue-trangle-bottom-left {
+    position: absolute;
+    bottom: 0;
+    left: 0px;
+    height: 100px;
+    transform: rotate(-180deg);
+    z-index: -1;
+}
+
+.user-info-main .blue-trangle-bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 50px;
+    height: 50px;
+    z-index: -1;
+
+}
+
+input[type="date"]:before {
+    color: #e8e6e6;
+    content: attr(placeholder) !important;
+}
+
+.home-icon-top-right {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    width: 25px;
+}
+
+
+/* additional information */
+.additionl-main-div .hight-input {
+    width: 65px;
+    height: 26px;
+    border: 0;
+    outline: 0;
+    border-radius: 50px;
+    background-color: #f1f1f1;
+    padding: 10px 10px;
+}
+
+.additionl-main-div .heading {
+    color: #0512b9;
+    font-weight: 600;
+}
+
+.additionl-main-div .sub-heading {
+    color: #0512b9;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.additionl-main-div p {
+    color: #0512b9;
+}
+
+.additionl-main-div .border-bottom {
+    border-bottom: 0.2px solid #f1f1f1 !important;
+}
+
+.additionl-main-div .surgeries-div input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    border-radius: 50px;
+    background-color: #f1f1f1;
+    padding: 5px 20px;
+}
+
+.additionl-main-div .add-surgeries {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #f1f1f1;
+    border-radius: 50%;
+    width: 45px;
+    height: 35px;
+    padding: 5px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #08138f;
+    cursor: pointer;
+}
+
+.additionl-main-div .select-years {
+    width: 150px;
+    border: 1px solid #e6e6e6 !important;
+    border-radius: 20px !important;
+    padding: 5px 18px !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+.additionl-main-div select {
+    /* width: 100%; */
+    border: 0 !important;
+    border-radius: 20px !important;
+    padding: 2px 0px !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    color: #08138f;
+    font-family: 'Playfair Display' !important;
+    font-weight: 700;
+}
+
+/* medical history */
+
+.medical-main-div .inner-main-div {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: 10px;
+    width: 100% !important;
+}
+
+.medical-main-div .medic-icons {
+    margin: 0 20px 0 0;
+}
+
+.medical-main-div p {
+    color: #0512b9;
+    font-weight: 700;
+    font-family: 'Playfair Display Black' !important;
+}
+
+.inner-main-div p {
+    font-size: 20px;
+}
+
+.allergy .others-input {
+    border: 0;
+    outline: 0;
+    border-radius: 50px;
+    background-color: #f1f1f1;
+    padding: 5px 20px;
+}
+
+.allergy .others-input::placeholder {
+    text-align: center;
+}
+
+/* journal page */
+.journal .heading-title {
+    padding-left: 110px;
+}
+
+.journal .heading-title h1 {
+    color: #172ab3;
+    font-size: 60px;
+    font-weight: 900;
+    margin: 0 10px;
+    font-family: 'Playfair Display Black' !important;
+}
+
+.journal .heading-title .hr {
+    padding-top: 20px;
+}
+
+.journal .heading-title .hr1 {
+    border: 2px solid #172ab3;
+    margin: 0 0 5px 0;
+    opacity: 1;
+}
+
+.journal .heading-title .hr2 {
+    border: 1px solid #172ab3;
+    margin: 0;
+    opacity: 1;
+}
+
+.journal .blog-div .blog-cards .card-image img {
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.journal .audio-div .blog-cards .card-image img {
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+}
+
+.journal .audio-div .blog-cards .card-image audio {
+    border-radius: 0 0 10px 10px;
+    width: 100%;
+    background-color: #f1f3f4;
+    border: 1px solid #ccc;
+}
+
+.journal .article-div .blog-cards .card-image {
+    border-radius: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+.journal .blog-div .blog-cards .card-image iframe {
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.journal .blog-div .blog-cards .card-image video {
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+.journal .blog-div .blog-cards .card-name img {
+    cursor: pointer;
+}
+
+.journal .tab-div .tabs {
+    width: 50%;
+    font-weight: 700;
+    color: #d6d6d6;
+}
+
+.journal .tab-div .tabs a,
+span {
+    color: #d6d6d6;
+    text-decoration: none;
+}
+
+.journal .tab-div .tabs a.active span {
+    color: #172ab3;
+    text-decoration: none;
+}
+
+.filter-shorting-icon {
+    position: absolute;
+    right: 140px;
+    top: 120px;
+}
+
+.filter-shorting-icon img {
+    cursor: pointer;
+}
+
+.popover__title {
+    font-size: 24px;
+    line-height: 36px;
+    text-decoration: none;
+    color: rgb(228, 68, 68);
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.popover__wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.popover__content {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    left: -150px;
+    right: 0;
+    transform: translate(0, 10px);
+    background-color: #e0e0e0;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    width: auto;
+}
+
+.popover__content table tbody tr {
+    display: flex;
+    justify-content: start;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.popover__wrapper:hover .popover__content {
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, -20px);
+    transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+}
+
+.popover__message {
+    text-align: center;
+    margin-bottom: 0 !important;
+}
+
+.popover__title img {
+    filter: #cecece;
+    /* IE5+ */
+    -webkit-filter: grayscale(1);
+    /* Webkit Nightlies & Chrome Canary */
+    -webkit-transition: all .1s ease-in-out;
+    opacity: .4;
+}
+
+.popover__title img:hover {
+    filter: none;
+    -webkit-filter: grayscale(0);
+    -webkit-transform: scale(1.01);
+    opacity: 1;
+}
+
+/* support group */
+/*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*/
+.nav-pills-custom .nav-link span {
+    color: #ffffff;
+}
+.nav-pills .nav-link {
+    border-radius: 0;
+}
+.nav-pills-custom .nav-link {
+    color: #ffffff;
+    position: relative;
+}
+
+.nav-pills-custom .nav-link.active {
+    color: #ffffff;
+}
+
+.support-group .mental-health-link {
+    background-color: #b8b9f1 !important;
+}
+
+.support-group .mental-health-div {
+    background: linear-gradient(to top, #b8b9f1 0%, #ffffff 100%);
+}
+
+.support-group .skin-care-link {
+    background-color: #ffb4bb !important;
+}
+
+.support-group .skin-care-div {
+    background: linear-gradient(to top, #ffb4bb 0%, #ffffff 100%);
+}
+
+.support-group .dental-link {
+    background-color: #b9e2fe !important;
+}
+
+.support-group .dental-care-div {
+    background: linear-gradient(to top, #b9e2fe 0%, #ffffff 100%);
+}
+
+.support-group .nutrition-link {
+    background-color: #97c6a2 !important;
+}
+
+.support-group .nutrition-care-div {
+    background: linear-gradient(to top, #97c6a2 0%, #ffffff 100%);
+}
+
+.support-group .pet-care-link {
+    background-color: #e5e26d !important;
+}
+
+.support-group .pet-care-div {
+    background: linear-gradient(to top, #e5e26d 0%, #ffffff 100%);
+}
+
+.support-group .support-group-title h2 {
+    color: #053868;
+    padding: 15px 0;
+}
+
+.support-group .select-category {
+    padding: 15px 22px;
+}
+
+.support-group .select-category span {
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #053868;
+    padding: 5px 7px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-family: 'Playfair Display Black' !important;
+}
+
+.nav-pills-custom .nav-link.active::before {
+    opacity: 1;
+}
+
+.support-group .top-profile-div {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 999;
+}
+
+.support-group .top-profile-div span {
+    color: #090507;
+    margin-left: 10px;
+}
+
+.support-group .left-nav-bar {
+    height: 100vh;
+    background-color: #f8f8f8;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    /* padding: ; */
+}
+
+.support-group .top-menu-div {
+    position: absolute;
+    top: 20px;
+    left: 10%;
+    z-index: 999;
+}
+
+.support-group .top-menu-div img {
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.support-group .chat-input-div {
+    position: absolute;
+    bottom: 30px;
+    z-index: 999;
+    width: 98%;
+    padding: 0 0 0 20px;
+}
+.h-100vh{
+    height: 100vh;
+}
+.support-group .chat-input-div input {
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 400 !important;
+    background: transparent;
+    outline: 0;
+}
+
+.support-group .chat-input-div input::placeholder {
+    font-weight: 400 !important;
+    font-family: 'Playfair Display', serif;
+}
+
+.support-group .chat-history-div {
+    max-height: 70%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.chat-container {
+    clear: both;
+    position: relative;
+    width: 100%;
+}
+
+.chat-container .arrow {
+    width: 12px;
+    height: 20px;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    top: 6px;
+    right: -1px;
+}
+
+.chat-container .arrow .outer {
+    width: 0;
+    height: 0;
+    border-right: 20px solid #CCC;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.chat-container .arrow .inner {
+    width: 0;
+    height: 0;
+    border-right: 20px solid #ffffff;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 2px;
+}
+
+.chat-container .message-body {
+    float: left;
+    width: 90%;
+    height: auto;
+    border: 1px solid #CCC;
+    background-color: #ffffff;
+    /* border: 1px solid #000000; */
+    padding: 6px 30px 6px 8px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    box-shadow: 2px 5px 15px #a1a0a0;
+}
+.support-group .chat-name {
+    width: 30px;
+    text-align: center;
+}
+.support-group .chat-name span {
+    color: #000 !important;
+    font-size: 10px !important;
+}
+
+.chat-container .message-body p {
+    margin: 0;
+}
+.chat-container .chat-more {
+    position: relative;
+    left: 20px;
+    bottom: 10px;
+    cursor: pointer;
+    height: 25px;
+    font-size: 18px;
+    z-index: 999;
+}
+.chat-container .msg-edit-box {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    width: 70px;
+    background: linear-gradient(to right, #ccc 0%, #ffffff 100%);
+    z-index: 999;
+    position: absolute;
+    right: 20px;
+    top: 22px;
+}
+.chat-container .show-edit-chat {
+    display: none;
+}
+
+/* .chat-container .chat-more:hover .show-edit-chat {
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+} */
+.chat-container .msg-edit-box span {
+    color: #000;
+    cursor: pointer;
+}
+.box-shadow {
+    box-shadow: 2px 5px 5px #ccc;
+    border-radius: 50%;
+}
+
+
+/* Add indicator arrow for the active tab */
+@media (min-width: 992px) {
+    .nav-pills-custom .nav-link::before {
+        content: url('../Suppor Group (BG  & Icons)/tab-check.png');
+        display: block;
+        /* border-top: 8px solid transparent;
+        border-left: 10px solid #fff;
+        border-bottom: 8px solid transparent; */
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        opacity: 0;
+        z-index: 1;
+    }
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .filter-shorting-icon {
+        right: 70px;
+    }
+}
+
+@media only screen and (max-width: 912px) {
+    .common-design .blue-trangle-bottom {
+        position: absolute;
+        bottom: 0;
+        height: 70px;
+    }
+
+    .allergy .others-div input {
+        width: 200px;
+    }
+
+    .journal .heading-title {
+        padding-left: 50px;
+    }
+
+    .filter-shorting-icon {
+        right: 90px;
+    }
+}
+
+@media only screen and (max-width: 786px) {
+    .user-info-main .blue-trangle-bottom-right {
+        position: relative;
+        right: 0px;
+    }
+
+    .user-info-main .blue-trangle-bottom-left {
+        position: relative;
+        height: 50px;
+    }
+
+    .blue-trangle-right-side-bottom {
+        position: absolute;
+        bottom: -15px;
+        left: 20px;
+        height: 70px;
+    }
+
+    .plus-right-side-bottom {
+        position: relative;
+        bottom: 200px;
+        left: 0;
+        height: 250px;
+        z-index: -1;
+    }
+
+    .user-info-main .profile-img img {
+        width: 50% !important;
+        margin-top: 50px;
+    }
+
+    .h-70 {
+        height: 58% !important;
+    }
+
+    .signin-main .samanta-stand-image {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .common-design .blue-trangle-top-right {
+        right: 90px;
+    }
+
+    .common-design .blue-trangle-top-left {
+        height: 65px;
+    }
+
+    .common-design .blue-trangle-left {
+        height: 110px;
+    }
+
+    .common-design .blue-trangle-right {
+        height: 120px;
+    }
+
+    .medical-main-div .inner-main-div {
+        /* height: 50vh; */
+    }
+
+    .allergy .others-div input {
+        width: 150px;
+    }
+
+    .journal .heading-title {
+        padding-left: 20px;
+    }
+
+    .filter-shorting-icon {
+        right: 40px;
+    }
+
+    .support-group .left-nav-bar {
+        height: 80vh;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .signin-main .triangle-bottom-left {
+        position: relative;
+        height: 50px;
+        left: 130px;
+        top: 100px;
+    }
+
+    .signin-main .triangle-bottom-right {
+        position: relative;
+        left: 10px;
+        height: 50px;
+        top: 100px;
+    }
+
+    .signin-main .triangle-top {
+        height: 70px;
+    }
+
+    .blue-trangle-right-side-top {
+        height: 70px;
+    }
+
+    .common-design .blue-trangle-left {
+        height: 115px;
+    }
+
+    .common-design .blue-trangle-bottom {
+        position: relative;
+        height: 60px;
+        left: 10%;
+        top: 5%;
+    }
+
+    .signin-main .samanta-stand-image {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .medical-main-div p {
+        font-size: 12px;
+    }
+
+    .medical-main-div .medic-icons {
+        margin-right: 10px;
+    }
+
+    .medical-main-div .medic-icons img {
+        width: 30px;
+    }
+
+    .medical-main-div .thm-blue-button {
+        padding: 10px 45px;
+    }
+
+    .medical-main-div .thm-back-button {
+        padding: 10px 45px;
+    }
+
+    .additionl-main-div .heading {
+        font-size: 22px !important;
+    }
+
+    .additionl-main-div .sub-heading {
+        font-size: 18px !important;
+    }
+
+    .allergy .others-div {
+        display: block !important;
+    }
+
+    .allergy .others-div input {
+        width: 100px;
+    }
+
+    .journal .heading-title {
+        padding-left: 10px;
+    }
+
+    .journal .tab-div .tabs {
+        width: 80%;
+    }
+
+    .filter-shorting-icon img {
+        width: 20px;
+    }
+
+    .filter-shorting-icon {
+        top: 160px;
+        right: 20px;
+    }
+
+    .support-group .left-nav-bar {
+        height: 55vh;
+    }
+
+    .support-group .chat-input-div {
+        position: relative;
+        bottom: 0;
+        top: 20px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .common-design .blue-trangle-bottom {
+        top: 20%;
+    }
+
+    .medical-main-div p {
+        font-size: 9px;
+    }
+
+    .medical-main-div .medic-icons img {
+        width: 20px;
+    }
+
+    .additionl-main-div .heading {
+        font-size: 18px !important;
+    }
+
+    .allergy .others-div {
+        display: block !important;
+    }
+
+    .allergy .others-div input {
+        width: 100px;
+    }
+
+    .journal .heading-title {
+        padding-left: 10px;
+    }
+
+    .journal .tab-div .tabs {
+        width: 90%;
+    }
+
+    .support-group .left-nav-bar {
+        height: 80vh;
+    }
+}

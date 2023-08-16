@@ -6,6 +6,9 @@ body {
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Syne:wght@800&display=swap');
 
+h1,
+h2,
+h3,
 h4,
 h5,
 h6,
@@ -15,9 +18,7 @@ button,
 a {
     font-family: 'Playfair Display' !important;
 }
-h1, h2, h3 {
-    font-family: 'Red Hat Display' !important;
-}
+
 a {
     text-decoration: none;
 }
@@ -177,7 +178,9 @@ a {
     cursor: pointer;
 }
 
-
+.cursor-pointer {
+    cursor: pointer;
+}
 .heading {
     color: #0512B9;
     font-weight: 700 !important;
@@ -213,7 +216,7 @@ a {
 
 .inner-main {
     background-image: url('../assets/blue-bg.png');
-    height: 100%;
+    height: 100vh;
 }
 
 .blue-trangle-left-side {
@@ -349,7 +352,7 @@ select {
     width: 100%;
     border: 1px solid #e6e6e6 !important;
     border-radius: 20px !important;
-    padding: 10px 40px !important;
+    padding: 10px 40px 10px 50px !important;
     /* margin: 10px 0px !important; */
     outline: 0 !important;
     box-shadow: none !important;
@@ -537,13 +540,13 @@ input[type="date"]:before {
 
 /* additional information */
 .additionl-main-div .hight-input {
-    width: 60px;
-    height: 24px;
+    width: 65px;
+    height: 26px;
     border: 0;
     outline: 0;
     border-radius: 50px;
     background-color: #f1f1f1;
-    padding: 1px 10px;
+    padding: 10px 10px;
 }
 
 .additionl-main-div .heading {
@@ -626,6 +629,7 @@ input[type="date"]:before {
 .medical-main-div p {
     color: #0512b9;
     font-weight: 700;
+    font-family: 'Playfair Display Black' !important;
 }
 
 .inner-main-div p {
@@ -674,24 +678,37 @@ input[type="date"]:before {
 }
 
 .journal .blog-div .blog-cards .card-image img {
-    border-radius: 30px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
 .journal .audio-div .blog-cards .card-image img {
-    border-radius: 30px 30px 0 0;
+    border-radius: 10px 10px 0 0;
     cursor: pointer;
 }
 
 .journal .audio-div .blog-cards .card-image audio {
-    border-radius: 0 0 30px 30px;
+    border-radius: 0 0 10px 10px;
     width: 100%;
     background-color: #f1f3f4;
+    border: 1px solid #ccc;
+}
+
+.journal .article-div .blog-cards .card-image {
+    border-radius: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
 }
 
 .journal .blog-div .blog-cards .card-image iframe {
-    border-radius: 30px;
+    border-radius: 5px;
     cursor: pointer;
+}
+
+.journal .blog-div .blog-cards .card-image video {
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
 }
 
 .journal .blog-div .blog-cards .card-name img {
@@ -797,7 +814,9 @@ span {
 .nav-pills-custom .nav-link span {
     color: #ffffff;
 }
-
+.nav-pills .nav-link {
+    border-radius: 0;
+}
 .nav-pills-custom .nav-link {
     color: #ffffff;
     position: relative;
@@ -811,20 +830,40 @@ span {
     background-color: #b8b9f1 !important;
 }
 
+.support-group .mental-health-div {
+    background: linear-gradient(to top, #b8b9f1 0%, #ffffff 100%);
+}
+
 .support-group .skin-care-link {
     background-color: #ffb4bb !important;
+}
+
+.support-group .skin-care-div {
+    background: linear-gradient(to top, #ffb4bb 0%, #ffffff 100%);
 }
 
 .support-group .dental-link {
     background-color: #b9e2fe !important;
 }
 
+.support-group .dental-care-div {
+    background: linear-gradient(to top, #b9e2fe 0%, #ffffff 100%);
+}
+
 .support-group .nutrition-link {
     background-color: #97c6a2 !important;
 }
 
+.support-group .nutrition-care-div {
+    background: linear-gradient(to top, #97c6a2 0%, #ffffff 100%);
+}
+
 .support-group .pet-care-link {
     background-color: #e5e26d !important;
+}
+
+.support-group .pet-care-div {
+    background: linear-gradient(to top, #e5e26d 0%, #ffffff 100%);
 }
 
 .support-group .support-group-title h2 {
@@ -843,6 +882,7 @@ span {
     padding: 5px 7px;
     border-radius: 20px;
     font-size: 10px;
+    font-family: 'Playfair Display Black' !important;
 }
 
 .nav-pills-custom .nav-link.active::before {
@@ -885,28 +925,34 @@ span {
 
 .support-group .chat-input-div {
     position: absolute;
-    bottom: 40px;
+    bottom: 30px;
     z-index: 999;
-
+    width: 98%;
+    padding: 0 0 0 20px;
 }
-
+.h-100vh{
+    height: 100vh;
+}
 .support-group .chat-input-div input {
     width: 100%;
     border: 1px solid #000;
     border-radius: 20px;
     padding: 10px 15px;
-    font-family: 'Playfair Display' !important;
+    font-family: 'Playfair Display', serif;
     font-weight: 400 !important;
+    background: transparent;
+    outline: 0;
 }
 
 .support-group .chat-input-div input::placeholder {
     font-weight: 400 !important;
-    font-family: 'Playfair Display' !important;
+    font-family: 'Playfair Display', serif;
 }
 
 .support-group .chat-history-div {
     max-height: 70%;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .chat-container {
@@ -954,32 +1000,80 @@ span {
     border: 1px solid #CCC;
     background-color: #ffffff;
     /* border: 1px solid #000000; */
-    padding: 6px 8px;
+    padding: 6px 30px 6px 8px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -o-border-radius: 5px;
     border-radius: 5px;
     font-size: 12px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    box-shadow: 2px 5px 15px #a1a0a0;
+}
+.support-group .chat-name {
+    width: 30px;
+    text-align: center;
+}
+.support-group .chat-name span {
+    color: #000 !important;
+    font-size: 10px !important;
 }
 
 .chat-container .message-body p {
     margin: 0;
 }
+.chat-container .chat-more {
+    position: relative;
+    left: 20px;
+    bottom: 10px;
+    cursor: pointer;
+    height: 25px;
+    font-size: 18px;
+    z-index: 999;
+}
+.chat-container .msg-edit-box {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    width: 70px;
+    background: linear-gradient(to right, #ccc 0%, #ffffff 100%);
+    z-index: 999;
+    position: absolute;
+    right: 20px;
+    top: 22px;
+}
+.chat-container .show-edit-chat {
+    display: none;
+}
+
+/* .chat-container .chat-more:hover .show-edit-chat {
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+} */
+.chat-container .msg-edit-box span {
+    color: #000;
+    cursor: pointer;
+}
+.box-shadow {
+    box-shadow: 2px 5px 5px #ccc;
+    border-radius: 50%;
+}
+
 
 /* Add indicator arrow for the active tab */
 @media (min-width: 992px) {
     .nav-pills-custom .nav-link::before {
-        content: '';
+        content: url('../Suppor Group (BG  & Icons)/tab-check.png');
         display: block;
-        border-top: 8px solid transparent;
+        /* border-top: 8px solid transparent;
         border-left: 10px solid #fff;
-        border-bottom: 8px solid transparent;
+        border-bottom: 8px solid transparent; */
         position: absolute;
         top: 50%;
-        right: -10px;
+        right: 20px;
         transform: translateY(-50%);
         opacity: 0;
+        z-index: 1;
     }
 }
 
@@ -1180,7 +1274,13 @@ span {
     }
 
     .support-group .left-nav-bar {
-        height: 80vh;
+        height: 55vh;
+    }
+
+    .support-group .chat-input-div {
+        position: relative;
+        bottom: 0;
+        top: 20px;
     }
 }
 
