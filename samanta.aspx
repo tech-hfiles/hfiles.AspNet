@@ -73,6 +73,7 @@
                             <!-- <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
                             aria-expanded="false">Support Group
                             <span class="caret"></span></a>
+
                         <ul class="dropdown-menu p-0 pt-2">
                             <li class="px-4"><a tabindex="-1" href="#">JOIN GROUP</a></li>
                             <li class="disable-group px-4"><a tabindex="-1" href="#">CREATE GROUP</a></li>

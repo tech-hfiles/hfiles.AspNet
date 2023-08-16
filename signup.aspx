@@ -29,7 +29,7 @@
             <div class="col-lg-10 col-xl-10 col-md-11 col-sm-12 d-flex justify-content-center align-items-center">
                 <div class="row">
                     <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image">
-                        <img src="<%= ResolveUrl("~/Reception Page/Samanta-stand.png") %>" alt="" width="50%" />
+                        <img src="<%= ResolveUrl("~/Sign Up Page/Samanta.png") %>" alt="" width="50%" />
                     </div>
                     <div class="col-lg-6 col-xl-6 col-md-5 col-sm-12 px-5">
                         <div class="text-center signin-heading">
