@@ -228,7 +228,6 @@
     <Content Include="assets\Asset 8.png" />
     <Content Include="assets\Asset 9.png" />
     <Content Include="assets\Asset44.png" />
-    <Content Include="assets\blue-background.png" />
     <Content Include="assets\blue-bg.png" />
     <Content Include="assets\blue-trangle-1.png" />
     <Content Include="assets\blue-trangle-bottom-1.png" />
@@ -241,7 +240,6 @@
     <Content Include="assets\plus-2.png" />
     <Content Include="assets\plus-icon-3.png" />
     <Content Include="assets\plus.png" />
-    <Content Include="assets\samanta-stand-new.jpg" />
     <Content Include="assets\select-icon-gray.png" />
     <Content Include="avatar.aspx" />
     <Content Include="Avatar\01.png" />

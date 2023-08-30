@@ -79,6 +79,53 @@
             .custom-checkbox-list .checkbox-input:checked + .custom-checkbox .checkmark {
                 opacity: 1;
             }
+
+
+
+        /* Apply styles to the entire radio button list */
+        .custom-radio-list {
+            list-style: none;
+            padding: 0;
+        }
+
+            /* Hide the default radio input */
+            .custom-radio-list input[type="radio"] {
+                display: none;
+            }
+
+            /* Style the custom radio button indicator */
+            .custom-radio-list label {
+                position: relative;
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                border: 2px solid #999;
+                cursor: pointer;
+                background-color: white; /* Set the initial background color */
+            }
+
+            /* Style the green checkmark inside the custom radio button indicator */
+            .custom-radio-list input[type="radio"]:checked + label::before {
+                content: "✓"; /* Unicode character for a checkmark */
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 16px;
+                color: green;
+            }
+
+            /* Style the red cross inside the custom radio button indicator */
+            .custom-radio-list input[type="radio"]:not(:checked) + label::before {
+                content: "✕"; /* Unicode character for a multiplication sign (cross) */
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 16px;
+                color: red;
+            }
     </style>
 </head>
 
@@ -386,13 +433,28 @@
                             <div class="col-2 text-center">
                                 <p>No</p>
                             </div>
-                            <!-- <div class="col-2 text-center">
-                    <p>Maybe</p>
-                </div> -->
+
                         </div>
                         <div class="row inner-main-div">
                             <div class="col-12">
-                                <div class="row py-4 border-bottom allergy-row">
+                                <asp:Repeater runat="server" ID="rptAllergy">
+                                    <ItemTemplate>
+                                        <div class="row py-4 border-bottom allergy-row">
+                                            <div class="col-6 d-flex align-items-center">
+                                                <p class="m-0"><%# Eval("allergy_name") %></p>
+                                                <asp:HiddenField runat="server" ID="hfallergy_id" Value='<%# Eval("allergy_id") %>' />
+                                            </div>
+                                            <div class="col-4 text-center">
+                                                <asp:RadioButtonList runat="server" ID="rblAllergy" class="col-6" CssClass="custom-radio-list" RepeatDirection="Horizontal">
+                                                    <asp:ListItem Value="1" />
+                                                    <asp:ListItem Value="0" />
+                                                </asp:RadioButtonList>
+
+                                            </div>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                                <%--  <div class="row py-4 border-bottom allergy-row">
                                     <div class="col-6 d-flex align-items-center">
                                         <p class="m-0">Peanuts</p>
                                     </div>
@@ -439,9 +501,7 @@
                                         <img src="../assets/not-select.png" alt="" srcset="" class="allergy-check-img" data-value="no">
                                         <!-- <img class="d-none" src="../assets/select.png" alt="" srcset=""> -->
                                     </div>
-                                    <!-- <div class="col-2 text-center">
-                            <img src="../assets/not-select.png" alt="" srcset="">
-                        </div> -->
+
                                 </div>
                                 <div class="row py-4 border-bottom">
                                     <div class="col-6 d-flex align-items-center">
@@ -450,15 +510,11 @@
                                     <div class="col-2 text-center">
                                         <input class="allergy-radio" type="hidden" name="fish" value="">
                                         <img src="../assets/select.png" alt="" srcset="" class="allergy-check-img" data-value="yes">
-                                        <!-- <img class="d-none" src="../assets/not-select.png" alt="" srcset=""> -->
                                     </div>
                                     <div class="col-2 text-center">
                                         <img src="../assets/not-select.png" alt="" srcset="" class="allergy-check-img" data-value="no">
-                                        <!-- <img class="d-none" src="../assets/select.png" alt="" srcset=""> -->
                                     </div>
-                                    <!-- <div class="col-2 text-center">
-                            <img src="../assets/not-select.png" alt="" srcset="">
-                        </div> -->
+
                                 </div>
                                 <div class="row py-4 border-bottom">
                                     <div class="col-6 others-div">
@@ -468,24 +524,18 @@
                                     <div class="col-2 text-center">
                                         <input class="allergy-radio" type="hidden" name="others" value="">
                                         <img src="../assets/select.png" alt="" srcset="" class="allergy-check-img" data-value="yes">
-                                        <!-- <img class="d-none" src="../assets/not-select.png" alt="" srcset=""> -->
                                     </div>
                                     <div class="col-2 text-center">
                                         <img src="../assets/not-select.png" alt="" srcset="" class="allergy-check-img" data-value="no">
-                                        <!-- <img class="d-none" src="../assets/select.png" alt="" srcset=""> -->
                                     </div>
-                                    <!-- <div class="col-2 text-center">
-                            <img src="../assets/not-select.png" alt="" srcset="">
-                        </div> -->
-                                </div>
+
+                                </div>--%>
                             </div>
                         </div>
                     </div>
                     <div class="medic-his-btn mt-3">
-                        <a href="#">
-                            <button class="thm-back-button my-2">Back</button></a>
-                        <a href="#">
-                            <button class="thm-blue-button my-2">Save</button></a>
+                        <asp:Button Text="Back" CssClass="thm-back-button my-2" ID="btnAllergyBack" OnClick="btnAllergyBack_Click" runat="server" />
+                        <asp:Button Text="Save" CssClass="thm-blue-button" ID="btnSaveAllergy" OnClick="btnSaveAllergy_Click" runat="server" />
                     </div>
                 </div>
             </ContentTemplate>
@@ -494,10 +544,6 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
-        //window.onload = function () {
-
-        //  document.getElementById('medicalHistoryDiv').style.display = "none";
-        //};
 
         let isSelectSmoke = '';
         let isSelectAlcohol = '';

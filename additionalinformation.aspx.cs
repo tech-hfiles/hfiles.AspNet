@@ -14,9 +14,10 @@ namespace hfiles
         #region variable
         string cs = ConfigurationManager.ConnectionStrings["signage"].ConnectionString, img, ext;
 
-
         #endregion
-        //#region event
+
+        #region Events
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Userid"] != null)
@@ -25,10 +26,9 @@ namespace hfiles
                 {
                     AdditionalDiv.Visible = true;
                     medicalHistoryDiv.Visible = false;
+                    AllergiesDiv.Visible = false;
                     updateUserDetails("E");
                     user_surgery();
-                    disease_master();
-                    get_disease();
                 }
             }
             else
@@ -50,6 +50,88 @@ namespace hfiles
 
             }
         }
+        protected void btnUpdateAdditional_Click(object sender, EventArgs e)// for updating height weight
+        {
+            AdditionalDiv.Visible = false;
+            updateUserDetails("U");
+            addSurgery("C");
+            disease_master();
+            get_disease();
+            clear();
+            medicalHistoryDiv.Visible = true;
+        }
+        protected void btnMedicalHistory_Click(object sender, EventArgs e)
+        {
+            addUpdateDisease();
+            allergy_master();
+            get_user_allergy();
+            AdditionalDiv.Visible = false;
+            medicalHistoryDiv.Visible = false;
+            AllergiesDiv.Visible = true;
+        }
+        protected void btnMedicalBack_Click(object sender, EventArgs e)
+        {
+            updateUserDetails("E");
+            AdditionalDiv.Visible = true;
+            medicalHistoryDiv.Visible = false;
+            AllergiesDiv.Visible = false;
+        }
+        private void updateUserDetails(string sptype)
+        {
+            using (MySqlConnection con = new MySqlConnection(cs))
+            {
+                con.Open();
+                using (MySqlCommand cmd = new MySqlCommand("updateuser", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("_user_id", DAL.validateInt(Session["Userid"])); //Session["Userid"];
+                    cmd.Parameters.AddWithValue("_user_height", DAL.validateDouble(heightfeetTextBox.Value + "." + heightinchTextBox.Value));
+                    cmd.Parameters.AddWithValue("_user_weight", DAL.validateDouble(weightTextBox.Value));
+                    cmd.Parameters.AddWithValue("_user_smoke", DAL.validateInt(hfDoyouSmoke.Value));
+                    cmd.Parameters.AddWithValue("_user_alcohol", DAL.validateInt(hfDoyouConsumeAlcohol.Value));
+                    cmd.Parameters.AddWithValue("_spType", sptype);
+                    if (sptype.Equals("C"))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    else if (sptype.Equals("E"))
+                    {
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        if (dr.Read())
+                        {
+                            heightfeetTextBox.Value = dr["user_height"].ToString().Split('.')[0];
+                            heightinchTextBox.Value = dr["user_height"].ToString().Split('.')[1];
+                            weightTextBox.Value = dr["user_weight"].ToString();
+                            hfDoyouSmoke.Value = dr["user_smoke"].ToString();
+                            hfDoyouConsumeAlcohol.Value = dr["user_alcohol"].ToString();
+                            txtSurgeries.Value = dr["user_alcohol"].ToString();
+                        }
+                    }
+                }
+            }
+        }
+        protected void btnAllergyBack_Click(object sender, EventArgs e)
+        {
+            AdditionalDiv.Visible = false;
+            medicalHistoryDiv.Visible = true;
+            AllergiesDiv.Visible = false;
+        }
+        protected void btnSaveAllergy_Click(object sender, EventArgs e)
+        {
+            addUpdateAllergy();
+        }
+
+
+        #endregion
+
+        #region functions
+        protected void clear()
+        {
+            heightfeetTextBox.Value = heightinchTextBox.Value = weightTextBox.Value = hfDoyouSmoke.Value = hfDoyouConsumeAlcohol.Value = txtSurgeries.Value = yearpicker1.SelectedValue = String.Empty;
+            yearpicker1.ClearSelection();
+
+        }
+
         protected void disease_master()
         {
             using (MySqlConnection con = new MySqlConnection(cs))
@@ -63,6 +145,24 @@ namespace hfiles
                     da.Fill(dt);
                     rptDisease.DataSource = dt;
                     rptDisease.DataBind();
+
+
+                }
+            }
+        }
+        protected void allergy_master()
+        {
+            using (MySqlConnection con = new MySqlConnection(cs))
+            {
+                con.Open();
+                using (MySqlCommand cmd = new MySqlCommand("get_allergy_master", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    rptAllergy.DataSource = dt;
+                    rptAllergy.DataBind();
 
 
                 }
@@ -119,6 +219,37 @@ namespace hfiles
                             //cbl.SelectedValue = dr["user_father"].ToString() == "1" ? "3" : "0";
 
 
+                        }
+                    }
+                }
+            }
+        }
+        protected void get_user_allergy()
+        {
+
+            using (MySqlConnection con = new MySqlConnection(cs))
+            {
+                con.Open();
+                using (MySqlCommand cmd = new MySqlCommand("get_user_allergy", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("_user_id", DAL.validateInt(Session["Userid"])); //Session["Userid"];
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+
+
+                    foreach (RepeaterItem item in rptAllergy.Items)
+                    {
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            HiddenField hfallergy_id = item.FindControl("hfallergy_id") as HiddenField;
+                            if (hfallergy_id.Value == dt.Rows[i]["allergy_id"].ToString())
+                            {
+                                RadioButtonList rbl = item.FindControl("rblAllergy") as RadioButtonList;
+                                rbl.Items.FindByValue(dt.Rows[i]["yesNo"].ToString()).Selected = true;
+                            }
                         }
                     }
                 }
@@ -199,6 +330,7 @@ namespace hfiles
             //}
         }
 
+
         private void addSurgery(string sptype)
         {
             using (MySqlConnection con = new MySqlConnection(cs))
@@ -263,67 +395,40 @@ namespace hfiles
 
             }
         }
-        protected void btnUpdateAdditional_Click(object sender, EventArgs e)
-        {
-            AdditionalDiv.Visible = false;
-            updateUserDetails("U");
-            addSurgery("C");
-            clear();
-            medicalHistoryDiv.Visible = true;
-        }
 
-        protected void btnMedicalHistory_Click(object sender, EventArgs e)
+        private void addUpdateAllergy()
         {
-            addUpdateDisease();
-        }
-
-        protected void btnMedicalBack_Click(object sender, EventArgs e)
-        {
-            updateUserDetails("E");
-            AdditionalDiv.Visible = true;
-            medicalHistoryDiv.Visible = false;
-        }
-
-        private void updateUserDetails(string sptype)
-        {
-            using (MySqlConnection con = new MySqlConnection(cs))
+            foreach (RepeaterItem item in rptAllergy.Items)
             {
-                con.Open();
-                using (MySqlCommand cmd = new MySqlCommand("updateuser", con))
+                HiddenField hfallergy_id = item.FindControl("hfallergy_id") as HiddenField;
+                RadioButtonList rbl = item.FindControl("rblAllergy") as RadioButtonList;
+
+                int value_ = 0;
+                if (rbl.SelectedItem != null)
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("_user_id", DAL.validateInt(Session["Userid"])); //Session["Userid"];
-                    cmd.Parameters.AddWithValue("_user_height", DAL.validateDouble(heightfeetTextBox.Value + "." + heightinchTextBox.Value));
-                    cmd.Parameters.AddWithValue("_user_weight", DAL.validateDouble(weightTextBox.Value));
-                    cmd.Parameters.AddWithValue("_user_smoke", DAL.validateInt(hfDoyouSmoke.Value));
-                    cmd.Parameters.AddWithValue("_user_alcohol", DAL.validateInt(hfDoyouConsumeAlcohol.Value));
-                    cmd.Parameters.AddWithValue("_spType", sptype);
-                    if (sptype.Equals("C"))
+                    if (DAL.validateInt(rbl.SelectedItem.Value) == 1)
                     {
-                        cmd.ExecuteNonQuery();
-                    }
-                    else if (sptype.Equals("E"))
-                    {
-                        MySqlDataReader dr = cmd.ExecuteReader();
-                        if (dr.Read())
-                        {
-                            heightfeetTextBox.Value = dr["user_height"].ToString().Split('.')[0];
-                            heightinchTextBox.Value = dr["user_height"].ToString().Split('.')[1];
-                            weightTextBox.Value = dr["user_weight"].ToString();
-                            hfDoyouSmoke.Value = dr["user_smoke"].ToString();
-                            hfDoyouConsumeAlcohol.Value = dr["user_alcohol"].ToString();
-                            txtSurgeries.Value = dr["user_alcohol"].ToString();
-                        }
+                        value_ = 1;
                     }
                 }
+
+
+                using (MySqlConnection con = new MySqlConnection(cs))
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("add_update_allergy", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("_user_id", DAL.validateInt(Session["Userid"])); //Session["Userid"];
+                        cmd.Parameters.AddWithValue("_allergy_id", DAL.validateInt(hfallergy_id.Value));
+                        cmd.Parameters.AddWithValue("_yesNo", DAL.validateInt(value_));
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+
             }
         }
-        protected void clear()
-        {
-            heightfeetTextBox.Value = heightinchTextBox.Value = weightTextBox.Value = hfDoyouSmoke.Value = hfDoyouConsumeAlcohol.Value = txtSurgeries.Value = yearpicker1.SelectedValue = String.Empty;
-            yearpicker1.ClearSelection();
-
-        }
-        //#endregion
+        #endregion
     }
 }
