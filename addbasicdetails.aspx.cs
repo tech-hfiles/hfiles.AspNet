@@ -15,21 +15,38 @@ namespace hfiles
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                //firstNameTextBox.Value = Session["firstname"].ToString();
-                //lastNameTextBox.Value = Session["lastname"].ToString();
-                //emailTextBox.Value = Session["email"].ToString();
-                //contactTextBox.Value = Session["phone"].ToString();
-                //DAL.SendCareerMail("HFiles, Registration Completed - " + DateTime.Now.ToString("dd/MM/yyyy"), "Hello " + firstNameTextBox.Value + ", ", "Kuldeep@digitaledgetech.in");
 
-                //DAL.SendCareerMail("New User - " + DateTime.Now.ToString("dd/MM/yyyy"), firstNameTextBox.Value + " " + lastNameTextBox.Value + " has registered.", "Kuldeep@digitaledgetech.in");// emailTextBox.Value);
+            if (Session["firstname"] != null && Session["lastname"] != null && Session["email"] != null && Session["phone"] != null)
+            {
+                if (!IsPostBack)
+                {
+
+                    firstNameTextBox.Value = Session["firstname"].ToString();
+                    lastNameTextBox.Value = Session["lastname"].ToString();
+                    emailTextBox.Value = Session["email"].ToString();
+                    contactTextBox.Value = Session["phone"].ToString();
+                    //DAL.SendCareerMail("HFiles, Registration Completed - " + DateTime.Now.ToString("dd/MM/yyyy"), "Hello " + firstNameTextBox.Value + ", ", "Kuldeep@digitaledgetech.in");
+
+                    //DAL.SendCareerMail("New User - " + DateTime.Now.ToString("dd/MM/yyyy"), firstNameTextBox.Value + " " + lastNameTextBox.Value + " has registered.", "Kuldeep@digitaledgetech.in");// emailTextBox.Value);
+
+                }
+            }
+            else
+            {
+                Response.Redirect("~/login.aspx");
             }
         }
-
+        public static string GenerateId()
+        {
+            Random random = new Random();
+            const string chars = "0123456789";
+            return new string(Enumerable.Repeat(chars, 4)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
         protected void submitButton_Click(object sender, EventArgs e)
         {
             #region variable
+            string member = "HF" + GenerateId() + "MEM";
             string connectionString = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -50,15 +67,15 @@ namespace hfiles
                     command.Parameters.AddWithValue("_user_relativecontact", relativecontactTextBox.Value);
                     command.Parameters.AddWithValue("_user_email", emailTextBox.Value);
                     command.Parameters.AddWithValue("_user_doctor", famdocTextBox.Value);
-                    command.Parameters.AddWithValue("_user_membernumber", "ABC001MEM");
+                    command.Parameters.AddWithValue("_user_membernumber", member);
                     connection.Open();
                     command.ExecuteNonQuery();
                     connection.Close();
-                    clear();
                 }
             }
             DAL.SendCareerMail("HFiles, Registration Completed - " + DateTime.Now.ToString("dd/MM/yyyy"), "Hello " + firstNameTextBox.Value + ", ", emailTextBox.Value);
 
+            clear();
             //MySqlParameter[] P = new MySqlParameter{new MySqlParameter("user_firstname", ), new MySqlParameter("user_lastname", )};//Define size
             //DataTable dt = new DataTable();
             //dt = DAL.ExecuteQuery("usp_getsubjectbycategory", CommandType.StoredProcedure, P);

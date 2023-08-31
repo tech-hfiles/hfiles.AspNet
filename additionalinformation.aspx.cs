@@ -90,7 +90,7 @@ namespace hfiles
                     cmd.Parameters.AddWithValue("_user_smoke", DAL.validateInt(hfDoyouSmoke.Value));
                     cmd.Parameters.AddWithValue("_user_alcohol", DAL.validateInt(hfDoyouConsumeAlcohol.Value));
                     cmd.Parameters.AddWithValue("_spType", sptype);
-                    if (sptype.Equals("C"))
+                    if (sptype.Equals("C") ||  sptype.Equals("U"))
                     {
                         cmd.ExecuteNonQuery();
                     }
@@ -99,8 +99,8 @@ namespace hfiles
                         MySqlDataReader dr = cmd.ExecuteReader();
                         if (dr.Read())
                         {
-                            heightfeetTextBox.Value = dr["user_height"].ToString().Split('.')[0];
-                            heightinchTextBox.Value = dr["user_height"].ToString().Split('.')[1];
+                            heightfeetTextBox.Value = dr["user_height"].ToString() != string.Empty ? dr["user_height"].ToString().Split('.')[0] : "";
+                            heightinchTextBox.Value = dr["user_height"].ToString() != string.Empty ? dr["user_height"].ToString().Split('.')[1] : "";
                             weightTextBox.Value = dr["user_weight"].ToString();
                             hfDoyouSmoke.Value = dr["user_smoke"].ToString();
                             hfDoyouConsumeAlcohol.Value = dr["user_alcohol"].ToString();
@@ -267,8 +267,11 @@ namespace hfiles
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
-                    txtSurgeries.Value = dt.Rows[0]["user_surgery_details"].ToString();
-                    yearpicker1.SelectedValue = dt.Rows[0]["user_surgery_year"].ToString();
+                    if (dt.Rows.Count > 0)
+                    {
+                        txtSurgeries.Value = dt.Rows[0]["user_surgery_details"].ToString();
+                        yearpicker1.SelectedValue = dt.Rows[0]["user_surgery_year"].ToString();
+                    }
 
 
                 }

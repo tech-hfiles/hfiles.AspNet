@@ -13,10 +13,6 @@ namespace hfiles
 {
     public partial class signup : System.Web.UI.Page
     {
-        private const string SmtpServer = "smtp.gmail.com";
-        private const int SmtpPort = 587; // Update with your SMTP port
-        private const string SmtpUsername = "dshah0287@gmail.com";
-        private const string SmtpPassword = "";
         string connectionString = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,29 +28,6 @@ namespace hfiles
             const string chars = "0123456789";
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
-        }
-
-        public static void SendEmail(string email, string subject, string body)
-        {
-            try
-            {
-                MailMessage mailMessage = new MailMessage();
-                mailMessage.From = new MailAddress(SmtpUsername);
-                mailMessage.To.Add(email);
-                mailMessage.Subject = subject;
-                mailMessage.Body = body;
-
-                SmtpClient smtpClient = new SmtpClient(SmtpServer, SmtpPort);
-                smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = new NetworkCredential(SmtpUsername, SmtpPassword);
-                smtpClient.EnableSsl = true;
-
-                smtpClient.Send(mailMessage);
-            }
-            catch (Exception ex)
-            {
-                // Handle exception here
-            }
         }
 
         protected void signup_Click(object sender, EventArgs e)
