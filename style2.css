@@ -18,7 +18,40 @@ p,
 button {
     font-family: 'Playfair Display' !important;
 }
-
+.top-home-icons {
+    top: 0 !important;
+    right: 0 !important;
+    width: 100%;
+    border-bottom: 1px solid #192184;
+    padding: 2px 0;
+    background: #192184;
+}
+.common-heading img{
+    width: 100% !important;
+    height: 30px !important;
+}
+.footer {
+    background: #192184;
+}
+.footer a{
+    color: #ffffff;
+}
+.footer span{
+    color: #ffffff;
+}
+.top-home-icons img {
+    width: 20px;
+    height: 20px;
+    margin: 0px 5px;
+}
+.t-c a{
+    color: #ffffff;
+    font-size: 12px;
+}
+.p-p a {
+    color: #ffffff;
+    font-size: 12px;
+}
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -37,11 +70,14 @@ button {
 }
 
 /* privacy policy and term&condition */
-.privacy_main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.h-100vh {
     height: 100vh;
+}
+.privacy_main {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* height: 100vh; */
 }
 
 .privacy_main .inner_div {
@@ -50,7 +86,7 @@ button {
 }
 
 .privacy_main .inner_div .desciption {
-    height: 66%;
+    height: 90%;
     overflow: auto;
     padding: 1px 10px;
 }
@@ -92,6 +128,13 @@ button {
 }
 
 .privacy_main .blue_trangle_bottom_right {
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    height: 100px;
+    z-index: -1;
+}
+.common_blue_trangle_bottom_right {
     position: absolute;
     bottom: 0;
     right: 10%;
@@ -527,6 +570,7 @@ select:hover {
 
 .journal .blue_trangle_top_left {
     position: absolute;
+    top: 0;
     left: 0;
     height: 90px;
     z-index: -1;
@@ -582,7 +626,7 @@ select:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px 20px;
+    padding: 30px 20px;
 }
 
 .journal .journal_main .inner_div {

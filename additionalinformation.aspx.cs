@@ -90,7 +90,7 @@ namespace hfiles
                     cmd.Parameters.AddWithValue("_user_smoke", DAL.validateInt(hfDoyouSmoke.Value));
                     cmd.Parameters.AddWithValue("_user_alcohol", DAL.validateInt(hfDoyouConsumeAlcohol.Value));
                     cmd.Parameters.AddWithValue("_spType", sptype);
-                    if (sptype.Equals("C") ||  sptype.Equals("U"))
+                    if (sptype.Equals("C") || sptype.Equals("U"))
                     {
                         cmd.ExecuteNonQuery();
                     }
@@ -207,8 +207,6 @@ namespace hfiles
                                     cbl.Items.FindByValue("3").Selected = true;
                                 }
                             }
-
-
 
                             //int my = 0;
                             //int fa = 0;
@@ -394,7 +392,6 @@ namespace hfiles
                         cmd.ExecuteNonQuery();
                     }
                 }
-
 
             }
         }

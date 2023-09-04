@@ -57,7 +57,7 @@ namespace hfiles
                     otpButton.Text = "GET OTP";
                     divOtp.Visible = true;
                     //Pop Up Message
-                    Response.Redirect("~/signup.aspx"); //Redirect to registration page
+                    //Response.Redirect("~/signup.aspx"); //Redirect to registration page
                 }
             }
             else if (otpButton.Text == "SIGN IN")
@@ -66,7 +66,12 @@ namespace hfiles
                 {
                     if (otpTextBox.Value == ViewState["OTPvalue"].ToString())
                     {
-                        Response.Redirect("~/Samanta.aspx");
+                        errorLabel.Text = "";
+                        Response.Redirect("~/Samanta.aspx");//Redirect to registration page
+                    }
+                    else
+                    {
+                        errorLabel.Text = "Inavlid OTP, please enter the correct OTP.";
                     }
                 }
             }

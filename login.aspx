@@ -21,7 +21,7 @@
 <body style="overflow: hidden;">
     <div class="language">
         <details>
-            <summary>language</summary> 
+            <summary>language</summary>
             <ul id="language">
                 <li>English</li>
             </ul>
@@ -32,23 +32,6 @@
         <div class="col-sm-12 col-lg-6 h-100 h-70" style="text-align: center;">
 
             <img src="../assets/features-hero-6.png" alt="" style="width: 80%; margin: 145px 0 0 0;">
-            <%--<img src="../assets/blue-trangle.png" alt="" class="blue-trangle-right-side-top">
-            <img src="../assets/plus-1.png" alt="" class="plus-right-side-top">
-            <div class="d-flex align-items-center justify-content-center h-100 inner-body-right">
-                <div>
-                    <h1>Welcome Back!</h1>
-                    <div class="text-center">
-                        <span>Start Your Health</span><br />
-                        <span>Journey With Us!</span>
-                    </div>
-                    <div class="text-center my-1">
-                        <asp:LinkButton ID="signupButton" PostBackUrl="~/signup.aspx" runat="server" Text="Sign Up" class="btn thm-button mt-3" />
-                    </div>
-                </div>
-
-            </div>
-            <img src="../assets/plus-2.png" alt="" class="plus-right-side-bottom">
-            <img src="../assets/blue-trangle-bottom.png" alt="" class="blue-trangle-right-side-bottom">--%>
         </div>
         <div class="col-sm-12 col-lg-6 inner-main">
             <div class="d-flex align-items-center justify-content-center h-100 inner-body">
@@ -58,19 +41,20 @@
                         <input runat="server" required id="emailTextBox" class="w-100 login-input" type="Text" placeholder="Phone No / Email" />
                     </div>
                     <div runat="server" id="divOtp">
-                        <input runat="server" id="otpTextBox" autocomplete="off" class="w-100 login-input" type="Text" placeholder="Enter OTP" />
+                        <input runat="server" required id="otpTextBox" autocomplete="off" class="w-100 login-input" type="Text" placeholder="Enter OTP" />
                     </div>
                     <div class="text-center my-1">
                         <asp:Button ID="otpButton" OnClick="signup_Click" runat="server" Text="GET OTP" class="btn thm-button my-2"></asp:Button>
+                        <asp:Label Text="" ID="errorLabel" runat="server" />
                     </div>
                     <div class="text-center resend-otp-div">
-                        <span class="mx-2"><a href="#">Resend OTP</a></span>
-                        <span><a href="#">Change Login ?</a></span>
+                        <span class="mx-2">
+                            <asp:LinkButton ID="resendLinkButton" runat="server">Resend OTP</asp:LinkButton></span>
+                        <span>New User? Click <a href="signup.aspx">here</a> to Signup</span>
                     </div>
                 </div>
             </div>
         </div>
-
     </form>
 </body>
 </html>

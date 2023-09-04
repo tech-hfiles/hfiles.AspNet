@@ -96,13 +96,14 @@ namespace hfiles
                         Session["email"] = emailTextBox.Value;
                         Session["firstname"] = firstnameTextBox.Value;
                         Session["lastname"] = lastnameTextBox.Value;
-
+                        errorLabel.Text = "";
                         //Details to be saved in user details table
                         Response.Redirect("addbasicdetails.aspx");
                     }
                     else
                     {
                         // OTP is invalid
+                        errorLabel.Text = "Inavlid OTP, please enter the correct OTP.";
                     }
                 }
 

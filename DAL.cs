@@ -51,7 +51,7 @@ namespace hfiles
 
             using (var smtp = new MailKit.Net.Smtp.SmtpClient())
             {
-                smtp.Connect(mailServer, mailPort, false);
+                smtp.Connect(mailServer, mailPort, true);
                 smtp.Authenticate(fromMail, mailPassword);
                 smtp.Send(email);
                 smtp.Disconnect(true);

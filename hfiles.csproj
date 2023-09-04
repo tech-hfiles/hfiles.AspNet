@@ -465,6 +465,8 @@
     <Content Include="Pages\TermAndCondition.html" />
     <Content Include="Pages\UserInfoPage.html" />
     <Content Include="Pages\Welcome.html" />
+    <Content Include="Reception Page\002A.jpg" />
+    <Content Include="Reception Page\002B.png" />
     <Content Include="Reception Page\about.png" />
     <Content Include="Reception Page\add-icon.png" />
     <Content Include="Reception Page\Asset 1.png" />

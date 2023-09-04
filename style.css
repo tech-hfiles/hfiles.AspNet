@@ -20,13 +20,20 @@ a {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 .h-90 {
     height: 90%;
 }
-
+.t-c a{
+    color: #ffffff;
+    font-size: 12px;
+}
+.p-p a {
+    color: #ffffff;
+    font-size: 12px;
+}
 .thm-button {
     padding: 10px 40px;
     background: #fdd001;
@@ -177,10 +184,36 @@ a {
     border-radius: 50%;
     cursor: pointer;
 }
-
+.top-home-icons {
+    top: 0 !important;
+    right: 0 !important;
+    width: 100%;
+    border-bottom: 1px solid #192184;
+   padding: 2px 0;
+    background: #192184;
+}
+.top-home-icons img {
+    width: 20px;
+    height: 20px;
+    margin: 0px 5px;
+}
+.common-heading img {
+    width: 100% !important;
+    height: 30px !important;
+}
+.footer {
+    background: #192184;
+}
+.footer a{
+    color: #ffffff;
+}
+.footer span{
+    color: #ffffff;
+}
 .cursor-pointer {
     cursor: pointer;
 }
+
 .heading {
     color: #0512B9;
     font-weight: 700 !important;
@@ -356,9 +389,14 @@ select {
     /* margin: 10px 0px !important; */
     outline: 0 !important;
     box-shadow: none !important;
+    
+}
+.signin-form input {
+    color: #0512b9;
+}
+.signin-form select {
     color: #e6e6e6;
 }
-
 .signin-form input:focus {
     outline: 0;
     box-shadow: none;
@@ -507,7 +545,7 @@ select {
 }
 
 .user-info-main .blue-trangle-bottom-left {
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0px;
     height: 100px;
@@ -516,13 +554,15 @@ select {
 }
 
 .user-info-main .blue-trangle-bottom-right {
-    position: absolute;
+    position: relative;
     bottom: 0;
-    right: 50px;
+    /* right: 0; */
     height: 50px;
     z-index: -1;
-
+    top: 30px;
+    left: 55%;
 }
+
 
 input[type="date"]:before {
     color: #e8e6e6;
@@ -648,6 +688,21 @@ input[type="date"]:before {
     text-align: center;
 }
 
+span.img-selected {
+    background-image: url("../assets/select.png");
+}
+
+span.img-notselected {
+    background-image: url("../assets/select.png");
+}
+
+.allergy-radio {
+    position: absolute;
+    height: 26px;
+    width: 22px;
+    visibility: hidden;
+}
+
 /* journal page */
 .journal .heading-title {
     padding-left: 110px;
@@ -721,8 +776,12 @@ input[type="date"]:before {
     color: #d6d6d6;
 }
 
-.journal .tab-div .tabs a,
-span {
+.journal .tab-div .tabs a {
+    color: #d6d6d6;
+    text-decoration: none;
+}
+
+.journal .tab-div .tabs span {
     color: #d6d6d6;
     text-decoration: none;
 }
@@ -814,9 +873,11 @@ span {
 .nav-pills-custom .nav-link span {
     color: #ffffff;
 }
+
 .nav-pills .nav-link {
     border-radius: 0;
 }
+
 .nav-pills-custom .nav-link {
     color: #ffffff;
     position: relative;
@@ -930,9 +991,11 @@ span {
     width: 98%;
     padding: 0 0 0 20px;
 }
-.h-100vh{
+
+.h-100vh {
     height: 100vh;
 }
+
 .support-group .chat-input-div input {
     width: 100%;
     border: 1px solid #000;
@@ -1008,10 +1071,12 @@ span {
     font-size: 12px;
     box-shadow: 2px 5px 15px #a1a0a0;
 }
+
 .support-group .chat-name {
     width: 30px;
     text-align: center;
 }
+
 .support-group .chat-name span {
     color: #000 !important;
     font-size: 10px !important;
@@ -1020,6 +1085,7 @@ span {
 .chat-container .message-body p {
     margin: 0;
 }
+
 .chat-container .chat-more {
     position: relative;
     left: 20px;
@@ -1029,8 +1095,9 @@ span {
     font-size: 18px;
     z-index: 999;
 }
+
 .chat-container .msg-edit-box {
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 20px;
@@ -1041,6 +1108,7 @@ span {
     right: 20px;
     top: 22px;
 }
+
 .chat-container .show-edit-chat {
     display: none;
 }
@@ -1054,11 +1122,110 @@ span {
     color: #000;
     cursor: pointer;
 }
+
 .box-shadow {
     box-shadow: 2px 5px 5px #ccc;
     border-radius: 50%;
 }
 
+
+
+
+/* upload file */
+
+.upload-file {
+    background: #ebebeb;
+}
+
+.top-header-div {
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.top-header-div span {
+    color: #000;
+    font-weight: 600;
+}
+
+.upload-file .table-div {
+    padding: 15px 10px;
+    margin: 20px 10px;
+    background-color: #ffffff;
+}
+.upload-file .table-striped>tbody>tr:nth-of-type(odd)>*{
+    background: #ffffff !important;
+    --bs-table-bg-type: #ffffff; 
+}
+.upload-file .product-search {
+    padding: 5px 10px 5px 30px;
+    border-radius: 30px;
+    width: 65%;
+    border: 1px solid #ccc;
+    outline: 0;
+}
+.upload-file .fa-magnifying-glass {
+    position: absolute;
+    top: 10px;
+    margin-left: 10px;
+  }
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .pagination .pages {
+    display: flex;
+    flex-direction: row;
+  }
+  .pagination .page {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .pagination .page:hover {
+    background-color: #087f5b;
+    color: #fff;
+  }
+
+  .pagination .active {
+    background-color: #087f5b;
+    color: #fff;
+  }
+
+  .pagination .btn {
+    background-color: #fff;
+    border: 1px solid #087f5b;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pagination .btn:hover {
+    background-color: #087f5b;
+  }
+  .pagination .btn--icon {
+    height: 24px;
+    width: 24px;
+    stroke: #087f5b;
+  }
+  .pagination .btn--icon:hover {
+    stroke: #fff;
+  }
+  
+
+/* upload file */
 
 /* Add indicator arrow for the active tab */
 @media (min-width: 992px) {
@@ -1106,8 +1273,8 @@ span {
 
 @media only screen and (max-width: 786px) {
     .user-info-main .blue-trangle-bottom-right {
-        position: relative;
-        right: 0px;
+       left: 10% !important;
+       top: 0;
     }
 
     .user-info-main .blue-trangle-bottom-left {
@@ -1274,13 +1441,19 @@ span {
     }
 
     .support-group .left-nav-bar {
-        height: 55vh;
+        height: 70vh;
     }
 
     .support-group .chat-input-div {
         position: relative;
         bottom: 0;
         top: 20px;
+    }
+    .upload-file .product-search {
+        width: 100%;
+    }
+    .footer a {
+        font-size: 10px;
     }
 }
 
@@ -1321,3 +1494,27 @@ span {
         height: 80vh;
     }
 }
+
+
+/* Custom CSS */
+.vert-cent {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+}
+.half-blue {
+    background: blue;
+}
+
+/*.form-align-midd {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}*/
+
+/* Custom CSS */
+
