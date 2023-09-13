@@ -34,30 +34,35 @@
 <body>
     <form class=" h-100 signin-main mb-1" runat="server">
         <div class="row vert-cent">
-            <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image">
-                <img src="<%= ResolveUrl("~/Reception Page/002A.jpg") %>" alt="" width="100%" />
+            <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image vh-lg-100">
+                <img src="<%= ResolveUrl("~/Reception Page/002A.jpg") %>" alt="" width="100%" height="100%" />
             </div>
-            <div class="col-lg-6 col-xl-6 col-md-5 col-sm-12 px-5" style="background-image: url('<%= ResolveUrl("~/Reception Page/002B.png") %>')">
-                <div class="text-center signin-heading">
-                    <img src="<%= ResolveUrl("~/Sign Up Page/Hfiles Logo.png") %>" alt="" width="80px" />
+            <div class="col-lg-6 col-xl-6 col-md-5 col-sm-12 px-5 d-flex justify-content-center align-items-center vh-lg
+                
+                
+                
+                -100" style="background-image: url('<%= ResolveUrl("~/Reception Page/002B.png") %>')">
+               <div>
+                    <div class="text-center signin-heading">
+                    <img src="<%= ResolveUrl("~/Sign Up Page/Hfiles Logo.png") %>" alt="" width="120px" />
                     <br />
-                    SIGN UP
+                    <h3 class="color-white">SIGN UP</h3>
                 </div>
-                <div class="row signin-form form-group has-search">
-                    <div class="col-sm-12 col-lg-12 col-xl-12">
+                <div class="row signin-form form-group has-search text-center justify-content-center">
+                    <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
                         <i class="fa-solid fa-user form-control-feedback"></i>
                         <!-- <span class="fa fa-user form-control-feedback"></span> -->
                         <input id="firstnameTextBox" runat="server" required type="text" class="form-control my-2" placeholder="Name" />
                     </div>
-                    <div class="col-sm-12 col-lg-12 col-xl-12">
+                    <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
                         <i class="fa-solid fa-user form-control-feedback"></i>
                         <input id="lastnameTextBox" runat="server" required type="text" class="form-control my-2" placeholder="Last Name" />
                     </div>
-                    <div class="col-sm-12 col-lg-12 col-xl-12">
+                    <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
                         <i class="fa-solid fa-phone-volume form-control-feedback"></i>
                         <input id="phoneTextBox" type="text" required runat="server" class="form-control my-2" placeholder="Phone No" />
                     </div>
-                    <div class="col-sm-12 col-lg-12 col-xl-12">
+                    <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
                         <i class="fa-regular fa-envelope form-control-feedback"></i>
                         <input id="emailTextBox" runat="server" required type="text" class="form-control my-2" placeholder="Email ID" />
                     </div>
@@ -77,6 +82,7 @@
                         <asp:Label ID="errorLabel" Text="" runat="server" />
                     </div>
                 </div>
+               </div>
             </div>
         </div>
 
