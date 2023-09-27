@@ -50,7 +50,7 @@
                     <div class="text-center resend-otp-div">
                         <span class="mx-2">
                             <asp:LinkButton ID="resendLinkButton" runat="server">Resend OTP</asp:LinkButton></span>
-                        <span>New User? Click <a href="signup.aspx">here</a> to Signup</span>
+                        <span style="color:#fff">New User? Click <a href="signup.aspx">here</a> to Signup</span>
                     </div>
                 </div>
             </div>

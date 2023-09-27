@@ -32,8 +32,8 @@
     </style>
 </head>
 <body>
-    <form class=" h-100 signin-main mb-1" runat="server">
-        <div class="row vert-cent">
+    <form class=" h-100 signin-main" runat="server">
+        <div class="row vert-cent w-100">
             <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image vh-lg-100">
                 <img src="<%= ResolveUrl("~/Reception Page/002A.jpg") %>" alt="" width="100%" height="100%" />
             </div>

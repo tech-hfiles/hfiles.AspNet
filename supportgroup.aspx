@@ -87,204 +87,51 @@
                                 <h6 class="pl-4 mb-2">
                                     <img class="mx-2" src="../Suppor Group (BG  & Icons)/pin-icon.png"
                                         alt="" width="20px">
-                                    How do you
-                                prevent tickets
-                                from entering your mental health ? </h6>
+                                    <asp:Label ID="forumtitleLabel" runat="server" Text=""></asp:Label>
+                                </h6>
                                 <div class="chat-history-div pl-4">
-                                    <div class="chat-text-div d-flex py-2">
-                                        <div class="chat-name">
-                                            <img src="../Suppor Group (BG  & Icons)/user-default.png" alt="" width="30px"
-                                                height="30px">
-                                            <span>Guest</span>
-                                        </div>
-                                        <div class="chat-container">
-                                            <div class="arrow">
-                                                <div class="outer"></div>
-                                                <div class="inner"></div>
-                                            </div>
-                                            <div class="message-body d-flex">
+                                    <asp:Repeater ID="RepeaterPosts" runat="server">
+                                        <ItemTemplate>
+                                            <div class="chat-text-div d-flex py-2">
+                                                <div class="chat-name">
+                                                    <img src="../Suppor Group (BG  & Icons)/user-default.png" alt="" width="30px"
+                                                        height="30px">
+                                                    <span><em><%# Eval("PostDate", "{0:MM/dd/yyyy HH:mm:ss}") %></em></span>
+                                                </div>
+                                                <div class="chat-container">
+                                                    <div class="arrow">
+                                                        <div class="outer"></div>
+                                                        <div class="inner"></div>
+                                                    </div>
+                                                    <div class="message-body d-flex">
 
-                                                <p>
-                                                    Hello world! This is a test message to show how to make an arrow on the
-                                                side of the box. Hello world! This is a test message to show how to make
-                                                an arrow on the
-                                                side of the box. Hello world! This is a test message to show how to make
-                                                an arrow on the
-                                                side of the box.
-                                                </p>
-                                                <div class="show-edit-chat">
-                                                    <div class="msg-edit-box">
-                                                        <span>Delete</span>
+                                                        <p>
+                                                            <%# Eval("PostText") %>
+                                                        </p>
+                                                        <div class="show-edit-chat">
+                                                            <div class="msg-edit-box">
+                                                                <span>Delete</span>
+                                                            </div>
+                                                        </div>
+                                                        <span class="chat-more">...</span>
                                                     </div>
                                                 </div>
-                                                <span class="chat-more">...</span>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="chat-text-div d-flex py-2">
-                                        <div class="chat-name">
-                                            <img src="../Suppor Group (BG  & Icons)/user-default.png" alt="" width="30px"
-                                                height="30px">
-                                            <span>Me</span>
-                                        </div>
-                                        <div class="chat-container">
-                                            <div class="arrow">
-                                                <div class="outer"></div>
-                                                <div class="inner"></div>
-                                            </div>
-                                            <div class="message-body d-flex">
-
-                                                <p>
-                                                    Hello world! This is a test message to show how to make an arrow on the
-                                                side of the box. Hello world! This is a test message to show how to make
-                                                an arrow on the
-                                                side of the box. Hello world! This is a test message to show how to make
-                                                an arrow on the
-                                                side of the box.
-                                                </p>
-                                                <div class="show-edit-chat">
-                                                    <div class="msg-edit-box">
-                                                        <span>Delete</span>
-                                                    </div>
-                                                </div>
-                                                <span class="chat-more">...</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="chat-text-div d-flex py-2">
-                                        <div class="chat-name">
-                                            <img src="../Suppor Group (BG  & Icons)/user-default.png" alt="" width="30px"
-                                                height="30px">
-                                            <span>Guest</span>
-                                        </div>
-                                        <div class="chat-container">
-                                            <div class="arrow">
-                                                <div class="outer"></div>
-                                                <div class="inner"></div>
-                                            </div>
-                                            <div class="message-body d-flex">
-
-                                                <p>
-                                                    Hello world! This is a test message to show how to make an arrow on the
-                                                side of the box. Hello world! This is a test message to show how to make
-                                                an arrow on the
-                                                side of the box. Hello world! This is a test message to show how to make
-                                                an arrow on the
-                                                side of the box.
-                                                </p>
-                                                <div class="show-edit-chat">
-                                                    <div class="msg-edit-box">
-                                                        <span>Delete</span>
-                                                    </div>
-                                                </div>
-                                                <span class="chat-more">...</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="chat-text-div d-flex py-2">
-                                        <div class="chat-name">
-                                            <img src="../Suppor Group (BG  & Icons)/user-default.png" alt="" width="30px"
-                                                height="30px">
-                                            <span>Guest</span>
-                                        </div>
-                                        <div class="chat-container">
-                                            <div class="arrow">
-                                                <div class="outer"></div>
-                                                <div class="inner"></div>
-                                            </div>
-                                            <div class="message-body d-flex">
-
-                                                <p>
-                                                    Hello world! This is a test message to show how to make an arrow on the
-                                                side of the box. Hello world! This is a test message to show how to make
-                                                an arrow on the
-                                                side of the box. Hello world! This is a test message to show how to make
-                                                an arrow on the
-                                                side of the box.
-                                                </p>
-                                                <div class="show-edit-chat">
-                                                    <div class="msg-edit-box">
-                                                        <span>Delete</span>
-                                                    </div>
-                                                </div>
-                                                <span class="chat-more">...</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="chat-text-div d-flex py-2">
-                                        <div class="chat-name">
-                                            <img src="../Suppor Group (BG  & Icons)/user-default.png" alt="" width="30px"
-                                                height="30px">
-                                            <span>Guest</span>
-                                        </div>
-                                        <div class="chat-container">
-                                            <div class="arrow">
-                                                <div class="outer"></div>
-                                                <div class="inner"></div>
-                                            </div>
-                                            <div class="message-body d-flex">
-
-                                                <p>
-                                                    Hello world! This is a test message to show how to make an arrow on the
-                                                side of the box. Hello world! This is a test message to show how to make
-                                                an arrow on the
-                                                side of the box. Hello world! This is a test message to show how to make
-                                                an arrow on the
-                                                side of the box.
-                                                </p>
-                                                <div class="show-edit-chat">
-                                                    <div class="msg-edit-box">
-                                                        <span>Delete</span>
-                                                    </div>
-                                                </div>
-                                                <span class="chat-more">...</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="chat-text-div d-flex py-2">
-                                        <div class="chat-name">
-                                            <img src="../Suppor Group (BG  & Icons)/user-default.png" alt="" width="30px"
-                                                height="30px">
-                                            <span>Guest</span>
-                                        </div>
-                                        <div class="chat-container">
-                                            <div class="arrow">
-                                                <div class="outer"></div>
-                                                <div class="inner"></div>
-                                            </div>
-                                            <div class="message-body d-flex">
-
-                                                <p>
-                                                    Hello world! This is a test message to show how to make an arrow on the
-                                                side of the box. Hello world! This is a test message to show how to make
-                                                an arrow on the
-                                                side of the box. Hello world! This is a test message to show how to make
-                                                an arrow on the
-                                                side of the box.
-                                                </p>
-                                                <div class="show-edit-chat">
-                                                    <div class="msg-edit-box">
-                                                        <span>Delete</span>
-                                                    </div>
-                                                </div>
-                                                <span class="chat-more">...</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
                                 </div>
                                 <div class="row chat-input-div">
                                     <div class="col-10 ">
-                                        <input type="text" placeholder="Type Your Message...">
+                                        <asp:TextBox ID="TextBoxPost" runat="server" placeholder="Enter your message..."></asp:TextBox>
                                     </div>
                                     <div class="col-2 d-flex align-items-center">
-                                        <img class="cursor-pointer"
-                                            src="https://cdn-icons-png.flaticon.com/512/60/60525.png" alt="" width="30px">
+                                        <asp:ImageButton ID="ImageButton1" Width="60px" OnClick="submitImageButton_Click" ImageUrl="https://cdn-icons-png.flaticon.com/512/60/60525.png" runat="server" />
+                                        <%-- <img class="cursor-pointer"
+                                            src="https://cdn-icons-png.flaticon.com/512/60/60525.png" alt="" width="30px">--%>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="tab-pane fade rounded bg-white p-4 h-100 skin-care-div" id="v-pills-profile"
+                            <%--<div class="tab-pane fade rounded bg-white p-4 h-100 skin-care-div" id="v-pills-profile"
                                 role="tabpanel" aria-labelledby="v-pills-profile-tab">
                                 <h4 class=" my-4 pl-4">Skin Care Support Group</h4>
                                 <h6 class="pl-4 mb-2">
@@ -484,7 +331,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="tab-pane fade rounded bg-white p-4 h-100 dental-care-div" id="v-pills-messages"
                                 role="tabpanel" aria-labelledby="v-pills-messages-tab">
                                 <h4 class=" my-4 pl-4">Dental Support Group</h4>
@@ -685,7 +531,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="tab-pane fade rounded bg-white p-4 h-100 nutrition-care-div" id="v-pills-settings"
                                 role="tabpanel" aria-labelledby="v-pills-settings-tab">
                                 <h4 class=" my-4 pl-4">Nutrition Support Group</h4>
@@ -885,8 +730,8 @@
                                             src="https://cdn-icons-png.flaticon.com/512/60/60525.png" alt="" width="30px">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="tab-pane fade rounded bg-white p-4 h-100 pet-care-div" id="pet-care" role="tabpanel"
+                            </div>--%>
+                            <%--<div class="tab-pane fade rounded bg-white p-4 h-100 pet-care-div" id="pet-care" role="tabpanel"
                                 aria-labelledby="pet-care-tab">
                                 <h4 class=" my-4 pl-4">Pet Care Support Group</h4>
                                 <h6 class="pl-4 mb-2">
@@ -1078,16 +923,19 @@
                                 </div>
                                 <div class="row chat-input-div">
                                     <div class="col-10 ">
-                                        <input type="text" placeholder="Type Your Message...">
+                                         <asp:TextBox ID="a" runat="server" Width="400"></asp:TextBox>
+                                       <!-- <input type="text" placeholder="Type Your Message...">-->
                                     </div>
                                     <div class="col-2 d-flex align-items-center">
-                                        <img class="cursor-pointer"
-                                            src="https://cdn-icons-png.flaticon.com/512/60/60525.png" alt="" width="30px">
-                                    </div>
-                                </div>
-                            </div>
+                                        <asp:ImageButton ID="submitImageButton" OnClick="submitImageButton_Click" ImageUrl="https://cdn-icons-png.flaticon.com/512/60/60525.png" runat="server" />
+                                       <%-- <img class="cursor-pointer"
+                                            src="https://cdn-icons-png.flaticon.com/512/60/60525.png" alt="" width="30px">--%>
                         </div>
                     </div>
+                </div>
+                --%>
+            </div>
+            </div>
                 </div>
             </div>
         </section>

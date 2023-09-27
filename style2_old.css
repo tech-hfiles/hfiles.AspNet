@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Red+Hat+Display&family=Syne:wght@800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&family=Red+Hat+Display&family=Syne:wght@800&display=swap');
 body {
     background-color: #ffffff;
     margin: 0;
-    font-family: 'Red Hat Display', Sans-serif !important;
+    font-family: 'Playfair Display' !important;
 }
 
 a {
@@ -15,11 +13,10 @@ h3,
 h4,
 h5,
 h5,
+span a,
+p,
 button {
-    font-family: 'Red Hat Display' !important;
-}
-p, a, span, li button{
-    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Playfair Display' !important;
 }
 .top-home-icons {
     top: 0 !important;
@@ -103,7 +100,7 @@ p, a, span, li button{
     margin: 10px 0px;
     color: #0614aa;
     font-weight: 800;
-    font-family: 'Red Hat Display' !important;
+    font-family: 'Playfair Display Black' !important;
 }
 
 .privacy_main .blue_trangle_top_left {
@@ -192,9 +189,9 @@ p, a, span, li button{
     display: flex;
     justify-content: space-around;
 } */
-/* .contact .contact-main .contact-card {
+.contact .contact-main .contact-card {
     margin-left: 100px;
-} */
+}
 .contact .contact-main .contact-card .mobile_number {
     background-color: #ffd101;
     border-radius: 20px;
@@ -230,22 +227,21 @@ p, a, span, li button{
 }
 
 .contact .contact-main .heading {
-    text-align: center;
-}
-.contact .contact-main .heading h1{
     font-size: 40px;
+    text-align: center;
     color: #0614aa;
     font-weight: 800 !important;
 }
+
 .contact .contact-main .q_heading {
     color: #0a18bc;
     font-weight: 600 !important;
-    font-family: 'Red Hat Display' !important;
+    font-family: 'Playfair Display Black' !important;
 }
 .contact .contact-main .q_heading h2{
     color: #0614aa;
     font-weight: 600 !important;
-    font-family: 'Red Hat Display' !important;
+    font-family: 'Playfair Display Black' !important;
 }
 
 .contact .contact-main ol {
@@ -296,7 +292,7 @@ p, a, span, li button{
     left: 70%;
     height: 100px;
     z-index: -1;
-    top: 50px;
+    top: 60px;
 }
 
 .contact .blue_trangle_bottom_left {
@@ -358,7 +354,7 @@ p, a, span, li button{
     color: #0614aa;
     font-weight: 600;
     font-size: 15px;
-    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Playfair Display Black' !important;
 }
 
 .contact .contact-form span {
@@ -408,10 +404,6 @@ p, a, span, li button{
 .contact .contact-form .feedback span {
     color: #f1f1f1;
     cursor: pointer;
-    font-family: FontAwesome, "Font Awesome", "Font Awesome 5 Pro",
-    "Font Awesome 5 Free", "Material Icons", "Material-Design-Iconic-Font",
-    Flaticon, "CBSi Fantasy icomoon", CBSi_Fantasy_icomoon, icon-moon,
-    icomoon, ui-icons, icons, NewYorkIcons, sans-serif !important;
 }
 
 .contact .contact-form .imp-star {
@@ -461,7 +453,7 @@ p, a, span, li button{
     font-weight: 600;
     cursor: pointer;
     margin: 0px 5px;
-    font-family: 'Red Hat Display Black' !important;
+    font-family: 'Playfair Display Black' !important;
 }
 .contact .questions-list li {
    margin-bottom: 20px;
@@ -670,18 +662,17 @@ select:hover {
     color: #0614aa;
 }
 
-    .journal .journal_main .inner_div .heading h3 {
-        background-color: #ffd101;
-        height: 60px;
-        width: 320px;
-        border-radius: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 30px;
-        font-weight: 600;
-        color: #0614aa;
-    }
+.journal .journal_main .inner_div .heading h3 {
+    background-color: #ffd101;
+    height: 60px;
+    width: 320px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 600;
+}
 
 .my_profile .dropdown-toggle {
     text-decoration: none;
@@ -698,8 +689,9 @@ select:hover {
 
 ul.dropdown-menu.show {
     background: linear-gradient(to bottom, #0614aa 0%, #081466 100%);
-    transform: translate3d(27px, 65px, 21px) !important;
-    z-index: 1;
+    ;
+    transform: translate3d(14.6px, 57px, 21px) !important;
+    z-index: -1;
     width: 75%;
 }
 
@@ -741,97 +733,9 @@ ul.dropdown-menu.show li a {
     margin: 0 10px 0 0;
 }
 
-
-
-
-/* checkbox */
-
-.radio-container {
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-  }
-  
-  .hidden-radio {
-    position: absolute;
-    opacity: 0;
-  }
-  
-  .radio-label {
-    display: inline-block;
-    position: relative;
-    padding-left: 25px; /* Space for the circle */
-    cursor: pointer;
-  }
-  
-  .checkbox-circle {
-    position: absolute;
-    top: -10px;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid #ccc;
-  }
-  
-  .checkmark {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translate(-50%, -50%);
-    width: 8px;
-    height: 15px;
-    border: solid #fff;
-    border-width: 0 3.5px 3.5px 0;
-    transform-origin: bottom right;
-    opacity: 0;
-    rotate: 30deg;
-  }
-  
-  .hidden-radio:checked + .radio-label .checkbox-circle {
-    background-color: #2ecc71;
-    border-color: #2ecc71;
-  }
-  
-  .hidden-radio:checked + .radio-label .checkmark {
-    opacity: 1;
-  }
-
-  .checkbox-container {
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-}
-
-.hidden-checkbox {
-    position: absolute;
-    opacity: 0;
-}
-
-.checkbox-label {
-    display: inline-block;
-    position: relative;
-    padding-left: 25px;
-    /* Space for the circle and checkmark */
-    cursor: pointer;
-}
-
-.hidden-checkbox:checked+.checkbox-label .checkbox-circle {
-    background-color: #2ecc71;
-    /* Change the color when checked */
-    border-color: #2ecc71;
-}
-
-.hidden-checkbox:checked+.checkbox-label .checkmark {
-    opacity: 1;
-}
-/* checkbox */
-
-
 @media only screen and (max-width: 912px) {
     .contact .blue_trangle_bottom_right {
         height: 90px;
-        top: 20px;
     }
 
     .contact .blue_trangle_bottom_left {
@@ -839,13 +743,11 @@ ul.dropdown-menu.show li a {
     }
 
     .contact .plus_bottom_right {
-        position: absolute;
         right: 10%;
     }
 
     .contact .blue_trangle_bottom {
-        height: 100px;
-        top: 20px;
+        height: 150px;
     }
 
     .contact .blue_trangle_right_bottom {
@@ -882,10 +784,6 @@ ul.dropdown-menu.show li a {
     .contact .contact-main .contact-card {
         margin-left: 20px;
     }
-    .journal .samanta-image {
-        width: 70%;
-        margin-top: -50px;
-    }
 }
 
 @media only screen and (max-width: 769px) {
@@ -905,10 +803,7 @@ ul.dropdown-menu.show li a {
     .contact .contact-main .contact-card {
         margin-left: 10px;
     }
-    .my_profile .support-group {
-        font-size: 24px;
-    }
-} 
+}
 
 @media only screen and (max-width: 600px) {
     .privacy_main .blue_trangle_top_left {
@@ -965,18 +860,7 @@ ul.dropdown-menu.show li a {
     .contact .contact-main .contact-card {
         margin-left: 10px;
     }
-    .contact .blue_trangle_right {
-        height: 140px;
-    }
-    .contact .blue_trangle_bottom_left {
-        height: 130px;
-    }
-    .contact .blue_trangle_bottom {
-        height: 60px;
-    }
-    .contact .blue_trangle_bottom_right {
-        top: 20px;
-    }
+
 }
 
 @media only screen and (max-width: 512px) {
@@ -1030,7 +914,6 @@ ul.dropdown-menu.show li a {
     }
 
     .contact .plus_bottom_right {
-        position: absolute;
         height: 110px;
         bottom: 150px;
     }
@@ -1038,7 +921,6 @@ ul.dropdown-menu.show li a {
     .contact .blue_trangle_bottom_right {
         height: 45px;
         left: 20%;
-        top: 10px;
     }
 
     .contact .blue_trangle_right {
@@ -1046,8 +928,8 @@ ul.dropdown-menu.show li a {
     }
 
     .contact .blue_trangle_bottom_left {
-        height: 70px;
-        top: 60%;
+        height: 105px;
+        top: 40%;
     }
 
     .contact .contact-form input {
@@ -1088,7 +970,7 @@ ul.dropdown-menu.show li a {
     .contact .blue_trangle_bottom {
         height: 60px;
         right: 0;
-        top: 0;
+        top: 60px;
     }
 
     .contact .contact-main .contact-card {
@@ -1142,7 +1024,7 @@ ul.dropdown-menu.show li a {
 
     .my_profile ul.dropdown-menu.show {
         z-index: 1;
-        transform: translate3d(14.6px, 57px, 21px) !important;
+        transform: translate3d(14.6px, 30px, 21px) !important;
         width: 82%;
     }
     .contact .contact-main .contact-card {
@@ -1152,7 +1034,7 @@ ul.dropdown-menu.show li a {
 
 @media only screen and (max-width: 300px) {
     .contact .blue_trangle_bottom {
-        height: 45px;
+        height: 26px;
     }
 
     .contact .blue_trangle_top_left {
@@ -1161,7 +1043,6 @@ ul.dropdown-menu.show li a {
 
     .contact .blue_trangle_bottom_left {
         height: 80px;
-        top: 55%;
     }
 
     .contact .contact-main .contact-card {
@@ -1223,12 +1104,6 @@ ul.dropdown-menu.show li a {
     }
     .contact .contact-main .contact-card {
         margin-left: 0px;
-    }
-    .my_profile .support-group {
-        font-size: 18px;
-    }
-    .my_profile .dropdown-toggle {
-        font-size: 18px;
     }
 }
 

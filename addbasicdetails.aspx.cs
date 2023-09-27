@@ -25,10 +25,6 @@ namespace hfiles
                     lastNameTextBox.Value = Session["lastname"].ToString();
                     emailTextBox.Value = Session["email"].ToString();
                     contactTextBox.Value = Session["phone"].ToString();
-                    //DAL.SendCareerMail("HFiles, Registration Completed - " + DateTime.Now.ToString("dd/MM/yyyy"), "Hello " + firstNameTextBox.Value + ", ", "Kuldeep@digitaledgetech.in");
-
-                    //DAL.SendCareerMail("New User - " + DateTime.Now.ToString("dd/MM/yyyy"), firstNameTextBox.Value + " " + lastNameTextBox.Value + " has registered.", "Kuldeep@digitaledgetech.in");// emailTextBox.Value);
-
                 }
             }
             else
@@ -45,8 +41,21 @@ namespace hfiles
         }
         protected void submitButton_Click(object sender, EventArgs e)
         {
+            // Generate a unique random number (you can adjust the range as needed)
+            Random random = new Random();
+            int randomNumber = random.Next(1000, 9999);
+
+            // Format the date of birth in MMDDYYYY format
+            string formattedDateOfBirth = Convert.ToDateTime(dobTextBox1.Value).ToString("MMddyy");
+
+            // Take a portion of the last name (first three characters)
+            string partialLastName = firstNameTextBox.Value.Substring(0, Math.Min(3, lastNameTextBox.Value.Length)).ToUpper();
+
+            // Concatenate the components to create the membership number
+            string membershipNumber = $"HF{formattedDateOfBirth}{partialLastName}{randomNumber}";
+
             #region variable
-            string member = "HF" + GenerateId() + "MEM";
+            string member = membershipNumber;
             string connectionString = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {

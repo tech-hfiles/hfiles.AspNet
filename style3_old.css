@@ -1,11 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Red+Hat+Display&family=Syne:wght@800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&family=Red+Hat+Display&family=Syne:wght@800&display=swap');
 body {
     margin: 0;
     padding: 0;
     background-color: #ffffff;
     height: 100%;
-    font-family: 'Red Hat Display', sans-serif !important;
+    font-family: 'Playfair Display' !important;
 }
 
 h1,
@@ -13,12 +11,13 @@ h2,
 h3,
 h4,
 h5,
-h5{
-    font-family: 'Red Hat Display', sans-serif !important;
+h5,
+span a,
+p,
+button {
+    font-family: 'Playfair Display' !important;
 }
-p, a, span, li, button{
-    font-family: 'Poppins', sans-serif !important;
-}
+
 .footer {
     background: #192184;
     color: #ffffff;
@@ -58,7 +57,7 @@ p, a, span, li, button{
 .inner-div .text-blue h1 {
     font-weight: 600;
     font-size: 40px;
-    font-family: 'Red Hat Display' !important;
+    font-family: 'Playfair Display Black' !important;
 }
 
 .main-div {
@@ -87,62 +86,6 @@ p, a, span, li, button{
     font-weight: 700;
 }
 
-/* checkbox */
-
-  
-  .checkbox-circle {
-    position: absolute;
-    top: -15px;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid #ccc;
-  }
-   
-  .checkmark {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translate(-50%, -50%);
-    width: 8px;
-    height: 15px;
-    border: solid #fff;
-    border-width: 0 3.5px 3.5px 0;
-    transform-origin: bottom right;
-    opacity: 0;
-    rotate: 30deg;
-  }
-
-  .checkbox-container {
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-}
-
-.hidden-checkbox {
-    position: absolute;
-    opacity: 0;
-}
-
-.checkbox-label {
-    display: inline-block;
-    position: relative;
-    padding-left: 25px;
-    /* Space for the circle and checkmark */
-    cursor: pointer;
-}
-
-.hidden-checkbox:checked+.checkbox-label .checkbox-circle {
-    background-color: #2ecc71;
-    /* Change the color when checked */
-    border-color: #2ecc71;
-}
-
-.hidden-checkbox:checked+.checkbox-label .checkmark {
-    opacity: 1;
-}
-/* checkbox */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -160,24 +103,24 @@ input::-webkit-inner-spin-button {
 
 .input-group input {
     padding: 15px 20px;
+    margin: 0 5px;
     margin: 7px;
     border-radius: 50px;
     background-color: #f5f5f5;
     outline: 0;
     border: 0;
     color: #bfbfbf;
-    width: 170px;
 }
 
 .input-group .relation-div {
-    padding: 12px 0;
+    padding: 15px 0;
     margin: 0 5px;
-    margin: 5px 0;
+    margin: 7px;
     border-radius: 50px;
     background-color: #f5f5f5;
     outline: 0;
     border: 0;
-    width: 210px;
+    width: 100%;
     color: #bababa;
     text-align: center;
 }
@@ -188,7 +131,6 @@ input::-webkit-inner-spin-button {
     color: #bfbfbf;
     width: 120px;
     outline: 0;
-    width: 130px;
 }
 
 .input-group select option {
@@ -204,7 +146,7 @@ input::-webkit-inner-spin-button {
 .input-group input::placeholder {
     text-align: center;
     color: #bababa;
-    font-family: 'Red Hat Display' !important;
+    font-family: 'Playfair Display' !important;
 }
 
 .btn-div {
@@ -221,7 +163,7 @@ input::-webkit-inner-spin-button {
     color: #ffffff;
     cursor: pointer;
     margin-top: 20px;
-    font-family: 'Red Hat Display' !important;
+    font-family: 'Playfair Display' !important;
     font-weight: 700;
 }
 
@@ -589,37 +531,6 @@ a {
     background-repeat: no-repeat;
 
   } */
-  @media only screen and (min-width: 1600px)  {
-    .input-group input {
-        width: 90%;
-        padding: 22px 20px;
-        font-size: 26px;
-    }
-    .inner-div {
-        width: 80%;
-    }
-    .input-group .relation-div {
-        width: 90%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .input-group select {
-        font-size: 26px;
-        width: 180px;
-    }
-    .tab {
-        padding: 26px;
-        font-size: 24px;
-    }
-    .btn-div button {
-        padding: 22px 100px;
-        font-size: 26px;
-    }
-    .add-member .or {
-        font-size: 35px !important;
-    }
-  }
 
   @media only screen and (max-width: 1366px) {
     .avatar .circle-line {
@@ -663,13 +574,6 @@ a {
     .avatar .inner-menu-div .mediclaim-insurance div:first-child {
         margin-left: 35px;
     }
-    .add-member .footer {
-        position: relative;
-    }
-    .add-member .blue-t-bottom-right {
-        position: relative;
-        top: 20px;
-    }
   }
 
 @media only screen and (max-width: 912px) {
@@ -684,9 +588,6 @@ a {
     }
     .avatar .avatar-img {
         height: 300px;
-    }
-    .inner-div {
-        width: 95%;
     }
 }
 
@@ -734,14 +635,6 @@ a {
     .avatar {
         background-position: center;
         background-size: contain;
-    }
-    .inner-div {
-        width: 60%;
-    }
-    .add-member .blue-t-bottom-right {
-        height: 60px;
-        position: relative;
-        bottom: -10px;
     }
 }
 
@@ -885,15 +778,6 @@ a {
     .avatar .inner-menu-div .menu-circle img {
         height: 25px;
     }
-    .add-member .inner-div .text-blue h1 {
-        font-size: 35px;
-    }
-    .input-group .relation-div {
-        margin: 0 10px;
-    }
-    .add-member #default-number input[type="number"] {
-        width: 145px;
-    }
 }
 
 @media only screen and (max-width: 300px) {
@@ -953,14 +837,5 @@ a {
     }
     .footer {
         position: relative;
-    }
-    .blue-t-top-left {
-        height: 80px;
-    }
-    .blue-t-top-right {
-        height: 70px;
-    }
-    .input-group input {
-        width: 120px;
     }
 }

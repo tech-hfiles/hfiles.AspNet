@@ -1,23 +1,24 @@
 body {
     /* height: 100vh; */
     background-color: #ffffff;
-    font-family: 'Red Hat Display', sans-serif !important;
+    font-family: 'Playfair Display' !important;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&family=Red+Hat+Display&family=Syne:wght@800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Red+Hat+Display&family=Syne:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Syne:wght@800&display=swap');
 
 h1,
 h2,
 h3,
 h4,
 h5,
-h6{
-    font-family: 'Red Hat Display', sans-serif !important;
+h6,
+span,
+p,
+button,
+a {
+    font-family: 'Playfair Display' !important;
 }
-p, a, span, li, button{
-    font-family: 'Poppins', sans-serif !important;
-}
+
 a {
     text-decoration: none !important;
 }
@@ -41,12 +42,16 @@ a {
     font-weight: 700;
 }
 
+.color-white {
+    color: #ffffff;
+}
 .thm-back-button {
     padding: 10px 60px;
     background: #d6d6d6;
     border-radius: 20px;
-    color: #08138f;
+    color: #ffffff;
     font-weight: 700;
+    font-family: 'Playfair Display' !important;
     outline: 0;
     border: 1px solid #d6d6d6;
 }
@@ -57,25 +62,14 @@ a {
     color: #08138f;
     border: 1px solid #d6d6d6;
 }
-.btn-primary {
-    padding: 8px 20px;
-    background: linear-gradient(to right, #0512B9 0%, #081466 100%);
-    border-color: #0512B9;
-    border-radius: 20px;
-    color: #ffffff;
-    font-weight: 700;  
-}
-.btn-primary:active {
-    background: linear-gradient(to right, #ffffff 0%, #b8b8b8 100%);
-    border-color: #0512B9;
-    color: #081466 !important;
-}
+
 .thm-blue-button {
     padding: 10px 60px;
     background: linear-gradient(to right, #0512B9 0%, #081466 100%);
     border-radius: 20px;
     color: #ffffff;
     font-weight: 700;
+    font-family: 'Playfair Display' !important;
 }
 
 .thm-blue-button:hover {
@@ -228,89 +222,6 @@ a {
     font-weight: 700 !important;
 }
 
-
-/* checkbox */
-
-.radio-container {
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-  }
-  
-  .hidden-radio {
-    position: absolute;
-    opacity: 0;
-  }
-  
-  .radio-label {
-    display: inline-block;
-    position: relative;
-    padding-left: 25px; /* Space for the circle */
-    cursor: pointer;
-  }
-  
-  .checkbox-circle {
-    position: absolute;
-    top: -10px;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid #ccc;
-  }
-  
-  .checkmark {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translate(-50%, -50%);
-    width: 8px;
-    height: 15px;
-    border: solid #fff;
-    border-width: 0 3.5px 3.5px 0;
-    transform-origin: bottom right;
-    opacity: 0;
-    rotate: 30deg;
-  }
-  
-  .hidden-radio:checked + .radio-label .checkbox-circle {
-    background-color: #2ecc71;
-    border-color: #2ecc71;
-  }
-  
-  .hidden-radio:checked + .radio-label .checkmark {
-    opacity: 1;
-  }
-
-  .checkbox-container {
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-}
-
-.hidden-checkbox {
-    position: absolute;
-    opacity: 0;
-}
-
-.checkbox-label {
-    display: inline-block;
-    position: relative;
-    padding-left: 25px;
-    /* Space for the circle and checkmark */
-    cursor: pointer;
-}
-
-.hidden-checkbox:checked+.checkbox-label .checkbox-circle {
-    background-color: #2ecc71;
-    /* Change the color when checked */
-    border-color: #2ecc71;
-}
-
-.hidden-checkbox:checked+.checkbox-label .checkmark {
-    opacity: 1;
-}
-/* checkbox */
 /* login left side */
 .inner-body h1 {
     color: #ffffff;
@@ -377,7 +288,6 @@ a {
     border: 0 !important;
     outline: 0;
     text-decoration: none !important;
-    color: #fdd001;
 }
 
 /* login right side */
@@ -466,7 +376,6 @@ span {
     display: flex;
     justify-content: end;
     align-items: center;
-    height:100vh;
 }
 
 .signin-heading h1 {
@@ -484,9 +393,6 @@ select {
     outline: 0 !important;
     box-shadow: none !important;
     
-}
-.signin-form input[type="date"] {
-    color: #dddddd; 
 }
 .signin-form input {
     color: #0512b9;
@@ -661,7 +567,7 @@ select {
 }
 
 
-.user-info-main input[type="date"]:before {
+input[type="date"]:before {
     color: #e8e6e6;
     content: attr(placeholder) !important;
 }
@@ -720,7 +626,7 @@ select {
     align-items: center;
     border: 1px solid #f1f1f1;
     border-radius: 50%;
-    width: 35px;
+    width: 45px;
     height: 35px;
     padding: 5px;
     font-size: 30px;
@@ -733,7 +639,7 @@ select {
     width: 150px;
     border: 1px solid #e6e6e6 !important;
     border-radius: 20px !important;
-    padding: 5px 12px !important;
+    padding: 5px 18px !important;
     outline: 0 !important;
     box-shadow: none !important;
 }
@@ -746,7 +652,7 @@ select {
     outline: 0 !important;
     box-shadow: none !important;
     color: #08138f;
-    font-family: 'Red Hat Display' !important;
+    font-family: 'Playfair Display' !important;
     font-weight: 700;
 }
 
@@ -766,6 +672,7 @@ select {
 .medical-main-div p {
     color: #0512b9;
     font-weight: 700;
+    font-family: 'Playfair Display Black' !important;
 }
 
 .inner-main-div p {
@@ -809,7 +716,7 @@ span.img-notselected {
     font-size: 60px;
     font-weight: 900;
     margin: 0 10px;
-    font-family: 'Red Hat Display Black' !important;
+    font-family: 'Playfair Display Black' !important;
 }
 
 .journal .heading-title .hr {
@@ -1039,6 +946,7 @@ span.img-notselected {
     padding: 5px 7px;
     border-radius: 20px;
     font-size: 10px;
+    font-family: 'Playfair Display Black' !important;
 }
 
 .nav-pills-custom .nav-link.active::before {
@@ -1096,7 +1004,7 @@ span.img-notselected {
     border: 1px solid #000;
     border-radius: 20px;
     padding: 10px 15px;
-    font-family: 'Red Hat Display', serif;
+    font-family: 'Playfair Display', serif;
     font-weight: 400 !important;
     background: transparent;
     outline: 0;
@@ -1104,7 +1012,7 @@ span.img-notselected {
 
 .support-group .chat-input-div input::placeholder {
     font-weight: 400 !important;
-    font-family: 'Red Hat Display', serif;
+    font-family: 'Playfair Display', serif;
 }
 
 .support-group .chat-history-div {
@@ -1321,19 +1229,27 @@ span.img-notselected {
   
 
 /* upload file */
-.nav-pills-custom .nav-link::before {
-    content: url('../Suppor Group (BG  & Icons)/tab-check.png');
-    display: block;
-    /* border-top: 8px solid transparent;
-    border-left: 10px solid #fff;
-    border-bottom: 8px solid transparent; */
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    opacity: 0;
-    z-index: 1;
+
+/* Add indicator arrow for the active tab */
+@media (min-width: 992px) {
+    .nav-pills-custom .nav-link::before {
+        content: url('../Suppor Group (BG  & Icons)/tab-check.png');
+        display: block;
+        /* border-top: 8px solid transparent;
+        border-left: 10px solid #fff;
+        border-bottom: 8px solid transparent; */
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        opacity: 0;
+        z-index: 1;
+    }
+    .vh-lg-100 {
+        height: 100vh;
+    }
 }
+
 
 @media only screen and (max-width: 1200px) {
     .filter-shorting-icon {
@@ -1359,45 +1275,16 @@ span.img-notselected {
     .filter-shorting-icon {
         right: 90px;
     }
-    .support-group .chat-history-div {
-        max-height: 85%;
-    }
-    .upload-file .footer {
-        position: absolute;
-    }
-    .user-info-main .blue-trangle-bottom-right {
-        left: 10% !important;
-        bottom: 0;
-     }
-     .user-info-main .plus-bottom-right {
-        top: 10%;
-     }
-     .user-info-main .footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-     } 
-     .user-info-main .blue-trangle-bottom-left {
-        position: absolute;
-        bottom: 0;
-     }
-     .user-info-main .blue-trangle-bottom-right{
-        position: absolute;
-        bottom: 0px !important;
-        top: auto;
-        left: 50% !important;
-     }
 }
 
-@media only screen and (min-width: 768px) and (max-width:912px) {
-    .mt-768-80 {
-        margin-top: 80px;
-    }
-}
 @media only screen and (max-width: 786px) {
+    .user-info-main .blue-trangle-bottom-right {
+       left: 10% !important;
+       top: 0;
+    }
 
     .user-info-main .blue-trangle-bottom-left {
-        position: absolute;
+        position: relative;
         height: 50px;
     }
 
@@ -1463,32 +1350,10 @@ span.img-notselected {
     }
 
     .support-group .left-nav-bar {
-        height: 100vh;
-    }
-    .common-design .blue-trangle-bottom {
-        position: relative;
-    }
-    .support-group .chat-history-div {
-        max-height: 77%;
+        height: 80vh;
     }
 }
 
-@media only screen and (max-width: 540px) {
-    .support-group .chat-history-div {
-        max-height: 72%;
-    }
-    .user-info-main .footer {
-        position: relative;
-        bottom: 0;
-        width: 100%;
-     } 
-     .user-info-main .blue-trangle-bottom-left {
-        position: relative;
-     }
-     .user-info-main .blue-trangle-bottom-right {
-        position: relative;
-     }
-}
 @media only screen and (max-width: 414px) {
     .signin-main .triangle-bottom-left {
         position: relative;
@@ -1513,14 +1378,14 @@ span.img-notselected {
     }
 
     .common-design .blue-trangle-left {
-        height: 80px;
+        height: 115px;
     }
 
     .common-design .blue-trangle-bottom {
         position: relative;
         height: 60px;
         left: 10%;
-        /* top: 5%; */
+        top: 5%;
     }
 
     .signin-main .samanta-stand-image {
@@ -1553,7 +1418,7 @@ span.img-notselected {
     }
 
     .additionl-main-div .sub-heading {
-        font-size: 14px !important;
+        font-size: 18px !important;
     }
 
     .allergy .others-div {
@@ -1582,18 +1447,13 @@ span.img-notselected {
     }
 
     .support-group .left-nav-bar {
-        height: 55vh;
+        height: 70vh;
     }
 
     .support-group .chat-input-div {
         position: relative;
         bottom: 0;
-        top: 15px;
-        width: 100%;
-        margin: 0;
-    }
-    .support-group .chat-history-div {
-        max-height: 77%;
+        top: 20px;
     }
     .upload-file .product-search {
         width: 100%;
@@ -1601,31 +1461,8 @@ span.img-notselected {
     .footer a {
         font-size: 10px;
     }
-    .allergy .heading {
-        font-size: 18px;
-    }
-    .upload-file .footer {
-        position: absolute;
-    }
-    .user-info-main .blue-trangle-bottom-right {
-        left: 10% !important;
-    }
 }
 
-@media only screen and (max-width: 375px) {
-    .support-group .chat-input-div {
-        position: relative;
-        bottom: 0;
-        top: 5px;
-        width: 100%;
-    }
-    .support-group .chat-history-div {
-        max-height: 70%;
-    }
-    .support-group .left-nav-bar {
-        height: 70vh;
-    }
-}
 @media only screen and (max-width: 300px) {
     .common-design .blue-trangle-bottom {
         top: 20%;
@@ -1640,7 +1477,7 @@ span.img-notselected {
     }
 
     .additionl-main-div .heading {
-        font-size: 17px !important;
+        font-size: 18px !important;
     }
 
     .allergy .others-div {
@@ -1662,66 +1499,28 @@ span.img-notselected {
     .support-group .left-nav-bar {
         height: 80vh;
     }
-    .additionl-main-div .sub-heading {
-        font-size: 10px !important;
-    }
-    .additionl-main-div p {
-        font-size: 10px !important;
-    }
-    .additionl-main-div span {
-        font-size: 10px !important;
-    }
-    .medical-history .heading {
-        font-size: 24px;
-    }
-    .upload-file .footer {
-        position: relative;
-    }
-    .upload-file .btn-primary {
-        font-size: 12px;
-    }
-    .upload-file .report-heading {
-        font-size: 20px;
-    }
-    .user-info-main .blue-trangle-bottom-right {
-        height: 35px;
-        left: 5% !important;
-        top: 10px;
-    }
-    .user-info-main .blue-trangle-bottom-left {
-        height: 35px;
-    }
-    .user-info-main .blue-trangle-top-left {
-        height: 70px;
-    }
 }
 
-@media only screen and (min-height: 790px) {
-    .allergy .footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-    }
-    .allergy .blue-trangle-bottom {
-        position: absolute;
-        bottom: 0 !important;
-    }
-    .additional-information .footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-    }
-    .additional-information .blue-trangle-bottom {
-        position: absolute;
-        bottom: 0;
-    }
-    .medical-history .footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-    }
-    .common-design .blue-trangle-bottom {
-        position: absolute;
-        bottom: 0;
-    }
+
+/* Custom CSS */
+.vert-cent {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
 }
+.half-blue {
+    background: blue;
+}
+
+/*.form-align-midd {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}*/
+
+/* Custom CSS */
+
