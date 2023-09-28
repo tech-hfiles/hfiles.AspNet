@@ -102,14 +102,19 @@
         </div>
         <div class="tab-div container px-5 d-flex justify-content-center my-3">
             <div class="tabs d-flex justify-content-between">
-                <a class="link" href="#" onclick="handleTabs('article')"><span id="ArticleTab">Article</span></a>
+              
+             <asp:LinkButton ID="LbtnArticle" runat="server" OnClick="LbtnArticle_Click" CommandArgument="1">Article</asp:LinkButton>
+              <%--<a class="link" href="#" onclick="handleTabs('article')"><span id="ArticleTab">Article</span></a>--%>
                 <span> | </span>
-                <a class="link active" href="#" onclick="handleTabs('video')"><span id="VideoTab">Video</span></a>
+                <asp:LinkButton ID="LbtnVideo" runat="server" OnClick="LbtnVideo_Click">Video</asp:LinkButton>
+              <%-- <a class="link active" href="#" onclick="handleTabs('video')"><span id="VideoTab">Video</span></a>--%>
                 <span> | </span>
-                <a class="link " href="#" onclick="handleTabs('audio')"><span id="AudioTab">Audio</span></a>
+                <asp:LinkButton ID="LbtnAudio" runat="server" OnClick="LbtnAudio_Click">Audio</asp:LinkButton>
+              <%-- <a class="link " href="#" onclick="handleTabs('audio')"><span id="AudioTab">Audio</span></a>--%>
             </div>
         </div>
-
+      <asp:Repeater ID="RepeaterVideo" runat="server">
+      <ItemTemplate>
         <div id="videoDiv" class="container blog-div my-5">
             <div class="row w-100">
                 <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
@@ -165,6 +170,11 @@
                 </div> -->
             </div>
         </div>
+        </ItemTemplate>
+        </asp:Repeater>
+
+        <asp:Repeater ID="RepeaterArticle" runat="server">
+      <ItemTemplate>
         <div id="articleDiv" class="article-div container blog-div my-5">
             <div class="row w-100">
                 <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
@@ -211,6 +221,11 @@
                 </div> -->
             </div>
         </div>
+         </ItemTemplate>
+        </asp:Repeater>
+
+<asp:Repeater ID="RepeaterAudio" runat="server">
+      <ItemTemplate>
         <div id="audioDiv" class="audio-div container blog-div my-5">
             <div class="row w-100">
                 <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
@@ -291,6 +306,8 @@
                 </div>
             </div>
         </div>
+        </ItemTemplate>
+        </asp:Repeater>
     </div>
 
 

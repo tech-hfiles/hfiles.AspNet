@@ -1,0 +1,178 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user.Master" AutoEventWireup="true" CodeBehind="AddBlogs.aspx.cs" Inherits="hfiles.Admin.AddBlogs" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Add a gray background color with some padding */
+        body {
+            font-family: Arial;
+            padding: 20px;
+            background: #f1f1f1;
+        }
+
+        /* Header/Blog Title */
+        .header {
+            padding: 5px;
+            font-size: 36px;
+            text-align: center;
+            background: white;
+        }
+
+        /* Create two unequal columns that floats next to each other */
+        /* Left column */
+        .leftcolumn {
+            float: left;
+            width: 75%;
+        }
+
+        /* Right column */
+        .rightcolumn {
+            float: left;
+            width: 25%;
+            padding-left: 20px;
+        }
+
+        /* Fake image */
+        .fakeimg {
+            background-color: #aaa;
+            background-image: url(shobija.jpg);
+            background-repeat: no-repeat;
+            border-radius: 50px;
+            width: 30%;
+            padding: 20px;
+        }
+
+        .fakeimg_banner {
+            background-image: url(mentalhealth.jpg);
+            background-repeat: repeat-x;
+            width: 100%;
+            padding: 20px;
+        }
+
+        p {
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 22px !important;
+        }
+
+
+        /* Add a card effect for articles */
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #ddd;
+            margin-top: 20px;
+        }
+
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 800px) {
+            .leftcolumn, .rightcolumn {
+                width: 100%;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+ <div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+        <h1>MENTAL HEALTH = WEALTH</h1>
+        <asp:TextBox runat="server" ID="txtHeading" CssClass="input-group" Text=""/>
+        <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" Display="Dynamic" ValidationGroup="AddB" ControlToValidate="txtHeading" runat="server" />
+        <h5>Published on: Aug 8, 2023 | Readtime: 2 min</h5>
+        <div class="fakeimg_banner" style="height:300px;"></div>
+        <p>
+          Research suggests that every 1 in 4 females and every 1 in 8 males will suffer from severe depression at
+          some point in their lives. Moreover, around 20 per cent of the world’s children and adolescents are
+          estimated to suffer from mental disorders. Why am I talking about these statistics?
+        </p>
+        <p>
+          Mental health care is a largely ignored area, especially in developing countries like ours. In fact, India as a
+          country has the maximum number of depressed people in the world. If we delve deeper into the mental
+          health scenario for India, the situation is far grimmer. Poor mental health is an epidemic which has almost
+          engulfed the nation. Given the lack of quality counselling and mental health care services in our country,
+          this already pathetic situation is likely to go from bad to worse.
+        </p> <p>
+          In India, the concept of talking to a counsellor or psycho-therapist in times of emotional turmoil is still new.
+          Further, we feel that only those with evidently abnormal behaviour should be the ones to seek the
+          services of a psychologist or psychiatrist. It is high time that we re-wire our brains to think about itself and
+          feed them with information about mental health.
+        </p>
+        <p>
+          “Mental health is more than just the absence of mental illnesses”. Mental health involves how one feels
+          about oneself and how well one is able to adjust to the challenges and changes in one’s environment.
+          Health is a state of complete physical, mental and social well-being. Mental health is defined as a state of
+          well-being in which –
+          <ul>
+            <li>Every individual realizes his or her own potential,</li>
+            <li>Can cope with the normal stresses of life,</li>
+            <li>Can work productively and fruitfully, and,</li>
+            <li>Is able to make a contribution to her or his community.</li>
+          </ul>
+        </p>
+        <p>
+          A good mental health involves a sense of self-worth & self-esteem, the ability to trust others, the ability to
+          form lasting emotional relationships, the ability to examine one & consider change, and the ability to learn
+          from experience. If you are lacking in any of the above areas, it is an indication that something is missing
+          and that you need to seek help.
+        </p>
+        <p>
+          The world is changing and with it changing the demands placed on each one of us. It is extremely crucial
+          that we take efforts to maintain a sound mental make–up. Remember the age-old saying, “Health is
+          Wealth”? Well, health here refers to all aspects of your well-being which is as much mental as physical. It
+          is your mind that controls your body. So reframe the old adage as “Mental Health is Wealth”, and take
+          steps to live by it.
+        </p>
+      </div>
+      <!-- <div class="card">
+        <h2>TITLE HEADING</h2>
+        <h5>Title description, Sep 2, 2017</h5>
+        <div class="fakeimg" style="height:200px;">Image</div>
+        <p>Some text..</p>
+        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      </div> -->
+    </div>
+    <div class="rightcolumn">
+      <div class="card">
+        <h2>About Author</h2>
+        <div class="fakeimg" style="height:100px;"></div>
+        <h4>Shobhika Jaju</h4>
+        <p><i>Psychologist, Psychotherapist</i></p>
+      </div>
+      <!-- <div class="card">
+        <h3>Popular Post</h3>
+        <div class="fakeimg1">Image</div><br>
+        <div class="fakeimg2">Image</div><br>
+        <div class="fakeimg3">Image</div>
+      </div> -->
+      <div class="card">
+        <h3>Contact Details</h3>
+        <p> (add email here) | 9049485444</p>
+      </div>
+    </div>
+  </div>
+</asp:Content>

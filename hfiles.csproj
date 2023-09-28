@@ -53,6 +53,9 @@
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
+    <Reference Include="CKEditor.NET">
+      <HintPath>..\..\Rohan\Kolorjet\Kolorjet\AppUI\bin\CKEditor.NET.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Protobuf, Version=3.21.9.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>packages\Google.Protobuf.3.21.9\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
@@ -186,6 +189,8 @@
     <Content Include="addbasicdetails.aspx" />
     <Content Include="additionalinformation.aspx" />
     <Content Include="addmember.aspx" />
+    <Content Include="Admin\AddBlog.aspx" />
+    <Content Include="Admin\AddBlogs.aspx" />
     <Content Include="assets\Asset 10.png" />
     <Content Include="assets\Asset 11.png" />
     <Content Include="assets\Asset 12.png" />
@@ -597,6 +602,20 @@
     <Compile Include="addmember.aspx.designer.cs">
       <DependentUpon>addmember.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AddBlog.aspx.cs">
+      <DependentUpon>AddBlog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddBlog.aspx.designer.cs">
+      <DependentUpon>AddBlog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddBlogs.aspx.cs">
+      <DependentUpon>AddBlogs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddBlogs.aspx.designer.cs">
+      <DependentUpon>AddBlogs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="avatar.aspx.cs">
       <DependentUpon>avatar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -682,6 +701,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
