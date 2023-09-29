@@ -1,9 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="addbasicdetails.aspx.cs" Inherits="hfiles.addbasicdetails" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/user.Master" CodeBehind="addbasicdetails.aspx.cs" Inherits="hfiles.addbasicdetails" %>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<%--<html xmlns="http://www.w3.org/1999/xhtml">--%>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+ 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
@@ -23,9 +23,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
     <title>Signup - Basic Information</title>
-</head>
-<body class="user-info-main">
-    <form class="h-100 container" runat="server"><a href="signup.aspx">
+    </asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+<a href="signup.aspx">
         <img class="home-icon-top-right" src="../Add Members/home-icon.png"  alt=""></a>
         <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
         <img class="blue-trangle-top-right" src="../assets/blue-trangle.png" alt="">
@@ -137,8 +139,8 @@
             <img class="blue-trangle-bottom-left" src="../assets/blue-trangle.png" alt="">
             <img class="blue-trangle-bottom-right" src="../assets/blue-trangle-bottom.png" alt="">
             <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
-    </form>
-</body>
+ 
+
 <script>
     const phoneInputField = document.querySelector("#phone");
     const phoneInput = window.intlTelInput(phoneInputField, {
@@ -146,5 +148,5 @@
             "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
     });
 </script>
+</asp:Content>
 
-</html>

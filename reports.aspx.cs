@@ -21,7 +21,17 @@ namespace hfiles
       if (!IsPostBack)
       {
         getReportMaster();
-        //Reports(1); //Session[""];
+        if (Request.QueryString["rid"] != null)
+        {
+          int RId = DAL.validateInt(Request.QueryString["rid"]);
+          if (RId > 0)
+          {
+            //int UserId = DAL.validateInt(Session["Userid"].ToString());
+            int UserId = 1;
+            Reports(UserId, RId);
+          }
+        }
+        //Session[""];
       }
     }
 
@@ -48,6 +58,7 @@ namespace hfiles
             da.Fill(dt);
             if (dt != null && dt.Rows.Count > 0)
             {
+              tcount.InnerHtml = dt.Rows.Count.ToString();
               rptReports.DataSource = dt;
               rptReports.DataBind();
             }
@@ -64,12 +75,7 @@ namespace hfiles
       }
     }
 
-    protected void ddlReports_SelectedIndexChanged(object sender, EventArgs e)
-    {
-      int UserId = DAL.validateInt(Session["Userid"].ToString());
-      int reportId = DAL.validateInt(ddlReports.SelectedValue);
-      Reports(UserId, reportId);
-    }
+    
 
     protected void getReportMaster()
     {
@@ -89,16 +95,16 @@ namespace hfiles
             if (dt != null && dt.Rows.Count > 0)
             {
 
-              ddlReports.DataSource = dt;
-              ddlReports.DataTextField = "Name";
-              ddlReports.DataValueField = "Id";
-              ddlReports.DataBind();
+              //ddlReports.DataSource = dt;
+              //ddlReports.DataTextField = "Name";
+              //ddlReports.DataValueField = "Id";
+              //ddlReports.DataBind();
 
-              ddlReports.Items.Insert(0, new ListItem("Select Report", "0"));
+              //ddlReports.Items.Insert(0, new ListItem("Select Report", "0"));
             }
             else
             {
-              ddlReports.Items.Insert(0, new ListItem("No Reports", "0"));
+              //ddlReports.Items.Insert(0, new ListItem("No Reports", "0"));
             }
 
           }

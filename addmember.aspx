@@ -1,9 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="addmember.aspx.cs" Inherits="hfiles.addmember" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/user.Master" CodeBehind="addmember.aspx.cs" Inherits="hfiles.addmember" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+ 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
@@ -16,9 +14,9 @@
     <link rel="stylesheet" href="./style3.css">
 
     <title>Add Members</title>
-</head>
-<body>
-    <form id="form1" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
         <img class="blue-t-top-left" src="../Avatar/blue-trangle-1.png" alt="">
         <img class="blue-t-top-right" src="../Avatar/blue-trangle-2.png" alt="">
         <img class="blue-t-right" src="../Add Members/blue-trangle-3.png" alt="">
@@ -168,6 +166,5 @@
             }
         </script>
 
-    </form>
-</body>
-</html>
+   
+</asp:Content>

@@ -1,10 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="journal.aspx.cs" Inherits="hfiles.journal" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/user.Master" Inherits="hfiles.journal" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
@@ -29,9 +27,10 @@
             cursor: pointer;
         }
     </style>
-</head>
-<body class="journal common-design">
- <form id="form1" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<%--<body class="journal common-design">
+ <form id="form1" runat="server">--%>
     <div class="top-icon">
         <img id="" class="" src="../Add Members/save-icon.png" alt="" width="35px">
         <img id="" class="" src="../Add Members/home-icon-gray.png" alt="" width="25px">
@@ -362,6 +361,5 @@
 
         }
     </script>
-    </form>
-</body>
-</html>
+  
+</asp:Content>

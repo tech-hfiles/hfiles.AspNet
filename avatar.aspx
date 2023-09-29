@@ -100,8 +100,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <body class="avatar">
-        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+       <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <%--  <img class="blue-t-top-left" src="<%= ResolveUrl("~/Avatar/blue-trangle-1.png") %>" alt="" />
         <img class="blue-t-top-right" src="<%= ResolveUrl("~/Avatar/blue-trangle-2.png") %>" alt="" />--%>
         <img class="plus-top-left" src="<%= ResolveUrl("~/Add Members/plus-1.png") %>" alt="" />
@@ -180,7 +179,8 @@
                                     <div class="d-flex align-items-center h-75">
                                         <span>lab report</span>
                                         <div class="menu-circle">
-                                            <img src="../Avatar/lab-report.png" alt="">
+                                        <a href="reports.aspx?rid=3"> <img src="../Avatar/lab-report.png" alt=""></a>
+                                           
                                         </div>
                                     </div>
 
@@ -364,6 +364,6 @@
             <asp:Label Text="" ID="lblMsg" runat="server" />
             <asp:Button ID="btnClose" runat="server" OnClick="okLinkButton_Click" Text="Close" CssClass="close-btn" />
         </asp:Panel>
-    </body>
+    
 </asp:Content>
 

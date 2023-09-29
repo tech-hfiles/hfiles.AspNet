@@ -1,9 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="blogdetails.aspx.cs" Inherits="hfiles.blogdetails" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/user.Master" CodeBehind="blogdetails.aspx.cs" Inherits="hfiles.blogdetails" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         * {
@@ -97,9 +94,9 @@
             }
         }
     </style>
-</head>
-<body>
-    <form id="form1" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
         <div class="row">
             <div class="leftcolumn">
                 <div class="card">
@@ -177,6 +174,5 @@
                 </div>
             </div>
         </div>
-    </form>
-</body>
-</html>
+   
+</asp:Content>

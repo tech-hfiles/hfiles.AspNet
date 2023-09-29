@@ -1,9 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="supportgroup.aspx.cs" Inherits="hfiles.supportgroup" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/user.Master" CodeBehind="supportgroup.aspx.cs" Inherits="hfiles.supportgroup" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
@@ -18,10 +16,11 @@
             background: linear-gradient(to left, #c9c8c8, #f8f8f8);
         }
     </style>
-</head>
+</asp:Content>
 
-<body class="support-group">
-    <form id="form1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+   
         <a href="#">
             <div class="top-profile-div d-flex align-items-center">
                 <img src="../Suppor Group (BG  & Icons)/default-profile.png" alt="" width="40px">
@@ -952,6 +951,6 @@
                 });
             });
         </script>
-    </form>
-</body>
-</html>
+    
+
+</asp:Content>

@@ -1,18 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="samanta.aspx.cs" Inherits="hfiles.samanta" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/user.Master" CodeBehind="samanta.aspx.cs" Inherits="hfiles.samanta" %>
 
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<%= ResolveUrl("style2.css") %>" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <title>Samanta</title>
-</head>
-
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <body class="journal">
 
     <img class="blue_trangle_top_left" src="<%= ResolveUrl("~/Terms & Conditions/blue-trangle6.png") %>" alt="">
@@ -29,7 +26,7 @@
             <img class="" src="<%= ResolveUrl("~/Reception Page/shutdown.png") %>" alt="off icon"></a>
     </div>
 
-    <form id="form1" runat="server" class="journal_main">
+    <div class="journal_main">
         <div style="width: 85%;">
             <div class="row inner_div mt-5">
                 <div class="col-12 heading">
@@ -88,7 +85,7 @@
                 </div>
             </div>
         </div>
-    </form>
+    </div>
     <div class="bottom_TC">
         <span><a href="#">Privacy & Policy</a> &nbsp;| &nbsp; <a href="#">Terms & Conditions</a></span>
     </div>
@@ -108,5 +105,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
-
-</html>
+</asp:Content>

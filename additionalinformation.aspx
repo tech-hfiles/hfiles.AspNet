@@ -1,9 +1,8 @@
-﻿<%@ Page Title="Additional Information" Language="C#" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="additionalinformation.aspx.cs" Inherits="hfiles.additionalinformation" %>
+﻿<%@ Page Title="Additional Information" Language="C#" AutoEventWireup="true" EnableEventValidation="false" MasterPageFile="~/user.Master" CodeBehind="additionalinformation.aspx.cs" Inherits="hfiles.additionalinformation" %>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -127,10 +126,9 @@
                 color: red;
             }
     </style>
-</head>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<body class="additional-information common-design">
-    <form runat="server">
         <asp:ScriptManager runat="server" />
         <img class="home-icon-top-right" src="<%= ResolveUrl("~/Add Members/home-icon.png") %>" alt="">
         <img class="blue-trangle-top-left" src="<%= ResolveUrl("~/assets/blue-trangle.png") %>" alt="">
@@ -540,8 +538,7 @@
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
-    </form>
-
+   
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
 
@@ -656,6 +653,5 @@
             return true;
         }
     </script>
-</body>
 
-</html>
+</asp:Content>
