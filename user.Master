@@ -2,12 +2,17 @@
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./style2.css" />
+    <link rel="stylesheet" href="./style3.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link rel="stylesheet" href="./style3.css">
 </head>
 <body>
     <div class="top-home-icons d-flex justify-content-between align-items-center w-100">
@@ -15,21 +20,19 @@
             <img src="../assets/h-file-logo-white.png" alt="" width="200px">
         </div>
         <div class="d-flex ">
-            <a href="#">
+            <a href="samanta.aspx">
                 <img class="" src="../Avatar/home-icon-white.png" alt=""></a>
-            <a href="#">
+            <%--<a href="#">
                 <img class="" src="../Avatar/user-edit-white.png" alt=""></a>
             <a href="#">
-                <img class="" src="../Avatar/user-delete-white.png" alt=""></a>
-            <a href="#">
+                <img class="" src="../Avatar/user-delete-white.png" alt=""></a>--%>
+            <a href="login.aspx">
                 <img class="" src="../Avatar/shutoff-white.png" alt=""></a>
         </div>
     </div>
     <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
     </form>
     <div class="footer d-flex justify-content-around">
         <div class="t-c">

@@ -688,6 +688,12 @@ a {
     .inner-div {
         width: 95%;
     }
+    .avatar .avatar-left-sec ul {
+        height: 50vh;
+    }
+    .main-div {
+        background-position-x: 20%;
+    }
 }
 
 @media only screen and (max-width: 786px) {
@@ -731,10 +737,10 @@ a {
     .main-div {
         background-position: initial;
     }
-    .avatar {
+    /* .avatar {
         background-position: center;
         background-size: contain;
-    }
+    } */
     .inner-div {
         width: 60%;
     }
@@ -742,6 +748,22 @@ a {
         height: 60px;
         position: relative;
         bottom: -10px;
+    }
+    .avatar .avatar-left-sec ul {
+        height: 80vh;
+    }
+    .avatar .inner-menu-div {
+        height: 555px;
+    }
+    .avatar .plus-icon {
+        top: 45%;
+    }
+    .popover__wrapper {
+        top: 45%;
+    }
+    .avatar {
+        background-size: contain;
+        background-position-y: 25%;
     }
 }
 
@@ -776,7 +798,7 @@ a {
     }
 
     .avatar .avatar-img {
-        height: 290px;
+        height: 250px;
     }
 
     .avatar .blue-t-top-left {
@@ -800,7 +822,7 @@ a {
     }
 
     .popover__wrapper {
-        top: 42%;
+        top: 36%;
         left: 180px;
         width: 100px;
     }
@@ -858,7 +880,7 @@ a {
         left: 65px;
     }
     .avatar .plus-icon {
-        top: 42%;
+        top: 36%;
         margin-right: 40px;
         width: 50px;
     }
@@ -893,6 +915,9 @@ a {
     }
     .add-member #default-number input[type="number"] {
         width: 145px;
+    }
+    .avatar .avatar-left-sec ul {
+        height: 80vh;
     }
 }
 

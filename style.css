@@ -13,7 +13,7 @@ h3,
 h4,
 h5,
 h6{
-    font-family: 'Red Hat Display', sans-serif !important;
+    font-family: 'Poppins', sans-serif !important;
 }
 p, a, span, li, button{
     font-family: 'Poppins', sans-serif !important;
@@ -40,7 +40,9 @@ a {
     color: #08138f;
     font-weight: 700;
 }
-
+.border-right {
+    border-right: 1px solid #ccc;
+}
 .thm-back-button {
     padding: 10px 60px;
     background: #d6d6d6;
@@ -341,7 +343,7 @@ a {
 
 .inner-main {
     background-image: url('../assets/blue-bg.png');
-    height: 100vh;
+    height: 100%;
 }
 
 .blue-trangle-left-side {
@@ -377,7 +379,6 @@ a {
     border: 0 !important;
     outline: 0;
     text-decoration: none !important;
-    color: #fdd001;
 }
 
 /* login right side */
@@ -466,7 +467,6 @@ span {
     display: flex;
     justify-content: end;
     align-items: center;
-    height:100vh;
 }
 
 .signin-heading h1 {
@@ -1334,6 +1334,37 @@ span.img-notselected {
     opacity: 0;
     z-index: 1;
 }
+
+
+/* download documents */
+.download-documents {
+    background: #ebebeb;
+}
+.download-doc-inner .card {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.download-doc-inner .search-file input{
+    padding: 10px;
+    padding-left: 35px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 50%;
+    outline: 0;
+}
+.download-doc-inner .search-file i{
+    position: relative;
+    left: 30px;
+}
+.download-doc-inner .card img{
+    height: 150px;
+    width: 100%;
+    object-fit: contain;
+}
+.download-doc-inner .heading-title, .download-doc-inner .doc-pdf {
+    background-color: #ffffff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+/* download documents */
 
 @media only screen and (max-width: 1200px) {
     .filter-shorting-icon {

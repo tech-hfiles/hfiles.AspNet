@@ -670,18 +670,17 @@ select:hover {
     color: #0614aa;
 }
 
-    .journal .journal_main .inner_div .heading h3 {
-        background-color: #ffd101;
-        height: 60px;
-        width: 320px;
-        border-radius: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 30px;
-        font-weight: 600;
-        color: #0614aa;
-    }
+.journal .journal_main .inner_div .heading h3 {
+    background-color: #ffd101;
+    height: 60px;
+    width: 320px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 600;
+}
 
 .my_profile .dropdown-toggle {
     text-decoration: none;
@@ -698,8 +697,8 @@ select:hover {
 
 ul.dropdown-menu.show {
     background: linear-gradient(to bottom, #0614aa 0%, #081466 100%);
-    transform: translate3d(27px, 65px, 21px) !important;
-    z-index: 1;
+    transform: translate3d(22.6px, 65px, 16px) !important;
+    /* z-index: -1; */
     width: 75%;
 }
 
@@ -1142,7 +1141,7 @@ ul.dropdown-menu.show li a {
 
     .my_profile ul.dropdown-menu.show {
         z-index: 1;
-        transform: translate3d(14.6px, 57px, 21px) !important;
+        transform: translate3d(14.6px, 30px, 21px) !important;
         width: 82%;
     }
     .contact .contact-main .contact-card {
