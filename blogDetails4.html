@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Add a gray background color with some padding */
+        body {
+            font-family: Arial;
+            padding: 20px;
+            background: #f1f1f1;
+        }
+
+        /* Header/Blog Title */
+        .header {
+            padding: 5px;
+            font-size: 36px;
+            text-align: center;
+            background: white;
+        }
+
+        /* Create two unequal columns that floats next to each other */
+        /* Left column */
+        .leftcolumn {
+            float: left;
+            width: 75%;
+        }
+
+        /* Right column */
+        .rightcolumn {
+            float: left;
+            width: 25%;
+            padding-left: 20px;
+        }
+
+        /* Fake image */
+        .fakeimg {
+            background-color: #aaa;
+            background-image: url(shobija.jpg);
+            background-repeat: no-repeat;
+            border-radius: 50px;
+            width: 30%;
+            padding: 20px;
+        }
+
+        .fakeimg_banner {
+            background-image: url(mentalhealth.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            padding: 20px;
+        }
+
+        p {
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 22px !important;
+        }
+
+
+        /* Add a card effect for articles */
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #ddd;
+            margin-top: 20px;
+        }
+
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 800px) {
+
+            .leftcolumn,
+            .rightcolumn {
+                width: 100%;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--<div class="header">
+    <h2>Article - Mental Health</h2>
+  </div>-->
+
+    <div class="row">
+        <div class="leftcolumn">
+            <div class="card">
+                <h1>Supplementing Dogs Diet</h1>
+                <h5>Published on: Aug 8, 2023 | Readtime: 2 min</h5>
+                <div class="fakeimg_banner" style="height:300px;"></div>
+                <p>
+                    There seems to be such a buzz about Supplements in the pet industry these days. Some are touted to
+                    relieve achy
+                    joints while some promise to make your pooch’s coat shinier. Unfortunately, supplements cannot be
+                    standardised. The key before adding anything to your pet’s diet is to see what is already present in
+                    the diet and
+                    then supplement accordingly.
+                </p>
+                <p>
+                    Store-bought commercial pet food often requires no supplementation as it contains a synthetic
+                    vitamin and
+                    mineral mix. However, adding some species appropriate fresh foods to your pet’s bowl like steamed
+                    meat and
+                    fish, eggs, steamed veggie and fruits can up the nutritional quotient of your pet’s food. If you
+                    have chosen to
+                    feed freshly cooked meals to your pet, we recommend that you work with a <a
+                        href="#"> certified pet nutritionist</a>
+                    or a vet to
+                    ensure the meals are balanced and in the right proportion for your pet.
+                </p>
+                <h3>For a healthy dog, we have listed the following natural essential supplements*:</h3>
+                <ul>
+                    <li>
+                        <a href="#">Bone Meal</a> and <a
+                            href="#">Egg Shell Powder</a> are a natural
+                        source of calcium. Calcium is the most abundant
+                        mineral found in
+                        animals and dogs that are deficient in calcium can develop weak bones. Supplementing a home
+                        cooked diet with
+                        calcium is absolutely necessary. For an adult dog we suggest that you rotate between Bone Meal
+                        and Egg Shell
+                        Powder. For a puppy, only Bone Meal Powder should be incorporated. The recommend dosage is 1 tsp
+                        per 500
+                        grams of food fed.
+                    </li>
+                    <br>
+                    <li>
+                        Kelp and Seaweed, both found in supplements like <a
+                            href="#">Plaque Off by ProDen</a> and <a
+                            href="#">Green Glory by Magic
+                            Paws</a>, are
+                        excellent sources of Iodine. Iodine supports your dog's metabolism and helps them produce
+                        thyroid hormones. When
+                        iodine levels are too low, weight, energy, and mood imbalances are common. Unless one feeds the
+                        thyroid glands of
+                        prey to their dogs, feeding fresh may fall short of iodine. Please note that excess consumption
+                        of iodine can suppress
+                        the thyroid gland and cause complications, always ensure supplementation is happening in the
+                        correct dose. Ideal
+                        iodine requirements, as per NRC guidelines, are 220 mcg for a dog eating 1000 Kcal a day.
+                    </li>
+                    <br>
+                    <li>
+                        Omega 3 Fatty Acids are essential fatty acids known for its anti-inflammatory benefits. Sources
+                        of Omega 3 can
+                        be plant based, such as <a href="#">Hemp Hearts by
+                            Happy Puppy Organics</a> or <a href="#">Hemp
+                            Seed Oil</a>. Marine
+                        Animal-based
+                        supplements, such as the <a href="#">Anchovy Topper
+                            by Nutriwoof</a> , <a href="#">Fish Ferky by
+                            Doggie Dabbas</a>, or Fish Oil,
+                        are also an
+                        incredible source of Omega 3 Fatty Acids. EPA & DHA found in Omega-3 fatty acid, have been found
+                        to aid in the
+                        proper brain and eye development of puppies and also improve cognitive function in older dogs
+                        dealing with canine
+                        cognitive dysfunction. Adding some source of Omega 3 Fatty Acids into your pet’s bowl can do
+                        wonders!
+                    </li>
+                    <br>
+                    <li>
+                        <a href="#">Cold Pressed Coconut Oil</a> is an
+                        excellent source of Medium Chain Tryglicerides. This supplement
+                        is not only
+                        great for the skin and coat, but also has shown to be beneficial with cognitive recognition in
+                        both young and senior
+                        dogs and has helped reduce the incidence of seizures in epileptic dogs. We recommend 1 tsp of
+                        coconut oil per 5 kgs
+                        of body weight. You can start with ¼ of this amount and work up to the recommended dosage. If
+                        your dog gets loose
+                        motions from coconut oil, just cut back the dose.
+                    </li>
+                    <br>
+                    <li>
+                        The <a href="#"> Superfood Supplement</a> and <a
+                            href="#">Oil Supplement</a> by Nutriwoof are both
+                        sources of Vitamin E – a
+                        powerful
+                        antioxidant. Adding them to your pet’s meals is an easy way of supplementing your pet’s diet
+                        with small doses of
+                        Vitamin E. This fat-soluble vitamin helps boost immunity, fight against free radical damage and
+                        help prevent ageing and cancer. Natural sources of vitamin E include cold-pressed vegetable
+                        oils, nuts, seeds, green leafy vegetables,
+                        eggs, and most fish and meats like beef, turkey leg and chicken breast.
+                    </li>
+                    <br>
+                    <li>
+                        <a href="#">Nutriwoof’s Superfood Supplement</a> is also a great source of zinc. Zinc is
+                        important for
+                        immunity, wound healing
+                        and skin and coat health. While oysters are a great source of zinc, other sources include beef,
+                        beef liver, lamb, turkey
+                        thigh, and chicken thigh. Zinc can also be supplemented through pumpkin and sunflower seeds.
+                        These are generally
+                        needed in very small amounts daily
+                    </li>
+                    <br>
+                    <li>
+                        <a href="#">Goat Milk Powder by Magic Paws</a> and <a href="#">Green Tripe by Nutriwoof</a>
+                        contain Probiotics and Digestive
+                        Enzymes.
+                        Supplementing your dog’s diet with probiotics helps build good gut bacteria, and reduces the
+                        incidence of digestive
+                        upset and allergies. A healthy gut translates into good immunity for humans and their dogs
+                        alike. Other sources of
+                        the same include curd and kefir. We recommend that you start slow when introducing these
+                        ingredients for the first
+                        time to ensure these are tolerated well by your pet.
+                    </li>
+                </ul>
+                <h3>* Disclaimer:</h3>
+                <p>
+                    Our recommendations are based on general supplementation required through whole food sources for
+                    dogs on a home-cooked diet. Every dog is an individual and recipes may differ. If in doubt do
+                    consult a certified pet
+                    nutritionist or veterinarian to ensure you are dosing everything correctly and to avoid
+                    over-supplementation which in
+                    some cases can have detrimental effects on your pet.
+                </p>
+            </div>
+            <!-- <div class="card">
+        <h2>TITLE HEADING</h2>
+        <h5>Title description, Sep 2, 2017</h5>
+        <div class="fakeimg" style="height:200px;">Image</div>
+        <p>Some text..</p>
+        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      </div> -->
+        </div>
+        <div class="rightcolumn">
+            <div class="card">
+                <h2>About Author</h2>
+                <div class="fakeimg" style="height:100px;"></div>
+                <h4>Shobhika Jaju</h4>
+                <p><i>Psychologist, Psychotherapist</i></p>
+            </div>
+            <!-- <div class="card">
+        <h3>Popular Post</h3>
+        <div class="fakeimg1">Image</div><br>
+        <div class="fakeimg2">Image</div><br>
+        <div class="fakeimg3">Image</div>
+      </div> -->
+            <div class="card">
+                <h3>Contact Details</h3>
+                <p> (add email here) | 9049485444</p>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="footer">
+    <h3>
+      
+    </h3>
+  </div>-->
+
+</body>
+
+</html>

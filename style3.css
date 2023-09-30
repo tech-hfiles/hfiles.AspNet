@@ -27,6 +27,9 @@ p, a, span, li, button{
     bottom: 0;
     width: 100%;
 }
+.avatar .footer {
+    position: relative !important;
+}
 .top-home-icons {
     top: 0 !important;
     right: 0 !important;
@@ -347,7 +350,7 @@ input::-webkit-inner-spin-button {
     position: relative;
     right: 0;
     height: 470px;
-    z-index: -1;
+    /*z-index: -1;*/
 }
 
 .w-60 {
@@ -355,7 +358,7 @@ input::-webkit-inner-spin-button {
 }
 
 .h-75 {
-    height: 75px;
+    height: 75px !important;
 }
 
 .avatar .plus-icon {
@@ -448,7 +451,7 @@ ul .plus-value {
 
 .avatar .inner-menu-div .lab-report {
     position: relative;
-    bottom: 500px;
+    bottom: 495px;
     left: 80px;
 }
 
@@ -488,11 +491,11 @@ ul .plus-value {
     right: 140px;
 }
 
-.avatar .inner-menu-div .immunization {
-    position: relative;
-    bottom: 530px;
-    right: 10px;
-}
+    .avatar .inner-menu-div .immunization {
+        position: relative;
+        bottom: 522px;
+        right: 5px;
+    }
 
 .menu-circle-txt-color {
     color: #447df0;
@@ -534,7 +537,7 @@ a {
     position: relative;
     top: 60%;
     left: 170px;
-    width: 100px;
+    width: 96px;
     /* margin-top: 1.5rem; */
     /* display: inline-block; */
 }

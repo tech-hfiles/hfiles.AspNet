@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Add a gray background color with some padding */
+        body {
+            font-family: Arial;
+            padding: 20px;
+            background: #f1f1f1;
+        }
+
+        /* Header/Blog Title */
+        .header {
+            padding: 5px;
+            font-size: 36px;
+            text-align: center;
+            background: white;
+        }
+
+        /* Create two unequal columns that floats next to each other */
+        /* Left column */
+        .leftcolumn {
+            float: left;
+            width: 75%;
+        }
+
+        /* Right column */
+        .rightcolumn {
+            float: left;
+            width: 25%;
+            padding-left: 20px;
+        }
+
+        /* Fake image */
+        .fakeimg {
+            background-color: #aaa;
+            background-image: url(shobija.jpg);
+            background-repeat: no-repeat;
+            border-radius: 50px;
+            width: 30%;
+            padding: 20px;
+        }
+
+        .fakeimg_banner {
+            background-image: url(../journal-page-images/article/motivation.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            padding: 20px;
+        }
+
+        p {
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 22px !important;
+        }
+
+
+        /* Add a card effect for articles */
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #ddd;
+            margin-top: 20px;
+        }
+
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 800px) {
+
+            .leftcolumn,
+            .rightcolumn {
+                width: 100%;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--<div class="header">
+    <h2>Article - Mental Health</h2>
+  </div>-->
+
+    <div class="row">
+        <div class="leftcolumn">
+            <div class="card">
+                <h1>Motivation</h1>
+                <h5>Published on: Aug 8, 2023 | Readtime: 2 min</h5>
+                <div class="fakeimg_banner" style="height:300px;"></div>
+                <p>
+                    People, as driven beings, find themselves motivated in two distinct directions: we tend to move
+                    towards things we
+                    want, and away from things we don’t want. This is a jolly good idea, especially for things happening
+                    in the outside
+                    world. However, can we use it for the world inside us?
+                </p>
+                <p>
+                    Being clever, we extend the same principle, to categorize challenging feelings like anxiety,
+                    sadness, and uncertainty
+                    as things to move away from, and positive emotions such as happiness, excitement, and relief as
+                    things to move
+                    towards. This concept appears intuitively sound, but applying it to the internal world causes all
+                    sorts of problems.
+                </p>
+                <p>
+                    Reflect on a personal achievement you're genuinely proud of, such as completing a marathon or
+                    passing an
+                    important exam. Now, think back to the initial stages or moments when you were actively working
+                    towards this
+                    accomplishment. What were your thoughts and feelings then? Notice how the pursuit of something of
+                    great value
+                    typically triggers negative thoughts and uncomfortable emotions in the short term. So, our mind
+                    tells us to move
+                    away, like how one might react upon encountering a bear or an approaching bus. Then, if we do move
+                    away, the first
+                    emotion that shows up is relief
+                </p>
+                <p>
+                    We develop a habit of moving away from bad or difficult thoughts and feelings and moving towards
+                    good ones. But
+                    this is a trap because it can mean we move away from what matters most in life.
+                </p>
+                <p>
+                    So, what do we do about this? To overcome this urge to move away from difficult internal
+                    experiences, we must first
+                    understand what we really want from life – what are the things we truly value? What is most
+                    meaningful and
+                    important for us? It could be things like being a loving family member, being responsible at work,
+                    being honest and
+                    virtuous. Then, we need to build the willingness to experience these difficult internal experiences
+                    in order to keep
+                    moving towards our values. We can’t experience love without the fear of rejection, achieve greatness
+                    without
+                    grappling with the fear of failure, or changing our lives for the better without worrying that we
+                    may
+                    change for the worse.
+                </p>
+                <p>
+                    So, what do we do about this? To overcome this urge to move away from difficult internal
+                    experiences, we must first
+                    understand what we really want from life – what are the things we truly value? What is most
+                    meaningful and
+                    important for us? It could be things like being a loving family member, being responsible at work,
+                    being honest and
+                    virtuous. Then, we need to build the willingness to experience these difficult internal experiences
+                    in order to keep
+                    moving towards our values. We can’t experience love without the fear of rejection, achieve greatness
+                    without
+                    grappling with the fear of failure, or changing our lives for the better without worrying that we
+                    may
+                    change for the worse.
+
+                </p>
+            </div>
+            <!-- <div class="card">
+        <h2>TITLE HEADING</h2>
+        <h5>Title description, Sep 2, 2017</h5>
+        <div class="fakeimg" style="height:200px;">Image</div>
+        <p>Some text..</p>
+        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      </div> -->
+        </div>
+        <div class="rightcolumn">
+            <div class="card">
+                <h2>About Author</h2>
+                <div class="fakeimg" style="height:100px;"></div>
+                <h4>Shobhika Jaju</h4>
+                <p><i>Psychologist, Psychotherapist</i></p>
+            </div>
+            <!-- <div class="card">
+        <h3>Popular Post</h3>
+        <div class="fakeimg1">Image</div><br>
+        <div class="fakeimg2">Image</div><br>
+        <div class="fakeimg3">Image</div>
+      </div> -->
+            <div class="card">
+                <h3>Contact Details</h3>
+                <p> (add email here) | 9049485444</p>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="footer">
+    <h3>
+      
+    </h3>
+  </div>-->
+
+</body>
+
+</html>

@@ -3,6 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Samanta</title>
     <link rel="stylesheet" href="./style2.css" />
+    <style>
+        .footer {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="journal">
@@ -10,7 +17,7 @@
             <div style="width: 85%;">
                 <div class="row inner_div mt-5">
                     <div class="col-12 heading">
-                        <a href="<%= ResolveUrl("~/journal.aspx") %>">
+                        <a href="<%= ResolveUrl("~/journalpage.html") %>">
                             <h3>Journal</h3>
                         </a>
                     </div>

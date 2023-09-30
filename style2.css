@@ -670,21 +670,22 @@ select:hover {
     color: #0614aa;
 }
 
-.journal .journal_main .inner_div .heading h3 {
-    background-color: #ffd101;
-    height: 60px;
-    width: 320px;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    font-weight: 600;
-}
+    .journal .journal_main .inner_div .heading h3 {
+        background-color: #ffd101;
+        height: 60px;
+        width: 320px;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        font-weight: 600;
+        color: #0614aa;
+    }
 
 .my_profile .dropdown-toggle {
     text-decoration: none;
-    color: #0614aa;
+    color: #0614aa !important;
     font-weight: 600;
     font-size: 26px;
 }

@@ -17,9 +17,11 @@
 <body>
     <div class="top-home-icons d-flex justify-content-between align-items-center w-100">
         <div class="common-heading mx-5">
-            <img src="../assets/h-file-logo-white.png" alt="" width="200px">
+            <img src="../assets/h-file-logo-white.png" alt="" width="200px" />
         </div>
         <div class="d-flex ">
+            <span class="mx-2 mt-1">
+                <asp:Label ForeColor="White" ID="memberLabel" runat="server" Text=""></asp:Label></span>
             <a href="samanta.aspx">
                 <img class="" src="../Avatar/home-icon-white.png" alt=""></a>
             <%--<a href="#">

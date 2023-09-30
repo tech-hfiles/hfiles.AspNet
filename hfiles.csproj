@@ -336,6 +336,11 @@
     <Content Include="Avatar\spacial-report.png" />
     <Content Include="blogdetail.html" />
     <Content Include="blogdetails.aspx" />
+    <Content Include="blogDetails1.html" />
+    <Content Include="blogDetails2.html" />
+    <Content Include="blogDetails3.html" />
+    <Content Include="blogDetails4.html" />
+    <Content Include="blogDetails5.html" />
     <Content Include="css\style.css" />
     <Content Include="css\style2.css" />
     <Content Include="css\style3.css" />
@@ -530,7 +535,6 @@
     <Content Include="Reception Page\shutdown.png" />
     <Content Include="Reception Page\user-icon.png" />
     <Content Include="reports.aspx" />
-    <Content Include="reports_old.aspx" />
     <Content Include="samanta.aspx" />
     <Content Include="shobija.jpg" />
     <Content Include="signup.aspx" />
@@ -662,13 +666,6 @@
     </Compile>
     <Compile Include="reports.aspx.designer.cs">
       <DependentUpon>reports.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="reports_old.aspx.cs">
-      <DependentUpon>reports_old.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="reports_old.aspx.designer.cs">
-      <DependentUpon>reports_old.aspx</DependentUpon>
     </Compile>
     <Compile Include="samanta.aspx.cs">
       <DependentUpon>samanta.aspx</DependentUpon>

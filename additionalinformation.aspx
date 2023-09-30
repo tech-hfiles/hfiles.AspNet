@@ -2,17 +2,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="<%= ResolveUrl("~/css/style.css") %>" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
-        integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
-        integrity="sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="<%= ResolveUrl("~/style.css") %>" />
 
     <title>Additional Information</title>
     <style>
@@ -128,185 +118,173 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-        <asp:ScriptManager runat="server" />
-        <img class="home-icon-top-right" src="<%= ResolveUrl("~/Add Members/home-icon.png") %>" alt="">
-        <img class="blue-trangle-top-left" src="<%= ResolveUrl("~/assets/blue-trangle.png") %>" alt="">
-        <img class="blue-trangle-top-right" src="<%= ResolveUrl("~/Terms & Conditions/blue-trangle6.png") %>" alt="">
-        <img class="blue-trangle-right" src="<%= ResolveUrl("~/Terms & Conditions/blue-trangle3.png") %>" alt="">
-        <img class="blue-trangle-left" src="<%= ResolveUrl("~/Terms & Conditions/blue-trangle5.png") %>" alt="">
-        <img class="plus-top-left" src="<%= ResolveUrl("~/assets/plus-1.png") %>" alt="">
-
-        <asp:UpdatePanel runat="server">
-            <ContentTemplate>
-
-
-                <div runat="server" id="AdditionalDiv">
-
-                    <div class="additionl-main-div container pt-5 px-5 h-90">
-                        <div class="row pt-5">
-                            <div class="col-12">
-                                <h1 class="heading">Additional Information</h1>
-                                <div class="row py-2">
-                                    <div class="col-lg-1 col-xl-1 col-md-2 col-sm-4">
-                                        <p class="sub-heading">Height</p>
-                                    </div>
-                                    <div class="col-lg-2 col-xl-2 col-md-3 col-sm-4">
-                                        <div>
-                                            <input runat="server" id="heightfeetTextBox" onkeypress="return isNumberKey(event,this)" required class="hight-input" type="number"><span>ft</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2 col-xl-2 col-md-3 col-sm-4">
-                                        <div>
-                                            <input runat="server" id="heightinchTextBox" onkeypress="return isNumberKey(event,this)" required class="hight-input" type="number"><span>inch</span>
-                                        </div>
+    <asp:ScriptManager runat="server" />
+    <asp:UpdatePanel runat="server">
+        <ContentTemplate>
+            <div runat="server" id="AdditionalDiv">
+                <div class="additionl-main-div container pt-5 px-5 h-90">
+                    <div class="row pt-5">
+                        <div class="col-12">
+                            <h1 class="heading">Additional Information</h1>
+                            <div class="row py-2">
+                                <div class="col-lg-1 col-xl-1 col-md-2 col-sm-4">
+                                    <p class="sub-heading">Height</p>
+                                </div>
+                                <div class="col-lg-2 col-xl-2 col-md-3 col-sm-4">
+                                    <div>
+                                        <input runat="server" id="heightfeetTextBox" onkeypress="return isNumberKey(event,this)" required class="hight-input" type="number"><span>ft</span>
                                     </div>
                                 </div>
-                                <div class="row py-2">
-                                    <div class="col-lg-1 col-xl-1 col-md-2 col-sm-4">
-                                        <p class="sub-heading">Weight</p>
-                                    </div>
-                                    <div class="col-lg-2 col-xl-2 col-md-3 col-sm-4">
-                                        <div>
-                                            <input runat="server" id="weightTextBox" onkeypress="return isNumberKey(event,this)" required class="hight-input" type="number"><span>kg</span>
-                                        </div>
+                                <div class="col-lg-2 col-xl-2 col-md-3 col-sm-4">
+                                    <div>
+                                        <input runat="server" id="heightinchTextBox" onkeypress="return isNumberKey(event,this)" required class="hight-input" type="number"><span>inch</span>
                                     </div>
                                 </div>
-                                <div class="row border-bottom">
-                                    <div class="col-4">
-                                    </div>
-                                    <div class="col-2">
-                                        <p class="fw-bold">Yes</p>
-                                    </div>
-                                    <div class="col-2">
-                                        <p class="fw-bold">No</p>
-                                    </div>
-                                    <div class="col-2">
-                                        <p class="fw-bold">Occasionally </p>
+                            </div>
+                            <div class="row py-2">
+                                <div class="col-lg-1 col-xl-1 col-md-2 col-sm-4">
+                                    <p class="sub-heading">Weight</p>
+                                </div>
+                                <div class="col-lg-2 col-xl-2 col-md-3 col-sm-4">
+                                    <div>
+                                        <input runat="server" id="weightTextBox" onkeypress="return isNumberKey(event,this)" required class="hight-input" type="number"><span>kg</span>
                                     </div>
                                 </div>
-                                <div class="row border-bottom pt-4">
-                                    <div class="col-4">
-                                        <p class="sub-heading">Do You Smoke?</p>
-                                        <asp:HiddenField ID="hfDoyouSmoke" runat="server" />
-                                    </div>
-                                    <div class="col-2">
-                                        <img id="yes-selected-smoke" src="<%= ResolveUrl("~/assets/select.png") %>" alt="" srcset="">
-                                        <img id="yes-not-selected-smoke" onclick="handleSelectSmoke('yes')"
-                                            src="<%= ResolveUrl("~/assets/not-select.png") %>" alt="" srcset="">
-                                        <!-- <input class="checkbox" type="checkbox"> -->
-                                    </div>
-                                    <div class="col-2">
-                                        <img id="no-selected-smoke" src="<%= ResolveUrl("~/assets/select.png") %>" alt="" srcset="">
-                                        <img id="no-not-selected-smoke" onclick="handleSelectSmoke('no')" src="<%= ResolveUrl("~/assets/not-select.png") %>" alt="" srcset="">
-                                        <!-- <input class="c-checkbox" type="checkbox" name="yes" id=""> -->
-                                    </div>
-                                    <div class="col-2">
-                                        <img id="Occasionally-selected-smoke" src="<%= ResolveUrl("~/assets/select.png") %>" alt="" srcset="">
-                                        <img id="Occasionally-not-selected-smoke" onclick="handleSelectSmoke('Occasionally')"
-                                            src="<%= ResolveUrl("~/assets/not-select.png") %>" alt="" srcset="">
+                            </div>
+                            <div class="row border-bottom">
+                                <div class="col-4">
+                                </div>
+                                <div class="col-2">
+                                    <p class="fw-bold">Yes</p>
+                                </div>
+                                <div class="col-2">
+                                    <p class="fw-bold">No</p>
+                                </div>
+                                <div class="col-2">
+                                    <p class="fw-bold">Occasionally </p>
+                                </div>
+                            </div>
+                            <div class="row border-bottom pt-4">
+                                <div class="col-4">
+                                    <p class="sub-heading">Do You Smoke?</p>
+                                    <asp:HiddenField ID="hfDoyouSmoke" runat="server" />
+                                </div>
+                                <div class="col-2">
+                                    <img id="yes-selected-smoke" src="<%= ResolveUrl("~/assets/select.png") %>" alt="" srcset="">
+                                    <img id="yes-not-selected-smoke" onclick="handleSelectSmoke('yes')"
+                                        src="<%= ResolveUrl("~/assets/not-select.png") %>" alt="" srcset="">
+                                    <!-- <input class="checkbox" type="checkbox"> -->
+                                </div>
+                                <div class="col-2">
+                                    <img id="no-selected-smoke" src="<%= ResolveUrl("~/assets/select.png") %>" alt="" srcset="">
+                                    <img id="no-not-selected-smoke" onclick="handleSelectSmoke('no')" src="<%= ResolveUrl("~/assets/not-select.png") %>" alt="" srcset="">
+                                    <!-- <input class="c-checkbox" type="checkbox" name="yes" id=""> -->
+                                </div>
+                                <div class="col-2">
+                                    <img id="Occasionally-selected-smoke" src="<%= ResolveUrl("~/assets/select.png") %>" alt="" srcset="">
+                                    <img id="Occasionally-not-selected-smoke" onclick="handleSelectSmoke('Occasionally')"
+                                        src="<%= ResolveUrl("~/assets/not-select.png") %>" alt="" srcset="">
+                                </div>
+                            </div>
+                            <div class="row border-bottom pt-4">
+                                <div class="col-4">
+                                    <p class="sub-heading">Do You Consume Alcohol?</p>
+                                    <asp:HiddenField ID="hfDoyouConsumeAlcohol" runat="server" />
+                                </div>
+                                <div class="col-2">
+                                    <img id="yes-selected-alcohol" src="<%= ResolveUrl("~/assets/select.png") %>" alt="" srcset="">
+                                    <img id="yes-not-selected-alcohol" onclick="handleSelectAlcohol('yes')"
+                                        src="<%= ResolveUrl("~/assets/not-select.png") %>" alt="" srcset="">
+                                </div>
+                                <div class="col-2">
+                                    <img id="no-selected-alcohol" src="<%= ResolveUrl("~/assets/select.png") %>" alt="" srcset="">
+                                    <img id="no-not-selected-alcohol" onclick="handleSelectAlcohol('no')"
+                                        src="<%= ResolveUrl("~/assets/not-select.png") %>" alt="" srcset="">
+                                </div>
+                                <div class="col-2">
+                                    <img id="occasionally-selected-alcohol" src="<%= ResolveUrl("~/assets/select.png") %>" alt="" srcset="">
+                                    <img id="occasionally-not-selected-alcohol" onclick="handleSelectAlcohol('Occasionally')"
+                                        src="<%= ResolveUrl("~/assets/not-select.png") %>" alt="" srcset="">
+                                </div>
+                            </div>
+                            <div class="row pt-4">
+                                <div class="col-10">
+                                    <p class="sub-heading">Do you have any surgeries? if yes. please specify:</p>
+                                </div>
+                            </div>
+                            <div class="row surgeries-div">
+                                <div class="col-8">
+                                    <input type="text" runat="server" required id="txtSurgeries">
+                                </div>
+                                <div class="col-2 add-surgeries">
+                                    +
+                                </div>
+                                <div class="col-2">
+                                    <div class="select-years">
+                                        <asp:DropDownList runat="server" ID="yearpicker1" name="yearpicker">
+                                        </asp:DropDownList>
                                     </div>
                                 </div>
-                                <div class="row border-bottom pt-4">
-                                    <div class="col-4">
-                                        <p class="sub-heading">Do You Consume Alcohol?</p>
-                                        <asp:HiddenField ID="hfDoyouConsumeAlcohol" runat="server" />
-                                    </div>
-                                    <div class="col-2">
-                                        <img id="yes-selected-alcohol" src="<%= ResolveUrl("~/assets/select.png") %>" alt="" srcset="">
-                                        <img id="yes-not-selected-alcohol" onclick="handleSelectAlcohol('yes')"
-                                            src="<%= ResolveUrl("~/assets/not-select.png") %>" alt="" srcset="">
-                                    </div>
-                                    <div class="col-2">
-                                        <img id="no-selected-alcohol" src="<%= ResolveUrl("~/assets/select.png") %>" alt="" srcset="">
-                                        <img id="no-not-selected-alcohol" onclick="handleSelectAlcohol('no')"
-                                            src="<%= ResolveUrl("~/assets/not-select.png") %>" alt="" srcset="">
-                                    </div>
-                                    <div class="col-2">
-                                        <img id="occasionally-selected-alcohol" src="<%= ResolveUrl("~/assets/select.png") %>" alt="" srcset="">
-                                        <img id="occasionally-not-selected-alcohol" onclick="handleSelectAlcohol('Occasionally')"
-                                            src="<%= ResolveUrl("~/assets/not-select.png") %>" alt="" srcset="">
-                                    </div>
-                                </div>
-                                <div class="row pt-4">
-                                    <div class="col-10">
-                                        <p class="sub-heading">Do you have any surgeries? if yes. please specify:</p>
-                                    </div>
-                                </div>
-                                <div class="row surgeries-div">
-                                    <div class="col-8">
-                                        <input type="text" runat="server" required id="txtSurgeries">
-                                    </div>
-                                    <div class="col-2 add-surgeries">
-                                        +
-                                    </div>
-                                    <div class="col-2">
-                                        <div class="select-years">
-                                            <asp:DropDownList runat="server" ID="yearpicker1" name="yearpicker">
-                                            </asp:DropDownList>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mt-5">
-                                    <%--<asp:Button Text="Submit" ID="btnSubmit" runat="server" class="thm-blue-button" OnClick="btnSubmit_Click" />--%>
-                                    <asp:Button Text="Next" ID="btnUpdateAdditional" class="thm-blue-button" OnClick="btnUpdateAdditional_Click" runat="server" />
-                                    <%--<button onclick="HideAdditionalDiv()" type="submit" class="thm-blue-button">Next</button>--%>
-                                </div>
+                            </div>
+                            <div class="mt-5">
+                                <%--<asp:Button Text="Submit" ID="btnSubmit" runat="server" class="thm-blue-button" OnClick="btnSubmit_Click" />--%>
+                                <asp:Button Text="Next" ID="btnUpdateAdditional" class="thm-blue-button" OnClick="btnUpdateAdditional_Click" runat="server" />
+                                <%--<button onclick="HideAdditionalDiv()" type="submit" class="thm-blue-button">Next</button>--%>
                             </div>
                         </div>
-                        <img class="blue-trangle-bottom" src="<%= ResolveUrl("~/Add Members/blue-trangle-5.png") %>" alt="">
                     </div>
-
-                    <img class="plus-bottom-right" src="<%= ResolveUrl("~/assets/plus-2.png") %>" alt="">
+                    <%-- <img class="blue-trangle-bottom" src="<%= ResolveUrl("~/Add Members/blue-trangle-5.png") %>" alt="">--%>
                 </div>
 
-                <div runat="server" id="medicalHistoryDiv" class="medical-history common-design">
-                    <img class="home-icon-top-right" src="../Add Members/home-icon.png" alt="">
-                    <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
-                    <img class="blue-trangle-top-right" src="../Terms & Conditions/blue-trangle6.png" alt="">
-                    <img class="blue-trangle-right" src="../Terms & Conditions/blue-trangle3.png" alt="">
-                    <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
-                    <img class="plus-top-left" src="../assets/plus-1.png" alt="">
+                <%-- <img class="plus-bottom-right" src="<%= ResolveUrl("~/assets/plus-2.png") %>" alt="">--%>
+            </div>
+            <div runat="server" id="medicalHistoryDiv" class="medical-history common-design">
+                <img class="home-icon-top-right" src="../Add Members/home-icon.png" alt="">
+                <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
+                <img class="blue-trangle-top-right" src="../Terms & Conditions/blue-trangle6.png" alt="">
+                <img class="blue-trangle-right" src="../Terms & Conditions/blue-trangle3.png" alt="">
+                <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
+                <img class="plus-top-left" src="../assets/plus-1.png" alt="">
 
-                    <div class="medical-main-div container pt-5 px-5 h-90">
-                        <div class="row mt-5">
-                            <div class="col-12">
-                                <h1 class="heading">Medical History</h1>
+                <div class="medical-main-div container pt-5 px-5 h-90">
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <h1 class="heading">Medical History</h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <p>Type</p>
                             </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <p>Type</p>
-                                </div>
-                                <div class="col-2 text-center">
-                                    <p>Myself</p>
-                                </div>
-                                <div class="col-2 text-center">
-                                    <p>Mother Side's</p>
-                                </div>
-                                <div class="col-2 text-center">
-                                    <p>Father Side's</p>
-                                </div>
+                            <div class="col-2 text-center">
+                                <p>Myself</p>
                             </div>
-                            <!-- add repeater -->
-                            <div class="row inner-main-div">
-                                <asp:Repeater runat="server" ID="rptDisease">
-                                    <ItemTemplate>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <p><%# Eval("disease_name") %></p>
-                                                <asp:HiddenField runat="server" ID="hfdisease_id" Value='<%# Eval("disease_id") %>' />
-                                                </p>
+                            <div class="col-2 text-center">
+                                <p>Mother Side's</p>
+                            </div>
+                            <div class="col-2 text-center">
+                                <p>Father Side's</p>
+                            </div>
+                        </div>
+                        <!-- add repeater -->
+                        <div class="row inner-main-div">
+                            <asp:Repeater runat="server" ID="rptDisease">
+                                <ItemTemplate>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p><%# Eval("disease_name") %></p>
+                                            <asp:HiddenField runat="server" ID="hfdisease_id" Value='<%# Eval("disease_id") %>' />
+                                            </p>
                                         
-                                            </div>
-                                            <%--                                    --%>
-                                            <div class="col-md-6">
-                                                <asp:CheckBoxList runat="server" ID="cbl" class="col-6" RepeatDirection="Horizontal">
-                                                    <asp:ListItem Value="1" Text="MySelf" />
-                                                    <asp:ListItem Value="2" Text="Mother Side" />
-                                                    <asp:ListItem Value="3" Text="Father Side" />
-                                                </asp:CheckBoxList>
-                                            </div>
-                                            <%--  <div class="col-2 text-center">
+                                        </div>
+                                        <%--                                    --%>
+                                        <div class="col-md-6">
+                                            <asp:CheckBoxList runat="server" ID="cbl" class="col-6" RepeatDirection="Horizontal">
+                                                <asp:ListItem Value="1" Text="MySelf" />
+                                                <asp:ListItem Value="2" Text="Mother Side" />
+                                                <asp:ListItem Value="3" Text="Father Side" />
+                                            </asp:CheckBoxList>
+                                        </div>
+                                        <%--  <div class="col-2 text-center">
                                         <img id="yes-selected-smoke" src="../assets/select.png" alt="" srcset="">
                                     </div>
                                     <div class="col-2 text-center">
@@ -315,10 +293,10 @@
                                     <div class="col-2 text-center">
                                         <img id="yes-selected-smoke" src="../assets/not-select.png" alt="" srcset="">
                                     </div>--%>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:Repeater>
-                                <%--  <div class="row">
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <%--  <div class="row">
                             <div class="col-6">
                                 <p>Diabetes</p>
                             </div>
@@ -404,55 +382,54 @@
                                 <img id="yes-selected-smoke" src="../assets/not-select.png" alt="" srcset="">
                             </div>
                         </div>--%>
-                            </div>
-                        </div>
-                        <div class="medic-his-btn">
-                            <asp:Button Text="Back" class="thm-back-button" OnClick="btnMedicalBack_Click" type="Button" ID="btnMedicalBack" runat="server" />
-                            <asp:Button Text="Next" ID="btnMedicalHistory" class="thm-blue-button" OnClick="btnMedicalHistory_Click" runat="server" />
                         </div>
                     </div>
-                    <img class="blue-trangle-bottom" src="../Add Members/blue-trangle-5.png" alt="">
-
-                    <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
+                    <div class="medic-his-btn">
+                        <asp:Button Text="Back" class="thm-back-button" OnClick="btnMedicalBack_Click" type="Button" ID="btnMedicalBack" runat="server" />
+                        <asp:Button Text="Next" ID="btnMedicalHistory" class="thm-blue-button" OnClick="btnMedicalHistory_Click" runat="server" />
+                    </div>
                 </div>
+                <img class="blue-trangle-bottom" src="../Add Members/blue-trangle-5.png" alt="">
 
-                <div id="AllergiesDiv" runat="server" class="medical-main-div container pt-5 px-5 h-90 ">
-                    <div class="row mt-5">
+                <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
+            </div>
+            <div id="AllergiesDiv" runat="server" class="medical-main-div container pt-5 px-5 h-90 ">
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <h1 class="heading mb-4">Do You Have Any of These Allergies?</h1>
+                    </div>
+                    <div class="row border-bottom">
+                        <div class="col-6">
+                            <p>Type</p>
+                        </div>
+                        <div class="col-2 text-center">
+                            <p>Yes</p>
+                        </div>
+                        <div class="col-2 text-center">
+                            <p>No</p>
+                        </div>
+
+                    </div>
+                    <div class="row inner-main-div">
                         <div class="col-12">
-                            <h1 class="heading mb-4">Do You Have Any of These Allergies?</h1>
-                        </div>
-                        <div class="row border-bottom">
-                            <div class="col-6">
-                                <p>Type</p>
-                            </div>
-                            <div class="col-2 text-center">
-                                <p>Yes</p>
-                            </div>
-                            <div class="col-2 text-center">
-                                <p>No</p>
-                            </div>
-
-                        </div>
-                        <div class="row inner-main-div">
-                            <div class="col-12">
-                                <asp:Repeater runat="server" ID="rptAllergy">
-                                    <ItemTemplate>
-                                        <div class="row py-4 border-bottom allergy-row">
-                                            <div class="col-6 d-flex align-items-center">
-                                                <p class="m-0"><%# Eval("allergy_name") %></p>
-                                                <asp:HiddenField runat="server" ID="hfallergy_id" Value='<%# Eval("allergy_id") %>' />
-                                            </div>
-                                            <div class="col-4 text-center">
-                                                <asp:RadioButtonList runat="server" ID="rblAllergy" class="col-6" CssClass="custom-radio-list" RepeatDirection="Horizontal">
-                                                    <asp:ListItem Value="1" />
-                                                    <asp:ListItem Value="0" />
-                                                </asp:RadioButtonList>
-
-                                            </div>
+                            <asp:Repeater runat="server" ID="rptAllergy">
+                                <ItemTemplate>
+                                    <div class="row py-4 border-bottom allergy-row">
+                                        <div class="col-6 d-flex align-items-center">
+                                            <p class="m-0"><%# Eval("allergy_name") %></p>
+                                            <asp:HiddenField runat="server" ID="hfallergy_id" Value='<%# Eval("allergy_id") %>' />
                                         </div>
-                                    </ItemTemplate>
-                                </asp:Repeater>
-                                <%--  <div class="row py-4 border-bottom allergy-row">
+                                        <div class="col-4 text-center">
+                                            <asp:RadioButtonList runat="server" ID="rblAllergy" class="col-6" CssClass="custom-radio-list" RepeatDirection="Horizontal">
+                                                <asp:ListItem Value="1" />
+                                                <asp:ListItem Value="0" />
+                                            </asp:RadioButtonList>
+
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <%--  <div class="row py-4 border-bottom allergy-row">
                                     <div class="col-6 d-flex align-items-center">
                                         <p class="m-0">Peanuts</p>
                                     </div>
@@ -528,17 +505,17 @@
                                     </div>
 
                                 </div>--%>
-                            </div>
                         </div>
                     </div>
-                    <div class="medic-his-btn mt-3">
-                        <asp:Button Text="Back" CssClass="thm-back-button my-2" ID="btnAllergyBack" OnClick="btnAllergyBack_Click" runat="server" />
-                        <asp:Button Text="Save" CssClass="thm-blue-button" ID="btnSaveAllergy" OnClick="btnSaveAllergy_Click" runat="server" />
-                    </div>
                 </div>
-            </ContentTemplate>
-        </asp:UpdatePanel>
-   
+                <div class="medic-his-btn mt-3">
+                    <asp:Button Text="Back" CssClass="thm-back-button my-2" ID="btnAllergyBack" OnClick="btnAllergyBack_Click" runat="server" />
+                    <asp:Button Text="Save" CssClass="thm-blue-button" ID="btnSaveAllergy" OnClick="btnSaveAllergy_Click" runat="server" />
+                </div>
+            </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
 
@@ -653,5 +630,4 @@
             return true;
         }
     </script>
-
 </asp:Content>

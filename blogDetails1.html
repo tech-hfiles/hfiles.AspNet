@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Add a gray background color with some padding */
+    body {
+      font-family: Arial;
+      padding: 20px;
+      background: #f1f1f1;
+    }
+
+    /* Header/Blog Title */
+    .header {
+      padding: 5px;
+      font-size: 36px;
+      text-align: center;
+      background: white;
+    }
+
+    /* Create two unequal columns that floats next to each other */
+    /* Left column */
+    .leftcolumn {
+      float: left;
+      width: 75%;
+    }
+
+    /* Right column */
+    .rightcolumn {
+      float: left;
+      width: 25%;
+      padding-left: 20px;
+    }
+
+    /* Fake image */
+    .fakeimg {
+      background-color: #aaa;
+      background-image: url(shobija.jpg);
+      background-repeat: no-repeat;
+      border-radius: 50px;
+      width: 30%;
+      padding: 20px;
+    }
+
+      .fakeimg_banner {
+          background-image: url(../journal-page-images/article/distress.jpeg.jpg);
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 100%;
+          padding: 20px;
+      }
+
+    p {
+      display: block;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 22px !important;
+    }
+
+
+    /* Add a card effect for articles */
+    .card {
+      background-color: white;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 20px;
+      text-align: center;
+      background: #ddd;
+      margin-top: 20px;
+    }
+
+    /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 800px) {
+
+      .leftcolumn,
+      .rightcolumn {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--<div class="header">
+    <h2>Article - Mental Health</h2>
+  </div>-->
+
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+        <h1>Distress Tolerance</h1>
+        <h5>Published on: Aug 8, 2023 | Readtime: 2 min</h5>
+        <div class="fakeimg_banner" style="height:300px;"></div>
+        <p>
+          Every day, our minds constantly bombard us with thoughts and feelings. Sometimes, these internal experiences
+          are
+          small and manageable. Other times, our thoughts and feelings get so big that we feel that they are going to
+          consume
+          us, and we get overwhelmed. This occurs because big thoughts and feelings, particularly the more difficult and
+          challenging ones, trigger our “fight or flight” response (i.e., our sympathetic nervous system). Rather than
+          responding mindfully, we react mindlessly, which often leads to further negative feelings like guilt, regret,
+          and
+          shame
+        </p>
+        <p>
+          Here are some quick and practical coping skills, which have been shown to jump-start our parasympathetic
+          nervous
+          system, and help people manage intense feelings and distressing situations. The TIPP skills are a subset of
+          Dialectical Behavior Therapy (DBT) skills compiled by Dr. Marsha Linehan and stands for “Temperature, Intense
+          exercise, Paced breathing, and Paired muscle relaxation.”
+
+        <ul>
+          <li>Temperature: TIPP recommends using temperature to alter your emotional state. You can either immerse
+            your face in cold water or apply a cold pack to your eyes for a few seconds. This can help calm intense
+            emotions by triggering the body's "diving reflex," which slows down the heart rate and leads to
+            parasympathetic activation. Feel free to get creative with this one (e.g., cold water shower).</li>
+            <br>
+          <li>Intense exercise: Engaging in intense physical exercise, such as running in place or doing jumping jacks,
+            can help release pent-up emotions and reduce distress. The cool- down after intense exercise of as low as
+            10 minutes can activate our parasympathetic nervous system and provide a sense of relief</li>
+            <br>
+          <li>Paced breathing: TIPP encourages practising paced breathing, which involves taking slow, deep breaths. By
+            inhaling for a count of four, holding for a count of four, and exhaling for a count of six to ten, you can
+            regulate your emotions and activate the body's relaxation response. For parasympathetic activation, the key
+            is that the exhales should be longer than the inhales.
+          </li>
+          <br>
+          <li>Paired muscle relaxation: This technique involves tensing and then relaxing different muscle groups in the
+            body. Starting from your toes and moving up to your head, you tense each muscle group for a few seconds
+            and then release. For best results, inhale while tensing the muscle group, and exhale during the release.
+            Again, try to ensure that the exhales are slightly longer than the inhales.
+          </li>
+        </ul>
+        </p>
+        <p>
+          Like any skill, the effectiveness of these improves with intentional practice. Try them all and see which one works
+          better for you! While these won’t solve the situation that is causing you to feel overwhelmed, they can help us
+          tolerate the distress and not react in a way that will cause us further harm.
+        </p>
+      </div>
+      <!-- <div class="card">
+        <h2>TITLE HEADING</h2>
+        <h5>Title description, Sep 2, 2017</h5>
+        <div class="fakeimg" style="height:200px;">Image</div>
+        <p>Some text..</p>
+        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      </div> -->
+    </div>
+    <div class="rightcolumn">
+      <div class="card">
+        <h2>About Author</h2>
+        <div class="fakeimg" style="height:100px;"></div>
+        <h4>Shobhika Jaju</h4>
+        <p><i>Psychologist, Psychotherapist</i></p>
+      </div>
+      <!-- <div class="card">
+        <h3>Popular Post</h3>
+        <div class="fakeimg1">Image</div><br>
+        <div class="fakeimg2">Image</div><br>
+        <div class="fakeimg3">Image</div>
+      </div> -->
+      <div class="card">
+        <h3>Contact Details</h3>
+        <p> (add email here) | 9049485444</p>
+      </div>
+    </div>
+  </div>
+
+  <!--<div class="footer">
+    <h3>
+      
+    </h3>
+  </div>-->
+
+</body>
+
+</html>

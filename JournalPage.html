@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
           integrity="sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+    <!-- <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
             integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -26,13 +26,26 @@
             .top-icon img {
                 cursor: pointer;
             }
+
+        .journal-main-div {
+            min-height: 100vh;
+        }
     </style>
 </head>
 
 <body class="journal common-design">
+    <div class="top-home-icons d-flex justify-content-between align-items-center w-100">
+        <div class="common-heading mx-5">
+            <img src="../assets/h-file-logo-white.png" alt="" width="200px">
+        </div>
+        <div class="d-flex mx-2">
+            <a href="#"><img id="" class="" src="../Add Members/save-icon.png" alt="" width="35px"></a>
+            <a href="samanta.aspx"><img id="" class="" src="../Add Members/home-icon-gray.png" alt="" width="35px"></a>
+        </div>
+
+    </div>
     <div class="top-icon">
-        <img id="" class="" src="../Add Members/save-icon.png" alt="" width="35px">
-        <img id="" class="" src="../Add Members/home-icon-gray.png" alt="" width="25px">
+
     </div>
 
     <div class="filter-shorting-icon">
@@ -102,7 +115,7 @@
             </div>
         </div>
     </div>
-    <div class="journal-main-div mt-5">
+    <div class="journal-main-div mt-4 mb-5">
         <div class="heading-title d-flex align-items-center">
             <h1>Journal</h1>
             <div class="hr w-100">
@@ -121,12 +134,13 @@
         </div>
 
         <div id="videoDiv" class="container blog-div my-5">
-            <div class="row w-100">
+            <div class="row m-0">
                 <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
                     <div class="blog-cards">
                         <div class="card-image">
-                            <video width="100%" height="250" controls poster="../journal-page-images/Youtube Thumbnail  (2)_page-0001.jpg">
-                                <source src="../journal-page-images/video-blog.mp4" type="video/mp4">
+                            <video width="100%" height="250" controls
+                                   poster="../journal-page-images/video/Youtube Thumbnail  (2)_page-0001.jpg">
+                                <source src="../journal-page-images/video/video-blog.mp4" type="video/mp4">
                                 </object>
                             </video>
                         </div>
@@ -176,13 +190,73 @@
             </div>
         </div>
         <div id="articleDiv" class="article-div container blog-div my-5">
-            <div class="row w-100">
+            <div class="row w-100 m-0">
                 <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
                     <div class="blog-cards ">
                         <div class="card-image">
-                            <a href="../journal-page-images/hfiles article 1 - shobhika jaju - Copy.pdf"
-                               target="_blank">
-                                <img src="../journal-page-images/Article.jpg" alt="" width="100%"
+                            <a href="blogDetails1.html" target="_blank">
+                                <img src="../journal-page-images/article/distress tolerance cover image.jpg" alt=""
+                                     width="100%" height="250px">
+                            </a>
+                        </div>
+                        <div class="card-name d-flex align-items-center my-2 px-3">
+                            <img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">
+                            <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
+                            <p class="m-0"><strong>Distress Tolerance</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
+                    <div class="blog-cards ">
+                        <div class="card-image">
+                            <a href="blogDetails2.html" target="_blank">
+                                <img src="../journal-page-images/article/motivation cover image.jpg" alt="" width="100%"
+                                     height="250px">
+                            </a>
+                        </div>
+                        <div class="card-name d-flex align-items-center my-2 px-3">
+                            <img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">
+                            <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
+                            <p class="m-0"><strong>Motivation</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
+                    <div class="blog-cards ">
+                        <div class="card-image">
+                            <a href="blogDetails3.html" target="_blank">
+                                <img src="../journal-page-images/article/cat nutrition cover image.jpeg.jpg" alt=""
+                                     width="100%" height="250px">
+                            </a>
+                        </div>
+                        <div class="card-name d-flex align-items-center my-2 px-3">
+                            <img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">
+                            <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
+                            <p class="m-0"><strong>Cat Nutrition </strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
+                    <div class="blog-cards ">
+                        <div class="card-image">
+                            <a href="blogDetails4.html" target="_blank">
+                                <img src="../journal-page-images/article/supplementing dogs diet cover image.jpg" alt=""
+                                     width="100%" height="250px">
+                            </a>
+                        </div>
+                        <div class="card-name d-flex align-items-center my-2 px-3">
+                            <img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">
+                            <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
+                            <p class="m-0"><strong>Supplementing Dogs Diet</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
+                    <div class="blog-cards ">
+                        <div class="card-image">
+                            <a href="blogDetails5.html" target="_blank">
+                                <img src="../journal-page-images/article/health-wealth.jpg" alt="" width="100%"
                                      height="250px">
                             </a>
                         </div>
@@ -193,47 +267,19 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
-                    <div class="blog-cards ">
-                        <div class="card-image">
-                            <a href="../journal-page-images/hfiles article 2- Dr. Shubhangini Sharma.pdf"
-                                target="_blank"><img src="../journal-page-images/Article.jpg" alt="" width="100%"
-                                    height="250px"></a>
-                        </div>
-                        <div class="card-name d-flex align-items-center my-2 px-3">
-                            <img class="mx-1" src="../Add Members/save-not-active.png" width="20px" alt="">
-                            <img class="mx-2" src="../Add Members/share-active.png" width="20px" alt="">
-                            <p class="m-0"><strong>Article 2</strong></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
-                    <div class="blog-cards ">
-                        <div class="card-image">
-                            <a href="../journal-page-images/hfiles article 2- Dr. Shubhangini Sharma.pdf"
-                                target="_blank"><img src="../journal-page-images/Article.jpg" alt="" width="100%"
-                                    height="250px"></a>
-                        </div>
-                        <div class="card-name d-flex align-items-center my-2 px-3">
-                            <img class="mx-1" src="../Add Members/save-not-active.png" width="20px" alt="">
-                            <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
-                            <p class="m-0"><strong>Article 3</strong></p>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
         <div id="audioDiv" class="audio-div container blog-div my-5">
-            <div class="row w-100">
+            <div class="row w-100 m-0">
                 <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
                     <div class="blog-cards ">
                         <div class="card-image">
                             <a href="#" target="_blank">
-                                <img src="../journal-page-images/Dental H files .jpeg"
+                                <img src="../journal-page-images/audio/Dental H files .jpeg"
                                      alt="" width="100%">
                             </a>
                             <audio controls>
-                                <source src="../journal-page-images/961B8877-6322-4557-9520-5D0C9F5D9506 (enhanced).wav"
+                                <source src="../journal-page-images/audio/961B8877-6322-4557-9520-5D0C9F5D9506 (enhanced).wav"
                                         type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
@@ -249,11 +295,11 @@
                     <div class="blog-cards ">
                         <div class="card-image">
                             <a href="#" target="_blank">
-                                <img src="../journal-page-images/Mental Health H files .jpeg"
-                                     alt="" width="100%">
+                                <img src="../journal-page-images/audio/Mental Health H files .jpeg" alt=""
+                                     width="100%">
                             </a>
                             <audio controls>
-                                <source src="../journal-page-images/961B8877-6322-4557-9520-5D0C9F5D9506 (enhanced).wav"
+                                <source src="../journal-page-images/audio/961B8877-6322-4557-9520-5D0C9F5D9506 (enhanced).wav"
                                         type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
@@ -269,11 +315,11 @@
                     <div class="blog-cards ">
                         <div class="card-image">
                             <a href="#" target="_blank">
-                                <img src="../journal-page-images/Doctor H files .jpeg"
+                                <img src="../journal-page-images/audio/Doctor H files .jpeg"
                                      alt="" width="100%">
                             </a>
                             <audio controls>
-                                <source src="../journal-page-images/961B8877-6322-4557-9520-5D0C9F5D9506 (enhanced).wav"
+                                <source src="../journal-page-images/audio/961B8877-6322-4557-9520-5D0C9F5D9506 (enhanced).wav"
                                         type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
@@ -289,11 +335,11 @@
                     <div class="blog-cards ">
                         <div class="card-image">
                             <a href="#" target="_blank">
-                                <img src="../journal-page-images/Pets H files .jpeg"
+                                <img src="../journal-page-images/audio/Pets H files .jpeg"
                                      alt="" width="100%">
                             </a>
                             <audio controls>
-                                <source src="../journal-page-images/961B8877-6322-4557-9520-5D0C9F5D9506 (enhanced).wav"
+                                <source src="../journal-page-images/audio/961B8877-6322-4557-9520-5D0C9F5D9506 (enhanced).wav"
                                         type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
@@ -308,7 +354,17 @@
             </div>
         </div>
     </div>
-
+    <div class="footer d-flex justify-content-around">
+        <div class="t-c">
+            <a href="#">Terms & Conditions</a>
+        </div>
+        <div class="copy-right">
+            <span>Copyright@2023</span>
+        </div>
+        <div class="p-p">
+            <a href="#">Privacy & Policy</a>
+        </div>
+    </div>
 
     <script>
         const article = document.getElementById('articleDiv')

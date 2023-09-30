@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Add a gray background color with some padding */
+        body {
+            font-family: Arial;
+            padding: 20px;
+            background: #f1f1f1;
+        }
+
+        /* Header/Blog Title */
+        .header {
+            padding: 5px;
+            font-size: 36px;
+            text-align: center;
+            background: white;
+        }
+
+        /* Create two unequal columns that floats next to each other */
+        /* Left column */
+        .leftcolumn {
+            float: left;
+            width: 75%;
+        }
+
+        /* Right column */
+        .rightcolumn {
+            float: left;
+            width: 25%;
+            padding-left: 20px;
+        }
+
+        /* Fake image */
+        .fakeimg {
+            background-color: #aaa;
+            background-image: url(shobija.jpg);
+            background-repeat: no-repeat;
+            border-radius: 50px;
+            width: 30%;
+            padding: 20px;
+        }
+
+        .fakeimg_banner {
+            background-image: url(mentalhealth.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            padding: 20px;
+        }
+
+        p {
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 22px !important;
+        }
+
+
+        /* Add a card effect for articles */
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #ddd;
+            margin-top: 20px;
+        }
+
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 800px) {
+
+            .leftcolumn,
+            .rightcolumn {
+                width: 100%;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--<div class="header">
+    <h2>Article - Mental Health</h2>
+  </div>-->
+
+    <div class="row">
+        <div class="leftcolumn">
+            <div class="card">
+                <h1>Cat Nutrition</h1>
+                <h5>Published on: Aug 8, 2023 | Readtime: 2 min</h5>
+                <div class="fakeimg_banner" style="height:300px;"></div>
+                <p>
+                    Cats are infamous for being picky eaters. Their pickiness could be attributed to a variety of
+                    reasons, the
+                    most common being that they are simply not stimulated enough or they require some variety in their
+                    diet.
+                    However, when they do choose to oblige us by eating, we are often left wondering whether we are
+                    providing our feline companions with adequate nutrition or not.
+                </p>
+                <p>
+                    Understanding the fundamental requirements of a cat’s diet may help you resolve your concerns in
+                    this
+                    regard.
+                </p>
+                <h2>Taurine</h2>
+                <p>
+                    A discussion on feline nutrition is incomplete without the word “taurine”. Taurine is an amino acid
+                    that is
+                    considered an essential amino acid in cats. They require relatively large amounts of it in their
+                    diet. Cats
+                    can make some taurine, but the enzyme required to make it out of cysteine is in short supply and
+                    needed
+                    in other physiological pathways. Therefore, without an adequate dietary supply of taurine, cats
+                    eventually
+                    become taurine deficient.
+
+                </p>
+                <p>
+                    A taurine deficiency can have severe ramifications. Taurine-depleted cats will have retinal
+                    degeneration,
+                    cardiomyopathy, altered white-cell function, and abnormal growth and development. A taurine
+                    deficiency
+                    can also lead to reproductive failure, poor growth in kittens born to taurine-deficient cats, and
+                    gastrointestinal disturbances.
+                </p>
+                <p>
+                    Taurine is found almost exclusively in animal-based sources of protein (meat, fish, etc.) so cats
+                    eating
+                    vegetarian or vegan diets are at the highest risk.
+                </p>
+                <h2>What should cats eat?</h2>
+                <p>
+                    Cats are obligate carnivores. They need certain nutrients that their body cannot make unless it is
+                    fed. This
+                    is possible only by way of feeding them meat. As indicated above, animal-based sources of protein
+                    (poultry dark meat, buffalo meat, pork tenderloin to name a few) contain the amino acid taurine and
+                    several other nutrients that are essential to your cat’s diet. Fresh lightly cooked meats or raw
+                    diets, is
+                    what we recommend for our feline companions, as the diet is rich in moisture and has all the
+                    essential
+                    components needed to keep our cats healthy.
+                </p>
+                <h2>Choosing cat food</h2>
+                <p>
+                    We are big proponents of feeding fresh – because fresh meats have nutrients that are more
+                    bioavailable
+                    to your cat without all the nasty preservatives, colouring and non-species-appropriate ingredients.
+                    However, if you were to opt for processed food for the sake of convenience, we recommend opting for
+                    wet
+                    food as opposed to dry food. Since cats don’t tend to drink too much water being desert animals, dry
+                    food
+                    could at some point lead to a higher risk of Feline Urinary Tract Disease and Kidney Disease. What’s
+                    worse is that kidney disease usually goes undetected until 70% of the kidney functionality has been
+                    eroded – making it a little too late to salvage the situation.
+                </p>
+                <h2>Commercial cat food</h2>
+                <p>
+                    If you have opted for commercial cat food, do look at the list of ingredients. You must avoid foods
+                    that
+                    have colouring, preservatives, palatants and too many words you don’t understand on the label.
+                    Always
+                    remember that ingredients are listed in order of percentage that the food is made up most of – that
+                    means
+                    that if you have corn or soy as one of the first few ingredients, it means that the food is in
+                    essence carb
+                    heavy.
+                </p>
+                <p>
+                    As a general rule, you must ensure that the food you pick is low on carbs and low on fibre. Your cat
+                    will
+                    overeat carb-heavy food in a bid to make up for the lack of protein in the food. This will, in the
+                    long run,
+                    lead to obesity, diabetes, fatty liver disease, pancreatitis and a host of inflammatory conditions
+                    that could
+                    have been avoided if your cat was fed a species-appropriate diet.
+                </p>
+            </div>
+            <!-- <div class="card">
+        <h2>TITLE HEADING</h2>
+        <h5>Title description, Sep 2, 2017</h5>
+        <div class="fakeimg" style="height:200px;">Image</div>
+        <p>Some text..</p>
+        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      </div> -->
+        </div>
+        <div class="rightcolumn">
+            <div class="card">
+                <h2>About Author</h2>
+                <div class="fakeimg" style="height:100px;"></div>
+                <h4>Shobhika Jaju</h4>
+                <p><i>Psychologist, Psychotherapist</i></p>
+            </div>
+            <!-- <div class="card">
+        <h3>Popular Post</h3>
+        <div class="fakeimg1">Image</div><br>
+        <div class="fakeimg2">Image</div><br>
+        <div class="fakeimg3">Image</div>
+      </div> -->
+            <div class="card">
+                <h3>Contact Details</h3>
+                <p> (add email here) | 9049485444</p>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="footer">
+    <h3>
+      
+    </h3>
+  </div>-->
+
+</body>
+
+</html>

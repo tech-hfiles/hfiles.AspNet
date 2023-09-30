@@ -14,6 +14,10 @@
             background-position-y: 50%;
         }
 
+        .footer {
+            position: relative !important;
+        }
+
         @media only screen and (max-width: 414px) {
             .avatar {
                 background-position-x: 75%;
@@ -237,7 +241,7 @@
                                 </div>
                             </div>
                             <div class="mediclaim-insurance h-75 d-flex align-items-center menu-circle-txt-color">
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-end">
                                     <span>mediclaim/insurance</span>
                                     <div class="menu-circle">
                                         <img src="../Avatar/mediclaim.png" alt="">
