@@ -44,7 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AjaxControlToolkit">
-      <HintPath>..\..\Rohan\KortezaSoftware\BT\bin\AjaxControlToolkit.dll</HintPath>
+      <HintPath>..\..\..\Projects\Aminu\Aminu\bin\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
       <HintPath>packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
@@ -53,7 +53,7 @@
       <HintPath>packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
     <Reference Include="CKEditor.NET">
-      <HintPath>..\..\Rohan\Kolorjet\Kolorjet\AppUI\bin\CKEditor.NET.dll</HintPath>
+      <HintPath>..\..\..\Projects\Aminu\Aminu\bin\CKEditor.NET.dll</HintPath>
     </Reference>
     <Reference Include="Google.Protobuf, Version=3.21.9.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>packages\Google.Protobuf.3.21.9\lib\net45\Google.Protobuf.dll</HintPath>
