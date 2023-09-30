@@ -58,7 +58,7 @@ namespace hfiles
             da.Fill(dt);
             if (dt != null && dt.Rows.Count > 0)
             {
-              tcount.InnerHtml = dt.Rows.Count.ToString();
+              //tcount.InnerHtml = dt.Rows.Count.ToString();
               rptReports.DataSource = dt;
               rptReports.DataBind();
             }

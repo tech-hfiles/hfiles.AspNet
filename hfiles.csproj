@@ -232,19 +232,30 @@
     <Content Include="assets\Asset 8.png" />
     <Content Include="assets\Asset 9.png" />
     <Content Include="assets\Asset44.png" />
+    <Content Include="assets\blue-background.png" />
     <Content Include="assets\blue-bg.png" />
     <Content Include="assets\blue-trangle-1.png" />
     <Content Include="assets\blue-trangle-bottom-1.png" />
     <Content Include="assets\blue-trangle-bottom.png" />
     <Content Include="assets\blue-trangle.png" />
     <Content Include="assets\cancel-icon.png" />
+    <Content Include="assets\filter.svg" />
+    <Content Include="assets\h-file-logo-white.png" />
     <Content Include="assets\h-file-sicon.png" />
+    <Content Include="assets\home-icon-white.png" />
     <Content Include="assets\not-select-red.png" />
+    <Content Include="assets\pdf-doc.png" />
+    <Content Include="assets\pdf-thumbnail -old.jpg" />
+    <Content Include="assets\pdf-thumbnail .jpg" />
     <Content Include="assets\plus-1.png" />
     <Content Include="assets\plus-2.png" />
     <Content Include="assets\plus-icon-3.png" />
     <Content Include="assets\plus.png" />
+    <Content Include="assets\samanta-stand-new.jpg" />
     <Content Include="assets\select-icon-gray.png" />
+    <Content Include="assets\shutoff-white.png" />
+    <Content Include="assets\user-delete-white.png" />
+    <Content Include="assets\user-edit-white.png" />
     <Content Include="avatar.aspx" />
     <Content Include="Avatar\01.png" />
     <Content Include="Avatar\02.png" />
@@ -519,6 +530,7 @@
     <Content Include="Reception Page\shutdown.png" />
     <Content Include="Reception Page\user-icon.png" />
     <Content Include="reports.aspx" />
+    <Content Include="reports_old.aspx" />
     <Content Include="samanta.aspx" />
     <Content Include="shobija.jpg" />
     <Content Include="signup.aspx" />
@@ -650,6 +662,13 @@
     </Compile>
     <Compile Include="reports.aspx.designer.cs">
       <DependentUpon>reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reports_old.aspx.cs">
+      <DependentUpon>reports_old.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reports_old.aspx.designer.cs">
+      <DependentUpon>reports_old.aspx</DependentUpon>
     </Compile>
     <Compile Include="samanta.aspx.cs">
       <DependentUpon>samanta.aspx</DependentUpon>
