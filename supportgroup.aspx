@@ -8,6 +8,7 @@
             background: linear-gradient(to left, #c9c8c8, #f8f8f8);
         }
     </style>
+    <link rel="stylesheet" href="./style.css" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

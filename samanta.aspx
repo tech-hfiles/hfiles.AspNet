@@ -1,8 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/user.Master" CodeBehind="samanta.aspx.cs" Inherits="hfiles.samanta" %>
 
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Samanta</title>
+    <link rel="stylesheet" href="./style2.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="journal">

@@ -1,20 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/user.Master" Inherits="hfiles.journal" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
-        integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
-        integrity="sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
-        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Journal</title>
     <style>
         .top-icon {
@@ -23,13 +9,14 @@
             top: 25px;
         }
 
-        .top-icon img {
-            cursor: pointer;
-        }
+            .top-icon img {
+                cursor: pointer;
+            }
     </style>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<%--<body class="journal common-design">
+    <%--<body class="journal common-design">
  <form id="form1" runat="server">--%>
     <div class="top-icon">
         <img id="" class="" src="../Add Members/save-icon.png" alt="" width="35px">
@@ -39,21 +26,22 @@
     <div class="filter-shorting-icon">
         <div class="popover__wrapper">
             <a href="#">
-                <h2 id="shorting" class="popover__title"><img class="shorting-icon-top-right mx-2"
+                <h2 id="shorting" class="popover__title">
+                    <img class="shorting-icon-top-right mx-2"
                         src="../Add Members/shorting-icon-blue.png" alt="" width="20px" height="25px"></h2>
             </a>
             <div class="popover__content">
                 <table class="popover__message w-100">
                     <tbody>
                         <tr class="px-3 py-2" style="color: #ffffff;">
-                            <td>Short By</td>
+                            <td>Sort By</td>
                         </tr>
                         <tr class="px-3 py-2">
                             <td><strong>New</strong></td>
                         </tr>
                         <tr class="px-3 py-2">
                             <td><strong>Trending</strong><span><img style="margin-left: 10px;"
-                                        src="../assets/select.png" alt="" width="15px"></span></td>
+                                src="../assets/select.png" alt="" width="15px"></span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -61,7 +49,8 @@
         </div>
         <div class="popover__wrapper">
             <a href="#">
-                <h2 id="filtering" class="popover__title"><img class="filter-icon-top-right"
+                <h2 id="filtering" class="popover__title">
+                    <img class="filter-icon-top-right"
                         src="../Add Members/filter-icon-blue.png" alt="" width="30px"></h2>
             </a>
             <div class="popover__content">
@@ -71,8 +60,9 @@
                             <td>Filter</td>
                         </tr>
                         <tr class="px-3 py-2" style="background-color: #b8b9f1; color: #ffffff;">
-                            <td>Mental Health <span><img style="margin-left: 10px;" src="../assets/select.png" alt=""
-                                        width="15px"></span></td>
+                            <td>Mental Health <span>
+                                <img style="margin-left: 10px;" src="../assets/select.png" alt=""
+                                    width="15px"></span></td>
                         </tr>
                         <tr class="px-3 py-2" style="background-color: #ffb4bb; color: #ffffff;">
                             <td>Skin</td>
@@ -101,39 +91,39 @@
         </div>
         <div class="tab-div container px-5 d-flex justify-content-center my-3">
             <div class="tabs d-flex justify-content-between">
-              
-             <asp:LinkButton ID="LbtnArticle" runat="server" OnClick="LbtnArticle_Click" CommandArgument="1">Article</asp:LinkButton>
-              <%--<a class="link" href="#" onclick="handleTabs('article')"><span id="ArticleTab">Article</span></a>--%>
-                <span> | </span>
+
+                <asp:LinkButton ID="LbtnArticle" runat="server" OnClick="LbtnArticle_Click" CommandArgument="1">Article</asp:LinkButton>
+                <%--<a class="link" href="#" onclick="handleTabs('article')"><span id="ArticleTab">Article</span></a>--%>
+                <span>| </span>
                 <asp:LinkButton ID="LbtnVideo" runat="server" OnClick="LbtnVideo_Click">Video</asp:LinkButton>
-              <%-- <a class="link active" href="#" onclick="handleTabs('video')"><span id="VideoTab">Video</span></a>--%>
-                <span> | </span>
+                <%-- <a class="link active" href="#" onclick="handleTabs('video')"><span id="VideoTab">Video</span></a>--%>
+                <span>| </span>
                 <asp:LinkButton ID="LbtnAudio" runat="server" OnClick="LbtnAudio_Click">Audio</asp:LinkButton>
-              <%-- <a class="link " href="#" onclick="handleTabs('audio')"><span id="AudioTab">Audio</span></a>--%>
+                <%-- <a class="link " href="#" onclick="handleTabs('audio')"><span id="AudioTab">Audio</span></a>--%>
             </div>
         </div>
-      <asp:Repeater ID="RepeaterVideo" runat="server">
-      <ItemTemplate>
-        <div id="videoDiv" class="container blog-div my-5">
-            <div class="row w-100">
-                <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
-                    <div class="blog-cards">
-                        <div class="card-image">
-                            <video width="100%" height="250" controls poster="../journal-page-images/Youtube Thumbnail  (2)_page-0001.jpg">
-                                <source src="../journal-page-images/video-blog.mp4" type="video/mp4">
-                                </object>
-                            </video>
+        <asp:Repeater ID="RepeaterVideo" runat="server">
+            <ItemTemplate>
+                <div id="videoDiv" class="container blog-div my-5">
+                    <div class="row w-100">
+                        <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
+                            <div class="blog-cards">
+                                <div class="card-image">
+                                    <video width="100%" height="250" controls poster="../journal-page-images/Youtube Thumbnail  (2)_page-0001.jpg">
+                                        <source src="../journal-page-images/video-blog.mp4" type="video/mp4">
+                                        </object>
+                                    </video>
+                                </div>
+                                <div class="card-name d-flex align-items-center my-2 px-3">
+                                    <img class="mx-1 d-none" src="../Add Members/save-not-active.png" width="20px" alt="">
+                                    <img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">
+                                    <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
+                                    <img class="mx-2 d-none" src="../Add Members/share-active.png" width="20px" alt="">
+                                    <p class="m-0"><strong>Shobhika Jaju</strong></p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-name d-flex align-items-center my-2 px-3">
-                            <img class="mx-1 d-none" src="../Add Members/save-not-active.png" width="20px" alt="">
-                            <img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">
-                            <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
-                            <img class="mx-2 d-none" src="../Add Members/share-active.png" width="20px" alt="">
-                            <p class="m-0"><strong>Shobhika Jaju</strong></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
+                        <!-- <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
                     <div class="blog-cards">
                         <div class="card-image">
                             <video width="100%" height="250" controls poster="../journal-page-images/Youtube Thumbnail  (2)_page-0001.jpg">
@@ -167,30 +157,31 @@
                         </div>
                     </div>
                 </div> -->
-            </div>
-        </div>
-        </ItemTemplate>
+                    </div>
+                </div>
+            </ItemTemplate>
         </asp:Repeater>
 
         <asp:Repeater ID="RepeaterArticle" runat="server">
-      <ItemTemplate>
-        <div id="articleDiv" class="article-div container blog-div my-5">
-            <div class="row w-100">
-                <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
-                    <div class="blog-cards ">
-                        <div class="card-image">
-                            <a href="blogdetails.aspx"
-                                target="_blank"><img src="../journal-page-images/Article.jpg" alt="" width="100%"
-                                    height="250px"></a>
+            <ItemTemplate>
+                <div id="articleDiv" class="article-div container blog-div my-5">
+                    <div class="row w-100">
+                        <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
+                            <div class="blog-cards ">
+                                <div class="card-image">
+                                    <a href="blogdetails.aspx"
+                                        target="_blank">
+                                        <img src="../journal-page-images/Article.jpg" alt="" width="100%"
+                                            height="250px"></a>
+                                </div>
+                                <div class="card-name d-flex align-items-center my-2 px-3">
+                                    <img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">
+                                    <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
+                                    <p class="m-0"><strong>Mental Health = Wealth</strong></p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-name d-flex align-items-center my-2 px-3">
-                            <img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">
-                            <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
-                            <p class="m-0"><strong>Mental Health = Wealth</strong></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
+                        <!-- <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
                     <div class="blog-cards ">
                         <div class="card-image">
                             <a href="../journal-page-images/hfiles article 2- Dr. Shubhangini Sharma.pdf"
@@ -218,94 +209,98 @@
                         </div>
                     </div>
                 </div> -->
-            </div>
-        </div>
-         </ItemTemplate>
+                    </div>
+                </div>
+            </ItemTemplate>
         </asp:Repeater>
 
-<asp:Repeater ID="RepeaterAudio" runat="server">
-      <ItemTemplate>
-        <div id="audioDiv" class="audio-div container blog-div my-5">
-            <div class="row w-100">
-                <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
-                    <div class="blog-cards ">
-                        <div class="card-image">
-                            <a href="#" target="_blank"><img src="../journal-page-images/Dental H files .jpeg"
-                                    alt="" width="100%"></a>
-                            <audio controls>
-                                <source
-                                    src="../journal-page-images/961B8877-6322-4557-9520-5D0C9F5D9506 (enhanced).wav"
-                                    type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
+        <asp:Repeater ID="RepeaterAudio" runat="server">
+            <ItemTemplate>
+                <div id="audioDiv" class="audio-div container blog-div my-5">
+                    <div class="row w-100">
+                        <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
+                            <div class="blog-cards ">
+                                <div class="card-image">
+                                    <a href="#" target="_blank">
+                                        <img src="../journal-page-images/Dental H files .jpeg"
+                                            alt="" width="100%"></a>
+                                    <audio controls>
+                                        <source
+                                            src="../journal-page-images/961B8877-6322-4557-9520-5D0C9F5D9506 (enhanced).wav"
+                                            type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                                <div class="card-name d-flex align-items-center my-2 px-3">
+                                    <img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">
+                                    <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
+                                    <p class="m-0"><strong>Audio 1</strong></p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-name d-flex align-items-center my-2 px-3">
-                            <img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">
-                            <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
-                            <p class="m-0"><strong>Audio 1</strong></p>
+                        <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
+                            <div class="blog-cards ">
+                                <div class="card-image">
+                                    <a href="#" target="_blank">
+                                        <img src="../journal-page-images/Mental Health H files .jpeg"
+                                            alt="" width="100%"></a>
+                                    <audio controls>
+                                        <source
+                                            src="../journal-page-images/961B8877-6322-4557-9520-5D0C9F5D9506 (enhanced).wav"
+                                            type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                                <div class="card-name d-flex align-items-center my-2 px-3">
+                                    <img class="mx-1" src="../Add Members/save-not-active.png" width="20px" alt="">
+                                    <img class="mx-2" src="../Add Members/share-active.png" width="20px" alt="">
+                                    <p class="m-0"><strong>Audio 2</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
+                            <div class="blog-cards ">
+                                <div class="card-image">
+                                    <a href="#" target="_blank">
+                                        <img src="../journal-page-images/Doctor H files .jpeg"
+                                            alt="" width="100%"></a>
+                                    <audio controls>
+                                        <source
+                                            src="../journal-page-images/961B8877-6322-4557-9520-5D0C9F5D9506 (enhanced).wav"
+                                            type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                                <div class="card-name d-flex align-items-center my-2 px-3">
+                                    <img class="mx-1" src="../Add Members/save-not-active.png" width="20px" alt="">
+                                    <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
+                                    <p class="m-0"><strong>Audio 3</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
+                            <div class="blog-cards ">
+                                <div class="card-image">
+                                    <a href="#" target="_blank">
+                                        <img src="../journal-page-images/Pets H files .jpeg"
+                                            alt="" width="100%"></a>
+                                    <audio controls>
+                                        <source
+                                            src="../journal-page-images/961B8877-6322-4557-9520-5D0C9F5D9506 (enhanced).wav"
+                                            type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                                <div class="card-name d-flex align-items-center my-2 px-3">
+                                    <img class="mx-1" src="../Add Members/save-not-active.png" width="20px" alt="">
+                                    <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
+                                    <p class="m-0"><strong>Audio 3</strong></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
-                    <div class="blog-cards ">
-                        <div class="card-image">
-                            <a href="#" target="_blank"><img src="../journal-page-images/Mental Health H files .jpeg"
-                                    alt="" width="100%"></a>
-                            <audio controls>
-                                <source
-                                    src="../journal-page-images/961B8877-6322-4557-9520-5D0C9F5D9506 (enhanced).wav"
-                                    type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="card-name d-flex align-items-center my-2 px-3">
-                            <img class="mx-1" src="../Add Members/save-not-active.png" width="20px" alt="">
-                            <img class="mx-2" src="../Add Members/share-active.png" width="20px" alt="">
-                            <p class="m-0"><strong>Audio 2</strong></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
-                    <div class="blog-cards ">
-                        <div class="card-image">
-                            <a href="#" target="_blank"><img src="../journal-page-images/Doctor H files .jpeg"
-                                    alt="" width="100%"></a>
-                            <audio controls>
-                                <source
-                                    src="../journal-page-images/961B8877-6322-4557-9520-5D0C9F5D9506 (enhanced).wav"
-                                    type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="card-name d-flex align-items-center my-2 px-3">
-                            <img class="mx-1" src="../Add Members/save-not-active.png" width="20px" alt="">
-                            <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
-                            <p class="m-0"><strong>Audio 3</strong></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
-                    <div class="blog-cards ">
-                        <div class="card-image">
-                            <a href="#" target="_blank"><img src="../journal-page-images/Pets H files .jpeg"
-                                    alt="" width="100%"></a>
-                            <audio controls>
-                                <source
-                                    src="../journal-page-images/961B8877-6322-4557-9520-5D0C9F5D9506 (enhanced).wav"
-                                    type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="card-name d-flex align-items-center my-2 px-3">
-                            <img class="mx-1" src="../Add Members/save-not-active.png" width="20px" alt="">
-                            <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
-                            <p class="m-0"><strong>Audio 3</strong></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </ItemTemplate>
+            </ItemTemplate>
         </asp:Repeater>
     </div>
 
@@ -361,5 +356,5 @@
 
         }
     </script>
-  
+
 </asp:Content>
