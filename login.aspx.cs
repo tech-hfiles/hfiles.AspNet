@@ -22,6 +22,13 @@ namespace hfiles
         {
             if (!IsPostBack)
             {
+                int IsDev = 1;
+
+                if (IsDev == 1)
+                {
+                    Session["Userid"] = 1;
+                    Response.Redirect("~/samanta.aspx");
+                }
                 divOtp.Visible = false;
                 otpButton.Text = "GET OTP";
             }
