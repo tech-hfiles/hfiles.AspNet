@@ -1,5 +1,24 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/user.Master" Inherits="hfiles.journal" %>
 
+<script runat="server">
+
+    protected void lbtn1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnsve_Click(object sender, ImageClickEventArgs e)
+    {
+
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+
+    }
+</script>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Journal</title>
      <link rel="stylesheet" href="./style.css" />
@@ -101,16 +120,21 @@
         <div class="tab-div container px-5 d-flex justify-content-center my-3">
             <div class="tabs d-flex justify-content-between">
 
+                <%--<asp:LinkButton ID="lbtn1" runat="server" OnClick="lbtn1_Click" ></asp:LinkButton>--%>
+
                 <asp:LinkButton ID="LbtnArticle" runat="server" OnClick="LbtnArticle_Click" CommandArgument="1">Article</asp:LinkButton>
                 <%--<a class="link" href="#" onclick="handleTabs('article')"><span id="ArticleTab">Article</span></a>--%>
                 <span>| </span>
-                <asp:LinkButton ID="LbtnVideo" runat="server" OnClick="LbtnVideo_Click">Video</asp:LinkButton>
+                <asp:LinkButton ID="LbtnVideo" runat="server" OnClick="LbtnVideo_Click" CommandArgument="2">Video</asp:LinkButton>
                 <%-- <a class="link active" href="#" onclick="handleTabs('video')"><span id="VideoTab">Video</span></a>--%>
                 <span>| </span>
-                <asp:LinkButton ID="LbtnAudio" runat="server" OnClick="LbtnAudio_Click">Audio</asp:LinkButton>
+                <asp:LinkButton ID="LbtnAudio" runat="server" OnClick="LbtnAudio_Click" CommandArgument="3">Audio</asp:LinkButton>
                 <%-- <a class="link " href="#" onclick="handleTabs('audio')"><span id="AudioTab">Audio</span></a>--%>
             </div>
         </div>
+        <asp:Label ID="Label1" runat="server" Text="Article Data Not Available" Visible="false" />
+        <asp:Button ID="Button1" runat="server" Text="Button" Visible="false"/>
+
         <asp:Repeater ID="RepeaterVideo" runat="server">
             <ItemTemplate>
                 <div id="videoDiv" class="container blog-div my-5">
@@ -170,7 +194,7 @@
                 </div>
             </ItemTemplate>
         </asp:Repeater>
-
+       
         <asp:Repeater ID="RepeaterArticle" runat="server">
             <ItemTemplate>
                 <div id="articleDiv" class="article-div container blog-div my-5">
@@ -178,15 +202,19 @@
                         <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
                             <div class="blog-cards ">
                                 <div class="card-image">
+                                    
                                     <a href="blogdetails.aspx"
                                         target="_blank">
-                                        <img src="../journal-page-images/Article.jpg" alt="" width="100%"
+                                        <img src="<%#Eval("AnchorImage", "/journal-page-images/article/") %>" alt="" width="100%"
                                             height="250px"></a>
                                 </div>
                                 <div class="card-name d-flex align-items-center my-2 px-3">
+
+                                
+                                    <asp:ImageButton ID="btnsave" runat="server" class="mx-1"  ImageUrl="../Add Members/save-active-icon.png"  width="20px" alt="" OnClick="btnsve_Click" CommandArgument='<%#Eval("Blog_ID") %>' /> 
                                     <img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">
                                     <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
-                                    <p class="m-0"><strong>Mental Health = Wealth</strong></p>
+                                    <p class="m-0"><strong><%#Eval("Title") %></strong></p>
                                 </div>
                             </div>
                         </div>
@@ -231,7 +259,7 @@
                             <div class="blog-cards ">
                                 <div class="card-image">
                                     <a href="#" target="_blank">
-                                        <img src="../journal-page-images/Dental H files .jpeg"
+                                        <img src="../journal-page-images/Dental_H_files.jpeg"
                                             alt="" width="100%"></a>
                                     <audio controls>
                                         <source
@@ -247,7 +275,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
+                       <%-- <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
                             <div class="blog-cards ">
                                 <div class="card-image">
                                     <a href="#" target="_blank">
@@ -306,7 +334,7 @@
                                     <p class="m-0"><strong>Audio 3</strong></p>
                                 </div>
                             </div>
-                        </div>
+                        </div>--%>
                     </div>
                 </div>
             </ItemTemplate>

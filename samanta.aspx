@@ -17,7 +17,7 @@
             <div style="width: 85%;">
                 <div class="row inner_div mt-5">
                     <div class="col-12 heading">
-                        <a href="<%= ResolveUrl("~/journalpage.html") %>">
+                        <a href="<%= ResolveUrl("~/journal.aspx") %>">
                             <h3>Journal</h3>
                         </a>
                     </div>
