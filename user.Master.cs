@@ -17,5 +17,11 @@ namespace hfiles
             }
 
         }
+
+        protected void logout_Click(object sender, ImageClickEventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("~/login.aspx");
+        }
     }
 }

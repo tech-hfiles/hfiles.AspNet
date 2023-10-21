@@ -24,6 +24,15 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
 
         /// <summary>
+        /// form1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
         /// memberLabel control.
         /// </summary>
         /// <remarks>
@@ -33,13 +42,13 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.Label memberLabel;
 
         /// <summary>
-        /// form1 control.
+        /// logoutImageButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.ImageButton logoutImageButton;
 
         /// <summary>
         /// ContentPlaceHolder1 control.

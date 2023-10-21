@@ -81,7 +81,8 @@ namespace hfiles
                     command.ExecuteNonQuery();
                     connection.Close();
 
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                    //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                    Response.Redirect("~/samanta.aspx");
                 }
             }
             DAL.SendCareerMail("HFiles, Registration Completed - " + DateTime.Now.ToString("dd/MM/yyyy"), "Hello " + firstNameTextBox.Value + ", ", emailTextBox.Value);

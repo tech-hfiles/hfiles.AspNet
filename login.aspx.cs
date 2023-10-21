@@ -22,11 +22,12 @@ namespace hfiles
         {
             if (!IsPostBack)
             {
-                int IsDev = 1;
-
-                if (IsDev == 1)
+                if (Session["Userid"] is null)
                 {
-                    Session["Userid"] = 1;
+
+                }
+                else
+                {
                     Response.Redirect("~/samanta.aspx");
                 }
                 divOtp.Visible = false;

@@ -119,18 +119,18 @@
                     <div class="col-12">
                         <span for="" class="imp-star">&nbsp;</span>
                         <i class="fa-solid fa-phone-volume form-control-feedback"></i>
-                        <input required id="icecontactTextBox" runat="server" type="tel" class="form-control" placeholder="Emergency Contact No. (Optional)">
+                        <input  id="icecontactTextBox" runat="server" type="tel" class="form-control" placeholder="Emergency Contact No. (Optional)">
                     </div>
                     <div class="col-12">
                         <span for="" class="imp-star">&nbsp;</span>
                         <i class="fa-solid fa-phone-volume form-control-feedback"></i>
-                        <input required id="relativecontactTextBox" runat="server" type="tel" class="form-control" placeholder="Relative To Emergency Contact No">
+                        <input  id="relativecontactTextBox" runat="server" type="tel" class="form-control" placeholder="Relative To Emergency Contact No">
                     </div>
 
                     <div class="col-12">
                         <span for="" class="imp-star">&nbsp;</span>
                         <i class="fa-solid fa-user-doctor form-control-feedback"></i>
-                        <input required id="famdocTextBox" runat="server" type="text" class="form-control" placeholder="Family Doctor Name">
+                        <input  id="famdocTextBox" runat="server" type="text" class="form-control" placeholder="Family Doctor Name">
                     </div>
                     <div class="text-center">
                         <asp:Button ID="submitButton" runat="server" OnClick="submitButton_Click" Text="SUBMIT" class="btn thm-button mb-2 mt-4"></asp:Button>

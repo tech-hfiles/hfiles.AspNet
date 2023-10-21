@@ -24,7 +24,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 
-     <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
+    <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
         integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>--%>
 
@@ -33,37 +33,38 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <div class="top-home-icons d-flex justify-content-between align-items-center w-100">
-        <div class="common-heading mx-5">
-            <img src="../assets/h-file-logo-white.png" alt="" width="200px" />
-        </div>
-        <div class="d-flex ">
-            <span class="mx-2 mt-1">
-                <asp:Label ForeColor="White" ID="memberLabel" runat="server" Text=""></asp:Label></span>
-            <a href="samanta.aspx">
-                <img class="" src="../Avatar/home-icon-white.png" alt=""></a>
-            <%--<a href="#">
+    <form id="form1" runat="server">
+        <div class="top-home-icons d-flex justify-content-between align-items-center w-100">
+            <div class="common-heading mx-5">
+                <img src="../assets/h-file-logo-white.png" alt="" width="200px" />
+            </div>
+            <div class="d-flex ">
+                <span class="mx-2 mt-1">
+                    <asp:Label ForeColor="White" ID="memberLabel" runat="server" Text=""></asp:Label></span>
+                <a href="samanta.aspx">
+                    <img class="" src="../Avatar/home-icon-white.png" alt=""></a>
+                <%--<a href="#">
                 <img class="" src="../Avatar/user-edit-white.png" alt=""></a>
             <a href="#">
                 <img class="" src="../Avatar/user-delete-white.png" alt=""></a>--%>
-            <a href="login.aspx">
-                <img class="" src="../Avatar/shutoff-white.png" alt=""></a>
+                <asp:ImageButton ID="logoutImageButton" Text="text" ImageUrl="../Avatar/shutoff-white.png" OnClick="logout_Click" runat="server"></asp:ImageButton>
+            </div>
         </div>
-    </div>
-    <form id="form1" runat="server">
+
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
+
+        <div class="footer d-flex justify-content-around">
+            <div class="t-c">
+                <a href="#">Terms & Conditions</a>
+            </div>
+            <div class="copy-right">
+                <span>Copyright@2023</span>
+            </div>
+            <div class="p-p">
+                <a href="#">Privacy & Policy</a>
+            </div>
+        </div>
     </form>
-    <div class="footer d-flex justify-content-around">
-        <div class="t-c">
-            <a href="#">Terms & Conditions</a>
-        </div>
-        <div class="copy-right">
-            <span>Copyright@2023</span>
-        </div>
-        <div class="p-p">
-            <a href="#">Privacy & Policy</a>
-        </div>
-    </div>
 </body>
 </html>
