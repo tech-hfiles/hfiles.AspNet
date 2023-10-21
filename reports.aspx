@@ -41,7 +41,7 @@
 <%--<body class="download-documents">--%>
    
     
-    <div class="container-fluid download-doc-inner my-5" style="min-height: 85vh;">
+    <div class="container-fluid download-doc-inner my-5" style="min-height: 84vh;">
         <div class="heading-title mb-3 py-1 px-5">
             <div class="row">
                 <div class="col-md-6 py-3">
@@ -85,7 +85,7 @@
 	</div>
 
     </div>
-    <div class="footer d-flex justify-content-around">
+   <%-- <div class="footer d-flex justify-content-around">
         <div class="t-c">
             <a href="#">Terms & Conditions</a>
         </div>
@@ -95,6 +95,6 @@
         <div class="p-p">
             <a href="#">Privacy & Policy</a>
         </div>
-    </div>
+    </div>--%>
 </body>
 </asp:Content>

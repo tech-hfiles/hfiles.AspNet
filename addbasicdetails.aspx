@@ -27,11 +27,13 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<a href="signup.aspx">
-        <img class="home-icon-top-right" src="../Add Members/home-icon.png"  alt=""></a>
+    <div class="user-info-main">
+        <div class="h-100 container mt-768-80">
         <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
         <img class="blue-trangle-top-right" src="../assets/blue-trangle.png" alt="">
         <img class="plus-top-left" src="../assets/plus-1.png" alt="">
+    
+        
         <div class="row h-100">
             <div
                 class="col-md-4 col-sm-12 col-lg-4 col-xl-4 d-flex mt-sm-5 mt-lg-0 align-items-center justify-content-center">
@@ -46,12 +48,12 @@
                     <div class="col-12">
                         <span for="" class="imp-star">*</span>
                         <i class="fa-solid fa-user form-control-feedback"></i>
-                        <input required id="firstNameTextBox" runat="server" type="text" class="form-control" placeholder="First Name">
+                        <input required disabled id="firstNameTextBox" runat="server" type="text" class="form-control" placeholder="First Name">
                     </div>
                     <div class="col-12">
                         <span for="" class="imp-star">*</span>
                         <i class="fa-solid fa-user form-control-feedback"></i>
-                        <input required id="lastNameTextBox" runat="server" type="text" class="form-control" placeholder="Last Name">
+                        <input required disabled id="lastNameTextBox" runat="server" type="text" class="form-control" placeholder="Last Name">
                     </div>
                     <div class="col-12">
                         <span for="" class="imp-star">*</span>
@@ -82,6 +84,7 @@
                             <option value="3">O+</option>
                             <option value="3">O-</option>
                         </select>
+                        </div>
                         <div class="col-12">
                             <span for="" class="imp-star">*</span>
                             <i class="fa-solid fa-earth-americas form-control-feedback"></i>
@@ -91,19 +94,17 @@
                             <span for="" class="imp-star">*</span>
                             <i class="fa-solid fa-map-pin form-control-feedback"></i>
                             <input required id="stateTextBox" runat="server" type="text" class="form-control" placeholder="Enter State">
+                            </div>
                             <div class="col-12">
                                 <span for="" class="imp-star">*</span>
                                 <i class="fa-sharp fa-solid fa-city form-control-feedback"></i>
                                 <input required id="cityTextBox" runat="server" type="text" class="form-control" placeholder="Enter City">
                             </div>
-                        </div>
-                    </div>
 
                 </div>
 
             </div>
-            <div
-                class="col-md-4 col-sm-12 col-lg-4 col-xl-4 d-flex align-items-start justify-content-center mt-lg-5 mt-sm-0">
+            <div class="col-md-4 col-sm-12 col-lg-4 col-xl-4 d-flex align-items-start justify-content-center mt-lg-5 mt-sm-0">
                 <div class="row signin-form form-group has-search">
                     <div class="col-12">
                         <span for="" class="imp-star">*</span>
@@ -113,36 +114,40 @@
                     <div class="col-12">
                         <span for="" class="imp-star">*</span>
                         <i class="fa-regular fa-envelope form-control-feedback"></i>
-                        <input required id="emailTextBox" readonly="true" runat="server" type="text" class="form-control" placeholder="Email ID">
+                        <input required id="emailTextBox" readonly="true" runat="server" type="email" class="form-control" placeholder="Email ID">
                     </div>
                     <div class="col-12">
                         <span for="" class="imp-star">&nbsp;</span>
                         <i class="fa-solid fa-phone-volume form-control-feedback"></i>
-                        <input required id="icecontactTextBox" runat="server" type="text" class="form-control" placeholder="Emergency Contact No. (Optional)">
+                        <input required id="icecontactTextBox" runat="server" type="tel" class="form-control" placeholder="Emergency Contact No. (Optional)">
                     </div>
                     <div class="col-12">
                         <span for="" class="imp-star">&nbsp;</span>
                         <i class="fa-solid fa-phone-volume form-control-feedback"></i>
-                        <input required id="relativecontactTextBox" runat="server" type="text" class="form-control" placeholder="Relative To Emergency Contact No">
+                        <input required id="relativecontactTextBox" runat="server" type="tel" class="form-control" placeholder="Relative To Emergency Contact No">
                     </div>
 
                     <div class="col-12">
                         <span for="" class="imp-star">&nbsp;</span>
                         <i class="fa-solid fa-user-doctor form-control-feedback"></i>
-                        <input required id="famdocTextBox" runat="server" type="text" class="form-control" placeholder="Family Doctor NAme">
+                        <input required id="famdocTextBox" runat="server" type="text" class="form-control" placeholder="Family Doctor Name">
                     </div>
                     <div class="text-center">
                         <asp:Button ID="submitButton" runat="server" OnClick="submitButton_Click" Text="SUBMIT" class="btn thm-button mb-2 mt-4"></asp:Button>
                     </div>
                 </div>
             </div>
-            <img class="blue-trangle-bottom-left" src="../assets/blue-trangle.png" alt="">
+            
+            </div>
+        <img class="blue-trangle-bottom-left" src="../assets/blue-trangle.png" alt="">
             <img class="blue-trangle-bottom-right" src="../assets/blue-trangle-bottom.png" alt="">
             <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
+            </div>
+    </div>
  
 
 <script>
-    const phoneInputField = document.querySelector("#phone");
+    const phoneInputField = document.querySelector("#contactTextBox");
     const phoneInput = window.intlTelInput(phoneInputField, {
         utilsScript:
             "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",

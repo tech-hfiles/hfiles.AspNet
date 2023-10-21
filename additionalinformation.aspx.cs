@@ -44,6 +44,7 @@ namespace hfiles
                 addSurgery("C");
                 clear();
                 Response.Write("<script>alert('Data saved successfully.')</script>");
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
             }
             catch (Exception Ex)
             {
@@ -119,6 +120,7 @@ namespace hfiles
         protected void btnSaveAllergy_Click(object sender, EventArgs e)
         {
             addUpdateAllergy();
+           
         }
 
 
@@ -398,6 +400,7 @@ namespace hfiles
 
         private void addUpdateAllergy()
         {
+            //Response.Write("<script>alert('Data inserted successfully')</script>");
             foreach (RepeaterItem item in rptAllergy.Items)
             {
                 HiddenField hfallergy_id = item.FindControl("hfallergy_id") as HiddenField;
@@ -423,6 +426,7 @@ namespace hfiles
                         cmd.Parameters.AddWithValue("_allergy_id", DAL.validateInt(hfallergy_id.Value));
                         cmd.Parameters.AddWithValue("_yesNo", DAL.validateInt(value_));
                         cmd.ExecuteNonQuery();
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
                     }
                 }
 

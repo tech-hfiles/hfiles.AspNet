@@ -52,7 +52,9 @@ a {
     outline: 0;
     border: 1px solid #d6d6d6;
 }
-
+.color-white {
+    color:#ffffff !important;
+}
 .thm-back-button:hover {
     background: #ffffff;
     border-color: #08138f;
@@ -250,35 +252,35 @@ a {
     padding-left: 25px; /* Space for the circle */
     cursor: pointer;
   }
-  
-  .checkbox-circle {
+
+.checkbox-circle {
     position: absolute;
     top: -10px;
     left: 0;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    border: 2px solid #ccc;
-  }
-  
-  .checkmark {
+    border: 2px solid #ffd101;
+}
+
+.checkmark {
     position: absolute;
     top: 50%;
-    left: 0;
+    left: 5px;
     transform: translate(-50%, -50%);
-    width: 8px;
-    height: 15px;
-    border: solid #fff;
+    width: 6px;
+    height: 14px;
+    border: solid #0612a6;
     border-width: 0 3.5px 3.5px 0;
     transform-origin: bottom right;
     opacity: 0;
     rotate: 30deg;
-  }
-  
-  .hidden-radio:checked + .radio-label .checkbox-circle {
-    background-color: #2ecc71;
-    border-color: #2ecc71;
-  }
+}
+
+.hidden-radio:checked + .radio-label .checkbox-circle {
+    background-color: #ffd101;
+    border-color: #ffd101;
+}
   
   .hidden-radio:checked + .radio-label .checkmark {
     opacity: 1;
@@ -303,14 +305,136 @@ a {
     cursor: pointer;
 }
 
-.hidden-checkbox:checked+.checkbox-label .checkbox-circle {
-    background-color: #2ecc71;
+.hidden-checkbox:checked + .checkbox-label .checkbox-circle {
+    background-color: #ffd101;
     /* Change the color when checked */
-    border-color: #2ecc71;
+    border-color: #ffd101;
 }
 
 .hidden-checkbox:checked+.checkbox-label .checkmark {
     opacity: 1;
+}
+
+/*Dhruv Code*/
+
+.CheckBoxLabel {
+    white-space: nowrap;
+}
+
+.SingleCheckbox input[type=checkbox] {
+    display: none;
+}
+
+.SingleCheckbox label {
+    display: block;
+    float: left;
+    color: #000;
+    cursor: pointer;
+}
+
+.SingleCheckbox input[type=checkbox] + label {
+    position: relative;
+    left: 2px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 1px solid #ffd101;
+    vertical-align: middle;
+    line-height: 1em;
+    text-indent: 20px;
+    font-size: 14px;
+    margin: 0 70px;
+}
+.SingleCheckbox input[type=checkbox]:checked + label {
+    background-color: #ffd101;
+    border: 1px solid #ffd101;
+}
+.SingleCheckbox input[type=checkbox] + label::before {
+    content: "";
+    position: relative;
+    right: 10px;
+    top: 5px;
+    margin-right: 24px;
+    background-color: #fff;
+    border-color: #ffd101;
+}
+.SingleCheckbox input[type=checkbox]:checked + label::before {
+    content: "\2714";
+    color: #0614aa;
+    height: 1em;
+    line-height: 1.1em;
+    width: 1em;
+    font-weight: 900;
+    position: relative;
+    right: 10px;
+    top: 5px;
+    margin-right: 15px;
+    background-color: #ffd101;
+    border-color: #ffd101;
+}
+
+
+/*Dhruv Code*/
+
+.CheckBoxLabel {
+    white-space: nowrap;
+}
+
+.SingleCheckbox input[type=radio] {
+    display: none;
+}
+
+.SingleCheckbox label {
+    display: block;
+    float: left;
+    color: #000;
+    cursor: pointer;
+}
+
+.SingleCheckbox input[type=radio] + label {
+    position: relative;
+    left: 2px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 1px solid #ffd101;
+    vertical-align: middle;
+    line-height: 1em;
+    text-indent: 20px;
+    font-size: 14px;
+    margin: 0 70px;
+}
+
+.SingleCheckbox input[type=radio]:checked + label {
+    background-color: #ffd101;
+    border: 1px solid #ffd101;
+}
+
+.SingleCheckbox input[type=radio] + label::before {
+    content: "";
+    position: relative;
+    right: 10px;
+    top: 5px;
+    margin-right: 24px;
+    background-color: #fff;
+    border-color: #ffd101;
+}
+
+.SingleCheckbox input[type=radio]:checked + label::before {
+    content: "\2714";
+    color: #0614aa;
+    height: 1em;
+    line-height: 1.1em;
+    width: 1em;
+    font-weight: 900;
+    position: relative;
+    right: 10px;
+    top: 5px;
+    margin-right: 15px;
+    background-color: #ffd101;
+    border-color: #ffd101;
 }
 /* checkbox */
 /* login left side */
@@ -483,17 +607,21 @@ select {
     /* margin: 10px 0px !important; */
     outline: 0 !important;
     box-shadow: none !important;
-    
+    height:auto !important
 }
-.signin-form input[type="date"] {
-    color: #dddddd; 
-}
+
+    .signin-form input[type="date"] {
+        color: #dddddd;
+    }
+
 .signin-form input {
     color: #0512b9;
 }
+
 .signin-form select {
     color: #e6e6e6;
 }
+
 .signin-form input:focus {
     outline: 0;
     box-shadow: none;
@@ -586,6 +714,8 @@ select {
     margin-bottom: 0 !important;
 }
 
+
+/* userinfo */
 /* userinfo */
 .iti {
     display: flex !important;
@@ -714,6 +844,25 @@ select {
     padding: 5px 20px;
 }
 
+.surgeries-table thead tr {
+    background-color: #192184;
+    color: #ffffff;
+    border-radius: 0 5px 5px 0;
+}
+
+.surgeries-table thead tr td{
+    border: 1px solid #192184;
+}
+    .surgeries-table thead tr td:first-child {
+        border-radius: 5px 0 0 5px;
+    }
+    .surgeries-table thead tr td:last-child {
+        border-radius: 0 5px 5px 0;
+    }
+.surgeries-table td {
+    border: 1px solid #ccc;
+    padding: 10px
+}
 .additionl-main-div .add-surgeries {
     display: flex;
     justify-content: center;
@@ -749,6 +898,7 @@ select {
     font-family: 'Red Hat Display' !important;
     font-weight: 700;
 }
+
 
 /* medical history */
 
@@ -804,29 +954,29 @@ span.img-notselected {
     padding-left: 110px;
 }
 
-.journal .heading-title h1 {
-    color: #172ab3;
-    font-size: 60px;
-    font-weight: 900;
-    margin: 0 10px;
-    font-family: 'Red Hat Display Black' !important;
-}
+    .journal .heading-title h1 {
+        color: #172ab3;
+        font-size: 60px;
+        font-weight: 900;
+        margin: 0 10px;
+        font-family: 'Red Hat Display Black' !important;
+    }
 
-.journal .heading-title .hr {
-    padding-top: 20px;
-}
+    .journal .heading-title .hr {
+        padding-top: 20px !important;
+    }
 
-.journal .heading-title .hr1 {
-    border: 2px solid #172ab3;
-    margin: 0 0 5px 0;
-    opacity: 1;
-}
+    .journal .heading-title .hr1 {
+        border: 2px solid #172ab3 !important;
+        margin: 0 0 5px 0 !important;
+        opacity: 1 !important;
+    }
 
-.journal .heading-title .hr2 {
-    border: 1px solid #172ab3;
-    margin: 0;
-    opacity: 1;
-}
+    .journal .heading-title .hr2 {
+        border: 1px solid #172ab3 !important;
+        margin: 0 !important;
+        opacity: 1 !important;
+    }
 
 .journal .blog-div .blog-cards .card-image img {
     border-radius: 10px;
@@ -872,20 +1022,20 @@ span.img-notselected {
     color: #d6d6d6;
 }
 
-.journal .tab-div .tabs a {
-    color: #d6d6d6;
-    text-decoration: none;
-}
+    .journal .tab-div .tabs a {
+        color: #d6d6d6;
+        text-decoration: none;
+    }
 
-.journal .tab-div .tabs span {
-    color: #d6d6d6;
-    text-decoration: none;
-}
+    .journal .tab-div .tabs span {
+        color: #d6d6d6;
+        text-decoration: none;
+    }
 
-.journal .tab-div .tabs a.active span {
-    color: #172ab3;
-    text-decoration: none;
-}
+    .journal .tab-div .tabs a.active span {
+        color: #172ab3;
+        text-decoration: none;
+    }
 
 .filter-shorting-icon {
     position: absolute;
@@ -893,9 +1043,9 @@ span.img-notselected {
     top: 120px;
 }
 
-.filter-shorting-icon img {
-    cursor: pointer;
-}
+    .filter-shorting-icon img {
+        cursor: pointer;
+    }
 
 .popover__title {
     font-size: 24px;
@@ -923,12 +1073,12 @@ span.img-notselected {
     width: auto;
 }
 
-.popover__content table tbody tr {
-    display: flex;
-    justify-content: start;
-    cursor: pointer;
-    font-weight: 500;
-}
+    .popover__content table tbody tr {
+        display: flex;
+        justify-content: start;
+        cursor: pointer;
+        font-weight: 500;
+    }
 
 .popover__wrapper:hover .popover__content {
     z-index: 10;
@@ -952,12 +1102,13 @@ span.img-notselected {
     opacity: .4;
 }
 
-.popover__title img:hover {
-    filter: none;
-    -webkit-filter: grayscale(0);
-    -webkit-transform: scale(1.01);
-    opacity: 1;
-}
+    .popover__title img:hover {
+        filter: none;
+        -webkit-filter: grayscale(0);
+        -webkit-transform: scale(1.01);
+        opacity: 1;
+    }
+
 
 /* support group */
 /*
@@ -979,9 +1130,9 @@ span.img-notselected {
     position: relative;
 }
 
-.nav-pills-custom .nav-link.active {
-    color: #ffffff;
-}
+    .nav-pills-custom .nav-link.active {
+        color: #ffffff;
+    }
 
 .support-group .mental-health-link {
     background-color: #b8b9f1 !important;
@@ -1032,14 +1183,14 @@ span.img-notselected {
     padding: 15px 22px;
 }
 
-.support-group .select-category span {
-    text-transform: uppercase;
-    color: #ffffff;
-    background-color: #053868;
-    padding: 5px 7px;
-    border-radius: 20px;
-    font-size: 10px;
-}
+    .support-group .select-category span {
+        text-transform: uppercase;
+        color: #ffffff;
+        background-color: #053868;
+        padding: 5px 7px;
+        border-radius: 20px;
+        font-size: 10px;
+    }
 
 .nav-pills-custom .nav-link.active::before {
     opacity: 1;
@@ -1052,13 +1203,13 @@ span.img-notselected {
     z-index: 999;
 }
 
-.support-group .top-profile-div span {
-    color: #090507;
-    margin-left: 10px;
-}
+    .support-group .top-profile-div span {
+        color: #090507;
+        margin-left: 10px;
+    }
 
 .support-group .left-nav-bar {
-    height: 100vh;
+    /* height: 100vh; */
     background-color: #f8f8f8;
     display: flex;
     align-items: center;
@@ -1074,10 +1225,10 @@ span.img-notselected {
     z-index: 999;
 }
 
-.support-group .top-menu-div img {
-    margin: 0 5px;
-    cursor: pointer;
-}
+    .support-group .top-menu-div img {
+        margin: 0 5px;
+        cursor: pointer;
+    }
 
 .support-group .chat-input-div {
     position: absolute;
@@ -1088,7 +1239,7 @@ span.img-notselected {
 }
 
 .h-100vh {
-    height: 100vh !important;
+    height: 100vh;
 }
 
 .support-group .chat-input-div input {
@@ -1102,10 +1253,10 @@ span.img-notselected {
     outline: 0;
 }
 
-.support-group .chat-input-div input::placeholder {
-    font-weight: 400 !important;
-    font-family: 'Red Hat Display', serif;
-}
+    .support-group .chat-input-div input::placeholder {
+        font-weight: 400 !important;
+        font-family: 'Red Hat Display', serif;
+    }
 
 .support-group .chat-history-div {
     max-height: 70%;
@@ -1119,63 +1270,71 @@ span.img-notselected {
     width: 100%;
 }
 
-.chat-container .arrow {
-    width: 12px;
-    height: 20px;
-    overflow: hidden;
-    position: relative;
-    float: left;
-    top: 6px;
-    right: -1px;
-}
+    .chat-container .arrow {
+        width: 12px;
+        height: 20px;
+        overflow: hidden;
+        position: relative;
+        float: left;
+        top: 6px;
+        right: -1px;
+    }
 
-.chat-container .arrow .outer {
-    width: 0;
-    height: 0;
-    border-right: 20px solid #CCC;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
+        .chat-container .arrow .outer {
+            width: 0;
+            height: 0;
+            border-right: 20px solid #CCC;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
 
-.chat-container .arrow .inner {
-    width: 0;
-    height: 0;
-    border-right: 20px solid #ffffff;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    position: absolute;
-    top: 0;
-    left: 2px;
-}
+        .chat-container .arrow .inner {
+            width: 0;
+            height: 0;
+            border-right: 20px solid #ffffff;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            position: absolute;
+            top: 0;
+            left: 2px;
+        }
 
-.chat-container .message-body {
-    float: left;
-    width: 90%;
-    height: auto;
-    border: 1px solid #CCC;
-    background-color: #ffffff;
-    /* border: 1px solid #000000; */
-    padding: 6px 30px 6px 8px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px;
-    font-size: 12px;
-    box-shadow: 2px 5px 15px #a1a0a0;
-}
+    .chat-container .message-body {
+        float: left;
+        width: 90%;
+        height: auto;
+        border: 1px solid #CCC;
+        background-color: #ffffff;
+        /* border: 1px solid #000000; */
+        padding: 6px 30px 6px 8px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -o-border-radius: 5px;
+        border-radius: 5px;
+        font-size: 12px;
+        box-shadow: 2px 5px 15px #a1a0a0;
+    }
+        .chat-container .message-body p {
+            width:100%
+        }
+        .chat-container .message-body .chat-date {
+            font-size: 12px;
+            position: relative;
+            top: 10px;
+            color:#ccc;
+        }
+        .support-group .chat-name {
+            width: 30px;
+            text-align: center;
+        }
 
-.support-group .chat-name {
-    width: 30px;
-    text-align: center;
-}
-
-.support-group .chat-name span {
-    color: #000 !important;
-    font-size: 10px !important;
-}
+    .support-group .chat-name span {
+        color: #000 !important;
+        font-size: 10px !important;
+    }
 
 .chat-container .message-body p {
     margin: 0;
@@ -1202,6 +1361,7 @@ span.img-notselected {
     position: absolute;
     right: 20px;
     top: 22px;
+    padding: 15px;
 }
 
 .chat-container .show-edit-chat {
@@ -1222,7 +1382,6 @@ span.img-notselected {
     box-shadow: 2px 5px 5px #ccc;
     border-radius: 50%;
 }
-
 
 
 
@@ -1365,404 +1524,506 @@ span.img-notselected {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 /* download documents */
-@media only screen and (min-width: 1300px) {
+
+@media only screen and (min-width: 1700px) {
     .h-lg-100vh {
-        height:100vh;
+        height: 100vh !important;
+    }
+    .h-xl-97vh {
+        height: 97vh !important;
+    }
+    .h-xl-98vh {
+        height: 98vh !important;
+    }
+        .h-xl-94vh {
+            height:94vh !important;
+        }
+        .chat-container .msg-edit-box {
+            right: 70px !important;
+        }
+
+    .chat-container .message-body {
+        font-size: 19px !important;
+    }
+
+    .user-info-main .blue-trangle-bottom-right {
+        position: absolute;
+        bottom: 0 !important;
+        top: auto;
+        left: 70%;
+    }
+
+    .user-info-main .blue-trangle-bottom-left {
+        position: absolute;
+        bottom: 0 !important;
+        top: auto;
+        left: 20%;
+    }
+
+    .user-info-main .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+    .user-info-main {
+        min-height:94vh;
+    }
+    .signin-form input, select {
+        padding: 16px 40px 16px 50px !important;
+        border-radius: 30px !important;
+    }
+
+    .has-search .form-control-feedback {
+        margin-top: 14px !important;
+    }
+
+    .support-group .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .support-group .left-nav-bar {
+        align-items: start;
+        padding-top: 70px;
+    }
+
+    .support-group .chat-input-div {
+        bottom: 60px;
+    }
+    .additionl-main-div, .medical-history, .medical-main-div {
+        min-height: 94vh;
+    }
+
+
+}
+@media only screen and (min-width: 1300px) {
+    .h-lg-96vh {
+        height: 96vh;
+    }
+
+    .chat-container .msg-edit-box {
+        right: 35px;
+    }
+    .h-lg-100vh {
+        height:100vh !important;
+    }
+    /*.journal .footer {
+        position:absolute;
+        bottom: 0;
+        width:100%;
+    }*/
+}
+
+@media only screen and (max-width: 1200px) {
+    .filter-shorting-icon {
+        right: 70px;
     }
 }
-    @media only screen and (max-width: 1200px) {
-        .filter-shorting-icon {
-            right: 70px;
-        }
+
+@media only screen and (max-width: 912px) {
+    .common-design .blue-trangle-bottom {
+        position: absolute;
+        bottom: 0;
+        height: 70px;
     }
 
-    @media only screen and (max-width: 912px) {
-        .common-design .blue-trangle-bottom {
-            position: absolute;
-            bottom: 0;
-            height: 70px;
-        }
-
-        .allergy .others-div input {
-            width: 200px;
-        }
-
-        .journal .heading-title {
-            padding-left: 50px;
-        }
-
-        .filter-shorting-icon {
-            right: 90px;
-        }
-
-        .support-group .chat-history-div {
-            max-height: 85%;
-        }
-
-        .upload-file .footer {
-            position: absolute;
-        }
-
-        .user-info-main .blue-trangle-bottom-right {
-            left: 10% !important;
-            bottom: 0;
-        }
-
-        .user-info-main .plus-bottom-right {
-            top: 10%;
-        }
-
-        .user-info-main .footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .user-info-main .blue-trangle-bottom-left {
-            position: absolute;
-            bottom: 0;
-        }
-
-        .user-info-main .blue-trangle-bottom-right {
-            position: absolute;
-            bottom: 0px !important;
-            top: auto;
-            left: 50% !important;
-        }
+    .allergy .others-div input {
+        width: 200px;
     }
 
-    @media only screen and (min-width: 768px) and (max-width:912px) {
-        .mt-768-80 {
-            margin-top: 80px;
-        }
+    .journal .heading-title {
+        padding-left: 50px;
     }
 
-    @media only screen and (max-width: 786px) {
-
-        .user-info-main .blue-trangle-bottom-left {
-            position: absolute;
-            height: 50px;
-        }
-
-        .blue-trangle-right-side-bottom {
-            position: absolute;
-            bottom: -15px;
-            left: 20px;
-            height: 70px;
-        }
-
-        .plus-right-side-bottom {
-            position: relative;
-            bottom: 200px;
-            left: 0;
-            height: 250px;
-            z-index: -1;
-        }
-
-        .user-info-main .profile-img img {
-            width: 50% !important;
-            margin-top: 50px;
-        }
-
-        .h-70 {
-            height: 58% !important;
-        }
-
-        .signin-main .samanta-stand-image {
-            justify-content: center;
-            align-items: center;
-        }
-
-        .common-design .blue-trangle-top-right {
-            right: 90px;
-        }
-
-        .common-design .blue-trangle-top-left {
-            height: 65px;
-        }
-
-        .common-design .blue-trangle-left {
-            height: 110px;
-        }
-
-        .common-design .blue-trangle-right {
-            height: 120px;
-        }
-
-        .medical-main-div .inner-main-div {
-            /* height: 50vh; */
-        }
-
-        .allergy .others-div input {
-            width: 150px;
-        }
-
-        .journal .heading-title {
-            padding-left: 20px;
-        }
-
-        .filter-shorting-icon {
-            right: 40px;
-        }
-
-        .support-group .left-nav-bar {
-            height: 100vh;
-        }
-
-        .common-design .blue-trangle-bottom {
-            position: relative;
-        }
-
-        .support-group .chat-history-div {
-            max-height: 77%;
-        }
+    .filter-shorting-icon {
+        right: 90px;
     }
 
-    @media only screen and (max-width: 540px) {
-        .support-group .chat-history-div {
-            max-height: 72%;
-        }
-
-        .user-info-main .footer {
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .user-info-main .blue-trangle-bottom-left {
-            position: relative;
-        }
-
-        .user-info-main .blue-trangle-bottom-right {
-            position: relative;
-        }
+    .support-group .chat-history-div {
+        max-height: 85%;
     }
 
-    @media only screen and (max-width: 414px) {
-        .signin-main .triangle-bottom-left {
-            position: relative;
-            height: 50px;
-            left: 130px;
-            top: 100px;
-        }
-
-        .signin-main .triangle-bottom-right {
-            position: relative;
-            left: 10px;
-            height: 50px;
-            top: 100px;
-        }
-
-        .signin-main .triangle-top {
-            height: 70px;
-        }
-
-        .blue-trangle-right-side-top {
-            height: 70px;
-        }
-
-        .common-design .blue-trangle-left {
-            height: 80px;
-        }
-
-        .common-design .blue-trangle-bottom {
-            position: relative;
-            height: 60px;
-            left: 10%;
-            /* top: 5%; */
-        }
-
-        .signin-main .samanta-stand-image {
-            justify-content: center;
-            align-items: center;
-        }
-
-        .medical-main-div p {
-            font-size: 12px;
-        }
-
-        .medical-main-div .medic-icons {
-            margin-right: 10px;
-        }
-
-            .medical-main-div .medic-icons img {
-                width: 30px;
-            }
-
-        .medical-main-div .thm-blue-button {
-            padding: 10px 45px;
-        }
-
-        .medical-main-div .thm-back-button {
-            padding: 10px 45px;
-        }
-
-        .additionl-main-div .heading {
-            font-size: 22px !important;
-        }
-
-        .additionl-main-div .sub-heading {
-            font-size: 14px !important;
-        }
-
-        .allergy .others-div {
-            display: block !important;
-        }
-
-            .allergy .others-div input {
-                width: 100px;
-            }
-
-        .journal .heading-title {
-            padding-left: 10px;
-        }
-
-        .journal .tab-div .tabs {
-            width: 80%;
-        }
-
-        .filter-shorting-icon img {
-            width: 20px;
-        }
-
-        .filter-shorting-icon {
-            top: 160px;
-            right: 20px;
-        }
-
-        .support-group .left-nav-bar {
-            height: 55vh;
-        }
-
-        .support-group .chat-input-div {
-            position: relative;
-            bottom: 0;
-            top: 15px;
-            width: 100%;
-            margin: 0;
-        }
-
-        .support-group .chat-history-div {
-            max-height: 77%;
-        }
-
-        .upload-file .product-search {
-            width: 100%;
-        }
-
-        .footer a {
-            font-size: 10px;
-        }
-
-        .allergy .heading {
-            font-size: 18px;
-        }
-
-        .upload-file .footer {
-            position: absolute;
-        }
-
-        .user-info-main .blue-trangle-bottom-right {
-            left: 10% !important;
-        }
+    .upload-file .footer {
+        position: absolute;
     }
 
-    @media only screen and (max-width: 375px) {
-        .support-group .chat-input-div {
-            position: relative;
-            bottom: 0;
-            top: 5px;
-            width: 100%;
-        }
-
-        .support-group .chat-history-div {
-            max-height: 70%;
-        }
-
-        .support-group .left-nav-bar {
-            height: 70vh;
-        }
+    .user-info-main .blue-trangle-bottom-right {
+        left: 10% !important;
+        bottom: 0;
     }
 
-    @media only screen and (max-width: 300px) {
-        .common-design .blue-trangle-bottom {
-            top: 20%;
-        }
+    .user-info-main .plus-bottom-right {
+        top: 10%;
+    }
 
-        .medical-main-div p {
-            font-size: 9px;
-        }
+    .user-info-main .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .user-info-main .blue-trangle-bottom-left {
+        position: absolute;
+        bottom: 0;
+    }
+
+    .user-info-main .blue-trangle-bottom-right {
+        position: absolute;
+        bottom: 0px !important;
+        top: auto;
+        left: 50% !important;
+    }
+
+    .support-group .left-nav-bar {
+        height: 98vh !important;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width:912px) {
+    .mt-768-80 {
+        margin-top: 80px;
+    }
+
+    .h-md-98vh {
+        height: 98vh;
+    }
+}
+
+@media only screen and (max-width: 786px) {
+
+    .user-info-main .blue-trangle-bottom-left {
+        position: absolute;
+        height: 50px;
+    }
+
+    .blue-trangle-right-side-bottom {
+        position: absolute;
+        bottom: -15px;
+        left: 20px;
+        height: 70px;
+    }
+
+    .plus-right-side-bottom {
+        position: relative;
+        bottom: 200px;
+        left: 0;
+        height: 250px;
+        z-index: -1;
+    }
+
+    .user-info-main .profile-img img {
+        width: 50% !important;
+        margin-top: 50px;
+    }
+
+    .h-70 {
+        height: 58% !important;
+    }
+
+    .signin-main .samanta-stand-image {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .common-design .blue-trangle-top-right {
+        right: 90px;
+    }
+
+    .common-design .blue-trangle-top-left {
+        height: 65px;
+    }
+
+    .common-design .blue-trangle-left {
+        height: 110px;
+    }
+
+    .common-design .blue-trangle-right {
+        height: 120px;
+    }
+
+    .medical-main-div .inner-main-div {
+        /* height: 50vh; */
+    }
+
+    .allergy .others-div input {
+        width: 150px;
+    }
+
+    .journal .heading-title {
+        padding-left: 20px;
+    }
+
+    .filter-shorting-icon {
+        right: 40px;
+    }
+
+    .support-group .left-nav-bar {
+        height: 98vh;
+    }
+
+    .common-design .blue-trangle-bottom {
+        position: relative;
+    }
+
+    .support-group .chat-history-div {
+        max-height: 77%;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .support-group .chat-history-div {
+        max-height: 72%;
+    }
+
+    .user-info-main .footer {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .user-info-main .blue-trangle-bottom-left {
+        position: relative;
+    }
+
+    .user-info-main .blue-trangle-bottom-right {
+        position: relative;
+    }
+
+    .h-sm-100vh {
+        height: 100vh;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .signin-main .triangle-bottom-left {
+        position: relative;
+        height: 50px;
+        left: 130px;
+        top: 100px;
+    }
+
+    .signin-main .triangle-bottom-right {
+        position: relative;
+        left: 10px;
+        height: 50px;
+        top: 100px;
+    }
+
+    .signin-main .triangle-top {
+        height: 70px;
+    }
+
+    .blue-trangle-right-side-top {
+        height: 70px;
+    }
+
+    .common-design .blue-trangle-left {
+        height: 80px;
+    }
+
+    .common-design .blue-trangle-bottom {
+        position: relative;
+        height: 60px;
+        left: 10%;
+        /* top: 5%; */
+    }
+
+    .signin-main .samanta-stand-image {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .medical-main-div p {
+        font-size: 12px;
+    }
+
+    .medical-main-div .medic-icons {
+        margin-right: 10px;
+    }
 
         .medical-main-div .medic-icons img {
-            width: 20px;
+            width: 30px;
         }
 
-        .additionl-main-div .heading {
-            font-size: 17px !important;
-        }
-
-        .allergy .others-div {
-            display: block !important;
-        }
-
-            .allergy .others-div input {
-                width: 100px;
-            }
-
-        .journal .heading-title {
-            padding-left: 10px;
-        }
-
-        .journal .tab-div .tabs {
-            width: 90%;
-        }
-
-        .support-group .left-nav-bar {
-            height: 80vh;
-        }
-
-        .additionl-main-div .sub-heading {
-            font-size: 10px !important;
-        }
-
-        .additionl-main-div p {
-            font-size: 10px !important;
-        }
-
-        .additionl-main-div span {
-            font-size: 10px !important;
-        }
-
-        .medical-history .heading {
-            font-size: 24px;
-        }
-
-        .upload-file .footer {
-            position: relative;
-        }
-
-        .upload-file .btn-primary {
-            font-size: 12px;
-        }
-
-        .upload-file .report-heading {
-            font-size: 20px;
-        }
-
-        .user-info-main .blue-trangle-bottom-right {
-            height: 35px;
-            left: 5% !important;
-            top: 10px;
-        }
-
-        .user-info-main .blue-trangle-bottom-left {
-            height: 35px;
-        }
-
-        .user-info-main .blue-trangle-top-left {
-            height: 70px;
-        }
+    .medical-main-div .thm-blue-button {
+        padding: 10px 45px;
     }
+
+    .medical-main-div .thm-back-button {
+        padding: 10px 45px;
+    }
+
+    .additionl-main-div .heading {
+        font-size: 22px !important;
+    }
+
+    .additionl-main-div .sub-heading {
+        font-size: 14px !important;
+    }
+
+    .allergy .others-div {
+        display: block !important;
+    }
+
+        .allergy .others-div input {
+            width: 100px;
+        }
+
+    .journal .heading-title {
+        padding-left: 10px;
+    }
+
+    .journal .tab-div .tabs {
+        width: 80%;
+    }
+
+    .filter-shorting-icon img {
+        width: 20px;
+    }
+
+    .filter-shorting-icon {
+        top: 160px;
+        right: 20px;
+    }
+
+    .support-group .left-nav-bar {
+        height: 55vh;
+    }
+
+    .support-group .chat-input-div {
+        position: relative;
+        bottom: 0;
+        top: 15px;
+        width: 100%;
+        margin: 0;
+    }
+
+    .support-group .chat-history-div {
+        max-height: 77%;
+    }
+
+    .upload-file .product-search {
+        width: 100%;
+    }
+
+    .footer a {
+        font-size: 10px;
+    }
+
+    .allergy .heading {
+        font-size: 18px;
+    }
+
+    .upload-file .footer {
+        position: absolute;
+    }
+
+    .user-info-main .blue-trangle-bottom-right {
+        left: 10% !important;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .support-group .chat-input-div {
+        position: relative;
+        bottom: 0;
+        top: 5px;
+        width: 100%;
+    }
+
+    .support-group .chat-history-div {
+        max-height: 70%;
+    }
+
+    .support-group .left-nav-bar {
+        height: 70vh;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .common-design .blue-trangle-bottom {
+        top: 20%;
+    }
+
+    .medical-main-div p {
+        font-size: 9px;
+    }
+
+    .medical-main-div .medic-icons img {
+        width: 20px;
+    }
+
+    .additionl-main-div .heading {
+        font-size: 17px !important;
+    }
+
+    .allergy .others-div {
+        display: block !important;
+    }
+
+        .allergy .others-div input {
+            width: 100px;
+        }
+
+    .journal .heading-title {
+        padding-left: 10px;
+    }
+
+    .journal .tab-div .tabs {
+        width: 90%;
+    }
+
+    .support-group .left-nav-bar {
+        height: 80vh;
+    }
+
+    .additionl-main-div .sub-heading {
+        font-size: 10px !important;
+    }
+
+    .additionl-main-div p {
+        font-size: 10px !important;
+    }
+
+    .additionl-main-div span {
+        font-size: 10px !important;
+    }
+
+    .medical-history .heading {
+        font-size: 24px;
+    }
+
+    .upload-file .footer {
+        position: relative;
+    }
+
+    .upload-file .btn-primary {
+        font-size: 12px;
+    }
+
+    .upload-file .report-heading {
+        font-size: 20px;
+    }
+
+    .user-info-main .blue-trangle-bottom-right {
+        height: 35px;
+        left: 5% !important;
+        top: 10px;
+    }
+
+    .user-info-main .blue-trangle-bottom-left {
+        height: 35px;
+    }
+
+    .user-info-main .blue-trangle-top-left {
+        height: 70px;
+    }
+
+    .support-group .chat-history-div {
+        height: 65%;
+    }
+}
 
     @media only screen and (min-height: 790px) {
         .allergy .footer {
@@ -1777,7 +2038,7 @@ span.img-notselected {
         }
 
         .additional-information .footer {
-            position: absolute;
+            position: absolute !important;
             bottom: 0;
             width: 100%;
         }
@@ -1786,7 +2047,6 @@ span.img-notselected {
             position: absolute;
             bottom: 0;
         }
-
         .medical-history .footer {
             position: absolute;
             bottom: 0;

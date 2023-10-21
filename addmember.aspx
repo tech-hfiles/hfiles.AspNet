@@ -21,7 +21,7 @@
         <img class="blue-t-top-right" src="../Avatar/blue-trangle-2.png" alt="">
         <img class="blue-t-right" src="../Add Members/blue-trangle-3.png" alt="">
         <a href="#">
-            <img class="home-icon-top-right" src="../Add Members/home-icon.png" alt=""></a>
+            <%--<img class="home-icon-top-right" src="../Add Members/home-icon.png" alt="">--%></a>
         <img class="plus-top-left" src="../assets/plus-icon-3.png" alt="">
         <div class="main-div">
             <div class="container d-flex justify-content-center p-0">
@@ -31,28 +31,32 @@
                             <h1>Add Members</h1>
                         </div>
                     </div>
-                    <div class="row my-3">
-                        <div id="family" class="col-lg-5 col-md-5 col-sm-4 tab" style="color: #0116b8;" onclick="handleTabs('family')">
-                            Family
+                    <div class="row my-xl-5 my-lg-3">
+                        <div class="col-lg-5 col-md-5 col-sm-4 pl-lg-5 pr-0 d-xl-flex justify-content-end" >
+                            <div id="family" class="tab" style="color: #0116b8;" onclick="handleTabs('family')">
+                                Family
+                            </div>
                         </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 or" style="color: #bababa; font-size: 18px;">OR </div>
-                        <div id="friends" class="col-lg-5 col-md-5 col-sm-4 tab" style="color: #bababa;" onclick="handleTabs('friend')">
-                            Friends
+                        <div class="col-lg-2 col-md-2 col-sm-2 or p-0" style="color: #bababa; font-size: 28px;">OR </div>
+                        <div  class="col-lg-5 col-md-5 col-sm-4 pr-lg-5 pl-0" >
+                            <div id="friends" class="tab" style="color: #bababa;" onclick="handleTabs('friend')">
+                                Friends
+                            </div>
                         </div>
                     </div>
-                    <div class="row input-group">
-                        <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="row input-group my-xl-4 my-lg-3">
+                        <div class="col-lg-4 col-md-4 col-sm-12 px-xl-4">
                             <input type="text" placeholder="Name">
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="col-lg-4 col-md-4 col-sm-12 px-xl-4">
                             <input type="text" placeholder="Last Name">
                         </div>
-                        <div id="relation-input" class="col-lg-4 col-md-4 col-sm-12">
+                        <div id="relation-input" class="col-lg-4 col-md-4 col-sm-12 px-xl-4">
                             <div class="relation-div">
                                 <span class="fa-solid fa-earth-americas form-control-feedback"></span>
                                 <select id="relation" class="form-select form-control relation-select"
                                     aria-label="Default select example" onchange="handleRelation()">
-                                    <option selected>Relation</option>
+                                    <option selected disabled>Relation</option>
                                     <option value="father">Father</option>
                                     <option value="mother">Mother</option>
                                     <option value="sister">Sister</option>
@@ -71,17 +75,23 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row input-group d-flex justify-content-center">
-                        <div class="col-lg-4 col-md-4 col-sm-12">
-                            <input type="text" placeholder="Email ID">
+                    <div class="row input-group d-flex justify-content-center my-xl-3 my-lg-2">
+                        <div class="col-lg-5 col-md-4 col-sm-12">
+                            <input class="email-input" type="email" placeholder="Email ID">
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12">
-                            <input type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+                        <div class="col-lg-5 col-md-4 col-sm-12">
+                            <input class="number-input" type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
                         </div>
                         <div id="default-number" class="col-lg-5 col-md-5 col-sm-12">
                             <div class="d-flex align-items-center">
-                                <img id="selected" src="../assets/select.png" onclick="handleMobile(true)" alt="">
-                                <img id="not-selected" src="../assets/not-select.png" onclick="handleMobile(false)" alt="">
+                               <div class="checkbox-container">
+                                <input type="checkbox" id="CholesterolFatherSide" name="CholesterolGroup" class="hidden-checkbox" style="width: fit-content;">
+                                <label for="CholesterolFatherSide" class="checkbox-label">
+                                    <div class="checkbox-circle">
+                                        <div class="checkmark"></div>
+                                    </div>
+                                </label>
+                            </div>
                                 <input type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
                             </div>
                         </div>
@@ -104,17 +114,17 @@
             const relationInput = document.getElementById('relation-input');
             const friendInput = document.getElementById('friend-input');
             const defaultNumber = document.getElementById('default-number');
-            const selectMobile = document.getElementById('selected')
-            const notSelectMobile = document.getElementById('not-selected')
-
-            selectMobile.style.display = 'block'
-            notSelectMobile.style.display = 'none'
-            defaultNumber.style.display = 'none'
-            relationInput.style.display = 'block'
-            friendInput.style.display = 'none'
 
             family.classList.add('active')
             friends.classList.add('inactive')
+
+            defaultNumber.style.display = 'none'
+            friendInput.style.display = 'none'
+            notSelectMobile.style.display = 'none'
+            selectMobile.style.display = 'block'
+            relationInput.style.display = 'flex'
+
+
 
 
             function handleTabs(tab) {
@@ -125,7 +135,7 @@
                     friends.classList.remove('active')
                     family.classList.add('active')
                     friends.classList.add('inactive')
-                    relationInput.style.display = 'block'
+                    relationInput.style.display = 'flex'
                     friendInput.style.display = 'none'
                     if (relation === 'grandFather' || relation === 'grandMother') {
                         defaultNumber.style.display = 'block'
@@ -146,24 +156,24 @@
             }
             function handleRelation() {
                 relation = document.getElementById('relation').value
+                $('.email-input').attr('disabled', 'false');
+                $('.number-input').attr('disabled', 'false');
                 if (relation === 'grandFather' || relation === 'grandMother') {
                     defaultNumber.style.display = 'block'
+                    $(".email-input").removeAttr('disabled');
+                    $(".number-input").removeAttr('disabled');
+                } else if (relation === 'pet') {
+                    $('.email-input').attr('disabled', 'disabled');
+                    $('.number-input').attr('disabled', 'disabled');
+                    defaultNumber.style.display = 'none'
                 } else {
                     defaultNumber.style.display = 'none'
+                    $(".email-input").removeAttr('disabled');
+                    $(".number-input").removeAttr('disabled');
                 }
                 console.log(relation)
             }
-            function handleMobile(e) {
-                selected = !selected
-
-                if (selected === true) {
-                    selectMobile.style.display = 'block'
-                    notSelectMobile.style.display = 'none'
-                } else if (selected === false) {
-                    selectMobile.style.display = 'none'
-                    notSelectMobile.style.display = 'block'
-                }
-            }
+            
         </script>
 
    

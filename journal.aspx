@@ -2,6 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Journal</title>
+     <link rel="stylesheet" href="./style.css" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+        integrity="sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+     
     <style>
         .top-icon {
             position: absolute;
@@ -12,16 +17,20 @@
             .top-icon img {
                 cursor: pointer;
             }
+             .journal-main-div {
+            min-height: 87vh;
+        }
     </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%--<body class="journal common-design">
  <form id="form1" runat="server">--%>
-    <div class="top-icon">
+    <div class="journal">
+   <%-- <div class="top-icon">
         <img id="" class="" src="../Add Members/save-icon.png" alt="" width="35px">
         <img id="" class="" src="../Add Members/home-icon-gray.png" alt="" width="25px">
-    </div>
+    </div>--%>
 
     <div class="filter-shorting-icon">
         <div class="popover__wrapper">
@@ -81,12 +90,12 @@
             </div>
         </div>
     </div>
-    <div class="journal-main-div mt-5">
+    <div class="journal-main-div mt-4 mb-5">
         <div class="heading-title d-flex align-items-center">
             <h1>Journal</h1>
             <div class="hr w-100">
-                <hr class="hr1">
-                <hr class="hr2">
+                <hr class="hr1" />
+                <hr class="hr2" />
             </div>
         </div>
         <div class="tab-div container px-5 d-flex justify-content-center my-3">
@@ -303,6 +312,7 @@
             </ItemTemplate>
         </asp:Repeater>
     </div>
+    </div>
 
 
     <script>
@@ -352,9 +362,14 @@
             }
         }
 
-        function colorChange() {
-
-        }
+       
     </script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
+        integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
+    <!-- <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </asp:Content>

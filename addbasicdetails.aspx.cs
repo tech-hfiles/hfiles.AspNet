@@ -80,6 +80,8 @@ namespace hfiles
                     connection.Open();
                     command.ExecuteNonQuery();
                     connection.Close();
+
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
                 }
             }
             DAL.SendCareerMail("HFiles, Registration Completed - " + DateTime.Now.ToString("dd/MM/yyyy"), "Hello " + firstNameTextBox.Value + ", ", emailTextBox.Value);

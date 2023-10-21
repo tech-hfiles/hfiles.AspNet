@@ -5,123 +5,17 @@
     <link rel="stylesheet" href="<%= ResolveUrl("~/style.css") %>" />
 
     <title>Additional Information</title>
-    <style>
-        .custom-checkbox-list {
-            list-style-type: none;
-            padding: 0;
-        }
-
-            .custom-checkbox-list label {
-                display: inline-block;
-                margin: 5px;
-                cursor: pointer;
-            }
-
-            .custom-checkbox-list .checkbox-input {
-                display: none;
-            }
-
-            .custom-checkbox-list .custom-checkbox {
-                width: 20px;
-                height: 20px;
-                border: 2px solid #999;
-                border-radius: 50%;
-                position: relative;
-            }
-
-                .custom-checkbox-list .custom-checkbox::before {
-                    content: "";
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    background-color: green;
-                    border-radius: 50%;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    opacity: 0;
-                    transform: scale(0);
-                    transition: transform 0.2s, opacity 0.2s;
-                }
-
-            .custom-checkbox-list .checkbox-input:checked + .custom-checkbox::before {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            .custom-checkbox-list .checkmark {
-                content: "";
-                display: inline-block;
-                width: 0;
-                height: 0;
-                border-style: solid;
-                border-width: 0 2px 2px 0;
-                transform: rotate(45deg);
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                opacity: 0;
-                transition: opacity 0.2s;
-            }
-
-            .custom-checkbox-list .checkbox-input:checked + .custom-checkbox .checkmark {
-                opacity: 1;
-            }
-
-
-
-        /* Apply styles to the entire radio button list */
-        .custom-radio-list {
-            list-style: none;
-            padding: 0;
-        }
-
-            /* Hide the default radio input */
-            .custom-radio-list input[type="radio"] {
-                display: none;
-            }
-
-            /* Style the custom radio button indicator */
-            .custom-radio-list label {
-                position: relative;
-                display: inline-block;
-                width: 20px;
-                height: 20px;
-                border-radius: 50%;
-                border: 2px solid #999;
-                cursor: pointer;
-                background-color: white; /* Set the initial background color */
-            }
-
-            /* Style the green checkmark inside the custom radio button indicator */
-            .custom-radio-list input[type="radio"]:checked + label::before {
-                content: "✓"; /* Unicode character for a checkmark */
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                font-size: 16px;
-                color: green;
-            }
-
-            /* Style the red cross inside the custom radio button indicator */
-            .custom-radio-list input[type="radio"]:not(:checked) + label::before {
-                content: "✕"; /* Unicode character for a multiplication sign (cross) */
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                font-size: 16px;
-                color: red;
-            }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager runat="server" />
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
-            <div runat="server" id="AdditionalDiv">
+            <div class="additional-information common-design" runat="server" id="AdditionalDiv">
+                <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
+                <img class="blue-trangle-top-right" src="../Terms & Conditions/blue-trangle6.png" alt="">
+                <img class="blue-trangle-right" src="../Terms & Conditions/blue-trangle3.png" alt="">
+                <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
+                <img class="plus-top-left" src="../assets/plus-icon-3.png" alt="">
                 <div class="additionl-main-div container pt-5 px-5 h-90">
                     <div class="row pt-5">
                         <div class="col-12">
@@ -147,64 +41,93 @@
                                 </div>
                                 <div class="col-lg-2 col-xl-2 col-md-3 col-sm-4">
                                     <div>
-                                        <input runat="server" id="weightTextBox" onkeypress="return isNumberKey(event,this)" required class="hight-input" type="number"><span>kg</span>
+                                        <input runat="server" id="weightTextBox" onkeypress="return isNumberKey(event,this)" required class="hight-input" type="number" /><span>kg</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="row border-bottom">
                                 <div class="col-4">
                                 </div>
-                                <div class="col-2">
+                                <div class="col-2 text-center">
                                     <p class="fw-bold">Yes</p>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-2 text-center">
                                     <p class="fw-bold">No</p>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-2 text-center">
                                     <p class="fw-bold">Occasionally </p>
                                 </div>
                             </div>
-                            <div class="row border-bottom pt-4">
+                            <div class="row border-bottom pt-5 pb-4">
                                 <div class="col-4">
                                     <p class="sub-heading">Do You Smoke?</p>
                                     <asp:HiddenField ID="hfDoyouSmoke" runat="server" />
                                 </div>
-                                <div class="col-2">
-                                    <img id="yes-selected-smoke" src="<%= ResolveUrl("~/assets/select.png") %>" alt="" srcset="">
-                                    <img id="yes-not-selected-smoke" onclick="handleSelectSmoke('yes')"
-                                        src="<%= ResolveUrl("~/assets/not-select.png") %>" alt="" srcset="">
-                                    <!-- <input class="checkbox" type="checkbox"> -->
+                                <div class="col-2 text-center">
+                                    <div class="radio-container">
+                                        <input type="radio" id="smoke-yes" name="SmokeGroup" class="hidden-radio">
+                                        <label for="smoke-yes" class="radio-label">
+                                            <div class="checkbox-circle">
+                                                <div class="checkmark"></div>
+                                            </div>
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="col-2">
-                                    <img id="no-selected-smoke" src="<%= ResolveUrl("~/assets/select.png") %>" alt="" srcset="">
-                                    <img id="no-not-selected-smoke" onclick="handleSelectSmoke('no')" src="<%= ResolveUrl("~/assets/not-select.png") %>" alt="" srcset="">
-                                    <!-- <input class="c-checkbox" type="checkbox" name="yes" id=""> -->
+                                <div class="col-2 text-center">
+                                    <div class="radio-container">
+                                        <input type="radio" id="smoke-no" name="SmokeGroup" class="hidden-radio">
+                                        <label for="smoke-no" class="radio-label">
+                                            <div class="checkbox-circle">
+                                                <div class="checkmark"></div>
+                                            </div>
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="col-2">
-                                    <img id="Occasionally-selected-smoke" src="<%= ResolveUrl("~/assets/select.png") %>" alt="" srcset="">
-                                    <img id="Occasionally-not-selected-smoke" onclick="handleSelectSmoke('Occasionally')"
-                                        src="<%= ResolveUrl("~/assets/not-select.png") %>" alt="" srcset="">
+                                <div class="col-2 text-center">
+                                    <div class="radio-container">
+                                        <input type="radio" id="smoke-occasionally" name="SmokeGroup" class="hidden-radio">
+                                        <label for="smoke-occasionally" class="radio-label">
+                                            <div class="checkbox-circle">
+                                                <div class="checkmark"></div>
+                                            </div>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row border-bottom pt-4">
+                            <div class="row border-bottom pt-5 pb-4">
                                 <div class="col-4">
                                     <p class="sub-heading">Do You Consume Alcohol?</p>
                                     <asp:HiddenField ID="hfDoyouConsumeAlcohol" runat="server" />
                                 </div>
-                                <div class="col-2">
-                                    <img id="yes-selected-alcohol" src="<%= ResolveUrl("~/assets/select.png") %>" alt="" srcset="">
-                                    <img id="yes-not-selected-alcohol" onclick="handleSelectAlcohol('yes')"
-                                        src="<%= ResolveUrl("~/assets/not-select.png") %>" alt="" srcset="">
+                                <div class="col-2 text-center">
+                                    <div class="radio-container">
+                                        <input type="radio" id="alcohol-yes" name="AlcoholGroup" class="hidden-radio">
+                                        <label for="alcohol-yes" class="radio-label">
+                                            <div class="checkbox-circle">
+                                                <div class="checkmark"></div>
+                                            </div>
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="col-2">
-                                    <img id="no-selected-alcohol" src="<%= ResolveUrl("~/assets/select.png") %>" alt="" srcset="">
-                                    <img id="no-not-selected-alcohol" onclick="handleSelectAlcohol('no')"
-                                        src="<%= ResolveUrl("~/assets/not-select.png") %>" alt="" srcset="">
+                                <div class="col-2 text-center">
+                                    <div class="radio-container">
+                                        <input type="radio" id="alcohol-no" name="AlcoholGroup" class="hidden-radio">
+                                        <label for="alcohol-no" class="radio-label">
+                                            <div class="checkbox-circle">
+                                                <div class="checkmark"></div>
+                                            </div>
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="col-2">
-                                    <img id="occasionally-selected-alcohol" src="<%= ResolveUrl("~/assets/select.png") %>" alt="" srcset="">
-                                    <img id="occasionally-not-selected-alcohol" onclick="handleSelectAlcohol('Occasionally')"
-                                        src="<%= ResolveUrl("~/assets/not-select.png") %>" alt="" srcset="">
+                                <div class="col-2 text-center">
+                                    <div class="radio-container">
+                                        <input type="radio" id="alcohol-occasionally" name="AlcoholGroup" class="hidden-radio">
+                                        <label for="alcohol-occasionally" class="radio-label">
+                                            <div class="checkbox-circle">
+                                                <div class="checkmark"></div>
+                                            </div>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row pt-4">
@@ -213,17 +136,37 @@
                                 </div>
                             </div>
                             <div class="row surgeries-div">
-                                <div class="col-8">
-                                    <input type="text" runat="server" required id="txtSurgeries">
+                                <div class="col-4">
+                                    <input type="text" runat="server" id="txtSurgeries">
                                 </div>
-                                <div class="col-2 add-surgeries">
-                                    +
+                                <div class="col-lg-1 col-sm-2 text-center">
+                                    <div class="add-surgeries">
+                                        +
+                                    </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-lg-2 col-sm-2">
                                     <div class="select-years">
                                         <asp:DropDownList runat="server" ID="yearpicker1" name="yearpicker">
                                         </asp:DropDownList>
                                     </div>
+                                </div>
+                                <div class="col-lg-5 col-sm-12">
+                                    <table class="surgeries-table w-100">
+                                        <thead>
+                                            <tr>
+                                                <td>Surgeries Name</td>
+                                                <td>Date</td>
+                                                <td>Action</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>abc</td>
+                                                <td>05-08-1997</td>
+                                                <td class="text-center"><i class="fa fa-sharp fa-solid fa-trash color-primary fa-2x"></i></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                             <div class="mt-5">
@@ -234,12 +177,13 @@
                         </div>
                     </div>
                     <%-- <img class="blue-trangle-bottom" src="<%= ResolveUrl("~/Add Members/blue-trangle-5.png") %>" alt="">--%>
+                    <img class="blue-trangle-bottom" src="../Add Members/blue-trangle-5.png" alt="">
                 </div>
-
+                <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
                 <%-- <img class="plus-bottom-right" src="<%= ResolveUrl("~/assets/plus-2.png") %>" alt="">--%>
             </div>
             <div runat="server" id="medicalHistoryDiv" class="medical-history common-design">
-                <img class="home-icon-top-right" src="../Add Members/home-icon.png" alt="">
+                <%--<img class="home-icon-top-right" src="../Add Members/home-icon.png" alt="">--%>
                 <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
                 <img class="blue-trangle-top-right" src="../Terms & Conditions/blue-trangle6.png" alt="">
                 <img class="blue-trangle-right" src="../Terms & Conditions/blue-trangle3.png" alt="">
@@ -249,9 +193,9 @@
                 <div class="medical-main-div container pt-5 px-5 h-90">
                     <div class="row mt-5">
                         <div class="col-12">
-                            <h1 class="heading">Medical History</h1>
+                            <h1 class="heading mb-4">Medical History</h1>
                         </div>
-                        <div class="row">
+                        <div class="row border-bottom p-0">
                             <div class="col-6">
                                 <p>Type</p>
                             </div>
@@ -269,7 +213,7 @@
                         <div class="row inner-main-div">
                             <asp:Repeater runat="server" ID="rptDisease">
                                 <ItemTemplate>
-                                    <div class="row">
+                                    <div class="row py-4 border-bottom medical-history-row">
                                         <div class="col-md-6">
                                             <p><%# Eval("disease_name") %></p>
                                             <asp:HiddenField runat="server" ID="hfdisease_id" Value='<%# Eval("disease_id") %>' />
@@ -277,11 +221,11 @@
                                         
                                         </div>
                                         <%--                                    --%>
-                                        <div class="col-md-6">
-                                            <asp:CheckBoxList runat="server" ID="cbl" class="col-6" RepeatDirection="Horizontal">
-                                                <asp:ListItem Value="1" Text="MySelf" />
-                                                <asp:ListItem Value="2" Text="Mother Side" />
-                                                <asp:ListItem Value="3" Text="Father Side" />
+                                        <div class="col-md-6 SingleCheckbox">
+                                            <asp:CheckBoxList runat="server" ID="cbl" class="" RepeatDirection="Horizontal">
+                                                <asp:ListItem Value="1" Text=" " class="CheckBoxLabel" />
+                                                <asp:ListItem Value="2" Text=" " />
+                                                <asp:ListItem Value="3" Text=" " />
                                             </asp:CheckBoxList>
                                         </div>
                                         <%--  <div class="col-2 text-center">
@@ -384,7 +328,7 @@
                         </div>--%>
                         </div>
                     </div>
-                    <div class="medic-his-btn">
+                    <div class="medic-his-btn mt-3">
                         <asp:Button Text="Back" class="thm-back-button" OnClick="btnMedicalBack_Click" type="Button" ID="btnMedicalBack" runat="server" />
                         <asp:Button Text="Next" ID="btnMedicalHistory" class="thm-blue-button" OnClick="btnMedicalHistory_Click" runat="server" />
                     </div>
@@ -393,43 +337,51 @@
 
                 <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
             </div>
-            <div id="AllergiesDiv" runat="server" class="medical-main-div container pt-5 px-5 h-90 ">
-                <div class="row mt-5">
-                    <div class="col-12">
-                        <h1 class="heading mb-4">Do You Have Any of These Allergies?</h1>
-                    </div>
-                    <div class="row border-bottom">
-                        <div class="col-6">
-                            <p>Type</p>
-                        </div>
-                        <div class="col-2 text-center">
-                            <p>Yes</p>
-                        </div>
-                        <div class="col-2 text-center">
-                            <p>No</p>
-                        </div>
+            <div class="allergy">
+                <%--<img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
+                <img class="blue-trangle-top-right" src="../Terms & Conditions/blue-trangle6.png" alt="">
+                <img class="blue-trangle-right" src="../Terms & Conditions/blue-trangle3.png" alt="">
+                <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
+                <img class="plus-top-left" src="../assets/plus-1.png" alt="">--%>
 
-                    </div>
-                    <div class="row inner-main-div">
+                <div id="AllergiesDiv" runat="server" class="medical-main-div container pt-5 px-5 h-90 ">
+                    <div class="row mt-5">
                         <div class="col-12">
-                            <asp:Repeater runat="server" ID="rptAllergy">
-                                <ItemTemplate>
-                                    <div class="row py-4 border-bottom allergy-row">
-                                        <div class="col-6 d-flex align-items-center">
-                                            <p class="m-0"><%# Eval("allergy_name") %></p>
-                                            <asp:HiddenField runat="server" ID="hfallergy_id" Value='<%# Eval("allergy_id") %>' />
-                                        </div>
-                                        <div class="col-4 text-center">
-                                            <asp:RadioButtonList runat="server" ID="rblAllergy" class="col-6" CssClass="custom-radio-list" RepeatDirection="Horizontal">
-                                                <asp:ListItem Value="1" />
-                                                <asp:ListItem Value="0" />
-                                            </asp:RadioButtonList>
+                            <h1 class="heading mb-4">Do You Have Any of These Allergies?</h1>
+                        </div>
+                        <div class="row border-bottom">
+                            <div class="col-6">
+                                <p>Type</p>
+                            </div>
+                            <div class="col-2 text-center">
+                                <p>Yes</p>
+                            </div>
+                            <div class="col-2 text-center">
+                                <p>No</p>
+                            </div>
 
+                        </div>
+                        <div class="row inner-main-div">
+                            <div class="col-12">
+                                <asp:Repeater runat="server" ID="rptAllergy">
+                                    <ItemTemplate>
+                                        <div class="row py-4 border-bottom allergy-row">
+                                            <div class="col-6 d-flex align-items-center">
+                                                <p class="m-0"><%# Eval("allergy_name") %></p>
+                                                <asp:HiddenField runat="server" ID="hfallergy_id" Value='<%# Eval("allergy_id") %>' />
+                                            </div>
+                                            
+                                            <div class="col-4 text-center SingleCheckbox">
+                                                <asp:RadioButtonList runat="server" ID="rblAllergy" class="col-6" CssClass=""                              RepeatDirection="Horizontal">
+                                                    <asp:ListItem Value="1" Text=" " class="CheckBoxLabel"/>
+                                                    <asp:ListItem Value="0" Text=" " class="CheckBoxLabel"/>
+                                                </asp:RadioButtonList>
+
+                                            </div>
                                         </div>
-                                    </div>
-                                </ItemTemplate>
-                            </asp:Repeater>
-                            <%--  <div class="row py-4 border-bottom allergy-row">
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                                <%--  <div class="row py-4 border-bottom allergy-row">
                                     <div class="col-6 d-flex align-items-center">
                                         <p class="m-0">Peanuts</p>
                                     </div>
@@ -505,108 +457,22 @@
                                     </div>
 
                                 </div>--%>
+                            </div>
                         </div>
                     </div>
+                    <div class="medic-his-btn mt-3">
+                        <asp:Button Text="Back" CssClass="thm-back-button my-2" ID="btnAllergyBack" OnClick="btnAllergyBack_Click" runat="server" />
+                        <asp:Button Text="Save" CssClass="thm-blue-button" ID="btnSaveAllergy" OnClick="btnSaveAllergy_Click" runat="server" />
+                    </div>
                 </div>
-                <div class="medic-his-btn mt-3">
-                    <asp:Button Text="Back" CssClass="thm-back-button my-2" ID="btnAllergyBack" OnClick="btnAllergyBack_Click" runat="server" />
-                    <asp:Button Text="Save" CssClass="thm-blue-button" ID="btnSaveAllergy" OnClick="btnSaveAllergy_Click" runat="server" />
-                </div>
+
             </div>
+
         </ContentTemplate>
     </asp:UpdatePanel>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
-
-        let isSelectSmoke = '';
-        let isSelectAlcohol = '';
-        const yesSelectImgSmoke = document.getElementById('yes-selected-smoke');
-        const yesNotSelectImgSmoke = document.getElementById('yes-not-selected-smoke');
-        const noSelectImgSmoke = document.getElementById('no-selected-smoke');
-        const noNotSelectImgSmoke = document.getElementById('no-not-selected-smoke');
-        const OccasionallySelectImgSmoke = document.getElementById('Occasionally-selected-smoke');
-        const OccasionallyNotSelectImgSmoke = document.getElementById('Occasionally-not-selected-smoke');
-
-        const yesSelectAlcoholImg = document.getElementById('yes-selected-alcohol');
-        const yesNotSelectAlcoholImg = document.getElementById('yes-not-selected-alcohol');
-        const noSelectAlcoholImg = document.getElementById('no-selected-alcohol');
-        const noNotSelectAlcoholImg = document.getElementById('no-not-selected-alcohol');
-        const occasionallySelectAlcoholImg = document.getElementById('occasionally-selected-alcohol');
-        const occasionallyNotSelectAlcoholImg = document.getElementById('occasionally-not-selected-alcohol');
-
-        yesNotSelectImgSmoke.style.display = 'none'
-        noSelectImgSmoke.style.display = 'none'
-        OccasionallySelectImgSmoke.style.display = 'none'
-        yesNotSelectAlcoholImg.style.display = 'none'
-        noSelectAlcoholImg.style.display = 'none'
-        occasionallySelectAlcoholImg.style.display = 'none'
-
-        function handleSelectSmoke(e) {
-            isSelectSmoke = e;
-
-            let hfSmoke = document.getElementById('<%= hfDoyouSmoke.ClientID %>');
-
-            if (isSelectSmoke === 'yes') {
-                hfSmoke.value = "1";
-                yesSelectImgSmoke.style.display = 'block'
-                yesNotSelectImgSmoke.style.display = 'none'
-                noSelectImgSmoke.style.display = 'none'
-                noNotSelectImgSmoke.style.display = 'block'
-                OccasionallySelectImgSmoke.style.display = 'none'
-                OccasionallyNotSelectImgSmoke.style.display = 'block'
-            } else if (isSelectSmoke === 'no') {
-
-                hfSmoke.value = "0";
-                yesSelectImgSmoke.style.display = 'none'
-                yesNotSelectImgSmoke.style.display = 'block'
-                noSelectImgSmoke.style.display = 'block'
-                noNotSelectImgSmoke.style.display = 'none'
-                OccasionallySelectImgSmoke.style.display = 'none'
-                OccasionallyNotSelectImgSmoke.style.display = 'block'
-            } else if (isSelectSmoke === 'Occasionally') {
-
-                hfSmoke.value = "2";
-                yesSelectImgSmoke.style.display = 'none'
-                yesNotSelectImgSmoke.style.display = 'block'
-                noSelectImgSmoke.style.display = 'none'
-                noNotSelectImgSmoke.style.display = 'block'
-                OccasionallySelectImgSmoke.style.display = 'block'
-                OccasionallyNotSelectImgSmoke.style.display = 'none'
-            }
-        }
-        function handleSelectAlcohol(e) {
-            isSelectAlcohol = e;
-
-            let hfAlcohol = document.getElementById('<%= hfDoyouConsumeAlcohol.ClientID %>');
-            if (isSelectAlcohol === 'yes') {
-                yesSelectAlcoholImg.style.display = 'block'
-                hfAlcohol.value = "1";
-                yesNotSelectAlcoholImg.style.display = 'none'
-                noSelectAlcoholImg.style.display = 'none'
-                noNotSelectAlcoholImg.style.display = 'block'
-                occasionallySelectAlcoholImg.style.display = 'none'
-                occasionallyNotSelectAlcoholImg.style.display = 'block'
-            } else if (isSelectAlcohol === 'no') {
-
-                hfAlcohol.value = "0";
-                yesSelectAlcoholImg.style.display = 'none'
-                yesNotSelectAlcoholImg.style.display = 'block'
-                noSelectAlcoholImg.style.display = 'block'
-                noNotSelectAlcoholImg.style.display = 'none'
-                occasionallySelectAlcoholImg.style.display = 'none'
-                occasionallyNotSelectAlcoholImg.style.display = 'block'
-            } else if (isSelectAlcohol === 'Occasionally') {
-
-                hfAlcohol.value = "2";
-                yesSelectAlcoholImg.style.display = 'none'
-                yesNotSelectAlcoholImg.style.display = 'block'
-                noSelectAlcoholImg.style.display = 'none'
-                noNotSelectAlcoholImg.style.display = 'block'
-                occasionallySelectAlcoholImg.style.display = 'block'
-                occasionallyNotSelectAlcoholImg.style.display = 'none'
-            }
-        }
 
         function HideAdditionalDiv() {
             document.getElementById('AdditionalDiv').style.display = "none";
@@ -619,9 +485,18 @@
 
         let startYear = 1800;
         let endYear = new Date().getFullYear();
-        for (i = endYear; i > startYear; i--) {
-            $('#yearpicker1').append($('<option />').val(i).html(i));
-        }
+        let yearList = $('#ContentPlaceHolder1_yearpicker1')
+        $(function () {
+            for (var i = endYear; i > startYear; i--) {
+                var option = $("<option />");
+                option.html(i);
+                option.val(i);
+                yearList.append(option);
+                //$('#yearpicker1').append(`<option value="${i}"> 
+                //                           ${i} 
+                //                      </option>`);
+            }
+        });
 
         function isNumberKey(evt) {
             var charCode = (evt.which) ? evt.which : event.keyCode

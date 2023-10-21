@@ -51,7 +51,7 @@
                         </div>
                         <div class="col-md-8 col-lg-9 p-0">
                             <!-- Tabs content -->
-                            <div class="tab-content h-100vh" id="v-pills-tabContent">
+                            <div class="tab-content h-lg-96vh h-xl-94vh h-md-98vh h-sm-100vh" id="v-pills-tabContent">
                                 <div class="tab-pane fade rounded bg-white show active p-4 h-100 mental-health-div"
                                     id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                     <h4 runat="server" id="h1HeadingLatestQuestion" class=" my-4 pl-4"></h4>
@@ -67,24 +67,27 @@
                                                 <div class="chat-text-div d-flex py-2">
                                                     <div class="chat-name">
                                                         <img src="../Suppor Group (BG  & Icons)/user-default.png" alt="" width="30px" height="30px">
-                                                        <span><em><%# Eval("PostDate", "{0:MM/dd/yyyy HH:mm:ss}") %></em></span>
+                                                        <span><em>user name</em></span>
                                                     </div>
                                                     <div class="chat-container">
                                                         <div class="arrow">
                                                             <div class="outer"></div>
                                                             <div class="inner"></div>
                                                         </div>
-                                                        <div class="message-body d-flex">
-
-                                                            <p>
+                                                        <div class="message-body">
+                                                            <div class="d-flex">
+                                                                 <p>
                                                                 <%# Eval("PostText") %>
                                                             </p>
+                                                            <span class="chat-more">...</span>
                                                             <div class="show-edit-chat">
                                                                 <div class="msg-edit-box">
                                                                     <span>Delete</span>
                                                                 </div>
                                                             </div>
-                                                            <span class="chat-more">...</span>
+                                                            </div>
+
+                                                           <span class="chat-date"><em><%# Eval("PostDate", "{0:MM/dd/yyyy HH:mm:ss}") %></em></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -323,13 +326,35 @@
             //$(document).ready(function () {
             //    $('.tab').click(function () {
             //        $('.mental-health-link nav-link p-2 px-3 active').removeClass("active");
-            //        // $(".tab").addClass("active"); // instead of this do the below 
+            //        // $(".tab").addClass("active"); // instead of this do the below
             //        $('.skin-care-link nav-link p-2 px-3').addClass("active");
             //    });
             //});
 
+            $(".nav-link").click(function () {
+                console.log('class')
+                if ($(this).hasClass("mental-health-link")) {
+                    $('.tab-pane').addClass('mental-health-div')
+                } else if ($(this).hasClass("skin-care-link")) {
+                    $('.tab-pane').removeClass('mental-health-div')
+                    $('.tab-pane').addClass('pet-care-div')
+                }
+            }
 
         });
+
+      
+
+
+        //$(".mental-health-link").click(function () {
+        //    $('.tab-pane').addClass('pet-care-div')
+
+        //})
+
+        //$(".mental-health-link").click(function () {
+        //    $('.tab-pane').addClass('mental-health-div')
+
+        //})
     </script>
 
 

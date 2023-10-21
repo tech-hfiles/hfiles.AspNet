@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-xl-4 col-md-4 col-sm-12 dropdown ">
+                    <div class="col-lg-4 col-sm-12 col-xl-4 col-md-4  dropdown ">
                         <div class="my_profile">
                             <div>
                                 <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
@@ -34,15 +34,18 @@
                                     <div>
                                         <!-- <li><img class="dropdown-icon" src="../Reception Page/lock-icon.png" alt=""><a
                                             tabindex="-1" href="#">UNIQUE ID</a></li> -->
-                                        <li>
-                                            <img class="dropdown-icon" src="../Reception Page/user-icon.png" alt=""><a tabindex="-1" href="additionalinformation.aspx">My Info</a>
+                                        <a class="color-white" tabindex="-1" href="additionalinformation.aspx">
+                                        <li class="color-white">
+                                            <img class="dropdown-icon" src="../Reception Page/user-icon.png" alt="">My Info
                                         </li>
+                                            </a>
                                         <!-- <li><img class="dropdown-icon" src="../Reception Page/add-icon.png" alt=""><a
                                         tabindex="-1" href="#">ADD MY REPORTS</a></li> -->
-                                        <li style="border: 0;">
-                                            <a href="<%= ResolveUrl("~/avatar.aspx") %>">
-                                                <img class="dropdown-icon" src="../Reception Page/add-icon.png" alt="">Add member</a>
+                                            <a  href="<%= ResolveUrl("~/avatar.aspx") %>">
+                                        <li class="color-white" style="border: 0;">
+                                                <img class="dropdown-icon" src="../Reception Page/add-icon.png" alt="">Add member
                                         </li>
+                                                </a>
                                     </div>
                                 </ul>
                             </div>
@@ -51,19 +54,13 @@
                     <div class="col-4">
                     </div>
                     <div class="col-lg-4 col-xl-4 col-md-4 col-sm-12 dropdown ">
+                                <a class="support-group" href="supportgroup.aspx">
                         <div class="my_profile">
                             <div>
-                                <a class="support-group" href="supportgroup.aspx">Support Group</a>
-                                <!-- <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                            aria-expanded="false">Support Group
-                            <span class="caret"></span></a>
-
-                        <ul class="dropdown-menu p-0 pt-2">
-                            <li class="px-4"><a tabindex="-1" href="#">JOIN GROUP</a></li>
-                            <li class="disable-group px-4"><a tabindex="-1" href="#">CREATE GROUP</a></li>
-                        </ul> -->
+                                <h3>Support Group</h3>
                             </div>
                         </div>
+                                    </a>
                     </div>
                 </div>
                 <div class="row">
