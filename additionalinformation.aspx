@@ -141,17 +141,25 @@
                                 </div>
                                 <div class="col-lg-1 col-sm-2 text-center">
                                     <div class="add-surgeries">
-                                        +
+                                        <asp:Button ID="addsurgeryButton" OnClick="addsurgeryButton_Click" Text="+" runat="server" />
                                     </div>
                                 </div>
                                 <div class="col-lg-2 col-sm-2">
                                     <div class="select-years">
-                                        <asp:DropDownList runat="server" ID="yearpicker1" name="yearpicker">
+                                        <asp:DropDownList runat="server" ID="yearpicker" name="yearpicker">
                                         </asp:DropDownList>
                                     </div>
                                 </div>
                                 <div class="col-lg-5 col-sm-12">
-                                    <table class="surgeries-table w-100">
+                                    <asp:GridView ID="surgeryGridView" AutoGenerateColumns="false" CssClass="surgeries-table w-100" runat="server">
+                                        <Columns>
+                                            <asp:BoundField DataField="user_surgery_details" HeaderText="Surgery Details"
+                                                SortExpression="user_surgery_details" />
+                                            <asp:BoundField DataField="user_surgery_year" HeaderText="Surgery Date"
+                                                SortExpression="user_surgery_year" />
+                                        </Columns>
+                                    </asp:GridView>
+                                    <%--<table class="surgeries-table w-100">
                                         <thead>
                                             <tr>
                                                 <td>Surgeries Name</td>
@@ -166,7 +174,7 @@
                                                 <td class="text-center"><i class="fa fa-sharp fa-solid fa-trash color-primary fa-2x"></i></td>
                                             </tr>
                                         </tbody>
-                                    </table>
+                                    </table>--%>
                                 </div>
                             </div>
                             <div class="mt-5">
@@ -370,11 +378,11 @@
                                                 <p class="m-0"><%# Eval("allergy_name") %></p>
                                                 <asp:HiddenField runat="server" ID="hfallergy_id" Value='<%# Eval("allergy_id") %>' />
                                             </div>
-                                            
+
                                             <div class="col-4 text-center SingleCheckbox">
-                                                <asp:RadioButtonList runat="server" ID="rblAllergy" class="col-6" CssClass=""                              RepeatDirection="Horizontal">
-                                                    <asp:ListItem Value="1" Text=" " class="CheckBoxLabel"/>
-                                                    <asp:ListItem Value="0" Text=" " class="CheckBoxLabel"/>
+                                                <asp:RadioButtonList runat="server" ID="rblAllergy" class="col-6" CssClass="" RepeatDirection="Horizontal">
+                                                    <asp:ListItem Value="1" Text=" " class="CheckBoxLabel" />
+                                                    <asp:ListItem Value="0" Text=" " class="CheckBoxLabel" />
                                                 </asp:RadioButtonList>
 
                                             </div>

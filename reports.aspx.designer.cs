@@ -11,16 +11,25 @@ namespace hfiles
 {
 
 
-  public partial class reports
-  {
+    public partial class reports
+    {
 
-    /// <summary>
-    /// rptReports control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Repeater rptReports;
-  }
+        /// <summary>
+        /// SearchInput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox SearchInput;
+
+        /// <summary>
+        /// rptReports control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptReports;
+    }
 }

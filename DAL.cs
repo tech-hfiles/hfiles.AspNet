@@ -44,7 +44,7 @@ namespace hfiles
             email.To.Add(new MailboxAddress("H-FIles-User", ToEmail));
 
             email.Subject = Subject;
-            email.Body = new TextPart("plain")
+            email.Body = new TextPart("html")
             {
                 Text = Message
             };

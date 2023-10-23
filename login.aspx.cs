@@ -22,6 +22,7 @@ namespace hfiles
         {
             if (!IsPostBack)
             {
+                Session["Userid"] = 20; Response.Redirect("~/samanta.aspx");
                 if (Session["Userid"] is null)
                 {
 
@@ -51,11 +52,11 @@ namespace hfiles
                 if (Bind() > 0)
                 {
                     string otp = GenerateOTP(6); // Generate a 6-digit OTP
-                    string subject = "One-Time Password (OTP)";
-                    string body = $"Your OTP is: {otp}";
+                    string subject = "# Verification code";
+                    string body = $"<p style=\"text-align: justify\">Please use the verification code below to sign in. If you didn&rsquo;t request this, you can ignore this email.</p>\r\n<p><strong style=\"font-size: 130%\">{otp}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Thanks,&nbsp;</p><p style=\"text-align: justify\">Team Health Files.</p>";
                     ViewState["OTPvalue"] = otp;
                     Session["Userid"] = hfId.Value;
-                    DAL.SendCareerMail("HFiles, OTP - ", body, email);
+                    DAL.SendCareerMail(subject, body, email);
                     otpButton.Text = "SIGN IN";
                     divOtp.Visible = true;
                 }

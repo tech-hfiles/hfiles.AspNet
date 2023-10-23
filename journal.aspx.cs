@@ -26,7 +26,7 @@ namespace hfiles
             MySqlParameter[] p = { new MySqlParameter("_BlogId","" ),
             new MySqlParameter("_CategoryId", "") };
             dt = DAL.ExecuteQuery("usp_addBookmark", CommandType.StoredProcedure, p);
-            if(dt.Rows.Count > 0 )
+            if (dt.Rows.Count > 0)
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Bookmark Added Successfully')", true);
             }
@@ -53,7 +53,7 @@ namespace hfiles
         protected void LbtnAudio_Click(object sender, EventArgs e)
         {
             LinkButton lnk = sender as LinkButton;
-            int value = Convert.ToInt16(lnk.CommandArgument);
+            int value = Convert.ToInt32(lnk.CommandArgument);
             GetBlogsById(value);
         }
 

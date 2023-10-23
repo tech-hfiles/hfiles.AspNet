@@ -34,67 +34,68 @@
 <body>
     <div class="signin-main">
         <form class="w-100 h-100" runat="server">
-        <div class="row vert-cent w-100 ">
-            <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image h-lg-100vh ">
-                <img src="<%= ResolveUrl("~/Reception Page/002A.jpg") %>" alt="" width="100%" height="100%" />
-            </div>
-            <div class="col-lg-6 col-xl-6 col-md-5 col-sm-12 px-5 d-flex justify-content-center align-items-center vh-lg
+            <div class="row vert-cent w-100 ">
+                <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image h-lg-100vh ">
+                    <img src="<%= ResolveUrl("~/Reception Page/002A.jpg") %>" alt="" width="100%" height="100%" />
+                </div>
+                <div class="col-lg-6 col-xl-6 col-md-5 col-sm-12 px-5 d-flex justify-content-center align-items-center vh-lg
                 
                 
                 
-                -100" style="background-image: url('<%= ResolveUrl("~/Reception Page/002B.png") %>')">
-               <div>
-                    <div class="text-center signin-heading">
-                    <img src="<%= ResolveUrl("~/Sign Up Page/Hfiles Logo.png") %>" alt="" width="120px" />
-                    <br />
-                    <h3 class="color-white">SIGN UP</h3>
-                </div>
-                <div class="row signin-form form-group has-search text-center justify-content-center">
-                    <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
-                        <i class="fa-solid fa-user form-control-feedback"></i>
-                        <!-- <span class="fa fa-user form-control-feedback"></span> -->
-                        <input id="firstnameTextBox" runat="server" required type="text" class="form-control my-2" placeholder="Name" />
-                    </div>
-                    <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
-                        <i class="fa-solid fa-user form-control-feedback"></i>
-                        <input id="lastnameTextBox" runat="server" required type="text" class="form-control my-2" placeholder="Last Name" />
-                    </div>
-                    <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
-                        <i class="fa-solid fa-phone-volume form-control-feedback"></i>
-                        <input id="phoneTextBox" type="text" required runat="server" class="form-control my-2" placeholder="Phone No" />
-                    </div>
-                    <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
-                        <i class="fa-regular fa-envelope form-control-feedback"></i>
-                        <input id="emailTextBox" runat="server" required type="text" class="form-control my-2" placeholder="Email ID" />
-                    </div>
-                </div>
-                <div class="text-center my-3" runat="server" id="divOtp">
-                    <asp:Button ID="genOTPButton" runat="server" Text="Generate OTP" OnClick="signup_Click" OnClientClick="JSalert()" class="btn thm-button"></asp:Button>
-                </div>
-                <div runat="server" id="divSubmit">
-                    <div class="signin-form d-flex justify-content-center mt-2">
-                        <div class="text-end w-100 px-4">
-                            <input id="otpTextBox" runat="server" type="text" required class="form-control w-100 OTP-input" placeholder="Enter OTP" />
-                            <span style="color: #dcdcdc;"><a href="#" style="color: #dcdcdc;">Resend OTP</a></span>
+                -100"
+                    style="background-image: url('<%= ResolveUrl("~/Reception Page/002B.png") %>')">
+                    <div>
+                        <div class="text-center signin-heading">
+                            <img src="<%= ResolveUrl("~/Sign Up Page/Hfiles Logo.png") %>" alt="" width="120px" />
+                            <br />
+                            <h3 class="color-white">SIGN UP</h3>
+                        </div>
+                        <div class="row signin-form form-group has-search text-center justify-content-center">
+                            <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
+                                <i class="fa-solid fa-user form-control-feedback"></i>
+                                <!-- <span class="fa fa-user form-control-feedback"></span> -->
+                                <input id="firstnameTextBox" runat="server" required type="text" class="form-control my-2" placeholder="Name" />
+                            </div>
+                            <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
+                                <i class="fa-solid fa-user form-control-feedback"></i>
+                                <input id="lastnameTextBox" runat="server" required type="text" class="form-control my-2" placeholder="Last Name" />
+                            </div>
+                            <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
+                                <i class="fa-solid fa-phone-volume form-control-feedback"></i>
+                                <input type="number" id="phoneTextBox" required runat="server" class="form-control my-2" placeholder="Phone No" />
+                            </div>
+                            <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
+                                <i class="fa-regular fa-envelope form-control-feedback"></i>
+                                <input id="emailTextBox" runat="server" required type="text" class="form-control my-2" placeholder="Email ID" />
+                            </div>
+                        </div>
+                        <div class="text-center my-3" runat="server" id="divOtp">
+                            <asp:Button ID="genOTPButton" runat="server" Text="Generate OTP" OnClick="signup_Click" OnClientClick="JSalert()" class="btn thm-button"></asp:Button>
+                        </div>
+                        <div runat="server" id="divSubmit">
+                            <div class="signin-form d-flex justify-content-center mt-2">
+                                <div class="text-end w-100 px-4">
+                                    <input id="otpTextBox" runat="server" type="text" required class="form-control w-100 OTP-input" placeholder="Enter OTP" />
+                                    <span style="color: #dcdcdc;"><a href="#" style="color: #dcdcdc;">Resend OTP</a></span>
+                                </div>
+                            </div>
+                            <div class="text-center my-2">
+                                <asp:Button ID="submitButton" runat="server" Text="Submit" OnClick="submitButton_Click" class="btn thm-blue-button"></asp:Button>
+                                <asp:Label ID="errorLabel" Text="" runat="server" />
+                            </div>
                         </div>
                     </div>
-                    <div class="text-center my-2">
-                        <asp:Button ID="submitButton" runat="server" Text="Submit" OnClick="submitButton_Click" class="btn thm-blue-button"></asp:Button>
-                        <asp:Label ID="errorLabel" Text="" runat="server" />
-                    </div>
                 </div>
-               </div>
             </div>
-        </div>
 
 
-        <img class="plus-top-right" src="<%= ResolveUrl("~/assets/plus-1.png") %>" alt="" />
-        <img class="plus-bottom-left" src="<%= ResolveUrl("~/assets/plus-2.png") %>" alt="" />
-        <a href="<%= ResolveUrl("~/login.aspx") %>">
-            <img class="triangle-top-right-cancel" src="<%= ResolveUrl("~/assets/cancel-icon.png") %>" alt="" /></a>
-    </form>
+            <img class="plus-top-right" src="<%= ResolveUrl("~/assets/plus-1.png") %>" alt="" />
+            <img class="plus-bottom-left" src="<%= ResolveUrl("~/assets/plus-2.png") %>" alt="" />
+            <a href="<%= ResolveUrl("~/login.aspx") %>">
+                <img class="triangle-top-right-cancel" src="<%= ResolveUrl("~/assets/cancel-icon.png") %>" alt="" /></a>
+        </form>
     </div>
-    
+
     <script type="text/javascript">
         function JSalert() {
             swal("An OTP is sent to your email, enter the OTP to proceed.");

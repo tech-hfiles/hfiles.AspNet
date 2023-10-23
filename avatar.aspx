@@ -192,6 +192,7 @@
                                 <div class="d-flex align-items-center h-75px">
                                     <span>Immunization</span>
                                     <div class="menu-circle">
+                                        <a href="reports.aspx?rid=5">
                                         <img src="../Avatar/immunization.png" alt="" />
                                     </div>
                                 </div>
@@ -201,6 +202,7 @@
                                 <div class="d-flex align-items-center">
                                     <span>medications/prescription</span>
                                     <div class="menu-circle">
+                                         <a href="reports.aspx?rid=6">
                                         <img src="../Avatar/medications.png" alt="" />
                                     </div>
 
@@ -210,6 +212,7 @@
                                 <div class="d-flex align-items-center h-75px">
                                     <span>radiology</span>
                                     <div class="menu-circle">
+                                         <a href="reports.aspx?rid=7">
                                         <img src="../Avatar/rediology.png" alt="" />
                                     </div>
                                 </div>
@@ -218,6 +221,7 @@
                                 <div class="d-flex align-items-center">
                                     <span>Opthalmology icon</span>
                                     <div class="menu-circle">
+                                         <a href="reports.aspx?rid=8">
                                         <img src="../Avatar/Opthalmologyicon.png" alt="" />
                                     </div>
                                 </div>
@@ -226,6 +230,7 @@
                                 <div class="d-flex align-items-center">
                                     <span>dental report</span>
                                     <div class="menu-circle">
+                                         <a href="reports.aspx?rid=4">
                                         <img src="../Avatar/dental.png" alt="">
                                     </div>
                                 </div>
@@ -234,6 +239,7 @@
                                 <div class="d-flex align-items-center">
                                     <span>special report</span>
                                     <div class="menu-circle">
+                                         <a href="reports.aspx?rid=9">
                                         <img src="../Avatar/spacial-report.png" alt="" />
                                     </div>
                                 </div>
@@ -242,6 +248,7 @@
                                 <div class="d-flex align-items-end">
                                     <span>mediclaim/insurance</span>
                                     <div class="menu-circle">
+                                         <a href="reports.aspx?rid=10">
                                         <img src="../Avatar/mediclaim.png" alt="" />
                                     </div>
                                 </div>

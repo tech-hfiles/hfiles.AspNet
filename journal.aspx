@@ -123,7 +123,7 @@
                 <%--<asp:LinkButton ID="lbtn1" runat="server" OnClick="lbtn1_Click" ></asp:LinkButton>--%>
 
                 <asp:LinkButton ID="LbtnArticle" runat="server" OnClick="LbtnArticle_Click" CommandArgument="1">Article</asp:LinkButton>
-                <%--<a class="link" href="#" onclick="handleTabs('article')"><span id="ArticleTab">Article</span></a>--%>
+                <%--<a class="link" href="#" onclick="handleTabs('article')"><span id="ArticleTab">Articl*e</span></a>--%>
                 <span>| </span>
                 <asp:LinkButton ID="LbtnVideo" runat="server" OnClick="LbtnVideo_Click" CommandArgument="2">Video</asp:LinkButton>
                 <%-- <a class="link active" href="#" onclick="handleTabs('video')"><span id="VideoTab">Video</span></a>--%>

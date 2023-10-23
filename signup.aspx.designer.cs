@@ -39,7 +39,7 @@ namespace hfiles
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText phoneTextBox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl phoneTextBox;
 
         /// <summary>
         /// emailTextBox control.

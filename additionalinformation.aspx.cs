@@ -29,6 +29,11 @@ namespace hfiles
                     AllergiesDiv.Visible = false;
                     updateUserDetails("E");
                     user_surgery();
+                    int currentYear = DateTime.Now.Year;
+                    for (int i = currentYear; i >= currentYear - 70; i--)
+                    {
+                        yearpicker.Items.Add(new ListItem(i.ToString(), i.ToString()));
+                    }
                 }
             }
             else
@@ -55,7 +60,7 @@ namespace hfiles
         {
             AdditionalDiv.Visible = false;
             updateUserDetails("U");
-            addSurgery("C");
+            //addSurgery("C");
             disease_master();
             get_disease();
             clear();
@@ -100,11 +105,22 @@ namespace hfiles
                         MySqlDataReader dr = cmd.ExecuteReader();
                         if (dr.Read())
                         {
-                            heightfeetTextBox.Value = dr["user_height"].ToString() != string.Empty ? dr["user_height"].ToString().Split('.')[0] : "";
-                            heightinchTextBox.Value = dr["user_height"].ToString() != string.Empty ? dr["user_height"].ToString().Split('.')[1] : "";
+                            if (dr["user_height"].ToString().Contains("."))
+                            {
+                                heightfeetTextBox.Value = dr["user_height"].ToString() != string.Empty ? dr["user_height"].ToString().Split('.')[0] : "";
+                                heightinchTextBox.Value = dr["user_height"].ToString() != string.Empty ? dr["user_height"].ToString().Split('.')[1] : "";
+                            }
+                            else
+                            {
+                                heightfeetTextBox.Value = dr["user_height"].ToString() != string.Empty ? dr["user_height"].ToString() : "";
+                                heightinchTextBox.Value = "0";
+
+                            }
                             weightTextBox.Value = dr["user_weight"].ToString();
                             hfDoyouSmoke.Value = dr["user_smoke"].ToString();
+                            string Nickname = Request.Form["inpNickname"];
                             hfDoyouConsumeAlcohol.Value = dr["user_alcohol"].ToString();
+                            
                             txtSurgeries.Value = dr["user_alcohol"].ToString();
                         }
                     }
@@ -120,7 +136,7 @@ namespace hfiles
         protected void btnSaveAllergy_Click(object sender, EventArgs e)
         {
             addUpdateAllergy();
-           
+
         }
 
 
@@ -129,8 +145,8 @@ namespace hfiles
         #region functions
         protected void clear()
         {
-            heightfeetTextBox.Value = heightinchTextBox.Value = weightTextBox.Value = hfDoyouSmoke.Value = hfDoyouConsumeAlcohol.Value = txtSurgeries.Value = yearpicker1.SelectedValue = String.Empty;
-            yearpicker1.ClearSelection();
+            heightfeetTextBox.Value = heightinchTextBox.Value = weightTextBox.Value = hfDoyouSmoke.Value = hfDoyouConsumeAlcohol.Value = txtSurgeries.Value = yearpicker.SelectedValue = String.Empty;
+            yearpicker.ClearSelection();
 
         }
 
@@ -267,13 +283,13 @@ namespace hfiles
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
-                    if (dt.Rows.Count > 0)
-                    {
-                        txtSurgeries.Value = dt.Rows[0]["user_surgery_details"].ToString();
-                        yearpicker1.SelectedValue = dt.Rows[0]["user_surgery_year"].ToString();
-                    }
-
-
+                    surgeryGridView.DataSource = dt;
+                    surgeryGridView.DataBind();
+                    //if (dt.Rows.Count > 0)
+                    //{
+                    //    txtSurgeries.Value = dt.Rows[0]["user_surgery_details"].ToString();
+                    //    yearpicker1.SelectedValue = dt.Rows[0]["user_surgery_year"].ToString();
+                    //}
                 }
             }
         }
@@ -344,7 +360,7 @@ namespace hfiles
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("_user_id", DAL.validateInt(Session["Userid"])); //Session["Userid"];
                     cmd.Parameters.AddWithValue("_user_surgery_details", txtSurgeries.Value);
-                    cmd.Parameters.AddWithValue("_user_surgery_year", yearpicker1.SelectedValue);
+                    cmd.Parameters.AddWithValue("_user_surgery_year", yearpicker.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("_SpType", sptype);
                     cmd.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
                     if (sptype.Equals("C") || sptype.Equals("U") || sptype.Equals("D"))
@@ -357,6 +373,14 @@ namespace hfiles
                 }
             }
         }
+
+        protected void addsurgeryButton_Click(object sender, EventArgs e)
+        {
+            addSurgery("C");
+            user_surgery();
+
+        }
+
         private void addUpdateDisease()
         {
             foreach (RepeaterItem item in rptDisease.Items)

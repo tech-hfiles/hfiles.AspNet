@@ -33,10 +33,10 @@ namespace hfiles
         protected void signup_Click(object sender, EventArgs e)
         {
             // Usage:
-            string email = "emailTextBox.Value.ToString()";
+            string email = emailTextBox.Value.ToString();
             string otp = GenerateOTP(6); // Generate a 6-digit OTP
-            string subject = "One-Time Password (OTP)";
-            string body = $"Your OTP is: {otp}";
+            string subject = "Welcome to Hfiles";
+            string body = $"<p style=\"text-align: justify\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify\">Thank you for signing up for Hfiles! We&apos;re excited to have you on board as a valued member of our community.&nbsp;</p>\r\n<p style=\"text-align: justify\">To complete your registration, please use the following One-Time Password</p>\r\n<p style=\"text-align: justify\"><strong style=\"font-size: 130%\">{otp}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Email footer/ Privacy Agreement: Please keep this OTP secure, as you will need it to verify your account and access our services.&nbsp;</p>\r\n<p style=\"text-align: justify\">At Hfiles, we take your privacy and data security seriously. We are committed to safeguarding your personal information and ensuring it is used in accordance with our Privacy Agreement.</p>";
 
             // SendEmail(email, subject, body);
 
@@ -63,7 +63,7 @@ namespace hfiles
 
                 // Close the database connection
                 connection.Close();
-                DAL.SendCareerMail("HFiles, Registration Completed - " + DateTime.Now.ToString("dd/MM/yyyy"), "Hello your OTP is " + otp + ", ", emailTextBox.Value);
+                DAL.SendCareerMail(subject, body, email);
                 divSubmit.Visible = true;
                 divOtp.Visible = false;
             }

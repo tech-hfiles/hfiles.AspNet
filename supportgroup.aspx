@@ -80,6 +80,7 @@
                                                                 <%# Eval("PostText") %>
                                                             </p>
                                                             <span class="chat-more">...</span>
+                                                               
                                                             <div class="show-edit-chat">
                                                                 <div class="msg-edit-box">
                                                                     <span>Delete</span>
@@ -312,24 +313,22 @@
         </ContentTemplate>
     </asp:UpdatePanel>
 
-    <script>
+    <script type="text/javascript">
+        console.log('javasrcipt')
+      
         $(function () {
-            //$('.chat-more').click(function () {
-            //    $('.show-edit-chat').hide();
-            //    $(this).prev('.show-edit-chat').show();
-            //});
-            //$('body').on('click', function (event) {
-            //    if (!$(event.target).closest('.chat-more').length) {
-            //        $('.show-edit-chat').hide();
-            //    }
-            //});
-            //$(document).ready(function () {
-            //    $('.tab').click(function () {
-            //        $('.mental-health-link nav-link p-2 px-3 active').removeClass("active");
-            //        // $(".tab").addClass("active"); // instead of this do the below
-            //        $('.skin-care-link nav-link p-2 px-3').addClass("active");
-            //    });
-            //});
+
+            console.log('hellllloo')
+            $('.chat-more').click(function () {
+                console.log('in')
+                $('.show-edit-chat').hide();
+                $(this).prev('.show-edit-chat').show();
+            });
+            $('body').on('click', function (event) {
+                if (!$(event.target).closest('.chat-more').length) {
+                    $('.show-edit-chat').hide();
+                }
+            });
 
             $(".nav-link").click(function () {
                 console.log('class')
@@ -339,22 +338,10 @@
                     $('.tab-pane').removeClass('mental-health-div')
                     $('.tab-pane').addClass('pet-care-div')
                 }
-            }
+            });
 
         });
 
-      
-
-
-        //$(".mental-health-link").click(function () {
-        //    $('.tab-pane').addClass('pet-care-div')
-
-        //})
-
-        //$(".mental-health-link").click(function () {
-        //    $('.tab-pane').addClass('mental-health-div')
-
-        //})
     </script>
 
 
