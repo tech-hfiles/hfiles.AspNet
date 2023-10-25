@@ -41,6 +41,7 @@ namespace hfiles
         else
         {
           GetBlogsById(1);
+          //Blogs(40);
         }
 
       }
@@ -168,8 +169,8 @@ namespace hfiles
           RepeaterArticle.Visible = true;
           RepeaterAudio.Visible = false;
           Label msglabel = this.FindControl("Label1") as Label;
-          int bid = Convert.ToInt32(Request.QueryString["blogid"]);
-          Blogs(bid);
+          //int bid = Convert.ToInt32(Request.QueryString["blogid"]);
+          //Blogs(bid);
 
           //msglabel.Text = "Article Data Not Available";
 
@@ -322,6 +323,68 @@ namespace hfiles
       btnBookmarked.Visible = true;
       btnNotBookmarked.Visible = false;
       GetBlogsById(1);
+    }
+
+    protected void bloglink_Click(object sender, EventArgs e)
+    {
+      int id = Convert.ToInt32(Request.QueryString["blogid"]);
+      if (id == 37)
+      {
+        Response.Redirect("blogDetails5.html");
+      }
+      else if
+     (id == 38)
+      {
+        Response.Redirect("blogDetails1.html");
+      }
+      else if
+      (id == 39)
+      {
+        Response.Redirect("blogDetails2.html");
+      }
+      else if
+      (id == 40)
+      {
+        Response.Redirect("blogDetails3.html");
+      }
+      else if
+      (id == 41)
+      {
+        Response.Redirect("blogDetails4.html");
+      }
+    }
+
+    protected void lbtnblog_Click(object sender, EventArgs e)
+    
+    {
+      LinkButton lnk = sender as LinkButton;
+      int id = Convert.ToInt16(lnk.CommandArgument);
+
+      //int id = Convert.ToInt32(Request.QueryString["blogid"]);
+      if (id == 37)
+      {
+        Response.Redirect("blogDetails5.html");
+      }
+      else if
+     (id == 38)
+      {
+        Response.Redirect("blogDetails1.html");
+      }
+      else if
+      (id == 39)
+      {
+        Response.Redirect("blogDetails2.html");
+      }
+      else if
+      (id == 40)
+      {
+        Response.Redirect("blogDetails3.html");
+      }
+      else if
+      (id == 41)
+      {
+        Response.Redirect("blogDetails4.html");
+      }
     }
   }
 }

@@ -41,7 +41,7 @@
     <div class="filter-shorting-icon">
 
 
-      <div class="popover__wrapper">
+      <%--      <div class="popover__wrapper">
         <a href="#">
           <h2 id="shorting" class="popover__title">
             <img class="shorting-icon-top-right mx-2"
@@ -63,7 +63,7 @@
             </tbody>
           </table>
         </div>
-      </div>
+      </div>--%>
 
       <div class="popover__wrapper">
         <asp:HiddenField ID="hfIsBookmarked" Value="0" runat="server" />
@@ -72,7 +72,8 @@
 
         <%-- <asp:ImageButton ID="ImageButton1" Style="margin-top: 20px;"  Width="30px" Height="30px" runat="server" ImageUrl="..\Add Members\bookmark (1).png" CommandArgument='<%#Eval("UserId")+"|"+("CategoryId") %>' />--%>
       </div>
-      <div class="popover__wrapper">
+
+      <%--<div class="popover__wrapper">
         <a href="#">
           <h2 id="filtering" class="popover__title">
             <img class="filter-icon-top-right"
@@ -104,7 +105,7 @@
             </tbody>
           </table>
         </div>
-      </div>
+      </div>--%>
     </div>
     <div class="journal-main-div mt-4 mb-5">
       <div class="heading-title d-flex align-items-center">
@@ -172,10 +173,15 @@
                     <div class="blog-cards ">
                       <div class="card-image">
 
-                        <a href="blogdetails.aspx?blogid=<%#Eval("Blog_ID") %>"
+                        <%--  <a href="blogid=<%#Eval("Blog_ID") %>"
                           target="_blank">
                           <img src="<%#Eval("AnchorImage") %>" alt="" width="100%"
-                            height="250px"></a>
+                            height="250px"></a>--%>
+
+                        <asp:LinkButton ID="lbtnblog"
+                          OnClick="lbtnblog_Click" runat="server" CommandArgument='<%#Eval("Blog_ID") %>'>
+   <img src="<%#Eval("AnchorImage") %>" alt="" width="100%"
+     height="250px"></asp:LinkButton>
                       </div>
                       <div class="card-name d-flex align-items-center my-2 px-3">
 
