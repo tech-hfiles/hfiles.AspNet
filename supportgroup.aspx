@@ -64,34 +64,36 @@
                                     <div class="chat-history-div pl-4">
                                         <asp:Repeater ID="RepeaterPosts" runat="server">
                                             <ItemTemplate>
-                                                <div class="chat-text-div d-flex py-2">
-                                                    <div class="chat-name">
-                                                        <img src="../Suppor Group (BG  & Icons)/user-default.png" alt="" width="30px" height="30px">
-                                                        <span><em>user name</em></span>
-                                                    </div>
-                                                    <div class="chat-container">
-                                                        <div class="arrow">
-                                                            <div class="outer"></div>
-                                                            <div class="inner"></div>
-                                                        </div>
-                                                        <div class="message-body">
-                                                            <div class="d-flex">
-                                                                 <p>
-                                                                <%# Eval("PostText") %>
-                                                            </p>
-                                                            <span class="chat-more">...</span>
-                                                               
-                                                            <div class="show-edit-chat">
-                                                                <div class="msg-edit-box">
-                                                                    <span>Delete</span>
+                                                <asp:UpdatePanel runat="server">
+                                                    <ContentTemplate>
+                                                        <div class="chat-text-div d-flex py-2">
+                                                            <div class="chat-name">
+                                                                <img src="../Suppor Group (BG  & Icons)/user-default.png" alt="" width="30px" height="30px">
+                                                                <span><em> <%# "User_" + Eval("user_id").ToString() %></em></span>
+                                                            </div>
+                                                            <div class="chat-container">
+                                                                <div class="arrow">
+                                                                    <div class="outer"></div>
+                                                                    <div class="inner"></div>
+                                                                </div>
+                                                                <div class="message-body">
+                                                                    <div class="d-flex">
+                                                                        <p>
+                                                                            <%# Eval("PostText") %>
+                                                                        </p>
+                                                                        <span class="chat-more">
+                                                                            <asp:LinkButton Text="text" ID="lbtnremove" Visible='<%# Convert.ToInt32(Session["Userid"].ToString()) == Convert.ToInt32(Eval("user_id")) ? true : false %>' OnClick="lbtnremove_Click" runat="server" CommandArgument='<%# Eval("forumpostid") %>'><img src="../Suppor Group (BG  & Icons)/delete-icon.png" /></asp:LinkButton></span>
+                                                                    </div>
+
+                                                                    <span class="chat-date"><em><%# Eval("PostDate", "{0:MM/dd/yyyy HH:mm:ss}") %></em></span>
                                                                 </div>
                                                             </div>
-                                                            </div>
-
-                                                           <span class="chat-date"><em><%# Eval("PostDate", "{0:MM/dd/yyyy HH:mm:ss}") %></em></span>
                                                         </div>
-                                                    </div>
-                                                </div>
+                                                    </ContentTemplate>
+                                                    <Triggers>
+                                                        <asp:AsyncPostBackTrigger ControlID="lbtnremove" EventName="Click" />
+                                                    </Triggers>
+                                                </asp:UpdatePanel>
                                             </ItemTemplate>
                                         </asp:Repeater>
                                     </div>
@@ -315,7 +317,7 @@
 
     <script type="text/javascript">
         console.log('javasrcipt')
-      
+
         $(function () {
 
             console.log('hellllloo')

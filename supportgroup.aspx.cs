@@ -1,9 +1,11 @@
 ﻿using AjaxControlToolkit.HTMLEditor.ToolbarButton;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -20,7 +22,10 @@ namespace hfiles
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                lbtn_GetClickedCategoryData(1);
+            }
         }
 
         protected void v_pills_home_tab_Click(object sender, EventArgs e)
@@ -28,6 +33,7 @@ namespace hfiles
             LinkButton lbtn = (LinkButton)(sender);
             //h1HeadingLatestQuestion.InnerHtml = lbtn.Text;
             int CatId = DAL.validateInt(lbtn.CommandArgument.ToString());
+            Session["CatId"] = CatId;
             lbtn_GetClickedCategoryData(CatId);
         }
         protected void lbtn_GetClickedCategoryData(int CatId)
@@ -89,6 +95,44 @@ namespace hfiles
             }
 
         }
+
+        protected void removeImageButton_Click(object sender, ImageClickEventArgs e)
+        {
+
+
+        }
+        protected void lbtnremove_Click(object sender, EventArgs e)
+        {
+            LinkButton lbtnimg = (LinkButton)(sender);
+            int ForumPoestId = DAL.validateInt(lbtnimg.CommandArgument.ToString());
+            int UserId = DAL.validateInt(Session["Userid"].ToString());//
+            using (MySqlConnection connection = new MySqlConnection(cs))
+            {
+                connection.Open();
+                using (MySqlCommand cmd = new MySqlCommand("removeForumPost", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("_UserId", UserId);
+                    cmd.Parameters.AddWithValue("_forumpostid", ForumPoestId);
+                    cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
+                    cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
+                    cmd.ExecuteNonQuery();
+                    int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
+
+                    if (retVal == 1)
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Forum post deleted successfully')", true);
+                        lbtn_GetClickedCategoryData(DAL.validateInt(Session["CatId"]));
+                        Session["CatId"] = null;
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please try again')", true);
+                    }
+                }
+            }
+        }
+
         protected void submitImageButton_Click(object sender, ImageClickEventArgs e)
         {
             int user_id = Convert.ToInt32(Session["Userid"]); // You would typically get this from the user's session

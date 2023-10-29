@@ -145,8 +145,8 @@ namespace hfiles
         #region functions
         protected void clear()
         {
-            heightfeetTextBox.Value = heightinchTextBox.Value = weightTextBox.Value = hfDoyouSmoke.Value = hfDoyouConsumeAlcohol.Value = txtSurgeries.Value = yearpicker.SelectedValue = String.Empty;
-            yearpicker.ClearSelection();
+          //  heightfeetTextBox.Value = heightinchTextBox.Value = weightTextBox.Value = hfDoyouSmoke.Value = hfDoyouConsumeAlcohol.Value = txtSurgeries.Value = yearpicker.SelectedValue = String.Empty;
+           // yearpicker.ClearSelection();
 
         }
 

@@ -22,12 +22,8 @@ namespace hfiles
         {
             if (!IsPostBack)
             {
-                Session["Userid"] = 20; Response.Redirect("~/samanta.aspx");
-                if (Session["Userid"] is null)
-                {
-
-                }
-                else
+                //Session["Userid"] = 20; Response.Redirect("~/samanta.aspx");
+                if (Session["Userid"] != null)
                 {
                     Response.Redirect("~/samanta.aspx");
                 }

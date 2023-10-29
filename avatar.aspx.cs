@@ -50,7 +50,7 @@ namespace hfiles
         {
             mp1.Hide();
         }
-
+        //usp_getmember
         protected void getReports()
         {
             try
@@ -61,6 +61,48 @@ namespace hfiles
                     using (MySqlCommand cmd = new MySqlCommand("usp_getreportmaster", con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        if (dt != null && dt.Rows.Count > 0)
+                        {
+
+                            ddlReports.DataSource = dt;
+                            ddlReports.DataTextField = "Name";
+                            ddlReports.DataValueField = "Id";
+                            ddlReports.DataBind();
+
+                            ddlReports.Items.Insert(0, new ListItem("Select Report", "0"));
+                        }
+                        else
+                        {
+                            ddlReports.Items.Insert(0, new ListItem("No Reports", "0"));
+                        }
+
+                    }
+                }
+
+            }
+            catch (Exception Ex)
+            {
+
+
+            }
+        }
+        protected void getmember()
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(cs))
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("usp_getmember", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        //cmd.Parameters.AddWithValue("_UserId", UserId);
+                        //cmd.Parameters.AddWithValue("_reportname", reportname);
                         cmd.ExecuteNonQuery();
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -165,7 +207,7 @@ namespace hfiles
             switch (gender.ToLower())
             {
                 case "male":
-                    if (age >= 3 && age <= 0)
+                    if (age >= 0 && age <= 3)
                     {
                         return basePath + "male/3.png";
                     }

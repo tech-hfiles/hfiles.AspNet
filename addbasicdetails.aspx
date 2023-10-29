@@ -60,9 +60,9 @@
                         <i class="fa-solid fa-venus-mars form-control-feedback"></i>
                         <select runat="server" id="selectgender" class="form-select form-control" aria-label="Default select example">
                             <option selected>Gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="others">Others</option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                            <option value="3">Others</option>
                         </select>
                     </div>
                     <div class="col-12">

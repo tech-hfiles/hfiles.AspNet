@@ -72,18 +72,25 @@
                         <div class="text-center my-3" runat="server" id="divOtp">
                             <asp:Button ID="genOTPButton" runat="server" Text="Generate OTP" OnClick="signup_Click" OnClientClick="JSalert()" class="btn thm-button"></asp:Button>
                         </div>
-                        <div runat="server" id="divSubmit">
-                            <div class="signin-form d-flex justify-content-center mt-2">
-                                <div class="text-end w-100 px-4">
+                       <div class="row signin-form form-group has-search text-center justify-content-center">
+                             <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
+                                  <div runat="server" id="divSubmit">
+                            <div class="signin-form mt-2">
+                                <div class="w-100">
                                     <input id="otpTextBox" runat="server" type="text" required class="form-control w-100 OTP-input" placeholder="Enter OTP" />
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <asp:Label ID="errorLabel" Text="" runat="server" CssClass="color-theme-yellow" />
                                     <span style="color: #dcdcdc;"><a href="#" style="color: #dcdcdc;">Resend OTP</a></span>
+                                </div>
                                 </div>
                             </div>
                             <div class="text-center my-2">
-                                <asp:Button ID="submitButton" runat="server" Text="Submit" OnClick="submitButton_Click" class="btn thm-blue-button"></asp:Button>
-                                <asp:Label ID="errorLabel" Text="" runat="server" />
+                                <asp:Button ID="submitButton" runat="server" Text="Submit" OnClick="submitButton_Click" class="btn thm-button"></asp:Button>
+                                
                             </div>
                         </div>
+                             </div>
+                       </div>
                     </div>
                 </div>
             </div>

@@ -31,7 +31,7 @@
                         <h1>Add Members</h1>
                     </div>
                 </div>
-                <div class="row my-xl-5 my-lg-3">
+               <%-- <div class="row my-xl-5 my-lg-3">
                     <div class="col-lg-5 col-md-5 col-sm-4 pl-lg-5 pr-0 d-xl-flex justify-content-end">
                         <div id="family" class="tab" style="color: #0116b8;" onclick="handleTabs('family')">
                             Family
@@ -43,16 +43,21 @@
                             Friends
                         </div>
                     </div>
-                    <asp:HiddenField runat="server" ID="hfMemberType" />
-                </div>
+                   
+                </div>--%>
                 <div class="row input-group my-xl-4 my-lg-3">
-                    <div class="col-lg-4 col-md-4 col-sm-12 px-xl-4">
-                        <input type="text" id="name" runat="server" placeholder="Name">
+                   <div class="row justify-content-center">
+                        <div class="col-lg-5 col-md-5 col-sm-12 px-xl-4">
+                        <input type="text" id="name" runat="server" placeholder="First Name">
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12 px-xl-4">
+                   </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5 col-md-5 col-sm-12 px-xl-4">
                         <input type="text" id="lastname" runat="server" placeholder="Last Name">
+                    </div> <asp:HiddenField runat="server" ID="hfMemberType" />
                     </div>
-                    <div id="relation-input" class="col-lg-4 col-md-4 col-sm-12 px-xl-4">
+                    <div class="row justify-content-center">
+                         <div id="relation-input" class="col-lg-5 col-md-5 col-sm-12 px-xl-4">
                         <div class="relation-div">
                             <span class="fa-solid fa-earth-americas form-control-feedback"></span>
                             <select id="relation" runat="server" class="form-select form-control relation-select"
@@ -66,39 +71,26 @@
                                 <option value="husband">Husband</option>
                                 <option value="grandMother">Grand Mother</option>
                                 <option value="grandFather">Grand Father</option>
+                                 <option value="Friend">Friend</option>
                                 <option value="pet">Pet</option>
                             </select>
                         </div>
                     </div>
-                    <div id="friend-input" class="col-lg-4 col-md-4 col-sm-12 friend-input">
-                        <div class="">
-                            <input type="text" runat="server" placeholder="Friend" value="Friend" disabled>
-                        </div>
                     </div>
-                </div>
-                <div class="row input-group d-flex justify-content-center my-xl-3 my-lg-2">
-                    <div class="col-lg-5 col-md-4 col-sm-12">
+                    <div class="row justify-content-center">
+                         <div class="col-lg-5 col-md-5 col-sm-12 px-xl-4">
                         <input class="email-input" id="emailid" runat="server" type="email" placeholder="Email ID" />
                     </div>
-                    <div class="col-lg-5 col-md-4 col-sm-12">
+                    </div>
+                     <div class="row justify-content-center">
+                         <div class="col-lg-5 col-md-5 col-sm-12 px-xl-4">
                         <input class="number-input" id="phoneno" runat="server" type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
                     </div>
-                    <div id="default-number" class="col-lg-5 col-md-5 col-sm-12">
-                        <div class="d-flex align-items-center">
-                            <div class="checkbox-container">
-                                <input type="checkbox" runat="server" id="CholesterolFatherSide" name="CholesterolGroup" class="hidden-checkbox" style="width: fit-content;" />
-                                <label for="CholesterolFatherSide" class="checkbox-label">
-                                    <div class="checkbox-circle">
-                                        <div class="checkmark"></div>
-                                    </div>
-                                </label>
-                            </div>
-                            <input type="number" id="altphoneno" runat="server" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
-                        </div>
                     </div>
                 </div>
+               
                 <div class="btn-div">
-                    <asp:Button runat="server" Text="Submit" CssClass="btn submit-btn" ID="btnSubmit"></asp:Button>
+                    <%--<asp:Button runat="server" Text="Submit" CssClass="btn submit-btn" ID="btnSubmit"></asp:Button>--%>
                     <button runat="server" id="btn_Submit" onserverclick="btn_Submit_ServerClick" class="btn submit-btn">Submit</button>
                 </div>
             </div>

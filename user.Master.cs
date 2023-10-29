@@ -11,10 +11,18 @@ namespace hfiles
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["user_membernumber"] != null)
+            if (Session["Userid"] is null)
             {
-                memberLabel.Text = Session["user_membernumber"].ToString();
+                Response.Redirect("~/login.aspx");
             }
+            else
+            {
+                if (Session["user_membernumber"] != null)
+                {
+                    memberLabel.Text = Session["user_membernumber"].ToString();
+                }
+            }
+            
 
         }
 

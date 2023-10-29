@@ -56,13 +56,13 @@
 
         <div class="footer d-flex justify-content-around">
             <div class="t-c">
-                <a href="#">Terms & Conditions</a>
+                <a href="Pages/TermAndCondition.html" >Terms & Conditions</a>
             </div>
             <div class="copy-right">
                 <span>Copyright@2023</span>
             </div>
             <div class="p-p">
-                <a href="#">Privacy & Policy</a>
+                <a href="Pages/PrivacyPolicy.html">Privacy & Policy</a>
             </div>
         </div>
     </form>

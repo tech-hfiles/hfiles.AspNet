@@ -93,7 +93,9 @@ a {
     border-color: #eec93a;
     color: #eec93a;
 }
-
+.color-theme-yellow {
+    color: #ffd101;
+}
 /* scrollbar */
 ::-webkit-scrollbar {
     width: 5px;
@@ -1343,26 +1345,28 @@ span.img-notselected {
 .chat-container .chat-more {
     position: relative;
     left: 20px;
-    bottom: 10px;
+    bottom: 0px;
     cursor: pointer;
     height: 25px;
     font-size: 18px;
     z-index: 999;
 }
-
-.chat-container .msg-edit-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 20px;
-    width: 70px;
-    background: linear-gradient(to right, #ccc 0%, #ffffff 100%);
-    z-index: 999;
-    position: absolute;
-    right: 20px;
-    top: 22px;
-    padding: 15px;
-}
+    .chat-container .chat-more img {
+        width:18px;
+    }
+    .chat-container .msg-edit-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 20px;
+        width: 70px;
+        background: linear-gradient(to right, #ccc 0%, #ffffff 100%);
+        z-index: 999;
+        position: absolute;
+        right: 20px;
+        top: 22px;
+        padding: 15px;
+    }
 
 .chat-container .show-edit-chat {
     display: none;

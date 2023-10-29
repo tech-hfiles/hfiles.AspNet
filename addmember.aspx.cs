@@ -41,15 +41,26 @@ namespace hfiles
                 using (MySqlCommand cmd = new MySqlCommand("usp_addmember", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(Session["Userid"])); //Session["Userid"];
+                    cmd.Parameters.AddWithValue("_UserReferenceId", DAL.validateInt(Session["Userid"])); //Session["Userid"];
                     cmd.Parameters.AddWithValue("_MemberType", DAL.validateInt(hfMemberType.Value)); //Session["Userid"];
-                    cmd.Parameters.AddWithValue("_Name", (name.Value));
+                    cmd.Parameters.AddWithValue("_FirstName", (name.Value));
                     cmd.Parameters.AddWithValue("_LastName", (lastname.Value));
-                    cmd.Parameters.AddWithValue("_Relation", DAL.validateInt(hfMemberType.Value) == 1 ? (relation.Value) : "friend");
+                    cmd.Parameters.AddWithValue("_RelationType", DAL.validateInt(hfMemberType.Value) == 1 ? (relation.Value) : "friend");
                     cmd.Parameters.AddWithValue("_EmailId", (emailid.Value));
-                    cmd.Parameters.AddWithValue("_MobileNo", (phoneno.Value));
-                    cmd.Parameters.AddWithValue("_AltMobileNo", (altphoneno.Value));
+                    cmd.Parameters.AddWithValue("_PhoneNo", (phoneno.Value));
+                    cmd.Parameters.AddWithValue("_AltPhoneNo", (""));
+                    cmd.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
                     cmd.ExecuteNonQuery();
+                    int result = DAL.validateInt(cmd.Parameters["_Result"].Value.ToString());
+                    if (result == 1)
+                    {
+                        Response.Write("<script>alert('Memeber added successfully.')</script>");
+                    }
+                    else if (result == 0)
+                    {
+                        Response.Write("<script>alert('Memeber already exists with same email id!')</script>");
+                    }
+                    // hfId.Value = 
                 }
             }
         }
