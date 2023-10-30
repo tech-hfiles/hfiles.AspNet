@@ -118,9 +118,34 @@ namespace hfiles
                             }
                             weightTextBox.Value = dr["user_weight"].ToString();
                             hfDoyouSmoke.Value = dr["user_smoke"].ToString();
+
+                            if (DAL.validateInt(hfDoyouSmoke.Value) == 0)
+                            {
+                                smoke_no.Checked = true;
+                            }
+                            else if (DAL.validateInt(hfDoyouSmoke.Value) == 1)
+                            {
+                                smoke_yes.Checked = true;
+                            }
+                            else
+                            {
+                                smoke_occasionally.Checked = true;
+                            }
+
                             string Nickname = Request.Form["inpNickname"];
                             hfDoyouConsumeAlcohol.Value = dr["user_alcohol"].ToString();
-                            
+                            if (DAL.validateInt(hfDoyouConsumeAlcohol.Value) == 0)
+                            {
+                                alcohol_no.Checked = true;
+                            }
+                            else if (DAL.validateInt(hfDoyouConsumeAlcohol.Value) == 1)
+                            {
+                                alcohol_yes.Checked = true;
+                            }
+                            else
+                            {
+                                alcohol_occasionally.Checked = true;
+                            }
                             txtSurgeries.Value = dr["user_alcohol"].ToString();
                         }
                     }
@@ -145,8 +170,8 @@ namespace hfiles
         #region functions
         protected void clear()
         {
-          //  heightfeetTextBox.Value = heightinchTextBox.Value = weightTextBox.Value = hfDoyouSmoke.Value = hfDoyouConsumeAlcohol.Value = txtSurgeries.Value = yearpicker.SelectedValue = String.Empty;
-           // yearpicker.ClearSelection();
+            //  heightfeetTextBox.Value = heightinchTextBox.Value = weightTextBox.Value = hfDoyouSmoke.Value = hfDoyouConsumeAlcohol.Value = txtSurgeries.Value = yearpicker.SelectedValue = String.Empty;
+            // yearpicker.ClearSelection();
 
         }
 

@@ -65,8 +65,9 @@
                                 </div>
                                 <div class="col-2 text-center">
                                     <div class="radio-container">
-                                        <input type="radio" id="smoke-yes" name="SmokeGroup" class="hidden-radio">
-                                        <label for="smoke-yes" class="radio-label">
+                                        
+                                        <input type="radio" runat="server" id="smoke_yes" onclick="handleSelectSmoke(1)" name="SmokeGroup" class="hidden-radio" />
+                                        <label for="ContentPlaceHolder1_smoke_yes" class="radio-label">
                                             <div class="checkbox-circle">
                                                 <div class="checkmark"></div>
                                             </div>
@@ -75,8 +76,8 @@
                                 </div>
                                 <div class="col-2 text-center">
                                     <div class="radio-container">
-                                        <input type="radio" id="smoke-no" name="SmokeGroup" class="hidden-radio">
-                                        <label for="smoke-no" class="radio-label">
+                                        <input type="radio" runat="server" id="smoke_no" onclick="handleSelectSmoke(0)" name="SmokeGroup" class="hidden-radio" />
+                                        <label for="ContentPlaceHolder1_smoke_no" class="radio-label">
                                             <div class="checkbox-circle">
                                                 <div class="checkmark"></div>
                                             </div>
@@ -85,8 +86,8 @@
                                 </div>
                                 <div class="col-2 text-center">
                                     <div class="radio-container">
-                                        <input type="radio" id="smoke-occasionally" name="SmokeGroup" class="hidden-radio">
-                                        <label for="smoke-occasionally" class="radio-label">
+                                        <input type="radio" id="smoke_occasionally" runat="server"  onclick="handleSelectSmoke(2)"  name="SmokeGroup" class="hidden-radio" />
+                                        <label for="ContentPlaceHolder1_smoke_occasionally" class="radio-label">
                                             <div class="checkbox-circle">
                                                 <div class="checkmark"></div>
                                             </div>
@@ -101,8 +102,8 @@
                                 </div>
                                 <div class="col-2 text-center">
                                     <div class="radio-container">
-                                        <input type="radio" id="alcohol-yes" name="AlcoholGroup" class="hidden-radio">
-                                        <label for="alcohol-yes" class="radio-label">
+                                        <input type="radio" runat="server" id="alcohol_yes" onclick="handleSelectAlcohol(1)" value="1"  name="AlcoholGroup" class="hidden-radio" />
+                                        <label for="ContentPlaceHolder1_alcohol_yes" class="radio-label">
                                             <div class="checkbox-circle">
                                                 <div class="checkmark"></div>
                                             </div>
@@ -111,8 +112,8 @@
                                 </div>
                                 <div class="col-2 text-center">
                                     <div class="radio-container">
-                                        <input type="radio" id="alcohol-no" name="AlcoholGroup" class="hidden-radio">
-                                        <label for="alcohol-no" class="radio-label">
+                                        <input type="radio" runat="server" id="alcohol_no" onclick='handleSelectAlcohol(0)' name="AlcoholGroup" class="hidden-radio" />
+                                        <label for="ContentPlaceHolder1_alcohol_no" class="radio-label">
                                             <div class="checkbox-circle">
                                                 <div class="checkmark"></div>
                                             </div>
@@ -121,8 +122,8 @@
                                 </div>
                                 <div class="col-2 text-center">
                                     <div class="radio-container">
-                                        <input type="radio" id="alcohol-occasionally" name="AlcoholGroup" class="hidden-radio">
-                                        <label for="alcohol-occasionally" class="radio-label">
+                                        <input type="radio" runat="server"  id="alcohol_occasionally" onclick="handleSelectAlcohol(2)" name="AlcoholGroup" class="hidden-radio" />
+                                        <label for="ContentPlaceHolder1_alcohol_occasionally" class="radio-label">
                                             <div class="checkbox-circle">
                                                 <div class="checkmark"></div>
                                             </div>
@@ -137,7 +138,7 @@
                             </div>
                             <div class="row surgeries-div">
                                 <div class="col-4">
-                                    <input type="text" runat="server" id="txtSurgeries">
+                                    <input type="text" runat="server" id="txtSurgeries" />
                                 </div>
                                 <div class="col-lg-1 col-sm-2 text-center">
                                     <div class="add-surgeries">
@@ -248,92 +249,7 @@
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>
-                            <%--  <div class="row">
-                            <div class="col-6">
-                                <p>Diabetes</p>
-                            </div>
-
-                            <div class="col- text-center">
-                                <img id="yes-selected-smoke" src="../assets/select.png" alt="" srcset="">
-                            </div>
-                            <div class="col-2 text-center">
-                                <img id="yes-selected-smoke" src="../assets/not-select.png" alt="" srcset="">
-                            </div>
-                            <div class="col-2 text-center">
-                                <img id="yes-selected-smoke" src="../assets/not-select.png" alt="" srcset="">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <p>Cancer</p>
-                            </div>
-                            <div class="col-2 text-center">
-                                <img id="yes-selected-smoke" src="../assets/select.png" alt="" srcset="">
-                            </div>
-                            <div class="col-2 text-center">
-                                <img id="yes-selected-smoke" src="../assets/not-select.png" alt="" srcset="">
-                            </div>
-                            <div class="col-2 text-center">
-                                <img id="yes-selected-smoke" src="../assets/not-select.png" alt="" srcset="">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-6">
-                                <p>Thyroid</p>
-                            </div>
-                            <div class="col-2 text-center">
-                                <img id="yes-selected-smoke" src="../assets/select.png" alt="" srcset="">
-                            </div>
-                            <div class="col-2 text-center">
-                                <img id="yes-selected-smoke" src="../assets/not-select.png" alt="" srcset="">
-                            </div>
-                            <div class="col-2 text-center">
-                                <img id="yes-selected-smoke" src="../assets/not-select.png" alt="" srcset="">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <p>Blood Pressure</p>
-                            </div>
-                            <div class="col-2 text-center">
-                                <img id="yes-selected-smoke" src="../assets/select.png" alt="" srcset="">
-                            </div>
-                            <div class="col-2 text-center">
-                                <img id="yes-selected-smoke" src="../assets/not-select.png" alt="" srcset="">
-                            </div>
-                            <div class="col-2 text-center">
-                                <img id="yes-selected-smoke" src="../assets/not-select.png" alt="" srcset="">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <p>Cholesterol</p>
-                            </div>
-                            <div class="col-2 text-center">
-                                <img id="yes-selected-smoke" src="../assets/select.png" alt="" srcset="">
-                            </div>
-                            <div class="col-2 text-center">
-                                <img id="yes-selected-smoke" src="../assets/not-select.png" alt="" srcset="">
-                            </div>
-                            <div class="col-2 text-center">
-                                <img id="yes-selected-smoke" src="../assets/not-select.png" alt="" srcset="">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <p>Cholesterol</p>
-                            </div>
-                            <div class="col-2 text-center">
-                                <img id="yes-selected-smoke" src="../assets/select.png" alt="" srcset="">
-                            </div>
-                            <div class="col-2 text-center">
-                                <img id="yes-selected-smoke" src="../assets/not-select.png" alt="" srcset="">
-                            </div>
-                            <div class="col-2 text-center">
-                                <img id="yes-selected-smoke" src="../assets/not-select.png" alt="" srcset="">
-                            </div>
-                        </div>--%>
+                           
                         </div>
                     </div>
                     <div class="medic-his-btn mt-3">
@@ -389,82 +305,7 @@
                                         </div>
                                     </ItemTemplate>
                                 </asp:Repeater>
-                                <%--  <div class="row py-4 border-bottom allergy-row">
-                                    <div class="col-6 d-flex align-items-center">
-                                        <p class="m-0">Peanuts</p>
-                                    </div>
-                                    <div class="col-2 text-center">
-                                        <input class="allergy-radio" type="hidden" name="peanuts" value="">
-                                        <img src="../assets/select.png" alt="" srcset="" class="allergy-check-img" data-value="yes">
-                                        <!-- <img class="d-none" src="../assets/not-select.png" alt="" srcset=""> -->
-                                    </div>
-                                    <div class="col-2 text-center">
-                                        <img src="../assets/not-select.png" alt="" srcset="" class="allergy-check-img" data-value="no">
-                                        <!-- <img class="d-none" src="../assets/select.png" alt="" srcset=""> -->
-                                    </div>
-                                    <!-- <div class="col-2 text-center">
-                            <img src="../assets/not-select.png" alt="" srcset="">
-                        </div> -->
-                                </div>
-                                <div class="row py-4 border-bottom">
-                                    <div class="col-6 d-flex align-items-center">
-                                        <p class="m-0">Dairy</p>
-                                    </div>
-                                    <div class="col-2 text-center">
-                                        <input class="allergy-radio" type="hidden" name="dairy" value="">
-                                        <img src="../assets/select.png" alt="" srcset="" class="allergy-check-img" data-value="yes">
-                                        <!-- <img class="d-none" src="../assets/not-select.png" alt="" srcset=""> -->
-                                    </div>
-                                    <div class="col-2 text-center">
-                                        <img src="../assets/not-select.png" alt="" srcset="" class="allergy-check-img" data-value="no">
-                                        <!-- <img class="d-none" src="../assets/select.png" alt="" srcset=""> -->
-                                    </div>
-                                    <!-- <div class="col-2 text-center">
-                            <img src="../assets/not-select.png" alt="" srcset="">
-                        </div> -->
-                                </div>
-                                <div class="row py-4 border-bottom">
-                                    <div class="col-6 d-flex align-items-center">
-                                        <p class="m-0">Soya</p>
-                                    </div>
-                                    <div class="col-2 text-center">
-                                        <input class="allergy-radio" type="hidden" name="soya" value="">
-                                        <img src="../assets/select.png" alt="" srcset="" class="allergy-check-img" data-value="yes">
-                                        <!-- <img class="d-none" src="../assets/not-select.png" alt="" srcset=""> -->
-                                    </div>
-                                    <div class="col-2 text-center">
-                                        <img src="../assets/not-select.png" alt="" srcset="" class="allergy-check-img" data-value="no">
-                                        <!-- <img class="d-none" src="../assets/select.png" alt="" srcset=""> -->
-                                    </div>
-
-                                </div>
-                                <div class="row py-4 border-bottom">
-                                    <div class="col-6 d-flex align-items-center">
-                                        <p class="m-0">Fish</p>
-                                    </div>
-                                    <div class="col-2 text-center">
-                                        <input class="allergy-radio" type="hidden" name="fish" value="">
-                                        <img src="../assets/select.png" alt="" srcset="" class="allergy-check-img" data-value="yes">
-                                    </div>
-                                    <div class="col-2 text-center">
-                                        <img src="../assets/not-select.png" alt="" srcset="" class="allergy-check-img" data-value="no">
-                                    </div>
-
-                                </div>
-                                <div class="row py-4 border-bottom">
-                                    <div class="col-6 others-div">
-                                        <p class="m-0">Others</p>
-                                        <input class="others-input" type="text" placeholder="Specify">
-                                    </div>
-                                    <div class="col-2 text-center">
-                                        <input class="allergy-radio" type="hidden" name="others" value="">
-                                        <img src="../assets/select.png" alt="" srcset="" class="allergy-check-img" data-value="yes">
-                                    </div>
-                                    <div class="col-2 text-center">
-                                        <img src="../assets/not-select.png" alt="" srcset="" class="allergy-check-img" data-value="no">
-                                    </div>
-
-                                </div>--%>
+                                
                             </div>
                         </div>
                     </div>
@@ -512,5 +353,37 @@
                 return false;
             return true;
         }
+
+        function handleSelectSmoke(e) {
+            isSelectSmoke = e;
+
+            let hfSmoke = document.getElementById('<%= hfDoyouSmoke.ClientID %>');
+
+            if (isSelectSmoke === 1) {
+                hfSmoke.value = "1";
+            } else if (isSelectSmoke === 0) {
+
+                hfSmoke.value = "0";
+            } else if (isSelectSmoke === 2) {
+
+                hfSmoke.value = "2";
+            }
+        }
+        function handleSelectAlcohol(e) {
+            isSelectAlcohol = e;
+
+            let hfAlcohol = document.getElementById('<%= hfDoyouConsumeAlcohol.ClientID %>');
+             if (isSelectAlcohol === 1) {
+                 hfAlcohol.value = "1";
+             } else if (isSelectAlcohol === 0) {
+
+                 hfAlcohol.value = "0";
+             } else if (isSelectAlcohol === 2) {
+
+                 hfAlcohol.value = "2";
+             }
+         }
+
+        
     </script>
 </asp:Content>
