@@ -161,7 +161,7 @@ namespace hfiles
         protected void btnSaveAllergy_Click(object sender, EventArgs e)
         {
             addUpdateAllergy();
-
+      Response.Redirect("Samanta.aspx");
         }
 
 

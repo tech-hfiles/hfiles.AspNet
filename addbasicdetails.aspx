@@ -68,17 +68,17 @@
                     <div class="col-12">
                         <span for="" class="imp-star">*</span>
                         <i class="fa-solid fa-user form-control-feedback"></i>
-                        <input required disabled id="firstNameTextBox" runat="server" type="text" class="form-control" placeholder="First Name">
+                        <input required id="firstNameTextBox" runat="server" type="text" class="form-control" placeholder="First Name">
                     </div>
                     <div class="col-12">
                         <span for="" class="imp-star">*</span>
                         <i class="fa-solid fa-user form-control-feedback"></i>
-                        <input required disabled id="lastNameTextBox" runat="server" type="text" class="form-control" placeholder="Last Name">
+                        <input required id="lastNameTextBox" runat="server" type="text" class="form-control" placeholder="Last Name">
                     </div>
                     <div class="col-12">
                         <span for="" class="imp-star">*</span>
                         <i class="fa-solid fa-venus-mars form-control-feedback"></i>
-                        <select runat="server" id="selectgender" class="form-select form-control" aria-label="Default select example">
+                        <select runat="server" id="selectgender" class="form-select form-control" aria-label="Default select example" >
                             <option selected>Gender</option>
                             <option value="1">Male</option>
                             <option value="2">Female</option>
@@ -88,7 +88,7 @@
                     <div class="col-12">
                         <span for="" class="imp-star">*</span>
                         <i class="fa-solid fa-cake-candles form-control-feedback"></i>
-                        <input runat="server" id="dobTextBox1" type="date" class="form-control" placeholder="" style="padding-right: 10px !important;">
+                        <input runat="server" id="dobTextBox1" type="date" class="form-control" placeholder="" style="padding-right: 10px !important; ">
                     </div>
                     <div class="col-12">
                         <span for="" class="imp-star">*</span>

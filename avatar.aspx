@@ -365,7 +365,10 @@
         </asp:Panel>
     </div>
      </ContentTemplate>
-      
+    <Triggers>
+    <asp:PostBackTrigger ControlID="btnSubmit" />
+    </Triggers>  
     </asp:UpdatePanel>
+    
 </asp:Content>
 
