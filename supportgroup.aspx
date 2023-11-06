@@ -2,6 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Support Group</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
             min-height: 100vh;
@@ -102,7 +106,7 @@
                                             <asp:TextBox ID="TextBoxPost" AutoComplete="Off" runat="server" placeholder="Enter your message..."></asp:TextBox>
                                         </div>
                                         <div class="col-2 d-flex align-items-center">
-                                            <asp:ImageButton ID="ImageButton1" Width="60px" OnClick="submitImageButton_Click" ImageUrl="https://cdn-icons-png.flaticon.com/512/60/60525.png" runat="server" />
+                                            <asp:ImageButton ID="ImageButton1" Width="60px"  OnClick="submitImageButton_Click" ImageUrl="https://cdn-icons-png.flaticon.com/512/60/60525.png" runat="server" />
                                             <%-- <img class="cursor-pointer"
                                             src="https://cdn-icons-png.flaticon.com/512/60/60525.png" alt="" width="30px">--%>
                                         </div>

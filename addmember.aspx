@@ -3,13 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
-        integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-grid.min.css"
-        integrity="sha512-EAgFb1TGFSRh1CCsDotrqJMqB2D+FLCOXAJTE16Ajphi73gQmfJS/LNl6AsjDqDht6Ls7Qr1KWsrJxyttEkxIA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
     <link rel="stylesheet" href="./style3.css">
 
@@ -17,7 +16,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <img class="blue-t-top-left" src="../Avatar/blue-trangle-1.png" alt="">
+    <div class="add-member">
+         <img class="blue-t-top-left" src="../Avatar/blue-trangle-1.png" alt="">
     <img class="blue-t-top-right" src="../Avatar/blue-trangle-2.png" alt="">
     <img class="blue-t-right" src="../Add Members/blue-trangle-3.png" alt="">
     <a href="#">
@@ -45,19 +45,17 @@
                     </div>
                    
                 </div>--%>
-                <div class="row input-group my-xl-4 my-lg-3">
-                   <div class="row justify-content-center">
-                        <div class="col-lg-5 col-md-5 col-sm-12 px-xl-4">
-                        <input type="text" id="name" runat="server" placeholder="First Name">
+                <div class="row justify-content-center input-group my-xl-4 my-lg-3">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                         <input type="text" id="name" runat="server" placeholder="First Name">
                     </div>
-                   </div>
-                    <div class="row justify-content-center">
-                        <div class="col-lg-5 col-md-5 col-sm-12 px-xl-4">
-                        <input type="text" id="lastname" runat="server" placeholder="Last Name">
-                    </div> <asp:HiddenField runat="server" ID="hfMemberType" />
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                         <input type="text" id="lastname" runat="server" placeholder="Last Name">
                     </div>
+                     <asp:HiddenField runat="server" ID="hfMemberType" />
+                   
                     <div class="row justify-content-center">
-                         <div id="relation-input" class="col-lg-5 col-md-5 col-sm-12 px-xl-4">
+                         <div id="relation-input" class="col-lg-5 col-md-5 col-12 px-xl-2">
                         <div class="relation-div">
                             <span class="fa-solid fa-earth-americas form-control-feedback"></span>
                             <select id="relation" runat="server" class="form-select form-control relation-select"
@@ -67,50 +65,57 @@
                                 <option value="mother">Mother</option>
                                 <option value="sister">Sister</option>
                                 <option value="brother">Brother</option>
+                                <option value="son">Son</option>
+                                <option value="daughter">Daughter</option>
                                 <option value="wife">Wife</option>
                                 <option value="husband">Husband</option>
                                 <option value="grandMother">Grand Mother</option>
                                 <option value="grandFather">Grand Father</option>
-                                 <option value="Friend">Friend</option>
+                                 <option value="friend">Friend</option>
                                 <option value="pet">Pet</option>
                             </select>
                         </div>
                     </div>
-                    </div>
-                    <div class="row justify-content-center">
-                         <div class="col-lg-5 col-md-5 col-sm-12 px-xl-4">
+                         <div class="col-lg-5 col-md-5 col-12 px-xl-2">
                         <input class="email-input" id="emailid" runat="server" type="email" placeholder="Email ID" />
                     </div>
                     </div>
                      <div class="row justify-content-center">
-                         <div class="col-lg-5 col-md-5 col-sm-12 px-xl-4">
+                         <div class="col-lg-5 col-md-5 col-12 px-xl-4">
                         <input class="number-input" id="phoneno" runat="server" type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
-                    </div>
-                    </div>
+                    </div
+                     
                 </div>
-               
+               <div class="row justify-content-center">
+                         <div class="col-lg-5 col-md-5 col-12 px-xl-4">
+                             <input class="number-input" id="default-number" type="number" placeholder="default number." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+                        </div>
+                    </div>
                 <div class="btn-div">
                     <%--<asp:Button runat="server" Text="Submit" CssClass="btn submit-btn" ID="btnSubmit"></asp:Button>--%>
+                    <button id="back-btn"  class="btn thm-back-button mx-3">Back</button>
                     <button runat="server" id="btn_Submit" onserverclick="btn_Submit_ServerClick" class="btn submit-btn">Submit</button>
                 </div>
             </div>
         </div>
     </div>
-    <img class="plus-bottom-right" src="../Add Members/plus-2.png" alt="">
-    <img class="blue-t-bottom-left" src="../Add Members/blue-trangle-4.png" alt="">
-    <img class="blue-t-bottom-right" src="../Add Members/blue-trangle-5.png" alt="">
+    <img class="plus-bottom-right" src="../Add Members/plus-2.png" alt=""/>
+    <img class="blue-t-bottom-left" src="../Add Members/blue-trangle-4.png" alt=""/>
+    <img class="blue-t-bottom-right" src="../Add Members/blue-trangle-5.png" alt=""/>
+    </div>
+   
     <script>
-        let selected = true
+        //let selected = true
         var relation = ''
 
-        const family = document.getElementById('family');
-        const friends = document.getElementById('friends');
+        //const family = document.getElementById('family');
+        //const friends = document.getElementById('friends');
         const relationInput = document.getElementById('relation-input');
         const friendInput = document.getElementById('friend-input');
         const defaultNumber = document.getElementById('default-number');
 
-        family.classList.add('active')
-        friends.classList.add('inactive')
+        //family.classList.add('active')
+        //friends.classList.add('inactive')
 
         defaultNumber.style.display = 'none'
         friendInput.style.display = 'none'
@@ -121,7 +126,7 @@
 
 
 
-        function handleTabs(tab) {
+        <%--function handleTabs(tab) {
             if (tab === 'family') {
                 family.style.color = '#0512b9'
                 friends.style.color = '#bababa'
@@ -149,9 +154,11 @@
                     defaultNumber.style.display = 'none'
                     document.getElementById("<%= hfMemberType.ClientID%>").value = "2";
             }
-        }
+        }--%>
         function handleRelation() {
-            relation = document.getElementById('relation').value
+            var relationValue = $(".relation-select").find(":selected").val();
+            relation = relationValue;
+            console.log(relation)
             $('.email-input').attr('disabled', 'false');
             $('.number-input').attr('disabled', 'false');
             if (relation === 'grandFather' || relation === 'grandMother') {
@@ -161,15 +168,15 @@
             } else if (relation === 'pet') {
                 $('.email-input').attr('disabled', 'disabled');
                 $('.number-input').attr('disabled', 'disabled');
-                defaultNumber.style.display = 'none'
+                defaultNumber.style.display = 'block'
             } else {
                 defaultNumber.style.display = 'none'
                 $(".email-input").removeAttr('disabled');
                 $(".number-input").removeAttr('disabled');
             }
-            console.log(relation)
+            console.log("relation")
         }
-
+        console.log("relation")
     </script>
 
 

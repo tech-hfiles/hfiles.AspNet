@@ -66,7 +66,7 @@
                             </div>
                             <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
                                 <i class="fa-regular fa-envelope form-control-feedback"></i>
-                                <input id="emailTextBox" runat="server" required type="text" class="form-control my-2" placeholder="Email ID" />
+                                <input id="emailTextBox" runat="server" required type="email" class="form-control my-2" placeholder="Email ID" />
                             </div>
                         </div>
                         <div class="text-center my-3" runat="server" id="divOtp">
@@ -99,7 +99,7 @@
             <img class="plus-top-right" src="<%= ResolveUrl("~/assets/plus-1.png") %>" alt="" />
             <img class="plus-bottom-left" src="<%= ResolveUrl("~/assets/plus-2.png") %>" alt="" />
             <a href="<%= ResolveUrl("~/login.aspx") %>">
-                <img class="triangle-top-right-cancel" src="<%= ResolveUrl("~/assets/cancel-icon.png") %>" alt="" /></a>
+                <img class="triangle-top-right-cancel" src="<%= ResolveUrl("~/assets/cancel-white.png") %>" alt="" /></a>
         </form>
     </div>
 

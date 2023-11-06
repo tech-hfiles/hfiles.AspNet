@@ -59,6 +59,7 @@ namespace hfiles
                     else if (result == 0)
                     {
                         Response.Write("<script>alert('Memeber already exists with same email id!')</script>");
+                        Response.Redirect("avatar.aspx");
                     }
                     // hfId.Value = 
                 }

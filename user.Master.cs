@@ -17,9 +17,10 @@ namespace hfiles
             }
             else
             {
-                if (Session["user_membernumber"] != null)
+                //sesion user_membernumber replaced by username
+                if (Session["username"] != null)
                 {
-                    memberLabel.Text = Session["user_membernumber"].ToString();
+                    memberLabel.Text = Session["username"].ToString();
                 }
             }
             

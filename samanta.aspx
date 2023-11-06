@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Samanta</title>
+
     <link rel="stylesheet" href="./style2.css" />
     <style>
         .footer {
@@ -14,7 +15,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="journal">
         <div class="journal_main">
-            <div style="width: 85%;">
+            <div class="jur-width-div" style="width: 85%;">
                 <div class="row inner_div mt-5">
                     <div class="col-12 heading">
                         <a href="<%= ResolveUrl("~/journal.aspx") %>">
@@ -34,7 +35,7 @@
                                     <div>
                                         <!-- <li><img class="dropdown-icon" src="../Reception Page/lock-icon.png" alt=""><a
                                             tabindex="-1" href="#">UNIQUE ID</a></li> -->
-                                        <a class="color-white" tabindex="-1" href="additionalinformation.aspx">
+                                        <a class="color-white" tabindex="-1" href="addbasicdetails.aspx">
                                         <li class="color-white">
                                             <img class="dropdown-icon" src="../Reception Page/user-icon.png" alt="">My Info
                                         </li>
@@ -42,10 +43,15 @@
                                         <!-- <li><img class="dropdown-icon" src="../Reception Page/add-icon.png" alt=""><a
                                         tabindex="-1" href="#">ADD MY REPORTS</a></li> -->
                                             <a  href="<%= ResolveUrl("~/avatar.aspx") %>">
-                                        <li class="color-white" style="border: 0;">
+                                        <li class="color-white" style="border-bottom:0">
                                                 <img class="dropdown-icon" src="../Reception Page/add-icon.png" alt="">Add member
                                         </li>
                                                 </a>
+                                         <%--<a  href="<%= ResolveUrl("~/addbasicdetails.aspx") %>">
+                                        <li class="color-white" style="border: 0;">
+                                                <img class="dropdown-icon" src="../Reception Page/add-icon.png" alt="">Add basic details
+                                        </li>
+                                                </a>--%>
                                     </div>
                                 </ul>
                             </div>

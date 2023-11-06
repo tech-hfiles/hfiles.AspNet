@@ -59,11 +59,11 @@ namespace hfiles
                         Session["user_gender"] = dt.Rows[0]["user_gender"].ToString();
                         Session["user_membernumber"] = dt.Rows[0]["user_membernumber"].ToString();
 
-                        Session["user_dob"] = dt.Rows[0]["user_dob"].ToString();
-                        if (Session["user_dob"] != null)
-                        {
-                            Session["age"] = GetAge(DateTime.Now, Convert.ToDateTime(Session["user_dob"]));
-                        }
+                        //Session["user_dob"] = dt.Rows[0]["user_dob"].ToString();
+                        //if (Session["user_dob"] != null)
+                        //{
+                        //    Session["age"] = GetAge(DateTime.Now, Convert.ToDateTime(Session["user_dob"]));
+                        //}
 
                         if (Session["user_gender"] != null)
                         {

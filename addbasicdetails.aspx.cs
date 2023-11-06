@@ -14,24 +14,28 @@ namespace hfiles
 {
     public partial class addbasicdetails : System.Web.UI.Page
     {
+        string connectionString = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if (Session["firstname"] != null && Session["lastname"] != null && Session["email"] != null && Session["phone"] != null)
+            if (Session["Userid"] != null)
+            //newly commented for testing purpose
+            //if (Session["firstname"] != null && Session["lastname"] != null && Session["email"] != null && Session["phone"] != null)
             {
                 if (!IsPostBack)
                 {
-
-                    firstNameTextBox.Value = Session["firstname"].ToString();
-                    lastNameTextBox.Value = Session["lastname"].ToString();
-                    emailTextBox.Value = Session["email"].ToString();
-                    contactTextBox.Value = Session["phone"].ToString();
+                    int userid = Convert.ToInt32(Session["Userid"]);
+                    getbasicdetails(userid);
+                    //firstNameTextBox.Value = Session["firstname"].ToString();
+                    //lastNameTextBox.Value = Session["lastname"].ToString();
+                    //emailTextBox.Value = Session["email"].ToString();
+                    //contactTextBox.Value = Session["phone"].ToString();
                 }
             }
             else
             {
                 Response.Redirect("~/login.aspx");
             }
+
         }
         public static string GenerateId()
         {
@@ -57,10 +61,11 @@ namespace hfiles
 
             #region variable
             string member = membershipNumber;
-            string connectionString = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
+
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                using (MySqlCommand command = new MySqlCommand("adduser", connection))
+                //procedure adduser replaced by add_update_userdetails
+                using (MySqlCommand command = new MySqlCommand("add_update_userdetails", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     // Add parameters to the command
@@ -72,6 +77,7 @@ namespace hfiles
                     command.Parameters.AddWithValue("_user_state", stateTextBox.Value);
                     command.Parameters.AddWithValue("_user_city", cityTextBox.Value);
                     command.Parameters.AddWithValue("_user_country", countryTextBox.Value);
+                    //command.Parameters.AddWithValue("_user_country", ddlCountry.SelectedValue);
                     command.Parameters.AddWithValue("_user_contact", contactTextBox.Value);
                     command.Parameters.AddWithValue("_user_icecontact", icecontactTextBox.Value);
                     command.Parameters.AddWithValue("_user_relativecontact", relativecontactTextBox.Value);
@@ -86,9 +92,82 @@ namespace hfiles
                     string subject = "# Verification code";
                     string body = $"<p style=\"text-align: justify;\">Dear {firstNameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify;\">Thank you for signing up for Hfiles! We&apos;re delighted to have you as a member of our community, and we appreciate your trust in our platform.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Now that you&apos;re officially part of Hfiles, you can take the first step in managing your medical data. Simply log into your account by visiting [Login Page] and use your registered credentials to access your personalized dashboard.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Once you&apos;re logged in, you&apos;ll be able to:&nbsp;</p>\r\n<ol>\r\n    <li style=\"text-align: justify;\">Fill Medical Records: Easily input and update your medical history, prescriptions, and other vital information.</li>\r\n    <li style=\"text-align: justify;\">Upload Documents: Safely upload and store important medical documents, test results, and reports</li>\r\n</ol>\r\n<p style=\"text-align: justify;\">Our user-friendly interface and secure storage ensure that your medical data is organized and readily accessible when you need it most.</p>\r\n<p style=\"text-align: justify;\">If you have any questions or need assistance, our support team is here to help. Simply reach out to us at [Support Email], and we&apos;ll be happy to assist you.</p>\r\n<p style=\"text-align: justify;\">Thank you for choosing Hfiles to manage your medical information. We&apos;re committed to providing you with a secure and convenient platform for all your healthcare needs.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Email footer/ Privacy Agreement: Thank you for choosing Hfiles to manage your medical information. We&apos;re committed to providing you with a secure and convenient platform for all your healthcare needs. Your medical data is treated with the utmost confidentiality and is stored securely using the latest encryption protocols. We strictly adhere to all relevant data protection laws and regulations to ensure that your information remains private and protected. Your data will not be shared with any third parties without your explicit consent</p>";
                     DAL.SendCareerMail(subject, body, email);
-                    Response.Redirect("~/samanta.aspx");
+                    if (Bind() > 0)
+                    {
+                        Response.Redirect("~/samanta.aspx");
+                    }
+                    else
+                    {
+                        //err
+                    }
                 }
             }
+        }
+
+       public void getbasicdetails(int id)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                using (MySqlCommand command = new MySqlCommand("getUserDetails", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    // Add parameters to the command
+                    command.Parameters.AddWithValue("_Id", id);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // Populate the HTML controls with user details.
+                            firstNameTextBox.Value = reader["user_firstname"].ToString();
+                            lastNameTextBox.Value = reader["user_lastname"].ToString();
+                            selectgender.Value = reader["user_gender"].ToString();
+                            dobTextBox1.Value = reader["user_dob"].ToString();
+                            bloodgroup.Value = reader["user_bloodgroup"].ToString();
+                            countryTextBox.Value = reader["user_country"].ToString();
+                            stateTextBox.Value = reader["user_state"].ToString();
+                            cityTextBox.Value = reader["user_city"].ToString();
+                            contactTextBox.Value = reader["user_contact"].ToString();
+                            icecontactTextBox.Value = reader["user_icecontact"].ToString();
+                            relativecontactTextBox.Value = reader["user_relativecontact"].ToString();
+                            emailTextBox.Value = reader["user_email"].ToString();
+                            famdocTextBox.Value = reader["user_doctor"].ToString();
+                        }
+                    }
+                    command.ExecuteNonQuery();
+                    connection.Close();
+
+                    
+                }
+            }
+        }
+
+        protected int Bind()
+        {
+            int result = 0;
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(connectionString))
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("usp_isuserexists", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("_MobileNoOrEmail", emailTextBox.Value);
+                        cmd.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
+                        cmd.ExecuteNonQuery();
+                        result = DAL.validateInt(cmd.Parameters["_Result"].Value.ToString());
+                        Session["Userid"] = result.ToString();
+                    }
+                }
+
+            }
+            catch (Exception Ex)
+            {
+
+
+            }
+            return result;
         }
         public void clear()
         {
@@ -96,7 +175,8 @@ namespace hfiles
             lastNameTextBox.Value = null;
             stateTextBox.Value = null;
             cityTextBox.Value = null;
-            countryTextBox.Value = null;
+            countryTextBox.Value= null;
+            //ddlCountry.SelectedValue = null;
             contactTextBox.Value = null;
             icecontactTextBox.Value = null;
             emailTextBox.Value = null;

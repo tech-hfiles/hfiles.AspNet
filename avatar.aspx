@@ -4,31 +4,40 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Avatar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
     <style>
-       .avatar {
-        background-image: url(../Avatar/avatar-background.png);
-        background-size: 50%;
-        background-repeat: no-repeat;
-        /* background-position: center; */
-        background-position-x: 40%;
-        background-position-y: 50%;
-        
-    }
-
-
-    @media only screen and (max-width: 414px) {
         .avatar {
-            background-position-x: 75%;
-            background-position-y: 25%;
-            background-size: 100%;
+            background-image: url(../Avatar/avatar-background.png);
+            background-size: 50%;
+            background-repeat: no-repeat;
+            /* background-position: center; */
+            background-position-x: 40%;
+            background-position-y: 50%;
         }
-    }
 
-    .main-div {
-        background-image: url('../Avatar/lamp-light.png');
-        background-repeat: no-repeat;
-        background-position-x: 44%;
-    }
+
+        @media only screen and (max-width: 414px) {
+            .avatar {
+                background-position-x: 75%;
+                background-position-y: 25%;
+                background-size: 100%;
+            }
+        }
+
+        .main-div {
+            background-image: url('../Avatar/lamp-light.png');
+            background-repeat: no-repeat;
+            background-position-x: 44%;
+        }
     </style>
 
     <style type="text/css">
@@ -44,7 +53,7 @@
             border-style: solid;
             border-color: black;
             padding: 20px;
-            width: 25%;
+            width: 35%;
             height: 48%;
             position: fixed;
             z-index: 100001;
@@ -118,6 +127,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <asp:UpdatePanel runat="server">
+        <ContentTemplate>
     <div class="avatar">
         <img class="plus-top-left" src="<%= ResolveUrl("~/Add Members/plus-1.png") %>" alt="" />
         <div class="main-div">
@@ -130,33 +141,82 @@
                                     <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-4"><span class="plus-value">
                                         <asp:Label Text="" ID="lblUserName" runat="server" /></span></li>
                                     <br>
-                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-4"><a href="addmember.aspx">
-                                        <img src="../Avatar/add-icon.png" alt=""
-                                            width="25px" /></a></li>
+                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-2">
+                                        <a href="addmember.aspx">
+                                            <img src="../Avatar/add-icon.png" alt=""
+                                                width="30px" />
+                                            <br />
+                                            <small class="add-member-name">add member</small>
+
+                                        </a>
+
+                                    </li>
                                     <br>
-                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-4"><a href="addmember.aspx">
-                                        <img src="../Avatar/add-icon.png" alt=""
-                                            width="25px" /></a></li>
+                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-2">
+                                        <a href="addmember.aspx">
+                                            <img src="../Avatar/add-icon.png" alt=""
+                                                width="30px" />
+                                            <br />
+                                            <small class="add-member-name">add member</small>
+
+                                        </a>
+
+                                    </li>
                                     <br>
-                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-4"><a href="addmember.aspx">
-                                        <img src="../Avatar/add-icon.png" alt=""
-                                            width="25px" /></a></li>
+                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-2">
+                                        <a href="addmember.aspx">
+                                            <img src="../Avatar/add-icon.png" alt=""
+                                                width="30px" />
+                                            <br />
+                                            <small class="add-member-name">add member</small>
+
+                                        </a>
+
+                                    </li>
                                     <br>
-                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-4"><a href="addmember.aspx">
-                                        <img src="../Avatar/add-icon.png" alt=""
-                                            width="25px" /></a></li>
+                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-2">
+                                        <a href="addmember.aspx">
+                                            <img src="../Avatar/add-icon.png" alt=""
+                                                width="30px" />
+                                            <br />
+                                            <small class="add-member-name">add member</small>
+
+                                        </a>
+
+                                    </li>
                                     <br>
-                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-4"><a href="addmember.aspx">
-                                        <img src="../Avatar/add-icon.png" alt=""
-                                            width="25px" /></a></li>
+                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-2">
+                                        <a href="addmember.aspx">
+                                            <img src="../Avatar/add-icon.png" alt=""
+                                                width="30px" />
+                                            <br />
+                                            <small class="add-member-name">add member</small>
+
+                                        </a>
+
+                                    </li>
                                     <br>
-                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-4"><a href="addmember.aspx">
-                                        <img src="../Avatar/add-icon.png" alt=""
-                                            width="25px" /></a></li>
+                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-2">
+                                        <a href="addmember.aspx">
+                                            <img src="../Avatar/add-icon.png" alt=""
+                                                width="30px" />
+                                            <br />
+                                            <small class="add-member-name">add member</small>
+
+                                        </a>
+
+                                    </li>
                                     <br>
-                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-4"><a href="addmember.aspx">
-                                        <img src="../Avatar/add-icon.png" alt=""
-                                            width="25px" /></a></li>
+                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-2">
+                                        <a href="addmember.aspx">
+                                            <img src="../Avatar/add-icon.png" alt=""
+                                                width="30px" />
+                                            <br />
+                                            <small class="add-member-name">add member</small>
+
+                                        </a>
+
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -193,7 +253,7 @@
                                     <span>Immunization</span>
                                     <div class="menu-circle">
                                         <a href="reports.aspx?rid=5">
-                                        <img src="../Avatar/immunization.png" alt="" />
+                                            <img src="../Avatar/immunization.png" alt="" /></a>
                                     </div>
                                 </div>
 
@@ -202,8 +262,8 @@
                                 <div class="d-flex align-items-center">
                                     <span>medications/prescription</span>
                                     <div class="menu-circle">
-                                         <a href="reports.aspx?rid=6">
-                                        <img src="../Avatar/medications.png" alt="" />
+                                        <a href="reports.aspx?rid=6">
+                                            <img src="../Avatar/medications.png" alt="" /></a>
                                     </div>
 
                                 </div>
@@ -212,17 +272,17 @@
                                 <div class="d-flex align-items-center h-75px">
                                     <span>radiology</span>
                                     <div class="menu-circle">
-                                         <a href="reports.aspx?rid=7">
-                                        <img src="../Avatar/rediology.png" alt="" />
+                                        <a href="reports.aspx?rid=7">
+                                            <img src="../Avatar/rediology.png" alt="" /></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="opthalmology-icon h-75px d-flex align-items-center menu-circle-txt-color">
                                 <div class="d-flex align-items-center">
-                                    <span>Opthalmology icon</span>
+                                    <span>Opthalmology</span>
                                     <div class="menu-circle">
-                                         <a href="reports.aspx?rid=8">
-                                        <img src="../Avatar/Opthalmologyicon.png" alt="" />
+                                        <a href="reports.aspx?rid=8">
+                                            <img src="../Avatar/Opthalmologyicon.png" alt="" />
                                     </div>
                                 </div>
                             </div>
@@ -230,8 +290,8 @@
                                 <div class="d-flex align-items-center">
                                     <span>dental report</span>
                                     <div class="menu-circle">
-                                         <a href="reports.aspx?rid=4">
-                                        <img src="../Avatar/dental.png" alt="">
+                                        <a href="reports.aspx?rid=4">
+                                            <img src="../Avatar/dental.png" alt=""></a>
                                     </div>
                                 </div>
                             </div>
@@ -239,8 +299,8 @@
                                 <div class="d-flex align-items-center">
                                     <span>special report</span>
                                     <div class="menu-circle">
-                                         <a href="reports.aspx?rid=9">
-                                        <img src="../Avatar/spacial-report.png" alt="" />
+                                        <a href="reports.aspx?rid=9">
+                                            <img src="../Avatar/spacial-report.png" alt="" /></a>
                                     </div>
                                 </div>
                             </div>
@@ -248,8 +308,8 @@
                                 <div class="d-flex align-items-end">
                                     <span>mediclaim/insurance</span>
                                     <div class="menu-circle">
-                                         <a href="reports.aspx?rid=10">
-                                        <img src="../Avatar/mediclaim.png" alt="" />
+                                        <a href="reports.aspx?rid=10">
+                                            <img src="../Avatar/mediclaim.png" alt="" /></a>
                                     </div>
                                 </div>
                             </div>
@@ -275,7 +335,7 @@
                             <label><strong>Select Report Type :</strong></label>
                         </div>
                         <div class="col-7">
-                            <asp:DropDownList runat="server" ID="ddlReports" CssClass="select-report-dropdown">
+                            <asp:DropDownList runat="server" ID="ddlReports">
                             </asp:DropDownList>
                         </div>
                     </div>
@@ -300,9 +360,12 @@
             <br />
             <br />
             <asp:Button Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click" runat="server" CssClass="submit-btn" />
-            <asp:Label Text="" ID="lblMsg" runat="server" />
+            <%--<asp:Label Text="" ID="lblMsg" runat="server" />--%>
             <asp:Button ID="btnClose" runat="server" OnClick="okLinkButton_Click" Text="Close" CssClass="close-btn" />
         </asp:Panel>
     </div>
+     </ContentTemplate>
+      
+    </asp:UpdatePanel>
 </asp:Content>
 

@@ -27,29 +27,37 @@
             </ul>
         </details>
     </div>
-    <form class="row h-100 align-ceter h-70" runat="server">
+    <form class="row h-100 align-ceter h-sm-100vh" runat="server">
         <asp:HiddenField runat="server" ID="hfId" />
-        <div class="col-sm-12 col-lg-6 h-100 h-70" style="text-align: center;">
+        <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-block" style="text-align: center;">
 
             <img src="../assets/features-hero-6.png" alt="" style="width: 80%; margin: 145px 0 0 0;">
         </div>
         <div class="col-sm-12 col-lg-6 inner-main">
             <div class="d-flex align-items-center justify-content-center h-100 inner-body">
                 <div class="text-center">
-                    <h1>Welcome Back!</h1>
+                   <div class="text-center signin-heading">
+                            <img src="<%= ResolveUrl("~/Sign Up Page/Hfiles Logo.png") %>" alt="" width="120px" />
+                            <br />
+                            <h1 class="color-white">Welcome Back!</h1>
+                        </div>
                     <div>
                         <input runat="server" required id="emailTextBox" class="w-100 login-input" type="Text" placeholder="Phone No / Email" />
                     </div>
                     <div runat="server" id="divOtp">
                         <input runat="server" required id="otpTextBox" autocomplete="off" class="w-100 login-input" type="Text" placeholder="Enter OTP" />
+                         <div class="text-end">
+                              <span class="mx-2"><asp:LinkButton ID="resendLinkButton" runat="server">Resend OTP</asp:LinkButton></span>
+                         </div>
                     </div>
                     <div class="text-center my-1">
                         <asp:Button ID="otpButton" OnClick="signup_Click" runat="server" Text="GET OTP" class="btn thm-button my-2"></asp:Button>
                         <asp:Label Text="" ID="errorLabel" runat="server" />
                     </div>
                     <div class="text-center resend-otp-div">
-                        <span class="mx-2">
-                            <asp:LinkButton ID="resendLinkButton" runat="server">Resend OTP</asp:LinkButton></span>
+                       
+                           
+                        <br />
                         <span style="color:#fff">New User? Click <a href="signup.aspx">here</a> to Signup</span>
                     </div>
                 </div>

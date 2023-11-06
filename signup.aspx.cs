@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using MySql.Data.MySqlClient;
 using System.Configuration;
+using System.Data;
 
 namespace hfiles
 {
@@ -92,14 +93,59 @@ namespace hfiles
                     if (otpCodeFromDatabase == otpTextBox.Value)
                     {
                         // OTP is valid
+
                         Session["phone"] = phoneTextBox.Value;
                         Session["email"] = emailTextBox.Value;
                         Session["firstname"] = firstnameTextBox.Value;
                         Session["lastname"] = lastnameTextBox.Value;
                         errorLabel.Text = "";
                         //Details to be saved in user details table
-                        Response.Redirect("addbasicdetails.aspx");
+                        //Response.Redirect("addbasicdetails.aspx");
+
+
+                        //newly added to change registration processflow
+                        //using (MySqlConnection connection = new MySqlConnection(connectionString))
+                        {
+                            using (MySqlCommand cmdInsert = new MySqlCommand("usp_signup", connection))
+                            {
+                                cmdInsert.CommandType = CommandType.StoredProcedure;
+                                // Add parameters to the command
+                                cmdInsert.Parameters.AddWithValue("_user_firstname", firstnameTextBox.Value);
+                                cmdInsert.Parameters.AddWithValue("_user_lastname", lastnameTextBox.Value);
+                                //command.Parameters.AddWithValue("_user_gender", selectgender.Value);
+                                //command.Parameters.AddWithValue("_user_dob", dobTextBox1.Value);
+                                //command.Parameters.AddWithValue("_user_bloodgroup", bloodgroup.Value);
+                                //command.Parameters.AddWithValue("_user_state", stateTextBox.Value);
+                                //command.Parameters.AddWithValue("_user_city", cityTextBox.Value);
+                                //command.Parameters.AddWithValue("_user_country", countryTextBox.Value);
+                                //command.Parameters.AddWithValue("_user_country", ddlCountry.SelectedValue);
+                                cmdInsert.Parameters.AddWithValue("_user_contact", phoneTextBox.Value);
+                                //command.Parameters.AddWithValue("_user_icecontact", icecontactTextBox.Value);
+                                //command.Parameters.AddWithValue("_user_relativecontact", relativecontactTextBox.Value);
+                                cmdInsert.Parameters.AddWithValue("_user_email", emailTextBox.Value);
+                                //command.Parameters.AddWithValue("_user_doctor", famdocTextBox.Value);
+                                //command.Parameters.AddWithValue("_user_membernumber", member);
+                                //connection.Open();
+                                cmdInsert.ExecuteNonQuery();
+                                //cmdInsert.Close();
+
+                                string email = emailTextBox.Value.ToString();
+                                string subject = "# Verification code";
+                                string body = $"<p style=\"text-align: justify;\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify;\">Thank you for signing up for Hfiles! We&apos;re delighted to have you as a member of our community, and we appreciate your trust in our platform.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Now that you&apos;re officially part of Hfiles, you can take the first step in managing your medical data. Simply log into your account by visiting [Login Page] and use your registered credentials to access your personalized dashboard.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Once you&apos;re logged in, you&apos;ll be able to:&nbsp;</p>\r\n<ol>\r\n    <li style=\"text-align: justify;\">Fill Medical Records: Easily input and update your medical history, prescriptions, and other vital information.</li>\r\n    <li style=\"text-align: justify;\">Upload Documents: Safely upload and store important medical documents, test results, and reports</li>\r\n</ol>\r\n<p style=\"text-align: justify;\">Our user-friendly interface and secure storage ensure that your medical data is organized and readily accessible when you need it most.</p>\r\n<p style=\"text-align: justify;\">If you have any questions or need assistance, our support team is here to help. Simply reach out to us at [Support Email], and we&apos;ll be happy to assist you.</p>\r\n<p style=\"text-align: justify;\">Thank you for choosing Hfiles to manage your medical information. We&apos;re committed to providing you with a secure and convenient platform for all your healthcare needs.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Email footer/ Privacy Agreement: Thank you for choosing Hfiles to manage your medical information. We&apos;re committed to providing you with a secure and convenient platform for all your healthcare needs. Your medical data is treated with the utmost confidentiality and is stored securely using the latest encryption protocols. We strictly adhere to all relevant data protection laws and regulations to ensure that your information remains private and protected. Your data will not be shared with any third parties without your explicit consent</p>";
+                                DAL.SendCareerMail(subject, body, email);
+                                Response.Redirect("~/samanta.aspx");
+                                if (Bind() > 0)
+                                {
+                                    Response.Redirect("~/samanta.aspx");
+                                }
+                                else
+                                {
+                                    //err
+                                }
+                            }
+                        }
                     }
+
                     else
                     {
                         // OTP is invalid
@@ -110,6 +156,34 @@ namespace hfiles
                 // Close the database connection
                 connection.Close();
             }
+        }
+
+        protected int Bind()
+        {
+            int result = 0;
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(connectionString))
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("usp_isuserexists", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("_MobileNoOrEmail", emailTextBox.Value);
+                        cmd.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
+                        cmd.ExecuteNonQuery();
+                        result = DAL.validateInt(cmd.Parameters["_Result"].Value.ToString());
+                        Session["Userid"] = result.ToString();
+                    }
+                }
+
+            }
+            catch (Exception Ex)
+            {
+
+
+            }
+            return result;
         }
     }
 }

@@ -25,6 +25,7 @@ namespace hfiles
                 //Session["Userid"] = 20; Response.Redirect("~/samanta.aspx");
                 if (Session["Userid"] != null)
                 {
+                    var sessionuserid = Session["Userid"];
                     Response.Redirect("~/samanta.aspx");
                 }
                 divOtp.Visible = false;
@@ -62,7 +63,7 @@ namespace hfiles
                     otpButton.Text = "GET OTP";
                     divOtp.Visible = true;
                     //Pop Up Message
-                    //Response.Redirect("~/signup.aspx"); //Redirect to registration page
+                    Response.Redirect("~/signup.aspx"); //Redirect to registration page
                 }
             }
             else if (otpButton.Text == "SIGN IN")

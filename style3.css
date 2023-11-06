@@ -40,23 +40,23 @@ button {
     right: 0 !important;
     width: 100%;
     border-bottom: 1px solid #192184;
-    padding: 2px 0;
+    padding: 10px 0;
     background: #192184;
 }
 
 .common-heading img {
     width: 100% !important;
-    height: 30px !important;
+    height: 40px !important;
 }
 
 .t-c a {
     color: #ffffff;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .p-p a {
     color: #ffffff;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 /* add member */
@@ -250,10 +250,22 @@ input::-webkit-inner-spin-button {
         font-family: 'Red Hat Display' !important;
         font-weight: 700;
     }
-
-.text-blue {
-    color: #0512B9;
-}
+    .btn-div .thm-back-button {
+        padding: 15px 100px;
+        background: #d6d6d6;
+        border-radius: 50px;
+        color: #08138f;
+        font-weight: 700;
+        outline: 0;
+        border: 1px solid #d6d6d6;
+        cursor: pointer;
+        margin-top: 20px;
+        font-family: 'Red Hat Display' !important;
+        font-weight: 700;
+    }
+        .text-blue {
+            color: #0512B9;
+        }
 
 .blue-t-top-left {
     position: absolute;
@@ -332,7 +344,11 @@ input::-webkit-inner-spin-button {
 .avatar {
     background-color: #f4f4f4;
 }
+    .avatar .add-member-name {
+    font-size:10px;
+    color:#ccc;
 
+    }
     .avatar .main-div .row {
         width: 100%;
         margin: 0;
@@ -411,11 +427,14 @@ input::-webkit-inner-spin-button {
 }
 
 .top-home-icons img {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     margin: 0px 5px;
 }
-
+.top-home-icons .log-out-btn {
+    width: 22px;
+    height: 22px;
+}
 .avatar .avatar-img {
     height: 350px;
     margin-bottom: 50px;
@@ -693,7 +712,7 @@ a {
 
     .avatar .inner-menu-div .opthalmology-icon {
         bottom: 585px;
-        right: 190px;
+        right: 155px;
     }
 
     .avatar .inner-menu-div .dentel-report {
@@ -740,6 +759,9 @@ a {
     }
     .avatar .footer {
         position:absolute !important;
+    }
+    .add-member .blue-t-bottom-left {
+        left: 0;
     }
 }
 
@@ -935,6 +957,7 @@ a {
 
     .footer {
         position: relative;
+        padding:10px;
     }
 
     .avatar .blue-t-bottom-left {

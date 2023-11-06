@@ -152,15 +152,15 @@ namespace hfiles
             int reportId = DAL.validateInt(ddlReports.SelectedValue);
             int msg = AddReport(UserId, reportname, reporturl, reportId);
 
-            if (msg > 0)
-            {
-                lblMsg.Text = "Report added successfully";
-                clear();
-            }
-            else
-            {
-                lblMsg.Text = "some error occured, please try again.";
-            }
+            //if (msg > 0)
+            //{
+            //    lblMsg.Text = "Report added successfully";
+            //    clear();
+            //}
+            //else
+            //{
+            //    lblMsg.Text = "some error occured, please try again.";
+            //}
         }
 
         protected void clear()

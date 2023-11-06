@@ -3,7 +3,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="<%= ResolveUrl("~/style.css") %>" />
-
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
     <title>Additional Information</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -21,25 +26,25 @@
                         <div class="col-12">
                             <h1 class="heading">Additional Information</h1>
                             <div class="row py-2">
-                                <div class="col-lg-1 col-xl-1 col-md-2 col-sm-4">
+                                <div class="col-lg-1 col-xl-1 col-md-2 col-3">
                                     <p class="sub-heading">Height</p>
                                 </div>
-                                <div class="col-lg-2 col-xl-2 col-md-3 col-sm-4">
+                                <div class="col-lg-2 col-xl-2 col-md-3 col-4">
                                     <div>
                                         <input runat="server" id="heightfeetTextBox" onkeypress="return isNumberKey(event,this)" required class="hight-input" type="number"><span>ft</span>
                                     </div>
                                 </div>
-                                <div class="col-lg-2 col-xl-2 col-md-3 col-sm-4">
+                                <div class="col-lg-2 col-xl-2 col-md-3 col-5">
                                     <div>
                                         <input runat="server" id="heightinchTextBox" onkeypress="return isNumberKey(event,this)" required class="hight-input" type="number"><span>inch</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="row py-2">
-                                <div class="col-lg-1 col-xl-1 col-md-2 col-sm-4">
+                                <div class="col-lg-1 col-xl-1 col-md-2 col-3">
                                     <p class="sub-heading">Weight</p>
                                 </div>
-                                <div class="col-lg-2 col-xl-2 col-md-3 col-sm-4">
+                                <div class="col-lg-2 col-xl-2 col-md-3 col-5">
                                     <div>
                                         <input runat="server" id="weightTextBox" onkeypress="return isNumberKey(event,this)" required class="hight-input" type="number" /><span>kg</span>
                                     </div>
@@ -133,25 +138,26 @@
                             </div>
                             <div class="row pt-4">
                                 <div class="col-10">
-                                    <p class="sub-heading">Do you have any surgeries? if yes. please specify:</p>
+                                    <p class="sub-heading"> Have you had any surgeries? if yes. please specify:</p>
                                 </div>
                             </div>
                             <div class="row surgeries-div">
-                                <div class="col-4">
+                                <div class="col-5 col-md-4">
                                     <input type="text" runat="server" id="txtSurgeries" />
                                 </div>
-                                <div class="col-lg-1 col-sm-2 text-center">
+                                <div class="col-lg-1 col-2 d-flex justify-cont">
                                     <div class="add-surgeries">
                                         <asp:Button ID="addsurgeryButton" OnClick="addsurgeryButton_Click" Text="+" runat="server" />
                                     </div>
                                 </div>
-                                <div class="col-lg-2 col-sm-2">
+                                <div class="col-lg-2 col-2">
                                     <div class="select-years">
                                         <asp:DropDownList runat="server" ID="yearpicker" name="yearpicker">
                                         </asp:DropDownList>
                                     </div>
                                 </div>
-                                <div class="col-lg-5 col-sm-12">
+                                <div class="col-lg-5 col-12 mt-lg-0 mt-5">
+                                    <div style="max-height: 200px; overflow: auto;">
                                     <asp:GridView ID="surgeryGridView" AutoGenerateColumns="false" CssClass="surgeries-table w-100" runat="server">
                                         <Columns>
                                             <asp:BoundField DataField="user_surgery_details" HeaderText="Surgery Details"
@@ -160,6 +166,8 @@
                                                 SortExpression="user_surgery_year" />
                                         </Columns>
                                     </asp:GridView>
+
+                                    </div>
                                     <%--<table class="surgeries-table w-100">
                                         <thead>
                                             <tr>
@@ -223,14 +231,14 @@
                             <asp:Repeater runat="server" ID="rptDisease">
                                 <ItemTemplate>
                                     <div class="row py-4 border-bottom medical-history-row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 col-5">
                                             <p><%# Eval("disease_name") %></p>
                                             <asp:HiddenField runat="server" ID="hfdisease_id" Value='<%# Eval("disease_id") %>' />
                                             </p>
                                         
                                         </div>
                                         <%--                                    --%>
-                                        <div class="col-md-6 SingleCheckbox">
+                                        <div class="col-md-6 col-4 SingleCheckbox">
                                             <asp:CheckBoxList runat="server" ID="cbl" class="" RepeatDirection="Horizontal">
                                                 <asp:ListItem Value="1" Text=" " class="CheckBoxLabel" />
                                                 <asp:ListItem Value="2" Text=" " />

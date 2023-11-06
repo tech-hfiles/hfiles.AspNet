@@ -1,43 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style2.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
-            integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
-          integrity="sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
-            integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user.Master" AutoEventWireup="true" CodeBehind="Policy.aspx.cs" Inherits="hfiles.Policy" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+     <link rel="stylesheet" href="../style2.css"/>
     <title>Privacy Policy</title>
-    <style>
-        .footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
-</head>
-
-<body class="privacy_main h-100vh">
-    <div class="top-home-icons d-flex justify-content-between align-items-center w-100">
-        <div class="common-heading mx-5">
-            <img src="../assets/h-file-logo-white.png" alt="" width="200px">
-        </div>
-        <div class="d-flex mx-2">
-            <a href="samanta.aspx"><img class="" src="../Avatar/home-icon-white.png" alt=""></a>
-        </div>
-    </div>
-
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="privacy_main h-100vh h-xl-90vh">
+    
     <img class="blue_trangle_top_left" src="../Terms & Conditions/blue-trangle1.png" alt="">
     <img class="blue_trangle_top_right" src="../Terms & Conditions/blue-trangle2.png" alt="">
     <img class="plus_top_left" src="../Terms & Conditions/plus-1.png" alt="">
+
+        <a class="back-arrow-btn" href="javascript: history.go(-1)"><img src="../assets/back-arrow.png" alt="">Back</a>
 
     <div style="height: 90%;">
         <div class="d-flex justify-content-center align-items-center h-100">
@@ -48,8 +21,8 @@
                 <div class="desciption">
                     <div class="px-2">
                         <p><strong>
-    This Privacy Policy describes how Anahat Solutions Pvt. Ltd. manages your Personal Data in compliance with the Indian Laws. We encourage you to read this Privacy Policy so that you know and understand the purposes for which we collect, use, process, store and disclose your Personal Data in a restricted manner.
-</strong></p>
+                           This Privacy Policy describes how Hfiles manages your Personal Data in compliance with the Indian Laws. We encourage you to read this Privacy Policy so that you know and understand the purposes for which we collect, use, process, store and disclose your Personal Data in a restricted manner.
+                        </strong></p>
                        
                         <p>
                             <strong>
@@ -58,17 +31,17 @@
                         </p>
                         <p>
                             <strong>
-                                By signing up for or using any services or campaigns offered by Anahat Solutions Pvt. Ltd. or submitting information to or otherwise communicating with Anahat Solutions Pvt. Ltd., you agree and consent to, as well as their respective representatives and/or agents, collecting, using and disclosing your Personal Data in accordance with this Privacy Policy.
+                               By signing up for or using any services or campaigns offered by Hfiles or submitting information to or otherwise communicating with Hfiles, you agree and consent to, as well as their respective representatives and/or agents, collecting, using and disclosing your Personal Data in accordance with this Privacy Policy.
                             </strong>
                         </p>
                         <p>
                             <strong>
-                                This Privacy Policy does not supersede or replace any other consents which you may have previously or separately provided to us in respect of your Personal Data and your consent to this Privacy Policy is in addition to any other rights which any of the Companies may have at law to collect, use or disclose the Personal Data.
+                               This Privacy Policy does not supersede or replace any other consents which you may have previously or separately provided to us in respect of your Personal Data and your consent to this Privacy Policy is in addition to any other rights which any of the Companies may have at law to collect, use or disclose the Personal Data.
                             </strong>
                         </p>
                         <p>
                             <strong>
-                                This Privacy Policy and your use of this website shall be governed in all respects by the laws of India.
+                               This Privacy Policy and your use of this website shall be governed in all respects by the laws of India.
                             </strong>
                         </p>
                         <p>
@@ -84,12 +57,13 @@
                         <ol>
                             <p><strong>Personal data or personal information means any data about an individual from which that person can be identified.</strong></p>
 
-                            <p><strong>We may collect, use, store and transfer the following kinds of personal data about you :</strong></p>
+                            <p><strong>We may collect, use, store and transfer the following kinds of personal data about you:</strong></p>
+
                             <li><p>Personal data: Name, phone number, date of birth;</p></li>
 
                             <li><p>Address: Email, billing, organization, residential;</p></li>
 
-                            <li><p>Medical: Medical records submitted by you including doctor’s prescriptions, diagnosis records, medicines and drugs, laboratory test reports, patient insurance data, and other data submitted by you while availing the services provided by Anahat Solutions Pvt. Ltd.;</p></li>
+                            <li><p>Medical: Medical records submitted by you including doctor’s prescriptions, diagnosis records, medicines and drugs, laboratory test reports, patient insurance data, and other data submitted by you while availing the services provided by Hfiles;</p></li>
 
                             <li><p>Technical and Analytical data: Username, password, IP address, browser information, registration data, and other data used to identify the ways in which you access to our website;</p></li>
                             <li>
@@ -115,11 +89,7 @@
                             <li><p>By completing a survey request or providing feedback via email or other means of contact;</p></li>
 
                             <li><p>Use or view our website via your browser’s cookies.</p></li>
-                            <li>
-                                <p>
-                                    upload, post, e-mail or otherwise transmit any content that is false, misleading, fabricated, unlawful, harmful, threatening, abusive, harassing, tortuous, defamatory, vulgar, obscene, libellous, invasive of another’s privacy, hateful, or racially, ethnically or otherwise objectionable, shared through the Website or the App;
-                                </p>
-                            </li>
+                           
                             <p><strong>Our website and mobile application tracking tools also collect information like your IP, Location, Website clicks in anonymized format and aggregates this data.</strong></p>
                         </ol>
                     </div>
@@ -128,7 +98,7 @@
                     </div>
                     <div class="px-2">
                         <ol>
-                            <p><strong>Anahat Solutions Pvt. Ltd. collects your data for the following purposes:</strong></p>
+                            <p><strong>Hfiles collects your data for the following purposes:</strong></p>
                             <li>
                                 <p>
                                     Providing and administering our medical records storage and consultation services;
@@ -151,12 +121,12 @@
                             </li>
                             <li>
                                 <p>
-                                    Processing quotation offers and managing the customer relationship inclusive of providing customer the required services, support and process, evaluate and respond to requests and inquiries, and capturing personal data of potential customers for future communications;
+                                   Processing quotation offers and managing the customer relationship inclusive of providing customer the required services, support and process, evaluate and respond to requests and inquiries, and capturing personal data of potential customers for future communications;
                                 </p>
                             </li>
                             <li>
                                 <p>
-                                    Conducting and facilitating customer satisfaction surveys, marketing campaigns, market analysis, contests or other promotional activities;
+                                   Conducting and facilitating customer satisfaction surveys, marketing campaigns, market analysis, contests or other promotional activities;
                                 </p>
                             </li>
                             <li>
@@ -166,7 +136,7 @@
                             </li> 
                             <li>
                                 <p>
-                                    Furnishing marketing communications by post, telephone, text, emails and other digital methods are products and services (such as alerts, promotional materials, newsletter, etc.);
+                                   Furnishing marketing communications by post, telephone, text, emails and other digital methods are products and services (such as alerts, promotional materials, newsletter, etc.);
                                 </p>
                             </li>
                             <li>
@@ -176,7 +146,7 @@
                             </li>
                             <li>
                                 <p>
-                                    Reporting and data analytics such as market research, trend analysis, financial analysis, customer segmentation and profiling of customers in order to improve customers experience with Anahat Solutions Pvt. Ltd. and provide better and more personalized content;
+                                     Reporting and data analytics such as market research, trend analysis, financial analysis, customer segmentation and profiling of customers in order to improve customers experience with Hfiles and provide better and more personalized content;
                                 </p>
                             </li> 
                             <li>
@@ -203,12 +173,12 @@
                             </p>
                             <p>
                                 <strong>
-                                    We may be compelled to share your details under following special circumstances such as when we believe in good faith and is required by law:
+                                   We may be compelled to share your details under following special circumstances such as when we believe in good faith and is required by law:
                                 </strong>
                             </p>
                             <li>
                                 <p>
-                                    To prevent, investigate, or take action regarding illegal activities, suspected fraud, situations involving potential threats to the physical safety of any person, violations of our Terms of Service or any other agreement related to the services, or as otherwise required by law.
+                                   To prevent, investigate, or take action regarding illegal activities, suspected fraud, situations involving potential threats to the physical safety of any person, violations of our Terms of Service or any other agreement related to the services, or as otherwise required by law.
                                 </p>
                             </li>
                             <li>
@@ -223,7 +193,7 @@
                             </li> 
                             <li>
                                 <p>
-                                    To confirm to legal requirements, or to respond to lawful Court orders, subpoenas, warrants, or other requests by public authorities (including to meet national security or law enforcement requirements).
+                                   To confirm to legal requirements, or to respond to lawful Court orders, subpoenas, warrants, or other requests by public authorities (including to meet national security or law enforcement requirements).
                                 </p>
                             </li>
                             <li>
@@ -238,7 +208,7 @@
                     </div>
                     <div class="px-2">
                         <ol>
-                           <p><strong>Where it concerns processing operations related to the business relationship with you, Anahat Solutions Pvt. Ltd. will not be able to adequately establish, conduct or terminate a business relationship with you and generally perform the purposes described above without certain data.</strong></p>
+                           <p><strong>Where it concerns processing operations related to the business relationship with you, Hfiles will not be able to adequately establish, conduct or terminate a business relationship with you and generally perform the purposes described above without certain data.</strong></p>
                             
                             <p><strong>Although we cannot obligate you to share your personal data with us, please note that this then may have consequences which could affect the business relationship in a negative manner, such as not to establish and continue the business relationships you have asked for.</strong></p>
                         </ol>
@@ -250,12 +220,12 @@
                         <ol>
                             <p>
                                 <strong>
-                                    Anahat Solution takes appropriate security measures to protect your data from being accidentally lost, used or accessed by unauthorized sources. We limit access to your personal data to employees within the organization, medical practitioners, and to those with a legitimate business or industry need.
+                                   Hfiles takes appropriate security measures to protect your data from being accidentally lost, used or accessed by unauthorized sources. We limit access to your personal data to employees within the organization, medical practitioners, and to those with a legitimate business or industry need.
                                 </strong>
                             </p>
                             <p>
                                 <strong>
-                                    We will only retain your data for stipulated time to fulfil the purposes, we collected it for, including for the purposes of satisfying any legal, accounting, audit, or reporting requirements or until you notify us that you no longer wish to receive the services and storage/consultation facilities provided by Anahat Solution.
+                                    We will only retain your data for stipulated time to fulfil the purposes, we collected it for, including for the purposes of satisfying any legal, accounting, audit, or reporting requirements or until you notify us that you no longer wish to receive the services and storage/consultation facilities provided by Hfiles.
                                 </strong>
                             </p>
                             <p>
@@ -265,12 +235,12 @@
                             </p>
                             <p>
                                 <strong>
-                                    For data provided to us by our clients, we are governed by their data retention rules as specified in their privacy notices.
+                                   For data provided to us by our clients, we are governed by their data retention rules as specified in their privacy notices.
                                 </strong>
                             </p>
                             <p>
                                 <strong>
-                                    Through the setting of IT applications and policies we ensure that our keeping of your personal data is deleted when we no longer need it.
+                                   Through the setting of IT applications and policies we ensure that our keeping of your personal data is deleted when we no longer need it.
                                 </strong>
                             </p>
                            
@@ -282,10 +252,10 @@
                     <div class="px-2">
                         <ol>
                             <p>
-                                <strong>We strictly refrain from sharing, disclosing, selling, renting or otherwise provide personal information to other companies (other than to specific Anahat Solution marketplace administrators you are interacting with, or to third party apps or service providers being used by the administrators you are interacting with) for the marketing of their own products or services.</strong>
+                                <strong>We strictly refrain from sharing, disclosing, selling, renting or otherwise provide personal information to other companies (other than to specific Hfiles marketplace administrators you are interacting with, or to third party apps or service providers being used by the administrators you are interacting with) for the marketing of their own products or services.</strong>
                             </p>
                              <p>
-                                 <strong>If you are a medical practitioner using Anahat Solutions’ services, we do not use the personal information to independently contact or market your patients. However, Anahat Solutions may contact or market your patients, if we obtain their information from another source, such as from the patients themselves.</strong>
+                                 <strong>If you are a medical practitioner using Hfiles’ services, we do not use the personal information to independently contact or market your patients. However, Hfiles may contact or market your patients, if we obtain their information from another source, such as from the patients themselves.</strong>
                             </p>
                             
                         </ol>
@@ -297,7 +267,7 @@
                         <ol>
                             <p>
                                 <strong>
-                                    In the event any personal data of a minor, i.e., below 18 years of age, is submitted via our website, mobile application, email form, surveys, etc., the same shall be submitted and collected by us only after obtaining due consent from the minor’s parents or guardian.
+                                   In the event any personal data of a minor, i.e., below 18 years of age, is submitted via our website, mobile application, email form, surveys, etc., the same shall be submitted and collected by us only after obtaining due consent from the minor’s parents or guardian.
                                 </strong>
                             </p>
                             <p>
@@ -307,7 +277,7 @@
                             </p>
                             <p>
                                 <strong>
-                                    Anahat Solutions will not collect, use, process or transfer the personal data of a minor in any manner that is likely to cause harm to the minor.
+                                    Hfiles will not collect, use, process or transfer the personal data of a minor in any manner that is likely to cause harm to the minor.
                                 </strong>
                             </p>
                            
@@ -325,17 +295,16 @@
                             </p>
                             <li>
                                 <p>
-                                    Right to access your data: You are entitled to ask Anahat Solutions Pvt. Ltd. for an overview of or to obtain a copy of the personal data we hold about you.
+                                   Right to access your data: You are entitled to ask Hfiles for an overview of or to obtain a copy of the personal data we hold about you.
                                 </p>
                             </li>
                              <li>
                                  <p>
-                                     Right to have your data corrected: You may request immediate rectification of any inaccurate or incomplete personal data we hold about you.
+                                    Right to have your data corrected: You may request immediate rectification of any inaccurate or incomplete personal data we hold about you.
                                  </p>
                             </li>
                              <li>
-                                 <p>
-                                     Right to have your data erased: You may request the personal data to be erased when it is no longer needed, where applicable law obliges us to delete the data or the processing of it is unlawful. In the event you want your personal data to be erased, please send an email requesting the erasure at  <a href="mailto: customer.support@health-e.in.">customer.support@health-e.in.</a>
+                                 <p>Right to have your data erased: You may request the personal data to be erased when it is no longer needed, where applicable law obliges us to delete the data or the processing of it is unlawful. In the event you want your personal data to be erased, please send an email requesting the erasure at <a href="mailto:customer.support@health-e.in">customer.support@health-e.in</a>.
                                  </p>
                             </li>
                              <li>
@@ -355,7 +324,7 @@
                             </li>
                              <li>
                                  <p>
-                                     Right to withdraw consent: Where Anahat Solutions has asked for your consent to process personal data, you may withdraw your consent at any point of time. The withdrawal of consent will not affect the lawfulness of processing based on consent before its withdrawal.
+                                     Right to withdraw consent: Where Hfiles has asked for your consent to process personal data, you may withdraw your consent at any point of time. The withdrawal of consent will not affect the lawfulness of processing based on consent before its withdrawal.
                                      <br />
                                      Right to be informed about how the data is used which is being collected from you;
                                  </p>
@@ -369,7 +338,7 @@
 
                              <p><strong>created by a web server, such as IP address, operating system, referring URL that can be stored on a user's hard disk for use during a session or for future use. Our cookies are session cookies which are only stored temporarily and are deleted from the user’s device when the browser is closed.</strong></p>
                             
-                             <p><strong>Anahat Solutions uses cookies to provide you with the best browsing experience on the site and to improve speed/security. We do not use cookies to collect any personal data from you, or to pass data on to a third party, without your permission.</strong></p>
+                             <p><strong>Hfiles uses cookies to provide you with the best browsing experience on the site and to improve speed/security. We do not use cookies to collect any personal data from you, or to pass data on to a third party, without your permission.</strong></p>
                             
                              <p><strong>If your browser enables the use of cookies, we take this, and your continued use of our site as acceptance of our use of cookies. If you do not wish to accept the use of cookies, please go to your browser settings to restrict or block the use of cookies set by our website.</strong></p>
 
@@ -382,7 +351,7 @@
                         <ol>
                             <p>
                                 <strong>
-                                    Anahat Solutions’ website, health-e, may contain links to external sites. These external sites will have their own privacy policies, and Anahat Solutions holds no direct or indirect responsibility for the privacy policies and/or practices or the content of such third-party websites.
+                                    Hfiles, may contain links to external sites. These external sites will have their own privacy policies, and Hfiles holds no direct or indirect responsibility for the privacy policies and/or practices or the content of such third-party websites.
                                 </strong>
                             </p>
                             
@@ -395,12 +364,12 @@
                         <ol>
                             <p>
                                 <strong>
-                                    Anahat Solutions Pvt Ltd. will not rent or sell your personal data to any individual or entity. We will not disclose your personal data to third parties, except as required in the course of providing our services or for purposes as described above.
+                                   Hfiles will not rent or sell your personal data to any individual or entity. We will not disclose your personal data to third parties, except as required in the course of providing our services or for purposes as described above.
                                 </strong>
                             </p>
                              <p>
                                  <strong>
-                                     Other than to contractors, medical practitioners associated with Anahat Solutions and affiliated organizations, we disclose personal data only in response to a subpoena, court order or other governmental request or when we believe in good faith that disclosure is reasonably necessary to protect the property or rights of Anahat Solutions, third parties or the public health or interest at large.
+                                    Other than to contractors, medical practitioners associated with Hfiles and affiliated organizations, we disclose personal data only in response to a subpoena, court order or other governmental request or when we believe in good faith that disclosure is reasonably necessary to protect the property or rights of Hfiles, third parties or the public health or interest at large.
                                  </strong>
                             </p>
 
@@ -413,7 +382,7 @@
                         <ol>
                             <p>
                                 <strong>
-                                    If any provision of this Agreement is deemed unlawful, void, voidable or unenforceable for any reason, then that provision shall be deemed severable from this Agreement and shall not affect the validity or enforceability of any remaining provisions.
+                                   Changes to our privacy policy will be made occasionally in line with any changes to data protection law. We encourage you to regularly check this notice on our website for updates.
                                 </strong>
                             </p>
                         </ol>
@@ -426,14 +395,8 @@
                         <ol>
                             <p>
                                 <strong>
-                                    If you want to access your personal data, make use of any of your other rights mentioned above or if you have any questions or concerns about how Anahat Solutions Pvt. Ltd. processes your personal data, please contact us via your registered email or in writing to the:
+                                    If you want to access your personal data, make use of any of your other rights mentioned above or if you have any questions or concerns about how Hfiles processes your personal data, please contact us via your registered email or in writing to the:
                                 </strong>
-                            </p>
-                            <p>
-                                <strong>E-mail :</strong> <a href="mailto: customer.support@health-e.in">customer.support@health-e.in</a>
-                            </p>
-                            <p>
-                                <strong>Telephone :</strong> <a href="tel: +917859804224">+917859804224</a>
                             </p>
                         </ol>
                     </div>
@@ -444,17 +407,17 @@
                         <ol>
                             <p>
                                 <strong>
-                                    If you have any concerns about how Anahat Solutions Pvt. Ltd. uses and stores your personal data, please contact us in the first instance, so that, we can address and rectify the issue.
+                                   If you have any concerns about how Hfiles uses and stores your personal data, please contact us in the first instance, so that, we can address and rectify the issue.
                                 </strong>
                             </p>
                              <p>
                                  <strong>
-                                     Should you not be satisfied with our response or believe we are processing your personal data against the law, you may also have the right to file a complaint with the Data Privacy Authority in your country of residence or work, or seek a remedy through the Courts where you believe an infringement of data privacy laws may have taken place.
+                                    Should you not be satisfied with our response or believe we are processing your personal data against the law, you may also have the right to file a complaint with the Data Privacy Authority in your country of residence or work, or seek a remedy through the Courts where you believe an infringement of data privacy laws may have taken place.
                                  </strong>
                             </p>
                               <p>
                                   <strong>
-                                      It is exclusive property of “Anahat Solutions Pvt. Ltd.”. No part of the same can be reproduced, copied, shared, altered, photocopied, etc., in any direct or indirect manner whether directly or indirectly.
+                                     It is exclusive property of “Hfiles”. No part of the same can be reproduced, copied, shared, altered, photocopied, etc., in any direct or indirect manner whether directly or indirectly.
                                   </strong>
                             </p>
 
@@ -470,21 +433,9 @@
         </div>
     </div>
 
-    <div class="footer d-flex justify-content-around">
-        <div class="t-c">
-            <a href="TermAndCondition.html">Terms & Conditions</a>
-        </div>
-        <div class="copy-right">
-            <span>Copyright@2023</span>
-        </div>
-        <div class="p-p">
-            <a href="PrivacyPolicy.html">Privacy & Policy</a>
-        </div>
-    </div>
     <img class="blue_trangle_bottom_right" src="../Terms & Conditions/blue-trangle4.png" alt="">
     <img class="blue_trangle_right" src="../Terms & Conditions/blue-trangle3.png" alt="">
     <img class="blue_trangle_bottom_left" src="../Terms & Conditions/blue-trangle5.png" alt="">
     <img class="plus_bottom_right" src="../Terms & Conditions/plus-2.png" alt="">
-</body>
-
-</html>
+        </div>
+</asp:Content>
