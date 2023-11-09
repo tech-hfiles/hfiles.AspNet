@@ -59,11 +59,12 @@ namespace hfiles
                         Session["user_gender"] = dt.Rows[0]["user_gender"].ToString();
                         Session["user_membernumber"] = dt.Rows[0]["user_membernumber"].ToString();
 
-                        //Session["user_dob"] = dt.Rows[0]["user_dob"].ToString();
-                        //if (Session["user_dob"] != null)
-                        //{
-                        //    Session["age"] = GetAge(DateTime.Now, Convert.ToDateTime(Session["user_dob"]));
-                        //}
+                        Session["user_dob"] = null;
+                       Session["user_dob"] = dt.Rows[0]["user_dob"].ToString();
+                        if (Session["user_dob"] != null && Session["user_dob"].ToString() != string.Empty)
+                        {
+                            Session["age"] = GetAge(DateTime.Now, Convert.ToDateTime(Session["user_dob"]));
+                        }
 
                         if (Session["user_gender"] != null)
                         {
@@ -74,6 +75,11 @@ namespace hfiles
                             else if (DAL.validateInt(Session["user_gender"].ToString()) == 2)
                             {
                                 Session["gender_string"] = "female";
+                            }
+                            //newly added by chetan dated on 07/11/2023
+                            else if (DAL.validateInt(Session["user_gender"].ToString()) == 3)
+                            {
+                                Session["gender_string"] = "other";
                             }
                         }
                     }

@@ -207,22 +207,22 @@
                 <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
                 <img class="plus-top-left" src="../assets/plus-1.png" alt="">
 
-                <div class="medical-main-div container pt-5 px-5 h-90">
+                <div class="medical-main-div container pt-5 px-5 h-90vh h-ssm-100vh">
                     <div class="row mt-5">
                         <div class="col-12">
                             <h1 class="heading mb-4">Medical History</h1>
                         </div>
                         <div class="row border-bottom p-0">
-                            <div class="col-6">
+                            <div class="col-lg-6 col-md-6 col-4">
                                 <p>Type</p>
                             </div>
-                            <div class="col-2 text-center">
+                            <div class="col-lg-2 col-2 text-center">
                                 <p>Myself</p>
                             </div>
-                            <div class="col-2 text-center">
+                            <div class="col-lg-2 col-3 text-center">
                                 <p>Mother Side's</p>
                             </div>
-                            <div class="col-2 text-center">
+                            <div class="col-lg-2 col-3 text-center">
                                 <p>Father Side's</p>
                             </div>
                         </div>
@@ -231,14 +231,14 @@
                             <asp:Repeater runat="server" ID="rptDisease">
                                 <ItemTemplate>
                                     <div class="row py-4 border-bottom medical-history-row">
-                                        <div class="col-md-6 col-5">
+                                        <div class="col-md-6 col-4">
                                             <p><%# Eval("disease_name") %></p>
                                             <asp:HiddenField runat="server" ID="hfdisease_id" Value='<%# Eval("disease_id") %>' />
                                             </p>
                                         
                                         </div>
                                         <%--                                    --%>
-                                        <div class="col-md-6 col-4 SingleCheckbox">
+                                        <div class="col-md-6 col-5 SingleCheckbox">
                                             <asp:CheckBoxList runat="server" ID="cbl" class="" RepeatDirection="Horizontal">
                                                 <asp:ListItem Value="1" Text=" " class="CheckBoxLabel" />
                                                 <asp:ListItem Value="2" Text=" " />
@@ -282,13 +282,13 @@
                             <h1 class="heading mb-4">Do You Have Any of These Allergies?</h1>
                         </div>
                         <div class="row border-bottom">
-                            <div class="col-6">
+                            <div class="col-md-6 col-4">
                                 <p>Type</p>
                             </div>
-                            <div class="col-2 text-center">
+                            <div class="col-md-2 col-3 text-center">
                                 <p>Yes</p>
                             </div>
-                            <div class="col-2 text-center">
+                            <div class="col-md-2 col-3 text-center">
                                 <p>No</p>
                             </div>
 
@@ -298,7 +298,7 @@
                                 <asp:Repeater runat="server" ID="rptAllergy">
                                     <ItemTemplate>
                                         <div class="row py-4 border-bottom allergy-row">
-                                            <div class="col-6 d-flex align-items-center">
+                                            <div class="col-md-6 col-4 d-flex align-items-center">
                                                 <p class="m-0"><%# Eval("allergy_name") %></p>
                                                 <asp:HiddenField runat="server" ID="hfallergy_id" Value='<%# Eval("allergy_id") %>' />
                                             </div>

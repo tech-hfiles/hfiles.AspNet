@@ -46,7 +46,7 @@
         <div class="heading-title mb-3 py-1 px-5">
             <div class="row">
                 <div class="col-md-6 py-3">
-                    <h1 class="heading">Documents</h1>
+                   <a class="back-arrow-btn" href="avatar.aspx"><img src="../assets/back-arrow.png" alt="">Back</a> <h1 class="heading">Documents</h1>
                 </div>
                 <div class="col-md-6 text-center py-3 search-file">
                     <i class="fa-solid fa-magnifying-glass"></i>

@@ -50,6 +50,7 @@ namespace hfiles
                 clear();
                 Response.Write("<script>alert('Data saved successfully.')</script>");
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                Response.Write("Samanta.aspx");
             }
             catch (Exception Ex)
             {
@@ -161,7 +162,7 @@ namespace hfiles
         protected void btnSaveAllergy_Click(object sender, EventArgs e)
         {
             addUpdateAllergy();
-      Response.Redirect("Samanta.aspx");
+             Response.Redirect("Samanta.aspx");
         }
 
 

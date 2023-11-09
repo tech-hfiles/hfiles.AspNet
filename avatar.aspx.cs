@@ -20,11 +20,21 @@ namespace hfiles
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
+            //if(Session["user_dob"]==null)
+            //{
+            //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please Fill up Basic Details')", true);
+            //    Response.Redirect("addbasicdetails.aspx");
+            //}
             if (Session["username"] != null)
             {
+                if (Session["user_dob"] != null && Session["user_dob"].ToString() != string.Empty)
+                {
+                    Session["age"] = GetAge(DateTime.Now, Convert.ToDateTime(Session["user_dob"]));
+                }
                 if (!IsPostBack)
                 {
                     getReports();
+                    
                     lblUserName.Text = Session["username"].ToString();
                     if (Session["gender_string"] != null && Session["age"] != null)
                     {
@@ -32,7 +42,8 @@ namespace hfiles
                     }
                     else
                     {
-                        imgAvatar.ImageUrl = "~/Avatar/default.png";
+                        //imgAvatar.ImageUrl = "~/Avatar/default.png";
+                        imgAvatar.ImageUrl = "~/Avatar/Asset_50.png";
                     }
                 }
             }
@@ -41,6 +52,15 @@ namespace hfiles
                 Response.Redirect("~/login.aspx");
             }
 
+        }
+
+        public static int GetAge(DateTime reference, DateTime birthday)
+        {
+            int age = reference.Year - birthday.Year;
+            if (reference < birthday.AddYears(age))
+                age--;
+
+            return age;
         }
         protected void lbtnAddReport_Click(object sender, EventArgs e)
         {
@@ -286,7 +306,7 @@ namespace hfiles
 
                 case "other":
                     {
-                        return basePath + "other/other.png";
+                        return basePath + "others/others.png";
                     }
 
                 default:

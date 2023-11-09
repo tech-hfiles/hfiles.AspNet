@@ -348,6 +348,13 @@
 
         });
 
+        function handleTabColor(tabName) {
+            if (tabName === 'mental-health') {
+                console.log(tabName)
+            }
+
+        }
+
     </script>
 
 

@@ -120,13 +120,13 @@
 
           <%--<asp:LinkButton ID="lbtn1" runat="server" OnClick="lbtn1_Click" ></asp:LinkButton>--%>
 
-          <asp:LinkButton ID="LbtnArticle" runat="server" OnClientClick="handleTabs('article')" OnClick="LbtnArticle_Click" CommandArgument="1">Article</asp:LinkButton>
+          <asp:LinkButton ID="LbtnArticle" runat="server" CssClass="journal-tabs" OnClientClick="handleTabs('article')" OnClick="LbtnArticle_Click" CommandArgument="1">Article</asp:LinkButton>
           <%--<a class="link" href="#" onclick="handleTabs('article')"><span id="ArticleTab">Article</span></a>--%>
           <span>| </span>
-          <asp:LinkButton ID="LbtnVideo" runat="server" OnClientClick="handleTabs('video')" OnClick="LbtnVideo_Click" CommandArgument="2">Video</asp:LinkButton>
+          <asp:LinkButton ID="LbtnVideo" runat="server" CssClass="journal-tabs" OnClientClick="handleTabs('video')" OnClick="LbtnVideo_Click" CommandArgument="2">Video</asp:LinkButton>
           <%-- <a class="link active" href="#" onclick="handleTabs('video')"><span id="VideoTab">Video</span></a>--%>
           <span>| </span>
-          <asp:LinkButton ID="LbtnAudio" runat="server" OnClientClick="handleTabs('audio')" OnClick="LbtnAudio_Click" CommandArgument="3">Audio</asp:LinkButton>
+          <asp:LinkButton ID="LbtnAudio" runat="server" CssClass="journal-tabs" OnClientClick="handleTabs('audio')" OnClick="LbtnAudio_Click" CommandArgument="3">Audio</asp:LinkButton>
           <%-- <a class="link " href="#" onclick="handleTabs('audio')"><span id="AudioTab">Audio</span></a>--%>
         </div>
       </div>
@@ -277,51 +277,33 @@
 
 
   <script>
-    const article = document.getElementById('articleDiv')
-    const audio = document.getElementById('audioDiv')
-    const video = document.getElementById('videoDiv')
-
-    const ArticleTab = document.getElementById('ArticleTab')
-    const VideoTab = document.getElementById('VideoTab')
-    const AudioTab = document.getElementById('AudioTab')
-
-    const shorting = document.getElementById('shorting')
-    const filtering = document.getElementById('filtering')
+      const article = document.getElementById('ContentPlaceHolder1_LbtnArticle')
+      const audio = document.getElementById('ContentPlaceHolder1_LbtnAudio')
+      const video = document.getElementById('ContentPlaceHolder1_LbtnVideo')
 
 
-    article.style.display = 'block'
-    audio.style.display = 'none'
-    video.style.display = 'none'
+    //const ArticleTab = document.getElementById('ArticleTab')
+    //const VideoTab = document.getElementById('VideoTab')
+    //const AudioTab = document.getElementById('AudioTab')
 
-
-    function handleTabs(tab) {
-      if (tab === 'article') {
-        article.style.display = 'block'
-        audio.style.display = 'none'
-        video.style.display = 'none'
-
-        ArticleTab.style.color = '#08138f'
-        VideoTab.style.color = '#d6d6d6'
-        AudioTab.style.color = '#d6d6d6'
-
-      } else if (tab === 'video') {
-        article.style.display = 'none'
-        audio.style.display = 'none'
-        video.style.display = 'block'
-
-        ArticleTab.style.color = '#d6d6d6'
-        VideoTab.style.color = '#172ab3'
-        AudioTab.style.color = '#d6d6d6'
-      } else if (tab === 'audio') {
-        article.style.display = 'none'
-        audio.style.display = 'block'
-        video.style.display = 'none'
-
-        ArticleTab.style.color = '#d6d6d6'
-        VideoTab.style.color = '#d6d6d6'
-        AudioTab.style.color = '#172ab3'
+    //const shorting = document.getElementById('shorting')
+    //const filtering = document.getElementById('filtering')
+      article.style.color = '#172ab3'
+      function handleTabs(value) {
+          if (value === 'article') {
+              article.style.color = '#172ab3'
+              audio.style.color = '#d6d6d6'
+              video.style.color = '#d6d6d6'
+          } else if (value === 'video') {
+              video.style.color = '#172ab3'
+              audio.style.color = '#d6d6d6'
+              article.style.color = '#d6d6d6'
+          }else if (value === 'audio') {
+              audio.style.color = '#172ab3'
+              article.style.color = '#d6d6d6'
+              video.style.color = '#d6d6d6'
+          }
       }
-    }
 
 
   </script>

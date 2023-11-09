@@ -1100,6 +1100,10 @@ select {
         .privacy_main .inner_div {
             width: 80%;
         }
+        .back-arrow-btn {
+            top: 8%;
+            left: 5%;
+        }
     }
 
     @media only screen and (max-width: 414px) {

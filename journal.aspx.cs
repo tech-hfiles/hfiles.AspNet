@@ -109,7 +109,7 @@ namespace hfiles
     private void Blogs(int blogid)
     {
       int id = Convert.ToInt32(Request.QueryString["blogid"]);
-      if (id == 37)
+      if (id == 46)
       {
         Response.Redirect("blogDetails5.html");
       }
@@ -328,7 +328,7 @@ namespace hfiles
     protected void bloglink_Click(object sender, EventArgs e)
     {
       int id = Convert.ToInt32(Request.QueryString["blogid"]);
-      if (id == 37)
+      if (id == 46)
       {
         Response.Redirect("blogDetails5.html");
       }
@@ -361,7 +361,7 @@ namespace hfiles
       int id = Convert.ToInt16(lnk.CommandArgument);
 
       //int id = Convert.ToInt32(Request.QueryString["blogid"]);
-      if (id == 37)
+      if (id == 46)
       {
         Response.Redirect("blogDetails5.html");
       }

@@ -34,15 +34,11 @@
 <body>
     <div class="signin-main">
         <form class="w-100 h-100" runat="server">
-            <div class="row vert-cent w-100 ">
-                <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image h-lg-100vh ">
+            <div class="row vert-cent w-100 h-sm-100vh">
+                <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image h-lg-100vh d-none d-lg-block">
                     <img src="<%= ResolveUrl("~/Reception Page/002A.jpg") %>" alt="" width="100%" height="100%" />
                 </div>
-                <div class="col-lg-6 col-xl-6 col-md-5 col-sm-12 px-5 d-flex justify-content-center align-items-center vh-lg
-                
-                
-                
-                -100"
+                <div class="col-lg-6 col-xl-6 col-md-5 col-sm-12 px-5 d-flex justify-content-center align-items-center vh-lg-100"
                     style="background-image: url('<%= ResolveUrl("~/Reception Page/002B.png") %>')">
                     <div>
                         <div class="text-center signin-heading">

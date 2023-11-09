@@ -529,7 +529,7 @@ ul {
     .avatar .inner-menu-div .opthalmology-icon {
         position: relative;
         bottom: 535px;
-        right: 140px;
+        right: 95px;
     }
 
     .avatar .inner-menu-div .immunization {
@@ -642,7 +642,7 @@ a {
   } */
 @media only screen and (min-width: 1600px) {
     .avatar .avatar-left-sec ul {
-        height:94vh;
+        height:93vh;
     }
     .input-group input {
         width: 100%;
@@ -776,8 +776,40 @@ a {
     .inner-div {
         width:95%;
     }
+  
 }
 
+@media only screen and (max-width: 1550px) {
+    .avatar .avatar-left-sec ul {
+        height: 90vh !important;
+    }
+
+        .avatar .avatar-left-sec ul li {
+            padding: 0 !important;
+        }
+    .avatar .inner-menu-div .lab-report {
+        bottom: 475px !important;
+    }
+    .avatar .inner-menu-div .lab-report div:first-child {
+        align-items: flex-start !important;
+    }
+    .avatar .inner-menu-div .immunization {
+        bottom: 520px !important;
+    }
+    .input-group input, .input-group .relation-div {
+        width: 100% !important;
+    }
+
+    .add-member .blue-t-bottom-left {
+        left: 0;
+    }
+
+    .input-group .relation-div {
+        display: flex;
+        justify-content: center;
+    }
+
+}
 @media only screen and (max-width: 1366px) {
     .avatar .menu-div .w-100 {
         width: 100% !important;
@@ -788,12 +820,12 @@ a {
     }
 
     .avatar .inner-menu-div .lab-report {
-        bottom: 415px;
+        bottom: 415px !important;
         left: 110px;
     }
 
     .avatar .inner-menu-div .immunization {
-        bottom: 465px;
+        bottom: 465px !important;
         left: 20px;
     }
 
@@ -809,7 +841,7 @@ a {
 
     .avatar .inner-menu-div .opthalmology-icon {
         bottom: 505px;
-        right: 100px;
+        right: 60px;
     }
 
     .avatar .inner-menu-div .dentel-report {
@@ -829,7 +861,8 @@ a {
     .avatar .inner-menu-div .mediclaim-insurance {
         bottom: 575px;
         /* right: 23px; */
-        left: 25px;
+        left: 0px;
+        justify-content: center
     }
 
     /* .avatar .inner-menu-div .mediclaim-insurance div:first-child {
@@ -847,6 +880,12 @@ a {
 
     .input-group input {
         width: 185px;
+    }
+    .avatar .avatar-left-sec ul {
+        height:90vh !important;
+    }
+    .avatar .avatar-left-sec ul li {
+        padding: 0 !important;
     }
 }
 
@@ -1079,7 +1118,9 @@ a {
 
     .avatar .inner-menu-div .mediclaim-insurance {
         bottom: 570px;
-        left: 70px;
+       right:0;
+       left:0;
+       justify-content: end;
     }
 
     /* .avatar .inner-menu-div .mediclaim-insurance div:first-child {
@@ -1088,8 +1129,8 @@ a {
 
     .avatar .inner-menu-div .dentel-report {
         bottom: 484px;
-        /* right: 0px; */
-        left: 20px;
+         right: 35px; 
+        justify-content: center
     }
 
         .avatar .inner-menu-div .dentel-report div:first-child {
@@ -1099,7 +1140,8 @@ a {
     .avatar .inner-menu-div .special-report {
         bottom: 520px;
         /* right: 0px; */
-        left: 40px;
+        left: 0px;
+        justify-content: center
     }
 
     /* .avatar .inner-menu-div .special-report div:first-child {
@@ -1107,27 +1149,28 @@ a {
     } */
 
     .avatar .inner-menu-div .lab-report {
-        bottom: 349px;
-        left: 112px;
+        bottom: 350px !important;
+        left: 112px !important;
     }
 
     .avatar .inner-menu-div .immunization {
-        bottom: 405px;
-        left: 65px;
+        bottom: 410px !important;
+        left: 75px !important;
     }
 
     .avatar .inner-menu-div .lab-report div:first-child {
-        margin-left: 20px;
+        justify-content: end;
     }
 
     .avatar .inner-menu-div .medication-prescription {
-        bottom: 425px;
-        right: 70px;
+        bottom: 435px;
+        right: 65px;
     }
 
     .avatar .inner-menu-div .radiology {
-        bottom: 442px;
-        left: 30px;
+        bottom: 450px;
+        right: 55px;
+        justify-content: center
     }
 
     /* .avatar .inner-menu-div .radiology div {
@@ -1136,7 +1179,8 @@ a {
 
     .avatar .inner-menu-div .opthalmology-icon {
         bottom: 460px;
-        right: 35px;
+        right: 65px;
+        justify-content: center;
     }
 
     .avatar .plus-icon {
@@ -1225,7 +1269,7 @@ a {
     }
 
     .avatar .inner-menu-div .lab-report {
-        left: 118px;
+        left: 118px !important;
     }
 
         .avatar .inner-menu-div .lab-report div {
@@ -1233,8 +1277,8 @@ a {
         }
 
     .avatar .inner-menu-div .immunization {
-        bottom: 400px;
-        left: 85px;
+        bottom: 400px !important;
+        left: 85px !important;
     }
 
     .avatar .inner-menu-div .medication-prescription {
@@ -1250,7 +1294,7 @@ a {
     }
 
     .avatar .inner-menu-div .dentel-report {
-        left: 46px;
+       right:20px
     }
 
     /* .avatar .inner-menu-div .dentel-report div:first-child {
@@ -1258,7 +1302,7 @@ a {
     } */
 
     .avatar .inner-menu-div .special-report {
-        left: 60px;
+        left: 00px;
     }
 
     /* 
@@ -1267,7 +1311,7 @@ a {
     } */
 
     .avatar .inner-menu-div .mediclaim-insurance {
-        left: 85px;
+        left: 0px;
     }
 
         .avatar .inner-menu-div .mediclaim-insurance div:first-child {
@@ -1275,11 +1319,11 @@ a {
         }
 
     .avatar .inner-menu-div .radiology {
-        left: 40px;
+        right: 45px
     }
 
     .avatar .inner-menu-div .opthalmology-icon {
-        right: 0;
+        right: 50px;
     }
 
     /* .avatar .inner-menu-div .opthalmology-icon div:first-child {

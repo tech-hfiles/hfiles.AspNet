@@ -48,7 +48,7 @@
         }
 
         .modalPopup {
-            background-color: #fffae4;
+            background-color: #f4f4f4;
             border-width: 3px;
             border-style: solid;
             border-color: black;
@@ -67,6 +67,7 @@
             width: 100%;
             padding: 5px;
             border-radius: 10px;
+            border: 1px solid #0512B9;
         }
 
         .modalPopup .lbl {
@@ -74,9 +75,10 @@
         }
 
         .filename-txtbox {
-            width: 95%;
+            width: 100%;
             padding: 5px;
             border-radius: 10px;
+            border: 1px solid #0512B9;
         }
 
         .submit-btn {
@@ -84,7 +86,7 @@
             background: linear-gradient(to right, #0512B9 0%, #081466 100%);
             color: #fff;
             border: none;
-            border-radius: 50px;
+            border-radius: 10px;
             font-size: 14px;
             width: 100px;
             cursor: pointer;
@@ -95,7 +97,7 @@
             background: linear-gradient(to right, #f57272 0%, #fa5656 100%);
             color: #fff;
             border: none;
-            border-radius: 50px;
+            border-radius: 10px;
             font-size: 14px;
             width: 100px;
             margin-left: 10px;
@@ -138,81 +140,81 @@
                         <div class="col-6 p-0">
                             <div class="avatar-left-sec">
                                 <ul class="m-0">
-                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-4"><span class="plus-value">
+                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-2 pb-xxl-4"><span class="plus-value">
                                         <asp:Label Text="" ID="lblUserName" runat="server" /></span></li>
-                                    <br>
-                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-2">
+                                    <li class="border-bottom w-100px text-center mb-2 mb-lg-3 mb-xxl-4">
                                         <a href="addmember.aspx">
                                             <img src="../Avatar/add-icon.png" alt=""
                                                 width="30px" />
-                                            <br />
-                                            <small class="add-member-name">add member</small>
+                                            <div>
+                                                <small class="add-member-name">add member</small>
+                                            </div>
 
                                         </a>
 
                                     </li>
-                                    <br>
-                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-2">
+                                    <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
                                         <a href="addmember.aspx">
                                             <img src="../Avatar/add-icon.png" alt=""
                                                 width="30px" />
-                                            <br />
-                                            <small class="add-member-name">add member</small>
+                                            <div>
+                                                <small class="add-member-name">add member</small>
+                                            </div>
 
                                         </a>
 
                                     </li>
-                                    <br>
-                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-2">
+                                    <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
                                         <a href="addmember.aspx">
                                             <img src="../Avatar/add-icon.png" alt=""
                                                 width="30px" />
-                                            <br />
-                                            <small class="add-member-name">add member</small>
+                                             <div>
+                                                <small class="add-member-name">add member</small>
+                                            </div>
 
                                         </a>
 
                                     </li>
-                                    <br>
-                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-2">
+                                    <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
                                         <a href="addmember.aspx">
                                             <img src="../Avatar/add-icon.png" alt=""
                                                 width="30px" />
-                                            <br />
-                                            <small class="add-member-name">add member</small>
+                                             <div>
+                                                <small class="add-member-name">add member</small>
+                                            </div>
 
                                         </a>
 
                                     </li>
-                                    <br>
-                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-2">
+                                    <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
                                         <a href="addmember.aspx">
                                             <img src="../Avatar/add-icon.png" alt=""
                                                 width="30px" />
-                                            <br />
-                                            <small class="add-member-name">add member</small>
+                                            <div>
+                                                <small class="add-member-name">add member</small>
+                                            </div>
 
                                         </a>
 
                                     </li>
-                                    <br>
-                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-2">
+                                    <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
                                         <a href="addmember.aspx">
                                             <img src="../Avatar/add-icon.png" alt=""
                                                 width="30px" />
-                                            <br />
-                                            <small class="add-member-name">add member</small>
+                                             <div>
+                                                <small class="add-member-name">add member</small>
+                                            </div>
 
                                         </a>
 
                                     </li>
-                                    <br>
-                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-3 pb-xxl-2">
+                                    <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
                                         <a href="addmember.aspx">
                                             <img src="../Avatar/add-icon.png" alt=""
                                                 width="30px" />
-                                            <br />
-                                            <small class="add-member-name">add member</small>
+                                             <div>
+                                                <small class="add-member-name">add member</small>
+                                            </div>
 
                                         </a>
 
@@ -335,8 +337,9 @@
                             <label><strong>Select Report Type :</strong></label>
                         </div>
                         <div class="col-7">
-                            <asp:DropDownList runat="server" ID="ddlReports">
-                            </asp:DropDownList>
+                            <asp:DropDownList CssClass="select-report-dropdown" runat="server" ID="ddlReports" >
+                           </asp:DropDownList>
+                            <asp:RequiredFieldValidator runat="server" ErrorMessage="Please Select Report Type" ControlToValidate="ddlReports" SetFocusOnError="True"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                 </div>
@@ -346,7 +349,7 @@
                     <label><strong>File Name : </strong></label>
                 </div>
                 <div class="col-7">
-                    <asp:TextBox runat="server" ID="txtReportName" CssClass="filename-txtbox" />
+                    <asp:TextBox runat="server" ID="txtReportName" CssClass="filename-txtbox" required/>
                 </div>
             </div>
             <div class="row my-3" style="width: 100%">
@@ -354,7 +357,7 @@
                     <label><strong>Select File :</strong></label>
                 </div>
                 <div class="col-7">
-                    <asp:FileUpload ID="imageFileUpload1" runat="server" />
+                    <asp:FileUpload ID="imageFileUpload1" runat="server" required/>
                 </div>
             </div>
             <br />

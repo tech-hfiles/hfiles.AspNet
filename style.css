@@ -78,16 +78,22 @@ a {
     padding: 10px 60px;
     background: linear-gradient(to right, #0512B9 0%, #081466 100%);
     border-radius: 20px;
-    color: #ffffff;
+    color: #ffffff !important;
     font-weight: 700;
 }
 
 .thm-blue-button:hover {
     background: #ffffff;
     border-color: #08138f;
-    color: #08138f;
+    color: #08138f !important;
 }
 
+.color-thm-blue {
+    color: #0512b9 !important
+}
+/*.back-arrow-btn {
+    color: #0512b9;
+}*/
 .thm-button:hover {
     background: #ffffff;
     border-color: #eec93a;
@@ -1602,7 +1608,9 @@ span.img-notselected {
     .additionl-main-div, .medical-history, .medical-main-div {
         min-height: 94vh;
     }
-
+    .SingleCheckbox input[type=checkbox] + label {
+        margin: 0 90px !important;
+    }
 
 }
 @media only screen and (min-width: 1300px) {
@@ -1621,6 +1629,12 @@ span.img-notselected {
         bottom: 0;
         width:100%;
     }*/
+    .SingleCheckbox input[type=checkbox] + label {
+        margin: 0 85px !important;
+    }
+    .SingleCheckbox input[type=radio] + label {
+        margin:0 80px !important
+    }
 }
 
 @media only screen and (max-width: 1200px) {
@@ -1801,12 +1815,19 @@ span.img-notselected {
     .h-sm-100vh {
         height: 100vh;
     }
-    .SingleCheckbox input[type=checkbox] + label {
-        margin:0 20px;
+    .h-90vh {
+        height:90vh !important;
     }
+    .SingleCheckbox input[type=checkbox] + label, .SingleCheckbox input[type=radio] + label {
+        margin: 0 15px !important;
+    }
+
 }
 
 @media only screen and (max-width: 414px) {
+    .h-sm-100vh {
+        height: 100vh !important;
+    }
     .signin-main .triangle-bottom-left {
         position: relative;
         height: 50px;
@@ -1950,6 +1971,10 @@ span.img-notselected {
     .support-group .left-nav-bar {
         height: 70vh;
     }
+    .h-ssm-100vh {
+        height:100vh!important;
+    }
+
 }
 
 @media only screen and (max-width: 300px) {
