@@ -24,6 +24,24 @@ namespace hfiles
         protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
+        /// imagePreview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage imagePreview;
+
+        /// <summary>
+        /// Profileupload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload Profileupload;
+
+        /// <summary>
         /// firstNameTextBox control.
         /// </summary>
         /// <remarks>
@@ -69,13 +87,22 @@ namespace hfiles
         protected global::System.Web.UI.HtmlControls.HtmlSelect bloodgroup;
 
         /// <summary>
-        /// countryTextBox control.
+        /// ddlCountry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect countryTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCountry;
+
+        /// <summary>
+        /// stateDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList stateDropDownList;
 
         /// <summary>
         /// stateTextBox control.
@@ -84,7 +111,16 @@ namespace hfiles
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect stateTextBox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText stateTextBox;
+
+        /// <summary>
+        /// cityDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cityDropDownList;
 
         /// <summary>
         /// cityTextBox control.
@@ -93,7 +129,16 @@ namespace hfiles
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect cityTextBox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText cityTextBox;
+
+        /// <summary>
+        /// dialcode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label dialcode;
 
         /// <summary>
         /// contactTextBox control.
@@ -148,14 +193,5 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button submitButton;
-
-        /// <summary>
-        /// nextButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button nextButton;
     }
 }

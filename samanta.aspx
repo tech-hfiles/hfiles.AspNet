@@ -16,15 +16,15 @@
     <div class="journal">
         <div class="journal_main">
             <div class="jur-width-div" style="width: 85%;">
-                <div class="row inner_div mt-5">
+                <div class="row inner_div mt-5 w-100">
                     <div class="col-12 heading">
                         <a href="<%= ResolveUrl("~/journal.aspx") %>">
                             <h3>Journal</h3>
                         </a>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-4 col-sm-12 col-xl-4 col-md-4  dropdown ">
+                <div class="row w-100">
+                    <div class="col-lg-4 col-12 col-xl-4 col-md-4  dropdown ">
                         <div class="my_profile">
                             <div>
                                 <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
@@ -35,23 +35,23 @@
                                     <div>
                                         <!-- <li><img class="dropdown-icon" src="../Reception Page/lock-icon.png" alt=""><a
                                             tabindex="-1" href="#">UNIQUE ID</a></li> -->
-                                        <a class="color-white" tabindex="-1" href="addbasicdetails.aspx">
-                                        <li class="color-white">
-                                            <img class="dropdown-icon" src="../Reception Page/user-icon.png" alt="">My Info
-                                        </li>
-                                            </a>
+                                        <a class="color-white" tabindex="-1" href="additionalinformation.aspx">
+                                            <li class="color-white">
+                                                <img class="dropdown-icon" src="../Reception Page/user-icon.png" alt="">My Info
+                                            </li>
+                                        </a>
                                         <!-- <li><img class="dropdown-icon" src="../Reception Page/add-icon.png" alt=""><a
                                         tabindex="-1" href="#">ADD MY REPORTS</a></li> -->
-                                            <a  href="<%= ResolveUrl("~/avatar.aspx") %>">
-                                        <li class="color-white" style="border-bottom:0">
-                                                <img class="dropdown-icon" src="../Reception Page/add-icon.png" alt="">Add member
-                                        </li>
-                                                </a>
-                                         <%--<a  href="<%= ResolveUrl("~/addbasicdetails.aspx") %>">
-                                        <li class="color-white" style="border: 0;">
-                                                <img class="dropdown-icon" src="../Reception Page/add-icon.png" alt="">Add basic details
-                                        </li>
-                                                </a>--%>
+                                        <a href="<%= ResolveUrl("~/avatar.aspx") %>">
+                                            <li class="color-white">
+                                                <img class="dropdown-icon" src="../Reception Page/add-icon.png" alt="">My H-Files
+                                            </li>
+                                        </a>
+                                        <a href="<%= ResolveUrl("~/addmember.aspx") %>">
+                                            <li class="color-white" style="border: 0;">
+                                                <img class="dropdown-icon" src="../Reception Page/add-icon.png" alt="">Add Member
+                                            </li>
+                                        </a>
                                     </div>
                                 </ul>
                             </div>
@@ -59,17 +59,17 @@
                     </div>
                     <div class="col-4">
                     </div>
-                    <div class="col-lg-4 col-xl-4 col-md-4 col-sm-12 dropdown ">
-                                <a class="support-group" href="supportgroup.aspx">
-                        <div class="my_profile">
-                            <div>
-                                <h3>Support Group</h3>
+                    <div class="col-lg-4 col-xl-4 col-md-4 col-12 dropdown ">
+                        <a class="support-group" href="supportgroup.aspx">
+                            <div class="my_profile">
+                                <div>
+                                    <h3>Support Group</h3>
+                                </div>
                             </div>
-                        </div>
-                                    </a>
+                        </a>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row w-100">
                     <div class="col-12 d-flex justify-content-center ">
                         <img class="samanta-image" src="../Reception Page/Samanta.png" alt="">
                     </div>

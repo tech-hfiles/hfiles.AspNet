@@ -142,18 +142,19 @@
                                 </div>
                             </div>
                             <div class="row surgeries-div">
-                                <div class="col-5 col-md-4">
-                                    <input type="text" runat="server" id="txtSurgeries" />
+                                <div class="col-6 col-md-4">
+                                    <input type="text" runat="server" id="txtSurgeries" placeholder="Enter the surgery details" />
                                 </div>
-                                <div class="col-lg-1 col-2 d-flex justify-cont">
-                                    <div class="add-surgeries">
-                                        <asp:Button ID="addsurgeryButton" OnClick="addsurgeryButton_Click" Text="+" runat="server" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-2">
+                                
+                                <div class="col-lg-2 col-6">
                                     <div class="select-years">
                                         <asp:DropDownList runat="server" ID="yearpicker" name="yearpicker">
                                         </asp:DropDownList>
+                                    </div>
+                                </div>
+                                <div class="col-lg-1 col-12 mt-3 mt-lg-0">
+                                    <div class="">
+                                        <asp:Button Text="add" ID="addsurgeryButton" class="thm-blue-button" OnClick="addsurgeryButton_Click" runat="server" />
                                     </div>
                                 </div>
                                 <div class="col-lg-5 col-12 mt-lg-0 mt-5">
@@ -164,6 +165,9 @@
                                                 SortExpression="user_surgery_details" />
                                             <asp:BoundField DataField="user_surgery_year" HeaderText="Surgery Date"
                                                 SortExpression="user_surgery_year" />
+                                            <asp:BoundField HeaderText="Action" >
+                                               <%--<asp:ImageButton ID="button1" Text="text" CssClass="log-out-btn" ImageUrl="../assets/not-select-red.png" runat="server"></asp:ImageButton>--%>
+                                            </asp:BoundField>
                                         </Columns>
                                     </asp:GridView>
 
@@ -186,9 +190,9 @@
                                     </table>--%>
                                 </div>
                             </div>
-                            <div class="mt-5">
-                                <%--<asp:Button Text="Submit" ID="btnSubmit" runat="server" class="thm-blue-button" OnClick="btnSubmit_Click" />--%>
-                                <asp:Button Text="Next" ID="btnUpdateAdditional" class="thm-blue-button" OnClick="btnUpdateAdditional_Click" runat="server" />
+                            <div class="mt-5 d-lg-flex d-block">
+                               <%--<asp:Button Text="Back" class="thm-back-button" OnClick="btnMedicalBack_Click" type="Button" ID="Button1" runat="server" />--%>
+                                <asp:Button Text="Next" ID="btnUpdateAdditional" class="thm-blue-button mx-lg-3 my-2 my-lg-0" OnClick="btnUpdateAdditional_Click" runat="server" />
                                 <%--<button onclick="HideAdditionalDiv()" type="submit" class="thm-blue-button">Next</button>--%>
                             </div>
                         </div>

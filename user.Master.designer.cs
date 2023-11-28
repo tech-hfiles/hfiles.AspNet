@@ -42,13 +42,22 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.Label memberLabel;
 
         /// <summary>
-        /// logoutImageButton control.
+        /// memberId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton logoutImageButton;
+        protected global::System.Web.UI.WebControls.Label memberId;
+
+        /// <summary>
+        /// lBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lBtn;
 
         /// <summary>
         /// ContentPlaceHolder1 control.

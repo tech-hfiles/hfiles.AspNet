@@ -46,7 +46,8 @@
                     </div>
                     <div runat="server" id="divOtp">
                         <input runat="server" required id="otpTextBox" autocomplete="off" class="w-100 login-input" type="Text" placeholder="Enter OTP" />
-                         <div class="text-end">
+                         <div class
+                             ="text-end">
                               <span class="mx-2"><asp:LinkButton ID="resendLinkButton" runat="server">Resend OTP</asp:LinkButton></span>
                          </div>
                     </div>
@@ -58,7 +59,7 @@
                        
                            
                         <br />
-                        <span style="color:#fff">New User? Click <a href="signup.aspx">here</a> to Signup</span>
+                        <span style="color:#fff">New User? Click <a style="color:#fdd001; font-weight:700" href="signup.aspx">here</a> to Signup</span>
                     </div>
                 </div>
             </div>

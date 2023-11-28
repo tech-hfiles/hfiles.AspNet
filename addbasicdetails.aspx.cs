@@ -1,8 +1,10 @@
-﻿using MySql.Data.MySqlClient;
+﻿using AjaxControlToolkit.HTMLEditor.ToolbarButton;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -25,13 +27,31 @@ namespace hfiles
                 if (!IsPostBack)
                 {
                     int userid = Convert.ToInt32(Session["Userid"]);
+                    if (ddlCountry.SelectedIndex == -1)
+                    {
+                        getcountrylist();
+                    }
+                    //if (ddlCountry.SelectedItem.Text == "India")
+                    //{
+                    //    getstatelist();
+                    //    stateTextBox.Visible = false;
+                    //    cityTextBox.Visible = false;
+                    //    stateDropDownList.Visible = true;
+                    //    cityDropDownList.Visible = true;
+                    //}
+                    //else
+                    //{
+                    //    stateTextBox.Visible = true;
+                    //    cityTextBox.Visible = true;
+                    //    stateDropDownList.Visible = false;
+                    //    cityDropDownList.Visible = false;
+                    //}
                     getbasicdetails(userid);
+
                     //firstNameTextBox.Value = Session["firstname"].ToString();
                     //lastNameTextBox.Value = Session["lastname"].ToString();
                     //emailTextBox.Value = Session["email"].ToString();
                     //contactTextBox.Value = Session["phone"].ToString();
-
-                    
                 }
             }
             else
@@ -39,6 +59,42 @@ namespace hfiles
                 Response.Redirect("~/login.aspx");
             }
 
+        }
+        private void getcountrylist()
+        {
+            MySqlConnection con = new MySqlConnection(connectionString);
+            string com = "Select * from countrylist";
+            MySqlDataAdapter adpt = new MySqlDataAdapter(com, con);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
+            ddlCountry.DataSource = dt;
+            ddlCountry.DataTextField = "countryname";
+            ddlCountry.DataValueField = "dialingcode";
+            ddlCountry.DataBind();
+        }
+        private void getstatelist()
+        {
+            MySqlConnection con = new MySqlConnection(connectionString);
+            string com = "Select state from scp group by state";
+            MySqlDataAdapter adpt = new MySqlDataAdapter(com, con);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
+            stateDropDownList.DataSource = dt;
+            stateDropDownList.DataTextField = "state";
+            stateDropDownList.DataValueField = "state";
+            stateDropDownList.DataBind();
+        }
+        private void getcitylist(string state)
+        {
+            MySqlConnection con = new MySqlConnection(connectionString);
+            string com = "Select distinct city from scp where state='" + state + "' ";
+            MySqlDataAdapter adpt = new MySqlDataAdapter(com, con);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
+            cityDropDownList.DataSource = dt;
+            cityDropDownList.DataTextField = "city";
+            cityDropDownList.DataValueField = "city";
+            cityDropDownList.DataBind();
         }
         public static string GenerateId()
         {
@@ -79,7 +135,7 @@ namespace hfiles
                     command.Parameters.AddWithValue("_user_bloodgroup", bloodgroup.Value);
                     command.Parameters.AddWithValue("_user_state", stateTextBox.Value);
                     command.Parameters.AddWithValue("_user_city", cityTextBox.Value);
-                    command.Parameters.AddWithValue("_user_country", countryTextBox.Value);
+                    command.Parameters.AddWithValue("_user_country", ddlCountry.SelectedItem.Text);
                     //command.Parameters.AddWithValue("_user_country", ddlCountry.SelectedValue);
                     command.Parameters.AddWithValue("_user_contact", contactTextBox.Value);
                     command.Parameters.AddWithValue("_user_icecontact", icecontactTextBox.Value);
@@ -96,7 +152,7 @@ namespace hfiles
                     //string subject = "# Verification code";
                     //string body = $"<p style=\"text-align: justify;\">Dear {firstNameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify;\">Thank you for signing up for Hfiles! We&apos;re delighted to have you as a member of our community, and we appreciate your trust in our platform.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Now that you&apos;re officially part of Hfiles, you can take the first step in managing your medical data. Simply log into your account by visiting [Login Page] and use your registered credentials to access your personalized dashboard.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Once you&apos;re logged in, you&apos;ll be able to:&nbsp;</p>\r\n<ol>\r\n    <li style=\"text-align: justify;\">Fill Medical Records: Easily input and update your medical history, prescriptions, and other vital information.</li>\r\n    <li style=\"text-align: justify;\">Upload Documents: Safely upload and store important medical documents, test results, and reports</li>\r\n</ol>\r\n<p style=\"text-align: justify;\">Our user-friendly interface and secure storage ensure that your medical data is organized and readily accessible when you need it most.</p>\r\n<p style=\"text-align: justify;\">If you have any questions or need assistance, our support team is here to help. Simply reach out to us at [Support Email], and we&apos;ll be happy to assist you.</p>\r\n<p style=\"text-align: justify;\">Thank you for choosing Hfiles to manage your medical information. We&apos;re committed to providing you with a secure and convenient platform for all your healthcare needs.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Email footer/ Privacy Agreement: Thank you for choosing Hfiles to manage your medical information. We&apos;re committed to providing you with a secure and convenient platform for all your healthcare needs. Your medical data is treated with the utmost confidentiality and is stored securely using the latest encryption protocols. We strictly adhere to all relevant data protection laws and regulations to ensure that your information remains private and protected. Your data will not be shared with any third parties without your explicit consent</p>";
                     //DAL.SendCareerMail(subject, body, email);
-                    
+
                     if (Bind() > 0)
                     {
                         Response.Redirect("~/samanta.aspx");
@@ -109,7 +165,7 @@ namespace hfiles
             }
         }
 
-       public void getbasicdetails(int id)
+        public void getbasicdetails(int id)
         {
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -129,9 +185,15 @@ namespace hfiles
                             selectgender.Value = reader["user_gender"].ToString();
                             dobTextBox1.Value = reader["user_dob"].ToString();
                             bloodgroup.Value = reader["user_bloodgroup"].ToString();
-                            countryTextBox.Value = reader["user_country"].ToString();
+                            ddlCountry.SelectedItem.Text = reader["user_country"].ToString();
+                            dialcode.Text = ddlCountry.SelectedValue.ToString();
                             stateTextBox.Value = reader["user_state"].ToString();
                             cityTextBox.Value = reader["user_city"].ToString();
+                            if (ddlCountry.SelectedItem.Text == "India")
+                            {
+                                stateDropDownList.SelectedItem.Text = reader["user_state"].ToString();
+                                cityDropDownList.SelectedItem.Text = reader["user_city"].ToString();
+                            }
                             contactTextBox.Value = reader["user_contact"].ToString();
                             icecontactTextBox.Value = reader["user_icecontact"].ToString();
                             relativecontactTextBox.Value = reader["user_relativecontact"].ToString();
@@ -142,7 +204,7 @@ namespace hfiles
                     command.ExecuteNonQuery();
                     connection.Close();
 
-                    
+
                 }
             }
         }
@@ -180,7 +242,7 @@ namespace hfiles
             lastNameTextBox.Value = null;
             stateTextBox.Value = null;
             cityTextBox.Value = null;
-            countryTextBox.Value= null;
+            ddlCountry.ClearSelection();
             //ddlCountry.SelectedValue = null;
             contactTextBox.Value = null;
             icecontactTextBox.Value = null;
@@ -190,5 +252,32 @@ namespace hfiles
             selectgender.Value = null;
         }
         #endregion
+
+        protected void ddlCountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dialcode.Text = ddlCountry.SelectedValue.ToString();
+            if (ddlCountry.SelectedItem.Text == "India")
+            {
+                getstatelist();
+                stateTextBox.Visible = false;
+                cityTextBox.Visible = false;
+                stateDropDownList.Visible = true;
+                cityDropDownList.Visible = true;
+            }
+            else
+            {
+                stateTextBox.Visible = true;
+                cityTextBox.Visible = true;
+                stateDropDownList.Visible = false;
+                cityDropDownList.Visible = false;
+            }
+
+
+        }
+
+        protected void stateDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            getcitylist(stateDropDownList.SelectedItem.Text);
+        }
     }
 }

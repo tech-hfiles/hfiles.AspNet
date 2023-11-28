@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./style3.css" />--%>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
@@ -30,45 +30,198 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style>
+        nav {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 5px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* profile menu */
+
+        .profile {
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            text-align: end;
+        }
+
+            .profile h3 {
+                text-align: end;
+                line-height: 1;
+                margin-bottom: 4px;
+                font-weight: 600;
+            }
+
+            .profile p {
+                line-height: 1;
+                font-size: 14px;
+                margin: 0;
+                color: #ffffff
+            }
+
+            .profile .img-box {
+                position: relative;
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                overflow: hidden;
+            }
+
+                .profile .img-box img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+        /* menu (the right one) */
+
+        .profile-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 16px;
+            width: 200px;
+            min-height: 100px;
+            background: #fff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+            opacity: 0;
+            transform: translateY(-10px);
+            visibility: hidden;
+            transition: 300ms;
+        }
+
+            .profile-menu::before {
+                content: '';
+                position: absolute;
+                top: -10px;
+                right: 14px;
+                width: 20px;
+                height: 20px;
+                background: #fff;
+                transform: rotate(45deg);
+                z-index: -1;
+            }
+
+            .profile-menu.active {
+                opacity: 1;
+                transform: translateY(0);
+                visibility: visible;
+                z-index: 999;
+            }
+
+            /* menu links */
+
+            .profile-menu ul {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                z-index: 10;
+                background: #fff;
+                justify-content: center;
+                padding: 0
+            }
+
+                .profile-menu ul li {
+                    list-style: none;
+                }
+
+                    .profile-menu ul li:hover {
+                        background: #eee;
+                    }
+
+                    .profile-menu ul li a {
+                        text-decoration: none;
+                        color: #000;
+                        display: flex;
+                        align-items: center;
+                        padding: 15px 20px;
+                        gap: 6px;
+                    }
+
+                        .profile-menu ul li a i {
+                            font-size: 1.2em;
+                        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="top-home-icons d-flex justify-content-between align-items-center w-100">
-            <div class="common-heading mx-lg-5">
-                <img src="../assets/h-file-logo-white.png" alt="" width="200px" />
-            </div>
-            <div class="d-flex align-items-center mx-lg-2 ">
-                <span class="px-3 pt-1 border-right">
-                   <a class="d-flex align-items-center" href="addbasicdetails.aspx" >
-                         <img class="me-3" src="../My Data/default-user-profile.png" alt="" width="35px" /><asp:Label ForeColor="White" ID="memberLabel" runat="server" Text=""></asp:Label>
-                   </a>
-                </span>
+            <div class="common-heading mx-3">
                 <a href="samanta.aspx">
-                    <img class="mx-3" src="../Avatar/home-icon-white.png" alt=""></a>
+                    <img src="../assets/h-file-logo-white.png" alt="" width="200px" /></a>
+            </div>
+            <div class="d-flex align-items-center mx-2">
+                <span class="px-3 pt-1 ">
+                    <%--<a class="d-flex align-items-center" href="addbasicdetails.aspx" >
+                         <img class="me-3" src="../My Data/default-user-profile.png" alt="" width="35px" /><asp:Label ForeColor="White" ID="memberLabel" runat="server" Text=""></asp:Label>
+                   </a>--%>
+                    <nav>
+                        <div class="menu-toggle"></div>
+                        <div class="profile">
+                            <div class="user">
+                                <asp:Label ForeColor="White" ID="memberLabel" runat="server" Text=""></asp:Label>
+                                <%--<p>@probablykat66</p>--%>
+                            </div>
+                            <div class="img-box">
+                                <img class="me-3" src="../My Data/default-user-profile.png" alt="" width="35px" />
+                            </div>
+                        </div>
+                        <div class="profile-menu">
+                            <ul>
+
+                                <li><a><i class="ph-bold ph-question"></i>
+                                    <asp:Label ID="memberId" style="font-weight:600" runat="server" Text=""></asp:Label></a></li>
+                                <li><a href="addbasicdetails.aspx"><i class="ph-bold ph-question"></i>Edit Basic Info</a></li>
+                                <%--<li><a runat="server"><i class="ph-bold ph-sign-out"></i>&nbsp;Sign Out</a></li>--%>
+                                <li>
+                                    <asp:LinkButton ID="lBtn" runat="server" OnClick="logoutButton_Click" Text="" CssClass="ph-bold ph-sign-out">&nbsp;&nbsp;Sign Out</asp:LinkButton></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </span>
+                <%-- <a href="samanta.aspx">
+                    <img class="mx-3" src="../Avatar/home-icon-white.png" alt=""></a>--%>
                 <%--<a href="#">
                 <img class="" src="../Avatar/user-edit-white.png" alt=""></a>
             <a href="#">
                 <img class="" src="../Avatar/user-delete-white.png" alt=""></a>--%>
-                <asp:ImageButton ID="logoutImageButton" Text="text" CssClass="log-out-btn" ImageUrl="../Avatar/shutoff-white.png" OnClick="logout_Click" runat="server"></asp:ImageButton>
+                <%--<asp:ImageButton ID="logoutImageButton" Text="text" CssClass="log-out-btn" ImageUrl="../Avatar/shutoff-white.png" OnClick="logout_Click" runat="server"></asp:ImageButton>--%>
             </div>
         </div>
-
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
 
         <div class="footer d-flex justify-content-around">
             <div class="t-c">
-               <a href="TermsAndConditions.aspx">Terms & Conditions</a>
+                <a href="TermsAndConditions.aspx">Terms & Conditions</a> | <a href="Policy.aspx">Privacy & Policy</a>
             </div>
-            
+
             <div class="copy-right">
                 <span>Copyright@2023</span>
             </div>
             <div class="p-p">
-                <a href="Policy.aspx">Privacy & Policy</a>
-                
+                <a href="https://wa.me/919930372831"><i class="ph-bold ph-question"></i>+91-9930372831</a> | <a href="mailto:contact@hfiles.in"><i class="ph-bold ph-question"></i>contact@hfiles.in</a>
             </div>
         </div>
     </form>
+    <script>
+        let profile = document.querySelector('.profile');
+        let menu = document.querySelector('.profile-menu');
+
+        profile.onclick = function () {
+            menu.classList.toggle('active');
+        }
+
+    </script>
 </body>
 </html>

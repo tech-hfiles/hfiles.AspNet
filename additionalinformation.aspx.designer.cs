@@ -132,15 +132,6 @@ namespace hfiles
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtSurgeries;
 
         /// <summary>
-        /// addsurgeryButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addsurgeryButton;
-
-        /// <summary>
         /// yearpicker control.
         /// </summary>
         /// <remarks>
@@ -148,6 +139,15 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList yearpicker;
+
+        /// <summary>
+        /// addsurgeryButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button addsurgeryButton;
 
         /// <summary>
         /// surgeryGridView control.

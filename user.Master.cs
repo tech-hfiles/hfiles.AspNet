@@ -21,6 +21,7 @@ namespace hfiles
                 if (Session["username"] != null)
                 {
                     memberLabel.Text = Session["username"].ToString();
+                    memberId.Text = Session["user_membernumber"].ToString();
                 }
             }
             
@@ -28,6 +29,24 @@ namespace hfiles
         }
 
         protected void logout_Click(object sender, ImageClickEventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("~/login.aspx");
+        }
+
+        protected void logoutImageButton_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("~/login.aspx");
+        }
+
+        protected void logoutButton_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("~/login.aspx");
+        }
+
+        protected void logoutLink_Load(object sender, EventArgs e)
         {
             Session.Clear();
             Response.Redirect("~/login.aspx");

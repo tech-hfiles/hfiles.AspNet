@@ -22,7 +22,7 @@
             <div class="support-group">
                 <section class=" header">
                     <div class="row m-0">
-                        <div class="col-md-3 left-nav-bar">
+                        <div class="col-md-4 col-lg-3 left-nav-bar">
                             <!-- Tabs nav -->
                             <div class="nav flex-column nav-pills nav-pills-custom w-100" id="v-pills-tab" role="tablist"
                                 aria-orientation="vertical">
@@ -32,31 +32,32 @@
                                 <div class="select-category">
                                     <span>select Category</span>
                                 </div>
-                                <asp:LinkButton OnClick="v_pills_home_tab_Click" CommandArgument="1" runat="server" class="mental-health-link nav-link p-2 px-3" ID="v_pills_home_tab">
+                                <asp:LinkButton OnClick="v_pills_home_tab_Click" CommandArgument="1" runat="server" class="mental-health-link tabs-btn nav-link p-2 px-3" data-color="#c5e26d" ID="v_pills_home_tab">
                             <img src="../Suppor Group (BG  & Icons)/mental-health-icon.png" alt="" width="30px" />
                             <span class="font-weight-bold large mx-3">Mental health</span></asp:LinkButton>
 
-                                <asp:LinkButton OnClick="v_pills_home_tab_Click" CommandArgument="2" runat="server" class="skin-care-link nav-link p-2 px-3" ID="v_pills_profile_tab">
+                                <asp:LinkButton OnClick="v_pills_home_tab_Click" CommandArgument="2" runat="server" class="skin-care-link tabs-btn nav-link p-2 px-3" data-color="#a7e26d" ID="v_pills_profile_tab">
                             <img src="../Suppor Group (BG  & Icons)/skin-icon.png" alt="" width="30px" />
                             <span class="font-weight-bold large mx-3">Skin</span></asp:LinkButton>
 
-                                <asp:LinkButton OnClick="v_pills_home_tab_Click" CommandArgument="3" runat="server" class="dental-link nav-link p-2 px-3" ID="v_pills_messages_tab">
+                                <asp:LinkButton OnClick="v_pills_home_tab_Click" CommandArgument="3" runat="server" class="dental-link nav-link tabs-btn p-2 px-3" data-color="#f8e26d" ID="v_pills_messages_tab">
                             <img src="../Suppor Group (BG  & Icons)/dental-icon.png" alt="" width="30px" />
                             <span class="font-weight-bold large mx-3">Dental</span></asp:LinkButton>
 
-                                <asp:LinkButton OnClick="v_pills_home_tab_Click" CommandArgument="4" runat="server" class="nutrition-link nav-link p-2 px-3" ID="v_pills_settings_tab">
+                                <asp:LinkButton OnClick="v_pills_home_tab_Click" CommandArgument="4" runat="server" class="nutrition-link tabs-btn nav-link p-2 px-3" data-color="#ffe26d" ID="v_pills_settings_tab">
                             <img src="../Suppor Group (BG  & Icons)/nutrition-icon.png" alt="" width="30px" />
                             <span class="font-weight-bold large mx-3">Nutrition</span></asp:LinkButton>
 
-                                <asp:LinkButton OnClick="v_pills_home_tab_Click" CommandArgument="5" runat="server" class="pet-care-link nav-link p-2 px-3" ID="pet_care_tab">
+                                <asp:LinkButton OnClick="v_pills_home_tab_Click" CommandArgument="5" runat="server" class="pet-care-link tabs-btn nav-link p-2 px-3" data-color="#e5e26d" ID="pet_care_tab">
                             <img src="../Suppor Group (BG  & Icons)/petcare-icon.png" alt="" width="30px" />
                             <span class="font-weight-bold large mx-3">Pet care</span></asp:LinkButton>
                             </div>
                         </div>
-                        <div class="col-md-8 col-lg-9 p-0">
+                        <div class="col-md-8 col-lg-8 col-lg-9 p-0">
                             <!-- Tabs content -->
+                            <asp:HiddenField ID="hfCatergoryId" runat="server" />
                             <div class="tab-content h-lg-96vh h-xl-94vh h-md-98vh h-sm-100vh" id="v-pills-tabContent">
-                                <div class="tab-pane fade rounded bg-white show active p-4 h-100 mental-health-div"
+                                <div class="tab-pane fade rounded show active p-4 h-100 mental-health-div"
                                     id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                     <h4 runat="server" id="h1HeadingLatestQuestion" class=" my-4 pl-4"></h4>
                                     <asp:HiddenField runat="server" ID="hfPostId" />
@@ -101,11 +102,11 @@
                                             </ItemTemplate>
                                         </asp:Repeater>
                                     </div>
-                                    <div class="row chat-input-div">
-                                        <div class="col-10 ">
+                                    <div class="row chat-input-div p-0 p-md-5">
+                                        <div class="col-10 p-0 p-md-2">
                                             <asp:TextBox ID="TextBoxPost" AutoComplete="Off" runat="server" placeholder="Enter your message..."></asp:TextBox>
                                         </div>
-                                        <div class="col-2 d-flex align-items-center">
+                                        <div class="col-2 d-flex align-items-center p-0 p-md-2">
                                             <asp:ImageButton ID="ImageButton1" Width="60px"  OnClick="submitImageButton_Click" ImageUrl="https://cdn-icons-png.flaticon.com/512/60/60525.png" runat="server" />
                                             <%-- <img class="cursor-pointer"
                                             src="https://cdn-icons-png.flaticon.com/512/60/60525.png" alt="" width="30px">--%>
@@ -320,7 +321,28 @@
     </asp:UpdatePanel>
 
     <script type="text/javascript">
-        console.log('javasrcipt')
+
+        var tabDiv = $(".mental-health-div")
+        tabDiv.css({ "background": "linear-gradient(to top, #b8b9f1 0%, #ffffff 100%)" })
+
+        $(function () {
+            //$("#ContentPlaceHolder1_v_pills_home_tab").click(function () {
+            //    console.log('home')
+            //    tabDiv.style.background = "linear-gradient(to top, #b8b9f1 0%, #ffffff 100%)"
+            //})
+            //$("#ContentPlaceHolder1_v_pills_profile_tab").click(function () {
+            //    console.log('skin')
+            //    tabDiv.css( "background", "linear-gradient(to top, #ffb4bb 0%, #ffffff 100%)" )
+            //})
+            
+            $(document).on("click", ".tabs-btn", function () {
+                var colorCode = $(this).data('color')
+                console.log($(this).data('color'))
+                console.log($(this).attr('data-color'))
+                //$(".mental-health-div").css("background", `linear-gradient(to top, ${colorCode} 0%, #ffffff 100%)`)
+                $(".mental-health-div").css({ "background": "linear-gradient(to top, #ddb9f1 0%, #ffffff 100%)" })
+            })
+        })
 
         $(function () {
 
@@ -335,26 +357,9 @@
                     $('.show-edit-chat').hide();
                 }
             });
-
-            $(".nav-link").click(function () {
-                console.log('class')
-                if ($(this).hasClass("mental-health-link")) {
-                    $('.tab-pane').addClass('mental-health-div')
-                } else if ($(this).hasClass("skin-care-link")) {
-                    $('.tab-pane').removeClass('mental-health-div')
-                    $('.tab-pane').addClass('pet-care-div')
-                }
-            });
-
         });
-
-        function handleTabColor(tabName) {
-            if (tabName === 'mental-health') {
-                console.log(tabName)
-            }
-
-        }
-
+        //.support - group.mental - health - div
+        
     </script>
 
 

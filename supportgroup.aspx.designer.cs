@@ -60,6 +60,15 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.LinkButton pet_care_tab;
 
         /// <summary>
+        /// hfCatergoryId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfCatergoryId;
+
+        /// <summary>
         /// h1HeadingLatestQuestion control.
         /// </summary>
         /// <remarks>

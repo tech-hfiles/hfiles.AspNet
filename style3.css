@@ -251,7 +251,7 @@ input::-webkit-inner-spin-button {
         font-weight: 700;
     }
     .btn-div .thm-back-button {
-        padding: 15px 100px;
+        padding: 15px 60px;
         background: #d6d6d6;
         border-radius: 50px;
         color: #08138f;
@@ -429,7 +429,7 @@ input::-webkit-inner-spin-button {
 .top-home-icons img {
     width: 22px;
     height: 22px;
-    margin: 0px 5px;
+    /*margin: 0px 5px;*/
 }
 .top-home-icons .log-out-btn {
     width: 22px;
@@ -571,6 +571,7 @@ ul {
 .avatar .w-300 {
     width: 300px;
 }
+
 
 /* popover */
 a {
@@ -873,10 +874,7 @@ a {
         position: relative;
     }
 
-    .add-member .blue-t-bottom-right {
-        position: relative;
-        top: 20px;
-    }
+   
 
     .input-group input {
         width: 185px;
@@ -896,6 +894,10 @@ a {
     .input-group .relation-div {
         width:100%
     }
+   .add-member .inner-div  {
+        width:100%
+    }
+
 }
 
 @media only screen and (min-width: 912px) {
@@ -940,6 +942,12 @@ a {
         bottom: 0;
         top: 92%;
     }
+    .avatar .modalPopup {
+        height: 40%;
+        width: 95%;
+        left: 10px
+    }
+
 }
 
 @media only screen and (max-width: 820px) {
@@ -948,6 +956,11 @@ a {
     }
     .input-group input {
         width: 100%;
+    }
+    .avatar .modalPopup {
+        height: 60%;
+        width: 95%;
+        left: 10px
     }
 }
 
@@ -963,13 +976,14 @@ a {
     .avatar .avatar-img {
         height: 255px;
     }
+
 }
 
-@media only screen and (max-width: 550px) and (min-width: 535px) {
+/*@media only screen and (max-width: 550px) and (min-width: 535px) {
     .input-group .relation-div {
         margin: 0 58px;
     }
-}
+}*/
 
 @media only screen and (max-width: 550px) {
     .input-group input {
@@ -1016,9 +1030,11 @@ a {
         background-size: contain;
     } */
     .inner-div {
-        width: 60%;
+        width: 80%;
     }
-
+    .add-member .btn-div .thm-back-button {
+        padding: 15px 60px
+    }
     .add-member .blue-t-bottom-right {
         height: 60px;
         position: relative;
@@ -1048,6 +1064,10 @@ a {
 
     .add-member .footer {
         position: relative;
+    }
+    .add-member .blue-t-bottom-right {
+        position: relative;
+        top: 20px;
     }
 }
 
@@ -1227,12 +1247,15 @@ a {
         font-size: 35px;
     }
 
-    .input-group .relation-div {
+    /*.input-group .relation-div {
         margin: 0 20px;
-    }
+    }*/
 
     .add-member #default-number input[type="number"] {
         width: 145px;
+    }
+    .input-group input[type="date"]:invalid::-webkit-datetime-edit {
+        color: #ccc !important;
     }
 
     .avatar .avatar-left-sec ul {
@@ -1359,10 +1382,17 @@ a {
     }
 
     .input-group .relation-div {
-        width: 155px !important;
+        width: 100% !important;
     }
-
+    .add-member .btn-div {
+        display: block
+    }
     .avatar .main-div {
         background-position-x: center;
+    }
+    .avatar .modalPopup {
+        height: 70%;
+        width: 95%;
+        left: 10px
     }
 }

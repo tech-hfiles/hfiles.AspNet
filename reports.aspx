@@ -42,47 +42,49 @@
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
             <asp:ScriptManager runat="server" />
-    <div class="container-fluid download-doc-inner my-5" style="min-height: 84vh;">
-        <div class="heading-title mb-3 py-1 px-5">
-            <div class="row">
-                <div class="col-md-6 py-3">
-                   <a class="back-arrow-btn" href="avatar.aspx"><img src="../assets/back-arrow.png" alt="">Back</a> <h1 class="heading">Documents</h1>
+            <div class="container-fluid download-doc-inner my-5" style="min-height: 84vh;">
+                <div class="heading-title mb-3 py-1 px-5">
+                    <div class="row">
+                        <div class="col-md-6 py-3">
+                            <a class="back-arrow-btn" href="avatar.aspx">
+                                <img src="../assets/back-arrow.png" alt=""></a>
+                            <h1 class="heading">Documents</h1>
+                        </div>
+                        <div class="col-md-6 text-center py-3 search-file">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <asp:TextBox ID="SearchInput" OnTextChanged="SearchInput_TextChanged" AutoPostBack="true" runat="server" />
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6 text-center py-3 search-file">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <asp:TextBox ID="SearchInput" OnTextChanged="SearchInput_TextChanged" AutoPostBack="true" runat="server" />
-                </div>
-            </div>
-        </div>
-        <div class="doc-pdf py-5 h-100">
-            <div class="container">
-                <div class="row mb-5">
-                    <asp:Repeater ID="rptReports" runat="server">
-                        <ItemTemplate>
-                            <div class="col-md-3 my-2">
-                                <div class="card text-center">
-                                    <img src="../assets/pdf-doc.png" class="card-img-top" alt="pdf-thumbnail">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><%# Eval("ReportName") %></h5>
-                                        <p class="card-text"><strong>Date: </strong><%# Eval("CreatedDate") %> </p>
+                <div class="doc-pdf py-5 h-100">
+                    <div class="container">
+                        <div class="row mb-5">
+                            <asp:Repeater ID="rptReports" runat="server">
+                                <ItemTemplate>
+                                    <div class="col-md-3 my-2">
+                                        <div class="card text-center">
+                                            <img src="../assets/pdf-doc.png" class="card-img-top" alt="pdf-thumbnail">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><%# Eval("ReportName") %></h5>
+                                                <p class="card-text"><strong>Date: </strong><%# Eval("CreatedDate") %> </p>
 
-                                        <a href="<%# ResolveUrl( string.Format("~/upload/report/{0}", Eval("ReportUrl"))) %>" target="_blank" class="btn btn-sm btn-primary">Download File</a>
+                                                <a href="<%# ResolveUrl( string.Format("~/upload/report/{0}", Eval("ReportUrl"))) %>" target="_blank" class="btn btn-sm btn-primary">Download File</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
 
-                        </ItemTemplate>
-                    </asp:Repeater>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
+                    </div>
+
                 </div>
+                <!-- row -->
             </div>
-
-        </div>
-        <!-- row -->
-    </div>
-</ContentTemplate>
+        </ContentTemplate>
     </asp:UpdatePanel>
-  <%--  </div>--%>
-   <%-- <div class="footer d-flex justify-content-around">
+    <%--  </div>--%>
+    <%-- <div class="footer d-flex justify-content-around">
         <div class="t-c">
             <a href="#">Terms & Conditions</a>
         </div>
@@ -94,5 +96,5 @@
         </div>
     </div>--%>
 
-<%--</body>--%>
+    <%--</body>--%>
 </asp:Content>

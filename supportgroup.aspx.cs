@@ -24,7 +24,14 @@ namespace hfiles
         {
             if (!IsPostBack)
             {
-                lbtn_GetClickedCategoryData(1);
+                if (Session["Userid"] != null)
+                {
+                    lbtn_GetClickedCategoryData(1);
+                }
+                else
+                {
+                    Response.Redirect("~/login.aspx");
+                }
             }
         }
 
@@ -40,6 +47,8 @@ namespace hfiles
         {
             using (MySqlConnection connection = new MySqlConnection(cs))
             {
+                hfCatergoryId.Value = Convert.ToInt32(CatId).ToString();
+                
                 using (MySqlCommand cmd = new MySqlCommand("getquestionandrelatedpost", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;

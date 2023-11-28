@@ -14,7 +14,7 @@
 
             <a class="back-arrow-btn" href="javascript: history.go(-1)"><img src="../assets/back-arrow.png" alt="">Back</a>
             
-            <div style="height: 90%;">
+            <div class="mt-5 mt-lg-0" style="height: 90%;">
                 <div class="d-flex justify-content-center align-items-center h-100">
                     <div class="inner_div">
                         <div class="heading">

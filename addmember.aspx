@@ -55,7 +55,7 @@
                      <asp:HiddenField runat="server" ID="hfMemberType" />
                    
                     <div class="row justify-content-center">
-                         <div id="relation-input" class="col-lg-5 col-md-5 col-12 px-xl-2">
+                         <div id="relation-input" class="col-lg-5 col-md-5 col-12 px-xl-2 p-0">
                         <div class="relation-div">
                             <span class="fa-solid fa-earth-americas form-control-feedback"></span>
                             <select id="relation" runat="server" class="form-select form-control relation-select"
@@ -76,18 +76,21 @@
                             </select>
                         </div>
                     </div>
-                         <div class="col-lg-5 col-md-5 col-12 px-xl-2">
+                     <div class="col-lg-5 col-md-5 col-12 px-xl-2 p-0">
                         <input class="email-input" id="emailid" runat="server" type="email" placeholder="Email ID" />
                     </div>
                     </div>
                      <div class="row justify-content-center">
-                         <div class="col-lg-5 col-md-5 col-12 px-xl-4">
-                        <input class="number-input" id="phoneno" runat="server" type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
-                    </div
+                         <div class="col-lg-4 col-md-5 col-12 px-xl-4 p-0">
+                        <input id="phoneno" runat="server" type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
+                    </div>
+                         <div class="col-lg-4 col-md-5 col-12 px-xl-2 p-0">
+                             <input class="date-input" type="date" />
+                        </div>
                      
                 </div>
                <div class="row justify-content-center">
-                         <div class="col-lg-5 col-md-5 col-12 px-xl-4">
+                         <div class="col-lg-5 col-md-5 col-12 px-xl-4 p-0">
                              <input class="number-input" id="default-number" type="number" placeholder="default number." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
                         </div>
                     </div>
@@ -99,11 +102,11 @@
             </div>
         </div>
     </div>
+    </div>
     <img class="plus-bottom-right" src="../Add Members/plus-2.png" alt=""/>
     <img class="blue-t-bottom-left" src="../Add Members/blue-trangle-4.png" alt=""/>
     <img class="blue-t-bottom-right" src="../Add Members/blue-trangle-5.png" alt=""/>
-    </div>
-   
+   </div>
     <script>
         //let selected = true
         var relation = ''
