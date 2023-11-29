@@ -39,6 +39,7 @@ namespace hfiles
 
         public void Reports(int UserId, int reportId)
         {
+            int memberId = Convert.ToInt32(Session["memberId"]);
             int result = 0;
             try
             {
@@ -52,6 +53,7 @@ namespace hfiles
                         cmd.Parameters.AddWithValue("_reportname", "");
                         cmd.Parameters.AddWithValue("_reporturl", "");
                         cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(reportId));
+                        cmd.Parameters.AddWithValue("_memberId", DAL.validateInt(memberId));
                         cmd.Parameters.AddWithValue("_SpType", "R");
                         cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                         cmd.Parameters["_Result"].Direction = ParameterDirection.Output;

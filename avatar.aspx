@@ -137,23 +137,31 @@
                     <div class="row">
                         <div class="col-lg-7 col-md-7 col-sm-12 p-0 h-50 d-flex justify-content-between align-items-center">
                             <div class="row">
-                                <div class="col-6 p-0">
+                                <div class="col-6 p-0" >
                                     <div class="avatar-left-sec">
                                         <ul class="m-0">
                                             <li class="border-bottom w-100px text-center pb-2 pb-lg-2 pb-xxl-4"><span class="plus-value">
                                                 <asp:Label Text="" ID="lblUserName" runat="server" /></span></li>
-                                           <%-- <asp:Repeater ID="rptMember" runat="server">--%>
-                                                <li class="border-bottom w-100px text-center mb-2 mb-lg-3 mb-xxl-4">
-                                                    <a href="addmember.aspx">
+
+                                            <li class="border-bottom w-100px text-center mb-2 mb-lg-3 mb-xxl-4">
+                                                <asp:Repeater ID="rptMember" runat="server">
+                                                    <ItemTemplate>
+                                                         <a href="addmember.aspx">
+                                                    
+                                                   
                                                         <img src="../Avatar/add-icon.png" alt=""
                                                             width="30px" />
                                                         <div>
                                                             <small class="add-member-name">
-                                                                <asp:LinkButton ID="member1" runat="server" Text="add member" OnClick="member1_Click"></asp:LinkButton></small>
+                                                                <asp:LinkButton ID="member1" runat="server" Text='<%#Eval("FirstName") %>' OnClick="member1_Click" CommandArgument='<%#Eval("Id") %>' ></asp:LinkButton>
+                                                                <asp:HiddenField ID="hfmemberid" runat="server" Value='<%#Eval("Id") %>' />
+                                                            </small>
                                                         </div>
                                                     </a>
-                                                </li>
-<%--                                            </asp:Repeater>--%>
+                                                        </ItemTemplate>
+                                                </asp:Repeater>
+                                            </li>
+
                                             <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
                                                 <a href="addmember.aspx">
                                                     <img src="../Avatar/add-icon.png" alt=""

@@ -55,7 +55,8 @@ namespace hfiles
                     if (result == 1)
                     {
                         Response.Write("<script>alert('Memeber added successfully.')</script>");
-                        
+                        Response.Redirect("avatar.aspx");
+
                     }
                     else if (result == 0)
                     {

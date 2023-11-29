@@ -33,8 +33,9 @@ namespace hfiles
                 }
                 if (!IsPostBack)
                 {
+                    getMembers();
                     getReports();
-                    
+
                     lblUserName.Text = Session["username"].ToString();
                     if (Session["gender_string"] != null && Session["age"] != null)
                     {
@@ -189,6 +190,7 @@ namespace hfiles
         }
         public int AddReport(int UserId, string reportname, string reporturl, int reportId)
         {
+            int memberId = Convert.ToInt32(Session["memberId"]);
             int result = 0;
             try
             {
@@ -202,6 +204,7 @@ namespace hfiles
                         cmd.Parameters.AddWithValue("_reportname", reportname);
                         cmd.Parameters.AddWithValue("_reporturl", reporturl);
                         cmd.Parameters.AddWithValue("_reportId", reportId);
+                        cmd.Parameters.AddWithValue("_memberId", memberId);
                         cmd.Parameters.AddWithValue("_SpType", "C");
                         cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                         cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
@@ -315,7 +318,47 @@ namespace hfiles
 
         protected void member1_Click(object sender, EventArgs e)
         {
+            LinkButton linkButton = (LinkButton)(sender);
+            var memberid = linkButton.CommandArgument.ToString();
+            linkButton.Style.Add("font-style", "italic");
+            Session["memberId"] = memberid.ToString();
 
+
+        }
+        protected void getMembers()
+        {
+            int UserId = DAL.validateInt(Session["Userid"].ToString());
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(cs))
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("usp_getmember", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("_UserId", UserId);
+                        cmd.Parameters.AddWithValue("_MemberId", 0);
+                        cmd.ExecuteNonQuery();
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        if (dt != null && dt.Rows.Count > 0)
+                        {
+                            rptMember.DataSource = dt;
+                            rptMember.DataBind();
+                        }
+                        else
+                        {
+                           
+                        }
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+
+            }
         }
     }
 }
