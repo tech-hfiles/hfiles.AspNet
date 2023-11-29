@@ -88,7 +88,6 @@ namespace hfiles
                         da.Fill(dt);
                         if (dt != null && dt.Rows.Count > 0)
                         {
-
                             ddlReports.DataSource = dt;
                             ddlReports.DataTextField = "Name";
                             ddlReports.DataValueField = "Id";
@@ -314,5 +313,9 @@ namespace hfiles
             }
         }
 
+        protected void member1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -57,7 +57,7 @@
                     <div class="row justify-content-center">
                          <div id="relation-input" class="col-lg-5 col-md-5 col-12 px-xl-2 p-0">
                         <div class="relation-div">
-                            <span class="fa-solid fa-earth-americas form-control-feedback"></span>
+                           <%-- <span class="fa-solid fa-earth-americas form-control-feedback"></span>--%>
                             <select id="relation" runat="server" class="form-select form-control relation-select"
                                 aria-label="Default select example" onchange="handleRelation()">
                                 <option selected disabled>Relation</option>

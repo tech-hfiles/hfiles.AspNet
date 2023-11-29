@@ -59,9 +59,9 @@
                                 <div class="col-2 text-center">
                                     <p class="fw-bold">No</p>
                                 </div>
-                                <div class="col-2 text-center">
+                                <%--<div class="col-2 text-center">
                                     <p class="fw-bold">Occasionally </p>
-                                </div>
+                                </div>--%>
                             </div>
                             <div class="row border-bottom pt-5 pb-4">
                                 <div class="col-4">
@@ -89,7 +89,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-2 text-center">
+                                <%--<div class="col-2 text-center">
                                     <div class="radio-container">
                                         <input type="radio" id="smoke_occasionally" runat="server"  onclick="handleSelectSmoke(2)"  name="SmokeGroup" class="hidden-radio" />
                                         <label for="ContentPlaceHolder1_smoke_occasionally" class="radio-label">
@@ -98,7 +98,7 @@
                                             </div>
                                         </label>
                                     </div>
-                                </div>
+                                </div>--%>
                             </div>
                             <div class="row border-bottom pt-5 pb-4">
                                 <div class="col-4">
@@ -125,7 +125,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-2 text-center">
+                                <%--<div class="col-2 text-center">
                                     <div class="radio-container">
                                         <input type="radio" runat="server"  id="alcohol_occasionally" onclick="handleSelectAlcohol(2)" name="AlcoholGroup" class="hidden-radio" />
                                         <label for="ContentPlaceHolder1_alcohol_occasionally" class="radio-label">
@@ -134,7 +134,7 @@
                                             </div>
                                         </label>
                                     </div>
-                                </div>
+                                </div>--%>
                             </div>
                             <div class="row pt-4">
                                 <div class="col-10">
@@ -159,15 +159,28 @@
                                 </div>
                                 <div class="col-lg-5 col-12 mt-lg-0 mt-5">
                                     <div style="max-height: 200px; overflow: auto;">
-                                    <asp:GridView ID="surgeryGridView" AutoGenerateColumns="false" CssClass="surgeries-table w-100" runat="server">
+                                    <asp:GridView ID="surgeryGridView" AutoGenerateColumns="false" CssClass="surgeries-table w-100" runat="server" >
                                         <Columns>
                                             <asp:BoundField DataField="user_surgery_details" HeaderText="Surgery Details"
                                                 SortExpression="user_surgery_details" />
                                             <asp:BoundField DataField="user_surgery_year" HeaderText="Surgery Date"
                                                 SortExpression="user_surgery_year" />
-                                            <asp:BoundField HeaderText="Action" >
-                                               <%--<asp:ImageButton ID="button1" Text="text" CssClass="log-out-btn" ImageUrl="../assets/not-select-red.png" runat="server"></asp:ImageButton>--%>
-                                            </asp:BoundField>
+                                            <%--<asp:CommandField ShowDeleteButton="true" ButtonType="Image" DeleteImageUrl="../assets/not-select-red.png" HeaderText="Action" />--%>
+                                            <asp:TemplateField>
+                                                <HeaderTemplate>
+                                                    Action
+                                                </HeaderTemplate>
+                                                <ItemTemplate>
+                                                    <asp:ImageButton CssClass="delete-report-btn" ID="lRemoveBtn" runat="server" OnClick="lRemoveBtn_Click1" CommandArgument='<%#Eval("user_surgery_id") %>' Text="Delete" ImageUrl="../Suppor Group (BG  & Icons)/delete-icon.png" ></asp:ImageButton>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <%--<asp:ButtonField ButtonType="Button" Text="Delete"/>--%>
+
+                                           <%-- <asp:BoundField HeaderText="Action" >
+                                                
+                                               <%--<asp:ImageButton ID="button1" Text="text" CssClass="log-out-btn" ImageUrl="../assets/not-select-red.png" runat="server"></asp:ImageButton>
+                                            </asp:BoundField>--%>
+                                            
                                         </Columns>
                                     </asp:GridView>
 

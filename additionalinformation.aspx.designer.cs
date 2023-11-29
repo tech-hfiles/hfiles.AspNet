@@ -78,15 +78,6 @@ namespace hfiles
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton smoke_no;
 
         /// <summary>
-        /// smoke_occasionally control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton smoke_occasionally;
-
-        /// <summary>
         /// hfDoyouConsumeAlcohol control.
         /// </summary>
         /// <remarks>
@@ -112,15 +103,6 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton alcohol_no;
-
-        /// <summary>
-        /// alcohol_occasionally control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton alcohol_occasionally;
 
         /// <summary>
         /// txtSurgeries control.

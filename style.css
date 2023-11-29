@@ -857,8 +857,11 @@ select {
     background-color: #f1f1f1;
     padding: 10px 20px;
 }
+.delete-report-btn {
+    width: 60px !important;
+}
 .surgeries-table {
-    border:1px solid #000;
+    border: 1px solid #000;
 }
 .surgeries-table tbody th {
     background-color: #192184;

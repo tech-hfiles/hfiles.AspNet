@@ -68,12 +68,10 @@ p, a, span, li button {
 }
 .t-c a {
     color: #ffffff;
-    font-size: 16px;
 }
 
 .p-p a {
     color: #ffffff;
-    font-size: 16px;
 }
 
 ::-webkit-scrollbar {
@@ -887,6 +885,11 @@ select {
         height:90.5vh !important;
     }
 }
+@media only screen and (min-width: 1200px) {
+    .p-p p, .t-c p {
+        font-size: 16px !important;
+    }
+}
 @media only screen and (max-width: 1300px) {
     .privacy_main {
         height: 93vh
@@ -1094,62 +1097,68 @@ select {
             right:auto
 
         }
-    }
-
-    @media only screen and (max-width: 512px) {
-        .privacy_main .blue_trangle_top_left {
-            height: 60px;
-        }
-
-        .privacy_main .blue_trangle_top_right {
-            right: 12%;
-        }
-
-        .privacy_main .blue_trangle_right {
-            height: 130px !important;
-        }
-
-        .privacy_main .blue_trangle_bottom_right {
-            height: 80px;
-        }
-
-        .privacy_main .blue_trangle_bottom_left {
-            height: 150px;
-            bottom: 22%;
-        }
-
-        .journal .journal_main .my_profile {
-            width: 100%;
-            margin: 10px 0;
-        }
-
-        .my_profile ul.dropdown-menu.show {
-            z-index: 1;
-        }
-
-        .contact .contact-main .contact-card {
-            margin-left: 10px;
-        }
-
-        .privacy_main .inner_div {
-            width: 80%;
-        }
-        .back-arrow-btn {
-            top: 8%;
-            left: 5%;
-        }
         .t-c a, .p-p a {
-            font-size: 10px !important;
+            font-size: 12px;
         }
-        .privacy_main .blue_trangle_bottom_right {
-            position: relative;
-            right:0
-        }
-        .privacy_main {
-            height:85vh
-        }
-      
     }
+
+@media only screen and (max-width: 512px) {
+    .privacy_main .blue_trangle_top_left {
+        height: 60px;
+    }
+
+    .privacy_main .blue_trangle_top_right {
+        right: 12%;
+    }
+
+    .privacy_main .blue_trangle_right {
+        height: 130px !important;
+    }
+
+    .privacy_main .blue_trangle_bottom_right {
+        height: 80px;
+    }
+
+    .privacy_main .blue_trangle_bottom_left {
+        height: 150px;
+        bottom: 22%;
+    }
+
+    .journal .journal_main .my_profile {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .my_profile ul.dropdown-menu.show {
+        z-index: 1;
+    }
+
+    .contact .contact-main .contact-card {
+        margin-left: 10px;
+    }
+
+    .privacy_main .inner_div {
+        width: 80%;
+    }
+
+    .back-arrow-btn {
+        top: 8%;
+        left: 5%;
+    }
+
+    .privacy_main .blue_trangle_bottom_right {
+        position: relative;
+        right: 0
+    }
+
+    .privacy_main {
+        height: 85vh
+    }
+    .t-c a, .p-p a {
+        font-size: 8px;
+    }
+   
+}
 
     @media only screen and (max-width: 414px) {
 
@@ -1297,7 +1306,7 @@ select {
                 width: 100% !important;
             }
         .t-c a, .p-p a {
-            font-size: 10px !important;
+            font-size: 8px !important;
         }
 
     }
@@ -1418,4 +1427,21 @@ select {
         .privacy_main .inner_div .desciption {
             max-height: 80%;
         }
+        .journal .journal_main .inner_div .heading h3 {
+            width:235px;
+        }
+        .t-c a, .p-p a {
+            font-size:6px !important;
+        }
+        .copy-right span {
+            font-size:8px;
+        }
+        .profile .img-box img {
+            height: 85% !important;
+            width: 85% !important;
+        }
+        .common-heading img {
+            height:30px !important;
+        }
     }
+

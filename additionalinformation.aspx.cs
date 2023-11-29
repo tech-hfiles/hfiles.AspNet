@@ -130,7 +130,7 @@ namespace hfiles
                             }
                             else
                             {
-                                smoke_occasionally.Checked = true;
+                                //smoke_occasionally.Checked = true;
                             }
 
                             string Nickname = Request.Form["inpNickname"];
@@ -145,7 +145,7 @@ namespace hfiles
                             }
                             else
                             {
-                                alcohol_occasionally.Checked = true;
+                                //alcohol_occasionally.Checked = true;
                             }
                             txtSurgeries.Value = dr["user_alcohol"].ToString();
                         }
@@ -378,6 +378,7 @@ namespace hfiles
 
         private void addSurgery(string sptype)
         {
+            int surgeryId = Convert.ToInt32(Session["SurgeryId"]);
             using (MySqlConnection con = new MySqlConnection(cs))
             {
                 con.Open();
@@ -385,6 +386,7 @@ namespace hfiles
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("_user_id", DAL.validateInt(Session["Userid"])); //Session["Userid"];
+                    cmd.Parameters.AddWithValue("_user_surgery_id", surgeryId); //Session["Userid"];
                     cmd.Parameters.AddWithValue("_user_surgery_details", txtSurgeries.Value);
                     cmd.Parameters.AddWithValue("_user_surgery_year", yearpicker.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("_SpType", sptype);
@@ -405,6 +407,22 @@ namespace hfiles
             addSurgery("C");
             user_surgery();
 
+        }
+
+        protected void surgeryGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+        protected void lRemoveBtn_Click1(object sender, EventArgs e)
+            {
+            //LinkButton lRemoveBtn = (LinkButton)(sender);
+            ImageButton lRemoveBtn = (ImageButton)sender; // Get a reference to the clicked ImageButton
+
+            string commandArgument = lRemoveBtn.CommandArgument;
+            Session["SurgeryId"] = commandArgument;
+            addSurgery("D");
+            user_surgery();
         }
 
         private void addUpdateDisease()

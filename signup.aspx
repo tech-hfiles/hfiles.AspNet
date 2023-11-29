@@ -76,7 +76,8 @@
                                     <input id="otpTextBox" runat="server" type="text" required class="form-control w-100 OTP-input" placeholder="Enter OTP" />
                                 <div class="d-flex justify-content-between align-items-center">
                                     <asp:Label ID="errorLabel" Text="" runat="server" CssClass="color-theme-yellow" />
-                                    <span style="color: #dcdcdc;"><a href="#" style="color: #dcdcdc;">Resend OTP</a></span>
+                                    <span id="timer" style="color:#fff"></span>
+                                     <span class="mx-2"><asp:LinkButton ID="resendLinkButtonTest" runat="server">Resend OTP</asp:LinkButton></span>
                                 </div>
                                 </div>
                             </div>
@@ -99,10 +100,48 @@
         </form>
     </div>
 
+ 
     <script type="text/javascript">
         function JSalert() {
             swal("An OTP is sent to your email, enter the OTP to proceed.");
         }
+
+         console.log("timer")
+         let timerOn = true;
+        var resendLinkButtonTest = document.getElementById('resendLinkButtonTest')
+        resendLinkButtonTest.style.display = 'none'
+         function timer(remaining) {
+
+             var m = Math.floor(remaining / 60);
+             var s = remaining % 60;
+
+             m = m < 10 ? '0' + m : m;
+             s = s < 10 ? '0' + s : s;
+             document.getElementById('timer').innerHTML = m + ':' + s;
+             remaining -= 1;
+
+             if (remaining >= 0 && timerOn) {
+                 setTimeout(function () {
+                     timer(remaining);
+                 }, 1000);
+                 return;
+             }
+
+             if (!timerOn) {
+                 // Do validate stuff here
+                 return;
+             }
+
+             // Do timeout stuff here
+             document.getElementById('timer').style.display = 'none'
+             resendLinkButtonTest.style.display = 'inline'
+         }
+         timer(10);
+        resendLinkButtonTest.on('click', function () {
+            resendLinkButtonTest.style.display = 'none'
+             timer(10);
+         })
+
     </script>
 </body>
 </html>

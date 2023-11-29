@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -175,6 +176,59 @@ namespace hfiles
             {
             }
 
+
+        }
+
+        protected void lbtnremove_Click(object sender, EventArgs e)
+        {
+            int RId = DAL.validateInt(Request.QueryString["rid"]);
+            LinkButton lbtnimg = (LinkButton)(sender);
+
+            string commandArgument = lbtnimg.CommandArgument;
+            //string[] values = commandArgument.Split('|');
+
+            //int ReportId = 0;
+            //int Id = 0;
+
+
+            //if (values.Length == 2)
+            //{
+            //    string RId = values[0];
+            //    string UId = values[1];
+            //    Session["U"]
+            //    int ReportId = Convert.ToInt32(RId);
+            //    int Id = Convert.ToInt32(UId);
+            //}
+            
+            //int ReportId = DAL.validateInt(lbtnimg.CommandArgument.ToString());
+            int Id = DAL.validateInt(lbtnimg.CommandArgument.ToString());
+            int UserId = DAL.validateInt(Session["Userid"].ToString());//
+            using (MySqlConnection connection = new MySqlConnection(cs))
+            {
+                connection.Open();
+                using (MySqlCommand cmd = new MySqlCommand("removeReport", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("_UserId", UserId);
+                    cmd.Parameters.AddWithValue("_Id", Id);
+                    cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
+                    cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
+                    cmd.ExecuteNonQuery();
+                    int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
+
+                    if (retVal == 1)
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report deleted successfully')", true);
+                        Reports(UserId, RId);
+                        //lbtn_GetClickedCategoryData(DAL.validateInt(Session["CatId"]));
+                        //Session["CatId"] = null;
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please try again')", true);
+                    }
+                }
+            }
 
         }
     }

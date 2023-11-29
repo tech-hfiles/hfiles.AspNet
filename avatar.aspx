@@ -131,247 +131,248 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
-    <div class="avatar">
-        <img class="plus-top-left" src="<%= ResolveUrl("~/Add Members/plus-1.png") %>" alt="" />
-        <div class="main-div">
-            <div class="row">
-                <div class="col-lg-7 col-md-7 col-sm-12 p-0 h-50 d-flex justify-content-between align-items-center">
+            <div class="avatar">
+                <img class="plus-top-left" src="<%= ResolveUrl("~/Add Members/plus-1.png") %>" alt="" />
+                <div class="main-div">
                     <div class="row">
-                        <div class="col-6 p-0">
-                            <div class="avatar-left-sec">
-                                <ul class="m-0">
-                                    <li class="border-bottom w-100px text-center pb-2 pb-lg-2 pb-xxl-4"><span class="plus-value">
-                                        <asp:Label Text="" ID="lblUserName" runat="server" /></span></li>
-                                    <li class="border-bottom w-100px text-center mb-2 mb-lg-3 mb-xxl-4">
-                                        <a href="addmember.aspx">
-                                            <img src="../Avatar/add-icon.png" alt=""
-                                                width="30px" />
-                                            <div>
-                                                <small class="add-member-name">add member</small>
-                                            </div>
+                        <div class="col-lg-7 col-md-7 col-sm-12 p-0 h-50 d-flex justify-content-between align-items-center">
+                            <div class="row">
+                                <div class="col-6 p-0">
+                                    <div class="avatar-left-sec">
+                                        <ul class="m-0">
+                                            <li class="border-bottom w-100px text-center pb-2 pb-lg-2 pb-xxl-4"><span class="plus-value">
+                                                <asp:Label Text="" ID="lblUserName" runat="server" /></span></li>
+                                           <%-- <asp:Repeater ID="rptMember" runat="server">--%>
+                                                <li class="border-bottom w-100px text-center mb-2 mb-lg-3 mb-xxl-4">
+                                                    <a href="addmember.aspx">
+                                                        <img src="../Avatar/add-icon.png" alt=""
+                                                            width="30px" />
+                                                        <div>
+                                                            <small class="add-member-name">
+                                                                <asp:LinkButton ID="member1" runat="server" Text="add member" OnClick="member1_Click"></asp:LinkButton></small>
+                                                        </div>
+                                                    </a>
+                                                </li>
+<%--                                            </asp:Repeater>--%>
+                                            <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
+                                                <a href="addmember.aspx">
+                                                    <img src="../Avatar/add-icon.png" alt=""
+                                                        width="30px" />
+                                                    <div>
+                                                        <small class="add-member-name">add member</small>
+                                                    </div>
 
-                                        </a>
+                                                </a>
 
-                                    </li>
-                                    <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
-                                        <a href="addmember.aspx">
-                                            <img src="../Avatar/add-icon.png" alt=""
-                                                width="30px" />
-                                            <div>
-                                                <small class="add-member-name">add member</small>
-                                            </div>
+                                            </li>
+                                            <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
+                                                <a href="addmember.aspx">
+                                                    <img src="../Avatar/add-icon.png" alt=""
+                                                        width="30px" />
+                                                    <div>
+                                                        <small class="add-member-name">add member</small>
+                                                    </div>
 
-                                        </a>
+                                                </a>
 
-                                    </li>
-                                    <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
-                                        <a href="addmember.aspx">
-                                            <img src="../Avatar/add-icon.png" alt=""
-                                                width="30px" />
-                                             <div>
-                                                <small class="add-member-name">add member</small>
-                                            </div>
+                                            </li>
+                                            <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
+                                                <a href="addmember.aspx">
+                                                    <img src="../Avatar/add-icon.png" alt=""
+                                                        width="30px" />
+                                                    <div>
+                                                        <small class="add-member-name">add member</small>
+                                                    </div>
 
-                                        </a>
+                                                </a>
 
-                                    </li>
-                                    <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
-                                        <a href="addmember.aspx">
-                                            <img src="../Avatar/add-icon.png" alt=""
-                                                width="30px" />
-                                             <div>
-                                                <small class="add-member-name">add member</small>
-                                            </div>
+                                            </li>
+                                            <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
+                                                <a href="addmember.aspx">
+                                                    <img src="../Avatar/add-icon.png" alt=""
+                                                        width="30px" />
+                                                    <div>
+                                                        <small class="add-member-name">add member</small>
+                                                    </div>
 
-                                        </a>
+                                                </a>
 
-                                    </li>
-                                    <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
-                                        <a href="addmember.aspx">
-                                            <img src="../Avatar/add-icon.png" alt=""
-                                                width="30px" />
-                                            <div>
-                                                <small class="add-member-name">add member</small>
-                                            </div>
+                                            </li>
+                                            <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
+                                                <a href="addmember.aspx">
+                                                    <img src="../Avatar/add-icon.png" alt=""
+                                                        width="30px" />
+                                                    <div>
+                                                        <small class="add-member-name">add member</small>
+                                                    </div>
 
-                                        </a>
+                                                </a>
 
-                                    </li>
-                                    <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
-                                        <a href="addmember.aspx">
-                                            <img src="../Avatar/add-icon.png" alt=""
-                                                width="30px" />
-                                             <div>
-                                                <small class="add-member-name">add member</small>
-                                            </div>
+                                            </li>
+                                            <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
+                                                <a href="addmember.aspx">
+                                                    <img src="../Avatar/add-icon.png" alt=""
+                                                        width="30px" />
+                                                    <div>
+                                                        <small class="add-member-name">add member</small>
+                                                    </div>
 
-                                        </a>
+                                                </a>
 
-                                    </li>
-                                    <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
-                                        <a href="addmember.aspx">
-                                            <img src="../Avatar/add-icon.png" alt=""
-                                                width="30px" />
-                                             <div>
-                                                <small class="add-member-name">add member</small>
-                                            </div>
-
-                                        </a>
-
-                                    </li>
-                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-6 d-flex align-items-end justify-content-end">
+                                    <asp:Image class="avatar-img" ID="imgAvatar" runat="server" />
+                                </div>
                             </div>
                         </div>
-                        <div class="col-6 d-flex align-items-end justify-content-end">
-                            <asp:Image class="avatar-img" ID="imgAvatar" runat="server" />
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5 col-md-5 col-sm-12 p-0 pt-5 d-flex align-items-center justify-content-end h-50">
-                    <div class="menu-div">
-                        <div class="inner-menu-div">
-                            <div class="popover__wrapper">
+                        <div class="col-lg-5 col-md-5 col-sm-12 p-0 pt-5 d-flex align-items-center justify-content-end h-50">
+                            <div class="menu-div">
+                                <div class="inner-menu-div">
+                                    <div class="popover__wrapper">
 
-                                <asp:LinkButton Text="text" runat="server" ID="LinkButton1" OnClick="lbtnAddReport_Click">
+                                        <asp:LinkButton Text="text" runat="server" ID="LinkButton1" OnClick="lbtnAddReport_Click">
                                 <img class="plus-icon" src="<%= ResolveUrl("~/Avatar/add-report.png") %>" alt="" />
-                                </asp:LinkButton>
-                                <span style="color: #0236b4; font-weight: 600;">ADD REPORT</span>
-                                <div class="popover__content">
-                                    <p class="popover__message">Upload Report</p>
-                                </div>
-                            </div>
-                            <img class="circle-line" src="../Avatar/circle-line.png" alt="" />
-                            <div class="lab-report w-60 h-75px menu-circle-txt-color">
-                                <div class="d-flex align-items-center h-75px">
-                                    <span>lab report</span>
-                                    <div class="menu-circle">
-                                        <a href="reports.aspx?rid=3">
-                                            <img src="../Avatar/lab-report.png" alt="" /></a>
+                                        </asp:LinkButton>
+                                        <span style="color: #0236b4; font-weight: 600;">ADD REPORT</span>
+                                        <div class="popover__content">
+                                            <p class="popover__message">Upload Report</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="immunization h-75px w-70 menu-circle-txt-color">
-                                <div class="d-flex align-items-center h-75px">
-                                    <span>Immunization</span>
-                                    <div class="menu-circle">
-                                        <a href="reports.aspx?rid=5">
-                                            <img src="../Avatar/immunization.png" alt="" /></a>
+                                    <img class="circle-line" src="../Avatar/circle-line.png" alt="" />
+                                    <div class="lab-report w-60 h-75px menu-circle-txt-color">
+                                        <div class="d-flex align-items-center h-75px">
+                                            <span>lab report</span>
+                                            <div class="menu-circle">
+                                                <a href="reports.aspx?rid=3">
+                                                    <img src="../Avatar/lab-report.png" alt="" /></a>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="immunization h-75px w-70 menu-circle-txt-color">
+                                        <div class="d-flex align-items-center h-75px">
+                                            <span>Immunization</span>
+                                            <div class="menu-circle">
+                                                <a href="reports.aspx?rid=5">
+                                                    <img src="../Avatar/immunization.png" alt="" /></a>
+                                            </div>
+                                        </div>
 
-                            </div>
-                            <div class="medication-prescription h-75px d-flex align-items-center menu-circle-txt-color w-300">
-                                <div class="d-flex align-items-center">
-                                    <span>medications/prescription</span>
-                                    <div class="menu-circle">
-                                        <a href="reports.aspx?rid=6">
-                                            <img src="../Avatar/medications.png" alt="" /></a>
                                     </div>
+                                    <div class="medication-prescription h-75px d-flex align-items-center menu-circle-txt-color w-300">
+                                        <div class="d-flex align-items-center">
+                                            <span>medications/prescription</span>
+                                            <div class="menu-circle">
+                                                <a href="reports.aspx?rid=6">
+                                                    <img src="../Avatar/medications.png" alt="" /></a>
+                                            </div>
 
-                                </div>
-                            </div>
-                            <div class="radiology h-75px d-flex align-items-center menu-circle-txt-color">
-                                <div class="d-flex align-items-center h-75px">
-                                    <span>radiology</span>
-                                    <div class="menu-circle">
-                                        <a href="reports.aspx?rid=7">
-                                            <img src="../Avatar/rediology.png" alt="" /></a>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="opthalmology-icon h-75px d-flex align-items-center menu-circle-txt-color">
-                                <div class="d-flex align-items-center">
-                                    <span>Opthalmology</span>
-                                    <div class="menu-circle">
-                                        <a href="reports.aspx?rid=8">
-                                            <img src="../Avatar/Opthalmologyicon.png" alt="" />
+                                    <div class="radiology h-75px d-flex align-items-center menu-circle-txt-color">
+                                        <div class="d-flex align-items-center h-75px">
+                                            <span>radiology</span>
+                                            <div class="menu-circle">
+                                                <a href="reports.aspx?rid=7">
+                                                    <img src="../Avatar/rediology.png" alt="" /></a>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="dentel-report h-75px d-flex align-items-center menu-circle-txt-color">
-                                <div class="d-flex align-items-center">
-                                    <span>dental report</span>
-                                    <div class="menu-circle">
-                                        <a href="reports.aspx?rid=4">
-                                            <img src="../Avatar/dental.png" alt=""></a>
+                                    <div class="opthalmology-icon h-75px d-flex align-items-center menu-circle-txt-color">
+                                        <div class="d-flex align-items-center">
+                                            <span>Opthalmology</span>
+                                            <div class="menu-circle">
+                                                <a href="reports.aspx?rid=8">
+                                                    <img src="../Avatar/Opthalmologyicon.png" alt="" />
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="special-report h-75px d-flex align-items-center menu-circle-txt-color">
-                                <div class="d-flex align-items-center">
-                                    <span>special report</span>
-                                    <div class="menu-circle">
-                                        <a href="reports.aspx?rid=9">
-                                            <img src="../Avatar/spacial-report.png" alt="" /></a>
+                                    <div class="dentel-report h-75px d-flex align-items-center menu-circle-txt-color">
+                                        <div class="d-flex align-items-center">
+                                            <span>dental report</span>
+                                            <div class="menu-circle">
+                                                <a href="reports.aspx?rid=4">
+                                                    <img src="../Avatar/dental.png" alt=""></a>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="mediclaim-insurance h-75px d-flex align-items-center menu-circle-txt-color">
-                                <div class="d-flex align-items-end">
-                                    <span>mediclaim/insurance</span>
-                                    <div class="menu-circle">
-                                        <a href="reports.aspx?rid=10">
-                                            <img src="../Avatar/mediclaim.png" alt="" /></a>
+                                    <div class="special-report h-75px d-flex align-items-center menu-circle-txt-color">
+                                        <div class="d-flex align-items-center">
+                                            <span>special report</span>
+                                            <div class="menu-circle">
+                                                <a href="reports.aspx?rid=9">
+                                                    <img src="../Avatar/spacial-report.png" alt="" /></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mediclaim-insurance h-75px d-flex align-items-center menu-circle-txt-color">
+                                        <div class="d-flex align-items-end">
+                                            <span>mediclaim/insurance</span>
+                                            <div class="menu-circle">
+                                                <a href="reports.aspx?rid=10">
+                                                    <img src="../Avatar/mediclaim.png" alt="" /></a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <asp:Button ID="btnShow" runat="server" Text="Show Modal Popup" Style="display: none" />
-        <cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panel1" TargetControlID="btnShow"
-            CancelControlID="btnClose" BackgroundCssClass="modalBackground">
-        </cc1:ModalPopupExtender>
-        <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center" Style="display: none">
-            <div class="row my-2">
-                <div class="col-12">
-                    <h2>Upload Report</h2>
-                </div>
-            </div>
-            <div class="row w-100 my-3" style="width: 100%">
-                <div class="col-12">
-                    <div class="row">
+                <asp:Button ID="btnShow" runat="server" Text="Show Modal Popup" Style="display: none" />
+                <cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panel1" TargetControlID="btnShow"
+                    CancelControlID="btnClose" BackgroundCssClass="modalBackground">
+                </cc1:ModalPopupExtender>
+                <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center" Style="display: none">
+                    <div class="row my-2">
+                        <div class="col-12">
+                            <h2>Upload Report</h2>
+                        </div>
+                    </div>
+                    <div class="row w-100 my-3" style="width: 100%">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-5 lbl">
+                                    <label><strong>Select Report Type :</strong></label>
+                                </div>
+                                <div class="col-7">
+                                    <asp:DropDownList CssClass="select-report-dropdown" runat="server" ID="ddlReports">
+                                    </asp:DropDownList>
+                                    <asp:RequiredFieldValidator runat="server" ErrorMessage="Please Select Report Type" ControlToValidate="ddlReports" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row my-3" style="width: 100%">
                         <div class="col-5 lbl">
-                            <label><strong>Select Report Type :</strong></label>
+                            <label><strong>File Name : </strong></label>
                         </div>
                         <div class="col-7">
-                            <asp:DropDownList CssClass="select-report-dropdown" runat="server" ID="ddlReports" >
-                           </asp:DropDownList>
-                            <asp:RequiredFieldValidator runat="server" ErrorMessage="Please Select Report Type" ControlToValidate="ddlReports" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                            <asp:TextBox runat="server" ID="txtReportName" CssClass="filename-txtbox" required />
                         </div>
                     </div>
-                </div>
+                    <div class="row my-3" style="width: 100%">
+                        <div class="col-5 lbl">
+                            <label><strong>Select File :</strong></label>
+                        </div>
+                        <div class="col-7">
+                            <asp:FileUpload ID="imageFileUpload1" runat="server" required />
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <asp:Button Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click" runat="server" CssClass="submit-btn" />
+                    <%--<asp:Label Text="" ID="lblMsg" runat="server" />--%>
+                    <asp:Button ID="btnClose" runat="server" OnClick="okLinkButton_Click" Text="Close" CssClass="close-btn" />
+                </asp:Panel>
             </div>
-            <div class="row my-3" style="width: 100%">
-                <div class="col-5 lbl">
-                    <label><strong>File Name : </strong></label>
-                </div>
-                <div class="col-7">
-                    <asp:TextBox runat="server" ID="txtReportName" CssClass="filename-txtbox" required/>
-                </div>
-            </div>
-            <div class="row my-3" style="width: 100%">
-                <div class="col-5 lbl">
-                    <label><strong>Select File :</strong></label>
-                </div>
-                <div class="col-7">
-                    <asp:FileUpload ID="imageFileUpload1" runat="server" required/>
-                </div>
-            </div>
-            <br />
-            <br />
-            <asp:Button Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click" runat="server" CssClass="submit-btn" />
-            <%--<asp:Label Text="" ID="lblMsg" runat="server" />--%>
-            <asp:Button ID="btnClose" runat="server" OnClick="okLinkButton_Click" Text="Close" CssClass="close-btn" />
-        </asp:Panel>
-    </div>
-     </ContentTemplate>
-    <Triggers>
-    <asp:PostBackTrigger ControlID="btnSubmit" />
-    </Triggers>  
+        </ContentTemplate>
+        <Triggers>
+            <asp:PostBackTrigger ControlID="btnSubmit" />
+        </Triggers>
     </asp:UpdatePanel>
-    
+
 </asp:Content>
 

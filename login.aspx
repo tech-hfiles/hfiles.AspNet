@@ -46,14 +46,15 @@
                     </div>
                     <div runat="server" id="divOtp">
                         <input runat="server" required id="otpTextBox" autocomplete="off" class="w-100 login-input" type="Text" placeholder="Enter OTP" />
-                         <div class
-                             ="text-end">
+                         <div class="text-end">
+                             <asp:Label Text="" ID="errorLabel" runat="server" style="color:#fff" />
+                            <span id="timer" style="color:#fff"></span>
                               <span class="mx-2"><asp:LinkButton ID="resendLinkButton" runat="server">Resend OTP</asp:LinkButton></span>
                          </div>
                     </div>
                     <div class="text-center my-1">
                         <asp:Button ID="otpButton" OnClick="signup_Click" runat="server" Text="GET OTP" class="btn thm-button my-2"></asp:Button>
-                        <asp:Label Text="" ID="errorLabel" runat="server" />
+                        
                     </div>
                     <div class="text-center resend-otp-div">
                        
@@ -65,5 +66,43 @@
             </div>
         </div>
     </form>
+    <script>
+        console.log("timer")
+        let timerOn = true;
+        var resendLinkButton = document.getElementById('resendLinkButton')
+        resendLinkButton.style.display='none'
+        function timer(remaining) {
+     
+            var m = Math.floor(remaining / 60);
+            var s = remaining % 60;
+
+            m = m < 10 ? '0' + m : m;
+            s = s < 10 ? '0' + s : s;
+            document.getElementById('timer').innerHTML = m + ':' + s;
+            remaining -= 1;
+
+            if (remaining >= 0 && timerOn) {
+                setTimeout(function () {
+                    timer(remaining);
+                }, 1000);
+                return;
+            }
+
+            if (!timerOn) {
+                // Do validate stuff here
+                return;
+            }
+
+            // Do timeout stuff here
+            document.getElementById('timer').style.display = 'none'
+            resendLinkButton.style.display = 'inline'
+        }
+        timer(10);
+        resendLinkButton.on('click', function () {
+            resendLinkButton.style.display = 'none'
+            timer(10);
+        })
+
+    </script>
 </body>
 </html>

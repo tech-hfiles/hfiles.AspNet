@@ -255,6 +255,7 @@
     <Content Include="assets\blue-trangle.png" />
     <Content Include="assets\cancel-icon.png" />
     <Content Include="assets\cancel-white.png" />
+    <Content Include="assets\contact.png" />
     <Content Include="assets\features-hero-6.png" />
     <Content Include="assets\features-hero-6_old.png" />
     <Content Include="assets\filter.svg" />
@@ -274,6 +275,7 @@
     <Content Include="assets\select-icon-gray.png" />
     <Content Include="assets\select.png" />
     <Content Include="assets\shutoff-white.png" />
+    <Content Include="assets\square-envelope-solid.svg" />
     <Content Include="assets\user-delete-white.png" />
     <Content Include="assets\user-edit-white.png" />
     <Content Include="avatar.aspx" />

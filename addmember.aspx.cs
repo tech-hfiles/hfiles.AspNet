@@ -55,6 +55,7 @@ namespace hfiles
                     if (result == 1)
                     {
                         Response.Write("<script>alert('Memeber added successfully.')</script>");
+                        
                     }
                     else if (result == 0)
                     {

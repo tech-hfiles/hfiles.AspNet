@@ -153,7 +153,7 @@
                         <div class="col-12">
                             <span for="" class="imp-star">*</span>
                             <i class="fa-regular fa-envelope form-control-feedback"></i>
-                            <input required id="emailTextBox" readonly="true" runat="server" type="email" class="form-control" placeholder="Email ID" />
+                            <input id="emailTextBox" readonly="true" runat="server" type="email" class="form-control" placeholder="Email ID" required/>
                         </div>
                         <div class="col-12">
                             <span for="" class="imp-star">&nbsp;</span>
