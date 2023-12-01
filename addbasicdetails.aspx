@@ -48,144 +48,179 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <%--  <asp:UpdatePanel runat="server">
-        <ContentTemplate>--%>
-    <div class="user-info-main" runat="server">
-        <div class="container mt-768-80">
-            <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
-            <img class="blue-trangle-top-right" src="../assets/blue-trangle.png" alt="">
-            <img class="plus-top-left" src="../assets/plus-1.png" alt="">
+    <asp:UpdatePanel runat="server">
+        <ContentTemplate>
+            <div class="user-info-main" runat="server">
+                <div class="container mt-768-80">
+                    <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
+                    <img class="blue-trangle-top-right" src="../assets/blue-trangle.png" alt="">
+                    <img class="plus-top-left" src="../assets/plus-1.png" alt="">
 
 
-            <div class="row p-5">
-                <div class="col-md-4 col-sm-12 col-lg-4 col-xl-4 d-flex mt-sm-5 mt-lg-0 align-items-center justify-content-center">
-                    <div class="text-center profile-img">
-                        <img id="imagePreview" runat="server" class="w-75" src="../My Data/default-user-profile.png" alt="" />
-                        <br />
-                        <br />
-                        <asp:FileUpload ID="Profileupload" runat="server" class="form-control" onchange="previewImage();" />
+                    <div class="row p-5">
+                        <div class="col-md-4 col-sm-12 col-lg-4 col-xl-4 d-flex mt-sm-5 mt-lg-0 align-items-center justify-content-center">
+                            <div class="text-center profile-img">
+                                <img id="imagePreview" runat="server" class="w-75" src="../My Data/default-user-profile.png" alt="" />
+                                <br />
+                                <br />
+                                <asp:FileUpload ID="Profileupload" runat="server" class="form-control" onchange="uploadImage();" />
 
-                        <%-- <p style="color: #ffd101;"><i class="fa-regular fa-pen-to-square mx-2"></i>Edit</p>--%>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12 col-lg-4 col-xl-4 d-flex align-items-start mt-lg-5 justify-content-center">
-                    <div class="row signin-form form-group has-search">
-                        <div class="col-12">
-                            <span for="" class="imp-star">*</span>
-                            <i class="fa-solid fa-user form-control-feedback"></i>
-                            <input required id="firstNameTextBox" runat="server" type="text" class="form-control" placeholder="First Name">
+                                <%-- <p style="color: #ffd101;"><i class="fa-regular fa-pen-to-square mx-2"></i>Edit</p>--%>
+                            </div>
                         </div>
-                        <div class="col-12">
-                            <span for="" class="imp-star">*</span>
-                            <i class="fa-solid fa-user form-control-feedback"></i>
-                            <input required id="lastNameTextBox" runat="server" type="text" class="form-control" placeholder="Last Name">
-                        </div>
-                        <div class="col-12">
-                            <span for="" class="imp-star">*</span>
-                            <i class="fa-solid fa-venus-mars form-control-feedback"></i>
-                            <select runat="server" id="selectgender" class="form-select form-control mySelect" style="color: blue" aria-label="Default select example" required>
-                                <option selected>Gender</option>
-                                <option value="1">Male</option>
-                                <option value="2">Female</option>
-                                <option value="3">Others</option>
-                            </select>
-                        </div>
-                        <div class="col-12">
-                            <span for="" class="imp-star">*</span>
-                            <i class="fa-solid fa-cake-candles form-control-feedback"></i>
-                            <%--<asp:Calendar ID="calendar1" runat="server" DayStyle-BorderColor="#FFCC66"></asp:Calendar>--%>
-                            <input runat="server" id="dobTextBox1" type="date" class="form-control" placeholder="" style="padding-right: 10px !important;" required />
-                        </div>
-                        <div class="col-12">
-                            <span for="" class="imp-star">*</span>
-                            <i class="fa-sharp fa-solid fa-droplet form-control-feedback"></i>
-                            <select id="bloodgroup" runat="server" class="form-select form-control mySelect" aria-label="Default select example">
-                                <option selected>Blood Group</option>
-                                <option value="1">A+</option>
-                                <option value="2">A-</option>
-                                <option value="3">B+</option>
-                                <option value="4">B-</option>
-                                <option value="5">AB+</option>
-                                <option value="6">AB-</option>
-                                <option value="7">O+</option>
-                                <option value="8">O-</option>
-                            </select>
-                        </div>
-                        <div class="col-12">
-                            <span for="" class="imp-star">*</span>
-                            <i class="fa-solid fa-earth-americas form-control-feedback"></i>
-                            <%--<input required id="countryTextBox" runat="server" type="text" class="form-control" placeholder="Enter Country">--%>
-                            <asp:DropDownList ID="ddlCountry" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:DropDownList>
+                        <div class="col-md-4 col-12 col-lg-4 col-xl-4 d-flex align-items-start mt-lg-5 justify-content-center">
+                            <div class="row signin-form form-group has-search">
+                                <div class="col-12">
+                                    <span for="" class="imp-star">*</span>
+                                    <i class="fa-solid fa-user form-control-feedback"></i>
+                                    <input required id="firstNameTextBox" runat="server" type="text" class="form-control" placeholder="First Name">
+                                </div>
+                                <div class="col-12">
+                                    <span for="" class="imp-star">*</span>
+                                    <i class="fa-solid fa-user form-control-feedback"></i>
+                                    <input required id="lastNameTextBox" runat="server" type="text" class="form-control" placeholder="Last Name">
+                                </div>
+                                <div class="col-12">
+                                    <span for="" class="imp-star">*</span>
+                                    <i class="fa-solid fa-venus-mars form-control-feedback"></i>
+                                    <select runat="server" id="selectgender" class="form-select form-control mySelect" style="color: blue" aria-label="Default select example" required>
+                                        <option selected>Gender</option>
+                                        <option value="1">Male</option>
+                                        <option value="2">Female</option>
+                                        <option value="3">Others</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <span for="" class="imp-star">*</span>
+                                    <i class="fa-solid fa-cake-candles form-control-feedback"></i>
+                                    <%--<asp:Calendar ID="calendar1" runat="server" DayStyle-BorderColor="#FFCC66"></asp:Calendar>--%>
+                                    <input runat="server" id="dobTextBox1" type="date" class="form-control" placeholder="" style="padding-right: 10px !important;" required />
+                                </div>
+                                <div class="col-12">
+                                    <span for="" class="imp-star">*</span>
+                                    <i class="fa-sharp fa-solid fa-droplet form-control-feedback"></i>
+                                    <select id="bloodgroup" runat="server" class="form-select form-control mySelect" aria-label="Default select example">
+                                        <option selected>Blood Group</option>
+                                        <option value="1">A+</option>
+                                        <option value="2">A-</option>
+                                        <option value="3">B+</option>
+                                        <option value="4">B-</option>
+                                        <option value="5">AB+</option>
+                                        <option value="6">AB-</option>
+                                        <option value="7">O+</option>
+                                        <option value="8">O-</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <span for="" class="imp-star">*</span>
+                                    <i class="fa-solid fa-earth-americas form-control-feedback"></i>
+                                    <%--<input required id="countryTextBox" runat="server" type="text" class="form-control" placeholder="Enter Country">--%>
+                                    <asp:DropDownList ID="ddlCountry" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:DropDownList>
 
 
-                            <%--<select runat="server" id="countryTextBox" class="form-select form-control mySelect" aria-label="Default select example">
+                                    <%--<select runat="server" id="countryTextBox" class="form-select form-control mySelect" aria-label="Default select example">
                             <option selected value="">Country</option>
                             <option value="1">India</option>
                             <option value="2">US</option>
                             <option value="3">UAE</option>
                         </select>--%>
-                        </div>
-                        <div class="col-12">
-                            <span for="" class="imp-star">*</span>
-                            <i class="fa-solid fa-map-pin form-control-feedback"></i>
-                            <asp:DropDownList ID="stateDropDownList" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="stateDropDownList_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:DropDownList>
-                            <input id="stateTextBox" visible="false" runat="server" type="text" class="form-control" placeholder="Enter State">
-                        </div>
-                        <div class="col-12">
-                            <span for="" class="imp-star">*</span>
-                            <i class="fa-sharp fa-solid fa-city form-control-feedback"></i>
-                            <asp:DropDownList ID="cityDropDownList" CssClass="form-select form-control mySelect" runat="server"></asp:DropDownList>
-                            <input id="cityTextBox" visible="false" runat="server" type="text" class="form-control" placeholder="Enter City">
-                        </div>
-                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <span for="" class="imp-star">*</span>
+                                    <i class="fa-solid fa-map-pin form-control-feedback"></i>
 
-                </div>
-                <div class="col-md-4 col-12 col-lg-4 col-xl-4 d-flex align-items-start mt-lg-5 justify-content-center mt-lg-5 mt-sm-0">
-                    <div class="row signin-form form-group has-search">
-                        <div class="col-12">
-                            <span for="" class="imp-star">*</span>
-                            <span class="form-control-feedback">
-                                <%-- <i class="fa-solid fa-phone-volume form-control-feedback"></i>--%>
-                                <asp:Label ID="dialcode" Style="color: #fdd001; font-weight: 600" Text="" runat="server"></asp:Label></span>
-                            <input class="form-control" required id="contactTextBox" name="phone" readonly="true" runat="server" type="tel" placeholder="Contact Number" style="padding-left: 45px !important;" />
+                                    <%--  <asp:DropDownList ID="ddlState" runat="server" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>--%>
+
+                                    <asp:DropDownList ID="stateDropDownList" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="stateDropDownList_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:DropDownList>
+                                    <input id="stateTextBox" visible="false" runat="server" type="text" class="form-control" placeholder="Enter State" />
+                                </div>
+                                <div class="col-12">
+                                    <span for="" class="imp-star">*</span>
+                                    <i class="fa-sharp fa-solid fa-city form-control-feedback"></i>
+                                    <asp:DropDownList ID="cityDropDownList" CssClass="form-select form-control mySelect" runat="server"></asp:DropDownList>
+                                    <input id="cityTextBox" visible="false" runat="server" type="text" class="form-control" placeholder="Enter City">
+                                </div>
+                            </div>
 
                         </div>
-                        <div class="col-12">
-                            <span for="" class="imp-star">*</span>
-                            <i class="fa-regular fa-envelope form-control-feedback"></i>
-                            <input id="emailTextBox" readonly="true" runat="server" type="email" class="form-control" placeholder="Email ID" required/>
-                        </div>
-                        <div class="col-12">
-                            <span for="" class="imp-star">&nbsp;</span>
-                            <i class="fa-solid fa-phone-volume form-control-feedback"></i>
-                            <input id="icecontactTextBox" runat="server" type="tel" class="form-control" placeholder="Emergency Contact No. (Optional)" />
-                        </div>
-                        <div class="col-12">
-                            <span for="" class="imp-star">&nbsp;</span>
-                            <i class="fa-solid fa-phone-volume form-control-feedback"></i>
-                            <input id="relativecontactTextBox" runat="server" type="tel" class="form-control" placeholder="Relative To Emergency Contact No" />
-                        </div>
+                        <div class="col-md-4 col-12 col-lg-4 col-xl-4 d-flex align-items-start mt-lg-5 justify-content-center mt-lg-5 mt-sm-0">
+                            <div class="row signin-form form-group has-search">
+                                <div class="col-12">
+                                    <span for="" class="imp-star">*</span>
+                                    <span class="form-control-feedback">
+                                        <%-- <i class="fa-solid fa-phone-volume form-control-feedback"></i>--%>
+                                        <asp:Label ID="dialcode" Style="color: #fdd001; font-weight: 600" Text="" runat="server"></asp:Label></span>
+                                    <input class="form-control" required id="contactTextBox" name="phone" readonly="true" runat="server" type="tel" placeholder="Contact Number" style="padding-left: 45px !important;" />
 
-                        <div class="col-12">
-                            <span for="" class="imp-star">&nbsp;</span>
-                            <i class="fa-solid fa-user-doctor form-control-feedback"></i>
-                            <input id="famdocTextBox" runat="server" type="text" class="form-control" placeholder="Family Doctor Name" />
-                        </div>
-                        <div class="text-center">
-                            <asp:Button ID="submitButton" runat="server" OnClick="submitButton_Click" Text="Update" class="btn thm-button mb-2 mt-4"></asp:Button>
-                        </div>
-                        <%-- <div class="text-center">
+                                </div>
+                                <div class="col-12">
+                                    <span for="" class="imp-star">*</span>
+                                    <i class="fa-regular fa-envelope form-control-feedback"></i>
+                                    <input id="emailTextBox" readonly="true" runat="server" type="email" class="form-control" placeholder="Email ID" required />
+                                </div>
+                                <div class="col-12">
+                                    <span for="" class="imp-star">&nbsp;</span>
+                                    <i class="fa-solid fa-phone-volume form-control-feedback"></i>
+                                    <input id="icecontactTextBox" runat="server" type="tel" class="form-control" placeholder="Emergency Contact No. (Optional)" />
+                                </div>
+                                <div class="col-12">
+                                    <span for="" class="imp-star">&nbsp;</span>
+                                    <i class="fa-solid fa-phone-volume form-control-feedback"></i>
+                                    <input id="relativecontactTextBox" runat="server" type="tel" class="form-control" placeholder="Relative To Emergency Contact No" />
+                                </div>
+
+                                <div class="col-12">
+                                    <span for="" class="imp-star">&nbsp;</span>
+                                    <i class="fa-solid fa-user-doctor form-control-feedback"></i>
+                                    <input id="famdocTextBox" runat="server" type="text" class="form-control" placeholder="Family Doctor Name" />
+                                </div>
+                                <div class="text-center">
+                                    <asp:Button ID="submitButton" runat="server" OnClick="submitButton_Click" Text="Update" class="btn thm-button mb-2 mt-4"></asp:Button>
+                                </div>
+                                <%-- <div class="text-center">
                             <asp:Button ID="nextButton" runat="server" PostBackUrl="~/additionalinformation.aspx" Text="Next" class="btn thm-blue-button mb-2 mt-4"></asp:Button>
                         </div>--%>
-                    </div>
-                </div>
+                            </div>
+                        </div>
 
+                    </div>
+                    <img class="blue-trangle-bottom-left" src="../assets/blue-trangle.png" alt="">
+                    <img class="blue-trangle-bottom-right" src="../assets/blue-trangle-bottom.png" alt="">
+                    <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
+                </div>
             </div>
-            <img class="blue-trangle-bottom-left" src="../assets/blue-trangle.png" alt="">
-            <img class="blue-trangle-bottom-right" src="../assets/blue-trangle-bottom.png" alt="">
-            <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
-        </div>
-    </div>
+
+        </ContentTemplate>
+    </asp:UpdatePanel>
+
+    <script type="text/javascript">
+        function uploadImage() {
+            var fileUpload = document.getElementById("Profileupload");
+            var imagePreview = document.getElementById("imagePreview");
+
+            if (fileUpload.files.length > 0) {
+                var file = fileUpload.files[0];
+                var reader = new FileReader();
+
+                reader.onloadend = function () {
+                    var base64String = reader.result;
+                    PageMethods.UploadImage(base64String, onSuccess, onError);
+                };
+
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function onSuccess(response) {
+            // Update the image preview source
+            document.getElementById("imagePreview").src = response;
+        }
+
+        function onError(error) {
+            // Handle error (display error message, log, etc.)
+            console.error(error);
+        }
+    </script>
 
 
     <script type="text/javascript">

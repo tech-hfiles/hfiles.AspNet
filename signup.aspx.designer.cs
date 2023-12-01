@@ -15,6 +15,15 @@ namespace hfiles
     {
 
         /// <summary>
+        /// scmSignUp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager scmSignUp;
+
+        /// <summary>
         /// firstnameTextBox control.
         /// </summary>
         /// <remarks>
@@ -33,6 +42,15 @@ namespace hfiles
         protected global::System.Web.UI.HtmlControls.HtmlInputText lastnameTextBox;
 
         /// <summary>
+        /// dobTextBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dobTextBox1;
+
+        /// <summary>
         /// phoneTextBox control.
         /// </summary>
         /// <remarks>
@@ -49,6 +67,33 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl emailTextBox;
+
+        /// <summary>
+        /// uplSignUp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel uplSignUp;
+
+        /// <summary>
+        /// pwdTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox pwdTextBox;
+
+        /// <summary>
+        /// cpwdTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox cpwdTextBox;
 
         /// <summary>
         /// divOtp control.

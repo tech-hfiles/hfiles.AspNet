@@ -48,7 +48,9 @@
                         <div class="col-md-6 py-3">
                             <a class="back-arrow-btn" href="avatar.aspx">
                                 <img src="../assets/back-arrow.png" alt=""></a>
-                            <h1 class="heading">Documents</h1>
+                            <%--<h1 class="heading">Documents</h1>--%>
+                            <asp:Label ID="lblReportType" runat="server" Text=""/>
+                            
                         </div>
                         <div class="col-md-6 text-center py-3 search-file">
                             <i class="fa-solid fa-magnifying-glass"></i>

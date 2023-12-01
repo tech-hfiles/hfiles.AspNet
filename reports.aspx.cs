@@ -19,13 +19,15 @@ namespace hfiles
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
+            int RId = DAL.validateInt(Request.QueryString["rid"]);
 
             if (!IsPostBack)
             {
+                getReportType(RId);
                 getReportMaster();
                 if (Request.QueryString["rid"] != null)
                 {
-                    int RId = DAL.validateInt(Request.QueryString["rid"]);
+                    //int RId = DAL.validateInt(Request.QueryString["rid"]);
                     if (RId > 0)
                     {
                         //int UserId = DAL.validateInt(Session["Userid"].ToString());
@@ -36,6 +38,38 @@ namespace hfiles
                 //Session[""];
             }
         }
+
+        public void getReportType(int RId)
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(cs))
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("usp_GetReportType", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(RId));
+                        cmd.Parameters.AddWithValue("_SpType", "R");
+                        cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
+                        cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
+
+                        MySqlDataReader sdr = cmd.ExecuteReader();
+                        while (sdr.Read())
+                        {
+                            string reporttype = sdr["Name"].ToString();
+                            //lbltype.Text = reporttype;
+                            lblReportType.Text = reporttype;
+                        }
+                        con.Close();
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+            }
+        }
+
 
         public void Reports(int UserId, int reportId)
         {

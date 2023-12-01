@@ -51,6 +51,10 @@
                                 <asp:LinkButton OnClick="v_pills_home_tab_Click" CommandArgument="5" runat="server" class="pet-care-link tabs-btn nav-link p-2 px-3" data-color="#e5e26d" ID="pet_care_tab">
                             <img src="../Suppor Group (BG  & Icons)/petcare-icon.png" alt="" width="30px" />
                             <span class="font-weight-bold large mx-3">Pet care</span></asp:LinkButton>
+
+                                <asp:LinkButton OnClick="fitness_tab_Click" CommandArgument="6" runat="server" class="mental-health-link tabs-btn nav-link p-2 px-3" data-color="#c5e26d" ID="fitness_tab">
+<img src="../Suppor Group (BG  & Icons)/mental-health-icon.png" alt="" width="30px" />
+<span class="font-weight-bold large mx-3">Fitness</span></asp:LinkButton>
                             </div>
                         </div>
                         <div class="col-md-8 col-lg-8 col-lg-9 p-0">
@@ -74,7 +78,7 @@
                                                         <div class="chat-text-div d-flex py-2">
                                                             <div class="chat-name">
                                                                 <img src="../Suppor Group (BG  & Icons)/user-default.png" alt="" width="30px" height="30px">
-                                                                <span><em> <%# "User_" + Eval("user_id").ToString() %></em></span>
+                                                                <span><em><%# "User_" + Eval("user_id").ToString() %></em></span>
                                                             </div>
                                                             <div class="chat-container">
                                                                 <div class="arrow">
@@ -107,7 +111,7 @@
                                             <asp:TextBox ID="TextBoxPost" AutoComplete="Off" runat="server" placeholder="Enter your message..."></asp:TextBox>
                                         </div>
                                         <div class="col-2 d-flex align-items-center p-0 p-md-2">
-                                            <asp:ImageButton ID="ImageButton1" Width="60px"  OnClick="submitImageButton_Click" ImageUrl="https://cdn-icons-png.flaticon.com/512/60/60525.png" runat="server" />
+                                            <asp:ImageButton ID="ImageButton1" Width="60px" OnClick="submitImageButton_Click" ImageUrl="https://cdn-icons-png.flaticon.com/512/60/60525.png" runat="server" />
                                             <%-- <img class="cursor-pointer"
                                             src="https://cdn-icons-png.flaticon.com/512/60/60525.png" alt="" width="30px">--%>
                                         </div>
@@ -334,7 +338,7 @@
             //    console.log('skin')
             //    tabDiv.css( "background", "linear-gradient(to top, #ffb4bb 0%, #ffffff 100%)" )
             //})
-            
+
             $(document).on("click", ".tabs-btn", function () {
                 var colorCode = $(this).data('color')
                 console.log($(this).data('color'))
@@ -359,7 +363,7 @@
             });
         });
         //.support - group.mental - health - div
-        
+
     </script>
 
 

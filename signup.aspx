@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Sign IN</title>
     <style>
         @media (min-width: 992px) {
@@ -34,10 +35,13 @@
 <body>
     <div class="signin-main">
         <form class="w-100 h-100" runat="server">
-            <div class="row vert-cent w-100 h-sm-100vh">
+            <asp:ScriptManager ID="scmSignUp" runat="server"></asp:ScriptManager>
+
+            <div class="row vert-cent w-100 h-sm-100vh m-0">
                 <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image h-lg-100vh d-none d-lg-block">
                     <img src="<%= ResolveUrl("~/Reception Page/002A.jpg") %>" alt="" width="100%" height="100%" />
                 </div>
+
                 <div class="col-lg-6 col-xl-6 col-md-5 col-sm-12 px-5 d-flex justify-content-center align-items-center vh-lg-100"
                     style="background-image: url('<%= ResolveUrl("~/Reception Page/002B.png") %>')">
                     <div>
@@ -54,42 +58,69 @@
                             </div>
                             <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
                                 <i class="fa-solid fa-user form-control-feedback"></i>
-                                <input id="lastnameTextBox" runat="server" required type="text" class="form-control my-2" placeholder="Last Name" />
+                                <input id="lastnameTextBox" runat="server" type="text" class="form-control my-2" placeholder="Last Name" required />
                             </div>
+                            
+                            <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
+                                <i class="fa-solid fa-user form-control-feedback"></i>
+                               <input runat="server" id="dobTextBox1" type="date" class="form-control" placeholder="Date Of Birth" required />
+                            </div>
+
                             <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
                                 <i class="fa-solid fa-phone-volume form-control-feedback"></i>
-                                <input type="number" id="phoneTextBox" required runat="server" class="form-control my-2" placeholder="Phone No" />
+                                <input type="number" id="phoneTextBox" runat="server" class="form-control my-2" placeholder="Phone No" required />
                             </div>
                             <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
                                 <i class="fa-regular fa-envelope form-control-feedback"></i>
-                                <input id="emailTextBox" runat="server" required type="email" class="form-control my-2" placeholder="Email ID" />
+                                <input id="emailTextBox" runat="server" type="email" class="form-control my-2" placeholder="Email ID" required />
                             </div>
+
+                            <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
+                                <i class="fa-solid fa-lock form-control-feedback"></i>
+                                <asp:UpdatePanel ID="uplSignUp" runat="server">
+                                    <ContentTemplate>
+                                        <asp:TextBox ID="pwdTextBox" runat="server" type="password" class="form-control my-2" placeholder="Password" required />
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+
+                            </div>
+
+                            <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
+                                <i class="fa-solid fa-lock form-control-feedback"></i>
+                                <asp:TextBox ID="cpwdTextBox" runat="server" type="password" class="form-control my-2" placeholder="Confirm Password" required />
+                                <asp:RequiredFieldValidator ControlToValidate="cpwdTextBox" ErrorMessage="Please Enter Confirm Password" runat="server" ForeColor="White"></asp:RequiredFieldValidator>
+                                <asp:CompareValidator ControlToValidate="cpwdTextBox" ControlToCompare="pwdTextBox" ErrorMessage="Password and Confirm Password should be same" runat="server" ForeColor="White"></asp:CompareValidator>
+                            </div>
+
                         </div>
                         <div class="text-center my-3" runat="server" id="divOtp">
                             <asp:Button ID="genOTPButton" runat="server" Text="Generate OTP" OnClick="signup_Click" OnClientClick="JSalert()" class="btn thm-button"></asp:Button>
                         </div>
-                       <div class="row signin-form form-group has-search text-center justify-content-center">
-                             <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
-                                  <div runat="server" id="divSubmit">
-                            <div class="signin-form mt-2">
-                                <div class="w-100">
-                                    <input id="otpTextBox" runat="server" type="text" required class="form-control w-100 OTP-input" placeholder="Enter OTP" />
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <asp:Label ID="errorLabel" Text="" runat="server" CssClass="color-theme-yellow" />
-                                    <span id="timer" style="color:#fff"></span>
-                                     <span class="mx-2"><asp:LinkButton ID="resendLinkButtonTest" runat="server">Resend OTP</asp:LinkButton></span>
+                        <div class="row signin-form form-group has-search text-center justify-content-center">
+                            <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
+                                <div runat="server" id="divSubmit">
+                                    <div class="signin-form mt-2">
+                                        <div class="w-100">
+                                            <input id="otpTextBox" runat="server" type="text" required class="form-control w-100 OTP-input" placeholder="Enter OTP" />
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <asp:Label ID="errorLabel" Text="" runat="server" CssClass="color-theme-yellow" />
+                                                <span class="mx-2">
+                                                <span id="timer" style="color: #fff"></span>
+                                                    <asp:LinkButton ID="resendLinkButtonTest" runat="server" OnClick="resendLinkButtonTest_Click">Resend OTP</asp:LinkButton></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center my-2">
+                                        <asp:Button ID="submitButton" runat="server" Text="Submit" OnClick="submitButton_Click" class="btn thm-button"></asp:Button>
+
+                                    </div>
                                 </div>
-                                </div>
-                            </div>
-                            <div class="text-center my-2">
-                                <asp:Button ID="submitButton" runat="server" Text="Submit" OnClick="submitButton_Click" class="btn thm-button"></asp:Button>
-                                
                             </div>
                         </div>
-                             </div>
-                       </div>
                     </div>
                 </div>
+
+
             </div>
 
 
@@ -97,50 +128,51 @@
             <img class="plus-bottom-left" src="<%= ResolveUrl("~/assets/plus-2.png") %>" alt="" />
             <a href="<%= ResolveUrl("~/login.aspx") %>">
                 <img class="triangle-top-right-cancel" src="<%= ResolveUrl("~/assets/cancel-white.png") %>" alt="" /></a>
+
         </form>
     </div>
 
- 
+
     <script type="text/javascript">
         function JSalert() {
             swal("An OTP is sent to your email, enter the OTP to proceed.");
         }
 
-         console.log("timer")
-         let timerOn = true;
-        var resendLinkButtonTest = document.getElementById('resendLinkButtonTest')
-        resendLinkButtonTest.style.display = 'none'
-         function timer(remaining) {
+        console.log("timer")
+        let timerOn = true;
+        $('#resendLinkButtonTest').hide();
+        function timer(remaining) {
 
-             var m = Math.floor(remaining / 60);
-             var s = remaining % 60;
+            var m = Math.floor(remaining / 60);
+            var s = remaining % 60;
 
-             m = m < 10 ? '0' + m : m;
-             s = s < 10 ? '0' + s : s;
-             document.getElementById('timer').innerHTML = m + ':' + s;
-             remaining -= 1;
+            m = m < 10 ? '0' + m : m;
+            s = s < 10 ? '0' + s : s;
+            document.getElementById('timer').innerHTML = m + ':' + s;
+            remaining -= 1;
 
-             if (remaining >= 0 && timerOn) {
-                 setTimeout(function () {
-                     timer(remaining);
-                 }, 1000);
-                 return;
-             }
+            if (remaining >= 0 && timerOn) {
+                setTimeout(function () {
+                    timer(remaining);
+                }, 1000);
+                return;
+            }
 
-             if (!timerOn) {
-                 // Do validate stuff here
-                 return;
-             }
+            if (!timerOn) {
+                // Do validate stuff here
+                return;
+            }
 
-             // Do timeout stuff here
-             document.getElementById('timer').style.display = 'none'
-             resendLinkButtonTest.style.display = 'inline'
-         }
-         timer(10);
-        resendLinkButtonTest.on('click', function () {
-            resendLinkButtonTest.style.display = 'none'
-             timer(10);
-         })
+            // Do timeout stuff here
+            $('#timer').hide()
+            $('#resendLinkButtonTest').show();
+        }
+        timer(60);
+        $('#resendLinkButtonTest').click(function () {
+            $('#resendLinkButtonTest').hide();
+            $('#timer').show()
+            timer(60);
+        })
 
     </script>
 </body>

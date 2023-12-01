@@ -131,7 +131,10 @@
                 z-index: 10;
                 background: #fff;
                 justify-content: center;
-                padding: 0
+                padding: 0;
+                margin:0;
+                width:fit-content;
+
             }
 
                 .profile-menu ul li {
@@ -149,11 +152,18 @@
                         align-items: center;
                         padding: 15px 20px;
                         gap: 6px;
+                        border-bottom:1px solid #ccc;
                     }
 
                         .profile-menu ul li a i {
                             font-size: 1.2em;
                         }
+              .profile .user span {
+                   font-family: 'Red Hat Display', Sans-serif !important;
+              }
+              .profile-menu ul li .gray-color {
+                  color: #808080 !important;
+              }
     </style>
 </head>
 <body>
@@ -182,12 +192,13 @@
                         <div class="profile-menu">
                             <ul>
 
-                                <li><a><i class="ph-bold ph-question"></i>
-                                    <asp:Label ID="memberId" style="font-weight:600" runat="server" Text=""></asp:Label></a></li>
-                                <li><a href="addbasicdetails.aspx"><i class="ph-bold ph-question"></i>Edit Basic Info</a></li>
+                                <li><a><i class="fa fa-regular fa-id-badge color-thm-blue"></i>
+                                    <asp:Label ID="memberId" style="font-weight:600; font-family: 'Red Hat Display', sans-serif;" runat="server" Text="" CssClass="color-thm-blue"></asp:Label></a></li>
+                                <li><a href="addbasicdetails.aspx" class="color-thm-blue"><i class="fa fa-solid fa-circle-info"></i>My Profile</a></li>
                                 <%--<li><a runat="server"><i class="ph-bold ph-sign-out"></i>&nbsp;Sign Out</a></li>--%>
                                 <li>
-                                    <asp:LinkButton ID="lBtn" runat="server" OnClick="logoutButton_Click" Text="" CssClass="ph-bold ph-sign-out">&nbsp;&nbsp;Sign Out</asp:LinkButton></li>
+                                   
+                                    <asp:LinkButton ID="lBtn" runat="server" OnClick="logoutButton_Click" Text="" CssClass="ph-bold ph-sign-out gray-color"> <i class="fa fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;Sign Out</asp:LinkButton></li>
                             </ul>
                         </div>
                     </nav>
@@ -214,8 +225,8 @@
                 <span>Copyright@2023</span>
             </div>
             <div class="col-4 p-p d-xl-flex text-center">
-                <p class="m-0"><a class="px-lg-3" href="https://wa.me/919930372831"><i class="fa-brands fa-whatsapp"></i> +91-9930372831</a></p>
-                <p class="m-0"><a class="d-flex align-items-center" href="mailto:contact@hfiles.in"><i class="fa fa-solid fa-envelope mx-1"></i>contact@hfiles.in</a></p>
+                <p class="m-0"><a class="px-xl-3" href="https://wa.me/919930372831"><i class="fa-brands fa-whatsapp"></i>&nbsp; <%--+91-9930372831--%></a></p>
+                <p class="m-0"><a class="" href="mailto:contact@hfiles.in"><i class="fa fa-solid fa-envelope"></i>&nbsp; contact@hfiles.in</a></p>
                 
             </div>
         </div>

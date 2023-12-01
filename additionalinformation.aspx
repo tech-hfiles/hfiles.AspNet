@@ -3,7 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="<%= ResolveUrl("~/style.css") %>" />
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
@@ -70,7 +70,7 @@
                                 </div>
                                 <div class="col-2 text-center">
                                     <div class="radio-container">
-                                        
+
                                         <input type="radio" runat="server" id="smoke_yes" onclick="handleSelectSmoke(1)" name="SmokeGroup" class="hidden-radio" />
                                         <label for="ContentPlaceHolder1_smoke_yes" class="radio-label">
                                             <div class="checkbox-circle">
@@ -107,7 +107,7 @@
                                 </div>
                                 <div class="col-2 text-center">
                                     <div class="radio-container">
-                                        <input type="radio" runat="server" id="alcohol_yes" onclick="handleSelectAlcohol(1)" value="1"  name="AlcoholGroup" class="hidden-radio" />
+                                        <input type="radio" runat="server" id="alcohol_yes" onclick="handleSelectAlcohol(1)" value="1" name="AlcoholGroup" class="hidden-radio" />
                                         <label for="ContentPlaceHolder1_alcohol_yes" class="radio-label">
                                             <div class="checkbox-circle">
                                                 <div class="checkmark"></div>
@@ -138,14 +138,14 @@
                             </div>
                             <div class="row pt-4">
                                 <div class="col-10">
-                                    <p class="sub-heading"> Have you had any surgeries? if yes. please specify:</p>
+                                    <p class="sub-heading">Have you had any surgeries? if yes. please specify:</p>
                                 </div>
                             </div>
                             <div class="row surgeries-div">
                                 <div class="col-6 col-md-4">
                                     <input type="text" runat="server" id="txtSurgeries" placeholder="Enter the surgery details" />
                                 </div>
-                                
+
                                 <div class="col-lg-2 col-6">
                                     <div class="select-years">
                                         <asp:DropDownList runat="server" ID="yearpicker" name="yearpicker">
@@ -159,30 +159,29 @@
                                 </div>
                                 <div class="col-lg-5 col-12 mt-lg-0 mt-5">
                                     <div style="max-height: 200px; overflow: auto;">
-                                    <asp:GridView ID="surgeryGridView" AutoGenerateColumns="false" CssClass="surgeries-table w-100" runat="server" >
-                                        <Columns>
-                                            <asp:BoundField DataField="user_surgery_details" HeaderText="Surgery Details"
-                                                SortExpression="user_surgery_details" />
-                                            <asp:BoundField DataField="user_surgery_year" HeaderText="Surgery Date"
-                                                SortExpression="user_surgery_year" />
-                                            <%--<asp:CommandField ShowDeleteButton="true" ButtonType="Image" DeleteImageUrl="../assets/not-select-red.png" HeaderText="Action" />--%>
-                                            <asp:TemplateField>
-                                                <HeaderTemplate>
-                                                    Action
-                                                </HeaderTemplate>
-                                                <ItemTemplate>
-                                                    <asp:ImageButton CssClass="delete-report-btn" ID="lRemoveBtn" runat="server" OnClick="lRemoveBtn_Click1" CommandArgument='<%#Eval("user_surgery_id") %>' Text="Delete" ImageUrl="../Suppor Group (BG  & Icons)/delete-icon.png" ></asp:ImageButton>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <%--<asp:ButtonField ButtonType="Button" Text="Delete"/>--%>
+                                        <asp:GridView ID="surgeryGridView" AutoGenerateColumns="false" CssClass="surgeries-table w-100" runat="server">
+                                            <Columns>
+                                                <asp:BoundField DataField="user_surgery_details" HeaderText="Surgery Details"
+                                                    SortExpression="user_surgery_details" />
+                                                <%--<asp:BoundField DataField="user_surgery_year" HeaderText="Surgery Date"
+                                                    SortExpression="user_surgery_year" />--%>
+                                                <%--<asp:CommandField ShowDeleteButton="true" ButtonType="Image" DeleteImageUrl="../assets/not-select-red.png" HeaderText="Action" />--%>
+                                                <asp:TemplateField>
+                                                    <HeaderTemplate>Surgery Date</HeaderTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblSurgeryYear" runat="server" Text='<%#Eval("user_surgery_year") %>'></asp:Label>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:ImageButton CssClass="delete-report-btn" ID="lRemoveBtn" runat="server" OnClick="lRemoveBtn_Click1" CommandArgument='<%#Eval("user_surgery_id") %>' Text="Delete" ImageUrl="../Suppor Group (BG  & Icons)/delete-icon.png"></asp:ImageButton>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <%--<asp:ButtonField ButtonType="Button" Text="Delete"/>--%>
 
-                                           <%-- <asp:BoundField HeaderText="Action" >
+                                                <%-- <asp:BoundField HeaderText="Action" >
                                                 
                                                <%--<asp:ImageButton ID="button1" Text="text" CssClass="log-out-btn" ImageUrl="../assets/not-select-red.png" runat="server"></asp:ImageButton>
                                             </asp:BoundField>--%>
-                                            
-                                        </Columns>
-                                    </asp:GridView>
+                                            </Columns>
+                                        </asp:GridView>
 
                                     </div>
                                     <%--<table class="surgeries-table w-100">
@@ -204,7 +203,7 @@
                                 </div>
                             </div>
                             <div class="mt-5 d-lg-flex d-block">
-                               <%--<asp:Button Text="Back" class="thm-back-button" OnClick="btnMedicalBack_Click" type="Button" ID="Button1" runat="server" />--%>
+                                <%--<asp:Button Text="Back" class="thm-back-button" OnClick="btnMedicalBack_Click" type="Button" ID="Button1" runat="server" />--%>
                                 <asp:Button Text="Next" ID="btnUpdateAdditional" class="thm-blue-button mx-lg-3 my-2 my-lg-0" OnClick="btnUpdateAdditional_Click" runat="server" />
                                 <%--<button onclick="HideAdditionalDiv()" type="submit" class="thm-blue-button">Next</button>--%>
                             </div>
@@ -274,7 +273,7 @@
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>
-                           
+
                         </div>
                     </div>
                     <div class="medic-his-btn mt-3">
@@ -330,7 +329,7 @@
                                         </div>
                                     </ItemTemplate>
                                 </asp:Repeater>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -398,17 +397,17 @@
             isSelectAlcohol = e;
 
             let hfAlcohol = document.getElementById('<%= hfDoyouConsumeAlcohol.ClientID %>');
-             if (isSelectAlcohol === 1) {
-                 hfAlcohol.value = "1";
-             } else if (isSelectAlcohol === 0) {
+            if (isSelectAlcohol === 1) {
+                hfAlcohol.value = "1";
+            } else if (isSelectAlcohol === 0) {
 
-                 hfAlcohol.value = "0";
-             } else if (isSelectAlcohol === 2) {
+                hfAlcohol.value = "0";
+            } else if (isSelectAlcohol === 2) {
 
-                 hfAlcohol.value = "2";
-             }
-         }
+                hfAlcohol.value = "2";
+            }
+        }
 
-        
+
     </script>
 </asp:Content>

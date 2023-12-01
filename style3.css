@@ -14,16 +14,16 @@ h2,
 h3,
 h4,
 h5,
-h5 {
+h5,
+a{
     font-family: 'Red Hat Display', sans-serif !important;
 }
 
 p,
-a,
 span,
 li,
 button {
-    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .footer {
@@ -33,6 +33,7 @@ button {
     position: absolute;
     bottom: 0;
     width: 100%;
+    padding: 10px
 }
 
 .top-home-icons {
@@ -48,7 +49,9 @@ button {
     width: 100% !important;
     height: 40px !important;
 }
-
+.color-thm-blue {
+    color: #0512b9 !important
+}
 .t-c a {
     color: #ffffff;
     font-size: 16px;
@@ -455,7 +458,11 @@ ul {
     ul .plus-value {
         font-size: 30px;
         color: #eec93a;
+        font-family: 'Red Hat Display', sans-serif !important;
     }
+.avatar-left-sec.ul .plus-value #ContentPlaceHolder1_lblUserName {
+    font-family: 'Red Hat Display', sans-serif !important;
+}
 
 .avatar .inner-menu-div {
     /* padding-top: 20px; */
@@ -905,7 +912,11 @@ a {
         width: 85% !important;
     }
 }
-
+@media only screen and (min-width: 600px) {
+    .profile .user span {
+        font-size: 26px
+    }
+}
 @media only screen and (max-width: 912px) {
     .avatar .blue-t-bottom-right {
         position: absolute;
@@ -1010,7 +1021,7 @@ a {
 
     .footer {
         position: relative;
-        padding:10px;
+        padding:10px !important;
     }
 
     .avatar .blue-t-bottom-left {
@@ -1068,6 +1079,13 @@ a {
     .add-member .blue-t-bottom-right {
         position: relative;
         top: 20px;
+    }
+    .profile .img-box img {
+        height:85% !important;
+        width:85% !important;
+    }
+    .common-heading img {
+        height:30px !important;
     }
 }
 

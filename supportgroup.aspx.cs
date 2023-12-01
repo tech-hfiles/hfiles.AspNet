@@ -142,6 +142,11 @@ namespace hfiles
             }
         }
 
+        protected void fitness_tab_Click(object sender, EventArgs e)
+        {
+
+        }
+
         protected void submitImageButton_Click(object sender, ImageClickEventArgs e)
         {
             int user_id = Convert.ToInt32(Session["Userid"]); // You would typically get this from the user's session

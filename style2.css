@@ -16,15 +16,16 @@ h2,
 h3,
 h4,
 h5,
-h5,
-button {
+h5 {
     font-family: 'Red Hat Display' !important;
 }
 
-p, a, span, li button {
+p,a, span, li button {
     font-family: 'Poppins', sans-serif !important;
 }
-
+.color-thm-blue {
+    color: #0512b9 !important
+}
 .top-home-icons {
     top: 0 !important;
     right: 0 !important;
@@ -46,7 +47,7 @@ p, a, span, li button {
 }
 .footer {
     background: #192184;
-    padding: 10px;
+    padding: 10px !important;
 }
 
     .footer a {
@@ -699,7 +700,7 @@ select {
     width: 90%;
     height: 65px;
     border-radius: 50px;
-    margin: 30px 0;
+    margin: 0 0 3rem 0;
     background-color: #ffd101;
     display: flex;
     justify-content: center;
@@ -720,7 +721,7 @@ select {
     .journal .journal_main .inner_div .heading h3 {
         background-color: #ffd101;
         height: 60px;
-        width: 320px;
+        width: 90%;
         border-radius: 50px;
         display: flex;
         justify-content: center;
@@ -729,12 +730,13 @@ select {
         font-weight: 600;
     }
 
-        .my_profile .dropdown-toggle {
-            text-decoration: none;
-            color: #0614aa !important;
-            font-weight: 600;
-            font-size: 26px;
-        }
+.my_profile .dropdown-toggle {
+    text-decoration: none;
+    color: #0614aa !important;
+    font-weight: 800;
+    font-size: 26px;
+    font-family: 'Red Hat Display' !important;
+}
 
 .my_profile .support-group {
     text-decoration: none;
@@ -889,18 +891,41 @@ select {
     .p-p p, .t-c p {
         font-size: 16px !important;
     }
-}
-@media only screen and (max-width: 1300px) {
-    .privacy_main {
-        height: 93vh
+    .profile .user span {
+        font-size: 26px
     }
-        .privacy_main .blue_trangle_bottom_right {
-            position: relative;
-            left: 50%;
-            right: auto;
+}
+@media only screen and (min-width: 600px) {
+    .profile .user span {
+        font-size: 26px
+    }
+}
+
+    @media only screen and (max-width: 1300px) {
+        .privacy_main {
+            height: 93vh
         }
-    .journal .journal_main {
-        padding: 0 !important;
+
+            .privacy_main .blue_trangle_bottom_right {
+                position: relative;
+                left: 50%;
+                right: auto;
+            }
+
+        .journal .journal_main {
+            padding: 0 !important;
+        }
+        .progress_div {
+            position: relative;
+            bottom: 0px;
+            left: 70px;
+            width: 300px;
+        }
+    }
+
+@media only screen and (min-width: 912px) and ( max-width: 1024px) {
+    .journal {
+        margin-top: 30%;
     }
 }
     @media only screen and (max-width: 912px) {
@@ -967,6 +992,7 @@ select {
         .privacy_main .inner_div {
             height: 80%;
         }
+
         .journal .journal_main {
             display: block !important;
         }
@@ -974,15 +1000,19 @@ select {
             .journal .journal_main .jur-width-div {
                 width: 100% !important;
             }
+
         .privacy_main {
-            height:87vh
+            height: 87vh
         }
+
             .privacy_main .blue_trangle_bottom_right {
-                top:30px
+                top: 30px
             }
+
         .journal .journal_main .jur-width-div {
             padding-left: 20px;
         }
+     
     }
 
     @media only screen and (max-width: 769px) {
@@ -1007,9 +1037,11 @@ select {
         .my_profile .support-group {
             font-size: 24px;
         }
+
         .privacy_main {
             height: 86vh
         }
+
             .privacy_main .blue_trangle_bottom_right {
                 top: 0px
             }
@@ -1091,74 +1123,75 @@ select {
         .privacy_main .inner_div {
             height: 75%;
         }
-        .privacy_main .blue_trangle_bottom_right {
-            position:relative;
-            left: 10%;
-            right:auto
 
+        .privacy_main .blue_trangle_bottom_right {
+            position: relative;
+            left: 10%;
+            right: auto
         }
+
         .t-c a, .p-p a {
             font-size: 12px;
         }
     }
 
-@media only screen and (max-width: 512px) {
-    .privacy_main .blue_trangle_top_left {
-        height: 60px;
-    }
+    @media only screen and (max-width: 512px) {
+        .privacy_main .blue_trangle_top_left {
+            height: 60px;
+        }
 
-    .privacy_main .blue_trangle_top_right {
-        right: 12%;
-    }
+        .privacy_main .blue_trangle_top_right {
+            right: 12%;
+        }
 
-    .privacy_main .blue_trangle_right {
-        height: 130px !important;
-    }
+        .privacy_main .blue_trangle_right {
+            height: 130px !important;
+        }
 
-    .privacy_main .blue_trangle_bottom_right {
-        height: 80px;
-    }
+        .privacy_main .blue_trangle_bottom_right {
+            height: 80px;
+        }
 
-    .privacy_main .blue_trangle_bottom_left {
-        height: 150px;
-        bottom: 22%;
-    }
+        .privacy_main .blue_trangle_bottom_left {
+            height: 150px;
+            bottom: 22%;
+        }
 
-    .journal .journal_main .my_profile {
-        width: 100%;
-        margin: 10px 0;
-    }
+        .journal .journal_main .my_profile {
+            width: 100%;
+            margin: 10px 0;
+        }
 
-    .my_profile ul.dropdown-menu.show {
-        z-index: 1;
-    }
+        .my_profile ul.dropdown-menu.show {
+            z-index: 1;
+        }
 
-    .contact .contact-main .contact-card {
-        margin-left: 10px;
-    }
+        .contact .contact-main .contact-card {
+            margin-left: 10px;
+        }
 
-    .privacy_main .inner_div {
-        width: 80%;
-    }
+        .privacy_main .inner_div {
+            width: 80%;
+        }
 
-    .back-arrow-btn {
-        top: 8%;
-        left: 5%;
-    }
+        .back-arrow-btn {
+            top: 8%;
+            left: 5%;
+        }
 
-    .privacy_main .blue_trangle_bottom_right {
-        position: relative;
-        right: 0
-    }
+        .privacy_main .blue_trangle_bottom_right {
+            position: relative;
+            right: 0
+        }
 
-    .privacy_main {
-        height: 85vh
+        .privacy_main {
+            height: 85vh
+        }
+
+        .t-c a, .p-p a {
+            font-size: 8px;
+        }
     }
-    .t-c a, .p-p a {
-        font-size: 8px;
-    }
-   
-}
 
     @media only screen and (max-width: 414px) {
 
@@ -1280,6 +1313,7 @@ select {
 
         .journal .journal_main .inner_div .heading h3 {
             height: 45px;
+            width:100%
         }
 
         .journal .journal_main .my_profile {
@@ -1299,16 +1333,18 @@ select {
         .privacy_main .inner_div .desciption .desc-heading h4 {
             font-size: 18px;
         }
+
         .journal .journal_main {
-            display:block !important;
+            display: block !important;
         }
+
             .journal .journal_main .jur-width-div {
                 width: 100% !important;
             }
+
         .t-c a, .p-p a {
             font-size: 8px !important;
         }
-
     }
 
     @media only screen and (max-width: 375px) {
@@ -1427,21 +1463,26 @@ select {
         .privacy_main .inner_div .desciption {
             max-height: 80%;
         }
+
         .journal .journal_main .inner_div .heading h3 {
-            width:235px;
+            width: 235px;
         }
+
         .t-c a, .p-p a {
-            font-size:6px !important;
+            font-size: 6px !important;
         }
+
         .copy-right span {
-            font-size:8px;
+            font-size: 8px;
         }
+
         .profile .img-box img {
             height: 85% !important;
             width: 85% !important;
         }
+
         .common-heading img {
-            height:30px !important;
+            height: 30px !important;
         }
     }
 

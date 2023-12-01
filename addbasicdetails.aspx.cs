@@ -13,6 +13,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using static System.Net.WebRequestMethods;
 
+
 namespace hfiles
 {
     public partial class addbasicdetails : System.Web.UI.Page
@@ -20,6 +21,7 @@ namespace hfiles
         string connectionString = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Profileupload.Attributes["onchange"] = "uploadImage();";
             if (Session["Userid"] != null)
             //newly commented for testing purpose
             //if (Session["firstname"] != null && Session["lastname"] != null && Session["email"] != null && Session["phone"] != null)
@@ -57,6 +59,33 @@ namespace hfiles
             else
             {
                 Response.Redirect("~/login.aspx");
+            }
+
+        }
+
+        public static string UploadImage(string base64String)
+        {
+            try
+            {
+                // Convert the base64 string to byte array
+                byte[] bytes = Convert.FromBase64String(base64String.Split(',')[1]);
+
+                // Specify the upload path
+                string uploadPath = HttpContext.Current.Server.MapPath("~/Uploads/");
+
+                // Generate a unique file name
+                string fileName = Guid.NewGuid().ToString() + ".png";
+
+                // Save the file to the server
+                System.IO.File.WriteAllBytes(Path.Combine(uploadPath, fileName), bytes);
+
+                // Return the file path or any other response if needed
+                return $"~/Uploads/{fileName}";
+            }
+            catch (Exception ex)
+            {
+                // Handle exception (display error message, log, etc.)
+                return "Error";
             }
 
         }
@@ -133,8 +162,10 @@ namespace hfiles
                     command.Parameters.AddWithValue("_user_gender", selectgender.Value);
                     command.Parameters.AddWithValue("_user_dob", dobTextBox1.Value);
                     command.Parameters.AddWithValue("_user_bloodgroup", bloodgroup.Value);
-                    command.Parameters.AddWithValue("_user_state", stateTextBox.Value);
-                    command.Parameters.AddWithValue("_user_city", cityTextBox.Value);
+                    //command.Parameters.AddWithValue("_user_state", stateTextBox.Value);
+                    command.Parameters.AddWithValue("_user_state", stateDropDownList.SelectedItem.Text);
+                    //command.Parameters.AddWithValue("_user_city", cityTextBox.Value);
+                    command.Parameters.AddWithValue("_user_city", cityDropDownList.SelectedItem.Text);
                     command.Parameters.AddWithValue("_user_country", ddlCountry.SelectedItem.Text);
                     //command.Parameters.AddWithValue("_user_country", ddlCountry.SelectedValue);
                     command.Parameters.AddWithValue("_user_contact", contactTextBox.Value);
@@ -185,15 +216,18 @@ namespace hfiles
                             selectgender.Value = reader["user_gender"].ToString();
                             dobTextBox1.Value = reader["user_dob"].ToString();
                             bloodgroup.Value = reader["user_bloodgroup"].ToString();
-                            ddlCountry.SelectedItem.Text = reader["user_country"].ToString();
                             dialcode.Text = ddlCountry.SelectedValue.ToString();
-                            stateTextBox.Value = reader["user_state"].ToString();
-                            cityTextBox.Value = reader["user_city"].ToString();
-                            if (ddlCountry.SelectedItem.Text == "India")
-                            {
-                                stateDropDownList.SelectedItem.Text = reader["user_state"].ToString();
-                                cityDropDownList.SelectedItem.Text = reader["user_city"].ToString();
-                            }
+                            //stateTextBox.Value = reader["user_state"].ToString();
+                            //cityTextBox.Value = reader["user_city"].ToString();
+                            ddlCountry.SelectedItem.Text = reader["user_country"].ToString();
+                            //stateDropDownList.SelectedItem.Text = reader["user_state"].ToString();
+                            //ddlState.SelectedItem.Text = reader["user_state"].ToString();
+                            //cityDropDownList.SelectedItem.Text = reader["user_city"].ToString();
+                            //if (ddlCountry.SelectedItem.Text == "India")
+                            //{
+                            //    stateDropDownList.SelectedItem.Text = reader["user_state"].ToString();
+                            //    cityDropDownList.SelectedItem.Text = reader["user_city"].ToString();
+                            //}
                             contactTextBox.Value = reader["user_contact"].ToString();
                             icecontactTextBox.Value = reader["user_icecontact"].ToString();
                             relativecontactTextBox.Value = reader["user_relativecontact"].ToString();
@@ -278,6 +312,11 @@ namespace hfiles
         protected void stateDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
             getcitylist(stateDropDownList.SelectedItem.Text);
+        }
+
+        protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //getcitylist(stateDropDownList.SelectedItem.Text);
         }
     }
 }

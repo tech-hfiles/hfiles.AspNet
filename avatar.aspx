@@ -140,8 +140,8 @@
                                 <div class="col-6 p-0" >
                                     <div class="avatar-left-sec">
                                         <ul class="m-0">
-                                            <li class="border-bottom w-100px text-center pb-2 pb-lg-2 pb-xxl-4"><span class="plus-value">
-                                                <asp:Label Text="" ID="lblUserName" runat="server" /></span></li>
+                                            <li class="border-bottom w-100px text-center pb-2 pb-lg-2 pb-xxl-4">
+                                                <span class="plus-value" > <asp:Label Text="" ID="lblUserName" runat="server" style="font-family: 'Red Hat Display', sans-serif" /></span></li>
 
                                             <li class="border-bottom w-100px text-center mb-2 mb-lg-3 mb-xxl-4">
                                                 <asp:Repeater ID="rptMember" runat="server">
@@ -239,12 +239,12 @@
                         <div class="col-lg-5 col-md-5 col-sm-12 p-0 pt-5 d-flex align-items-center justify-content-end h-50">
                             <div class="menu-div">
                                 <div class="inner-menu-div">
-                                    <div class="popover__wrapper">
+                                    <div class="popover__wrapper text-center">
 
                                         <asp:LinkButton Text="text" runat="server" ID="LinkButton1" OnClick="lbtnAddReport_Click">
                                 <img class="plus-icon" src="<%= ResolveUrl("~/Avatar/add-report.png") %>" alt="" />
-                                        </asp:LinkButton>
-                                        <span style="color: #0236b4; font-weight: 600;">ADD REPORT</span>
+                                        </asp:LinkButton><br /><br />
+                                        <span style="color: #0236b4; font-weight: 600; padding-block-end:100px">ADD REPORT</span>
                                         <div class="popover__content">
                                             <p class="popover__message">Upload Report</p>
                                         </div>
