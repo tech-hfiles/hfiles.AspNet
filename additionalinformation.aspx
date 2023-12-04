@@ -169,9 +169,12 @@
                                                 <asp:TemplateField>
                                                     <HeaderTemplate>Surgery Date</HeaderTemplate>
                                                     <ItemTemplate>
-                                                        <asp:Label ID="lblSurgeryYear" runat="server" Text='<%#Eval("user_surgery_year") %>'></asp:Label>
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <asp:Label ID="lblSurgeryYear" runat="server" Text='<%#Eval("user_surgery_year") %>'></asp:Label>
                                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:ImageButton CssClass="delete-report-btn" ID="lRemoveBtn" runat="server" OnClick="lRemoveBtn_Click1" CommandArgument='<%#Eval("user_surgery_id") %>' Text="Delete" ImageUrl="../Suppor Group (BG  & Icons)/delete-icon.png"></asp:ImageButton>
+                                                        </div>
+                                                        
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <%--<asp:ButtonField ButtonType="Button" Text="Delete"/>--%>

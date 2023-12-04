@@ -10,6 +10,11 @@
             width: 100%;
             bottom: 0;
         }
+        @media (min-width: 500px) and (max-width: 540px) {
+            .footer {
+                position:relative;
+            }
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -41,27 +46,26 @@
                             </div>
                         </a>
                         
+                                <a class="support-group mb-lg-5 w-100" href="avatar.aspx">
                         <div class="my_profile">
                             <div>
                                 <%--<a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
                                     aria-expanded="false">My H-Files
                                 <span class="caret"></span>
                                 </a>--%>
-                                <a class="inner_div mb-lg-5 w-100" href="avatar.aspx"><h3>My H-Files</h3>
-                                <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu p-0 pt-2 px-4">
+                                    <h3>My H-Files</h3>
+                                <%--<ul class="dropdown-menu p-0 pt-2 px-4">
                                     <div>
-                                        <!-- <li><img class="dropdown-icon" src="../Reception Page/lock-icon.png" alt=""><a
-                                            tabindex="-1" href="#">UNIQUE ID</a></li> -->
-                                       <%-- <a class="color-white" tabindex="-1" href="additionalinformation.aspx">
+                                         <li><img class="dropdown-icon" src="../Reception Page/lock-icon.png" alt=""><a
+                                            tabindex="-1" href="#">UNIQUE ID</a></li> 
+                                        <a class="color-white" tabindex="-1" href="additionalinformation.aspx">
                                             <li class="color-white">
                                                 <img class="dropdown-icon" src="../Reception Page/user-icon.png" alt="">My Personal Data
                                             </li>
-                                        </a>--%>
-                                        <!-- <li><img class="dropdown-icon" src="../Reception Page/add-icon.png" alt=""><a
-                                        tabindex="-1" href="#">ADD MY REPORTS</a></li> -->
-                                       <%-- <a href="<%= ResolveUrl("~/avatar.aspx") %>">
+                                        </a>
+                                         <li><img class="dropdown-icon" src="../Reception Page/add-icon.png" alt=""><a
+                                        tabindex="-1" href="#">ADD MY REPORTS</a></li> 
+                                        <a href="<%= ResolveUrl("~/avatar.aspx") %>">
                                             <li class="color-white">
                                                 <img class="dropdown-icon" src="../Reception Page/add-icon.png" alt="">My Medical History
                                             </li>
@@ -70,11 +74,12 @@
                                             <li class="color-white" style="border: 0;">
                                                 <img class="dropdown-icon" src="../Reception Page/add-icon.png" alt="">Add Member
                                             </li>
-                                        </a>--%>
+                                        </a>
                                     </div>
-                                </ul>
+                                </ul>--%>
                             </div>
                         </div>
+                                </a>
 
                         
 

@@ -998,6 +998,7 @@ span.img-notselected {
 .journal .blog-div .blog-cards .card-image img {
     border-radius: 10px;
     cursor: pointer;
+    object-fit:cover;
 }
 
 .journal .audio-div .blog-cards .card-image img {
@@ -1057,7 +1058,7 @@ span.img-notselected {
 .filter-shorting-icon {
     position: absolute;
     right: 140px;
-    top: 150px;
+    top: 175px;
 }
 
     .filter-shorting-icon img {

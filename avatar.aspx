@@ -124,6 +124,9 @@
                 height: 50%;
             }
         }
+       /* * {
+            border:1px solid #000;
+        }*/
     </style>
     <link rel="stylesheet" href="./style3.css" />
 </asp:Content>

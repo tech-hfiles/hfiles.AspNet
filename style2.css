@@ -923,9 +923,18 @@ select {
         }
     }
 
-@media only screen and (min-width: 912px) and ( max-width: 1024px) {
-    .journal {
+
+/*@media only screen and (min-width: 1000px) and ( max-width: 1024px) {
+     .journal {
         margin-top: 30%;
+    }
+}*/
+@media only screen and (min-width: 912px) and ( max-width: 1024px) {
+   /* .journal {
+        margin-top: 30%;
+    }*/
+    .journal .samanta-image {
+        margin-top: -150px;
     }
 }
     @media only screen and (max-width: 912px) {
@@ -1012,6 +1021,15 @@ select {
         .journal .journal_main .jur-width-div {
             padding-left: 20px;
         }
+        .support-group .my_profile h3, .journal .journal_main .inner_div .heading h3 {
+            font-size: 22px;
+        }
+            .journal .journal_main .inner_div .heading h3 {
+                width:100%
+            }
+            .journal .journal_main .inner_div {
+                margin: 20px 0;
+            }
      
     }
 
@@ -1133,6 +1151,9 @@ select {
         .t-c a, .p-p a {
             font-size: 12px;
         }
+        .journal .journal_main .inner_div {
+            margin:0;
+        }
     }
 
     @media only screen and (max-width: 512px) {
@@ -1190,6 +1211,9 @@ select {
 
         .t-c a, .p-p a {
             font-size: 8px;
+        }
+        .journal .journal_main .inner_div .heading h3 {
+            width: 100%
         }
     }
 
@@ -1310,11 +1334,10 @@ select {
             left: 2%;
             font-size: 11px;
         }
-
         .journal .journal_main .inner_div .heading h3 {
-            height: 45px;
-            width:100%
+            height: 50px !important;
         }
+
 
         .journal .journal_main .my_profile {
             height: 50px;

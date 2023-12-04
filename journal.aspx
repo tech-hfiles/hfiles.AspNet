@@ -136,7 +136,7 @@
         <ContentTemplate>
 
           <div id="videoDiv" class="container blog-div my-5">
-            <div class="row w-100">
+            <div class="row w-100 m-0">
               <asp:Repeater ID="RepeaterVideo" runat="server">
                 <ItemTemplate>
 
@@ -166,7 +166,7 @@
 
           <div id="articleDiv" class="article-div container blog-div my-5">
 
-            <div class="row w-100">
+            <div class="row w-100 m-0">
               <asp:Repeater ID="RepeaterArticle" runat="server">
                 <ItemTemplate>
                   <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
@@ -234,7 +234,7 @@
           </div>
 
           <div id="audioDiv" class="audio-div container blog-div my-5">
-            <div class="row w-100">
+            <div class="row w-100 m-0">
               <asp:Repeater ID="RepeaterAudio" runat="server">
                 <ItemTemplate>
                   <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
