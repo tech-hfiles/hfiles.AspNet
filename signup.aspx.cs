@@ -71,7 +71,7 @@ namespace hfiles
         }
         protected void submitButton_Click(object sender, EventArgs e)
         {
-
+            int userexist = 0;
             // Generate a unique random number (you can adjust the range as needed)
             Random random = new Random();
             int randomNumber = random.Next(1000, 9999);
@@ -129,28 +129,36 @@ namespace hfiles
                                 cmdInsert.Parameters.AddWithValue("_user_firstname", firstnameTextBox.Value);
                                 cmdInsert.Parameters.AddWithValue("_user_lastname", lastnameTextBox.Value);
                                 cmdInsert.Parameters.AddWithValue("_user_dob", dobTextBox1.Value);
-                                
                                 cmdInsert.Parameters.AddWithValue("_user_contact", phoneTextBox.Value);
                                 cmdInsert.Parameters.AddWithValue("_user_email", emailTextBox.Value);
                                 cmdInsert.Parameters.AddWithValue("_user_password", cpwdTextBox.Text);
-
                                 cmdInsert.Parameters.AddWithValue("_user_membernumber", member);
-                               
+
+                                cmdInsert.Parameters.Add("_Result", MySqlDbType.Int32);
+                                cmdInsert.Parameters["_Result"].Direction = ParameterDirection.Output;
                                 cmdInsert.ExecuteNonQuery();
-                               
-                                string email = emailTextBox.Value.ToString();
-                                //string subject = "# Verification code";
-                                string subject = "Welcome to HFiles - Start Managing Your Medical Data";
-                                string body = $"<p style=\"text-align: justify;\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify;\">Thank you for signing up for Hfiles! We&apos;re delighted to have you as a member of our community, and we appreciate your trust in our platform.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Now that you&apos;re officially part of Hfiles, you can take the first step in managing your medical data. Simply log into your account by visiting [Login Page] and use your registered credentials to access your personalized dashboard.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Once you&apos;re logged in, you&apos;ll be able to:&nbsp;</p>\r\n<ol>\r\n    <li style=\"text-align: justify;\">Fill Medical Records: Easily input and update your medical history, prescriptions, and other vital information.</li>\r\n    <li style=\"text-align: justify;\">Upload Documents: Safely upload and store important medical documents, test results, and reports</li>\r\n</ol>\r\n<p style=\"text-align: justify;\">Our user-friendly interface and secure storage ensure that your medical data is organized and readily accessible when you need it most.</p>\r\n<p style=\"text-align: justify;\">If you have any questions or need assistance, our support team is here to help. Simply reach out to us at [Support Email], and we&apos;ll be happy to assist you.</p>\r\n<p style=\"text-align: justify;\">Thank you for choosing Hfiles to manage your medical information. We&apos;re committed to providing you with a secure and convenient platform for all your healthcare needs.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Email footer/ Privacy Agreement: Thank you for choosing Hfiles to manage your medical information. We&apos;re committed to providing you with a secure and convenient platform for all your healthcare needs. Your medical data is treated with the utmost confidentiality and is stored securely using the latest encryption protocols. We strictly adhere to all relevant data protection laws and regulations to ensure that your information remains private and protected. Your data will not be shared with any third parties without your explicit consent</p>";
-                                DAL.SendCareerMail(subject, body, email);
-                                //Response.Redirect("~/samanta.aspx");
-                                if (Bind() > 0)
+                               userexist = Convert.ToInt32(cmdInsert.Parameters["_Result"].Value.ToString());
+                                if (userexist == 1)
                                 {
-                                    Response.Redirect("~/samanta.aspx");
+
+                                string email = emailTextBox.Value.ToString();
+                                    //string subject = "# Verification code";
+                                    string subject = "Welcome to HFiles - Start Managing Your Medical Data";
+                                    string body = $"<p style=\"text-align: justify;\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify;\">Thank you for signing up for Hfiles! We&apos;re delighted to have you as a member of our community, and we appreciate your trust in our platform.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Now that you&apos;re officially part of Hfiles, you can take the first step in managing your medical data. Simply log into your account by visiting [Login Page] and use your registered credentials to access your personalized dashboard.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Once you&apos;re logged in, you&apos;ll be able to:&nbsp;</p>\r\n<ol>\r\n    <li style=\"text-align: justify;\">Fill Medical Records: Easily input and update your medical history, prescriptions, and other vital information.</li>\r\n    <li style=\"text-align: justify;\">Upload Documents: Safely upload and store important medical documents, test results, and reports</li>\r\n</ol>\r\n<p style=\"text-align: justify;\">Our user-friendly interface and secure storage ensure that your medical data is organized and readily accessible when you need it most.</p>\r\n<p style=\"text-align: justify;\">If you have any questions or need assistance, our support team is here to help. Simply reach out to us at [Support Email], and we&apos;ll be happy to assist you.</p>\r\n<p style=\"text-align: justify;\">Thank you for choosing Hfiles to manage your medical information. We&apos;re committed to providing you with a secure and convenient platform for all your healthcare needs.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Email footer/ Privacy Agreement: Thank you for choosing Hfiles to manage your medical information. We&apos;re committed to providing you with a secure and convenient platform for all your healthcare needs. Your medical data is treated with the utmost confidentiality and is stored securely using the latest encryption protocols. We strictly adhere to all relevant data protection laws and regulations to ensure that your information remains private and protected. Your data will not be shared with any third parties without your explicit consent</p>";
+                                    DAL.SendCareerMail(subject, body, email);
+                                    //Response.Redirect("~/samanta.aspx");
+                                    if (Bind() > 0)
+                                    {
+                                        Response.Redirect("~/addbasicdetails.aspx");
+                                    }
+                                    else
+                                    {
+                                        //err
+                                    }
                                 }
                                 else
                                 {
-                                    //err
+                                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", "alert('EmailID Or the Contact Number is already registered.')", true);
                                 }
                             }
                         }
@@ -159,7 +167,7 @@ namespace hfiles
                     else
                     {
                         // OTP is invalid
-                        errorLabel.Text = "Inavlid OTP, please enter the correct OTP.";
+                        errorLabel.Text = "Invalid OTP, please enter the correct OTP.";
                     }
                 }
 

@@ -32,6 +32,8 @@ namespace hfiles
                     if (ddlCountry.SelectedIndex == -1)
                     {
                         getcountrylist();
+                        getstatelist();
+                        //getcitylist("");
                     }
                     //if (ddlCountry.SelectedItem.Text == "India")
                     //{
@@ -198,6 +200,7 @@ namespace hfiles
 
         public void getbasicdetails(int id)
         {
+            getstatelist();
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
@@ -220,9 +223,21 @@ namespace hfiles
                             //stateTextBox.Value = reader["user_state"].ToString();
                             //cityTextBox.Value = reader["user_city"].ToString();
                             ddlCountry.SelectedItem.Text = reader["user_country"].ToString();
-                            //stateDropDownList.SelectedItem.Text = reader["user_state"].ToString();
+
+                            stateDropDownList.SelectedItem.Text = reader["user_state"].ToString();
+                            getcitylist(stateDropDownList.SelectedItem.Text);
                             //ddlState.SelectedItem.Text = reader["user_state"].ToString();
                             //cityDropDownList.SelectedItem.Text = reader["user_city"].ToString();
+                            if (reader["user_city"].ToString()!=string.Empty)
+                            {
+                                cityDropDownList.SelectedItem.Text = reader["user_city"].ToString();
+                                
+                            }
+                            else
+                            {
+                                cityDropDownList.SelectedItem.Text = "Mumbai";
+                            }
+                           
                             //if (ddlCountry.SelectedItem.Text == "India")
                             //{
                             //    stateDropDownList.SelectedItem.Text = reader["user_state"].ToString();
@@ -316,7 +331,7 @@ namespace hfiles
 
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //getcitylist(stateDropDownList.SelectedItem.Text);
+            getcitylist(stateDropDownList.SelectedItem.Text);
         }
     }
 }

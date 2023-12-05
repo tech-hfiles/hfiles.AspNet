@@ -24,10 +24,21 @@
     <title>Sign IN</title>
     <style>
         @media (min-width: 992px) {
-            .footer {
+           /* .footer {
                 position: absolute;
                 bottom: 0;
                 width: 100%;
+            }*/
+
+
+            .footer {
+                background: #192184;
+                color: #ffffff;
+                text-align: center;
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                padding: 10px
             }
         }
     </style>
@@ -60,10 +71,10 @@
                                 <i class="fa-solid fa-user form-control-feedback"></i>
                                 <input id="lastnameTextBox" runat="server" type="text" class="form-control my-2" placeholder="Last Name" required />
                             </div>
-                            
+
                             <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
                                 <i class="fa-solid fa-user form-control-feedback"></i>
-                               <input runat="server" id="dobTextBox1" type="date" class="form-control" placeholder="Date Of Birth" required />
+                                <input runat="server" id="dobTextBox1" type="date" class="form-control" placeholder="Date Of Birth" required />
                             </div>
 
                             <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
@@ -94,7 +105,7 @@
 
                         </div>
                         <div class="text-center my-3" runat="server" id="divOtp">
-                            <asp:Button ID="genOTPButton" runat="server" Text="Generate OTP" OnClick="signup_Click" OnClientClick="JSalert()" class="btn thm-button"></asp:Button>
+                            <asp:Button ID="genOTPButton" runat="server" Text="Sign Up" OnClick="signup_Click" OnClientClick="JSalert()" class="btn thm-button"></asp:Button>
                         </div>
                         <div class="row signin-form form-group has-search text-center justify-content-center">
                             <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
@@ -105,13 +116,13 @@
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <asp:Label ID="errorLabel" Text="" runat="server" CssClass="color-theme-yellow" />
                                                 <span class="mx-2">
-                                                <span id="timer" style="color: #fff"></span>
+                                                    <span id="timer" style="color: #fff"></span>
                                                     <asp:LinkButton ID="resendLinkButtonTest" runat="server" OnClick="resendLinkButtonTest_Click">Resend OTP</asp:LinkButton></span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="text-center my-2">
-                                        <asp:Button ID="submitButton" runat="server" Text="Submit" OnClick="submitButton_Click" class="btn thm-button"></asp:Button>
+                                        <asp:Button ID="submitButton" runat="server" Text="Register" OnClick="submitButton_Click" class="btn thm-button"></asp:Button>
 
                                     </div>
                                 </div>
@@ -128,6 +139,22 @@
             <img class="plus-bottom-left" src="<%= ResolveUrl("~/assets/plus-2.png") %>" alt="" />
             <a href="<%= ResolveUrl("~/login.aspx") %>">
                 <img class="triangle-top-right-cancel" src="<%= ResolveUrl("~/assets/cancel-white.png") %>" alt="" /></a>
+
+            <div class="row footer justify-content-around align-items-center m-0">
+                <div class="col-4 t-c d-xl-flex justify-content-center text-center">
+                    <p class="m-0"><a class="px-lg-3" href="TermsAndConditions.aspx">Terms & Conditions</a></p>
+                    <p class="m-0"><a href="Policy.aspx">Privacy & Policy</a></p>
+                </div>
+
+                <div class="col-4 copy-right text-center p-0">
+                    <span>Copyright@2023</span>
+                </div>
+                <div class="col-4 p-p d-xl-flex text-center">
+                    <p class="m-0"><a class="px-xl-3" href="https://wa.me/919930372831"><i class="fa-brands fa-whatsapp"></i>&nbsp; +91-9930372831</a></p>
+                    <p class="m-0"><a class="" href="mailto:contact@hfiles.in"><i class="fa fa-solid fa-envelope"></i>&nbsp; contact@hfiles.in</a></p>
+
+                </div>
+            </div>
 
         </form>
     </div>

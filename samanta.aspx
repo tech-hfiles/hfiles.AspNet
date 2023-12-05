@@ -117,6 +117,7 @@
                 <div class="row w-100">
                     <div class="col-12 d-flex justify-content-center ">
                         <img class="samanta-image" src="../Reception Page/Samanta.png" alt="">
+                      <%--  <img class="samanta-image" src="../Reception Page/Samanta1.jpeg" alt="">--%>
                     </div>
                 </div>
                 <div class="progress_div">

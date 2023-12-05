@@ -116,7 +116,7 @@
                                     <i class="fa-solid fa-earth-americas form-control-feedback"></i>
                                     <%--<input required id="countryTextBox" runat="server" type="text" class="form-control" placeholder="Enter Country">--%>
                                     <asp:DropDownList ID="ddlCountry" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:DropDownList>
-
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlCountry" ErrorMessage="Please Select Country" CssClass="imp-star"></asp:RequiredFieldValidator>
 
                                     <%--<select runat="server" id="countryTextBox" class="form-select form-control mySelect" aria-label="Default select example">
                             <option selected value="">Country</option>
@@ -132,12 +132,14 @@
                                     <%--  <asp:DropDownList ID="ddlState" runat="server" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>--%>
 
                                     <asp:DropDownList ID="stateDropDownList" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="stateDropDownList_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:DropDownList>
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="stateDropDownList" ErrorMessage="Please Select State" CssClass="imp-star"></asp:RequiredFieldValidator>
                                     <input id="stateTextBox" visible="false" runat="server" type="text" class="form-control" placeholder="Enter State" />
                                 </div>
                                 <div class="col-12">
                                     <span for="" class="imp-star">*</span>
                                     <i class="fa-sharp fa-solid fa-city form-control-feedback"></i>
                                     <asp:DropDownList ID="cityDropDownList" CssClass="form-select form-control mySelect" runat="server"></asp:DropDownList>
+                                     <asp:RequiredFieldValidator runat="server" ControlToValidate="cityDropDownList" ErrorMessage="Please Select City" CssClass="imp-star"></asp:RequiredFieldValidator>
                                     <input id="cityTextBox" visible="false" runat="server" type="text" class="form-control" placeholder="Enter City">
                                 </div>
                             </div>

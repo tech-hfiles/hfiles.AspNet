@@ -13,7 +13,6 @@ using System.Web.Security;
 
 namespace hfiles
 {
-
     public partial class login : System.Web.UI.Page
     {
         #region Variable
@@ -46,7 +45,7 @@ namespace hfiles
             if (otpButton.Text == "GET OTP")
             {
                 // Usage:
-                string email = emailTextBox.Value.ToString();
+                string email = emailTextBox.Text.ToString();
                 if (Bind() > 0)
                 {
                     string otp = GenerateOTP(6); // Generate a 6-digit OTP
@@ -96,7 +95,7 @@ namespace hfiles
                     using (MySqlCommand cmd = new MySqlCommand("usp_isuserexists", con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("_MobileNoOrEmail", emailTextBox.Value);
+                        cmd.Parameters.AddWithValue("_MobileNoOrEmail", emailTextBox.Text);
                         cmd.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
                         result = DAL.validateInt(cmd.Parameters["_Result"].Value.ToString());
@@ -116,7 +115,7 @@ namespace hfiles
         protected void resendLinkButton_Click(object sender, EventArgs e)
         {
 
-            string email = emailTextBox.Value.ToString();
+            string email = emailTextBox.Text.ToString();
             if (Bind() > 0)
             {
                 string otp = GenerateOTP(6); // Generate a 6-digit OTP
@@ -137,66 +136,52 @@ namespace hfiles
                 Response.Redirect("~/signup.aspx"); //Redirect to registration page
             }
 
-            //else if (otpButton.Text == "SIGN IN")
-            //{
-            //    if (ViewState["OTPvalue"] != null)
-            //    {
-            //        if (otpTextBox.Value == ViewState["OTPvalue"].ToString())
-            //        {
-            //            errorLabel.Text = "";
-            //            Response.Redirect("~/Samanta.aspx");//Redirect to registration page
-            //        }
-            //        else
-            //        {
-            //            errorLabel.Text = "Inavlid OTP, please enter the correct OTP.";
-            //        }
-            //    }
-            //}
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            //using (MySqlConnection con = new MySqlConnection(cs))
-            //{
-            //    con.Open();
-            //    using (MySqlCommand cmd = new MySqlCommand("usp_login", con))
-            //    {
-            //        cmd.CommandType = CommandType.StoredProcedure;
-            //        cmd.Parameters.AddWithValue("_username", txtUsername.Text);
-            //        cmd.Parameters.AddWithValue("_Password", txtPassword.text);
-            //        MySqlDataReader dr = cmd.ExecuteReader();
-            //        if (dr.Read())
-            //        {
-            //            Session["IsCustomer"] = true;
-            //            Session["id"] = dr["Id"].ToString();
-            //            Session["role"] = dr["RoleType"].ToString();
-            //            Session["FName"] = dr["FirstName"].ToString();
-            //            Session["LName"] = dr["LastName"].ToString();
-            //            FormsAuthentication.RedirectFromLoginPage(dr["FirstName"].ToString() + " " + dr["LastName"].ToString(), false);
-            //            if (Session["cartprevPath"] != null)
-            //            {
-            //                Response.Redirect("~/" + Session["cartprevPath"].ToString());
-            //            }
-            //            else if (Session["prevPath"] != null)
-            //            {
-            //                Response.Redirect(Session["prevPath"].ToString());
-            //            }
-            //            else if (Session["wishprevPath"] != null)
-            //            {
-            //                Response.Redirect(Session["wishprevPath"].ToString());
-            //            }
-            //            else
-            //            {
-            //                Response.Redirect("~/user/");
-            //            }
-            //        }
-            //        else
-            //        {
-
-            //            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", "alert('invalid username or password')", true);
-            //        }
-            //    }
-            //}
+            using (MySqlConnection con = new MySqlConnection(cs))
+            {
+                con.Open();
+                using (MySqlCommand cmd = new MySqlCommand("usp_login", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("_username", emailTextBox.Text);
+                    cmd.Parameters.AddWithValue("_Password", txtPassword.Text);
+                    MySqlDataReader dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        Session["IsCustomer"] = true;
+                        Session["UserId"] = dr["user_id"].ToString();
+                        //Session["role"] = dr["RoleType"].ToString();
+                        Session["user_email"] = dr["user_email"].ToString();
+                        
+                        FormsAuthentication.RedirectFromLoginPage(emailTextBox.Text + " " + txtPassword.Text, false);
+                        //FormsAuthentication.RedirectFromLoginPage(dr["user_firstname"].ToString() + " " + dr["user_lastname"].ToString(), false);
+                        Response.Redirect("samanta.aspx");
+                        //if (Session["cartprevPath"] != null)
+                        //{
+                        //    Response.Redirect("~/" + Session["cartprevPath"].ToString());
+                        //}
+                        //else if (Session["prevPath"] != null)
+                        //{
+                        //    Response.Redirect(Session["prevPath"].ToString());
+                        //}
+                        //else if (Session["wishprevPath"] != null)
+                        //{
+                        //    Response.Redirect(Session["wishprevPath"].ToString());
+                        //}
+                        //else
+                        //{
+                        //    Response.Redirect("~/user/");
+                        //}
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", "alert('invalid username or password')", true);
+                    }
+                }
+            }
         }
     }
 }

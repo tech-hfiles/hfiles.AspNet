@@ -387,6 +387,7 @@
     <Content Include="blogDetails3.html" />
     <Content Include="blogDetails4.html" />
     <Content Include="blogDetails5.html" />
+    <Content Include="changepassword.aspx" />
     <Content Include="css\style.css" />
     <Content Include="css\style2.css" />
     <Content Include="css\style3.css" />
@@ -461,6 +462,7 @@
     <Content Include="journal-page-images\video\Youtube Thumbnail  %282%29_page-0001.jpg" />
     <Content Include="journal.aspx" />
     <Content Include="JournalPage.html" />
+    <Content Include="ForgotPassword.aspx" />
     <Content Include="login.aspx" />
     <Content Include="medical-history-icons\02.png" />
     <Content Include="medical-history-icons\03.png" />
@@ -584,6 +586,7 @@
     <Content Include="Reception Page\lock-icon.png" />
     <Content Include="Reception Page\Samanta-stand.png" />
     <Content Include="Reception Page\Samanta.png" />
+    <Content Include="Reception Page\Samanta1.jpeg" />
     <Content Include="Reception Page\shutdown.png" />
     <Content Include="Reception Page\user-icon.png" />
     <Content Include="reports.aspx" />
@@ -711,6 +714,13 @@
     <Compile Include="blogdetails.aspx.designer.cs">
       <DependentUpon>blogdetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="changepassword.aspx.cs">
+      <DependentUpon>changepassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="changepassword.aspx.designer.cs">
+      <DependentUpon>changepassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DAL.cs" />
     <Compile Include="journal.aspx.cs">
       <DependentUpon>journal.aspx</DependentUpon>
@@ -718,6 +728,18 @@
     </Compile>
     <Compile Include="journal.aspx.designer.cs">
       <DependentUpon>journal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LangHindi.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LangHindi.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -805,7 +827,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="LangHindi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LangHindi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
