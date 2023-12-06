@@ -99,11 +99,14 @@ namespace hfiles
                             //tcount.InnerHtml = dt.Rows.Count.ToString();
                             rptReports.DataSource = dt;
                             rptReports.DataBind();
+                            divUpload_Doc.Visible = false;
                         }
                         else
                         {
+                            divUpload_Doc.Visible = true;
                             rptReports.DataSource = null;
                             rptReports.DataBind();
+                            
                         }
                     }
                 }

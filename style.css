@@ -205,6 +205,9 @@ a {
     border-radius: 50%;
     cursor: pointer;
 }
+input:-webkit-autofill {
+    background: transparent !important; /* Transparent background */
+}
 .top-home-icons {
     top: 0 !important;
     right: 0 !important;

@@ -49,8 +49,8 @@
                             <a class="back-arrow-btn" href="avatar.aspx">
                                 <img src="../assets/back-arrow.png" alt=""></a>
                             <%--<h1 class="heading">Documents</h1>--%>
-                            <asp:Label ID="lblReportType" runat="server" Text=""/>
-                            
+                            <asp:Label ID="lblReportType" runat="server" Text="" />
+
                         </div>
                         <div class="col-md-6 text-center py-3 search-file">
                             <i class="fa-solid fa-magnifying-glass"></i>
@@ -60,39 +60,49 @@
                 </div>
                 <%--<asp:UpdatePanel ID="uplReports" runat="server">
                     <ContentTemplate>--%>
-
-                        <div class="doc-pdf py-5 h-100">
-                            <div class="container">
-                                <div class="row mb-5">
-                                    <asp:Repeater ID="rptReports" runat="server">
-                                        <ItemTemplate>
-                                            <div class="col-md-3 my-2">
-
-                                                <div class="card text-center">
-
-                                                    <img src="../assets/pdf-doc.png" class="card-img-top" alt="pdf-thumbnail">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><%# Eval("ReportName") %></h5>
-                                                        <p class="card-text"><strong>Date: </strong><%# Eval("CreatedDate") %> </p>
-
-                                                        <a href="<%# ResolveUrl( string.Format("~/upload/report/{0}", Eval("ReportUrl"))) %>" target="_blank" class="btn btn-sm btn-primary">Download File</a>
-
-                                                    </div>
-
-                                                </div>
-                                                <div class="">
-                                                    <asp:LinkButton Text="text" ID="lbtnremove" OnClick="lbtnremove_Click" runat="server" CommandArgument='<%# Eval("Id")%>'><img src="../Suppor Group (BG  & Icons)/delete-icon.png" /></asp:LinkButton>
-                                                </div>
-                                            </div>
-
-                                        </ItemTemplate>
-                                    </asp:Repeater>
-                                </div>
+                <div id="divUpload_Doc" style="display:block" runat="server">
+                    <div class="col-md-3 my-6">
+                        <div class="card text-center">
+                            <div class="card-body">
+                               <a href="avatar.aspx">  <img src="../assets/uploaddoc.png" class="card-img-top" alt="pdf-thumbnail"></a>
                             </div>
 
                         </div>
+                       
+                    </div>
+                </div>
+                <div class="doc-pdf py-5 h-100">
+                    <div class="container">
+                        <div class="row mb-5">
+                            <asp:Repeater ID="rptReports" runat="server">
+                                <ItemTemplate>
+                                    <div class="col-md-3 my-2">
 
-                    <%--</ContentTemplate>
+                                        <div class="card text-center">
+
+                                            <img src="../assets/pdf-doc.png" class="card-img-top" alt="pdf-thumbnail">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><%# Eval("ReportName") %></h5>
+                                                <p class="card-text"><strong>Date: </strong><%# Eval("CreatedDate") %> </p>
+
+                                                <a href="<%# ResolveUrl( string.Format("~/upload/report/{0}", Eval("ReportUrl"))) %>" target="_blank" class="btn btn-sm btn-primary">Download File</a>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="">
+                                            <asp:LinkButton Text="text" ID="lbtnremove" OnClick="lbtnremove_Click" runat="server" CommandArgument='<%# Eval("Id")%>'><img src="../Suppor Group (BG  & Icons)/delete-icon.png" /></asp:LinkButton>
+                                        </div>
+                                    </div>
+
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
+                    </div>
+
+                </div>
+
+                <%--</ContentTemplate>
                 </asp:UpdatePanel>--%>
                 <!-- row -->
             </div>

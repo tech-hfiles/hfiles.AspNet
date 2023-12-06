@@ -10,6 +10,11 @@
             width: 100%;
             bottom: 0;
         }
+         @media (min-width: 1000px) and (max-width: 1400px) {
+             .footer {
+                 position:relative;
+             }
+         }
         @media (min-width: 500px) and (max-width: 540px) {
             .footer {
                 position:relative;
@@ -21,7 +26,7 @@
     <div class="journal">
         <div class="journal_main">
             <div class="jur-width-div" style="width: 85%;">
-                <%-- <div class="row inner_div mt-5 w-100">
+                <%-- <div class="row inner_div mt-5 w-1000
                     <div class="col-12 heading">
                         <a href="<%= ResolveUrl("~/journal.aspx") %>">
                             <h3>Journal</h3>

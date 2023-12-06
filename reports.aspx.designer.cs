@@ -33,6 +33,15 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.TextBox SearchInput;
 
         /// <summary>
+        /// divUpload_Doc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUpload_Doc;
+
+        /// <summary>
         /// rptReports control.
         /// </summary>
         /// <remarks>

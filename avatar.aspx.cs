@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -20,6 +21,10 @@ namespace hfiles
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(imageFileUpload1.HasFile)
+            {
+
+            }
             //if(Session["user_dob"]==null)
             //{
             //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please Fill up Basic Details')", true);
@@ -35,6 +40,7 @@ namespace hfiles
                 {
                     getMembers();
                     getReports();
+                    getMembersList();
 
                     lblUserName.Text = Session["username"].ToString();
                     if (Session["gender_string"] != null && Session["age"] != null)
@@ -83,7 +89,6 @@ namespace hfiles
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.ExecuteNonQuery();
-
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         da.Fill(dt);
@@ -93,69 +98,24 @@ namespace hfiles
                             ddlReports.DataTextField = "Name";
                             ddlReports.DataValueField = "Id";
                             ddlReports.DataBind();
-
                             ddlReports.Items.Insert(0, new ListItem("Select Report", "0"));
                         }
                         else
                         {
                             ddlReports.Items.Insert(0, new ListItem("No Reports", "0"));
                         }
-
                     }
                 }
-
             }
             catch (Exception Ex)
             {
 
-
             }
         }
-        protected void getmember()
-        {
-            try
-            {
-                using (MySqlConnection con = new MySqlConnection(cs))
-                {
-                    con.Open();
-                    using (MySqlCommand cmd = new MySqlCommand("usp_getmember", con))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        //cmd.Parameters.AddWithValue("_UserId", UserId);
-                        //cmd.Parameters.AddWithValue("_reportname", reportname);
-                        cmd.ExecuteNonQuery();
-
-                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
-                        if (dt != null && dt.Rows.Count > 0)
-                        {
-                            ddlReports.DataSource = dt;
-                            ddlReports.DataTextField = "Name";
-                            ddlReports.DataValueField = "Id";
-                            ddlReports.DataBind();
-
-                            ddlReports.Items.Insert(0, new ListItem("Select Report", "0"));
-                        }
-                        else
-                        {
-                            ddlReports.Items.Insert(0, new ListItem("No Reports", "0"));
-                        }
-
-                    }
-                }
-
-            }
-            catch (Exception Ex)
-            {
-
-
-            }
-        }
-
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            string reporturl = "", Extension1, fileName1, dt1;
+           // string reporturl = "", Extension1, fileName1, dt1;
+            string reporturl="" , Extension1, fileName1, dt1;
 
             if (imageFileUpload1.HasFile)
             {
@@ -181,7 +141,6 @@ namespace hfiles
             //    lblMsg.Text = "some error occured, please try again.";
             //}
         }
-
         protected void clear()
         {
             txtReportName.Text = string.Empty;
@@ -211,6 +170,7 @@ namespace hfiles
                         int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
                         result = DAL.validateInt(retVal);
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                        //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
                     }
                 }
             }
@@ -323,6 +283,43 @@ namespace hfiles
             Session["memberId"] = memberid.ToString();
 
 
+        }
+
+        protected void getMembersList()
+        {
+            int UserId = DAL.validateInt(Session["Userid"].ToString());
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(cs))
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("usp_getMembers", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("_UserId", UserId);
+                        cmd.ExecuteNonQuery();
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        if (dt != null && dt.Rows.Count > 0)
+                        {
+                            ddlMembers.DataSource = dt;
+                            ddlMembers.DataTextField = "FirstName";
+                            ddlMembers.DataValueField = "Id";
+                            ddlMembers.DataBind();
+                            ddlMembers.Items.Insert(0, new ListItem("Select Member", "0"));
+                        }
+                        else
+                        {
+                            ddlMembers.Items.Insert(0, new ListItem("No Members", "0"));
+                        }
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+
+            }
         }
         protected void getMembers()
         {

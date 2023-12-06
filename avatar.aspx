@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="./style3.css" />
     <style>
         .avatar {
             background-image: url(../Avatar/avatar-background.png);
@@ -54,11 +54,13 @@
             border-color: black;
             padding: 20px;
             width: 35%;
-            height: 48%;
+            /*height: 48%;*/
+            height: 78%;
             position: fixed;
             z-index: 100001;
             left: 20%;
-            top: 20%;
+            /*top: 20%;*/
+            top: 10%;
             user-select: auto;
             border-radius: 10px;
         }
@@ -124,11 +126,14 @@
                 height: 50%;
             }
         }
-       /* * {
+        /* * {
             border:1px solid #000;
         }*/
     </style>
-    <link rel="stylesheet" href="./style3.css" />
+
+    <%--below script for sweetalert --%>
+    <script type="text/javascript" src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -140,28 +145,29 @@
                     <div class="row">
                         <div class="col-lg-7 col-md-7 col-sm-12 p-0 h-50 d-flex justify-content-between align-items-center">
                             <div class="row">
-                                <div class="col-6 p-0" >
+                                <div class="col-6 p-0">
                                     <div class="avatar-left-sec">
                                         <ul class="m-0">
                                             <li class="border-bottom w-100px text-center pb-2 pb-lg-2 pb-xxl-4">
-                                                <span class="plus-value" > <asp:Label Text="" ID="lblUserName" runat="server" style="font-family: 'Red Hat Display', sans-serif" /></span></li>
+                                                <span class="plus-value">
+                                                    <asp:Label Text="" ID="lblUserName" runat="server" Style="font-family: 'Red Hat Display', sans-serif" /></span></li>
 
                                             <li class="border-bottom w-100px text-center mb-2 mb-lg-3 mb-xxl-4">
                                                 <asp:Repeater ID="rptMember" runat="server">
                                                     <ItemTemplate>
-                                                         <a href="addmember.aspx">
-                                                    
-                                                   
-                                                        <img src="../Avatar/add-icon.png" alt=""
-                                                            width="30px" />
-                                                        <div>
-                                                            <small class="add-member-name">
-                                                                <asp:LinkButton ID="member1" runat="server" Text='<%#Eval("FirstName") %>' OnClick="member1_Click" CommandArgument='<%#Eval("Id") %>' ></asp:LinkButton>
-                                                                <asp:HiddenField ID="hfmemberid" runat="server" Value='<%#Eval("Id") %>' />
-                                                            </small>
-                                                        </div>
-                                                    </a>
-                                                        </ItemTemplate>
+                                                        <a href="addmember.aspx">
+
+
+                                                            <img src="../Avatar/add-icon.png" alt=""
+                                                                width="30px" />
+                                                            <div>
+                                                                <small class="add-member-name">
+                                                                    <asp:LinkButton ID="member1" runat="server" Text='<%#Eval("FirstName") %>' OnClick="member1_Click" CommandArgument='<%#Eval("Id") %>'></asp:LinkButton>
+                                                                    <asp:HiddenField ID="hfmemberid" runat="server" Value='<%#Eval("Id") %>' />
+                                                                </small>
+                                                            </div>
+                                                        </a>
+                                                    </ItemTemplate>
                                                 </asp:Repeater>
                                             </li>
 
@@ -246,8 +252,9 @@
 
                                         <asp:LinkButton Text="text" runat="server" ID="LinkButton1" OnClick="lbtnAddReport_Click">
                                 <img class="plus-icon" src="<%= ResolveUrl("~/Avatar/add-report.png") %>" alt="" />
-                                        </asp:LinkButton><br /><br />
-                                        <span style="color: #0236b4; font-weight: 600; padding-block-end:100px">ADD REPORT</span>
+                                        </asp:LinkButton><br />
+                                        <br />
+                                        <span style="color: #0236b4; font-weight: 600; padding-block-end: 100px">ADD REPORT</span>
                                         <div class="popover__content">
                                             <p class="popover__message">Upload Report</p>
                                         </div>
@@ -356,6 +363,17 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="row my-3" style="width: 100%">
+                        <div class="col-5 lbl">
+                            <label><strong>Select File :</strong></label>
+                        </div>
+                        <div class="col-7">
+                          <%--  <asp:FileUpload ID="FileUpload1" runat="server" required/>--%>
+                            <asp:FileUpload ID="imageFileUpload1" runat="server" required />
+                        </div>
+                    </div>
+
                     <div class="row my-3" style="width: 100%">
                         <div class="col-5 lbl">
                             <label><strong>File Name : </strong></label>
@@ -364,26 +382,64 @@
                             <asp:TextBox runat="server" ID="txtReportName" CssClass="filename-txtbox" required />
                         </div>
                     </div>
-                    <div class="row my-3" style="width: 100%">
-                        <div class="col-5 lbl">
-                            <label><strong>Select File :</strong></label>
-                        </div>
-                        <div class="col-7">
-                            <asp:FileUpload ID="imageFileUpload1" runat="server" required />
+
+                    <div class="row w-100 my-3" style="width: 100%">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-5 lbl">
+                                    <label><strong>Give Consent To :</strong></label>
+                                </div>
+                                <div class="col-7">
+                                    <asp:DropDownList CssClass="select-report-dropdown" runat="server" ID="ddlMembers">
+                                        <%--   <asp:ListItem Text="Member1"></asp:ListItem>
+                                        <asp:ListItem Text="Member2"></asp:ListItem>
+                                        <asp:ListItem Text="Member3"></asp:ListItem>--%>
+                                    </asp:DropDownList>
+                                    <asp:RequiredFieldValidator runat="server" ErrorMessage="Please Select Member" ControlToValidate="ddlMembers" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+
                     <br />
                     <br />
-                    <asp:Button Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click" runat="server" CssClass="submit-btn" />
+                    <asp:Button Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click" runat="server" CssClass="submit-btn"  />
                     <%--<asp:Label Text="" ID="lblMsg" runat="server" />--%>
                     <asp:Button ID="btnClose" runat="server" OnClick="okLinkButton_Click" Text="Close" CssClass="close-btn" />
                 </asp:Panel>
             </div>
         </ContentTemplate>
         <Triggers>
-            <asp:PostBackTrigger ControlID="btnSubmit" />
+             <asp:PostBackTrigger ControlID="btnSubmit" />
+            <asp:AsyncPostBackTrigger ControlID="LinkButton1" />
+<%--            <asp:PostBackTrigger ControlID="imageFileUpload1" />--%>
+
         </Triggers>
     </asp:UpdatePanel>
+
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        function Confirm(ctl, event) {
+            event.preventDefault();
+            swal({
+                title: "Confirm Logout?",
+                text: "Do you really want to log this Account out?",
+                type: "warning",
+                showCancelButton: true,
+                closeOnConfirm: true,
+                closeOnCancel: true
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+        }
+    </script>
 
 </asp:Content>
 

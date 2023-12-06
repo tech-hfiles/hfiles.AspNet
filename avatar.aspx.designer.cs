@@ -96,6 +96,15 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.DropDownList ddlReports;
 
         /// <summary>
+        /// imageFileUpload1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload imageFileUpload1;
+
+        /// <summary>
         /// txtReportName control.
         /// </summary>
         /// <remarks>
@@ -105,13 +114,13 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.TextBox txtReportName;
 
         /// <summary>
-        /// imageFileUpload1 control.
+        /// ddlMembers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload imageFileUpload1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMembers;
 
         /// <summary>
         /// btnSubmit control.

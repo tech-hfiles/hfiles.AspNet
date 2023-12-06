@@ -10,7 +10,9 @@ body {
 a {
     text-decoration: none !important;
 }
-
+input:-webkit-autofill {
+    background: transparent !important; /* Transparent background */
+}
 h1,
 h2,
 h3,

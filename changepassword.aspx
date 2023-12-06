@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user.Master" AutoEventWireup="true" CodeBehind="changepassword.aspx.cs" Inherits="hfiles.changepassword" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-   <link rel="stylesheet" href="./style2.css" />
+   <link rel="stylesheet" href="./style.css" />
  <style>
      .footer {
          position: absolute;
@@ -12,60 +12,60 @@
              position:relative;
          }
      }
+     .form-element .form-control {
+         padding: 10px 5px;
+         border-radius:15px;
+         border: 1px solid #eec93a;
+     }
+     .form-element .form-control:focus {
+         box-shadow:none;
+         outline:0
+     }
  </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
   <asp:ScriptManager runat="server" EnableCdn="true" />
   <div class="panel_content">
     <div class="inner_panel_content">
-      <div class="panel_breadcrumb">
-        <h3 class="title">Change Password</h3>
-        <p class="breadcrumb_link">
-          <span><a href='<%# ResolveUrl("~/admin") %>'>Home</a></span>
-          <span class="iconify" data-icon="uil:angle-right"></span>
-          <span>Change Password</span>
-        </p>
-      </div>
       <div class="form_area">
         <div class="add_product_form">
-          <div class="group_card">
+          <div class="group_card container-fluid">
 
-          <div class="row w-100">
-          <div class="col-12 d-flex justify-content-center">
-          <div class="form-element">
-              <label for="">Old Password</label>
-              <asp:TextBox ID="txtOldPassword" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
-               <img id="showOldPass" class="showpass" src="./img/eye.png" width="25px" onclick="HideShowPassword('<%= txtOldPassword.ClientID %>')" />
-               <%--<img id="hideOldPass" class="showpass" src="./img/hide.png" width="25px" onclick="HideShowPassword('<%= txtOldPassword.ClientID %>')" />--%>
-              <%--<input type="checkbox" onclick="HideShowPassword('<%= txtOldPassword.ClientID %>')">--%>
-              <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="txtOldPassword" runat="server" Display="Dynamic" ForeColor="Red" Font-Size="13px" ValidationGroup="a" />
+        <div class="row mt-5">
+            <div class="col-12 col-lg-6 d-none d-lg-block">
+                 <img src="../assets/features-hero-6.png" alt="" style="width:85%">
             </div>
-          </div>
-          <div class="col-12 d-flex justify-content-center">
-          <div class="form-element">
-              <label for="">New Password</label>
-              <asp:TextBox ID="txtNewPassword" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
-               <img id="showNewPass" class="showpass" src="./img/eye.png" width="25px" onclick="HideShowPassword('<%= txtNewPassword.ClientID %>')" />
-               <%--<img id="hideNewPass" class="showpass" src="./img/eye.png" width="25px" onclick="HideShowPassword('<%= txtNewPassword.ClientID %>')" />--%>
-              <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="txtNewPassword" runat="server" Display="Dynamic" ForeColor="Red" Font-Size="13px" ValidationGroup="a" />
-              <%--<input type="checkbox" onclick="HideShowPassword('<%= txtNewPassword.ClientID %>')">--%>
+            <div class="col-12 col-lg-6">
+                  <div class="row w-100 d-flex justify-content-center align-items-center mt-5">
+                  <div class="col-12 col-md-6 ">
+                       <div class="form-element my-3">
+                         <label for="">Old Password</label>
+                         <asp:TextBox ID="txtOldPassword" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                          <%--<img id="showOldPass" class="showpass" src="./img/eye.png" width="25px" onclick="HideShowPassword('<%= txtOldPassword.ClientID %>')" />--%>
+                         <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="txtOldPassword" runat="server" Display="Dynamic" ForeColor="Red" Font-Size="13px" ValidationGroup="a" />
+                       </div>
+                      <div class="form-element my-3">
+                        <label for="">New Password</label>
+                        <asp:TextBox ID="txtNewPassword" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
+                         <%--<img id="showNewPass" class="showpass" src="./img/eye.png" width="25px" onclick="HideShowPassword('<%= txtNewPassword.ClientID %>')" />--%>
+                        <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="txtNewPassword" runat="server" Display="Dynamic" ForeColor="Red" Font-Size="13px" ValidationGroup="a" />
+                      </div>
+                        <div class="form-element my-3">
+                          <label for="">Confirm Password</label>
+                          <asp:TextBox ID="txtConfirmPassword" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
+                          <%--<img id="showConfPass" class="showpass" src="./img/eye.png" width="25px" onclick="HideShowPassword('<%= txtConfirmPassword.ClientID %>')" />--%>
+                          <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="txtConfirmPassword" runat="server" Display="Dynamic" ForeColor="Red" Font-Size="13px" ValidationGroup="a" />
+
+                          <asp:CompareValidator ErrorMessage="Password should be same as new password" Display="Dynamic" ForeColor="Red" Font-Size="13px" ValidationGroup="a" ControlToCompare="txtNewPassword" ControlToValidate="txtConfirmPassword" runat="server" />
+                        </div>
+                      <div class="d-flex justify-content-center w-100">
+                        <asp:LinkButton runat="server" class="btn thm-button mb-2 mt-4" ValidationGroup="a" OnClick="btnSave_Click" ID="btnSave">Change Password</asp:LinkButton>
+                        </div>
+                  </div>
+              </div>
             </div>
-          </div>
-          <div class="col-12 d-flex justify-content-center">
-          <div class="form-element">
-              <label for="">Confirm Password</label>
-              <asp:TextBox ID="txtConfirmPassword" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
-              <img id="showConfPass" class="showpass" src="./img/eye.png" width="25px" onclick="HideShowPassword('<%= txtConfirmPassword.ClientID %>')" />
-              <%--<img id="hideConfPass" class="showpass" src="./img/eye.png" width="25px" onclick="HideShowPassword('<%= txtConfirmPassword.ClientID %>')" />--%>
-              <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="txtConfirmPassword" runat="server" Display="Dynamic" ForeColor="Red" Font-Size="13px" ValidationGroup="a" />
-              <%--<input type="checkbox" onclick="HideShowPassword('<%= txtConfirmPassword.ClientID %>')">--%>
-              <asp:CompareValidator ErrorMessage="Password should be same as new password" Display="Dynamic" ForeColor="Red" Font-Size="13px" ValidationGroup="a" ControlToCompare="txtNewPassword" ControlToValidate="txtConfirmPassword" runat="server" />
-            </div>
-          </div>
-          </div>
-          <div class="d-flex justify-content-center w-100">
-          <asp:LinkButton runat="server" CssClass="btn thm-button mb-2 mt-4" ValidationGroup="a" OnClick="btnSave_Click" ID="btnSave">Change Password</asp:LinkButton>
-          </div>
+        </div>
+          
           </div>
           
           <asp:Label ID="msgLabel" runat="server"></asp:Label>

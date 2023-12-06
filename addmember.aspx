@@ -32,7 +32,7 @@
                     </div>
                 </div>
                <%-- <div class="row my-xl-5 my-lg-3">
-                    <div class="col-lg-5 col-md-5 col-sm-4 pl-lg-5 pr-0 d-xl-flex justify-content-end">
+                   s <div class="col-lg-5 col-md-5 col-sm-4 pl-lg-5 pr-0 d-xl-flex justify-content-end">
                         <div id="family" class="tab" style="color: #0116b8;" onclick="handleTabs('family')">
                             Family
                         </div>

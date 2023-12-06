@@ -235,7 +235,7 @@ namespace hfiles
                             }
                             else
                             {
-                                cityDropDownList.SelectedItem.Text = "Mumbai";
+                                //cityDropDownList.SelectedItem.Text = "Mumbai";
                             }
                            
                             //if (ddlCountry.SelectedItem.Text == "India")

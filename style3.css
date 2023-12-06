@@ -25,7 +25,9 @@ li,
 button {
     font-family: 'Poppins', sans-serif;
 }
-
+input:-webkit-autofill {
+    background: transparent !important; /* Transparent background */
+}
 .footer {
     background: #192184;
     color: #ffffff;

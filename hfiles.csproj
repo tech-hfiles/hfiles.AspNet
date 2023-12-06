@@ -275,6 +275,8 @@
     <Content Include="assets\select.png" />
     <Content Include="assets\shutoff-white.png" />
     <Content Include="assets\square-envelope-solid.svg" />
+    <Content Include="assets\uploaddoc.png" />
+    <Content Include="assets\uploadimg.jpg" />
     <Content Include="assets\user-delete-white.png" />
     <Content Include="assets\user-edit-white.png" />
     <Content Include="avatar.aspx" />
@@ -391,6 +393,7 @@
     <Content Include="css\style.css" />
     <Content Include="css\style2.css" />
     <Content Include="css\style3.css" />
+    <Content Include="Global.asax" />
     <Content Include="Help Page\Asset 10.png" />
     <Content Include="Help Page\Asset 11.png" />
     <Content Include="Help Page\Asset 12.png" />
@@ -539,6 +542,7 @@
     <Content Include="My Data\Asset 9.png" />
     <Content Include="My Data\default-user-profile.png" />
     <Content Include="Policy.aspx" />
+    <Content Include="privacypolicy.aspx" />
     <Content Include="Reception Page\002A.jpg" />
     <Content Include="Reception Page\002B.png" />
     <Content Include="Reception Page\about.png" />
@@ -625,6 +629,7 @@
     <Content Include="Suppor Group %28BG  &amp; Icons%29\tab-check.png" />
     <Content Include="Suppor Group %28BG  &amp; Icons%29\user-default.png" />
     <Content Include="supportgroup.aspx" />
+    <Content Include="tc.aspx" />
     <Content Include="Terms &amp; Conditions\Asset 45.png" />
     <Content Include="Terms &amp; Conditions\Asset 46.png" />
     <Content Include="Terms &amp; Conditions\Asset 49.png" />
@@ -700,6 +705,11 @@
     <Compile Include="Admin\AddBlogs.aspx.designer.cs">
       <DependentUpon>AddBlogs.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Strings.hi-IN.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.hi-IN.resx</DependentUpon>
+    </Compile>
     <Compile Include="avatar.aspx.cs">
       <DependentUpon>avatar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -722,6 +732,9 @@
       <DependentUpon>changepassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="journal.aspx.cs">
       <DependentUpon>journal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -755,6 +768,13 @@
     <Compile Include="Policy.aspx.designer.cs">
       <DependentUpon>Policy.aspx</DependentUpon>
     </Compile>
+    <Compile Include="privacypolicy.aspx.cs">
+      <DependentUpon>privacypolicy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="privacypolicy.aspx.designer.cs">
+      <DependentUpon>privacypolicy.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="reports.aspx.cs">
       <DependentUpon>reports.aspx</DependentUpon>
@@ -783,6 +803,13 @@
     </Compile>
     <Compile Include="supportgroup.aspx.designer.cs">
       <DependentUpon>supportgroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tc.aspx.cs">
+      <DependentUpon>tc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tc.aspx.designer.cs">
+      <DependentUpon>tc.aspx</DependentUpon>
     </Compile>
     <Compile Include="TermsAndConditions.aspx.cs">
       <DependentUpon>TermsAndConditions.aspx</DependentUpon>
@@ -828,11 +855,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_GlobalResources\Strings.hi-IN.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Strings.hi-IN.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_LocalResources\login.aspx.resx" />
     <EmbeddedResource Include="LangHindi.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>LangHindi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Strings.hi-IN.resx" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

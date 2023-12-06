@@ -70,8 +70,8 @@ namespace hfiles
                     if (Bind() > 0)
                     {
                         string otp = GenerateOTP(6); 
-                        string subject = "# Verification code";
-                        string body = $"<p style=\"text-align: justify\">Please use the verification code below to sign in. If you didn&rsquo;t request this, you can ignore this email.</p>\r\n<p><strong style=\"font-size: 130%\">{otp}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Thanks,&nbsp;</p><p style=\"text-align: justify\">Team Health Files.</p>";
+                        string subject = "# Forgot Password ?";
+                        string body = $"<p style=\"text-align: justify\">Please use the verification code below to change your password. If you didn&rsquo;t request this, you can ignore this email.</p>\r\n<p><strong style=\"font-size: 130%\">{otp}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Thanks,&nbsp;</p><p style=\"text-align: justify\">Team Health Files.</p>";
                         ViewState["OTPvalue"] = otp;
                         Session["Userid"] = hfId.Value;
                         DAL.SendCareerMail(subject, body, email);

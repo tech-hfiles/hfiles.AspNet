@@ -49,7 +49,7 @@
         </div>
         <div class="col-sm-12 col-lg-6 inner-main p-0">
             <div class="d-flex align-items-center justify-content-center h-100 inner-body">
-                <div class="text-center">
+                <div class="text-center w-50">
                     <div class="text-center signin-heading">
                         <img src="<%= ResolveUrl("~/Sign Up Page/Hfiles Logo.png") %>" alt="" width="120px" />
                         <br />

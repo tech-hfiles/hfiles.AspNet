@@ -10,6 +10,10 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using System.Configuration;
 using System.Web.Security;
+using System.Threading;
+using System.Resources;
+using System.Globalization;
+using System.Reflection;
 
 namespace hfiles
 {
@@ -17,20 +21,50 @@ namespace hfiles
     {
         #region Variable
         string cs = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
+        ResourceManager rm;
+        CultureInfo ci;
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+                rm = new ResourceManager("hfiles.App_GlobalResources.Strings", Assembly.GetExecutingAssembly());
+                //rm = new ResourceManager("hfiles.App_GlobalResources.Strings", Assembly.Load("App_GlobalResources"));
+                ci = Thread.CurrentThread.CurrentCulture;
+                //LoadString(ci);
                 //Session["Userid"] = 20; Response.Redirect("~/samanta.aspx");
                 if (Session["Userid"] != null)
                 {
                     var sessionuserid = Session["Userid"];
                     Response.Redirect("~/samanta.aspx");
                 }
+                //rm = new ResourceManager();
+                //rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
+                //ci = Thread.CurrentThread.CurrentCulture;
+                //LoadString(ci);
                 divOtp.Visible = false;
                 otpButton.Text = "GET OTP";
             }
+            else
+            {
+                //rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
+                //ci = Thread.CurrentThread.CurrentCulture;
+                //LoadString(ci);
+            }
+
+        }
+
+        protected override void InitializeCulture()
+        {
+            base.InitializeCulture();
+        }
+        private void LoadString(CultureInfo ci)
+        {
+            emailTextBox.ToolTip = rm.GetString("emailfield", ci);
+            emailTextBox.Text = rm.GetString("emailfield", ci);
+            btnSubmit.Text = rm.GetString("login", ci);
+
         }
 
         public static string GenerateOTP(int length)

@@ -34,12 +34,15 @@
     <div class="language">
         <details>
             <summary>language</summary>
+
             <ul id="language">
                 <li>English</li>
             </ul>
         </details>
+
     </div>
     <form class="row h-100 align-ceter h-sm-100vh" runat="server">
+      
         <asp:HiddenField runat="server" ID="hfId" />
         <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-block" style="text-align: center;">
 
@@ -60,6 +63,9 @@
 
                     <div>
                         <asp:TextBox runat="server" ID="txtPassword" class="w-100 login-input" type="password" placeholder="Password" />
+                        <div class="text-end">
+                            <span style="color: #fff"><a id="forgotlink" style="color: #fdd001; font-weight: 700" href="ForgotPassword.aspx">Forgot Password ? </a></span>
+                        </div>
                     </div>
 
                     <div runat="server" id="divOtp">
@@ -72,13 +78,20 @@
                         </div>
                     </div>
 
-                    <div class="text-center my-1">
+                    <div class="text-center my-1" id="otpButtonDiv">
+                        <div class="text-center resend-otp-div">
+                            <input type="checkbox" /><span style="color: #fff"> I agree to <a target="_blank" style="color: #fdd001; font-weight: 700" href="tc.aspx">Terms and Conditions</a> </span>
+                        </div>
                         <asp:Button ID="otpButton" OnClick="signup_Click" runat="server" Text="GET OTP" class="btn thm-button my-2"></asp:Button>
+
                     </div>
 
-                    <div class="text-center my-1">
-                        <span style="color: #fff"><a id="forgotlink" style="color: #fdd001; font-weight: 700" href="ForgotPassword.aspx">Forgot Password ? </a></span>
-                        <asp:LinkButton class="btn thm-button my-2" Text="Login" ValidationGroup="login" OnClick="btnSubmit_Click" ID="btnSubmit" runat="server" />
+                    <div class="text-center my-1" id="btnSubmitDiv">
+                        <div class="text-center resend-otp-div">
+                            <input type="checkbox" /><span style="color: #fff"> I agree to <a target="_blank" style="color: #fdd001; font-weight: 700" href="tc.aspx">Terms and Conditions</a> </span>
+                        </div>
+                        <asp:LinkButton class="btn thm-button my-2" Text="Login" ValidationGroup="login" OnClick="btnSubmit_Click" ID="btnSubmit" runat="server" meta:resourcekey="btnsubmitlogin" />
+
                     </div>
 
                     <div class="text-center my-1">
@@ -99,8 +112,8 @@
 
         <div class="row footer justify-content-around align-items-center m-0">
             <div class="col-4 t-c d-xl-flex justify-content-center text-center">
-                <p class="m-0"><a class="px-lg-3" href="TermsAndConditions.aspx">Terms & Conditions</a></p>
-                <p class="m-0"><a href="Policy.aspx">Privacy & Policy</a></p>
+                <p class="m-0"><a class="px-lg-3" href="tc.aspx">Terms & Conditions</a></p>
+                <p class="m-0"><a href="privacypolicy.aspx">Privacy & Policy</a></p>
             </div>
 
             <div class="col-4 copy-right text-center p-0">
@@ -120,7 +133,7 @@
         var loginMode = 'password'
 
         $('#txtPassword').hide()
-        $('#btnSubmit').hide()
+        $('#btnSubmitDiv').hide()
         $('#forgotlink').hide()
         document.getElementById('changeLoginMode').value = 'Login with Password'
 
@@ -128,18 +141,18 @@
             console.log('logn mode')
             if (loginMode == 'password') {
                 $('#divOtp').hide()
-                $('#otpButton').hide()
+                $('#otpButtonDiv').hide()
                 $('#txtPassword').show()
-                $('#btnSubmit').show()
+                $('#btnSubmitDiv').show()
                 $('#forgotlink').show()
                 $('#changeLoginMode').val('Login with OTP')
                 //document.getElementById('changeLoginMode').value = 'Login with OTP'
                 loginMode = 'OTP'
             } else if (loginMode == 'OTP') {
                 $('#divOtp').show()
-                $('#otpButton').show()
+                $('#otpButtonDiv').show()
                 $('#txtPassword').hide()
-                $('#btnSubmit').hide()
+                $('#btnSubmitDiv').hide()
                 $('#forgotlink').hide()
                 $('#changeLoginMode').val('Login with password')
                 //document.getElementById('changeLoginMode').value = 'Login with password'
