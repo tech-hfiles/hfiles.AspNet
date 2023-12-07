@@ -308,6 +308,15 @@ namespace hfiles
                             ddlMembers.DataValueField = "Id";
                             ddlMembers.DataBind();
                             ddlMembers.Items.Insert(0, new ListItem("Select Member", "0"));
+
+                            ddlMembers1.DataSource = dt;
+                            ddlMembers1.DataTextField = "FirstName";
+                            ddlMembers1.DataValueField = "Id";
+                            ddlMembers1.DataBind();
+                            ddlMembers1.Items.Insert(0, new ListItem("Select Member", "0"));
+
+
+                            
                         }
                         else
                         {

@@ -114,6 +114,15 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.TextBox txtReportName;
 
         /// <summary>
+        /// ddlMembers1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox ddlMembers1;
+
+        /// <summary>
         /// ddlMembers control.
         /// </summary>
         /// <remarks>

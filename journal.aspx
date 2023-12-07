@@ -1,9 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="~/journal.aspx.cs" MasterPageFile="~/user.Master" EnableEventValidation="false" Inherits="hfiles.journal" %>
 
-
-
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
   <title>Journal</title>
   <link rel="stylesheet" href="./style.css" />

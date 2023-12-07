@@ -55,7 +55,7 @@
             padding: 20px;
             width: 35%;
             /*height: 48%;*/
-            height: 78%;
+            height: 58%;
             position: fixed;
             z-index: 100001;
             left: 20%;
@@ -387,9 +387,12 @@
                         <div class="col-12">
                             <div class="row">
                                 <div class="col-5 lbl">
-                                    <label><strong>Give Consent To :</strong></label>
+                                    <label><strong>Give View Access To :</strong></label><br />
+                                    <p>(If none selected then the document will be private)</p>
                                 </div>
                                 <div class="col-7">
+
+                                    <asp:ListBox ID="ddlMembers1" CssClass="select-report-dropdown" runat="server" SelectionMode="Multiple"></asp:ListBox>
                                     <asp:DropDownList CssClass="select-report-dropdown" runat="server" ID="ddlMembers">
                                         <%--   <asp:ListItem Text="Member1"></asp:ListItem>
                                         <asp:ListItem Text="Member2"></asp:ListItem>

@@ -57,7 +57,7 @@
                         <h1 class="color-white">Welcome Back!</h1>
                     </div>
                     <div>
-                        <asp:TextBox ID="emailTextBox" CssClass="w-100 login-input" TextMode="SingleLine" placeholder="Username" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="emailTextBox" CssClass="w-100 login-input" TextMode="SingleLine" placeholder="Email Id / Contact No." runat="server"></asp:TextBox>
                         <%-- <asp:TextBox runat="server"  id="emailTextBox" class="w-100 login-input" type="Text" placeholder="Username" />--%>
                     </div>
 
@@ -79,9 +79,9 @@
                     </div>
 
                     <div class="text-center my-1" id="otpButtonDiv">
-                        <div class="text-center resend-otp-div">
+                        <%--<div class="text-center resend-otp-div">
                             <input type="checkbox" /><span style="color: #fff"> I agree to <a target="_blank" style="color: #fdd001; font-weight: 700" href="tc.aspx">Terms and Conditions</a> </span>
-                        </div>
+                        </div>--%>
                         <asp:Button ID="otpButton" OnClick="signup_Click" runat="server" Text="GET OTP" class="btn thm-button my-2"></asp:Button>
 
                     </div>

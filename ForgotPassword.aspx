@@ -57,7 +57,7 @@
                     </div>
 
                     <div>
-                        <asp:TextBox ID="emailTextBox" CssClass="w-100 login-input" TextMode="SingleLine" placeholder="Username" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="emailTextBox" CssClass="w-100 login-input" TextMode="SingleLine" placeholder="Email ID" runat="server"></asp:TextBox>
                         <%-- <asp:TextBox runat="server"  id="emailTextBox" class="w-100 login-input" type="Text" placeholder="Username" />--%>
                     </div>
 
