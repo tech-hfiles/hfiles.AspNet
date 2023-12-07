@@ -28,10 +28,16 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../style2.css" />
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
+
+
+            <div id="google_translate_element"></div>
             <div class="privacy_main h-100vh h-xl-90vh">
 
                 <img class="blue_trangle_top_left" src="../Terms & Conditions/blue-trangle1.png" alt="">
@@ -437,5 +443,14 @@
             </div>
         </div>
     </form>
+
+
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en'
+            }, 'google_translate_element');
+        }
+    </script>
 </body>
 </html>

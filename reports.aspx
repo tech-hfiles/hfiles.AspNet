@@ -86,12 +86,15 @@
                                                 <p class="card-text"><strong>Date: </strong><%# Eval("CreatedDate") %> </p>
 
                                                 <a href="<%# ResolveUrl( string.Format("~/upload/report/{0}", Eval("ReportUrl"))) %>" target="_blank" class="btn btn-sm btn-primary">Download File</a>
+                                                <asp:LinkButton ID="lbtnShare" runat="server" OnClick="lbtnShare_Click">
+                                                    <img class="report-share-icon" src="../Add Members/share-active.png" />
+                                                </asp:LinkButton>
 
                                             </div>
 
-                                        </div>
-                                        <div class="">
+                                        <div class="report-delete-btn">
                                             <asp:LinkButton Text="text" ID="lbtnremove" OnClick="lbtnremove_Click" runat="server" CommandArgument='<%# Eval("Id")%>'><img src="../Suppor Group (BG  & Icons)/delete-icon.png" /></asp:LinkButton>
+                                        </div>
                                         </div>
                                     </div>
 

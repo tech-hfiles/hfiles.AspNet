@@ -666,6 +666,15 @@ select {
 .signin-main .has-search .form-control-feedback {
     margin-top: 12px !important;
 }
+.signin-main .password-div {
+    position:relative;
+
+}
+.signin-main .hide-password-toggal {
+   position:absolute;
+   right:20px;
+   top:25px
+}
 
 .signin-main .triangle-top {
     position: absolute;
@@ -1524,7 +1533,23 @@ span.img-notselected {
 }
 .download-doc-inner .card {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    position:relative;
 }
+    .download-doc-inner .card .report-share-icon {
+        height: 30px !important;
+        width: auto !important;
+        margin-left:5px;
+    }
+.download-doc-inner .report-delete-btn {
+    position: absolute;
+    top:5px;
+    right:5px;
+}
+.download-doc-inner .report-delete-btn img {
+   height:30px !important;
+   width:auto !important;
+}
+
 .download-doc-inner .search-file input{
     padding: 10px;
     padding-left: 35px;

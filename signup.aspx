@@ -21,10 +21,14 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet' />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <title>Sign IN</title>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <title>Sign Up</title>
     <style>
         @media (min-width: 992px) {
-           /* .footer {
+            /* .footer {
                 position: absolute;
                 bottom: 0;
                 width: 100%;
@@ -42,10 +46,26 @@
             }
         }
     </style>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
+   <%-- <div id="google_translate_element" class="language">
+        Select Language
+        <%--<details>
+        <summary>Language</summary>
+
+        <ul id="language">
+            <li>English</li>
+        </ul>
+    </details>
+    </div>--%>
+
+
     <div class="signin-main">
         <form class="w-100 h-100" runat="server">
+
+              <div id="google_translate_element" class="language"></div>
             <asp:ScriptManager ID="scmSignUp" runat="server"></asp:ScriptManager>
 
             <div class="row vert-cent w-100 h-sm-100vh m-0">
@@ -59,46 +79,51 @@
                         <div class="text-center signin-heading">
                             <img src="<%= ResolveUrl("~/Sign Up Page/Hfiles Logo.png") %>" alt="" width="120px" />
                             <br />
+                            <%-- below line added for google translator --%>
+                            <div id="google_element"></div>
+
                             <h3 class="color-white">SIGN UP</h3>
                         </div>
-                        <div class="row signin-form form-group has-search text-center justify-content-center">
-                            <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
+                        <div class="row signin-form form-group has-search text-center ">
+                            <div class="col-sm-12 col-lg-6 col-xl-6 px-1">
                                 <i class="fa-solid fa-user form-control-feedback"></i>
                                 <!-- <span class="fa fa-user form-control-feedback"></span> -->
                                 <input id="firstnameTextBox" runat="server" required type="text" class="form-control my-2" placeholder="Name" />
                             </div>
-                            <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
+                            <div class="col-sm-12 col-lg-6 col-xl-6 px-1">
                                 <i class="fa-solid fa-user form-control-feedback"></i>
                                 <input id="lastnameTextBox" runat="server" type="text" class="form-control my-2" placeholder="Last Name" required />
                             </div>
 
-                            <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
-                                <i class="fa-solid fa-user form-control-feedback"></i>
+                            <div class="col-sm-12 col-lg-6 col-xl-6 px-1">
+                                <i class="fa-solid fa-cake-candles form-control-feedback"></i>
                                 <input runat="server" id="dobTextBox1" type="date" class="form-control" placeholder="Date Of Birth" required />
                             </div>
 
-                            <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
+                            <div class="col-sm-12 col-lg-6 col-xl-6 px-1">
                                 <i class="fa-solid fa-phone-volume form-control-feedback"></i>
                                 <input type="number" id="phoneTextBox" runat="server" class="form-control my-2" placeholder="Phone No" required />
                             </div>
-                            <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
+                            <div class="col-sm-12 col-lg-6 col-xl-6 px-1">
                                 <i class="fa-regular fa-envelope form-control-feedback"></i>
                                 <input id="emailTextBox" runat="server" type="email" class="form-control my-2" placeholder="Email ID" required />
                             </div>
 
-                            <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
+                            <div class="col-sm-12 col-lg-6 col-xl-6 px-1 password-div">
                                 <i class="fa-solid fa-lock form-control-feedback"></i>
                                 <asp:UpdatePanel ID="uplSignUp" runat="server">
                                     <ContentTemplate>
                                         <asp:TextBox ID="pwdTextBox" runat="server" type="password" class="form-control my-2" placeholder="Password" required />
+                                        <i class="fa-solid fa-eye-slash hide-password-toggal"></i>
                                     </ContentTemplate>
                                 </asp:UpdatePanel>
 
                             </div>
 
-                            <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
+                            <div class="col-sm-12 col-lg-12 col-xl-12 px-1 password-div">
                                 <i class="fa-solid fa-lock form-control-feedback"></i>
                                 <asp:TextBox ID="cpwdTextBox" runat="server" type="password" class="form-control my-2" placeholder="Confirm Password" required />
+                                <i class="fa-solid fa-eye-slash hide-password-toggal"></i>
                                 <asp:RequiredFieldValidator ControlToValidate="cpwdTextBox" ErrorMessage="Please Enter Confirm Password" runat="server" ForeColor="White"></asp:RequiredFieldValidator>
                                 <asp:CompareValidator ControlToValidate="cpwdTextBox" ControlToCompare="pwdTextBox" ErrorMessage="Password and Confirm Password should be same" runat="server" ForeColor="White"></asp:CompareValidator>
                             </div>
@@ -159,6 +184,15 @@
         </form>
     </div>
 
+   <script>
+       function googleTranslateElementInit() {
+           new google.translate.TranslateElement({
+               pageLanguage: 'en',
+               includedLanguages: 'en,hi,mr',
+           }, 'google_translate_element');
+       }
+   </script>
+
 
     <script type="text/javascript">
         function JSalert() {
@@ -200,7 +234,19 @@
             $('#timer').show()
             timer(60);
         })
+        $(function () {
+            $('.hide-password-toggal').click(function () {
+                $(this).parent('.form-control').attr('type') = 'text'
+            })
+        })
+    </script>
 
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en'
+            }, 'google_translate_element');
+        }
     </script>
 </body>
 </html>

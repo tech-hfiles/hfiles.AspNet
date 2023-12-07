@@ -169,7 +169,7 @@ namespace hfiles
                         cmd.ExecuteNonQuery();
                         int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
                         result = DAL.validateInt(retVal);
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Added Successfully')", true);
                         //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
                     }
                 }

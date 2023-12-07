@@ -61,7 +61,6 @@ namespace hfiles
                     // Execute the SQL command
                     command.ExecuteNonQuery();
                 }
-
                 // Close the database connection
                 connection.Close();
                 DAL.SendCareerMail(subject, body, email);

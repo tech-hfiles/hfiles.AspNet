@@ -28,10 +28,13 @@
             padding: 10px
         }
     </style>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 
 <body style="overflow: hidden;">
-    <div class="language">
+
+    <%--<div id="" class="language">
         <details>
             <summary>language</summary>
 
@@ -40,9 +43,9 @@
             </ul>
         </details>
 
-    </div>
+    </div>--%>
     <form class="row h-100 align-ceter h-sm-100vh" runat="server">
-      
+         <div id="google_translate_element" class="language"></div>
         <asp:HiddenField runat="server" ID="hfId" />
         <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-block" style="text-align: center;">
 
@@ -127,6 +130,17 @@
         </div>
 
     </form>
+
+
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages : 'en,hi,mr',
+            }, 'google_translate_element');
+        }
+    </script>
+
     <script language="JavaScript">
         console.log('chal rha hai')
         //var changeloginmodebtn = document.getElementById('changeloginmode')
