@@ -673,7 +673,7 @@ a {
 
     .input-group select {
         font-size: 26px;
-        width: 190px;
+        width: 100%;
     }
 
     .tab {
@@ -1089,9 +1089,12 @@ a {
     .common-heading img {
         height:30px !important;
     }
+    .profile-menu ul {
+        right:50px
+    }
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 430px) {
     .blue-t-bottom-right {
         position: relative;
         left: 70px;
@@ -1225,7 +1228,7 @@ a {
 
     .avatar .plus-icon {
         top: 36%;
-        margin-right: 40px;
+        margin-right: 5px;
         width: 50px;
     }
 
@@ -1295,6 +1298,9 @@ a {
     .input-group .relation-div {
         margin: 0 10px;
 
+    }
+    .footer a {
+        font-size:9px !important;
     }
 }
 
@@ -1414,5 +1420,8 @@ a {
         height: 70%;
         width: 95%;
         left: 10px
+    }
+    .footer a {
+        font-size: 8px !important;
     }
 }

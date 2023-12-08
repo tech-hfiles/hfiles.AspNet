@@ -1217,9 +1217,12 @@ select {
         .journal .journal_main .inner_div .heading h3 {
             width: 100%
         }
+        .profile-menu ul {
+            right: 50px
+        }
     }
 
-    @media only screen and (max-width: 414px) {
+    @media only screen and (max-width: 430px) {
 
         .privacy_main .blue_trangle_bottom_left {
             height: 120px;
@@ -1376,6 +1379,9 @@ select {
         .privacy_main .inner_div .desciption {
             max-height: 80%;
         }
+        .footer a {
+            font-size: 9px !important;
+        }
     }
 
     @media only screen and (max-width: 300px) {
@@ -1508,6 +1514,9 @@ select {
 
         .common-heading img {
             height: 30px !important;
+        }
+        .footer a {
+            font-size: 8px !important;
         }
     }
 

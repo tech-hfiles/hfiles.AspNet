@@ -146,6 +146,7 @@
                       </div>
                       <div class="card-name d-flex align-items-center my-2 px-3">
                         <asp:ImageButton ID="btnsave" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl='<%#ResolveUrl(Eval("ImgUrl", "~/{0}")) %>' Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" CommandArgument='<%#Eval("Blog_ID")+"|"+ Eval("CategoryId") %>' />
+                          <img class="mx-2" src="../Add Members/share-active.png" width="20px" alt="">
                         <%--<img class="mx-1 d-none" src="../Add Members/save-not-active.png" width="20px" alt="">
                         <img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">
                         <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
@@ -189,6 +190,7 @@
                         <%--<asp:ImageButton ID="btnBookmark" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../Add Members/save-active-icon.png" Width="20px" alt="" OnCommand="btnsave_Command" CommandArgument='<%#Eval("Blog_ID") %>' />
                         --%>
                         <asp:ImageButton ID="btnsave" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl='<%#ResolveUrl(Eval("ImgUrl", "~/{0}")) %>' Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" CommandArgument='<%#Eval("Blog_ID")+"|"+ Eval("CategoryId")%>' />
+                          <img class="mx-2" src="../Add Members/share-active.png" width="20px" alt="">
                         <%--<asp:ImageButton ID="btnremove" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../Add Members/bookmark.png" Width="20px" alt="" OnClick="btnremove_Click1" CommandName="ToggleBookmark" OnCommand="btnremove_Command1" CommandArgument='<%#Eval("Blog_ID") %>' />--%>
                         <%--<img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">--%>
                         <%-- <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">--%>
@@ -248,7 +250,7 @@
                       </div>
                       <div class="card-name d-flex align-items-center my-2 px-3">
                         <asp:ImageButton ID="btnsave" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl='<%#ResolveUrl(Eval("ImgUrl", "~/{0}")) %>' Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" CommandArgument='<%#Eval("Blog_ID") +"|"+ Eval("CategoryId") %>' />
-
+                          <img class="mx-2" src="../Add Members/share-active.png" width="20px" alt="">
                         <%--<img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">
                         <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">--%>
                         <p class="m-0"><strong><%#Eval("Title") %></strong></p>

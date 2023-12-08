@@ -126,6 +126,7 @@
 
             .profile-menu ul {
                 position: relative;
+                right:50px;
                 display: flex;
                 flex-direction: column;
                 z-index: 10;

@@ -1262,7 +1262,7 @@ span.img-notselected {
 
 .support-group .chat-input-div {
     position: absolute;
-    bottom: 30px;
+    bottom: 0px;
     z-index: 999;
     width: 98%;
     padding: 0 0 0 20px;
@@ -1697,7 +1697,15 @@ span.img-notselected {
         height:92vh
     }
     .support-group .chat-input-div {
-        bottom:10px
+        bottom:45px
+    }
+    .support-group .chat-history-div {
+        min-height:65%;
+    }
+}
+@media only screen and (max-width: 1024px) and (min-height:1366px) {
+    .support-group .chat-history-div {
+        min-height: 80% !important;
     }
 }
 @media only screen and (max-width: 1300px) {
@@ -1800,6 +1808,9 @@ span.img-notselected {
     }
     .support-group .tab-content {
         height:92vh; 
+    }
+    .support-group .chat-input-div {
+        bottom:-35px
     }
 }
 
@@ -1930,9 +1941,12 @@ span.img-notselected {
     .support-group .chat-history-div {
         min-height:70%;
     }
+    .profile-menu ul {
+        right: 50px
+    }
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 430px) {
     .h-sm-100vh {
         height: 100vh !important;
     }
@@ -2028,7 +2042,7 @@ span.img-notselected {
     }
 
     .support-group .left-nav-bar {
-        height: 55vh !important;
+        height: 65vh !important;
     }
 
     .support-group .chat-input-div {
@@ -2069,7 +2083,7 @@ span.img-notselected {
     .support-group .chat-input-div {
         position: relative;
         bottom: 0;
-        top: 5px;
+        top: 30px;
         width: 100%;
     }
 
@@ -2082,6 +2096,9 @@ span.img-notselected {
     }
     .h-ssm-100vh {
         height:100vh!important;
+    }
+    .footer a {
+        font-size: 9px !important;
     }
 
 }
@@ -2171,6 +2188,12 @@ span.img-notselected {
     .support-group .chat-history-div {
         height: 65%;
     }
+    .footer a {
+        font-size: 8px !important;
+    }
+    .support-group .chat-input-div {
+        top:18px;
+    }
 }
 
     @media only screen and (min-height: 790px) {
@@ -2201,9 +2224,9 @@ span.img-notselected {
             width: 100%;
         }
 
-        .additional-information .blue-trangle-bottom {
+       /* .additional-information .blue-trangle-bottom {
             position: relative !important;
-        }
+        }*/
         .common-design .blue-trangle-bottom {
             position: absolute;
             bottom: 0;

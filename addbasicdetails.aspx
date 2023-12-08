@@ -226,28 +226,34 @@
 
 
     <script type="text/javascript">
+        console.log("aaaaaaaaaaaaaaaaaaaaaaaaaa")
 
         $(function () {
+            console.log("fun 1")
             $('.form-select').change(function () {
+                console.log("fun 1 inner")
                 var val = $(this).val()
                 var firstVal = $(this).find("option:first").val()
                 console.log(val)
                 console.log(firstVal)
                 if (val == firstVal) {
+                    console.log("fun 1 if")
                     $(this).removeClass('color-thm-blue');
                 } else {
                     $(this).addClass('color-thm-blue');
-
+                    console.log("fun 1 else")
                 }
 
             })
             $(".form-select").each(function () {
+                console.log("fun 1 each")
                 var val = $(this).val()
                 var firstVal = $(this).find("option:first").val()
                 console.log(val)
                 console.log(firstVal)
-                if (val == firstVal) {
+                if (val == '') {
                     $(this).removeClass('color-thm-blue');
+                    console.log("fun 1 each if")
                 } else {
                     $(this).addClass('color-thm-blue');
 

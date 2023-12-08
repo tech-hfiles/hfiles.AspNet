@@ -126,9 +126,12 @@
                 height: 50%;
             }
         }
-        /* * {
+      /*   * {
             border:1px solid #000;
         }*/
+      body {
+          overflow-x:hidden;
+      }
     </style>
 
     <%--below script for sweetalert --%>
@@ -302,7 +305,7 @@
                                         <div class="d-flex align-items-center">
                                             <span>Opthalmology</span>
                                             <div class="menu-circle">
-                                                <a href="reports.aspx?rid=8">
+                                                <%--<a href="reports.aspx?rid=8">--%>
                                                     <img src="../Avatar/Opthalmologyicon.png" alt="" />
                                             </div>
                                         </div>
