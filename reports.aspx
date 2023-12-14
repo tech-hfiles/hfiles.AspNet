@@ -46,7 +46,7 @@
                 <div class="heading-title mb-3 py-1 px-5">
                     <div class="row">
                         <div class="col-md-6 py-3">
-                            <a class="back-arrow-btn" href="avatar.aspx">
+                            <a class="" href="avatar.aspx">
                                 <img src="../assets/back-arrow.png" alt=""></a>
                             <%--<h1 class="heading">Documents</h1>--%>
                             <asp:Label ID="lblReportType" runat="server" Text="" />
@@ -109,6 +109,7 @@
                 </asp:UpdatePanel>--%>
                 <!-- row -->
             </div>
+            <div id="toast"><div id="img">Icon</div><div id="desc">A notification message..</div></div>
         </ContentTemplate>
     </asp:UpdatePanel>
     <%--  </div>--%>
@@ -125,4 +126,12 @@
     </div>--%>
 
     <%--</body>--%>
+    <script>
+        function launch_toast() {
+            var x = document.getElementById("toast")
+            x.className = "show";
+            setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
+        }
+        launch_toast()
+    </script>
 </asp:Content>

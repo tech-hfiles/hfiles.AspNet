@@ -20,6 +20,12 @@
                 position:relative;
             }
         }
+        .journal {
+            background-image:url('../Reception Page/samanta-bg.png');
+            background-size:contain;
+            background-repeat:no-repeat;
+            background-position:center
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

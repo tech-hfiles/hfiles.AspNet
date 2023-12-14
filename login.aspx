@@ -45,7 +45,7 @@
 
     </div>--%>
     <form class="row h-100 align-ceter h-sm-100vh" runat="server">
-         <div id="google_translate_element" class="language"></div>
+        <div id="google_translate_element" class="language"></div>
         <asp:HiddenField runat="server" ID="hfId" />
         <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-block" style="text-align: center;">
 
@@ -133,15 +133,21 @@
 
 
     <script>
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var iframes = document.querySelectorAll('.VIpgJd-ZVi9od-ORHb-OEVmcd skiptranslate'); // Select all iframes with class 'hideMe'
+            for (var i = 0; i < iframes.length; i++) {
+                iframes[i].style.display = 'none'; // Hide each iframe by setting display property to 'none'
+            }
+        });
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en',
-                includedLanguages : 'en,hi,mr',
+                includedLanguages: 'en,hi,mr',
             }, 'google_translate_element');
         }
-    </script>
 
-    <script language="JavaScript">
         console.log('chal rha hai')
         //var changeloginmodebtn = document.getElementById('changeloginmode')
         var loginMode = 'password'

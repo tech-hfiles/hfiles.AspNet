@@ -13,6 +13,14 @@
     <link rel="stylesheet" href="./style3.css">
 
     <title>Add Members</title>
+    <style>
+       /* *{
+            border:1px solid #000;
+        }*/
+       body {
+           overflow-x:hidden
+       }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -24,6 +32,7 @@
         <%--<img class="home-icon-top-right" src="../Add Members/home-icon.png" alt="">--%></a>
     <img class="plus-top-left" src="../assets/plus-icon-3.png" alt="">
     <div class="main-div">
+            <a class="back-arrow-btn" href="javascript: history.go(-1)"><img src="../assets/back-arrow.png" alt="">Back</a>
         <div class="container-fluid d-flex justify-content-center p-0">
             <div class="inner-div pt-5">
                 <div class="row">
@@ -32,6 +41,9 @@
                     </div>
                 </div>
                 <div class="row input-group">
+                     <div class="col-12 col-md-7 d-none d-md-block">
+                        <img src="../Add Members/addmember-avatar.png" width="80%" />
+                    </div>
                      <div class="col-12 col-md-5 d-flex justify-content-center">
                        <div class="w-75">
                             <div class="">
@@ -81,9 +93,7 @@
                 </div>
                        </div>
                     </div>
-                    <div class="col-12 col-md-7 d-none d-md-block">
-
-                    </div>
+                   
                    
                 </div>
                <%-- <div class="row my-xl-5 my-lg-3">

@@ -132,6 +132,7 @@
       body {
           overflow-x:hidden;
       }
+    
     </style>
 
     <%--below script for sweetalert --%>
@@ -415,6 +416,8 @@
                     <asp:Button ID="btnClose" runat="server" OnClick="okLinkButton_Click" Text="Close" CssClass="close-btn" />
                 </asp:Panel>
             </div>
+          <div id="toast"><div id="img">Icon</div><div id="desc">A notification message..</div></div>
+
         </ContentTemplate>
         <Triggers>
              <asp:PostBackTrigger ControlID="btnSubmit" />
@@ -445,6 +448,12 @@
                 }
             });
         }
+        function launch_toast() {
+            var x = document.getElementById("toast")
+            x.className = "show";
+            setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
+        }
+        launch_toast()
     </script>
 
 </asp:Content>

@@ -51,6 +51,7 @@
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
             <div class="user-info-main" runat="server">
+                <a class="back-arrow-btn" href="javascript: history.go(-1)"><img src="../assets/back-arrow.png" alt="">Back</a>
                 <div class="container mt-768-80">
                     <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
                     <img class="blue-trangle-top-right" src="../assets/blue-trangle.png" alt="">
@@ -191,7 +192,7 @@
                     <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
                 </div>
             </div>
-
+            <div id="toast"><div id="img">Icon</div><div id="desc">A notification message..</div></div>
         </ContentTemplate>
     </asp:UpdatePanel>
 
@@ -222,6 +223,13 @@
             // Handle error (display error message, log, etc.)
             console.error(error);
         }
+        function launch_toast() {
+            var x = document.getElementById("toast")
+            x.className = "show";
+            setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
+        }
+        launch_toast()
+
     </script>
 
 
@@ -292,7 +300,7 @@
             utilsScript:
                 "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
         });
-
+        
 
     </script>
 

@@ -26,6 +26,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
   <asp:ScriptManager runat="server" EnableCdn="true" />
   <div class="panel_content">
+       <a class="back-arrow-btn" href="javascript: history.go(-1)"><img src="../assets/back-arrow.png" alt="">Back</a>
     <div class="inner_panel_content">
       <div class="form_area">
         <div class="add_product_form">
@@ -74,28 +75,16 @@
       <asp:HiddenField runat="server" ID="hfId" />
     </div>
   </div>
-
-    <%-- <script>
-         var show = document.getElementById('showpass');
-         var hide = document.getElementById('hidepass');
-
-         show.style.display = 'block'
-         hide.style.display = 'none'
-
-         function hideShowImage(id) {
-             var image = document.getElementById(id)
+     <div id="toast"><div id="img">Icon</div><div id="desc">A notification message..</div></div>
+     <script>
+         function launch_toast() {
+             var x = document.getElementById("toast")
+             x.className = "show";
+             setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
          }
+         launch_toast()
 
-         function HideShowPassword(id) {
-             var x = document.getElementById(id);
-             if (x.type === "password") {
-                 x.type = "text";
-             } else {
-                 x.type = "password";
-             }
-         }
-
-     </script>--%>
+     </script>
 </asp:Content>
 
 

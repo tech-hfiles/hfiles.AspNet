@@ -262,7 +262,7 @@
 
             </div>
           </div>
-
+             <div id="toast"><div id="img">Icon</div><div id="desc">A notification message..</div></div>
         </ContentTemplate>
         <Triggers>
           <asp:AsyncPostBackTrigger EventName="Click" ControlID="LbtnArticle" />
@@ -302,7 +302,12 @@
               video.style.color = '#d6d6d6'
           }
       }
-
+      function launch_toast() {
+          var x = document.getElementById("toast")
+          x.className = "show";
+          setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
+      }
+      launch_toast()
 
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
