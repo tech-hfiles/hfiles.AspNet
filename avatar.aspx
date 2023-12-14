@@ -166,8 +166,8 @@
                                                                 width="30px" />
                                                             <div>
                                                                 <small class="add-member-name">
-                                                                    <asp:LinkButton ID="member1" runat="server" Text='<%#Eval("FirstName") %>' OnClick="member1_Click" CommandArgument='<%#Eval("Id") %>'></asp:LinkButton>
-                                                                    <asp:HiddenField ID="hfmemberid" runat="server" Value='<%#Eval("Id") %>' />
+                                                                    <asp:LinkButton ID="member1" runat="server" Text='<%#Eval("user_FirstName") %>' OnClick="member1_Click" CommandArgument='<%#Eval("user_Id") %>'></asp:LinkButton>
+                                                                    <asp:HiddenField ID="hfmemberid" runat="server" Value='<%#Eval("user_Id") %>' />
                                                                 </small>
                                                             </div>
                                                         </a>
