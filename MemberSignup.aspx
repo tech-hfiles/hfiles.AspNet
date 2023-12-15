@@ -1,9 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="signup.aspx.cs" Inherits="hfiles.signup" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="signup.aspx.cs" Inherits="hfiles.MemberSignup" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<head runat="server">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
@@ -24,9 +24,11 @@
 
     <script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+   
 
-    <title>Sign Up</title>
-    <style>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <title>member sign up</title>
+     <style>
         @media (min-width: 992px) {
             /* .footer {
                 position: absolute;
@@ -46,23 +48,9 @@
             }
         }
     </style>
-
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
-   <%-- <div id="google_translate_element" class="language">
-        Select Language
-        <%--<details>
-        <summary>Language</summary>
-
-        <ul id="language">
-            <li>English</li>
-        </ul>
-    </details>
-    </div>--%>
-
-
-    <div class="signin-main">
+   <div class="signin-main">
         <form class="w-100 h-100" runat="server">
 
               <div id="google_translate_element" class="language"></div>
@@ -114,7 +102,7 @@
                                 <asp:UpdatePanel ID="uplSignUp" runat="server">
                                     <ContentTemplate>
                                         <asp:TextBox ID="pwdTextBox" runat="server" type="password" class="form-control my-2" placeholder="Password" required />
-                                        <i id="passwordView1" class="fa-solid fa-eye-slash hide-password-toggal"></i>
+                                        <i class="fa-solid fa-eye-slash hide-password-toggal"></i>
                                     </ContentTemplate>
                                 </asp:UpdatePanel>
 
@@ -123,7 +111,7 @@
                             <div class="col-sm-12 col-lg-12 col-xl-12 px-1 password-div">
                                 <i class="fa-solid fa-lock form-control-feedback"></i>
                                 <asp:TextBox ID="cpwdTextBox" runat="server" type="password" class="form-control my-2" placeholder="Confirm Password" required />
-                                <i id="passwordView2" class="fa-solid fa-eye-slash hide-password-toggal"></i>
+                                <i class="fa-solid fa-eye-slash hide-password-toggal"></i>
                                 <asp:RequiredFieldValidator ControlToValidate="cpwdTextBox" ErrorMessage="Please Enter Confirm Password" runat="server" ForeColor="White"></asp:RequiredFieldValidator>
                                 <asp:CompareValidator ControlToValidate="cpwdTextBox" ControlToCompare="pwdTextBox" ErrorMessage="Password and Confirm Password should be same" runat="server" ForeColor="White"></asp:CompareValidator>
                             </div>
@@ -195,33 +183,6 @@
 
 
     <script type="text/javascript">
-        $('#passwordView1').click(function () {
-            console.log('password')
-            if ($('#pwdTextBox').attr('type') == 'password') {
-                $('#pwdTextBox').attr('type', 'text');
-                $(this).removeClass('fa-eye-slash');
-                $(this).addClass('fa-eye')
-            } else if ($('#pwdTextBox').attr('type') == 'text') {
-                $('#pwdTextBox').attr('type', 'password');
-                $(this).removeClass('fa-eye')
-                $(this).addClass('fa-eye-slash');
-            }
-          
-        })
-        $('#passwordView2').click(function () {
-            console.log('password')
-            if ($('#cpwdTextBox').attr('type') == 'password') {
-                $('#cpwdTextBox').attr('type', 'text');
-                $(this).removeClass('fa-eye-slash');
-                $(this).addClass('fa-eye')
-            } else if ($('#cpwdTextBox').attr('type') == 'text') {
-                $('#cpwdTextBox').attr('type', 'password');
-                $(this).removeClass('fa-eye')
-                $(this).addClass('fa-eye-slash');
-            }
-
-        })
-
         function JSalert() {
             swal("An OTP is sent to your email, enter the OTP to proceed.");
         }
@@ -261,7 +222,11 @@
             $('#timer').show()
             timer(60);
         })
-       
+        $(function () {
+            $('.hide-password-toggal').click(function () {
+                $(this).parent('.form-control').attr('type') = 'text'
+            })
+        })
     </script>
 
     <script>

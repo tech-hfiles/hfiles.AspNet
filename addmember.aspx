@@ -83,9 +83,9 @@
                          <div class="">
                              <input class="date-input" type="date" />
                         </div>
-                     <div class="">
+                   <%--  <div class="">
                              <input class="number-input" id="default-number" type="number" placeholder="default number." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
-                        </div>
+                        </div>--%>
                          <div class="btn-div">
                     <%--<asp:Button runat="server" Text="Submit" CssClass="btn submit-btn" ID="btnSubmit"></asp:Button>--%>
                    <%-- <button id="back-btn"  class="btn thm-back-button mx-3">Back</button>--%>
@@ -120,22 +120,22 @@
    </div>
     <script>
         //let selected = true
-        var relation = ''
+        //var relation = ''
 
         //const family = document.getElementById('family');
         //const friends = document.getElementById('friends');
-        const relationInput = document.getElementById('relation-input');
-        const friendInput = document.getElementById('friend-input');
-        const defaultNumber = document.getElementById('default-number');
+        //const relationInput = document.getElementById('relation-input');
+        //const friendInput = document.getElementById('friend-input');
+        //const defaultNumber = document.getElementById('default-number');
 
         //family.classList.add('active')
         //friends.classList.add('inactive')
 
-        defaultNumber.style.display = 'none'
-        friendInput.style.display = 'none'
-        notSelectMobile.style.display = 'none'
-        selectMobile.style.display = 'block'
-        relationInput.style.display = 'flex'
+        //defaultNumber.style.display = 'none'
+        //friendInput.style.display = 'none'
+        //notSelectMobile.style.display = 'none'
+        //selectMobile.style.display = 'block'
+        //relationInput.style.display = 'flex'
 
 
 
@@ -169,28 +169,28 @@
                     document.getElementById("<%= hfMemberType.ClientID%>").value = "2";
             }
         }--%>
-        function handleRelation() {
-            var relationValue = $(".relation-select").find(":selected").val();
-            relation = relationValue;
-            console.log(relation)
-            $('.email-input').attr('disabled', 'false');
-            $('.number-input').attr('disabled', 'false');
-            if (relation === 'grandFather' || relation === 'grandMother') {
-                defaultNumber.style.display = 'block'
-                $(".email-input").removeAttr('disabled');
-                $(".number-input").removeAttr('disabled');
-            } else if (relation === 'pet') {
-                $('.email-input').attr('disabled', 'disabled');
-                $('.number-input').attr('disabled', 'disabled');
-                defaultNumber.style.display = 'block'
-            } else {
-                defaultNumber.style.display = 'none'
-                $(".email-input").removeAttr('disabled');
-                $(".number-input").removeAttr('disabled');
-            }
-            console.log("relation")
-        }
-        console.log("relation")
+        //function handleRelation() {
+        //    var relationValue = $(".relation-select").find(":selected").val();
+        //    relation = relationValue;
+        //    console.log(relation)
+        //    $('.email-input').attr('disabled', 'false');
+        //    $('.number-input').attr('disabled', 'false');
+        //    if (relation === 'grandFather' || relation === 'grandMother') {
+        //        defaultNumber.style.display = 'block'
+        //        $(".email-input").removeAttr('disabled');
+        //        $(".number-input").removeAttr('disabled');
+        //    } else if (relation === 'pet') {
+        //        $('.email-input').attr('disabled', 'disabled');
+        //        $('.number-input').attr('disabled', 'disabled');
+        //        defaultNumber.style.display = 'block'
+        //    } else {
+        //        defaultNumber.style.display = 'none'
+        //        $(".email-input").removeAttr('disabled');
+        //        $(".number-input").removeAttr('disabled');
+        //    }
+        //    console.log("relation")
+        //}
+        //console.log("relation")
     </script>
 
 

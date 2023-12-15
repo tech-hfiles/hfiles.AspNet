@@ -679,7 +679,8 @@ select {
 .signin-main .hide-password-toggal {
    position:absolute;
    right:20px;
-   top:25px
+   top:28px;
+   cursor:pointer;
 }
 
 .signin-main .triangle-top {

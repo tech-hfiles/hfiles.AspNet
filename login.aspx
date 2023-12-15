@@ -27,6 +27,13 @@
             width: 100%;
             padding: 10px
         }
+        .goog-logo-link, #google_translate_element span {
+                    display:none !important;
+                } 
+    
+                .goog-te-gadget{
+                    color: transparent !important;
+                }
     </style>
 
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

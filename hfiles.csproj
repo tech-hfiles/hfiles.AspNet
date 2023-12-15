@@ -484,6 +484,7 @@
     <Content Include="medical-history-icons\Obesity.png" />
     <Content Include="medical-history-icons\Psoriasis.png" />
     <Content Include="medical-history-icons\Thyroid.png" />
+    <Content Include="MemberSignup.aspx" />
     <Content Include="mentalhealth.jpg" />
     <Content Include="My Data\Asset 1.png" />
     <Content Include="My Data\Asset 10.png" />
@@ -760,6 +761,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MemberSignup.aspx.cs">
+      <DependentUpon>MemberSignup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberSignup.aspx.designer.cs">
+      <DependentUpon>MemberSignup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Policy.aspx.cs">
       <DependentUpon>Policy.aspx</DependentUpon>
