@@ -154,6 +154,8 @@
                                             <li class="border-bottom w-100px text-center pb-2 pb-lg-2 pb-xxl-4">
                                                 <span class="plus-value">
                                                     <asp:Label Text="" ID="lblUserName" runat="server" Style="font-family: 'Red Hat Display', sans-serif" /></span></li>
+                    
+
                                             <br />
 
                                             <li class="border-bottom w-100px text-center mb-2 mb-lg-3 mb-xxl-4">
@@ -244,6 +246,8 @@
                                         <asp:LinkButton Text="text" runat="server" ID="LinkButton1" OnClick="lbtnAddReport_Click">
                                 <img class="plus-icon" src="<%= ResolveUrl("~/Avatar/add-report.png") %>" alt="" />
                                         </asp:LinkButton><br />
+
+                                       
                                         <br />
                                         <span style="color: #0236b4; font-weight: 600; padding-block-end: 100px">ADD REPORT</span>
                                         <div class="popover__content">

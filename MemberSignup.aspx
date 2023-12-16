@@ -57,11 +57,11 @@
             <asp:ScriptManager ID="scmSignUp" runat="server"></asp:ScriptManager>
 
             <div class="row vert-cent w-100 h-sm-100vh m-0">
-                <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image h-lg-100vh d-none d-lg-block">
+                <div class="col-lg-6 col-xl-6 col-md-6 col-12 samanta-stand-image h-lg-100vh d-none d-md-block">
                     <img src="<%= ResolveUrl("~/Reception Page/002A.jpg") %>" alt="" width="100%" height="100%" />
                 </div>
 
-                <div class="col-lg-6 col-xl-6 col-md-5 col-sm-12 px-5 d-flex justify-content-center align-items-center vh-lg-100"
+                <div class="col-lg-6 col-xl-6 col-md-6 col-12 px-5 d-flex justify-content-center align-items-center vh-lg-100"
                     style="background-image: url('<%= ResolveUrl("~/Reception Page/002B.png") %>')">
                     <div>
                         <div class="text-center signin-heading">
@@ -79,12 +79,7 @@
                             <%-- <asp:TextBox runat="server"  id="emailTextBox" class="w-100 login-input" type="Text" placeholder="Username" />--%>
                         </div>
 
-                   <%--     <div>
-                            <asp:TextBox runat="server" ID="txtPassword" class="w-100 login-input" type="password" placeholder="Password" />
-                            <div class="text-end">
-                                <span style="color: #fff"><a id="forgotlink" style="color: #fdd001; font-weight: 700" href="ForgotPassword.aspx">Forgot Password ? </a></span>
-                            </div>
-                        </div>--%>
+                  
                               <div class="col-12 px-1 password-div">
                         <div runat="server" id="divOtp">
                             <i class="fa-solid fa-lock form-control-feedback"></i>
@@ -98,21 +93,20 @@
                         </div>
                                   </div>
                               </div>
-
-                        <div class="text-center my-1" id="otpButtonDiv">
-                            <%--<div class="text-center resend-otp-div">
-        <input type="checkbox" /><span style="color: #fff"> I agree to <a target="_blank" style="color: #fdd001; font-weight: 700" href="tc.aspx">Terms and Conditions</a> </span>
-    </div>--%>
-                            <asp:Button ID="otpButton" OnClick="signup_Click" runat="server" Text="GET OTP" class="btn thm-button my-2"></asp:Button>
-
-                        </div>
-
-                        <div class="text-center my-1" id="btnSubmitDiv">
-                            <div class="text-center resend-otp-div">
+                        <div class="my-1" id="btnSubmitDiv">
+                            <div class="resend-otp-div">
                                 <input type="checkbox" /><span style="color: #fff"> I agree to <a target="_blank" style="color: #fdd001; font-weight: 700" href="tc.aspx">Terms and Conditions</a> </span>
                             </div>
                          
                         </div>
+
+                        <div class="text-center my-1" id="otpButtonDiv">
+                       
+                            <asp:Button ID="otpButton" OnClick="signup_Click" runat="server" Text="GET OTP" class="btn thm-button my-2"></asp:Button>
+
+                        </div>
+
+                        
                     </div>
                 </div>
 
@@ -158,7 +152,7 @@
         }
          
         let timerOn = true;
-        $('#resendLinkButton').hide();
+        //$('#resendLinkButton').hide();
         function timer(remaining) {
 
             var m = Math.floor(remaining / 60);
@@ -185,8 +179,13 @@
             $('#timer').hide()
             $('#resendLinkButton').show()
         }
-        timer(60);
+        //timer(60);
         $('#resendLinkButton').click(function () {
+            $('#resendLinkButton').hide();
+            $('#timer').show()
+            timer(60);
+        })
+        $('#otpButton').click(function () {
             $('#resendLinkButton').hide();
             $('#timer').show()
             timer(60);
@@ -194,69 +193,14 @@
 
     </script>
 
-    <script>
+  <%--  <script>
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en',
                 includedLanguages: 'en,hi,mr',
             }, 'google_translate_element');
         }
-    </script>
-
-
-    <%--<script type="text/javascript">
-        function JSalert() {
-            swal("An OTP is sent to your email, enter the OTP to proceed.");
-        }
-
-        console.log("timer")
-        let timerOn = true;
-        $('#resendLinkButtonTest').hide();
-        function timer(remaining) {
-
-            var m = Math.floor(remaining / 60);
-            var s = remaining % 60;
-
-            m = m < 10 ? '0' + m : m;
-            s = s < 10 ? '0' + s : s;
-            document.getElementById('timer').innerHTML = m + ':' + s;
-            remaining -= 1;
-
-            if (remaining >= 0 && timerOn) {
-                setTimeout(function () {
-                    timer(remaining);
-                }, 1000);
-                return;
-            }
-
-            if (!timerOn) {
-                // Do validate stuff here
-                return;
-            }
-
-            // Do timeout stuff here
-            $('#timer').hide()
-            $('#resendLinkButtonTest').show();
-        }
-        timer(60);
-        $('#resendLinkButtonTest').click(function () {
-            $('#resendLinkButtonTest').hide();
-            $('#timer').show()
-            timer(60);
-        })
-        $(function () {
-            $('.hide-password-toggal').click(function () {
-                $(this).parent('.form-control').attr('type') = 'text'
-            })
-        })
     </script>--%>
-
-    <script>
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en'
-            }, 'google_translate_element');
-        }
-    </script>
+   
 </body>
 </html>

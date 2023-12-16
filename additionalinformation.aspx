@@ -10,6 +10,15 @@
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
         crossorigin="anonymous"></script>
     <title>Additional Information</title>
+    <style>
+          @media (min-width: 800px) and (max-width: 1024px) {
+            .footer {
+                position:absolute;
+                bottom:0;
+                width:100%;
+            }
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager runat="server" />

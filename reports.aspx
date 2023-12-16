@@ -60,17 +60,18 @@
                 </div>
                 <%--<asp:UpdatePanel ID="uplReports" runat="server">
                     <ContentTemplate>--%>
-                <div id="divUpload_Doc" style="display:block" runat="server">
-                    <div class="col-md-3 my-6">
-                        <div class="card text-center">
-                            <div class="card-body">
-                               <a href="avatar.aspx">  <img src="../assets/uploaddoc.png" class="card-img-top" alt="pdf-thumbnail"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
                 <div class="doc-pdf py-5 h-100">
                     <div class="container">
+                         <div id="divUpload_Doc" style="display:block" runat="server">
+                  <div class="row justify-content-center">
+                        <div class="col-md-6 my-6">
+                        <a href="avatar.aspx">  <img src="../Avatar/file-not-found.jpg" class="card-img-top" alt="pdf-thumbnail" width="90%"></a>
+                            <h2 class="text-center">No File Found</h2>
+                    </div>
+
+                  </div>
+                </div>
                         <div class="row mb-5">
                             <asp:Repeater ID="rptReports" runat="server">
                                 <ItemTemplate>
