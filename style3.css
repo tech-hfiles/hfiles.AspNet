@@ -809,6 +809,15 @@ a {
     background-repeat: no-repeat;
 
   } */
+/*g-translate*/
+.goog-logo-link, #google_translate_element span {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    color: transparent !important;
+}
+/*g-translate*/
 @media only screen and (min-width: 1600px) {
     .avatar .avatar-left-sec ul {
         height:93vh;

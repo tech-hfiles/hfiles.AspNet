@@ -1032,6 +1032,15 @@ select {
     }
 }
 /*toast*/
+/*g-translate*/
+.goog-logo-link, #google_translate_element span {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    color: transparent !important;
+}
+/*g-translate*/
 @media only screen and (min-width: 1600px) {
     .journal .journal_main .my_profile, .journal .journal_main .inner_div .heading h3 {
         height: 75px;

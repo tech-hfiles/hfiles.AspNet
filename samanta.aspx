@@ -10,11 +10,11 @@
             width: 100%;
             bottom: 0;
         }
-         @media (min-width: 1000px) and (max-width: 1400px) {
+       /*  @media (min-width: 1000px) and (max-width: 1400px) {
              .footer {
                  position:relative;
              }
-         }
+         }*/
         @media (min-width: 500px) and (max-width: 540px) {
             .footer {
                 position:relative;

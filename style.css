@@ -1731,6 +1731,16 @@ span.img-notselected {
     }
 }
 /*toast*/
+
+/*g-translate*/
+.goog-logo-link, #google_translate_element span {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    color: transparent !important;
+}
+/*g-translate*/
 @media only screen and (min-width: 1700px) {
     .h-lg-100vh {
         height: 100vh !important;
@@ -1874,6 +1884,9 @@ span.img-notselected {
     .support-group .tab-content {
         height: 92vh
     }
+    .signin-main .samanta-stand-image {
+        min-height: 95vh;
+    }
 }
 @media only screen and (max-width: 1200px) {
     .filter-shorting-icon {
@@ -1975,6 +1988,9 @@ span.img-notselected {
 @media only screen and (min-width: 760px) and (max-width: 910px) {
     .user-info-main {
         height: 85vh;
+    }
+    .signin-main .samanta-stand-image {
+        min-height:94vh;
     }
 }
 @media only screen and (max-width: 786px) {

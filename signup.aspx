@@ -28,23 +28,32 @@
     <title>Sign Up</title>
     <style>
         @media (min-width: 992px) {
-            /* .footer {
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-            }*/
-
-
+           
             .footer {
                 background: #192184;
                 color: #ffffff;
                 text-align: center;
                 position: absolute;
                 bottom: 0;
+                left:0;
                 width: 100%;
                 padding: 10px
             }
         }
+        @media (max-width: 992px) {
+           
+            .footer {
+                background: #192184;
+                color: #ffffff;
+                text-align: center;
+                position: relative;
+                bottom: 0;
+                left:0;
+                width: 100%;
+                padding: 10px
+            }
+        }
+
     </style>
 
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -69,12 +78,12 @@
             <asp:ScriptManager ID="scmSignUp" runat="server"></asp:ScriptManager>
 
             <div class="row vert-cent w-100 h-sm-100vh m-0">
-                <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image h-lg-100vh d-none d-lg-block">
+                <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image h-lg-100vh d-none d-md-block">
                     <img src="<%= ResolveUrl("~/Reception Page/002A.jpg") %>" alt="" width="100%" height="100%" />
                 </div>
 
-                <div class="col-lg-6 col-xl-6 col-md-5 col-sm-12 px-5 d-flex justify-content-center align-items-center vh-lg-100"
-                    style="background-image: url('<%= ResolveUrl("~/Reception Page/002B.png") %>')">
+                <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 px-5 d-flex justify-content-center align-items-center vh-lg-100"
+                    style="background-image: url('<%= ResolveUrl("~/Reception Page/002B.png") %>'); background-repeat:no-repeat; background-size:cover;">
                     <div>
                         <div class="text-center signin-heading">
                             <img src="<%= ResolveUrl("~/Sign Up Page/Hfiles Logo.png") %>" alt="" width="120px" />
@@ -85,31 +94,31 @@
                             <h3 class="color-white">SIGN UP</h3>
                         </div>
                         <div class="row signin-form form-group has-search text-center ">
-                            <div class="col-sm-12 col-lg-6 col-xl-6 px-1">
+                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1">
                                 <i class="fa-solid fa-user form-control-feedback"></i>
                                 <!-- <span class="fa fa-user form-control-feedback"></span> -->
                                 <input id="firstnameTextBox" runat="server" required type="text" class="form-control my-2" placeholder="Name" />
                             </div>
-                            <div class="col-sm-12 col-lg-6 col-xl-6 px-1">
+                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1">
                                 <i class="fa-solid fa-user form-control-feedback"></i>
                                 <input id="lastnameTextBox" runat="server" type="text" class="form-control my-2" placeholder="Last Name" required />
                             </div>
 
-                            <div class="col-sm-12 col-lg-6 col-xl-6 px-1">
+                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1">
                                 <i class="fa-solid fa-cake-candles form-control-feedback"></i>
                                 <input runat="server" id="dobTextBox1" type="date" class="form-control" placeholder="Date Of Birth" required />
                             </div>
 
-                            <div class="col-sm-12 col-lg-6 col-xl-6 px-1">
+                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1">
                                 <i class="fa-solid fa-phone-volume form-control-feedback"></i>
                                 <input type="number" id="phoneTextBox" runat="server" class="form-control my-2" placeholder="Phone No" required />
                             </div>
-                            <div class="col-sm-12 col-lg-6 col-xl-6 px-1">
+                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1">
                                 <i class="fa-regular fa-envelope form-control-feedback"></i>
                                 <input id="emailTextBox" runat="server" type="email" class="form-control my-2" placeholder="Email ID" required />
                             </div>
 
-                            <div class="col-sm-12 col-lg-6 col-xl-6 px-1 password-div">
+                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1 password-div">
                                 <i class="fa-solid fa-lock form-control-feedback"></i>
                                 <asp:UpdatePanel ID="uplSignUp" runat="server">
                                     <ContentTemplate>
@@ -120,7 +129,7 @@
 
                             </div>
 
-                            <div class="col-sm-12 col-lg-12 col-xl-12 px-1 password-div">
+                            <div class="col-12 col-md-12 col-lg-12 col-xl-12 px-1 password-div">
                                 <i class="fa-solid fa-lock form-control-feedback"></i>
                                 <asp:TextBox ID="cpwdTextBox" runat="server" type="password" class="form-control my-2" placeholder="Confirm Password" required />
                                 <i id="passwordView2" class="fa-solid fa-eye-slash hide-password-toggal"></i>

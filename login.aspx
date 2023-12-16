@@ -24,6 +24,7 @@
             text-align: center;
             position: absolute;
             bottom: 0;
+            left:0;
             width: 100%;
             padding: 10px
         }
@@ -120,7 +121,7 @@
             </div>
         </div>
 
-        <div class="row footer justify-content-around align-items-center m-0">
+        <div class="row footer justify-content-around align-items-center m-0 mr-0">
             <div class="col-4 t-c d-xl-flex justify-content-center text-center">
                 <p class="m-0"><a class="px-lg-3" href="tc.aspx">Terms & Conditions</a></p>
                 <p class="m-0"><a href="privacypolicy.aspx">Privacy & Policy</a></p>
