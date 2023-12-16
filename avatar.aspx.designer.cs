@@ -114,22 +114,22 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.TextBox txtReportName;
 
         /// <summary>
-        /// ddlMembers1 control.
+        /// chklist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ddlMembers1;
+        protected global::System.Web.UI.WebControls.CheckBoxList chklist;
 
         /// <summary>
-        /// ddlMembers control.
+        /// ddlMembers2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMembers;
+        protected global::System.Web.UI.WebControls.CheckBoxList ddlMembers2;
 
         /// <summary>
         /// btnSubmit control.
@@ -148,5 +148,14 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnClose;
+
+        /// <summary>
+        /// toast control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl toast;
     }
 }

@@ -47,10 +47,10 @@
                      <div class="col-12 col-md-5 d-flex justify-content-center">
                        <div class="w-75">
                             <div class="">
-                             <input type="text" id="name" runat="server" placeholder="First Name" />
+                             <input type="text" id="firstnameTextBox" runat="server" placeholder="First Name" />
                         </div>
                         <div class="">
-                             <input type="text" id="lastname" runat="server" placeholder="Last Name" />
+                             <input type="text" id="lastnameTextBox" runat="server" placeholder="Last Name" />
                         </div>
                         <div id="relation-input" class="">
                              <asp:HiddenField runat="server" ID="hfMemberType" />
@@ -75,13 +75,13 @@
                         </div>
                     </div>
                      <div class="">
-                        <input class="email-input" id="emailid" runat="server" type="email" placeholder="Email ID" />
+                        <input class="email-input" id="emailTextBox" runat="server" type="email" placeholder="Email ID" />
                     </div>
                          <div class="">
-                        <input id="phoneno" runat="server" type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
+                        <input id="phoneTextBox" runat="server" type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
                     </div>
                          <div class="">
-                             <input class="date-input" type="date" />
+                             <input class="date-input" type="date" id="dobTextBox1"  runat="server"/>
                         </div>
                    <%--  <div class="">
                              <input class="number-input" id="default-number" type="number" placeholder="default number." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />

@@ -66,9 +66,7 @@
                             <div class="card-body">
                                <a href="avatar.aspx">  <img src="../assets/uploaddoc.png" class="card-img-top" alt="pdf-thumbnail"></a>
                             </div>
-
                         </div>
-                       
                     </div>
                 </div>
                 <div class="doc-pdf py-5 h-100">
@@ -86,7 +84,7 @@
                                                 <p class="card-text"><strong>Date: </strong><%# Eval("CreatedDate") %> </p>
 
                                                 <a href="<%# ResolveUrl( string.Format("~/upload/report/{0}", Eval("ReportUrl"))) %>" target="_blank" class="btn btn-sm btn-primary">Download File</a>
-                                                <asp:LinkButton ID="lbtnShare" runat="server" OnClick="lbtnShare_Click">
+                                                <asp:LinkButton ID="lbtnShare" runat="server" OnClick="lbtnShare_Click" CommandArgument='<%# Eval("Id")%>'>
                                                     <img class="report-share-icon" src="../Add Members/share-active.png" />
                                                 </asp:LinkButton>
 

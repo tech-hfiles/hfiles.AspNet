@@ -15,22 +15,22 @@ namespace hfiles
     {
 
         /// <summary>
-        /// name control.
+        /// firstnameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText name;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText firstnameTextBox;
 
         /// <summary>
-        /// lastname control.
+        /// lastnameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText lastname;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lastnameTextBox;
 
         /// <summary>
         /// hfMemberType control.
@@ -51,22 +51,31 @@ namespace hfiles
         protected global::System.Web.UI.HtmlControls.HtmlSelect relation;
 
         /// <summary>
-        /// emailid control.
+        /// emailTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl emailid;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl emailTextBox;
 
         /// <summary>
-        /// phoneno control.
+        /// phoneTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl phoneno;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl phoneTextBox;
+
+        /// <summary>
+        /// dobTextBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dobTextBox1;
 
         /// <summary>
         /// btn_Submit control.

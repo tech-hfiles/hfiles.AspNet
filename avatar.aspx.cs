@@ -148,7 +148,18 @@ namespace hfiles
         }
         public int AddReport(int UserId, string reportname, string reporturl, int reportId)
         {
-            int memberId = Convert.ToInt32(Session["memberId"]);
+            //int memberId = Convert.ToInt32(Session["memberId"]);
+            List<int> selectedIds = new List<int>();
+
+            foreach (ListItem item in ddlMembers2.Items)
+            {
+                if (item.Selected)
+                {
+                    selectedIds.Add(Convert.ToInt32(item.Value));
+                }
+            }
+            string memberIdList = string.Join(",", selectedIds);
+            //int memberId = Convert.ToInt32(ddlMembers2.SelectedItem.Value);
             int result = 0;
             try
             {
@@ -162,7 +173,8 @@ namespace hfiles
                         cmd.Parameters.AddWithValue("_reportname", reportname);
                         cmd.Parameters.AddWithValue("_reporturl", reporturl);
                         cmd.Parameters.AddWithValue("_reportId", reportId);
-                        cmd.Parameters.AddWithValue("_memberId", memberId);
+                       // cmd.Parameters.AddWithValue("_memberId", memberId);
+                        cmd.Parameters.AddWithValue("_memberId", memberIdList);
                         cmd.Parameters.AddWithValue("_SpType", "C");
                         cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                         cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
@@ -264,12 +276,10 @@ namespace hfiles
                     {
                         return basePath + "pet/cat.png";
                     }
-
                 case "other":
                     {
                         return basePath + "others/others.png";
                     }
-
                 default:
                     return basePath + "default.png";
             }
@@ -281,8 +291,6 @@ namespace hfiles
             var memberid = linkButton.CommandArgument.ToString();
             linkButton.Style.Add("font-style", "italic");
             Session["memberId"] = memberid.ToString();
-
-
         }
 
         protected void getMembersList()
@@ -303,24 +311,27 @@ namespace hfiles
                         da.Fill(dt);
                         if (dt != null && dt.Rows.Count > 0)
                         {
-                            ddlMembers.DataSource = dt;
-                            ddlMembers.DataTextField = "FirstName";
-                            ddlMembers.DataValueField = "Id";
-                            ddlMembers.DataBind();
-                            ddlMembers.Items.Insert(0, new ListItem("Select Member", "0"));
+                            //ddlMembers.DataSource = dt;
+                            //ddlMembers.DataTextField = "user_FirstName";
+                            //ddlMembers.DataValueField = "user_Id";
+                            //ddlMembers.DataBind();
+                            //ddlMembers.Items.Insert(0, new ListItem("Select Member", "0"));
 
-                            ddlMembers1.DataSource = dt;
-                            ddlMembers1.DataTextField = "FirstName";
-                            ddlMembers1.DataValueField = "Id";
-                            ddlMembers1.DataBind();
-                            ddlMembers1.Items.Insert(0, new ListItem("Select Member", "0"));
+                            //ddlMembers1.DataSource = dt;
+                            //ddlMembers1.DataTextField = "user_FirstName";
+                            //ddlMembers1.DataValueField = "user_Id";
+                            //ddlMembers1.DataBind();
+                            //ddlMembers1.Items.Insert(0, new ListItem("Select Member", "0"));
 
-
-                            
+                            ddlMembers2.DataSource = dt;
+                            ddlMembers2.DataTextField = "user_FirstName";
+                            ddlMembers2.DataValueField = "user_Id";
+                            ddlMembers2.DataBind();
+                            ddlMembers2.Items.Insert(0, new ListItem("Select Member", "0"));
                         }
                         else
                         {
-                            ddlMembers.Items.Insert(0, new ListItem("No Members", "0"));
+                            ddlMembers2.Items.Insert(0, new ListItem("No Members", "0"));
                         }
                     }
                 }
@@ -344,7 +355,6 @@ namespace hfiles
                         cmd.Parameters.AddWithValue("_UserId", UserId);
                         cmd.Parameters.AddWithValue("_MemberId", 0);
                         cmd.ExecuteNonQuery();
-
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         da.Fill(dt);

@@ -395,15 +395,18 @@
                                     <p>(If none selected then the document will be private)</p>
                                 </div>
                                 <div class="col-7">
-
-                                    <asp:ListBox ID="ddlMembers1" CssClass="select-report-dropdown" runat="server" SelectionMode="Multiple"></asp:ListBox>
-                                    <asp:DropDownList CssClass="select-report-dropdown" runat="server" ID="ddlMembers">
+                                    <asp:CheckBoxList ID="chklist" runat="server"></asp:CheckBoxList>
+                                    <asp:CheckBoxList ID="ddlMembers2" CssClass="select-report-dropdown" runat="server" SelectionMode="Multiple"></asp:CheckBoxList>
+                                    <%--<asp:ListBox ID="ddlMembers1" CssClass="select-report-dropdown" runat="server" SelectionMode="Multiple"></asp:ListBox>--%>
+                                    
+                                 <%--   <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ForeColor="Red" InitialValue="0" runat="server" SetFocusOnError="true" ControlToValidate="ddlMembers2" ErrorMessage="Select Members" Display="Dynamic" ValidationGroup="a"></asp:RequiredFieldValidator>--%>
+                              <%--      <asp:DropDownList CssClass="select-report-dropdown" runat="server" ID="ddlMembers">
                                         <%--   <asp:ListItem Text="Member1"></asp:ListItem>
                                         <asp:ListItem Text="Member2"></asp:ListItem>
-                                        <asp:ListItem Text="Member3"></asp:ListItem>--%>
-                                    </asp:DropDownList>
-                                    <asp:RequiredFieldValidator runat="server" ErrorMessage="Please Select Member" ControlToValidate="ddlMembers" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                </div>
+                                        <asp:ListItem Text="Member3"></asp:ListItem>
+                                    </asp:DropDownList>--%>
+                                   <%-- <asp:RequiredFieldValidator runat="server" ErrorMessage="Please Select Member" ControlToValidate="ddlMembers2" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                --%></div>
                             </div>
                         </div>
                     </div>
@@ -416,7 +419,7 @@
                     <asp:Button ID="btnClose" runat="server" OnClick="okLinkButton_Click" Text="Close" CssClass="close-btn" />
                 </asp:Panel>
             </div>
-          <div id="toast"><div id="img">Icon</div><div id="desc">A notification message..</div></div>
+          <div id="toast" runat="server" style="display:none"><div id="img">Icon</div><div id="desc">A notification message..</div></div>
 
         </ContentTemplate>
         <Triggers>

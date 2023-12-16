@@ -125,6 +125,7 @@ namespace hfiles
                             {
                                 cmdInsert.CommandType = CommandType.StoredProcedure;
                                 // Add parameters to the command
+                                cmdInsert.Parameters.AddWithValue("_user_reference", 0);
                                 cmdInsert.Parameters.AddWithValue("_user_firstname", firstnameTextBox.Value);
                                 cmdInsert.Parameters.AddWithValue("_user_lastname", lastnameTextBox.Value);
                                 cmdInsert.Parameters.AddWithValue("_user_dob", dobTextBox1.Value);
@@ -132,6 +133,7 @@ namespace hfiles
                                 cmdInsert.Parameters.AddWithValue("_user_email", emailTextBox.Value);
                                 cmdInsert.Parameters.AddWithValue("_user_password", cpwdTextBox.Text);
                                 cmdInsert.Parameters.AddWithValue("_user_membernumber", member);
+                                cmdInsert.Parameters.AddWithValue("_user_isactive", false);
 
                                 cmdInsert.Parameters.Add("_Result", MySqlDbType.Int32);
                                 cmdInsert.Parameters["_Result"].Direction = ParameterDirection.Output;

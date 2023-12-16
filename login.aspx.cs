@@ -64,7 +64,6 @@ namespace hfiles
             emailTextBox.ToolTip = rm.GetString("emailfield", ci);
             emailTextBox.Text = rm.GetString("emailfield", ci);
             btnSubmit.Text = rm.GetString("login", ci);
-
         }
 
         public static string GenerateOTP(int length)

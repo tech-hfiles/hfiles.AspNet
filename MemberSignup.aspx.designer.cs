@@ -15,6 +15,15 @@ namespace hfiles
     {
 
         /// <summary>
+        /// hfId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfId;
+
+        /// <summary>
         /// scmSignUp control.
         /// </summary>
         /// <remarks>
@@ -24,76 +33,13 @@ namespace hfiles
         protected global::System.Web.UI.ScriptManager scmSignUp;
 
         /// <summary>
-        /// firstnameTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText firstnameTextBox;
-
-        /// <summary>
-        /// lastnameTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText lastnameTextBox;
-
-        /// <summary>
-        /// dobTextBox1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dobTextBox1;
-
-        /// <summary>
-        /// phoneTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl phoneTextBox;
-
-        /// <summary>
         /// emailTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl emailTextBox;
-
-        /// <summary>
-        /// uplSignUp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel uplSignUp;
-
-        /// <summary>
-        /// pwdTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox pwdTextBox;
-
-        /// <summary>
-        /// cpwdTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cpwdTextBox;
+        protected global::System.Web.UI.WebControls.TextBox emailTextBox;
 
         /// <summary>
         /// divOtp control.
@@ -103,24 +49,6 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divOtp;
-
-        /// <summary>
-        /// genOTPButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button genOTPButton;
-
-        /// <summary>
-        /// divSubmit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSubmit;
 
         /// <summary>
         /// otpTextBox control.
@@ -141,21 +69,21 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.Label errorLabel;
 
         /// <summary>
-        /// resendLinkButtonTest control.
+        /// resendLinkButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton resendLinkButtonTest;
+        protected global::System.Web.UI.WebControls.LinkButton resendLinkButton;
 
         /// <summary>
-        /// submitButton control.
+        /// otpButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button submitButton;
+        protected global::System.Web.UI.WebControls.Button otpButton;
     }
 }

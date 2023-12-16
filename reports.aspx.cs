@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Web;
@@ -32,7 +33,8 @@ namespace hfiles
                     {
                         //int UserId = DAL.validateInt(Session["Userid"].ToString());
                         int UserId = int.Parse(Session["Userid"].ToString());
-                        Reports(UserId, RId);
+                        //Reports(UserId, RId);
+                        UserReports(UserId, RId);
                     }
                 }
                 //Session[""];
@@ -106,7 +108,80 @@ namespace hfiles
                             divUpload_Doc.Visible = true;
                             rptReports.DataSource = null;
                             rptReports.DataBind();
-                            
+
+                        }
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+            }
+        } 
+        public void UserReports(int UserId, int ReportId)
+        {
+            int result = 0;
+            try
+            {
+                int memberId = Convert.ToInt32(Session["memberId"]);
+                if (memberId >=0)
+                {
+                    using (MySqlConnection con = new MySqlConnection(cs))
+                    {
+                        con.Open();
+                        using (MySqlCommand cmd = new MySqlCommand("usp_getreport", con))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(memberId));
+                            cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(ReportId));
+
+                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            if (dt != null && dt.Rows.Count > 0)
+                            {
+                                //tcount.InnerHtml = dt.Rows.Count.ToString();
+                                rptReports.DataSource = dt;
+                                rptReports.DataBind();
+                                divUpload_Doc.Visible = false;
+                            }
+                            else
+                            {
+                                divUpload_Doc.Visible = true;
+                                rptReports.DataSource = null;
+                                rptReports.DataBind();
+
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    using (MySqlConnection con = new MySqlConnection(cs))
+                    {
+                        con.Open();
+                        using (MySqlCommand cmd = new MySqlCommand("usp_getreport", con))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(UserId));
+                            cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(ReportId));
+
+                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            if (dt != null && dt.Rows.Count > 0)
+                            {
+                                //tcount.InnerHtml = dt.Rows.Count.ToString();
+                                rptReports.DataSource = dt;
+                                rptReports.DataBind();
+                                divUpload_Doc.Visible = false;
+                            }
+                            else
+                            {
+                                divUpload_Doc.Visible = true;
+                                rptReports.DataSource = null;
+                                rptReports.DataBind();
+
+                            }
                         }
                     }
                 }
@@ -115,9 +190,6 @@ namespace hfiles
             {
             }
         }
-
-
-
         protected void getReportMaster()
         {
             try
@@ -235,7 +307,7 @@ namespace hfiles
             //    int ReportId = Convert.ToInt32(RId);
             //    int Id = Convert.ToInt32(UId);
             //}
-            
+
             //int ReportId = DAL.validateInt(lbtnimg.CommandArgument.ToString());
             int Id = DAL.validateInt(lbtnimg.CommandArgument.ToString());
             int UserId = DAL.validateInt(Session["Userid"].ToString());//
@@ -270,12 +342,56 @@ namespace hfiles
 
         protected void lbtnShare_Click(object sender, EventArgs e)
         {
-            // Generate a 6-digit OTP
-            string subject = "# Verification code";
-            string body = $"<p style=\"text-align: justify\">Please use the verification code below to sign in. If you didn&rsquo;t request this, you can ignore this email.</p>\r\n<p><strong style=\"font-size: 130%\"></strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Thanks,&nbsp;</p><p style=\"text-align: justify\">Team Health Files.</p>";
-            //ViewState["OTPvalue"] = otp;
-            //Session["Userid"] = hfId.Value;
-            //DAL.SendCareerMail(subject, body, email);
+            LinkButton lnk = sender as LinkButton;
+            int reportId = Convert.ToInt16(lnk.CommandArgument);
+            //int reportId = Convert.ToInt32(Session["memberId"]);
+            //nt UserId = Convert.ToInt32(Session["Userid"].ToString());
+            //int reportId = Convert.ToInt32(Session["memberId"]);
+            using (MySqlConnection con = new MySqlConnection(cs))
+            {
+                con.Open();
+
+                using (MySqlCommand cmd = new MySqlCommand("usp_addreport", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(Session["Userid"].ToString()));
+                    cmd.Parameters.AddWithValue("_reportname", "");
+                    cmd.Parameters.AddWithValue("_reporturl", "");
+                    cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(reportId));
+                    cmd.Parameters.AddWithValue("_memberId", 0);
+                    cmd.Parameters.AddWithValue("_SpType", "R");
+                    cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
+                    cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        MySqlDataReader sdr = cmd.ExecuteReader();
+                        while (sdr.Read())
+                        {
+                            string message3 = sdr["ReportUrl"].ToString();
+                            string whatsappLink2 = "https://wa.me/?text=" + Uri.EscapeDataString(message3);
+                            Response.Redirect(whatsappLink2);
+
+                        }
+                        //string message1 = dt.ToString();
+                        
+                        //string whatsappLink1 = "https://wa.me/?text=" + Uri.EscapeDataString(message1);
+                        //Response.Redirect(whatsappLink1);
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Not Found')", true);
+
+                    }
+                }
+            }
+            string message = "Check out this cool content: " + Request.Url.AbsoluteUri;
+            
+            string whatsappLink = "https://wa.me/?text=" + Uri.EscapeDataString(message);
+            Response.Redirect(whatsappLink);
         }
     }
 }
