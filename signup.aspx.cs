@@ -133,7 +133,8 @@ namespace hfiles
                                 cmdInsert.Parameters.AddWithValue("_user_email", emailTextBox.Value);
                                 cmdInsert.Parameters.AddWithValue("_user_password", cpwdTextBox.Text);
                                 cmdInsert.Parameters.AddWithValue("_user_membernumber", member);
-                                cmdInsert.Parameters.AddWithValue("_user_isactive", false);
+                                cmdInsert.Parameters.AddWithValue("_user_isactive", true);
+                                cmdInsert.Parameters.AddWithValue("_user_uniquekey", 0);
 
                                 cmdInsert.Parameters.Add("_Result", MySqlDbType.Int32);
                                 cmdInsert.Parameters["_Result"].Direction = ParameterDirection.Output;

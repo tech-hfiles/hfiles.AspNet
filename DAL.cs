@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using MySql.Data.MySqlClient;
 using MimeKit;
+using System.IO;
 
 namespace hfiles
 {
@@ -37,18 +38,14 @@ namespace hfiles
             string mailPassword = ConfigurationManager.AppSettings["careermailPassword"].ToString();
             int mailPort = Convert.ToInt32(ConfigurationManager.AppSettings["mailPort"]);
             string mailServer = ConfigurationManager.AppSettings["mailServer"].ToString();
-
             var email = new MimeMessage();
-
             email.From.Add(new MailboxAddress("H-Files", fromMail));
             email.To.Add(new MailboxAddress("H-FIles-User", ToEmail));
-
             email.Subject = Subject;
             email.Body = new TextPart("html")
             {
                 Text = Message
             };
-
             using (var smtp = new MailKit.Net.Smtp.SmtpClient())
             {
                 smtp.Connect(mailServer, mailPort, true);
@@ -56,8 +53,31 @@ namespace hfiles
                 smtp.Send(email);
                 smtp.Disconnect(true);
             }
+        }
+        public void SendMailPDF(string Subject, string Message, string ToEmail, MemoryStream Attachment)
+        {
+            string fromMail = ConfigurationManager.AppSettings["careermailUserId"].ToString();
+            string mailPassword = ConfigurationManager.AppSettings["careermailPassword"].ToString();
+            int mailPort = Convert.ToInt32(ConfigurationManager.AppSettings["mailPort"]);
+            string mailServer = ConfigurationManager.AppSettings["mailServer"].ToString();
+            var email = new MimeMessage();
+            email.From.Add(new MailboxAddress("H-Files", fromMail));
+            email.To.Add(new MailboxAddress("H-FIles-User", ToEmail));
 
+            email.Subject = Subject;
+            var bodyBuilder = new BodyBuilder();
 
+            bodyBuilder.HtmlBody = Message;
+            bodyBuilder.Attachments.Add("Document", Attachment.ToArray(), ContentType.Parse("application/pdf"));
+            email.Body = bodyBuilder.ToMessageBody();
+
+            using (var smtp = new MailKit.Net.Smtp.SmtpClient())
+            {
+                smtp.Connect(mailServer, mailPort, false);
+                smtp.Authenticate(fromMail, mailPassword);
+                smtp.Send(email);
+                smtp.Disconnect(true);
+            }
         }
         public static DataTable validateDataTable(DataTable dt)
         {

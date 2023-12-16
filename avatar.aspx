@@ -157,7 +157,7 @@
                     
 
                                             <br />
-
+                                            <div id="repeaterdiv" runat="server">
                                             <li class="border-bottom w-100px text-center mb-2 mb-lg-3 mb-xxl-4">
                                                 <asp:Repeater ID="rptMember" runat="server">
                                                     <ItemTemplate>
@@ -176,7 +176,19 @@
                                                     </ItemTemplate>
                                                 </asp:Repeater>
                                             </li>
-                                            <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
+                                            </div>
+                                            <div id="listmembers" runat="server">
+                                                <%--<li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
+                                                    <a href="addmember.aspx">
+                                                        <img src="../Avatar/add-icon.png" alt=""
+                                                            width="30px" />
+                                                        <div>
+                                                            <small class="add-member-name">add member</small>
+                                                        </div>
+                                                    </a>
+                                                </li>--%>
+                                            </div>
+                                           <%-- <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
                                                 <a href="addmember.aspx">
                                                     <img src="../Avatar/add-icon.png" alt=""
                                                         width="30px" />
@@ -220,16 +232,7 @@
                                                         <small class="add-member-name">add member</small>
                                                     </div>
                                                 </a>
-                                            </li>
-                                            <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
-                                                <a href="addmember.aspx">
-                                                    <img src="../Avatar/add-icon.png" alt=""
-                                                        width="30px" />
-                                                    <div>
-                                                        <small class="add-member-name">add member</small>
-                                                    </div>
-                                                </a>
-                                            </li>
+                                            </li>--%>
                                         </ul>
                                     </div>
                                 </div>
@@ -388,7 +391,7 @@
                                 </div>
                                 <div class="col-7">
                                     <asp:CheckBoxList ID="chklist" runat="server"></asp:CheckBoxList>
-                                    <asp:CheckBoxList ID="ddlMembers2" CssClass="select-report-dropdown" runat="server" SelectionMode="Multiple"></asp:CheckBoxList>
+                                    <asp:CheckBoxList ID="ddlMembers2" CssClass="form-control" runat="server" SelectionMode="Multiple"></asp:CheckBoxList>
                                     <%--<asp:ListBox ID="ddlMembers1" CssClass="select-report-dropdown" runat="server" SelectionMode="Multiple"></asp:ListBox>--%>
 
                                     <%--   <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ForeColor="Red" InitialValue="0" runat="server" SetFocusOnError="true" ControlToValidate="ddlMembers2" ErrorMessage="Select Members" Display="Dynamic" ValidationGroup="a"></asp:RequiredFieldValidator>--%>

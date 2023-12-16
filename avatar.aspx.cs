@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using AjaxControlToolkit;
+using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services.Description;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace hfiles
@@ -18,11 +20,13 @@ namespace hfiles
     {
         #region Variable
         string cs = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
+        DataTable dt;
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
+            //showmembersdiv();
            // mp1.Show();
-            if(imageFileUpload1.HasFile)
+            if (imageFileUpload1.HasFile)
             {
 
             }
@@ -42,6 +46,9 @@ namespace hfiles
                     getMembers();
                     getReports();
                     getMembersList();
+                    showmembersdiv();
+                    
+
 
                     lblUserName.Text = Session["username"].ToString();
                     if (Session["gender_string"] != null && Session["age"] != null)
@@ -59,7 +66,44 @@ namespace hfiles
             {
                 Response.Redirect("~/login.aspx");
             }
+        }
 
+        public void showmembersdiv()
+        {
+            int remainingCount = 7 - rptMember.Items.Count;
+
+            if (remainingCount == 7)
+            {
+                repeaterdiv.Visible = false;
+                
+            }
+            // Generate additional list items
+            for (int i = 0; i < remainingCount; i++)
+            {
+                HtmlGenericControl li = new HtmlGenericControl("li");
+                li.Attributes["class"] = "border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4";
+
+                HtmlAnchor a = new HtmlAnchor();
+                a.HRef = "addmember.aspx";
+
+                HtmlImage img = new HtmlImage();
+                img.Src = "../Avatar/add-icon.png";
+                img.Alt = "";
+                img.Width = 30;
+
+                HtmlGenericControl div = new HtmlGenericControl("div");
+
+                HtmlGenericControl small = new HtmlGenericControl("small");
+                small.Attributes["class"] = "add-member-name";
+                small.InnerHtml = "add member";
+
+                div.Controls.Add(small);
+                a.Controls.Add(img);
+                a.Controls.Add(div);
+                li.Controls.Add(a);
+
+                listmembers.Controls.Add(li);
+            }
         }
 
         public static int GetAge(DateTime reference, DateTime birthday)
@@ -287,6 +331,7 @@ namespace hfiles
         }
         protected void member1_Click(object sender, EventArgs e)
         {
+            showmembersdiv();
             LinkButton linkButton = (LinkButton)(sender);
             var memberid = linkButton.CommandArgument.ToString();
             linkButton.Style.Add("font-style", "italic");

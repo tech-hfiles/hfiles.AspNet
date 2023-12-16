@@ -44,7 +44,7 @@ namespace hfiles
                 else
                 {
                     //commented below 1 line to exclude journal page from login 
-                    //GetBlogsById(1);
+                    GetBlogsById(1);
                     //Blogs(40);
                 }
 
@@ -229,7 +229,6 @@ namespace hfiles
 
         }
 
-
         protected void lbRemove_Command(object sender, CommandEventArgs e)
         {
             Response.Redirect("samanta.aspx");
@@ -293,7 +292,6 @@ namespace hfiles
             }
             
         }
-
         protected void btnBookmarked_Click(object sender, ImageClickEventArgs e)
         {
             hfIsBookmarked.Value = "1";
@@ -301,7 +299,6 @@ namespace hfiles
             btnNotBookmarked.Visible = true;
             GetBlogsById(1);
         }
-
         protected void btnNotBookmarked_Click(object sender, ImageClickEventArgs e)
         {
             hfIsBookmarked.Value = "0";

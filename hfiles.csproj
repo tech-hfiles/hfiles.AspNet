@@ -258,6 +258,7 @@
     <Content Include="assets\contact.png" />
     <Content Include="assets\features-hero-6.png" />
     <Content Include="assets\filter.svg" />
+    <Content Include="assets\gmail.png" />
     <Content Include="assets\h-file-logo-white.png" />
     <Content Include="assets\h-file-sicon.png" />
     <Content Include="assets\home-icon-white.png" />
@@ -279,6 +280,7 @@
     <Content Include="assets\uploadimg.jpg" />
     <Content Include="assets\user-delete-white.png" />
     <Content Include="assets\user-edit-white.png" />
+    <Content Include="assets\whatsapp.jpg" />
     <Content Include="avatar.aspx" />
     <Content Include="Avatar\01.png" />
     <Content Include="Avatar\02.png" />
