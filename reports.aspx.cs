@@ -123,7 +123,7 @@ namespace hfiles
             try
             {
                 int memberId = Convert.ToInt32(Session["memberId"]);
-                if (memberId >=0)
+                if (memberId >0)
                 {
                     using (MySqlConnection con = new MySqlConnection(cs))
                     {
@@ -185,6 +185,7 @@ namespace hfiles
                         }
                     }
                 }
+                Session["memberId"] = 0;
             }
             catch (Exception Ex)
             {

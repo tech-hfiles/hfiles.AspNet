@@ -154,10 +154,7 @@
                                             <li class="border-bottom w-100px text-center pb-2 pb-lg-2 pb-xxl-4">
                                                 <span class="plus-value">
                                                     <asp:Label Text="" ID="lblUserName" runat="server" Style="font-family: 'Red Hat Display', sans-serif" /></span></li>
-                                            
-    <asp:LinkButton Text="text" runat="server" ID="LinkButton2" OnClick="btnSubmit_Click">
-
-    </asp:LinkButton><br />
+                                            <br />
 
                                             <li class="border-bottom w-100px text-center mb-2 mb-lg-3 mb-xxl-4">
                                                 <asp:Repeater ID="rptMember" runat="server">
@@ -247,10 +244,6 @@
                                         <asp:LinkButton Text="text" runat="server" ID="LinkButton1" OnClick="lbtnAddReport_Click">
                                 <img class="plus-icon" src="<%= ResolveUrl("~/Avatar/add-report.png") %>" alt="" />
                                         </asp:LinkButton><br />
-
-                                         <asp:LinkButton Text="text" runat="server" ID="LinkButton3" OnClick="btnSubmit_Click">
-
- </asp:LinkButton><br />
                                         <br />
                                         <span style="color: #0236b4; font-weight: 600; padding-block-end: 100px">ADD REPORT</span>
                                         <div class="popover__content">
@@ -300,8 +293,9 @@
                                         <div class="d-flex align-items-center">
                                             <span>Opthalmology</span>
                                             <div class="menu-circle">
-                                                <%--<a href="reports.aspx?rid=8">--%>
-                                                <img src="../Avatar/Opthalmologyicon.png" alt="" />
+                                                <a href="reports.aspx?rid=8">
+                                                    <img src="../Avatar/Opthalmologyicon.png" alt="" />
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -392,15 +386,16 @@
                                     <asp:CheckBoxList ID="chklist" runat="server"></asp:CheckBoxList>
                                     <asp:CheckBoxList ID="ddlMembers2" CssClass="select-report-dropdown" runat="server" SelectionMode="Multiple"></asp:CheckBoxList>
                                     <%--<asp:ListBox ID="ddlMembers1" CssClass="select-report-dropdown" runat="server" SelectionMode="Multiple"></asp:ListBox>--%>
-                                    
-                                 <%--   <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ForeColor="Red" InitialValue="0" runat="server" SetFocusOnError="true" ControlToValidate="ddlMembers2" ErrorMessage="Select Members" Display="Dynamic" ValidationGroup="a"></asp:RequiredFieldValidator>--%>
-                              <%--      <asp:DropDownList CssClass="select-report-dropdown" runat="server" ID="ddlMembers">
+
+                                    <%--   <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ForeColor="Red" InitialValue="0" runat="server" SetFocusOnError="true" ControlToValidate="ddlMembers2" ErrorMessage="Select Members" Display="Dynamic" ValidationGroup="a"></asp:RequiredFieldValidator>--%>
+                                    <%--      <asp:DropDownList CssClass="select-report-dropdown" runat="server" ID="ddlMembers">
                                         <%--   <asp:ListItem Text="Member1"></asp:ListItem>
                                         <asp:ListItem Text="Member2"></asp:ListItem>
                                         <asp:ListItem Text="Member3"></asp:ListItem>
                                     </asp:DropDownList>--%>
-                                   <%-- <asp:RequiredFieldValidator runat="server" ErrorMessage="Please Select Member" ControlToValidate="ddlMembers2" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                --%></div>
+                                    <%-- <asp:RequiredFieldValidator runat="server" ErrorMessage="Please Select Member" ControlToValidate="ddlMembers2" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    --%>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -413,7 +408,10 @@
                     <asp:Button ID="btnClose" runat="server" OnClick="okLinkButton_Click" Text="Close" CssClass="close-btn" />
                 </asp:Panel>
             </div>
-          <div id="toast" runat="server" style="display:none"><div id="img">Icon</div><div id="desc">A notification message..</div></div>
+            <div id="toast" runat="server" style="display: none">
+                <div id="img">Icon</div>
+                <div id="desc">A notification message..</div>
+            </div>
 
         </ContentTemplate>
         <Triggers>
