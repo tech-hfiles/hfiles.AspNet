@@ -20,6 +20,8 @@ namespace hfiles
             {
                 // Retrieve the parameter value
                 string paramValue = Server.UrlDecode(Request.QueryString["id"]);
+                divOtp.Visible = false;
+                otpButton.Text = "GET OTP";
                 //GetUserMail(paramValue);
                 //GetUserId();
                 //emailTextBox.Value= Session["user_email"].ToString();

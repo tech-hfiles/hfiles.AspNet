@@ -126,18 +126,17 @@
                 height: 50%;
             }
         }
-      /*   * {
+        /*   * {
             border:1px solid #000;
         }*/
-      body {
-          overflow-x:hidden;
-      }
-    
+        body {
+            overflow-x: hidden;
+        }
     </style>
 
     <%--below script for sweetalert --%>
     <script type="text/javascript" src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -155,6 +154,10 @@
                                             <li class="border-bottom w-100px text-center pb-2 pb-lg-2 pb-xxl-4">
                                                 <span class="plus-value">
                                                     <asp:Label Text="" ID="lblUserName" runat="server" Style="font-family: 'Red Hat Display', sans-serif" /></span></li>
+                                            
+    <asp:LinkButton Text="text" runat="server" ID="LinkButton2" OnClick="btnSubmit_Click">
+
+    </asp:LinkButton><br />
 
                                             <li class="border-bottom w-100px text-center mb-2 mb-lg-3 mb-xxl-4">
                                                 <asp:Repeater ID="rptMember" runat="server">
@@ -174,7 +177,6 @@
                                                     </ItemTemplate>
                                                 </asp:Repeater>
                                             </li>
-
                                             <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
                                                 <a href="addmember.aspx">
                                                     <img src="../Avatar/add-icon.png" alt=""
@@ -182,9 +184,7 @@
                                                     <div>
                                                         <small class="add-member-name">add member</small>
                                                     </div>
-
                                                 </a>
-
                                             </li>
                                             <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
                                                 <a href="addmember.aspx">
@@ -193,9 +193,7 @@
                                                     <div>
                                                         <small class="add-member-name">add member</small>
                                                     </div>
-
                                                 </a>
-
                                             </li>
                                             <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
                                                 <a href="addmember.aspx">
@@ -204,9 +202,7 @@
                                                     <div>
                                                         <small class="add-member-name">add member</small>
                                                     </div>
-
                                                 </a>
-
                                             </li>
                                             <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
                                                 <a href="addmember.aspx">
@@ -215,9 +211,7 @@
                                                     <div>
                                                         <small class="add-member-name">add member</small>
                                                     </div>
-
                                                 </a>
-
                                             </li>
                                             <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
                                                 <a href="addmember.aspx">
@@ -226,9 +220,7 @@
                                                     <div>
                                                         <small class="add-member-name">add member</small>
                                                     </div>
-
                                                 </a>
-
                                             </li>
                                             <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
                                                 <a href="addmember.aspx">
@@ -237,9 +229,7 @@
                                                     <div>
                                                         <small class="add-member-name">add member</small>
                                                     </div>
-
                                                 </a>
-
                                             </li>
                                         </ul>
                                     </div>
@@ -257,6 +247,10 @@
                                         <asp:LinkButton Text="text" runat="server" ID="LinkButton1" OnClick="lbtnAddReport_Click">
                                 <img class="plus-icon" src="<%= ResolveUrl("~/Avatar/add-report.png") %>" alt="" />
                                         </asp:LinkButton><br />
+
+                                         <asp:LinkButton Text="text" runat="server" ID="LinkButton3" OnClick="btnSubmit_Click">
+
+ </asp:LinkButton><br />
                                         <br />
                                         <span style="color: #0236b4; font-weight: 600; padding-block-end: 100px">ADD REPORT</span>
                                         <div class="popover__content">
@@ -307,7 +301,7 @@
                                             <span>Opthalmology</span>
                                             <div class="menu-circle">
                                                 <%--<a href="reports.aspx?rid=8">--%>
-                                                    <img src="../Avatar/Opthalmologyicon.png" alt="" />
+                                                <img src="../Avatar/Opthalmologyicon.png" alt="" />
                                             </div>
                                         </div>
                                     </div>
@@ -373,7 +367,7 @@
                             <label><strong>Select File :</strong></label>
                         </div>
                         <div class="col-7">
-                          <%--  <asp:FileUpload ID="FileUpload1" runat="server" required/>--%>
+                            <%--  <asp:FileUpload ID="FileUpload1" runat="server" required/>--%>
                             <asp:FileUpload ID="imageFileUpload1" runat="server" required />
                         </div>
                     </div>
@@ -414,7 +408,7 @@
 
                     <br />
                     <br />
-                    <asp:Button Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click" runat="server" CssClass="submit-btn"  />
+                    <asp:Button Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click" runat="server" CssClass="submit-btn" />
                     <%--<asp:Label Text="" ID="lblMsg" runat="server" />--%>
                     <asp:Button ID="btnClose" runat="server" OnClick="okLinkButton_Click" Text="Close" CssClass="close-btn" />
                 </asp:Panel>
@@ -423,10 +417,9 @@
 
         </ContentTemplate>
         <Triggers>
-             <asp:PostBackTrigger ControlID="btnSubmit" />
-            <asp:AsyncPostBackTrigger ControlID="LinkButton1" />
-<%--            <asp:PostBackTrigger ControlID="imageFileUpload1" />--%>
-
+            <asp:PostBackTrigger ControlID="btnSubmit" />
+            <%--            <asp:AsyncPostBackTrigger ControlID="LinkButton1" />--%>
+            <%--            <asp:PostBackTrigger ControlID="imageFileUpload1" />--%>
         </Triggers>
     </asp:UpdatePanel>
 
@@ -443,13 +436,13 @@
                 closeOnConfirm: true,
                 closeOnCancel: true
             },
-            function (isConfirm) {
-                if (isConfirm) {
-                    return true;
-                } else {
-                    return false;
-                }
-            });
+                function (isConfirm) {
+                    if (isConfirm) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
         }
         function launch_toast() {
             var x = document.getElementById("toast")

@@ -21,6 +21,7 @@ namespace hfiles
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
+           // mp1.Show();
             if(imageFileUpload1.HasFile)
             {
 
@@ -284,7 +285,6 @@ namespace hfiles
                     return basePath + "default.png";
             }
         }
-
         protected void member1_Click(object sender, EventArgs e)
         {
             LinkButton linkButton = (LinkButton)(sender);
@@ -292,7 +292,6 @@ namespace hfiles
             linkButton.Style.Add("font-style", "italic");
             Session["memberId"] = memberid.ToString();
         }
-
         protected void getMembersList()
         {
             int UserId = DAL.validateInt(Session["Userid"].ToString());
@@ -374,6 +373,11 @@ namespace hfiles
             {
 
             }
+        }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

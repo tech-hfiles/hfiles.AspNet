@@ -13,7 +13,15 @@ namespace hfiles
         {
             if (Session["Userid"] is null)
             {
-                Response.Redirect("~/login.aspx");
+                if (Session["JournalPath"]!=null)
+                {
+
+                }
+                else
+                {
+                    Response.Redirect("~/login.aspx");
+                }
+                //Response.Redirect("~/login.aspx");
             }
             else
             {

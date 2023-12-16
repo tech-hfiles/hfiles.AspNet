@@ -190,6 +190,8 @@
                         <%--<asp:ImageButton ID="btnBookmark" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../Add Members/save-active-icon.png" Width="20px" alt="" OnCommand="btnsave_Command" CommandArgument='<%#Eval("Blog_ID") %>' />
                         --%>
                         <asp:ImageButton ID="btnsave" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl='<%#ResolveUrl(Eval("ImgUrl", "~/{0}")) %>' Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" CommandArgument='<%#Eval("Blog_ID")+"|"+ Eval("CategoryId")%>' />
+                        <asp:ImageButton ID="btnShareWhatsApp" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../Add Members/share-active.png" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareWhatsApp_Command"/>
+                        <asp:ImageButton ID="btnShareEmail" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../Add Members/share-active.png" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareEmail_Command"/>
                           <img class="mx-2" src="../Add Members/share-active.png" width="20px" alt="">
                         <%--<asp:ImageButton ID="btnremove" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../Add Members/bookmark.png" Width="20px" alt="" OnClick="btnremove_Click1" CommandName="ToggleBookmark" OnCommand="btnremove_Command1" CommandArgument='<%#Eval("Blog_ID") %>' />--%>
                         <%--<img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">--%>

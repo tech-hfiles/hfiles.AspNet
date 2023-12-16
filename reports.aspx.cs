@@ -326,8 +326,10 @@ namespace hfiles
 
                     if (retVal == 1)
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report deleted successfully')", true);
-                        Reports(UserId, RId);
+                        //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report deleted successfully')", true);
+                        //Reports(UserId, RId);
+                        string script = "<script type=\"text/javascript\"> launch_toast('Done'); </script>";
+                        ClientScript.RegisterStartupScript(this.GetType(), "reportalert", script);
                         //lbtn_GetClickedCategoryData(DAL.validateInt(Session["CatId"]));
                         //Session["CatId"] = null;
                     }

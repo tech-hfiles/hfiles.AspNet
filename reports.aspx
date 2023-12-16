@@ -107,7 +107,7 @@
                 </asp:UpdatePanel>--%>
                 <!-- row -->
             </div>
-            <div id="toast"><div id="img">Icon</div><div id="desc">A notification message..</div></div>
+            <div id="toast"><div id="img">Icon</div><div id="desc">Report Deleted !</div></div>
         </ContentTemplate>
     </asp:UpdatePanel>
     <%--  </div>--%>
