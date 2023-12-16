@@ -87,7 +87,7 @@
                                                 <a href="<%# ResolveUrl( string.Format("~/upload/report/{0}", Eval("ReportUrl"))) %>" target="_blank" class="btn btn-sm btn-primary">Download File</a>
                                                 <asp:LinkButton ID="lbtnShare" runat="server" OnClick="lbtnShare_Click" CommandArgument='<%# Eval("Id")%>'></asp:LinkButton>
                                                 <asp:LinkButton ID="lbtnShareMail" runat="server" OnClick="lbtnShareMail_Click" CommandArgument='<%# Eval("Id")%>'>
-                                                    <img class="report-share-icon" src="../Add Members/share-active.png" />
+                                                    <img class="report-share-icon" src="../assets/gmail.png" />
                                                 </asp:LinkButton>
 
                                             </div>

@@ -19,6 +19,8 @@ using static System.Net.WebRequestMethods;
 using MimeKit;
 using System.Web.Mail;
 using System.Web.Services.Description;
+using MimeKit.Text;
+using MimeKit.Utils;
 
 namespace hfiles
 {
@@ -26,6 +28,7 @@ namespace hfiles
     {
         #region Variable
         string cs = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
+        string reporturl;
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -80,7 +83,6 @@ namespace hfiles
             {
             }
         }
-
 
         public void Reports(int UserId, int reportId)
         {
@@ -152,6 +154,12 @@ namespace hfiles
                                 rptReports.DataSource = dt;
                                 rptReports.DataBind();
                                 divUpload_Doc.Visible = false;
+                                MySqlDataReader sdr = cmd.ExecuteReader();
+                                while (sdr.Read())
+                                {
+                                    reporturl = sdr["ReportUrl"].ToString();
+                                    Session["reporturl"]= reporturl;
+                                }
                             }
                             else
                             {
@@ -183,6 +191,12 @@ namespace hfiles
                                 rptReports.DataSource = dt;
                                 rptReports.DataBind();
                                 divUpload_Doc.Visible = false;
+                                MySqlDataReader sdr = cmd.ExecuteReader();
+                                while (sdr.Read())
+                                {
+                                    reporturl = sdr["ReportUrl"].ToString();
+                                    Session["reporturl"] = reporturl;
+                                }
                             }
                             else
                             {
@@ -406,7 +420,7 @@ namespace hfiles
             Response.Redirect(whatsappLink);
         }
 
-        
+
         protected void SendEmailWithAttachment()
         {
             // Replace these values with your SMTP server details
@@ -457,15 +471,58 @@ namespace hfiles
 
         protected void lbtnShareMail_Click(object sender, EventArgs e)
         {
+            reporturl = Session["reporturl"].ToString();
+            System.Net.Mail.MailMessage mailMessage = new System.Net.Mail.MailMessage();
             string url = Request.Url.AbsoluteUri;
             string email = "chetan@digitaledgetech.in";
-            string subject = "# Verification code";
-            string body = $"<p style=\"text-align: justify\">Please click on the below lick to view reports.</p>\r\n<p><strong style=\"font-size: 130%\">{url}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Thanks,&nbsp;</p><p style=\"text-align: justify\">Team Health Files.</p>";
-            string pdfFilePath = Server.MapPath("~/path-to-your-pdf/your-file.pdf");
-            Attachment attachment = new Attachment(pdfFilePath, MediaTypeNames.Application.Pdf);
+            string subject = "HFiles - Report";
+            string body = $"<p style=\"text-align: justify\">Thank You For Using HFiles.</p>\r\n\r\n<p style=\"text-align: justify\">Thanks,&nbsp;</p><p style=\"text-align: justify\">Team Health Files.</p>";
+            //string pdfFilePath = Server.MapPath("~/");
+            //Attachment attachment = new Attachment(pdfFilePath, MediaTypeNames.Application.Pdf);
+            //mailMessage.Attachments.Add(attachment);
+            string attachmentFilePath = Server.MapPath("~/upload/report/" + Session["reporturl"].ToString());
+            //string attachmentFilePath = "http://68.178.164.174//upload/report/ "+ reporturl;
+
+            SendMail(subject, body, email, attachmentFilePath);
             DAL.SendCareerMail(subject, body, email);
-            DAL.SendMailPDF(subject, body, email, pdfFilePath);
+
+            //DAL.SendMailPDF(subject, body, email, attachment);
             //SendEmailWithAttachment();
+        }
+        public static void SendMail(string Subject, string messageBody, string ToEmail, string attachmentFilePath)
+        {
+            string fromMail = ConfigurationManager.AppSettings["careermailUserId"].ToString();
+            string mailPassword = ConfigurationManager.AppSettings["careermailPassword"].ToString();
+            int mailPort = Convert.ToInt32(ConfigurationManager.AppSettings["mailPort"]);
+            string mailServer = ConfigurationManager.AppSettings["mailServer"].ToString();
+            var email = new MimeMessage();
+            email.From.Add(new MailboxAddress("H-Files", fromMail));
+            email.To.Add(new MailboxAddress("H-FIles-User", ToEmail));
+            email.Subject = Subject;
+            var body = new TextPart("html")
+            {
+                Text = messageBody
+            };
+            var multipart = new Multipart("mixed");
+            multipart.Add(body);
+
+            var attachment = new MimeKit.MimePart("application", "pdf")
+            {
+                Content = new MimeContent(System.IO.File.OpenRead(attachmentFilePath), ContentEncoding.Default),
+                ContentDisposition = new MimeKit.ContentDisposition(MimeKit.ContentDisposition.Attachment),
+                ContentTransferEncoding = ContentEncoding.Base64,
+                //FileName = Path.GetFileName(attachmentFilePath)
+                FileName = attachmentFilePath
+            };
+            multipart.Add(attachment);
+            email.Body = multipart;
+            using (var smtp = new MailKit.Net.Smtp.SmtpClient())
+            {
+                smtp.Connect(mailServer, mailPort, true);
+                smtp.Authenticate(fromMail, mailPassword);
+                smtp.Send(email);
+                smtp.Disconnect(true);
+            }
         }
     }
 }
