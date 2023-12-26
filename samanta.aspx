@@ -40,7 +40,7 @@
                     </div>
                 </div>--%>
                 <div class="row w-100 mt-5">
-                    <div class="col-lg-4 col-12 col-xl-4 col-md-4  dropdown ">
+                    <div class="col-lg-6 col-12 col-xl-4 col-md-5  dropdown ">
                         <%--<div class="inner_div mb-lg-5 w-100">
                                 <div class="heading w-100">
                                     <a class="w-100" href="<%= ResolveUrl("~/journal.aspx") %>">
@@ -51,20 +51,32 @@
 
                         <a class="support-group my-5" href="additionalinformation.aspx">
                             <div class="my_profile">
-                                <div>
-                                    <h3>My Medical History</h3>
+                                <div class="row align-items-center">
+                                   <div class="col-3 tab-icon-div">
+                                       <img src="../Reception Page/health-report-icon.png" />
+                                   </div>
+                                    <div class="col-9">
+                                         <h3>My Medical History</h3>
+                                    </div>
                                 </div>
                             </div>
                         </a>
                         
                                 <a class="support-group mb-lg-5 w-100" href="avatar.aspx">
                         <div class="my_profile">
-                            <div>
+                            <div class="row align-items-center">
+                                
+                                   <div class="col-3 tab-icon-div">
+                                       <img src="../Reception Page/h-files-icon.png" />
+                                   </div>
+                                    <div class="col-9">
+                                         <h3>My H-Files</h3>
+                                    </div>
+                                    
                                 <%--<a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
                                     aria-expanded="false">My H-Files
                                 <span class="caret"></span>
                                 </a>--%>
-                                    <h3>My H-Files</h3>
                                 <%--<ul class="dropdown-menu p-0 pt-2 px-4">
                                     <div>
                                          <li><img class="dropdown-icon" src="../Reception Page/lock-icon.png" alt=""><a
@@ -95,24 +107,43 @@
                         
 
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 col-md-2 col-lg-1 col-xl-4">
                     </div>
-                    <div class="col-lg-4 col-xl-4 col-md-4 col-12 dropdown ">
+                    <div class="col-lg-5 col-xl-4 col-md-5 col-12 dropdown ">
 
-                         <div class="inner_div mb-lg-5 w-100">
+                         <%--<div class="inner_div mb-lg-5 w-100">
                             <div class="heading w-100">
                                 <a class="w-100" href="<%= ResolveUrl("~/journal.aspx") %>">
                                     <h3>Journal</h3>
                                 </a>
                             </div>
-                        </div>
+                        </div>--%>
+                        <a class="support-group mb-5 w-100" href="<%= ResolveUrl("~/journal.aspx") %>">
+                            <div class="my_profile">
+                                <div class="row align-items-center">
+                                    <div class="col-3 tab-icon-div">
+                                       <img src="../Reception Page/journal.png"/>
+                                   </div>
+                                    <div class="col-9">
+                                          <h3>Journal</h3>
+                                    </div>
+                                </div>
+                                   
+                                </div>
+                        </a>
 
                         <a class="support-group mb-5 w-100" href="supportgroup.aspx">
                             <div class="my_profile">
-                                <div>
-                                    <h3>Chat Room</h3>
+                                <div class="row align-items-center">
+                                    <div class="col-3 tab-icon-div">
+                                       <img src="../Reception Page/chat-icon.png" />
+                                   </div>
+                                    <div class="col-9">
+                                         <h3>Chat Room</h3>
+                                    </div>
                                 </div>
-                            </div>
+                                   
+                                </div>
                         </a>
 
                        

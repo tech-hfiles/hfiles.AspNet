@@ -485,8 +485,7 @@ namespace hfiles
 
             SendMail(subject, body, email, attachmentFilePath);
             DAL.SendCareerMail(subject, body, email);
-
-            //DAL.SendMailPDF(subject, body, email, attachment);
+            //DAL.SendMailPDF(subject, body, email, pdfFilePath);
             //SendEmailWithAttachment();
         }
         public static void SendMail(string Subject, string messageBody, string ToEmail, string attachmentFilePath)

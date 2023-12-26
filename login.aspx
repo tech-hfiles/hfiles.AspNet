@@ -19,7 +19,7 @@
     <title>H Files | Sign In</title>
     <style>
         .footer {
-            background: #192184;
+            background: #0331b5;
             color: #ffffff;
             text-align: center;
             position: absolute;
@@ -49,9 +49,9 @@
     <form class="row h-100 align-ceter h-sm-100vh" runat="server">
         <div id="google_translate_element" class="language"></div>
         <asp:HiddenField runat="server" ID="hfId" />
-        <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-block" style="text-align: center;">
+        <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-block p-0">
 
-            <img src="../assets/features-hero-6.png" alt="" style="width: 80%; margin: 145px 0 0 0;">
+            <img src="../assets/login-samanta.png" alt="" style="width: 100%;">
         </div>
         <div class="col-sm-12 col-lg-6 inner-main p-0">
             <div class="d-flex align-items-center justify-content-center h-100 inner-body">

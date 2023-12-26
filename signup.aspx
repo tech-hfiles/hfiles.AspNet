@@ -30,7 +30,7 @@
         @media (min-width: 992px) {
            
             .footer {
-                background: #192184;
+                background: #0331b5;
                 color: #ffffff;
                 text-align: center;
                 position: absolute;
@@ -43,7 +43,7 @@
         @media (max-width: 992px) {
            
             .footer {
-                background: #192184;
+                background: #0331b5;
                 color: #ffffff;
                 text-align: center;
                 position: relative;
@@ -93,31 +93,31 @@
                             <h3 class="color-white">SIGN UP</h3>
                         </div>
                         <div class="row signin-form form-group has-search text-center ">
-                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1">
+                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1 input-div">
                                 <i class="fa-solid fa-user form-control-feedback"></i>
                                 <!-- <span class="fa fa-user form-control-feedback"></span> -->
                                 <input id="firstnameTextBox" runat="server" required type="text" class="form-control my-2" placeholder="Name" />
                             </div>
-                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1">
+                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1 input-div">
                                 <i class="fa-solid fa-user form-control-feedback"></i>
                                 <input id="lastnameTextBox" runat="server" type="text" class="form-control my-2" placeholder="Last Name" required />
                             </div>
 
-                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1">
+                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1 input-div">
                                 <i class="fa-solid fa-cake-candles form-control-feedback"></i>
-                                <input runat="server" id="dobTextBox1" type="date" class="form-control" placeholder="Date Of Birth" required />
+                                <input runat="server" id="dobTextBox1" type="date" class="form-control my-2" placeholder="Date Of Birth" required />
                             </div>
 
-                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1">
+                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1 input-div">
                                 <i class="fa-solid fa-phone-volume form-control-feedback"></i>
                                 <input type="number" id="phoneTextBox" runat="server" class="form-control my-2" placeholder="Phone No" required />
                             </div>
-                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1">
+                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1 input-div">
                                 <i class="fa-regular fa-envelope form-control-feedback"></i>
                                 <input id="emailTextBox" runat="server" type="email" class="form-control my-2" placeholder="Email ID" required />
                             </div>
 
-                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1 password-div">
+                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1 password-div input-div">
                                 <i class="fa-solid fa-lock form-control-feedback"></i>
                                 <asp:UpdatePanel ID="uplSignUp" runat="server">
                                     <ContentTemplate>
@@ -128,7 +128,7 @@
 
                             </div>
 
-                            <div class="col-12 col-md-12 col-lg-12 col-xl-12 px-1 password-div">
+                            <div class="col-12 col-md-12 col-lg-12 col-xl-12 px-1 password-div input-div">
                                 <i class="fa-solid fa-lock form-control-feedback"></i>
                                 <asp:TextBox ID="cpwdTextBox" runat="server" type="password" class="form-control my-2" placeholder="Confirm Password" required />
                                 <i id="passwordView2" class="fa-solid fa-eye-slash hide-password-toggal"></i>
@@ -229,7 +229,9 @@
             }
 
         })
-
+        $('#dobTextBox1').on('change', function () {
+            document.getElementById('dobTextBox1').style.color = '#0331b5'
+        })
         function JSalert() {
             swal("An OTP is sent to your email, enter the OTP to proceed.");
         }

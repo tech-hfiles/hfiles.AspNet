@@ -218,9 +218,9 @@ input:-webkit-autofill {
     top: 0 !important;
     right: 0 !important;
     width: 100%;
-    border-bottom: 1px solid #192184;
+    border-bottom: 1px solid #0331b5;
     padding: 10px 0;
-    background: #192184;
+    background: #0331b5;
 }
 .top-home-icons img {
     width: 22px;
@@ -236,7 +236,7 @@ input:-webkit-autofill {
     height: 40px !important;
 }
 .footer {
-    background: #192184;
+    background: #0331b5;
     padding:10px !important;
 }
 .footer a{
@@ -383,7 +383,7 @@ input:-webkit-autofill {
 }
 .SingleCheckbox input[type=checkbox]:checked + label::before {
     content: "\2714";
-    color: #0614aa;
+    color: #0331b5;
     height: 1em;
     line-height: 1.1em;
     width: 1em;
@@ -446,7 +446,7 @@ input:-webkit-autofill {
 
 .SingleCheckbox input[type=radio]:checked + label::before {
     content: "\2714";
-    color: #0614aa;
+    color: #0331b5;
     height: 1em;
     line-height: 1.1em;
     width: 1em;
@@ -615,7 +615,12 @@ span {
     justify-content: end;
     align-items: center;
 }
-
+.signin-main .input-div {
+    position:relative;
+}
+    .signin-main .input-div .form-control-feedback {
+        top:8px;
+    }
 .signin-heading h1 {
     color: #0512b9;
     font-weight: 700;
@@ -884,7 +889,7 @@ select {
     border: 1px solid #000;
 }
 .surgeries-table tbody th {
-    background-color: #192184;
+    background-color: #0331b5;
     color: #ffffff;
 }
 
@@ -1077,7 +1082,7 @@ span.img-notselected {
 .filter-shorting-icon {
     position: absolute;
     right: 140px;
-    top: 175px;
+    top: 100px;
 }
 
     .filter-shorting-icon img {
@@ -1553,7 +1558,7 @@ span.img-notselected {
     right:5px;
 }
 .download-doc-inner .report-delete-btn img {
-   height:30px !important;
+   height:22px !important;
    width:auto !important;
 }
 
@@ -1907,7 +1912,7 @@ span.img-notselected {
 }
 @media only screen and (min-width: 600px) {
     .profile .user span {
-        font-size: 26px
+        font-size: 22px
     }
 }
     @media only screen and (max-width: 912px) {
@@ -2211,8 +2216,8 @@ span.img-notselected {
     }
 
     .filter-shorting-icon {
-        top: 160px;
-        right: 20px;
+        top: 100px;
+        right: 10px;
     }
 
     .support-group .left-nav-bar {
@@ -2249,6 +2254,9 @@ span.img-notselected {
 
     .user-info-main .blue-trangle-bottom-right {
         left: 10% !important;
+    }
+    .signin-main .hide-password-toggal {
+        top:24px;
     }
    
 }

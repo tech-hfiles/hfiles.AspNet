@@ -38,7 +38,7 @@
 
 
             .footer {
-                background: #192184;
+                background: #0331b5;
                 color: #ffffff;
                 text-align: center;
                 position: absolute;
@@ -51,9 +51,9 @@
 </head>
 <body>
     <div class="signin-main">
+            <div id="google_translate_element" class="language"></div>
         <form class="w-100 h-100" runat="server">
             <asp:HiddenField runat="server" ID="hfId" />
-            <div id="google_translate_element" class="language"></div>
             <asp:ScriptManager ID="scmSignUp" runat="server"></asp:ScriptManager>
 
             <div class="row vert-cent w-100 h-sm-100vh m-0">
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="col-lg-6 col-xl-6 col-md-6 col-12 px-5 d-flex justify-content-center align-items-center vh-lg-100"
-                    style="background-image: url('<%= ResolveUrl("~/Reception Page/002B.png") %>')">
+                    style="background-image: url('<%= ResolveUrl("~/assets/bg-blue.png") %>')">
                     <div>
                         <div class="text-center signin-heading">
                             <img src="<%= ResolveUrl("~/Sign Up Page/Hfiles Logo.png") %>" alt="" width="120px" />
@@ -73,14 +73,14 @@
                             <h3 class="color-white">SIGN UP</h3>
                         </div>
                           <div class="row signin-form form-group has-search text-center ">
-                        <div class="col-12 px-1">
+                        <div class="col-12 px-1 input-div">
                             <i class="fa-solid fa-user form-control-feedback"></i>
                             <asp:TextBox ID="emailTextBox" CssClass="form-control my-2" TextMode="SingleLine" placeholder="Email Id / Contact No." runat="server"></asp:TextBox>
                             <%-- <asp:TextBox runat="server"  id="emailTextBox" class="w-100 login-input" type="Text" placeholder="Username" />--%>
                         </div>
 
                   
-                              <div class="col-12 px-1 password-div">
+                              <div class="col-12 px-1 password-div input-div">
                         <div runat="server" id="divOtp">
                             <i class="fa-solid fa-lock form-control-feedback"></i>
                             <input runat="server"  id="otpTextBox" autocomplete="off" class="form-control my-2" type="Text" placeholder="Enter OTP" />

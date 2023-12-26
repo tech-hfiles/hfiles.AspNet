@@ -28,12 +28,12 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #0614aa;
+    background: #0331b5;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #0614aa;
+    background: #0331b5;
 }
 
 /* privacy policy and term&condition */
@@ -57,12 +57,12 @@ button {
 
 .privacy_main .inner_div .heading {
     text-align: center;
-    color: #0614aa;
+    color: #0331b5;
     font-weight: 700;
 }
 .privacy_main .inner_div .agree {
     margin: 10px 0px;
-    color: #0614aa;
+    color: #0331b5;
     font-weight: 800;
     font-family: 'Playfair Display Black' !important;
 }
@@ -186,7 +186,7 @@ button {
 .contact .contact-main .heading {
     font-size: 40px;
     text-align: center;
-    color: #0614aa;
+    color: #0331b5;
     font-weight: 800 !important;
 }
 
@@ -196,13 +196,13 @@ button {
     font-family: 'Playfair Display Black' !important;
 }
 .contact .contact-main .q_heading h2{
-    color: #0614aa;
+    color: #0331b5;
     font-weight: 600 !important;
     font-family: 'Playfair Display Black' !important;
 }
 
 .contact .contact-main ol {
-    color: #0614aa;
+    color: #0331b5;
     font-weight: 700;
     padding: 0;
 }
@@ -215,7 +215,7 @@ button {
 
 .contact .inner_div .agree {
     margin: 10px 0px;
-    color: #0614aa;
+    color: #0331b5;
     font-weight: 700;
 }
 
@@ -308,7 +308,7 @@ button {
 }
 
 .contact .contact-form p {
-    color: #0614aa;
+    color: #0331b5;
     font-weight: 600;
     font-size: 15px;
     font-family: 'Playfair Display Black' !important;
@@ -342,7 +342,7 @@ button {
     /* width: 200px; */
     padding: 10px 20px;
     border-radius: 50px;
-    background-image: linear-gradient(to right, #0614aa 0%, #081466 100%);
+    background-image: linear-gradient(to right, #0331b5 0%, #081466 100%);
     border: none;
     outline: none;
     color: #ffffff;
@@ -368,7 +368,7 @@ button {
 }
 
 .contact .contact-form .checked {
-    color: #0614aa !important;
+    color: #0331b5 !important;
 }
 
 .contact .contact-form .radio-btn input[type='radio'] {
@@ -398,7 +398,7 @@ button {
     top: -2px;
     left: -1px;
     position: relative;
-    background-color: #0614aa;
+    background-color: #0331b5;
     content: '';
     display: inline-block;
     visibility: visible;
@@ -445,7 +445,7 @@ select {
     border: none;
     outline: none;
     background: transparent;
-    color: #0614aa;
+    color: #0331b5;
     font-size: 16px;
 }
 
@@ -454,7 +454,7 @@ select:hover {
 }
 
 .journal select option {
-    background-color: #0614aa;
+    background-color: #0331b5;
     width: 400px;
     color: #ffffff;
 
@@ -470,7 +470,7 @@ select:hover {
 }
 
 .journal .bottom_TC a {
-    color: #0614aa;
+    color: #0331b5;
     border: 0;
     outline: none !important;
     text-decoration: none;
@@ -482,7 +482,7 @@ select:hover {
     position: absolute;
     bottom: 0;
     left: 40%;
-    color: #0614aa;
+    color: #0331b5;
     font-weight: 600;
     font-size: 12px;
 }
@@ -504,13 +504,13 @@ select:hover {
 }
 
 .progress_div .progress1::-webkit-progress-value {
-    background: linear-gradient(to right, #0614aa 0%, #081466 100%);
+    background: linear-gradient(to right, #0331b5 0%, #081466 100%);
     border-radius: 50px;
 }
 
 .progress_div p {
     margin: 0;
-    color: #0614aa;
+    color: #0331b5;
 }
 
 .progress_div .span {
@@ -572,11 +572,11 @@ select:hover {
     position: absolute;
     top: 10px;
     right: 10px;
-    color: #0614aa;
+    color: #0331b5;
     font-weight: bolder;
 }
 .HF_top_text a {
-    color: #0614aa;
+    color: #0331b5;
 }
 .journal .journal_main {
     display: flex;
@@ -615,10 +615,10 @@ select:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #0614aa;
+    color: #0331b5;
 }
 .journal .journal_main .inner_div .heading h3{
-    color: #0614aa !important;
+    color: #0331b5 !important;
 }
     .journal .journal_main .inner_div .heading h3 {
         background-color: #ffd101;
@@ -634,19 +634,19 @@ select:hover {
 
 .my_profile .dropdown-toggle {
     text-decoration: none;
-    color: #0614aa;
+    color: #0331b5;
     font-weight: 600;
     font-size: 26px;
 }
 .my_profile .support-group {
     text-decoration: none;
-    color: #0614aa;
+    color: #0331b5;
     font-weight: 600;
     font-size: 26px;
 }
 
 ul.dropdown-menu.show {
-    background: linear-gradient(to bottom, #0614aa 0%, #081466 100%);
+    background: linear-gradient(to bottom, #0331b5 0%, #081466 100%);
     ;
     transform: translate3d(14.6px, 57px, 21px) !important;
     /*z-index: -1;*/

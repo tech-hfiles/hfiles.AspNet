@@ -82,7 +82,7 @@
              x.className = "show";
              setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
          }
-         launch_toast()
+        // launch_toast()
 
      </script>
 </asp:Content>

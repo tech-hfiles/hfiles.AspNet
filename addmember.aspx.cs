@@ -82,7 +82,7 @@ namespace hfiles
                         string email = emailTextBox.Value.ToString();
                         //string subject = "# Verification code";
                         string subject = "Welcome to HFiles - Start Managing Your Medical Data";
-                        string body = $"<p style=\"text-align: justify;\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify;\">Please verify your Email Id to complete signup process.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Use below link to verify your Email Id.&nbsp;<br> https://localhost:44335/membersignup.aspx/?id={uniqueid}</p> <p style=\"text-align: justify;\">Use below password for sigining up {membershippasword}.&nbsp;</p>";
+                        string body = $"<p style=\"text-align: justify;\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify;\">Please verify your Email Id to complete signup process.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Use below link to verify your Email Id.&nbsp;<br> http://68.178.164.174//membersignup.aspx/?id={uniqueid}</p> <p style=\"text-align: justify;\">Use below password for sigining up {membershippasword}.&nbsp;</p>";
                         DAL.SendCareerMail(subject, body, email);
                         Response.Write("<script>alert('Memeber added successfully.')</script>");
                         Response.Redirect("avatar.aspx");

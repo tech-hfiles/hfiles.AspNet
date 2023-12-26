@@ -55,7 +55,7 @@
             padding: 20px;
             width: 35%;
             /*height: 48%;*/
-            height: 58%;
+            height: auto;
             position: fixed;
             z-index: 100001;
             left: 20%;
@@ -65,24 +65,26 @@
             border-radius: 10px;
         }
 
-        .select-report-dropdown {
+        .select-report-dropdown, .filename-txtbox {
             width: 100%;
-            padding: 5px;
             border-radius: 10px;
-            border: 1px solid #0512B9;
+            border: none;
+            padding:15px;
+            outline:0;
+            box-shadow:none;
         }
 
         .modalPopup .lbl {
             text-align: left !important;
         }
 
-        .filename-txtbox {
-            width: 100%;
-            padding: 5px;
-            border-radius: 10px;
-            border: 1px solid #0512B9;
-        }
-
+           /* .filename-txtbox {
+                width: 100%;
+                padding: 5px;
+                border-radius: 10px;
+                border: 1px solid #0512B9;
+            }
+    */
         .submit-btn {
             padding: 15px 20px;
             background: linear-gradient(to right, #0512B9 0%, #081466 100%);
@@ -132,6 +134,51 @@
         body {
             overflow-x: hidden;
         }
+        
+.file-input {
+  display: inline-block;
+  text-align: left;
+  background: #fff;
+  padding: 16px;
+  width: 100%;
+  position: relative;
+  border-radius: 3px;
+}
+
+.file-input > [type='file'] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.file-input > .button {
+  display: inline-block;
+  cursor: pointer;
+  background: #eee;
+  padding: 8px 16px;
+  border-radius: 2px;
+  margin-right: 8px;
+}
+
+.file-input:hover > .button {
+  background: dodgerblue;
+  color: white;
+}
+
+.file-input > .label {
+  color: #333;
+  white-space: nowrap;
+  opacity: .3;
+}
+
+.file-input.-chosen > .label {
+  opacity: 1;
+}
     </style>
 
     <%--below script for sweetalert --%>
@@ -154,28 +201,28 @@
                                             <li class="border-bottom w-100px text-center pb-2 pb-lg-2 pb-xxl-4">
                                                 <span class="plus-value">
                                                     <asp:Label Text="" ID="lblUserName" runat="server" Style="font-family: 'Red Hat Display', sans-serif" /></span></li>
-                    
+
 
                                             <br />
                                             <div id="repeaterdiv" runat="server">
-                                            <li class="border-bottom w-100px text-center mb-2 mb-lg-3 mb-xxl-4">
-                                                <asp:Repeater ID="rptMember" runat="server">
-                                                    <ItemTemplate>
-                                                        <a href="addmember.aspx">
+                                                <li class="border-bottom w-100px text-center mb-2 mb-lg-3 mb-xxl-4">
+                                                    <asp:Repeater ID="rptMember" runat="server">
+                                                        <ItemTemplate>
+                                                            <a href="addmember.aspx">
 
 
-                                                            <img src="../Avatar/add-icon.png" alt=""
-                                                                width="30px" />
-                                                            <div>
-                                                                <small class="add-member-name">
-                                                                    <asp:LinkButton ID="member1" runat="server" Text='<%#Eval("user_FirstName") %>' OnClick="member1_Click" CommandArgument='<%#Eval("user_Id") %>'></asp:LinkButton>
-                                                                    <asp:HiddenField ID="hfmemberid" runat="server" Value='<%#Eval("user_Id") %>' />
-                                                                </small>
-                                                            </div>
-                                                        </a>
-                                                    </ItemTemplate>
-                                                </asp:Repeater>
-                                            </li>
+                                                                <img src="../Avatar/add-icon.png" alt=""
+                                                                    width="30px" />
+                                                                <div>
+                                                                    <small class="add-member-name">
+                                                                        <asp:LinkButton ID="member1" runat="server" Text='<%#Eval("user_FirstName") %>' OnClick="member1_Click" CommandArgument='<%#Eval("user_Id") %>'></asp:LinkButton>
+                                                                        <asp:HiddenField ID="hfmemberid" runat="server" Value='<%#Eval("user_Id") %>' />
+                                                                    </small>
+                                                                </div>
+                                                            </a>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
+                                                </li>
                                             </div>
                                             <div id="listmembers" runat="server">
                                                 <%--<li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
@@ -188,7 +235,7 @@
                                                     </a>
                                                 </li>--%>
                                             </div>
-                                           <%-- <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
+                                            <%-- <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
                                                 <a href="addmember.aspx">
                                                     <img src="../Avatar/add-icon.png" alt=""
                                                         width="30px" />
@@ -249,13 +296,11 @@
                                         <asp:LinkButton Text="text" runat="server" ID="LinkButton1" OnClick="lbtnAddReport_Click">
                                 <img class="plus-icon" src="<%= ResolveUrl("~/Avatar/add-report.png") %>" alt="" />
                                         </asp:LinkButton><br />
-
-                                       
-                                        <br />
-                                        <span style="color: #0236b4; font-weight: 600; padding-block-end: 100px">ADD REPORT</span>
-                                        <div class="popover__content">
+                                       <%-- <br />
+                                        <span style="color: #0236b4; font-weight: 600; padding-block-end: 100px">ADD REPORT</span>--%>
+                                        <%-- <div class="popover__content">
                                             <p class="popover__message">Upload Report</p>
-                                        </div>
+                                        </div>--%>
                                     </div>
                                     <img class="circle-line" src="../Avatar/circle-line.png" alt="" />
                                     <div class="lab-report w-60 h-75px menu-circle-txt-color">
@@ -348,13 +393,13 @@
                             <h2>Upload Report</h2>
                         </div>
                     </div>
-                    <div class="row w-100 my-3" style="width: 100%">
+                    <div class="row w-100 my-1" style="width: 100%">
                         <div class="col-12">
                             <div class="row">
-                                <div class="col-5 lbl">
+                               <%-- <div class="col-5 lbl">
+                                </div>--%>
+                                <div class="col-12 text-start">
                                     <label><strong>Select Report Type :</strong></label>
-                                </div>
-                                <div class="col-7">
                                     <asp:DropDownList CssClass="select-report-dropdown" runat="server" ID="ddlReports">
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator runat="server" ErrorMessage="Please Select Report Type" ControlToValidate="ddlReports" SetFocusOnError="True"></asp:RequiredFieldValidator>
@@ -362,36 +407,42 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="row my-3" style="width: 100%">
-                        <div class="col-5 lbl">
-                            <label><strong>Select File :</strong></label>
-                        </div>
-                        <div class="col-7">
-                            <%--  <asp:FileUpload ID="FileUpload1" runat="server" required/>--%>
-                            <asp:FileUpload ID="imageFileUpload1" runat="server" required />
-                        </div>
-                    </div>
-
-                    <div class="row my-3" style="width: 100%">
-                        <div class="col-5 lbl">
+                    <div class="row my-1" style="width: 100%">
+                       <%-- <div class="col-5 lbl">
+                        </div>--%>
+                        <div class="col-12 text-start">
                             <label><strong>File Name : </strong></label>
-                        </div>
-                        <div class="col-7">
                             <asp:TextBox runat="server" ID="txtReportName" CssClass="filename-txtbox" required />
                         </div>
                     </div>
 
+                    <div class="row my-2" style="width: 100%">
+                       <%-- <div class="col-5 lbl">
+                        </div>--%>
+                        <div class="col-12 text-start">
+                            <%--  <asp:FileUpload ID="FileUpload1" runat="server" required/>--%>
+                            
+                            <label><strong>Select File :</strong></label>
+                            <div class='file-input'>
+                                <asp:FileUpload ID="imageFileUpload1" CssClass="l" runat="server" required />
+                              <span class='button'>Choose</span>
+                              <span class='label' data-js-label>No file selected</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
                     <div class="row w-100 my-3" style="width: 100%">
                         <div class="col-12">
                             <div class="row">
-                                <div class="col-5 lbl">
+                               <%-- <div class="col-5 lbl">
+                                </div>--%>
+                                <div class="col-12 text-start">
                                     <label><strong>Give View Access To :</strong></label><br />
-                                    <p>(If none selected then the document will be private)</p>
-                                </div>
-                                <div class="col-7">
                                     <asp:CheckBoxList ID="chklist" runat="server"></asp:CheckBoxList>
-                                    <asp:CheckBoxList ID="ddlMembers2" CssClass="form-control" runat="server" SelectionMode="Multiple"></asp:CheckBoxList>
+                                    <asp:CheckBoxList ID="ddlMembers2" CssClass="form-control border-0" runat="server" SelectionMode="Multiple"></asp:CheckBoxList>
+                                    <p>(If none selected then the document will be private)</p>
                                     <%--<asp:ListBox ID="ddlMembers1" CssClass="select-report-dropdown" runat="server" SelectionMode="Multiple"></asp:ListBox>--%>
 
                                     <%--   <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ForeColor="Red" InitialValue="0" runat="server" SetFocusOnError="true" ControlToValidate="ddlMembers2" ErrorMessage="Select Members" Display="Dynamic" ValidationGroup="a"></asp:RequiredFieldValidator>--%>
@@ -455,6 +506,27 @@
             setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
         }
         //launch_toast()
+        // Also see: https://www.quirksmode.org/dom/inputfile.html
+
+        //var inputs = document.querySelectorAll('.file-input')
+
+        //for (var i = 0, len = inputs.length; i < len; i++) {
+        //    customInput(inputs[i])
+        //}
+
+        //function customInput(el) {
+        //    const fileInput = el.querySelector('[type="file"]')
+        //    const label = el.querySelector('[data-js-label]')
+
+        //    fileInput.onchange =
+        //        fileInput.onmouseout = function () {
+        //            if (!fileInput.value) return
+
+        //            var value = fileInput.value.replace(/^.*[\\\/]/, '')
+        //            el.className += ' -chosen'
+        //            label.innerText = value
+        //        }
+        //}
     </script>
 
 </asp:Content>

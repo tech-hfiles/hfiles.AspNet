@@ -20,7 +20,7 @@
     <title>H Files | Sign In</title>
     <style>
         .footer {
-            background: #192184;
+            background: #0331b5;
             color: #ffffff;
             text-align: center;
             position: absolute;

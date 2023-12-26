@@ -339,12 +339,13 @@
             //    tabDiv.css( "background", "linear-gradient(to top, #ffb4bb 0%, #ffffff 100%)" )
             //})
 
-            $(document).on("click", ".tabs-btn", function () {
+            $(document).on("click", ".mental-health-link", function () {
                 var colorCode = $(this).data('color')
                 console.log($(this).data('color'))
                 console.log($(this).attr('data-color'))
                 //$(".mental-health-div").css("background", `linear-gradient(to top, ${colorCode} 0%, #ffffff 100%)`)
-                $(".mental-health-div").css({ "background": "linear-gradient(to top, #ddb9f1 0%, #ffffff 100%)" })
+                //$(".mental-health-div").css({ "background": "linear-gradient(to top, rgb(184, 185, 241) 0%, rgb(255, 255, 255) 100%)" })
+                document.getElementsByClassName('mental-health-div').style.background = 'linear-gradient(to top, rgb(184, 185, 241) 0%, rgb(255, 255, 255) 100%)'
             })
         })
 

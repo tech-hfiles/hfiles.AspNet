@@ -104,107 +104,114 @@
       </div>--%>
         </div>
         <div class="journal-main-div mt-4 mb-5">
-            <div class="heading-title d-flex align-items-center">
-                <h1>Journal</h1>
-                <div class="hr w-100">
-                    <hr class="hr1" />
-                    <hr class="hr2" />
-                </div>
-            </div>
+           
             <div class="tab-div container px-5 d-flex justify-content-center my-3">
-                <div class="tabs d-flex justify-content-between">
+                <div class="tab-div container px-5 d-flex justify-content-center mt-5">
+                    <div class="tabs d-flex justify-content-between">
 
-                    <%--<asp:LinkButton ID="lbtn1" runat="server" OnClick="lbtn1_Click" ></asp:LinkButton>--%>
+                        <%--<asp:LinkButton ID="lbtn1" runat="server" OnClick="lbtn1_Click" ></asp:LinkButton>--%>
 
-                    <asp:LinkButton ID="LbtnArticle" runat="server" CssClass="journal-tabs" OnClientClick="handleTabs('article')" OnClick="LbtnArticle_Click" CommandArgument="1">Article</asp:LinkButton>
-                    <%--<a class="link" href="#" onclick="handleTabs('article')"><span id="ArticleTab">Article</span></a>--%>
-                    <span>| </span>
-                    <asp:LinkButton ID="LbtnVideo" runat="server" CssClass="journal-tabs" OnClientClick="handleTabs('video')" OnClick="LbtnVideo_Click" CommandArgument="2">Video</asp:LinkButton>
-                    <%-- <a class="link active" href="#" onclick="handleTabs('video')"><span id="VideoTab">Video</span></a>--%>
-                    <span>| </span>
-                    <asp:LinkButton ID="LbtnAudio" runat="server" CssClass="journal-tabs" OnClientClick="handleTabs('audio')" OnClick="LbtnAudio_Click" CommandArgument="3">Audio</asp:LinkButton>
-                    <%-- <a class="link " href="#" onclick="handleTabs('audio')"><span id="AudioTab">Audio</span></a>--%>
+                        <asp:LinkButton ID="LbtnArticle" runat="server" CssClass="journal-tabs" OnClientClick="handleTabs('article')" OnClick="LbtnArticle_Click" CommandArgument="1">Article</asp:LinkButton>
+                        <%--<a class="link" href="#" onclick="handleTabs('article')"><span id="ArticleTab">Article</span></a>--%>
+                        <span>| </span>
+                        <asp:LinkButton ID="LbtnVideo" runat="server" CssClass="journal-tabs" OnClientClick="handleTabs('video')" OnClick="LbtnVideo_Click" CommandArgument="2">Video</asp:LinkButton>
+                        <%-- <a class="link active" href="#" onclick="handleTabs('video')"><span id="VideoTab">Video</span></a>--%>
+                        <span>| </span>
+                        <asp:LinkButton ID="LbtnAudio" runat="server" CssClass="journal-tabs" OnClientClick="handleTabs('audio')" OnClick="LbtnAudio_Click" CommandArgument="3">Audio</asp:LinkButton>
+                        <%-- <a class="link " href="#" onclick="handleTabs('audio')"><span id="AudioTab">Audio</span></a>--%>
+                    </div>
                 </div>
+
             </div>
-            <asp:Label ID="Label1" runat="server" Text="Article Data Not Available" Visible="false" />
-            <asp:Button ID="Button1" runat="server" Text="Button" Visible="false" />
-            <asp:UpdatePanel ID="upl1" runat="server">
-                <ContentTemplate>
+            <div class="journal-main-div mb-5">
+                <div class="heading-title d-flex align-items-center">
+                    <h1>Journal</h1>
+                    <div class="hr w-100">
+                        <hr class="hr1" />
+                        <hr class="hr2" />
+                    </div>
+                </div>
 
-                    <div id="videoDiv" class="container blog-div my-5">
-                        <div class="row w-100 m-0">
-                            <asp:Repeater ID="RepeaterVideo" runat="server">
-                                <ItemTemplate>
+                <asp:Label ID="Label1" runat="server" Text="Article Data Not Available" Visible="false" />
+                <asp:Button ID="Button1" runat="server" Text="Button" Visible="false" />
+                <asp:UpdatePanel ID="upl1" runat="server">
+                    <ContentTemplate>
 
-                                    <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
-                                        <div class="blog-cards">
-                                            <div class="card-image">
-                                                <video width="100%" height="250" controls poster="<%#Eval("AnchorImage") %>">
-                                                    <source src='<%#Eval("Url") %>' type="video/mp4">
-                                                    </object>
-                                                </video>
-                                            </div>
-                                            <div class="card-name d-flex align-items-center my-2 px-3">
-                                                <asp:ImageButton ID="btnsave" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl='<%#ResolveUrl(Eval("ImgUrl", "~/{0}")) %>' Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" CommandArgument='<%#Eval("Blog_ID")+"|"+ Eval("CategoryId") %>' />
-                                                <asp:ImageButton ID="btnShareWhatsApp" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/whatsapp.jpg" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareWhatsApp_Command" />
-                                                <asp:ImageButton ID="btnShareEmail" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/gmail.png" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareEmail_Command" />&nbsp;
+
+                        <div id="videoDiv" class="container blog-div my-5">
+                            <div class="row w-100 m-0 border-0">
+                                <asp:Repeater ID="RepeaterVideo" runat="server">
+                                    <ItemTemplate>
+
+                                        <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
+                                            <div class="blog-cards">
+                                                <div class="card-image">
+                                                    <video width="100%" height="250" controls poster="<%#Eval("AnchorImage") %>">
+                                                        <source src='<%#Eval("Url") %>' type="video/mp4">
+                                                        </object>
+                                                    </video>
+                                                </div>
+                                                <div class="card-name d-flex align-items-center my-2 px-3">
+                                                    <asp:ImageButton ID="btnsave" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl='<%#ResolveUrl(Eval("ImgUrl", "~/{0}")) %>' Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" CommandArgument='<%#Eval("Blog_ID")+"|"+ Eval("CategoryId") %>' />
+                                                    <asp:ImageButton ID="btnShareWhatsApp" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/whatsapp.jpg" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareWhatsApp_Command" />
+                                                    <asp:ImageButton ID="btnShareEmail" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/gmail.png" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareEmail_Command" />&nbsp;
                                                <%-- <img class="mx-2" src="../Add Members/share-active.png" width="20px" alt="">--%>
-                                                <%--<img class="mx-1 d-none" src="../Add Members/save-not-active.png" width="20px" alt="">
+                                                    <%--<img class="mx-1 d-none" src="../Add Members/save-not-active.png" width="20px" alt="">
                         <img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">
                         <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
                         <img class="mx-2 d-none" src="../Add Members/share-active.png" width="20px" alt="">--%>
-                                                <p class="m-0"><strong>Shobhika Jaju</strong></p>
+                                                    <p class="m-0"><strong>Shobhika Jaju</strong></p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </ItemTemplate>
-                            </asp:Repeater>
+                                    </ItemTemplate>
+                                </asp:Repeater>
 
+                            </div>
                         </div>
-                    </div>
 
-                    <div id="articleDiv" class="article-div container blog-div my-5">
+                        <div id="articleDiv" class="article-div container blog-div my-5">
 
-                        <div class="row w-100 m-0">
-                            <asp:Repeater ID="RepeaterArticle" runat="server">
-                                <ItemTemplate>
-                                    <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
-                                        <div class="blog-cards ">
-                                            <div class="card-image">
+                            <div class="row w-100 m-0">
+                                <asp:Repeater ID="RepeaterArticle" runat="server">
+                                    <ItemTemplate>
+                                        <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
+                                            <div class="blog-cards ">
+                                                <div class="card-image">
 
-                                                <%--  <a href="blogid=<%#Eval("Blog_ID") %>"
+                                                    <%--  <a href="blogid=<%#Eval("Blog_ID") %>"
                           target="_blank">
                           <img src="<%#Eval("AnchorImage") %>" alt="" width="100%"
                             height="250px"></a>--%>
 
-                                                <asp:LinkButton ID="lbtnblog"
-                                                    OnClick="lbtnblog_Click" runat="server" CommandArgument='<%#Eval("Blog_ID") %>'>
+                                                    <asp:LinkButton ID="lbtnblog"
+                                                        OnClick="lbtnblog_Click" runat="server" CommandArgument='<%#Eval("Blog_ID") %>'>
    <img src="<%#Eval("AnchorImage") %>" alt="" width="100%"
      height="250px"></asp:LinkButton>
-                                            </div>
-                                            <div class="card-name d-flex align-items-center my-2 px-3">
+                                                </div>
+                                                <div class="card-name d-flex align-items-center my-2 px-3">
 
-                                                <%-- <asp:LinkButton OnCommand="lbRemove_Command" ViewStateMode="Enabled" CommandArgument='<%# Eval("Blog_ID")%>'
+                                                    <%-- <asp:LinkButton OnCommand="lbRemove_Command" ViewStateMode="Enabled" CommandArgument='<%# Eval("Blog_ID")%>'
                             CommandName="Remove"  runat="server"  >
                         <asp:Image ImageUrl="../Add Members/save-active-icon.png" runat="server" />
                     </asp:LinkButton>--%>
-                                                <%-- <asp:ImageButton ID="ImageButton1" OnClick="btnBookmark_Click" runat="server" />--%>
-                                                <%--<asp:ImageButton ID="btnBookmark" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../Add Members/save-active-icon.png" Width="20px" alt="" OnCommand="btnsave_Command" CommandArgument='<%#Eval("Blog_ID") %>' />
-                                                --%>
-                                                <asp:ImageButton ID="btnsave" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl='<%#ResolveUrl(Eval("ImgUrl", "~/{0}")) %>' Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" CommandArgument='<%#Eval("Blog_ID")+"|"+ Eval("CategoryId")%>' />
-                                                <asp:ImageButton ID="btnShareWhatsApp" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/whatsapp.jpg" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareWhatsApp_Command" />
-                                                <asp:ImageButton ID="btnShareEmail" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/gmail.png" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareEmail_Command" />&nbsp;
+                                                    <%-- <asp:ImageButton ID="ImageButton1" OnClick="btnBookmark_Click" runat="server" />--%>
+                                                    <%--<asp:ImageButton ID="btnBookmark" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../Add Members/save-active-icon.png" Width="20px" alt="" OnCommand="btnsave_Command" CommandArgument='<%#Eval("Blog_ID") %>' />
+                                                    --%>
+                                                    <asp:ImageButton ID="btnsave" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl='<%#ResolveUrl(Eval("ImgUrl", "~/{0}")) %>' Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" CommandArgument='<%#Eval("Blog_ID")+"|"+ Eval("CategoryId")%>' />
+                                                    <asp:ImageButton ID="btnShareWhatsApp" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/whatsapp.jpg" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareWhatsApp_Command" />
+                                                    <asp:ImageButton ID="btnShareEmail" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/gmail.png" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareEmail_Command" />&nbsp;
                           <%--<img class="mx-2" src="../Add Members/share-active.png" width="20px" alt="">--%>
-                                                <%--<asp:ImageButton ID="btnremove" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../Add Members/bookmark.png" Width="20px" alt="" OnClick="btnremove_Click1" CommandName="ToggleBookmark" OnCommand="btnremove_Command1" CommandArgument='<%#Eval("Blog_ID") %>' />--%>
-                                                <%--<img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">--%>
-                                                <%-- <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">--%>
-                                                <p class="m-0"><strong><%#Eval("Title") %></strong></p>
+                                                    <%--<asp:ImageButton ID="btnremove" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../Add Members/bookmark.png" Width="20px" alt="" OnClick="btnremove_Click1" CommandName="ToggleBookmark" OnCommand="btnremove_Command1" CommandArgument='<%#Eval("Blog_ID") %>' />--%>
+                                                    <%--<img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">--%>
+                                                    <%-- <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">--%>
+                                                    <p class="m-0"><strong><%#Eval("Title") %></strong></p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </ItemTemplate>
-                            </asp:Repeater>
-                            <!-- <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                                <!-- <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
                     <div class="blog-cards ">
                         <div class="card-image">
                             <a href="../journal-page-images/hfiles article 2- Dr. Shubhangini Sharma.pdf"
@@ -232,58 +239,58 @@
                         </div>
                     </div>
                 </div> -->
+                            </div>
                         </div>
-                    </div>
 
-                    <div id="audioDiv" class="audio-div container blog-div my-5">
-                        <div class="row w-100 m-0">
-                            <asp:Repeater ID="RepeaterAudio" runat="server">
-                                <ItemTemplate>
-                                    <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
-                                        <div class="blog-cards ">
-                                            <div class="card-image">
-                                                <a href="#" target="_blank">
-                                                    <img src="<%#Eval("AnchorImage") %>"
-                                                        alt="" width="100%"></a>
-                                                <audio controls>
-                                                    <source
-                                                        src='<%#ResolveUrl(Eval("Url","~/{0}")) %>'
-                                                        type="audio/wav">
-                                                    Your browser does not support the audio element.
-                                                </audio>
-                                            </div>
-                                            <div class="card-name d-flex align-items-center my-2 px-3">
-                                                <asp:ImageButton ID="btnsave" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl='<%#ResolveUrl(Eval("ImgUrl", "~/{0}")) %>' Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" CommandArgument='<%#Eval("Blog_ID") +"|"+ Eval("CategoryId") %>' />
-                                                <asp:ImageButton ID="btnShareWhatsApp" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/whatsapp.jpg" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareWhatsApp_Command" />
-                                                <asp:ImageButton ID="btnShareEmail" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/gmail.png" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareEmail_Command" />&nbsp;
+                        <div id="audioDiv" class="audio-div container blog-div my-5">
+                            <div class="row w-100 m-0">
+                                <asp:Repeater ID="RepeaterAudio" runat="server">
+                                    <ItemTemplate>
+                                        <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
+                                            <div class="blog-cards ">
+                                                <div class="card-image">
+                                                    <a href="#" target="_blank">
+                                                        <img src="<%#Eval("AnchorImage") %>"
+                                                            alt="" width="100%"></a>
+                                                    <audio controls>
+                                                        <source
+                                                            src='<%#ResolveUrl(Eval("Url","~/{0}")) %>'
+                                                            type="audio/wav">
+                                                        Your browser does not support the audio element.
+                                                    </audio>
+                                                </div>
+                                                <div class="card-name d-flex align-items-center my-2 px-3">
+                                                    <asp:ImageButton ID="btnsave" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl='<%#ResolveUrl(Eval("ImgUrl", "~/{0}")) %>' Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" CommandArgument='<%#Eval("Blog_ID") +"|"+ Eval("CategoryId") %>' />
+                                                    <asp:ImageButton ID="btnShareWhatsApp" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/whatsapp.jpg" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareWhatsApp_Command" />
+                                                    <asp:ImageButton ID="btnShareEmail" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/gmail.png" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareEmail_Command" />&nbsp;
                          <%-- <img class="mx-2" src="../Add Members/share-active.png" width="20px" alt="">--%>
-                                                <%--<img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">
+                                                    <%--<img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">
                         <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">--%>
-                                                <p class="m-0"><strong><%#Eval("Title") %></strong></p>
+                                                    <p class="m-0"><strong><%#Eval("Title") %></strong></p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </ItemTemplate>
-                            </asp:Repeater>
+                                    </ItemTemplate>
+                                </asp:Repeater>
 
+                            </div>
                         </div>
-                    </div>
-                    <div id="toast">
-                        <div id="img">Icon</div>
-                        <div id="desc">A notification message..</div>
-                    </div>
-                </ContentTemplate>
-                <Triggers>
-                    <asp:AsyncPostBackTrigger EventName="Click" ControlID="LbtnArticle" />
-                    <asp:AsyncPostBackTrigger EventName="Click" ControlID="LbtnVideo" />
-                    <asp:AsyncPostBackTrigger EventName="Click" ControlID="LbtnAudio" />
-                </Triggers>
-            </asp:UpdatePanel>
+                        <div id="toast">
+                            <div id="img">Icon</div>
+                            <div id="desc">A notification message..</div>
+                        </div>
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger EventName="Click" ControlID="LbtnArticle" />
+                        <asp:AsyncPostBackTrigger EventName="Click" ControlID="LbtnVideo" />
+                        <asp:AsyncPostBackTrigger EventName="Click" ControlID="LbtnAudio" />
+                    </Triggers>
+                </asp:UpdatePanel>
+            </div>
         </div>
-    </div>
 
 
-    <script>
+        <script>
         const article = document.getElementById('ContentPlaceHolder1_LbtnArticle')
         const audio = document.getElementById('ContentPlaceHolder1_LbtnAudio')
         const video = document.getElementById('ContentPlaceHolder1_LbtnVideo')
@@ -318,13 +325,13 @@
         }
       //launch_toast()
 
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
-        integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
+            integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <!-- <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
-        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+            integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </asp:Content>

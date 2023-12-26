@@ -42,7 +42,7 @@
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
             <asp:ScriptManager runat="server" />
-            <div class="container-fluid download-doc-inner my-5" style="min-height: 84vh;">
+            <div class="container-fluid download-doc-inner my-5" style="min-height: 80vh;">
                 <div class="heading-title mb-3 py-1 px-5">
                     <div class="row">
                         <div class="col-md-6 py-3">
@@ -65,7 +65,7 @@
                     <div class="container">
                          <div id="divUpload_Doc" style="display:block" runat="server">
                   <div class="row justify-content-center">
-                        <div class="col-md-6 my-6">
+                        <div class="col-md-5">
                         <a href="avatar.aspx">  <img src="../Avatar/file-not-found.jpg" class="card-img-top" alt="pdf-thumbnail" width="90%"></a>
                             <h2 class="text-center">No File Found</h2>
                     </div>
@@ -77,11 +77,11 @@
                                 <ItemTemplate>
                                     <div class="col-md-3 my-2">
 
-                                        <div class="card text-center">
+                                        <div class="card text-start px-3">
 
                                             <img src="../assets/pdf-doc.png" class="card-img-top" alt="pdf-thumbnail">
                                             <div class="card-body">
-                                                <h5 class="card-title"><%# Eval("ReportName") %></h5>
+                                                <h5 class="card-title"><strong>Name: </strong><%# Eval("ReportName") %></h5>
                                                 <p class="card-text"><strong>Date: </strong><%# Eval("CreatedDate") %> </p>
 
                                                 <a href="<%# ResolveUrl( string.Format("~/upload/report/{0}", Eval("ReportUrl"))) %>" target="_blank" class="btn btn-sm btn-primary">Download File</a>
@@ -132,6 +132,6 @@
             x.className = "show";
             setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
         }
-        launch_toast()
+        //launch_toast()
     </script>
 </asp:Content>

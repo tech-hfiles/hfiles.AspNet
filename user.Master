@@ -126,7 +126,7 @@
 
             .profile-menu ul {
                 position: relative;
-                right:50px;
+                /*right:50px;*/
                 display: flex;
                 flex-direction: column;
                 z-index: 10;
@@ -241,7 +241,7 @@
             </div>
 
             <div class="col-4 copy-right text-center p-0">
-                <span>Copyright@2023</span>
+                <span><%--Copyright@2023--%> <a class="text-white" href="#">FAQ's</a></span>
             </div>
             <div class="col-4 p-p d-xl-flex text-center">
                 <p class="m-0"><a class="px-xl-3" href="https://wa.me/919978043453"><i class="fa-brands fa-whatsapp"></i>&nbsp; +91-9978043453</a></p>
