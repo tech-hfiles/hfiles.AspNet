@@ -69,16 +69,16 @@
             width: 100%;
             border-radius: 10px;
             border: none;
-            padding:15px;
-            outline:0;
-            box-shadow:none;
+            padding: 15px;
+            outline: 0;
+            box-shadow: none;
         }
 
         .modalPopup .lbl {
             text-align: left !important;
         }
 
-           /* .filename-txtbox {
+        /* .filename-txtbox {
                 width: 100%;
                 padding: 5px;
                 border-radius: 10px;
@@ -134,51 +134,51 @@
         body {
             overflow-x: hidden;
         }
-        
-.file-input {
-  display: inline-block;
-  text-align: left;
-  background: #fff;
-  padding: 16px;
-  width: 100%;
-  position: relative;
-  border-radius: 3px;
-}
 
-.file-input > [type='file'] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  z-index: 10;
-  cursor: pointer;
-}
+        .file-input {
+            display: inline-block;
+            text-align: left;
+            background: #fff;
+            padding: 16px;
+            width: 100%;
+            position: relative;
+            border-radius: 3px;
+        }
 
-.file-input > .button {
-  display: inline-block;
-  cursor: pointer;
-  background: #eee;
-  padding: 8px 16px;
-  border-radius: 2px;
-  margin-right: 8px;
-}
+            .file-input > [type='file'] {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                z-index: 10;
+                cursor: pointer;
+            }
 
-.file-input:hover > .button {
-  background: dodgerblue;
-  color: white;
-}
+            .file-input > .button {
+                display: inline-block;
+                cursor: pointer;
+                background: #eee;
+                padding: 8px 16px;
+                border-radius: 2px;
+                margin-right: 8px;
+            }
 
-.file-input > .label {
-  color: #333;
-  white-space: nowrap;
-  opacity: .3;
-}
+            .file-input:hover > .button {
+                background: dodgerblue;
+                color: white;
+            }
 
-.file-input.-chosen > .label {
-  opacity: 1;
-}
+            .file-input > .label {
+                color: #333;
+                white-space: nowrap;
+                opacity: .3;
+            }
+
+            .file-input.-chosen > .label {
+                opacity: 1;
+            }
     </style>
 
     <%--below script for sweetalert --%>
@@ -187,7 +187,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <asp:UpdatePanel runat="server">
+    <asp:UpdatePanel runat="server" ID="uplavatar">
         <ContentTemplate>
             <div class="avatar">
                 <img class="plus-top-left" src="<%= ResolveUrl("~/Add Members/plus-1.png") %>" alt="" />
@@ -209,8 +209,6 @@
                                                     <asp:Repeater ID="rptMember" runat="server">
                                                         <ItemTemplate>
                                                             <a href="addmember.aspx">
-
-
                                                                 <img src="../Avatar/add-icon.png" alt=""
                                                                     width="30px" />
                                                                 <div>
@@ -296,7 +294,7 @@
                                         <asp:LinkButton Text="text" runat="server" ID="LinkButton1" OnClick="lbtnAddReport_Click">
                                 <img class="plus-icon" src="<%= ResolveUrl("~/Avatar/add-report.png") %>" alt="" />
                                         </asp:LinkButton><br />
-                                       <%-- <br />
+                                        <%-- <br />
                                         <span style="color: #0236b4; font-weight: 600; padding-block-end: 100px">ADD REPORT</span>--%>
                                         <%-- <div class="popover__content">
                                             <p class="popover__message">Upload Report</p>
@@ -396,7 +394,7 @@
                     <div class="row w-100 my-1" style="width: 100%">
                         <div class="col-12">
                             <div class="row">
-                               <%-- <div class="col-5 lbl">
+                                <%-- <div class="col-5 lbl">
                                 </div>--%>
                                 <div class="col-12 text-start">
                                     <label><strong>Select Report Type :</strong></label>
@@ -408,7 +406,7 @@
                         </div>
                     </div>
                     <div class="row my-1" style="width: 100%">
-                       <%-- <div class="col-5 lbl">
+                        <%-- <div class="col-5 lbl">
                         </div>--%>
                         <div class="col-12 text-start">
                             <label><strong>File Name : </strong></label>
@@ -417,26 +415,26 @@
                     </div>
 
                     <div class="row my-2" style="width: 100%">
-                       <%-- <div class="col-5 lbl">
+                        <%-- <div class="col-5 lbl">
                         </div>--%>
                         <div class="col-12 text-start">
                             <%--  <asp:FileUpload ID="FileUpload1" runat="server" required/>--%>
-                            
+
                             <label><strong>Select File :</strong></label>
                             <div class='file-input'>
                                 <asp:FileUpload ID="imageFileUpload1" CssClass="l" runat="server" required />
-                              <span class='button'>Choose</span>
-                              <span class='label' data-js-label>No file selected</label>
+                                <span class='button'>Choose</span>
+                                <span class='label' data-js-label>No file selected</label>
                             </div>
                         </div>
                     </div>
 
-                    
+
 
                     <div class="row w-100 my-3" style="width: 100%">
                         <div class="col-12">
                             <div class="row">
-                               <%-- <div class="col-5 lbl">
+                                <%-- <div class="col-5 lbl">
                                 </div>--%>
                                 <div class="col-12 text-start">
                                     <label><strong>Give View Access To :</strong></label><br />
@@ -473,7 +471,7 @@
 
         </ContentTemplate>
         <Triggers>
-            <asp:PostBackTrigger ControlID="btnSubmit" />
+            <asp:PostBackTrigger ControlID="btnSubmit"/>
             <%--            <asp:AsyncPostBackTrigger ControlID="LinkButton1" />--%>
             <%--            <asp:PostBackTrigger ControlID="imageFileUpload1" />--%>
         </Triggers>

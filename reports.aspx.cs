@@ -52,7 +52,6 @@ namespace hfiles
                 //Session[""];
             }
         }
-
         public void getReportType(int RId)
         {
             try

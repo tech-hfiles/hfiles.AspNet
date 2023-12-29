@@ -383,7 +383,7 @@ namespace hfiles
         protected void btnShareEmail_Command(object sender, CommandEventArgs e)
         {
             string subject = "Check out this content!";
-            string body = "Hi, I thought you might find this interesting: " + Request.Url.AbsoluteUri;
+            string body = "Hi, You might find this interesting: " + Request.Url.AbsoluteUri;
 
             // Construct the email link
             string emailLink = "mailto:?subject=" + Uri.EscapeDataString(subject) + "&body=" + Uri.EscapeDataString(body);

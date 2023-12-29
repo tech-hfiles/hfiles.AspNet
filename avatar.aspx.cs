@@ -67,7 +67,6 @@ namespace hfiles
                 Response.Redirect("~/login.aspx");
             }
         }
-
         public void showmembersdiv()
         {
             int remainingCount = 7 - rptMember.Items.Count;

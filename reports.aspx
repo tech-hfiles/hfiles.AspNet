@@ -89,7 +89,6 @@
                                                 <asp:LinkButton ID="lbtnShareMail" runat="server" OnClick="lbtnShareMail_Click" CommandArgument='<%# Eval("Id")%>'>
                                                     <img class="report-share-icon" src="../assets/gmail.png" />
                                                 </asp:LinkButton>
-
                                             </div>
 
                                         <div class="report-delete-btn">
