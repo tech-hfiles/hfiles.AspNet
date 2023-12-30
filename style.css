@@ -97,6 +97,10 @@ a {
 .color-thm-blue {
     color: #0512b9 !important
 }
+
+.color-thm-danger {
+    color: #FF0000;
+}
 /*.back-arrow-btn {
     color: #0512b9;
 }*/
@@ -1746,6 +1750,19 @@ span.img-notselected {
     color: transparent !important;
 }
 /*g-translate*/
+
+/*manage-members-table*/
+.manage-members-table thead th {
+    background: #0331b5;
+    color: #ffffff;
+    font-size:larger
+}
+.manage-members-table th, .manage-members-table td {
+    padding: 20px 20px;
+    border: 1px solid #0331b5;
+}
+
+/*manage-members-table*/
 @media only screen and (min-width: 1700px) {
     .h-lg-100vh {
         height: 100vh !important;

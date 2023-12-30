@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
         crossorigin="anonymous"></script>
@@ -15,6 +16,8 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <link rel="stylesheet" href="style.css" />
     <title>H Files | Sign In</title>
     <style>
@@ -28,10 +31,18 @@
             width: 100%;
             padding: 10px
         }
-       
+       .password-div {
+    position:relative;
+}
+.password-div .hide-password-toggal {
+    position:absolute;
+       right: 10px;
+    top: 28px;
+    cursor:pointer;
+}
     </style>
 
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+   
 </head>
 
 <body style="overflow: hidden;">
@@ -66,8 +77,9 @@
                         <%-- <asp:TextBox runat="server"  id="emailTextBox" class="w-100 login-input" type="Text" placeholder="Username" />--%>
                     </div>
 
-                    <div>
+                    <div class="password-div">
                         <asp:TextBox runat="server" ID="txtPassword" class="w-100 login-input" type="password" placeholder="Password" />
+                         <i id="passwordView1" class="fa fa-solid fa-eye-slash hide-password-toggal"></i>
                         <div class="text-end">
                             <span style="color: #fff"><a id="forgotlink" style="color: #fdd001; font-weight: 700" href="ForgotPassword.aspx">Forgot Password ? </a></span>
                         </div>
@@ -135,7 +147,22 @@
 
 
     <script>
+        $('.password-div .hide-password-toggal').click(function () {
+            console.log('password');
+            // Find the associated password textbox
+            var passwordTextBox = $('#txtPassword');
 
+            // Toggle the password visibility
+            if (passwordTextBox.attr('type') == 'password') {
+                passwordTextBox.attr('type', 'text');
+                $(this).removeClass('fa-eye-slash');
+                $(this).addClass('fa-eye');
+            } else if (passwordTextBox.attr('type') == 'text') {
+                passwordTextBox.attr('type', 'password');
+                $(this).removeClass('fa-eye');
+                $(this).addClass('fa-eye-slash');
+            }
+        });
 
         document.addEventListener('DOMContentLoaded', function () {
             var iframes = document.querySelectorAll('.VIpgJd-ZVi9od-ORHb-OEVmcd skiptranslate'); // Select all iframes with class 'hideMe'
@@ -154,7 +181,7 @@
         //var changeloginmodebtn = document.getElementById('changeloginmode')
         var loginMode = 'password'
 
-        $('#txtPassword').hide()
+        $('.password-div').hide()
         $('#btnSubmitDiv').hide()
         $('#forgotlink').hide()
         document.getElementById('changeLoginMode').value = 'Login with Password'
@@ -164,7 +191,7 @@
             if (loginMode == 'password') {
                 $('#divOtp').hide()
                 $('#otpButtonDiv').hide()
-                $('#txtPassword').show()
+                $('.password-div').show()
                 $('#btnSubmitDiv').show()
                 $('#forgotlink').show()
                 $('#changeLoginMode').val('Login with OTP')
@@ -173,7 +200,7 @@
             } else if (loginMode == 'OTP') {
                 $('#divOtp').show()
                 $('#otpButtonDiv').show()
-                $('#txtPassword').hide()
+                $('.password-div').hide()
                 $('#btnSubmitDiv').hide()
                 $('#forgotlink').hide()
                 $('#changeLoginMode').val('Login with password')
@@ -218,6 +245,7 @@
             timer(60);
         })
 
+       
     </script>
 </body>
 </html>

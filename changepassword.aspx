@@ -21,6 +21,15 @@
          box-shadow:none;
          outline:0
      }
+     .password-div {
+         position:relative;
+     }
+     .password-div .hide-password-toggal {
+         position:absolute;
+         right:20px;
+         top:40px;
+         cursor:pointer;
+     }
  </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -39,21 +48,24 @@
             <div class="col-12 col-lg-6">
                   <div class="row w-100 d-flex justify-content-center align-items-center mt-5">
                   <div class="col-12 col-md-6 ">
-                       <div class="form-element my-3">
+                       <div class="form-element my-3 password-div">
                          <label for="">Old Password</label>
                          <asp:TextBox ID="txtOldPassword" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                           <i id="passwordView1" class="fa-solid fa-eye-slash hide-password-toggal"></i>
                           <%--<img id="showOldPass" class="showpass" src="./img/eye.png" width="25px" onclick="HideShowPassword('<%= txtOldPassword.ClientID %>')" />--%>
                          <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="txtOldPassword" runat="server" Display="Dynamic" ForeColor="Red" Font-Size="13px" ValidationGroup="a" />
                        </div>
-                      <div class="form-element my-3">
+                      <div class="form-element my-3 password-div">
                         <label for="">New Password</label>
                         <asp:TextBox ID="txtNewPassword" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
+                            <i id="passwordView2" class="fa-solid fa-eye-slash hide-password-toggal"></i>
                          <%--<img id="showNewPass" class="showpass" src="./img/eye.png" width="25px" onclick="HideShowPassword('<%= txtNewPassword.ClientID %>')" />--%>
                         <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="txtNewPassword" runat="server" Display="Dynamic" ForeColor="Red" Font-Size="13px" ValidationGroup="a" />
                       </div>
-                        <div class="form-element my-3">
+                        <div class="form-element my-3 password-div">
                           <label for="">Confirm Password</label>
                           <asp:TextBox ID="txtConfirmPassword" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
+                              <i id="passwordView3" class="fa-solid fa-eye-slash hide-password-toggal"></i>
                           <%--<img id="showConfPass" class="showpass" src="./img/eye.png" width="25px" onclick="HideShowPassword('<%= txtConfirmPassword.ClientID %>')" />--%>
                           <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="txtConfirmPassword" runat="server" Display="Dynamic" ForeColor="Red" Font-Size="13px" ValidationGroup="a" />
 
@@ -84,6 +96,23 @@
          }
         // launch_toast()
 
+         $('.password-div .hide-password-toggal').click(function () {
+             console.log('password');
+
+             // Find the associated password textbox
+             var passwordTextBox = $(this).siblings('input[type="password"]');
+
+             // Toggle the password visibility
+             if (passwordTextBox.attr('type') == 'password') {
+                 passwordTextBox.attr('type', 'text');
+                 $(this).removeClass('fa-eye-slash');
+                 $(this).addClass('fa-eye');
+             } else if (passwordTextBox.attr('type') == 'text') {
+                 passwordTextBox.attr('type', 'password');
+                 $(this).removeClass('fa-eye');
+                 $(this).addClass('fa-eye-slash');
+             }
+         });
      </script>
 </asp:Content>
 
