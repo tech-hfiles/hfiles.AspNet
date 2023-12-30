@@ -227,7 +227,8 @@
 
                                 <li><a><i class="fa fa-regular fa-id-badge color-thm-blue"></i>
                                     <asp:Label ID="memberId" Style="font-weight: 600; font-family: 'Red Hat Display', sans-serif;" runat="server" Text="" CssClass="color-thm-blue"></asp:Label></a></li>
-                                <li><a href="addbasicdetails.aspx" class="color-thm-blue"><i class="fa fa-solid fa-circle-info"></i>My Profile</a></li>
+                                <li><a href="addbasicdetails.aspx" class="color-thm-blue"><i class="fa fa-solid fa-circle-info"></i>My Profile</a></li> 
+                                <li><a href="managemembers.aspx" class="color-thm-blue"><i class="fa fa-solid fa-user"></i>My Members</a></li>
                                 <li><a href="changepassword.aspx" class="color-thm-blue"><i class="fa fa-solid fa-circle-info"></i>Change Password</a></li>
                                 <%--<li><a runat="server"><i class="ph-bold ph-sign-out"></i>&nbsp;Sign Out</a></li>--%>
                                 <li>

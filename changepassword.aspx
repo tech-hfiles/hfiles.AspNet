@@ -51,7 +51,7 @@
                        <div class="form-element my-3 password-div">
                          <label for="">Old Password</label>
                          <asp:TextBox ID="txtOldPassword" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
-                           <i id="passwordView1" class="fa-solid fa-eye-slash hide-password-toggal"></i>
+                           <i id="passwordView1" class="fa-solid fa-eye-slash hide-password-toggal "></i>
                           <%--<img id="showOldPass" class="showpass" src="./img/eye.png" width="25px" onclick="HideShowPassword('<%= txtOldPassword.ClientID %>')" />--%>
                          <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="txtOldPassword" runat="server" Display="Dynamic" ForeColor="Red" Font-Size="13px" ValidationGroup="a" />
                        </div>
@@ -100,7 +100,7 @@
              console.log('password');
 
              // Find the associated password textbox
-             var passwordTextBox = $(this).siblings('input[type="password"]');
+             var passwordTextBox = $(this).siblings('.form-control');
 
              // Toggle the password visibility
              if (passwordTextBox.attr('type') == 'password') {

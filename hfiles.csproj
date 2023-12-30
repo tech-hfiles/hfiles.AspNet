@@ -344,6 +344,7 @@
     <Content Include="Avatar\female\70.png" />
     <Content Include="Avatar\female\70plus.png" />
     <Content Include="Avatar\female\LGBTQ.png" />
+    <Content Include="Avatar\file-not-found.jpg" />
     <Content Include="Avatar\Final Resize.zip" />
     <Content Include="Avatar\Final Resize\Final Resize\Female\13.png" />
     <Content Include="Avatar\Final Resize\Final Resize\Female\21.png" />

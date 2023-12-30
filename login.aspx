@@ -37,8 +37,9 @@
 .password-div .hide-password-toggal {
     position:absolute;
        right: 10px;
-    top: 28px;
+    top: 22px;
     cursor:pointer;
+    font-size:25px;
 }
     </style>
 
@@ -79,7 +80,7 @@
 
                     <div class="password-div">
                         <asp:TextBox runat="server" ID="txtPassword" class="w-100 login-input" type="password" placeholder="Password" />
-                         <i id="passwordView1" class="fa fa-solid fa-eye-slash hide-password-toggal"></i>
+                         <i id="passwordView1" class="fa fa-solid fa-eye-slash hide-password-toggal  color-theme-yellow"></i>
                         <div class="text-end">
                             <span style="color: #fff"><a id="forgotlink" style="color: #fdd001; font-weight: 700" href="ForgotPassword.aspx">Forgot Password ? </a></span>
                         </div>

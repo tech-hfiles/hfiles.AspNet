@@ -45,7 +45,7 @@
             <div class="container-fluid download-doc-inner my-5" style="min-height: 80vh;">
                 <div class="heading-title mb-3 py-1 px-5">
                     <div class="row">
-                        <div class="col-md-6 py-3">
+                        <div class="col-md-6 py-3 d-md-flex justify-content-between align-items-center">
                             <a class="" href="avatar.aspx">
                                 <img src="../assets/back-arrow.png" alt=""></a>
                             <%--<h1 class="heading">Documents</h1>--%>
@@ -66,7 +66,7 @@
                          <div id="divUpload_Doc" style="display:block" runat="server">
                   <div class="row justify-content-center">
                         <div class="col-md-5">
-                        <a href="avatar.aspx">  <img src="../Avatar/file-not-found.jpg" class="card-img-top" alt="pdf-thumbnail" width="90%"></a>
+                        <a href="avatar.aspx">  <img src="../Avatar/file-not-found-new.jpg" class="card-img-top" alt="pdf-thumbnail" width="90%"></a>
                             <h2 class="text-center">No File Found</h2>
                     </div>
 
@@ -75,7 +75,7 @@
                         <div class="row mb-5">
                             <asp:Repeater ID="rptReports" runat="server">
                                 <ItemTemplate>
-                                    <div class="col-md-3 my-2">
+                                    <div class="col-md-4 col-lg-3 my-2">
 
                                         <div class="card text-start px-3">
 
@@ -84,14 +84,16 @@
                                                 <h5 class="card-title"><strong>Name: </strong><%# Eval("ReportName") %></h5>
                                                 <p class="card-text"><strong>Date: </strong><%# Eval("CreatedDate") %> </p>
 
-                                                <a href="<%# ResolveUrl( string.Format("~/upload/report/{0}", Eval("ReportUrl"))) %>" target="_blank" class="btn btn-sm btn-primary">Download File</a>
+                                               <div class="text-center">
+                                                    <a href="<%# ResolveUrl( string.Format("~/upload/report/{0}", Eval("ReportUrl"))) %>" target="_blank" class="btn btn-sm btn-primary" style="align-self:center">View File</a>
+                                               </div>
                                                 <asp:LinkButton ID="lbtnShare" runat="server" OnClick="lbtnShare_Click" CommandArgument='<%# Eval("Id")%>'></asp:LinkButton>
-                                                <asp:LinkButton ID="lbtnShareMail" runat="server" OnClick="lbtnShareMail_Click" CommandArgument='<%# Eval("Id")%>'>
+                                              <%--  <asp:LinkButton ID="lbtnShareMail" runat="server" OnCommand="btnShareEmail_Command" OnClick="lbtnShareMail_Click1" CommandArgument='<%# Eval("Id")%>'>
                                                     <img class="report-share-icon" src="../assets/gmail.png" />
-                                                </asp:LinkButton>
+                                                </asp:LinkButton>--%>
                                             </div>
 
-                                        <div class="report-delete-btn">
+                                        <div id="deletereport" class="report-delete-btn" runat="server" visible='<%#((Convert.ToInt32(Session["memberId"].ToString()) > 0))?false:true %>'>
                                             <asp:LinkButton Text="text" ID="lbtnremove" OnClick="lbtnremove_Click" runat="server" CommandArgument='<%# Eval("Id")%>'><img src="../Suppor Group (BG  & Icons)/delete-icon.png" /></asp:LinkButton>
                                         </div>
                                         </div>

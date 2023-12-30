@@ -471,7 +471,7 @@
 
         </ContentTemplate>
         <Triggers>
-            <asp:PostBackTrigger ControlID="btnSubmit"/>
+            <asp:PostBackTrigger ControlID="btnSubmit" />
             <%--            <asp:AsyncPostBackTrigger ControlID="LinkButton1" />--%>
             <%--            <asp:PostBackTrigger ControlID="imageFileUpload1" />--%>
         </Triggers>

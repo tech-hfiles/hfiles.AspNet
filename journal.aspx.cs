@@ -13,6 +13,7 @@ using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static System.Net.WebRequestMethods;
 
 namespace hfiles
 {
@@ -371,7 +372,8 @@ namespace hfiles
 
         protected void btnShareWhatsApp_Command(object sender, CommandEventArgs e)
         {
-            string message = "Check out this cool content: " + Request.Url.AbsoluteUri;
+            // string message = "Check out this cool content: " + Request.Url.AbsoluteUri;
+            string message = "Check out this cool content: " + "https://hfiles.com/journal.aspx";
 
             // Construct the WhatsApp share link
             string whatsappLink = "https://wa.me/?text=" + Uri.EscapeDataString(message);

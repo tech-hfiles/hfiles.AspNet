@@ -149,6 +149,10 @@ namespace hfiles
                             da.Fill(dt);
                             if (dt != null && dt.Rows.Count > 0)
                             {
+                                //if (memberId != Convert.ToInt32(Session["Userid"].ToString()))
+                                //{
+                                   
+                                //}
                                 //tcount.InnerHtml = dt.Rows.Count.ToString();
                                 rptReports.DataSource = dt;
                                 rptReports.DataBind();
@@ -157,7 +161,7 @@ namespace hfiles
                                 while (sdr.Read())
                                 {
                                     reporturl = sdr["ReportUrl"].ToString();
-                                    Session["reporturl"]= reporturl;
+                                    Session["reporturl"] = reporturl;
                                 }
                             }
                             else
@@ -468,25 +472,27 @@ namespace hfiles
             }
         }
 
-        protected void lbtnShareMail_Click(object sender, EventArgs e)
-        {
-            reporturl = Session["reporturl"].ToString();
-            System.Net.Mail.MailMessage mailMessage = new System.Net.Mail.MailMessage();
-            string url = Request.Url.AbsoluteUri;
-            string email = "chetan@digitaledgetech.in";
-            string subject = "HFiles - Report";
-            string body = $"<p style=\"text-align: justify\">Thank You For Using HFiles.</p>\r\n\r\n<p style=\"text-align: justify\">Thanks,&nbsp;</p><p style=\"text-align: justify\">Team Health Files.</p>";
-            //string pdfFilePath = Server.MapPath("~/");
-            //Attachment attachment = new Attachment(pdfFilePath, MediaTypeNames.Application.Pdf);
-            //mailMessage.Attachments.Add(attachment);
-            string attachmentFilePath = Server.MapPath("~/upload/report/" + Session["reporturl"].ToString());
-            //string attachmentFilePath = "http://68.178.164.174//upload/report/ "+ reporturl;
+        //protected void lbtnShareMail_Click(object sender, EventArgs e)
+        //{
+        //    reporturl = Session["reporturl"].ToString();
+        //    System.Net.Mail.MailMessage mailMessage = new System.Net.Mail.MailMessage();
+        //    string url = Request.Url.AbsoluteUri;
+        //    string email = "chetan@digitaledgetech.in";
+        //    string subject = "HFiles - Report";
+        //    string body = $"<p style=\"text-align: justify\">Thank You For Using HFiles.</p>\r\n\r\n<p style=\"text-align: justify\">Thanks,&nbsp;</p><p style=\"text-align: justify\">Team Health Files.</p>";
+        //    //string pdfFilePath = Server.MapPath("~/");
+        //    //Attachment attachment = new Attachment(pdfFilePath, MediaTypeNames.Application.Pdf);
+        //    //mailMessage.Attachments.Add(attachment);
+        //    string attachmentFilePath = Server.MapPath("~/upload/report/" + Session["reporturl"].ToString());
+        //    //string attachmentFilePath = "http://68.178.164.174//upload/report/ "+ reporturl;
 
-            SendMail(subject, body, email, attachmentFilePath);
-            DAL.SendCareerMail(subject, body, email);
-            //DAL.SendMailPDF(subject, body, email, pdfFilePath);
-            //SendEmailWithAttachment();
-        }
+        //    SendMail(subject, body, email, attachmentFilePath);
+        //    DAL.SendCareerMail(subject, body, email);
+        //    //DAL.SendMailPDF(subject, body, email, pdfFilePath);
+        //    //SendEmailWithAttachment();
+        //}
+
+
         public static void SendMail(string Subject, string messageBody, string ToEmail, string attachmentFilePath)
         {
             string fromMail = ConfigurationManager.AppSettings["careermailUserId"].ToString();
@@ -521,6 +527,111 @@ namespace hfiles
                 smtp.Send(email);
                 smtp.Disconnect(true);
             }
+        }        
+
+
+        //public static void SendMail(string Subject, string messageBody, string ToEmail, string attachmentFilePath)
+        //{
+        //    string fromMail = ConfigurationManager.AppSettings["careermailUserId"].ToString();
+        //    string mailPassword = ConfigurationManager.AppSettings["careermailPassword"].ToString();
+        //    int mailPort = Convert.ToInt32(ConfigurationManager.AppSettings["mailPort"]);
+        //    string mailServer = ConfigurationManager.AppSettings["mailServer"].ToString();
+        //    var email = new MimeMessage();
+        //    email.From.Add(new MailboxAddress("H-Files", fromMail));
+        //    email.To.Add(new MailboxAddress("H-FIles-User", ToEmail));
+        //    email.Subject = Subject;
+        //    var body = new TextPart("html")
+        //    {
+        //        Text = messageBody
+        //    };
+        //    var multipart = new Multipart("mixed");
+        //    multipart.Add(body);
+
+        //    var attachment = new MimeKit.MimePart("application", "pdf")
+        //    {
+        //        Content = new MimeContent(System.IO.File.OpenRead(attachmentFilePath), ContentEncoding.Default),
+        //        ContentDisposition = new MimeKit.ContentDisposition(MimeKit.ContentDisposition.Attachment),
+        //        ContentTransferEncoding = ContentEncoding.Base64,
+        //        //FileName = Path.GetFileName(attachmentFilePath)
+        //        FileName = attachmentFilePath
+        //    };
+        //    multipart.Add(attachment);
+        //    email.Body = multipart;
+        //    using (var smtp = new MailKit.Net.Smtp.SmtpClient())
+        //    {
+        //        smtp.Connect(mailServer, mailPort, true);
+        //        smtp.Authenticate(fromMail, mailPassword);
+        //        smtp.Send(email);
+        //        smtp.Disconnect(true);
+        //    }
+        //}
+
+        //new code form kuldeep
+        protected void btnShareEmail_Command(object sender, CommandEventArgs e)
+        {
+            try
+            {
+                // Define the email details
+                string subject = "View Report";
+                //string body = "Hi, You might find this interesting: " + Request.Url.AbsoluteUri;
+                string body = "Hi, View Report ";
+
+                // Construct the email message
+                System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage();
+                message.Subject = subject;
+                message.Body = body;
+                message.IsBodyHtml = false; // Set to true if your body contains HTML
+
+                // Add attachment
+                //string documentPath = @"D:\Chetan\GitHub\HFiles\upload\report\11_01_2023_01_06_11_239.png";
+                string documentPath = Server.MapPath("~/upload/report\\11_01_2023_01_06_11_239.png");
+                //string documentPath = "http://68.178.164.174//upload/report/112_19_2023_02_04_21_002.jpeg";
+                if (System.IO.File.Exists(documentPath))
+                {
+                    Attachment attachment = new Attachment(documentPath);
+                    message.Attachments.Add(attachment);
+                }
+                else
+                {
+                    // Handle the case where the document doesn't exist
+                    // You may want to display an error message or take appropriate action
+                    Response.Write("The specified document does not exist.");
+                    return;
+                }
+
+                // Construct the email link
+                string emailLink = "mailto:?subject=" + Uri.EscapeDataString(subject) + "&body=" + Uri.EscapeDataString(message.Body);
+                string emailLink1 = "mailto:?subject=" + Uri.EscapeDataString(subject) + "&body=" + documentPath;
+
+                // Redirect to default email client
+                Response.Redirect(emailLink);
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions, log, or display an error message
+                Response.Write("An error occurred: " + ex.Message);
+            }
+        }
+
+       protected void lbtnShareMail_Click1(object sender, EventArgs e)
+        {
+            reporturl = Session["reporturl"].ToString();
+            System.Net.Mail.MailMessage mailMessage = new System.Net.Mail.MailMessage();
+            string url = Request.Url.AbsoluteUri;
+            string email = "chetan@digitaledgetech.in";
+            string subject = "HFiles - Report";
+            string body = $"<p style=\"text-align: justify\">Thank You For Using HFiles.</p>\r\n\r\n<p style=\"text-align: justify\">Thanks,&nbsp;</p><p style=\"text-align: justify\">Team Health Files.</p>";
+            //string pdfFilePath = Server.MapPath("~/");
+            //Attachment attachment = new Attachment(pdfFilePath, MediaTypeNames.Application.Pdf);
+            //mailMessage.Attachments.Add(attachment);
+            string attachmentFilePath = Server.MapPath("~/upload/report/" + Session["reporturl"].ToString());
+            //string attachmentFilePath = "http://68.178.164.174//upload/report/ "+ reporturl;
+
+            SendMail(subject, body, email, attachmentFilePath);
+            DAL.SendCareerMail(subject, body, email);
+            //DAL.SendMailPDF(subject, body, email, pdfFilePath);
+            //SendEmailWithAttachment();
         }
     }
+
 }

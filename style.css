@@ -1752,10 +1752,17 @@ span.img-notselected {
 /*g-translate*/
 
 /*manage-members-table*/
+.manage-members-div .heading {
+    color: #172ab3;
+    font-size: 60px;
+    font-weight: 900;
+    margin: 0 10px;
+    font-family: 'Red Hat Display Black' !important;
+}
 .manage-members-table thead th {
     background: #0331b5;
     color: #ffffff;
-    font-size:larger
+    font-size: larger
 }
 .manage-members-table th, .manage-members-table td {
     padding: 20px 20px;
@@ -2139,6 +2146,9 @@ span.img-notselected {
     }
     .profile-menu ul {
         right: 50px
+    }
+    .manage-members-div .heading {
+        font-size:18px;
     }
 }
 

@@ -11,11 +11,18 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style.css" />
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  <div class="row justify-content-center align-items-center h-100vh m-0">
-      <div class="col-12 col-md-10 col-lg-8">
-        <table class="table table-bordered manage-members-table">
+       <a class="back-arrow-btn" href="javascript: history.go(-1)"><img src="../assets/back-arrow.png" alt="">Back</a>
+  <div class="manage-members-div">
+        <div class="row justify-content-center pt-5 h-100vh m-0">
+      <div class="col-12 col-md-10 col-lg-8" >
+          <h2 class="text-center heading mb-5">
+              Members List
+          </h2>
+       <div class="" style="overflow-x:auto">
+                   <table class="table table-bordered manage-members-table">
   <thead>
     <tr>
       <th scope="col">SR. No</th>
@@ -32,8 +39,8 @@
       <td>@mdo</td>
       <td>1234567890</td>
         <td>
-             <a href="#"><i class="fa-solid fa-pen-to-square fa-2x color-thm-blue"></i></a> &nbsp; &nbsp;
-             <a href="#"><i class="fa-solid fa-trash fa-2x color-thm-danger"></i></a>
+             <a href="addmember.aspx"><i class="fa-solid fa-pen-to-square fa-1x color-thm-blue"></i></a> &nbsp; &nbsp;
+             <a href="#"><i class="fa-solid fa-trash fa-1x color-thm-danger"></i></a>
         </td>
     </tr>
     <tr>
@@ -42,8 +49,8 @@
 <td>@mdo</td>
 <td>1234567890</td>
   <td>
-       <a href="#"><i class="fa-solid fa-pen-to-square fa-2x color-thm-blue"></i></a> &nbsp; &nbsp;
- <a href="#"><i class="fa-solid fa-trash fa-2x color-thm-danger"></i></a>
+       <a href="addmember.aspx"><i class="fa-solid fa-pen-to-square fa-1x color-thm-blue"></i></a> &nbsp; &nbsp;
+ <a href="#"><i class="fa-solid fa-trash fa-1x color-thm-danger"></i></a>
   </td>
     </tr>
     <tr>
@@ -52,12 +59,14 @@
 <td>@mdo</td>
 <td>1234567890</td>
   <td>
-       <a href="#"><i class="fa-solid fa-pen-to-square fa-2x color-thm-blue"></i></a> &nbsp; &nbsp;
- <a href="#"><i class="fa-solid fa-trash fa-2x color-thm-danger"></i></a>
+       <a href="addmember.aspx"><i class="fa-solid fa-pen-to-square fa-1x color-thm-blue"></i></a> &nbsp; &nbsp;
+ <a href="#"><i class="fa-solid fa-trash fa-1x color-thm-danger"></i></a>
   </td>
     </tr>
   </tbody>
 </table>
+       </div>
       </div>
+  </div>
   </div>
 </asp:Content>

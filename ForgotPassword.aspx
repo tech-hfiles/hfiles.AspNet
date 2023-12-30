@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
         crossorigin="anonymous"></script>
@@ -28,6 +29,16 @@
             width: 100%;
             padding: 10px
         }
+               .password-div {
+    position:relative;
+}
+.password-div .hide-password-toggal {
+    position:absolute;
+       right: 10px;
+    top: 22px;
+    cursor:pointer;
+    font-size:25px;
+}
     </style>
 
 </head>
@@ -72,10 +83,12 @@
 
 
 
-                        <div>
+                        <div class="password-div">
+                             <i id="passwordView1" class="fa fa-solid fa-eye-slash hide-password-toggal color-theme-yellow"></i>
                             <asp:TextBox runat="server" ID="txtPassword" class="w-100 login-input" type="password" placeholder="Password" />
                         </div>
-                        <div>
+                        <div class="password-div">
+                             <i id="passwordView2" class="fa fa-solid fa-eye-slash hide-password-toggal color-theme-yellow"></i>
                             <asp:TextBox ID="cpwdTextBox" runat="server" type="password" class="w-100 login-input" placeholder="Confirm Password" required />
                             <asp:RequiredFieldValidator ControlToValidate="cpwdTextBox" ErrorMessage="Please Enter Confirm Password" runat="server"></asp:RequiredFieldValidator>
                             <asp:CompareValidator ControlToValidate="cpwdTextBox" ControlToCompare="txtPassword" ErrorMessage="Password and Confirm Password should be same" runat="server" ForeColor="White"></asp:CompareValidator>
@@ -130,7 +143,23 @@
     </form>
 
     <script language="JavaScript">
-        console.log('chal rha hai')
+
+        $('.password-div .hide-password-toggal').click(function () {
+            console.log('password');
+            // Find the associated password textbox
+            var passwordTextBox = $(this).siblings('.login-input');
+
+            // Toggle the password visibility
+            if (passwordTextBox.attr('type') == 'password') {
+                passwordTextBox.attr('type', 'text');
+                $(this).removeClass('fa-eye-slash');
+                $(this).addClass('fa-eye');
+            } else if (passwordTextBox.attr('type') == 'text') {
+                passwordTextBox.attr('type', 'password');
+                $(this).removeClass('fa-eye');
+                $(this).addClass('fa-eye-slash');
+            }
+        });
         //var changeloginmodebtn = document.getElementById('changeloginmode')
         var loginMode = 'password'
 
