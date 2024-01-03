@@ -3,100 +3,103 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
-    crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
     <link rel="stylesheet" href="./style3.css">
 
     <title>Add Members</title>
     <style>
-       /* *{
+        /* *{
             border:1px solid #000;
         }*/
-       body {
-           overflow-x:hidden
-       }
+        body {
+            overflow-x: hidden
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="add-member">
-         <img class="blue-t-top-left" src="../Avatar/blue-trangle-1.png" alt="">
-    <img class="blue-t-top-right" src="../Avatar/blue-trangle-2.png" alt="">
-    <img class="blue-t-right" src="../Add Members/blue-trangle-3.png" alt="">
-    <a href="#">
-        <%--<img class="home-icon-top-right" src="../Add Members/home-icon.png" alt="">--%></a>
-    <img class="plus-top-left" src="../assets/plus-icon-3.png" alt="">
-    <div class="main-div">
-            <a class="back-arrow-btn" href="javascript: history.go(-1)"><img src="../assets/back-arrow.png" alt="">Back</a>
-        <div class="container-fluid d-flex justify-content-center p-0">
-            <div class="inner-div pt-5">
-                <div class="row">
-                    <div class="col-12 text-blue">
-                        <h1>Add Members</h1>
-                    </div>
-                </div>
-                <div class="row input-group">
-                     <div class="col-12 col-md-7 d-none d-md-block">
-                        <img src="../Add Members/addmember-avatar.png" width="80%" />
-                    </div>
-                     <div class="col-12 col-md-5 d-flex justify-content-center">
-                       <div class="w-75">
-                            <div class="">
-                             <input type="text" id="firstnameTextBox" runat="server" placeholder="First Name" />
-                        </div>
-                        <div class="">
-                             <input type="text" id="lastnameTextBox" runat="server" placeholder="Last Name" />
-                        </div>
-                        <div id="relation-input" class="">
-                             <asp:HiddenField runat="server" ID="hfMemberType" />
-                        <div class="relation-div">
-                           <%-- <span class="fa-solid fa-earth-americas form-control-feedback"></span>--%>
-                            <select id="relation" runat="server" class="form-select form-control relation-select"
-                                aria-label="Default select example" onchange="handleRelation()">
-                                <option selected disabled>Relation</option>
-                                <option value="father">Father</option>
-                                <option value="mother">Mother</option>
-                                <option value="sister">Sister</option>
-                                <option value="brother">Brother</option>
-                                <option value="son">Son</option>
-                                <option value="daughter">Daughter</option>
-                                <option value="wife">Wife</option>
-                                <option value="husband">Husband</option>
-                                <option value="grandMother">Grand Mother</option>
-                                <option value="grandFather">Grand Father</option>
-                                 <option value="friend">Friend</option>
-                                <option value="pet">Pet</option>
-                            </select>
+        <img class="blue-t-top-left" src="../Avatar/blue-trangle-1.png" alt="">
+        <img class="blue-t-top-right" src="../Avatar/blue-trangle-2.png" alt="">
+        <img class="blue-t-right" src="../Add Members/blue-trangle-3.png" alt="">
+        <a href="#">
+            <%--<img class="home-icon-top-right" src="../Add Members/home-icon.png" alt="">--%></a>
+        <img class="plus-top-left" src="../assets/plus-icon-3.png" alt="">
+        <div class="main-div">
+            <a class="back-arrow-btn" href="javascript: history.go(-1)">
+                <img src="../assets/back-arrow.png" alt="">Back</a>
+            <div class="container-fluid d-flex justify-content-center p-0">
+                <div class="inner-div pt-5">
+                    <div class="row">
+                        <div class="col-12 text-blue">
+                            <h1>Add Members</h1>
                         </div>
                     </div>
-                     <div class="">
-                        <input class="email-input" id="emailTextBox" runat="server" type="email" placeholder="Email ID" />
-                    </div>
-                         <div class="">
-                        <input id="phoneTextBox" runat="server" type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
-                    </div>
-                         <div class="">
-                             <input class="date-input" type="date" id="dobTextBox1"  runat="server"/>
+                    <div class="row input-group">
+                        <div class="col-12 col-md-7 d-none d-md-block">
+                            <img src="../Add Members/addmember-avatar.png" width="80%" />
                         </div>
-                   <%--  <div class="">
+                        <div class="col-12 col-md-5 d-flex justify-content-center">
+                            <div class="w-75">
+                                <div class="">
+                                    <input type="text" id="firstnameTextBox" runat="server" placeholder="First Name" />
+                                </div>
+                                <div class="">
+                                    <input type="text" id="lastnameTextBox" runat="server" placeholder="Last Name" />
+                                </div>
+                                <div id="relation-input" class="">
+                                    <asp:HiddenField runat="server" ID="hfMemberType" />
+                                    <div class="relation-div">
+                                        <%-- <span class="fa-solid fa-earth-americas form-control-feedback"></span>--%>
+                                        <select id="relation" runat="server" class="form-select form-control relation-select"
+                                            aria-label="Default select example" onchange="handleRelation()">
+                                            <option selected disabled>Relation</option>
+                                            <option value="father">Father</option>
+                                            <option value="mother">Mother</option>
+                                            <option value="sister">Sister</option>
+                                            <option value="brother">Brother</option>
+                                            <option value="son">Son</option>
+                                            <option value="daughter">Daughter</option>
+                                            <option value="wife">Wife</option>
+                                            <option value="husband">Husband</option>
+                                            <option value="grandMother">Grand Mother</option>
+                                            <option value="grandFather">Grand Father</option>
+                                            <option value="friend">Friend</option>
+                                            <%--<option value="pet">Pet</option>--%>
+                                            <option value="cat">Cat</option>
+                                            <option value="dog">Dog</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <input class="date-input" type="date" id="dobTextBox1" runat="server" />
+                                </div>
+                                <div class="">
+                                    <input class="email-input" id="emailTextBox" runat="server" type="email" placeholder="Email ID" />
+                                </div>
+                                <div class="">
+                                    <input id="phoneTextBox" runat="server" type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
+                                </div>
+
+                                <%--  <div class="">
                              <input class="number-input" id="default-number" type="number" placeholder="default number." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
                         </div>--%>
-                         <div class="btn-div">
-                    <%--<asp:Button runat="server" Text="Submit" CssClass="btn submit-btn" ID="btnSubmit"></asp:Button>--%>
-                   <%-- <button id="back-btn"  class="btn thm-back-button mx-3">Back</button>--%>
-                    <button runat="server" id="btn_Submit" onserverclick="btn_Submit_ServerClick" class="btn submit-btn">Submit</button>
-                </div>
-                       </div>
+                                <div class="btn-div">
+                                    <%--<asp:Button runat="server" Text="Submit" CssClass="btn submit-btn" ID="btnSubmit"></asp:Button>--%>
+                                    <%-- <button id="back-btn"  class="btn thm-back-button mx-3">Back</button>--%>
+                                    <button runat="server" id="btn_Submit" onserverclick="btn_Submit_ServerClick" class="btn submit-btn">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                   
-                   
-                </div>
-               <%-- <div class="row my-xl-5 my-lg-3">
+                    <%-- <div class="row my-xl-5 my-lg-3">
                    s <div class="col-lg-5 col-md-5 col-sm-4 pl-lg-5 pr-0 d-xl-flex justify-content-end">
                         <div id="family" class="tab" style="color: #0116b8;" onclick="handleTabs('family')">
                             Family
@@ -110,14 +113,13 @@
                     </div>
                    
                 </div>--%>
-               
+                </div>
+            </div>
         </div>
+        <img class="plus-bottom-right" src="../Add Members/plus-2.png" alt="" />
+        <img class="blue-t-bottom-left" src="../Add Members/blue-trangle-4.png" alt="" />
+        <img class="blue-t-bottom-right" src="../Add Members/blue-trangle-5.png" alt="" />
     </div>
-    </div>
-    <img class="plus-bottom-right" src="../Add Members/plus-2.png" alt=""/>
-    <img class="blue-t-bottom-left" src="../Add Members/blue-trangle-4.png" alt=""/>
-    <img class="blue-t-bottom-right" src="../Add Members/blue-trangle-5.png" alt=""/>
-   </div>
     <script>
         //let selected = true
         //var relation = ''
@@ -192,6 +194,5 @@
         //}
         //console.log("relation")
     </script>
-
 
 </asp:Content>

@@ -42,13 +42,10 @@ namespace hfiles
                 con.Open();
                 using (MySqlCommand cmd = new MySqlCommand("usp_getuserdetailsbyId", con))
                 {
-
-
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("_user_id", DAL.validateInt(user_id));
                     //cmd.Parameters.AddWithValue("_SpType", sptype);
                     //cmd.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
-
 
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
@@ -58,9 +55,10 @@ namespace hfiles
                         Session["username"] = dt.Rows[0]["user_firstname"].ToString();
                         Session["user_gender"] = dt.Rows[0]["user_gender"].ToString();
                         Session["user_membernumber"] = dt.Rows[0]["user_membernumber"].ToString();
+                        Session["user_contact"] = dt.Rows[0]["user_contact"].ToString();
 
                         Session["user_dob"] = null;
-                       Session["user_dob"] = dt.Rows[0]["user_dob"].ToString();
+                        Session["user_dob"] = dt.Rows[0]["user_dob"].ToString();
                         if (Session["user_dob"] != null && Session["user_dob"].ToString() != string.Empty)
                         {
                             Session["age"] = GetAge(DateTime.Now, Convert.ToDateTime(Session["user_dob"]));

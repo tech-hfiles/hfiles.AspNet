@@ -179,6 +179,7 @@
             .file-input.-chosen > .label {
                 opacity: 1;
             }
+
     </style>
 
     <%--below script for sweetalert --%>
@@ -206,18 +207,25 @@
                                             <br />
                                             <div id="repeaterdiv" runat="server">
                                                 <li class="border-bottom w-100px text-center mb-2 mb-lg-3 mb-xxl-4">
-                                                    <asp:Repeater ID="rptMember" runat="server">
+                                                    <asp:Repeater ID="rptMember" runat="server" OnItemDataBound="rptMember_ItemDataBound">
                                                         <ItemTemplate>
-                                                            <a href="addmember.aspx">
-                                                                <img src="../Avatar/add-icon.png" alt=""
+                                                            <div id="divWrapper" runat="server">
+                                                                <%-- <a href="#">--%>
+                                                                <%--<a href="addmember.aspx">--%>
+                                                                <%--  <img src="../Avatar/add-icon.png" alt=""
+                                                                width="30px" />  --%>
+                                                                <a>
+                                                                <img src="../My Data/default-user-profile.png" alt=""
                                                                     width="30px" />
-                                                                <div>
-                                                                    <small class="add-member-name">
-                                                                        <asp:LinkButton ID="member1" runat="server" Text='<%#Eval("user_FirstName") %>' OnClick="member1_Click" CommandArgument='<%#Eval("user_Id") %>'></asp:LinkButton>
-                                                                        <asp:HiddenField ID="hfmemberid" runat="server" Value='<%#Eval("user_Id") %>' />
-                                                                    </small>
-                                                                </div>
-                                                            </a>
+                                                                
+                                                                    <div>
+                                                                        <small class="add-member-name">
+                                                                            <asp:LinkButton ID="member1" runat="server" Text='<%#Eval("user_FirstName") %>' OnClick="member1_Click" CommandArgument='<%#Eval("user_Id") %>'></asp:LinkButton>
+                                                                            <asp:HiddenField ID="hfmemberid" runat="server" Value='<%#Eval("user_Id") %>' />
+                                                                        </small>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
                                                         </ItemTemplate>
                                                     </asp:Repeater>
                                                 </li>

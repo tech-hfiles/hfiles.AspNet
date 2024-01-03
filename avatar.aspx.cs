@@ -20,12 +20,14 @@ namespace hfiles
     {
         #region Variable
         string cs = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
+        string relation, gender, dob;
+        int age = 0;
         DataTable dt;
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
             //showmembersdiv();
-           // mp1.Show();
+            // mp1.Show();
             if (imageFileUpload1.HasFile)
             {
 
@@ -47,18 +49,20 @@ namespace hfiles
                     getReports();
                     getMembersList();
                     showmembersdiv();
-                    
-
+                    //bindData(Convert.ToInt32(Session["memberId"].ToString()));
 
                     lblUserName.Text = Session["username"].ToString();
                     if (Session["gender_string"] != null && Session["age"] != null)
                     {
                         imgAvatar.ImageUrl = GetImagePath(DAL.validateInt(Session["age"].ToString()), Session["gender_string"].ToString());
+                        //imgAvatar.ImageUrl = GetImagePath(age, gender);
                     }
                     else
                     {
+
                         //imgAvatar.ImageUrl = "~/Avatar/default.png";
                         imgAvatar.ImageUrl = "~/Avatar/Asset_50.png";
+                        //imgAvatar.ImageUrl = GetImagePath(age, gender);
                     }
                 }
             }
@@ -74,7 +78,7 @@ namespace hfiles
             if (remainingCount == 7)
             {
                 repeaterdiv.Visible = false;
-                
+
             }
             // Generate additional list items
             for (int i = 0; i < remainingCount; i++)
@@ -158,8 +162,8 @@ namespace hfiles
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-           // string reporturl = "", Extension1, fileName1, dt1;
-            string reporturl="" , Extension1, fileName1, dt1;
+            // string reporturl = "", Extension1, fileName1, dt1;
+            string reporturl = "", Extension1, fileName1, dt1;
 
             if (imageFileUpload1.HasFile)
             {
@@ -192,7 +196,7 @@ namespace hfiles
         }
         public int AddReport(int UserId, string reportname, string reporturl, int reportId)
         {
-            //int memberId = Convert.ToInt32(Session["memberId"]);
+            int memberId = Convert.ToInt32(Session["memberId"]);
             List<int> selectedIds = new List<int>();
 
             foreach (ListItem item in ddlMembers2.Items)
@@ -207,26 +211,52 @@ namespace hfiles
             int result = 0;
             try
             {
+
                 using (MySqlConnection con = new MySqlConnection(cs))
                 {
                     con.Open();
+
                     using (MySqlCommand cmd = new MySqlCommand("usp_addreport", con))
                     {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("_UserId", UserId);
-                        cmd.Parameters.AddWithValue("_reportname", reportname);
-                        cmd.Parameters.AddWithValue("_reporturl", reporturl);
-                        cmd.Parameters.AddWithValue("_reportId", reportId);
-                       // cmd.Parameters.AddWithValue("_memberId", memberId);
-                        cmd.Parameters.AddWithValue("_memberId", memberIdList);
-                        cmd.Parameters.AddWithValue("_SpType", "C");
-                        cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
-                        cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
-                        cmd.ExecuteNonQuery();
-                        int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
-                        result = DAL.validateInt(retVal);
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Added Successfully')", true);
-                        //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
+                        if (memberId > 0)
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("_UserId", memberId);
+                            cmd.Parameters.AddWithValue("_reportname", reportname);
+                            cmd.Parameters.AddWithValue("_reporturl", reporturl);
+                            cmd.Parameters.AddWithValue("_reportId", reportId);
+                            // cmd.Parameters.AddWithValue("_memberId", memberId);
+                            cmd.Parameters.AddWithValue("_memberId", memberIdList);
+                            cmd.Parameters.AddWithValue("_SpType", "C");
+                            cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
+                            cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
+                            cmd.ExecuteNonQuery();
+                            int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
+                            result = DAL.validateInt(retVal);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Added Successfully')", true);
+                            //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
+                            Session["memberId"] = 0;
+                        }
+                        else
+                        {
+                            //using (MySqlCommand cmd = new MySqlCommand("usp_addreport", con))
+                            //{
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("_UserId", UserId);
+                            cmd.Parameters.AddWithValue("_reportname", reportname);
+                            cmd.Parameters.AddWithValue("_reporturl", reporturl);
+                            cmd.Parameters.AddWithValue("_reportId", reportId);
+                            // cmd.Parameters.AddWithValue("_memberId", memberId);
+                            cmd.Parameters.AddWithValue("_memberId", memberIdList);
+                            cmd.Parameters.AddWithValue("_SpType", "C");
+                            cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
+                            cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
+                            cmd.ExecuteNonQuery();
+                            int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
+                            result = DAL.validateInt(retVal);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Added Successfully')", true);
+                            //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
+                        }
                     }
                 }
             }
@@ -237,6 +267,69 @@ namespace hfiles
             return result;
         }
 
+        protected void bindData(int user_id)
+        {
+            //usp_commonproductvariation
+            //string sptype = "BIND";
+
+            using (MySqlConnection con = new MySqlConnection(cs))
+            {
+                con.Open();
+                using (MySqlCommand cmd = new MySqlCommand("usp_getuserdetailsbyId", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("_user_id", DAL.validateInt(user_id));
+                    //cmd.Parameters.AddWithValue("_SpType", sptype);
+                    //cmd.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        gender = dt.Rows[0]["user_gender"].ToString();
+                        age = 0;
+                        dob = dt.Rows[0]["user_dob"].ToString();
+                        relation = dt.Rows[0]["user_relation"].ToString();
+                        if (dob != null && dob != string.Empty)
+                        {
+                            age = GetAge(DateTime.Now, Convert.ToDateTime(dob));
+                        }
+                        if (gender != null)
+
+                        {
+                            if (gender == "1")
+                            {
+                                gender = "male";
+                            }
+                            else if (gender == "2")
+                            {
+                                gender = "female";
+                            }
+                            //newly added by chetan dated on 07/11/2023
+                            else if (gender == "3")
+                            {
+                                gender = "other";
+                            }
+                            else if (gender == "4")
+                            {
+                                gender = "cat";
+                            }
+                            else if (gender == "5")
+                            {
+                                gender = "dog";
+                            }
+                            
+                        }
+                    }
+                    else
+                    {
+
+                    }
+                    imgAvatar.ImageUrl = GetImagePath(age, gender);
+                }
+            }
+        }
         public string GetImagePath(int age, string gender)
         {
             string basePath = "~/Avatar/";
@@ -311,15 +404,15 @@ namespace hfiles
                         return basePath + "female/70plus.png";
                     }
 
-                case "pet":
-                    if (type == "dog")
-                    {
-                        return basePath + "pet/dog.png";
-                    }
-                    else
-                    {
-                        return basePath + "pet/cat.png";
-                    }
+                case "dog":
+
+                    return basePath + "pet/dog.png";
+
+                case "cat":
+
+                    return basePath + "pet/AssetCat.png";
+
+
                 case "other":
                     {
                         return basePath + "others/others.png";
@@ -327,6 +420,7 @@ namespace hfiles
                 default:
                     return basePath + "default.png";
             }
+            //imgAvatar.ImageUrl = GetImagePath(age, gender);
         }
         protected void member1_Click(object sender, EventArgs e)
         {
@@ -335,7 +429,21 @@ namespace hfiles
             var memberid = linkButton.CommandArgument.ToString();
             linkButton.Style.Add("font-style", "italic");
             Session["memberId"] = memberid.ToString();
+
+            bindData(Convert.ToInt32(memberid));
         }
+
+        protected void rptMember_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                HtmlGenericControl divWrapper = (HtmlGenericControl)e.Item.FindControl("divWrapper");
+
+                // Set padding for each item
+                divWrapper.Style["padding"] = "10px"; // Adjust the value as needed
+            }
+        }
+
         protected void getMembersList()
         {
             int UserId = DAL.validateInt(Session["Userid"].ToString());
@@ -408,7 +516,7 @@ namespace hfiles
                         }
                         else
                         {
-                           
+
                         }
                     }
                 }
@@ -419,6 +527,6 @@ namespace hfiles
             }
         }
 
-        
+
     }
 }

@@ -62,7 +62,6 @@ namespace hfiles
             {
                 Response.Redirect("~/login.aspx");
             }
-
         }
 
         public static string UploadImage(string base64String)
@@ -175,6 +174,7 @@ namespace hfiles
                     command.Parameters.AddWithValue("_user_relativecontact", relativecontactTextBox.Value);
                     command.Parameters.AddWithValue("_user_email", emailTextBox.Value);
                     command.Parameters.AddWithValue("_user_doctor", famdocTextBox.Value);
+                    command.Parameters.AddWithValue("_user_relation", "");
                     command.Parameters.AddWithValue("_user_membernumber", member);
                     connection.Open();
                     command.ExecuteNonQuery();
@@ -252,7 +252,6 @@ namespace hfiles
                     }
                     command.ExecuteNonQuery();
                     connection.Close();
-
 
                 }
             }

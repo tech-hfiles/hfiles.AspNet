@@ -206,7 +206,6 @@ namespace hfiles
                                 divUpload_Doc.Visible = true;
                                 rptReports.DataSource = null;
                                 rptReports.DataBind();
-
                             }
                         }
                     }
