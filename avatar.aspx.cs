@@ -123,7 +123,9 @@ namespace hfiles
         }
         protected void okLinkButton_Click(object sender, EventArgs e)
         {
+            showmembersdiv();
             mp1.Hide();
+
         }
         //usp_getmember
         protected void getReports()
@@ -259,6 +261,7 @@ namespace hfiles
                         }
                     }
                 }
+                showmembersdiv();
             }
             catch (Exception Ex)
             {

@@ -436,9 +436,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
                     <div class="row w-100 my-3" style="width: 100%">
                         <div class="col-12">
                             <div class="row">
@@ -464,7 +461,6 @@
                         </div>
                     </div>
 
-
                     <br />
                     <br />
                     <asp:Button Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click" runat="server" CssClass="submit-btn" />
@@ -479,7 +475,10 @@
 
         </ContentTemplate>
         <Triggers>
-            <asp:PostBackTrigger ControlID="btnSubmit" />
+            <%--<asp:PostBackTrigger ControlID="btnSubmit" />--%>
+           <%-- <asp:AsyncPostBackTrigger ControlID="repeaterdiv" EventName="Click"/>--%>
+           <asp:AsyncPostBackTrigger ControlID="btnSubmit" EventName="Click"/>
+           <asp:AsyncPostBackTrigger ControlID="btnClose" EventName="Click"/>
             <%--            <asp:AsyncPostBackTrigger ControlID="LinkButton1" />--%>
             <%--            <asp:PostBackTrigger ControlID="imageFileUpload1" />--%>
         </Triggers>

@@ -15,6 +15,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="scm1" runat="server"></asp:ScriptManager>
     <a class="back-arrow-btn" href="javascript: history.go(-1)">
         <img src="../assets/back-arrow.png" alt="">Back</a>
     <div class="manage-members-div">
@@ -22,8 +23,10 @@
             <div class="col-12 col-md-10 col-lg-8">
                 <h2 class="text-center heading mb-5">Members List
                 </h2>
-                <div class="" style="overflow-x: auto">
-                    <%--<table class="table table-bordered manage-members-table">
+                <asp:UpdatePanel ID="uplManageMembers" runat="server">
+                    <ContentTemplate>
+                        <div class="" style="overflow-x: auto">
+                            <%--<table class="table table-bordered manage-members-table">
                         <thead>
                             <tr>
                                 <th scope="col">SR. No</th>
@@ -69,54 +72,56 @@
 
                     </table>--%>
 
-                    <asp:GridView ID="gvMembers" runat="server" CssClass="table table-bordered manage-members-table" AutoGenerateColumns="false" OnRowDataBound="gvMembers_RowDataBound" AlternatingRowStyle-BackColor="Wheat">
-                        <Columns>
-                            <asp:TemplateField HeaderText="Serial Number">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblSerialNumber" runat="server"></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
+                            <asp:GridView ID="gvMembers" runat="server" CssClass="table table-bordered manage-members-table" AutoGenerateColumns="false" OnRowDataBound="gvMembers_RowDataBound" AlternatingRowStyle-BackColor="Wheat">
+                                <Columns>
+                                    <asp:TemplateField HeaderText="Serial Number">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblSerialNumber" runat="server"></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
 
-                            <asp:TemplateField HeaderText="Full Name">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblFullname" Text='<%#Eval("user_firstname") %>' runat="server"></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Email ID">
-                                <ItemTemplate>
+                                    <asp:TemplateField HeaderText="Full Name">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblFullname" Text='<%#Eval("user_firstname") %>' runat="server"></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Email ID">
+                                        <ItemTemplate>
 
-                                    <asp:Label ID="lblEmail" Text='<%#Eval("user_email") %>' runat="server"></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Contat No.">
-                                <ItemTemplate>
+                                            <asp:Label ID="lblEmail" Text='<%#Eval("user_email") %>' runat="server"></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Contat No.">
+                                        <ItemTemplate>
 
-                                    <asp:Label ID="lblContact" Text='<%#Eval("user_contact") %>' runat="server"></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
+                                            <asp:Label ID="lblContact" Text='<%#Eval("user_contact") %>' runat="server"></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
 
-                            <asp:TemplateField HeaderText="Actions">
-                                <ItemTemplate>
-                                   <%-- <asp:LinkButton ID="LbtnEdit" runat="server" OnClick="LbtnEdit_Click" CommandArgument='<%#Eval("user_id") %>'>
+                                    <asp:TemplateField HeaderText="Actions">
+                                        <ItemTemplate>
+                                            <%-- <asp:LinkButton ID="LbtnEdit" runat="server" OnClick="LbtnEdit_Click" CommandArgument='<%#Eval("user_id") %>'>
                                         <i class="fa-solid fa-pen-to-square fa-1x color-thm-blue"></i>
                                     </asp:LinkButton>--%>
-                                    <%--<a href='<%# "addmember.aspx?UserId=" + Eval("user_id") %>'>
+                                            <%--<a href='<%# "addmember.aspx?UserId=" + Eval("user_id") %>'>
                                         <i class="fa-solid fa-pen-to-square fa-1x color-thm-blue"></i>
                                     </a>--%>
-                                    <asp:LinkButton ID="lbtnRemove" runat="server" OnClick="lbtnRemove_Click" CommandArgument='<%#Eval("user_id") %>'>
+                                            <asp:LinkButton ID="lbtnRemove" runat="server" OnClick="lbtnRemove_Click" CommandArgument='<%#Eval("user_id") %>'>
                                         <i class="fa-solid fa-trash fa-1x color-thm-danger"></i>
                                   <%--  <a href="#" onclick="return confirm('Are you sure you want to delete this user?');">
                                         
                                         <i class="fa-solid fa-trash fa-1x color-thm-danger"></i>
                                     </a>--%>
-                                    </asp:LinkButton>
-                                </ItemTemplate>
-                            </asp:TemplateField>
+                                            </asp:LinkButton>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
 
-                        </Columns>
+                                </Columns>
 
-                    </asp:GridView>
-                </div>
+                            </asp:GridView>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </div>
         </div>
     </div>

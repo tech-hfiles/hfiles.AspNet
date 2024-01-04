@@ -58,6 +58,7 @@ namespace hfiles
                     cmd.ExecuteNonQuery();
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Member Removed Successfully')", true);
                 }
+                user_members();
             }
         }
 

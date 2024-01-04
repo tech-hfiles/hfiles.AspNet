@@ -15,6 +15,24 @@ namespace hfiles
     {
 
         /// <summary>
+        /// scm1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager scm1;
+
+        /// <summary>
+        /// uplManageMembers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel uplManageMembers;
+
+        /// <summary>
         /// gvMembers control.
         /// </summary>
         /// <remarks>
