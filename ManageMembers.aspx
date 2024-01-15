@@ -72,6 +72,12 @@
 
                     </table>--%>
 
+                         
+                                <input id="MemberTextBox" runat="server" type="text" class="form-control" placeholder="Please Enter Member Number" />
+                                <asp:Button ID="btnAddMember" runat="server" class="btn thm-button my-2" Text="Add Existing Member" OnClick="btnAddMember_Click" />
+                         
+                            <br />
+                            <br />
                             <asp:GridView ID="gvMembers" runat="server" CssClass="table table-bordered manage-members-table" AutoGenerateColumns="false" OnRowDataBound="gvMembers_RowDataBound" AlternatingRowStyle-BackColor="Wheat">
                                 <Columns>
                                     <asp:TemplateField HeaderText="Serial Number">
@@ -87,7 +93,6 @@
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Email ID">
                                         <ItemTemplate>
-
                                             <asp:Label ID="lblEmail" Text='<%#Eval("user_email") %>' runat="server"></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>

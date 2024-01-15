@@ -220,7 +220,7 @@
                                                                 
                                                                     <div>
                                                                         <small class="add-member-name">
-                                                                            <asp:LinkButton ID="member1" runat="server" Text='<%#Eval("user_FirstName") %>' OnClick="member1_Click" CommandArgument='<%#Eval("user_Id") %>'></asp:LinkButton>
+                                                                            <asp:LinkButton ID="member1" runat="server" Text='<%#Eval("user_FirstName") %>' OnClick="member1_Click" CommandArgument='<%#Eval("user_Id")+"|"+Eval("user_relation") %>'></asp:LinkButton>
                                                                             <asp:HiddenField ID="hfmemberid" runat="server" Value='<%#Eval("user_Id") %>' />
                                                                         </small>
                                                                     </div>

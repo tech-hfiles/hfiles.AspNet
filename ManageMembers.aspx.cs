@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MailKit;
+using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -87,6 +89,25 @@ namespace hfiles
 
             // Redirect to addmember.aspx with the user ID as a parameter
             Response.Redirect($"addmember.aspx?UserId={userId}");
+        }
+
+        protected void btnAddMember_Click(object sender, EventArgs e)
+        {
+            //if (result == 1)
+            //{
+            //    string email = emailTextBox.Value.ToString();
+            //    //string subject = "# Verification code";
+            //    string subject = "Welcome to HFiles";
+            //    string body = $"<p style=\"text-align: justify;\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify;\"> {Session["username"].ToString()} has added you to HFiles Portal,&nbsp;</p>\r\n<p style=\"text-align: justify;\">Please verify your Email Id to complete signup process.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Use below link to verify your Email Id.&nbsp;<br> http://68.178.164.174//membersignup.aspx</p> <p style=\"text-align: justify;\">&nbsp;</p>";
+            //    //Use below password for sigining up { membershippasword}
+
+            //    DAL.SendCareerMail(subject, body, email);
+            //    Response.Write("<script>alert('Memeber added successfully.')</script>");
+            //    Response.Redirect("avatar.aspx");
+            //}
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Request Sent to Member !')", true);
+            
+        
         }
     }
 }

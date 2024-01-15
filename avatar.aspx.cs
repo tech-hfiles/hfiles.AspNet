@@ -213,14 +213,15 @@ namespace hfiles
             int result = 0;
             try
             {
-
+                int age= Convert.ToInt32(Session["MemberAge"].ToString());
+                
                 using (MySqlConnection con = new MySqlConnection(cs))
                 {
                     con.Open();
-
                     using (MySqlCommand cmd = new MySqlCommand("usp_addreport", con))
                     {
-                        if (memberId > 0)
+                        //if (memberId > 0)
+                        if(Session["memberRelation"].ToString() == "Son"|| Session["memberRelation"].ToString() == "daughter" || Session["memberRelation"].ToString() == "Cat" || Session["memberRelation"].ToString() == "Dog" || Session["memberRelation"].ToString() == "GrandFather" || Session["memberRelation"].ToString() == "GrandMother" || Session["memberRelation"].ToString() == "Son" && age<17||age>70)
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("_UserId", memberId);
@@ -239,7 +240,7 @@ namespace hfiles
                             //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
                             Session["memberId"] = 0;
                         }
-                        else
+                        else if(memberId==UserId)
                         {
                             //using (MySqlCommand cmd = new MySqlCommand("usp_addreport", con))
                             //{
@@ -258,6 +259,10 @@ namespace hfiles
                             result = DAL.validateInt(retVal);
                             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Added Successfully')", true);
                             //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
+                        }
+                        else
+                        {
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You don't have permission to add reports for this member')", true);
                         }
                     }
                 }
@@ -297,6 +302,7 @@ namespace hfiles
                         if (dob != null && dob != string.Empty)
                         {
                             age = GetAge(DateTime.Now, Convert.ToDateTime(dob));
+                            Session["MemberAge"] = age;
                         }
                         if (gender != null)
 
@@ -322,7 +328,7 @@ namespace hfiles
                             {
                                 gender = "dog";
                             }
-                            
+
                         }
                     }
                     else
@@ -409,11 +415,11 @@ namespace hfiles
 
                 case "dog":
 
-                    return basePath + "pet/dog.png";
+                    return basePath + "pet/Dog-1.png";
 
                 case "cat":
 
-                    return basePath + "pet/AssetCat.png";
+                    return basePath + "pet/cat.png";
 
 
                 case "other":
@@ -429,9 +435,25 @@ namespace hfiles
         {
             showmembersdiv();
             LinkButton linkButton = (LinkButton)(sender);
-            var memberid = linkButton.CommandArgument.ToString();
+            string commandArgument = linkButton.CommandArgument;
+            string[] values = commandArgument.Split('|');
+
+            //var memberid = linkButton.CommandArgument.ToString();
+            string memberid = "";
+            string relation = "";
+            string IdName = linkButton.CommandArgument;
+            string[] IdNamevalue = commandArgument.Split('|');
+
+            string[] IdNamevalues = IdName.Split('|');
+            if (IdNamevalues.Length == 2)
+            {
+                memberid = values[0];
+                relation = values[1];
+
+            }
             linkButton.Style.Add("font-style", "italic");
             Session["memberId"] = memberid.ToString();
+            Session["memberRelation"] = relation.ToString();
 
             bindData(Convert.ToInt32(memberid));
         }

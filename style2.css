@@ -709,9 +709,12 @@ select {
     align-items: center;*/
     /* box-shadow: 2px 2px 10px #6e6cfc; */
 }
+    .journal .journal_main .my_profile:hover {
+        box-shadow: 2px 2px 10px #6e6cfc;
+    }
     .journal .journal_main .my_profile img {
-        border-radius:50%;
-        width:70px;
+        border-radius: 50%;
+        width: 70px;
     }
     .journal .journal_main .my_profile .tab-icon-div {
         margin-top: 3px;

@@ -33,6 +33,24 @@ namespace hfiles
         protected global::System.Web.UI.UpdatePanel uplManageMembers;
 
         /// <summary>
+        /// MemberTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText MemberTextBox;
+
+        /// <summary>
+        /// btnAddMember control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddMember;
+
+        /// <summary>
         /// gvMembers control.
         /// </summary>
         /// <remarks>
