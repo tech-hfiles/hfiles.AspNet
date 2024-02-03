@@ -158,17 +158,17 @@
                 </div>
                 <div class="row w-100">
                     <div class="col-12 d-flex justify-content-center ">
-                        <img class="samanta-image" src="../Reception Page/Samanta.png" alt="">
+                        <img class="samanta-image" src="../Reception Page/SamantaGIF.gif" alt="">
                       <%--  <img class="samanta-image" src="../Reception Page/Samanta1.jpeg" alt="">--%>
                     </div>
                 </div>
-                <div class="progress_div">
+                <%--<div class="progress_div">
                     <p for="">30% Completed</p>
                     <progress class="progress progress1" max="100" value="30"></progress>
                     <div class="span">
                         <span>Complete Your Profile</span>
                     </div>
-                </div>
+                </div>--%>
             </div>
         </div>
     </div>

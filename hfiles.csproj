@@ -141,6 +141,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Add Members\addmember-avatar.png" />
     <Content Include="Add Members\Asset 10.png" />
     <Content Include="Add Members\Asset 11.png" />
     <Content Include="Add Members\Asset 12.png" />
@@ -612,6 +613,7 @@
     <Content Include="Reception Page\samanta-with-bg.png" />
     <Content Include="Reception Page\Samanta.png" />
     <Content Include="Reception Page\Samanta1.jpeg" />
+    <Content Include="Reception Page\samantaGIF.gif" />
     <Content Include="Reception Page\shutdown.png" />
     <Content Include="Reception Page\user-icon.png" />
     <Content Include="reports.aspx" />

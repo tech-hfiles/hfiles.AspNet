@@ -26,56 +26,10 @@
                 <asp:UpdatePanel ID="uplManageMembers" runat="server">
                     <ContentTemplate>
                         <div class="" style="overflow-x: auto">
-                            <%--<table class="table table-bordered manage-members-table">
-                        <thead>
-                            <tr>
-                                <th scope="col">SR. No</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Mobile</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>@mdo</td>
-                                <td>1234567890</td>
-                                <td>
-                                    <a href="addmember.aspx"><i class="fa-solid fa-pen-to-square fa-1x color-thm-blue"></i></a>&nbsp; &nbsp;
-             <a href="#"><i class="fa-solid fa-trash fa-1x color-thm-danger"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Mark</td>
-                                <td>@mdo</td>
-                                <td>1234567890</td>
-                                <td>
-                                    <a href="addmember.aspx"><i class="fa-solid fa-pen-to-square fa-1x color-thm-blue"></i></a>&nbsp; &nbsp;
- <a href="#"><i class="fa-solid fa-trash fa-1x color-thm-danger"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Mark</td>
-                                <td>@mdo</td>
-                                <td>1234567890</td>
-                                <td>
-                                    <a href="addmember.aspx"><i class="fa-solid fa-pen-to-square fa-1x color-thm-blue"></i></a>&nbsp; &nbsp;
- <a href="#"><i class="fa-solid fa-trash fa-1x color-thm-danger"></i></a>
-                                </td>
-                            </tr>
-                        </tbody>
 
+                            <input id="MemberTextBox" runat="server" type="text" class="form-control" placeholder="Please Enter Member Number" visible="false"/>
+                            <asp:Button ID="btnAddMember" runat="server" class="btn thm-button my-2" Text="Add Existing Member" OnClick="btnAddMember_Click" visible="false"/>
 
-                    </table>--%>
-
-                         
-                                <input id="MemberTextBox" runat="server" type="text" class="form-control" placeholder="Please Enter Member Number" />
-                                <asp:Button ID="btnAddMember" runat="server" class="btn thm-button my-2" Text="Add Existing Member" OnClick="btnAddMember_Click" />
-                         
                             <br />
                             <br />
                             <asp:GridView ID="gvMembers" runat="server" CssClass="table table-bordered manage-members-table" AutoGenerateColumns="false" OnRowDataBound="gvMembers_RowDataBound" AlternatingRowStyle-BackColor="Wheat">
@@ -83,6 +37,12 @@
                                     <asp:TemplateField HeaderText="Serial Number">
                                         <ItemTemplate>
                                             <asp:Label ID="lblSerialNumber" runat="server"></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+
+                                    <asp:TemplateField HeaderText="Image">
+                                        <ItemTemplate>
+                                            <asp:Image ID="profileImage" runat="server" ImageUrl='<%# "~/upload/" + Eval("user_image") %>' Height="50px" Width="50px"></asp:Image>
                                         </ItemTemplate>
                                     </asp:TemplateField>
 

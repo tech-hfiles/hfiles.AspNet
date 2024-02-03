@@ -21,7 +21,7 @@ namespace hfiles
         string connectionString = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Profileupload.Attributes["onchange"] = "uploadImage();";
+            //Profileupload.Attributes["onchange"] = "uploadImage();";
             if (Session["Userid"] != null)
             //newly commented for testing purpose
             //if (Session["firstname"] != null && Session["lastname"] != null && Session["email"] != null && Session["phone"] != null)
@@ -133,6 +133,7 @@ namespace hfiles
             return new string(Enumerable.Repeat(chars, 4)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }
+
         protected void submitButton_Click(object sender, EventArgs e)
         {
             // Generate a unique random number (you can adjust the range as needed)
@@ -150,6 +151,17 @@ namespace hfiles
 
             #region variable
             string member = membershipNumber;
+            string filePath = "";
+            string reporturl = "", Extension1, fileName1, dt1;
+            if (Profileupload.HasFile)
+            {
+                Extension1 = Path.GetExtension(Profileupload.PostedFile.FileName);
+                fileName1 = Path.GetFileName(Profileupload.PostedFile.FileName);
+                dt1 = DateTime.Now.ToString("MM_dd_yyyy_hh_mm_ss_fff");
+                Profileupload.PostedFile.SaveAs(Server.MapPath("~/upload/") + dt1 + Extension1);
+                filePath = dt1 + Extension1;
+            }
+           
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -176,6 +188,7 @@ namespace hfiles
                     command.Parameters.AddWithValue("_user_doctor", famdocTextBox.Value);
                     command.Parameters.AddWithValue("_user_relation", "");
                     command.Parameters.AddWithValue("_user_membernumber", member);
+                    command.Parameters.AddWithValue("_user_image", filePath);
                     connection.Open();
                     command.ExecuteNonQuery();
                     connection.Close();
@@ -228,16 +241,16 @@ namespace hfiles
                             getcitylist(stateDropDownList.SelectedItem.Text);
                             //ddlState.SelectedItem.Text = reader["user_state"].ToString();
                             //cityDropDownList.SelectedItem.Text = reader["user_city"].ToString();
-                            if (reader["user_city"].ToString()!=string.Empty)
+                            if (reader["user_city"].ToString() != string.Empty)
                             {
                                 cityDropDownList.SelectedItem.Text = reader["user_city"].ToString();
-                                
+
                             }
                             else
                             {
                                 //cityDropDownList.SelectedItem.Text = "Mumbai";
                             }
-                           
+
                             //if (ddlCountry.SelectedItem.Text == "India")
                             //{
                             //    stateDropDownList.SelectedItem.Text = reader["user_state"].ToString();
@@ -248,6 +261,19 @@ namespace hfiles
                             relativecontactTextBox.Value = reader["user_relativecontact"].ToString();
                             emailTextBox.Value = reader["user_email"].ToString();
                             famdocTextBox.Value = reader["user_doctor"].ToString();
+
+                            string imagePath = "~/upload/" + reader["user_image"].ToString();
+
+                            // Check if the database value is blank
+                            if (string.IsNullOrEmpty(reader["user_image"].ToString()))
+                            {
+                                // Use a default image when the database value is blank
+                                imagePath = "../My Data/default-user-profile.png";
+                            }
+
+                            imagePreview.Src = imagePath;
+
+                            //imagePreview.Src = "~/upload/"+reader["user_image"].ToString();
                         }
                     }
                     command.ExecuteNonQuery();

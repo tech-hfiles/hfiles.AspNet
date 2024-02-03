@@ -47,11 +47,14 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <br />
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
             <div class="user-info-main" runat="server">
-                <a class="back-arrow-btn" href="javascript: history.go(-1)"><img src="../assets/back-arrow.png" alt="">Back</a>
+                <a class="back-arrow-btn" href="javascript: history.go(-1)">
+                    <img src="../assets/back-arrow.png" alt="">Back</a>
                 <div class="container mt-768-80">
                     <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
                     <img class="blue-trangle-top-right" src="../assets/blue-trangle.png" alt="">
@@ -61,14 +64,26 @@
                     <div class="row p-5">
                         <div class="col-md-4 col-sm-12 col-lg-4 col-xl-4 d-flex mt-sm-5 mt-lg-0 align-items-center justify-content-center">
                             <div class="text-center profile-img">
-                                <img id="imagePreview" runat="server" class="w-75" src="../My Data/default-user-profile.png" alt="" />
+                                <img id="imagePreview" class="w-75" alt=""   runat="server"/>
+                                <%-- <img id="imagePreview" runat="server" class="w-75" src="../My Data/default-user-profile.png" alt="" />--%>
                                 <br />
                                 <br />
-                                <asp:FileUpload ID="Profileupload" runat="server" class="form-control" onchange="uploadImage();" />
+                               
+                                <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+                                    <ContentTemplate>
+                                        <asp:FileUpload CssClass="form-control" runat="server" ID="Profileupload" />
+                                    </ContentTemplate>
+                                    <Triggers>
+                                        <asp:PostBackTrigger ControlID="submitButton" />
+                                  
+                                    </Triggers>
+                                </asp:UpdatePanel>
 
                                 <%-- <p style="color: #ffd101;"><i class="fa-regular fa-pen-to-square mx-2"></i>Edit</p>--%>
                             </div>
+                           
                         </div>
+
                         <div class="col-md-4 col-12 col-lg-4 col-xl-4 d-flex align-items-start mt-lg-5 justify-content-center">
                             <div class="row signin-form form-group has-search">
                                 <div class="col-12">
@@ -140,8 +155,8 @@
                                     <span for="" class="imp-star">*</span>
                                     <i class="fa-sharp fa-solid fa-city form-control-feedback"></i>
                                     <asp:DropDownList ID="cityDropDownList" CssClass="form-select form-control mySelect" runat="server"></asp:DropDownList>
-                                     <asp:RequiredFieldValidator runat="server" ControlToValidate="cityDropDownList" ErrorMessage="Please Select City" CssClass="imp-star"></asp:RequiredFieldValidator>
-                                    <input id="cityTextBox" visible="false" runat="server" type="text" class="form-control" placeholder="Enter City">
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="cityDropDownList" ErrorMessage="Please Select City" CssClass="imp-star"></asp:RequiredFieldValidator>
+                                    <input id="cityTextBox" visible="false" runat="server" type="text" class="form-control" placeholder="Enter City" />
                                 </div>
                             </div>
 
@@ -192,27 +207,71 @@
                     <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
                 </div>
             </div>
-            <div id="toast"><div id="img">Icon</div><div id="desc">A notification message..</div></div>
+            <div id="toast">
+                <div id="img">Icon</div>
+                <div id="desc">A notification message..</div>
+            </div>
         </ContentTemplate>
     </asp:UpdatePanel>
 
     <script type="text/javascript">
-        function uploadImage() {
-            var fileUpload = document.getElementById("Profileupload");
-            var imagePreview = document.getElementById("imagePreview");
 
-            if (fileUpload.files.length > 0) {
-                var file = fileUpload.files[0];
+        function previewImage() {
+            var fileInput = document.getElementById('Profileupload');
+            var preview = document.getElementById('imagePreview');
+
+            // Check if file input and preview elements exist
+            if (!fileInput || !preview) {
+                console.error("File input or preview element not found.");
+                return;
+            }
+
+            var file = fileInput.files[0];
+
+            // Check if a file is selected
+            if (file) {
                 var reader = new FileReader();
 
-                reader.onloadend = function () {
-                    var base64String = reader.result;
-                    PageMethods.UploadImage(base64String, onSuccess, onError);
+                reader.onload = function (e) {
+                    // Create an image element
+                    var img = document.createElement('img');
+                    img.src = e.target.result;
+
+                    img.width = 100;
+                    img.height = 100;
+
+                    // Clear any previous preview
+                    preview.innerHTML = '';
+
+                    // Append the image to the preview div
+                    preview.appendChild(img);
                 };
 
+                // Read the file as a data URL
                 reader.readAsDataURL(file);
+            } else {
+                // Clear the preview if no file is selected
+                preview.innerHTML = '';
             }
         }
+
+
+        //function uploadImage() {
+        //    var fileUpload = document.getElementById("Profileupload");
+        //    var imagePreview = document.getElementById("imagePreview");
+
+        //    if (fileUpload.files.length > 0) {
+        //        var file = fileUpload.files[0];
+        //        var reader = new FileReader();
+
+        //        reader.onloadend = function () {
+        //            var base64String = reader.result;
+        //            PageMethods.UploadImage(base64String, onSuccess, onError);
+        //        };
+
+        //        reader.readAsDataURL(file);
+        //    }
+        //}
 
         function onSuccess(response) {
             // Update the image preview source
@@ -300,7 +359,7 @@
             utilsScript:
                 "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
         });
-        
+
 
     </script>
 

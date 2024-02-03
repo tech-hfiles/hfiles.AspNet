@@ -133,6 +133,9 @@ namespace hfiles
                                 cmdInsert.Parameters.AddWithValue("_user_email", emailTextBox.Value);
                                 cmdInsert.Parameters.AddWithValue("_user_password", cpwdTextBox.Text);
                                 cmdInsert.Parameters.AddWithValue("_user_gender", "");
+                                cmdInsert.Parameters.AddWithValue("_user_relation", "");
+                                cmdInsert.Parameters.AddWithValue("_chkmail", 1);
+
                                 cmdInsert.Parameters.AddWithValue("_user_membernumber", member);
                                 cmdInsert.Parameters.AddWithValue("_user_isactive", true);
                                 cmdInsert.Parameters.AddWithValue("_user_uniquekey", 0);

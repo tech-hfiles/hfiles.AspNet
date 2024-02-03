@@ -52,6 +52,7 @@ namespace hfiles
                     da.Fill(dt);
                     if (dt != null && dt.Rows.Count > 0)
                     {
+                        Session["userpic"] =dt.Rows[0]["user_image"].ToString();
                         Session["username"] = dt.Rows[0]["user_firstname"].ToString();
                         Session["user_gender"] = dt.Rows[0]["user_gender"].ToString();
                         Session["user_membernumber"] = dt.Rows[0]["user_membernumber"].ToString();

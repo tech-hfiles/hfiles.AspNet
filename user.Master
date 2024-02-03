@@ -34,7 +34,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style>
-         body > .skiptranslate {
+        body > .skiptranslate {
             display: none;
         }
         /*.skiptranslate {
@@ -219,15 +219,15 @@
                                 <%--<p>@probablykat66</p>--%>
                             </div>
                             <div class="img-box">
-                                <img class="me-3" src="../My Data/default-user-profile.png" alt="" width="35px" />
+                                <asp:Image ID="profile" runat="server" CssClass="me-3" alt="User" Width="50px" />
+                               <%-- 35px--%>
                             </div>
                         </div>
                         <div class="profile-menu">
                             <ul>
-
                                 <li><a><i class="fa fa-regular fa-id-badge color-thm-blue"></i>
                                     <asp:Label ID="memberId" Style="font-weight: 600; font-family: 'Red Hat Display', sans-serif;" runat="server" Text="" CssClass="color-thm-blue"></asp:Label></a></li>
-                                <li><a href="addbasicdetails.aspx" class="color-thm-blue"><i class="fa fa-solid fa-circle-info"></i>My Profile</a></li> 
+                                <li><a href="addbasicdetails.aspx" class="color-thm-blue"><i class="fa fa-solid fa-circle-info"></i>My Profile</a></li>
                                 <li><a href="managemembers.aspx" class="color-thm-blue"><i class="fa fa-solid fa-user"></i>My Members</a></li>
                                 <li><a href="changepassword.aspx" class="color-thm-blue"><i class="fa fa-solid fa-circle-info"></i>Change Password</a></li>
                                 <%--<li><a runat="server"><i class="ph-bold ph-sign-out"></i>&nbsp;Sign Out</a></li>--%>

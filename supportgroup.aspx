@@ -52,7 +52,7 @@
                             <img src="../Suppor Group (BG  & Icons)/petcare-icon.png" alt="" width="30px" />
                             <span class="font-weight-bold large mx-3">Pet care</span></asp:LinkButton>
 
-                                <asp:LinkButton OnClick="fitness_tab_Click" CommandArgument="6" runat="server" class="mental-health-link tabs-btn nav-link p-2 px-3" data-color="#c5e26d" ID="fitness_tab">
+                                <asp:LinkButton OnClick="v_pills_home_tab_Click" CommandArgument="6" runat="server" class="mental-health-link tabs-btn nav-link p-2 px-3" data-color="#c5e26d" ID="fitness_tab">
 <img src="../Suppor Group (BG  & Icons)/mental-health-icon.png" alt="" width="30px" />
 <span class="font-weight-bold large mx-3">Fitness</span></asp:LinkButton>
                             </div>

@@ -42,6 +42,15 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.Label memberLabel;
 
         /// <summary>
+        /// profile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image profile;
+
+        /// <summary>
         /// memberId control.
         /// </summary>
         /// <remarks>
