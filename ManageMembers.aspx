@@ -27,8 +27,8 @@
                     <ContentTemplate>
                         <div class="" style="overflow-x: auto">
 
-                            <input id="MemberTextBox" runat="server" type="text" class="form-control" placeholder="Please Enter Member Number" visible="false"/>
-                            <asp:Button ID="btnAddMember" runat="server" class="btn thm-button my-2" Text="Add Existing Member" OnClick="btnAddMember_Click" visible="false"/>
+                            <input id="MemberTextBox" runat="server" type="text" class="form-control" placeholder="Please Enter Member Number" visible="false" />
+                            <asp:Button ID="btnAddMember" runat="server" class="btn thm-button my-2" Text="Add Existing Member" OnClick="btnAddMember_Click" Visible="false" />
 
                             <br />
                             <br />
@@ -37,6 +37,11 @@
                                     <asp:TemplateField HeaderText="Serial Number">
                                         <ItemTemplate>
                                             <asp:Label ID="lblSerialNumber" runat="server"></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="HFiles Number">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblHFilesNumber" Text='<%#Eval("user_membernumber") %>' runat="server"></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
