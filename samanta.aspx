@@ -26,6 +26,7 @@
             background-repeat:no-repeat;
             background-position:center
         }
+        
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -172,7 +173,37 @@
             </div>
         </div>
     </div>
+    <div class="backdrop" id="backdrop"></div>
+   <div class="modal-popup">
+        <div id="myModal" class="modal">
+            <div class="modal-header">
+                <h1 class="modal-title">Steps</h1>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+            <p>This is your modal content.</p>
+            </div>
+        </div>
+   </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
+    <script>
+        // Function to open the modal and backdrop when the page renders
+        window.onload = function () {
+            openModal();
+        };
+
+        // Function to open the modal and backdrop
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
+            document.getElementById("backdrop").style.display = "block";
+        }
+
+        // Function to close the modal and backdrop
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+            document.getElementById("backdrop").style.display = "none";
+        }
+    </script>
 </asp:Content>

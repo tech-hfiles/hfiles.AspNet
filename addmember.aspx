@@ -20,6 +20,21 @@
         body {
             overflow-x: hidden
         }
+
+        .member-type-tabs {
+            padding: 10px 15px;
+            background: #fff;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            border-radius: 50px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .active-tab {
+            display: block;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -47,6 +62,23 @@
                         </div>
                         <div class="col-12 col-md-5 d-flex justify-content-center">
                             <div class="w-75">
+                                <div class="row mb-2">
+                                    <div class="col-6">
+                                        <label id="addNewMemberTab" class="member-type-tabs" onclick="showTab('abc')"><strong>Add New Member</strong></label>
+                                    </div>
+                                    <div class="col-6">
+                                        <label id="addExisitingMemberTab" class="member-type-tabs" onclick="showTab('xyz')"><strong>Add Existing Member</strong></label>
+                                    </div>
+                                </div>
+                                <div id="abc" class="tab-content active-tab">
+                                    <!-- Content for addNewMemberTab -->
+                                    <p>Add New Member Content Here</p>
+                                </div>
+
+                                <div id="xyz" class="tab-content">
+                                    <!-- Content for addExisitingMemberTab -->
+                                    <p>Add Existing Member Content Here</p>
+                                </div>
                                 <div class="">
                                     <input type="text" id="firstnameTextBox" runat="server" placeholder="First Name" />
                                 </div>
@@ -121,6 +153,17 @@
         <img class="blue-t-bottom-right" src="../Add Members/blue-trangle-5.png" alt="" />
     </div>
     <script>
+
+        function showTab(tabId) {
+            // Hide all tabs
+            var tabs = document.getElementsByClassName('tab-content');
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active-tab');
+            }
+
+            // Show the selected tab
+            document.getElementById(tabId).classList.add('active-tab');
+        }
         //let selected = true
         //var relation = ''
 

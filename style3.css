@@ -824,7 +824,7 @@ a {
     }
     .input-group input {
         width: 100%;
-        padding: 22px 20px;
+        padding: 15px 20px;
         font-size: 26px;
     }
 
@@ -862,7 +862,7 @@ a {
         }
 
     .input-group .relation-div {
-        padding: 16px 0;
+        padding: 10px 0;
     }
 
     .avatar .circle-line {
