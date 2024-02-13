@@ -31,7 +31,7 @@
                 <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
                 <img class="plus-top-left" src="../assets/plus-icon-3.png" alt="">
                 <div class="additionl-main-div container pt-5 px-5 h-90">
-                    <div class="row pt-5">
+                    <div class="row pt-5 mb-5">
                         <div class="col-12">
                             <h1 class="heading">Additional Information</h1>
                             <div class="row py-2">
@@ -235,7 +235,7 @@
                 <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
                 <img class="plus-top-left" src="../assets/plus-1.png" alt="">
 
-                <div class="medical-main-div container pt-5 px-5 h-90vh h-ssm-100vh">
+                <div class="medical-main-div container pt-5 px-5 h-90vh h-ssm-100vh mb-5">
                     <div class="row mt-5">
                         <div class="col-12">
                             <h1 class="heading mb-4">Medical History</h1>

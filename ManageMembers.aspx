@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user.Master" AutoEventWireup="true" CodeBehind="ManageMembers.aspx.cs" Inherits="hfiles.ManageMembers" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user.Master" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="ManageMembers.aspx.cs" Inherits="hfiles.ManageMembers" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Manage Members</title>
@@ -23,15 +23,72 @@
             <div class="col-12 col-md-10 col-lg-8">
                 <h2 class="text-center heading mb-5">Members List
                 </h2>
+
+                <%--<asp:GridView ID="friendrequests" runat="server" CssClass="table table-bordered manage-members-table" AutoGenerateColumns="false" OnRowDataBound="friendrequests_RowDataBound" AlternatingRowStyle-BackColor="Wheat">
+                    <Columns>
+                        <asp:TemplateField HeaderText="HFiles Number">
+                            <ItemTemplate>
+                                <asp:Label ID="lblSerialNumber" runat="server" Text='<%#Eval("user_membernumber") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Name">
+                            <ItemTemplate>
+                                <asp:Label ID="lblHFilesNumber" Text='<%#Eval("user_firstname") + " " + Eval("user_lastname") %>' runat="server"></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Button ID="acceptBtn" runat="server" Text="Accept" OnClick="acceptBtn_Click" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Button ID="rejectBtn" runat="server" Text="Reject" OnClick="rejectBtn_Click" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>--%>
+
                 <asp:UpdatePanel ID="uplManageMembers" runat="server">
                     <ContentTemplate>
+                        <div class="row">
+                           <%-- <div class="col-md-4 col-lg-3 my-2">--%>
+                                <asp:Repeater ID="rptRequests" runat="server">
+                                    <ItemTemplate>
+            <div class="col-md-4 my-2">
+                <div class="card text-start px-3" style="height: 100%;">
+                    <a href='<%# ResolveUrl(string.Format("~/upload/{0}", string.IsNullOrEmpty(Eval("user_image").ToString()) ? "../My Data/default-user-profile.png" : Eval("user_image"))) %>' target="_blank" style="align-self: center">
+                        <img src='<%# ResolveUrl(string.Format("~/upload/{0}", string.IsNullOrEmpty(Eval("user_image").ToString()) ? "../My Data/default-user-profile.png" : Eval("user_image"))) %>' class="card-img-top" alt='<%#Eval("user_firstname") + " " + Eval("user_lastname") %>' class="btn btn-sm btn-primary" style="align-self: center; height: 100px; object-fit: cover;">
+                    </a>
+                    <div class="card-body" style="align-self: center;">
+                        <h5 class="card-title"><strong>Name: </strong><%#Eval("user_firstname") + " " + Eval("user_lastname") %></h5>
+                        <asp:ImageButton CssClass="mx-3" ID="acceptBtn" runat="server" Text="Accept"  ImageUrl="assets/select.png" OnClick="acceptBtn_Click" CommandArgument='<%# Eval("sentby")%>' />
+                        <asp:ImageButton ID="rejectBtn" CssClass="mx-3" runat="server" Text="Reject" OnClick="rejectBtn_Click" ImageUrl="assets/cancel-icon.png" Height="25px" Width="25px" />
+                    </div>
+                </div>
+            </div>
+                                        <%--<div class="card text-start px-3">
+                                           
+                                            <a href="<%# ResolveUrl(string.Format("~/upload/{0}", string.IsNullOrEmpty(Eval("user_image").ToString()) ? "../My Data/default-user-profile.png" : Eval("user_image"))) %>" target="_blank" style="align-self: center">
+                                                <img src='<%# ResolveUrl(string.Format("~/upload/{0}", string.IsNullOrEmpty(Eval("user_image").ToString()) ? "../My Data/default-user-profile.png" : Eval("user_image"))) %>' class="card-img-top" alt='<%#Eval("user_firstname") + " " + Eval("user_lastname") %>' target="_blank" class="btn btn-sm btn-primary" style="align-self: center">
+                                            </a>
+                                            <div class="card-body">
+                                                <h5 class="card-title"><strong>Name: </strong><%#Eval("user_firstname") + " " + Eval("user_lastname") %></h5>
+
+
+                                                <asp:ImageButton CssClass="mx-3" ID="acceptBtn" runat="server" Text="Accept" ImageUrl="assets/select.png" OnClick="acceptBtn_Click" CommandArgument='<%# Eval("sentby")%>' />
+                                                <asp:ImageButton ID="rejectBtn" CssClass="mx-3" runat="server" Text="Reject" OnClick="rejectBtn_Click" ImageUrl="assets/cancel-icon.png" Height="25px" Width="25px" />
+
+                                            </div>
+
+
+                                        </div>--%>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            <%--</div>--%>
+                        </div>
                         <div class="" style="overflow-x: auto">
 
-                            <input id="MemberTextBox" runat="server" type="text" class="form-control" placeholder="Please Enter Member Number" visible="false" />
-                            <asp:Button ID="btnAddMember" runat="server" class="btn thm-button my-2" Text="Add Existing Member" OnClick="btnAddMember_Click" Visible="false" />
-
-                            <br />
-                            <br />
                             <asp:GridView ID="gvMembers" runat="server" CssClass="table table-bordered manage-members-table" AutoGenerateColumns="false" OnRowDataBound="gvMembers_RowDataBound" AlternatingRowStyle-BackColor="Wheat">
                                 <Columns>
                                     <asp:TemplateField HeaderText="Serial Number">
@@ -47,7 +104,7 @@
 
                                     <asp:TemplateField HeaderText="Image">
                                         <ItemTemplate>
-                                            <asp:Image ID="profileImage" runat="server" ImageUrl='<%# "~/upload/" + Eval("user_image") %>' Height="50px" Width="50px"></asp:Image>
+                                            <asp:Image ID="profileImage" runat="server" ImageUrl='<%# string.IsNullOrEmpty(Eval("user_image").ToString()) ? "../My Data/default-user-profile.png" : "~/upload/" + Eval("user_image") %>' Height="50px" Width="50px"></asp:Image>
                                         </ItemTemplate>
                                     </asp:TemplateField>
 

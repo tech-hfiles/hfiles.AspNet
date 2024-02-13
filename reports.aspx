@@ -60,18 +60,19 @@
                 </div>
                 <%--<asp:UpdatePanel ID="uplReports" runat="server">
                     <ContentTemplate>--%>
-               
+
                 <div class="doc-pdf py-5 h-100">
                     <div class="container">
-                         <div id="divUpload_Doc" style="display:block" runat="server">
-                  <div class="row justify-content-center">
-                        <div class="col-md-5">
-                        <a href="avatar.aspx">  <img src="../Avatar/file-not-found-new.jpg" class="card-img-top" alt="pdf-thumbnail" width="90%"></a>
-                            <h2 class="text-center">No File Found</h2>
-                    </div>
+                        <div id="divUpload_Doc" style="display: block" runat="server">
+                            <div class="row justify-content-center">
+                                <div class="col-md-5">
+                                    <a href="avatar.aspx">
+                                        <img src="../Avatar/file-not-found-new.jpg" class="card-img-top" alt="pdf-thumbnail" width="90%"></a>
+                                    <h2 class="text-center">No File Found</h2>
+                                </div>
 
-                  </div>
-                </div>
+                            </div>
+                        </div>
                         <div class="row mb-5">
                             <asp:Repeater ID="rptReports" runat="server">
                                 <ItemTemplate>
@@ -84,18 +85,19 @@
                                                 <h5 class="card-title"><strong>Name: </strong><%# Eval("ReportName") %></h5>
                                                 <p class="card-text"><strong>Date: </strong><%# Eval("CreatedDate") %> </p>
 
-                                               <div class="text-center">
-                                                    <a href="<%# ResolveUrl( string.Format("~/upload/report/{0}", Eval("ReportUrl"))) %>" target="_blank" class="btn btn-sm btn-primary" style="align-self:center">View File</a>
-                                               </div>
+                                                <div class="text-center">
+                                                    <a href="<%# ResolveUrl( string.Format("~/upload/report/{0}", Eval("ReportUrl"))) %>" target="_blank" class="btn btn-sm btn-primary" style="align-self: center">View File</a>
+                                                </div>
                                                 <asp:LinkButton ID="lbtnShare" runat="server" OnClick="lbtnShare_Click" CommandArgument='<%# Eval("Id")%>'></asp:LinkButton>
-                                              <%--  <asp:LinkButton ID="lbtnShareMail" runat="server" OnCommand="btnShareEmail_Command" OnClick="lbtnShareMail_Click1" CommandArgument='<%# Eval("Id")%>'>
+                                                <%--  <asp:LinkButton ID="lbtnShareMail" runat="server" OnCommand="btnShareEmail_Command" OnClick="lbtnShareMail_Click1" CommandArgument='<%# Eval("Id")%>'>
                                                     <img class="report-share-icon" src="../assets/gmail.png" />
                                                 </asp:LinkButton>--%>
                                             </div>
 
-                                        <div id="deletereport" class="report-delete-btn" runat="server" visible='<%#((Convert.ToInt32(Session["memberId"].ToString()) > 0))?false:true %>'>
-                                            <asp:LinkButton Text="text" ID="lbtnremove" OnClick="lbtnremove_Click" runat="server" CommandArgument='<%# Eval("Id")%>'><img src="../Suppor Group (BG  & Icons)/delete-icon.png" /></asp:LinkButton>
-                                        </div>
+                                           <%-- <div id="deletereport" class="report-delete-btn" runat="server" visible='<%#((Convert.ToInt32(Session["memberId"].ToString()) > 0))?false:true %>'>--%>
+                                                <div id="deletereport" class="report-delete-btn" runat="server" visible='<%# Session["memberId"] != null && Convert.ToInt32(Session["memberId"]) > 0 ? false : true %>'>
+                                                <asp:LinkButton Text="text" ID="lbtnremove" OnClick="lbtnremove_Click" runat="server" CommandArgument='<%# Eval("Id")%>'><img src="../Suppor Group (BG  & Icons)/delete-icon.png" /></asp:LinkButton>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -110,7 +112,10 @@
                 </asp:UpdatePanel>--%>
                 <!-- row -->
             </div>
-            <div id="toast"><div id="img">Icon</div><div id="desc">Report Deleted !</div></div>
+            <div id="toast">
+                <div id="img">Icon</div>
+                <div id="desc">Report Deleted !</div>
+            </div>
         </ContentTemplate>
     </asp:UpdatePanel>
     <%--  </div>--%>

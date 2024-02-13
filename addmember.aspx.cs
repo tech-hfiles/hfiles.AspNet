@@ -69,6 +69,25 @@ namespace hfiles
             }
             //usp_getuserdetailsbyId
         }
+
+        protected void request_Click(object sender, EventArgs e)
+        {
+            using (MySqlConnection connection = new MySqlConnection(this.cs))
+            {
+                connection.Open();
+                using (MySqlCommand mySqlCommand = new MySqlCommand("usp_existingmember", connection))
+                {
+                    mySqlCommand.CommandType = CommandType.StoredProcedure;
+                    mySqlCommand.Parameters.AddWithValue("_hf_number", (object)this.hfnumber.Text);
+                    mySqlCommand.Parameters.AddWithValue("_user_id", (object)Convert.ToInt32(this.Session["Userid"].ToString()));
+                    mySqlCommand.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
+                    mySqlCommand.ExecuteNonQuery();
+                    System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Sent')", true);
+                    connection.Close();
+                }
+            }
+        }
+
         protected void AddMember()
         {
             Random random = new Random();

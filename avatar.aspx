@@ -179,7 +179,6 @@
             .file-input.-chosen > .label {
                 opacity: 1;
             }
-
     </style>
 
     <%--below script for sweetalert --%>
@@ -215,9 +214,9 @@
                                                                 <%--  <img src="../Avatar/add-icon.png" alt=""
                                                                 width="30px" />  --%>
                                                                 <a>
-                                                                <img src="../My Data/default-user-profile.png" alt=""
-                                                                    width="30px" />
-                                                                
+                                                                    <img src="../My Data/default-user-profile.png" alt=""
+                                                                        width="30px" />
+
                                                                     <div>
                                                                         <small class="add-member-name">
                                                                             <asp:LinkButton ID="member1" runat="server" Text='<%#Eval("user_FirstName") %>' OnClick="member1_Click" CommandArgument='<%#Eval("user_Id")+"|"+Eval("user_relation") %>'></asp:LinkButton>
@@ -231,61 +230,8 @@
                                                 </li>
                                             </div>
                                             <div id="listmembers" runat="server">
-                                                <%--<li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
-                                                    <a href="addmember.aspx">
-                                                        <img src="../Avatar/add-icon.png" alt=""
-                                                            width="30px" />
-                                                        <div>
-                                                            <small class="add-member-name">add member</small>
-                                                        </div>
-                                                    </a>
-                                                </li>--%>
                                             </div>
-                                            <%-- <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
-                                                <a href="addmember.aspx">
-                                                    <img src="../Avatar/add-icon.png" alt=""
-                                                        width="30px" />
-                                                    <div>
-                                                        <small class="add-member-name">add member</small>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
-                                                <a href="addmember.aspx">
-                                                    <img src="../Avatar/add-icon.png" alt=""
-                                                        width="30px" />
-                                                    <div>
-                                                        <small class="add-member-name">add member</small>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
-                                                <a href="addmember.aspx">
-                                                    <img src="../Avatar/add-icon.png" alt=""
-                                                        width="30px" />
-                                                    <div>
-                                                        <small class="add-member-name">add member</small>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
-                                                <a href="addmember.aspx">
-                                                    <img src="../Avatar/add-icon.png" alt=""
-                                                        width="30px" />
-                                                    <div>
-                                                        <small class="add-member-name">add member</small>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4">
-                                                <a href="addmember.aspx">
-                                                    <img src="../Avatar/add-icon.png" alt=""
-                                                        width="30px" />
-                                                    <div>
-                                                        <small class="add-member-name">add member</small>
-                                                    </div>
-                                                </a>
-                                            </li>--%>
+
                                         </ul>
                                     </div>
                                 </div>
@@ -429,11 +375,19 @@
                             <%--  <asp:FileUpload ID="FileUpload1" runat="server" required/>--%>
 
                             <label><strong>Select File :</strong></label>
-                            <div class='file-input'>
-                                <asp:FileUpload ID="imageFileUpload1" CssClass="l" runat="server" required />
-                                <span class='button'>Choose</span>
-                                <span class='label' data-js-label>No file selected</label>
-                            </div>
+                            <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+                                <ContentTemplate>
+                                    <div class='file-input'>
+                                        <asp:FileUpload ID="imageFileUpload1" CssClass="l" runat="server" required />
+                                        <span class='button'>Choose</span>
+                                        <span class='label' data-js-label>No file selected</label>
+                                    </div>
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:PostBackTrigger ControlID="btnSubmit" />
+
+                                </Triggers>
+                            </asp:UpdatePanel>
                         </div>
                     </div>
                     <div class="row w-100 my-3" style="width: 100%">
@@ -476,9 +430,9 @@
         </ContentTemplate>
         <Triggers>
             <%--<asp:PostBackTrigger ControlID="btnSubmit" />--%>
-           <%-- <asp:AsyncPostBackTrigger ControlID="repeaterdiv" EventName="Click"/>--%>
-           <asp:AsyncPostBackTrigger ControlID="btnSubmit" EventName="Click"/>
-           <asp:AsyncPostBackTrigger ControlID="btnClose" EventName="Click"/>
+            <%-- <asp:AsyncPostBackTrigger ControlID="repeaterdiv" EventName="Click"/>--%>
+        <%--    <asp:AsyncPostBackTrigger ControlID="btnSubmit" EventName="Click" />--%>
+            <asp:AsyncPostBackTrigger ControlID="btnClose" EventName="Click" />
             <%--            <asp:AsyncPostBackTrigger ControlID="LinkButton1" />--%>
             <%--            <asp:PostBackTrigger ControlID="imageFileUpload1" />--%>
         </Triggers>

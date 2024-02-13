@@ -30,6 +30,7 @@ namespace hfiles
         string cs = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
         string reporturl;
         #endregion
+        string memberRelation;
         protected void Page_Load(object sender, EventArgs e)
         {
             int RId = DAL.validateInt(Request.QueryString["rid"]);
@@ -46,7 +47,16 @@ namespace hfiles
                         //int UserId = DAL.validateInt(Session["Userid"].ToString());
                         int UserId = int.Parse(Session["Userid"].ToString());
                         //Reports(UserId, RId);
-                        UserReports(UserId, RId);
+                        //below condition is added newly for reports access
+                        if (Session["memberId"] == null || Convert.ToInt32(Session["memberId"]) > 0)
+                        {
+                            UserReports(Convert.ToInt32(Session["memberId"]), RId);
+                        }
+                        else
+                        {
+                            UserReports(UserId, RId);
+                        }
+                        //UserReports(UserId, RId);
                     }
                 }
                 //Session[""];
@@ -118,7 +128,6 @@ namespace hfiles
                             divUpload_Doc.Visible = true;
                             rptReports.DataSource = null;
                             rptReports.DataBind();
-
                         }
                     }
                 }
@@ -133,17 +142,35 @@ namespace hfiles
             try
             {
                 int memberId = Convert.ToInt32(Session["memberId"]);
+                if (Session["memberRelation"] == null || Session["memberRelation"] == "")
+                {
+                    memberRelation = "Self";
+                }
+                else
+                {
+                    memberRelation = Session["memberRelation"].ToString();
+                }
+
+                //if (memberRelation == "Son" || memberRelation == "daughter" || memberRelation == "cat" || memberRelation == "Dog" || memberRelation == "GrandFather" || memberRelation == "GrandMother") //&& age < 17 || age > 70
+                //{
+
+                //}
                 if (memberId > 0)
                 {
                     using (MySqlConnection con = new MySqlConnection(cs))
                     {
                         con.Open();
-                        using (MySqlCommand cmd = new MySqlCommand("usp_getreport", con))
+                        using (MySqlCommand cmd = new MySqlCommand("usp_addreportwithaccess", con))
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(memberId));
+                            cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(Session["Userid"].ToString()));/* memberId*/
                             cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(ReportId));
-
+                            cmd.Parameters.AddWithValue("_memberId", DAL.validateInt(UserId));/*UserId*/
+                            cmd.Parameters.AddWithValue("_reportname", "");
+                            cmd.Parameters.AddWithValue("_reporturl", "");
+                            cmd.Parameters.AddWithValue("_SpType", "LR");
+                            cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
+                            cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
                             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                             DataTable dt = new DataTable();
                             da.Fill(dt);
@@ -151,7 +178,7 @@ namespace hfiles
                             {
                                 //if (memberId != Convert.ToInt32(Session["Userid"].ToString()))
                                 //{
-                                   
+
                                 //}
                                 //tcount.InnerHtml = dt.Rows.Count.ToString();
                                 rptReports.DataSource = dt;
@@ -526,7 +553,7 @@ namespace hfiles
                 smtp.Send(email);
                 smtp.Disconnect(true);
             }
-        }        
+        }
 
 
         //public static void SendMail(string Subject, string messageBody, string ToEmail, string attachmentFilePath)
@@ -612,7 +639,7 @@ namespace hfiles
             }
         }
 
-       protected void lbtnShareMail_Click1(object sender, EventArgs e)
+        protected void lbtnShareMail_Click1(object sender, EventArgs e)
         {
             reporturl = Session["reporturl"].ToString();
             System.Net.Mail.MailMessage mailMessage = new System.Net.Mail.MailMessage();

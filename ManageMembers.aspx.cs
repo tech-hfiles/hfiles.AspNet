@@ -18,6 +18,7 @@ namespace hfiles
         protected void Page_Load(object sender, EventArgs e)
         {
             user_members();
+            requests();
         }
 
         protected void user_members()
@@ -90,7 +91,65 @@ namespace hfiles
             // Redirect to addmember.aspx with the user ID as a parameter
             Response.Redirect($"addmember.aspx?UserId={userId}");
         }
+        protected void requests()
+        {
+            using (MySqlConnection connection = new MySqlConnection(this.cs))
+            {
+                connection.Open();
+                using (MySqlCommand selectCommand = new MySqlCommand("usp_getallRequests", connection))
+                {
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.Parameters.AddWithValue("_user_id", (object)DAL.validateInt(this.Session["Userid"]));
+                    MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(selectCommand);
+                    DataTable dataTable = new DataTable();
+                    mySqlDataAdapter.Fill(dataTable);
+                    this.rptRequests.DataSource = (object)dataTable;
+                    this.rptRequests.DataBind();
+                }
+            }
+        }
 
+        protected void acceptBtn_Click(object sender, EventArgs e)
+        {
+            int int16 = (int)Convert.ToInt16((sender as ImageButton).CommandArgument);
+            using (MySqlConnection connection = new MySqlConnection(this.cs))
+            {
+                connection.Open();
+                using (MySqlCommand mySqlCommand = new MySqlCommand("usp_acceptRequest", connection))
+                {
+                    mySqlCommand.CommandType = CommandType.StoredProcedure;
+                    mySqlCommand.Parameters.AddWithValue("_user_id", (object)DAL.validateInt(this.Session["Userid"]));
+                    mySqlCommand.Parameters.AddWithValue("_requestedid", (object)int16);
+                    mySqlCommand.Parameters.AddWithValue("_accepted", (object)1);
+                    mySqlCommand.Parameters.AddWithValue("_rejected", (object)0);
+                    mySqlCommand.ExecuteNonQuery();
+                    connection.Close();
+                    System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Accepted')", true);
+                }
+            }
+        }
+        protected void friendrequests_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+        }
+        protected void rejectBtn_Click(object sender, EventArgs e)
+        {
+            int value = (int)Convert.ToInt16((sender as ImageButton).CommandArgument);
+            using (MySqlConnection connection = new MySqlConnection(this.cs))
+            {
+                connection.Open();
+                using (MySqlCommand mySqlCommand = new MySqlCommand("usp_acceptRequest", connection))
+                {
+                    mySqlCommand.CommandType = CommandType.StoredProcedure;
+                    mySqlCommand.Parameters.AddWithValue("_user_id", (object)DAL.validateInt(this.Session["Userid"]));
+                    mySqlCommand.Parameters.AddWithValue("_requestedid", value);
+                    mySqlCommand.Parameters.AddWithValue("_accepted", (object)0);
+                    mySqlCommand.Parameters.AddWithValue("_rejected", (object)2);
+                    mySqlCommand.ExecuteNonQuery();
+                    connection.Close();
+                    System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Rejected')", true);
+                }
+            }
+        }
         protected void btnAddMember_Click(object sender, EventArgs e)
         {
             //if (result == 1)

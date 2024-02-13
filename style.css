@@ -113,26 +113,26 @@ a {
     color: #ffd101;
 }
 /* scrollbar */
-::-webkit-scrollbar {
+::-webkit-scrollbar, ::-webkit-scrollbar:horizontal {
     width: 5px;
 }
 
 /* Track */
-::-webkit-scrollbar-track {
+::-webkit-scrollbar-track, ::-webkit-scrollbar-track:horizontal {
     background: #f1f1f1;
     border-radius: 50px;
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:horizontal {
     background: #08138f;
     border-radius: 50px;
 }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #081466;
-}
+    ::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:horizontal:hover {
+        background: #081466;
+    }
 
 /* common design */
 .common-design .thm-blue-button {
@@ -236,7 +236,7 @@ input:-webkit-autofill {
         height: 22px;
     }
 .common-heading img {
-    width: 100% !important;
+    width: 128px !important;
     height: 40px !important;
 }
 .footer {

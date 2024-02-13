@@ -213,18 +213,23 @@ namespace hfiles
             int result = 0;
             try
             {
-                int age= Convert.ToInt32(Session["MemberAge"].ToString());
-                
+                //int age= Convert.ToInt32(Session["MemberAge"].ToString());
+                int age = 0;
+
                 using (MySqlConnection con = new MySqlConnection(cs))
                 {
                     con.Open();
-                    using (MySqlCommand cmd = new MySqlCommand("usp_addreport", con))
+                    using (MySqlCommand cmd = new MySqlCommand("usp_addreportwithaccess", con))
                     {
                         //if (memberId > 0)
-                        if(Session["memberRelation"].ToString() == "Son"|| Session["memberRelation"].ToString() == "daughter" || Session["memberRelation"].ToString() == "Cat" || Session["memberRelation"].ToString() == "Dog" || Session["memberRelation"].ToString() == "GrandFather" || Session["memberRelation"].ToString() == "GrandMother" || Session["memberRelation"].ToString() == "Son" && age<17||age>70)
+                        if (Session["memberRelation"] == null)
+                        {
+                            Session["memberRelation"] = "Self";
+                        }
+                        if (Session["memberRelation"].ToString() == "Self" || Session["memberRelation"].ToString() == "Son" || Session["memberRelation"].ToString() == "daughter" || Session["memberRelation"].ToString() == "cat" || Session["memberRelation"].ToString() == "Dog" || Session["memberRelation"].ToString() == "GrandFather" || Session["memberRelation"].ToString() == "GrandMother" || Session["memberRelation"].ToString() == "Son" && age < 17 || age > 70)
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Parameters.AddWithValue("_UserId", memberId);
+                            cmd.Parameters.AddWithValue("_UserId", UserId);
                             cmd.Parameters.AddWithValue("_reportname", reportname);
                             cmd.Parameters.AddWithValue("_reporturl", reporturl);
                             cmd.Parameters.AddWithValue("_reportId", reportId);
@@ -240,7 +245,7 @@ namespace hfiles
                             //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
                             Session["memberId"] = 0;
                         }
-                        else if(memberId==UserId)
+                        else if (memberId == UserId)
                         {
                             //using (MySqlCommand cmd = new MySqlCommand("usp_addreport", con))
                             //{
@@ -262,11 +267,30 @@ namespace hfiles
                         }
                         else
                         {
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You don't have permission to add reports for this member')", true);
+                            //using (MySqlCommand cmd = new MySqlCommand("usp_addreport", con))
+                            //{
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("_UserId", UserId);
+                            cmd.Parameters.AddWithValue("_reportname", reportname);
+                            cmd.Parameters.AddWithValue("_reporturl", reporturl);
+                            cmd.Parameters.AddWithValue("_reportId", reportId);
+                            // cmd.Parameters.AddWithValue("_memberId", memberId);
+                            cmd.Parameters.AddWithValue("_memberId", memberIdList);
+                            cmd.Parameters.AddWithValue("_SpType", "C");
+                            cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
+                            cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
+                            cmd.ExecuteNonQuery();
+                            int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
+                            result = DAL.validateInt(retVal);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Added Successfully')", true);
+                            //else
+                            //{
+                            //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You don't have permission to add reports for this member')", true);
+                            //}
                         }
                     }
+                    showmembersdiv();
                 }
-                showmembersdiv();
             }
             catch (Exception Ex)
             {
@@ -477,10 +501,11 @@ namespace hfiles
                 using (MySqlConnection con = new MySqlConnection(cs))
                 {
                     con.Open();
-                    using (MySqlCommand cmd = new MySqlCommand("usp_getMembers", con))
+                    using (MySqlCommand cmd = new MySqlCommand("usp_getmember", con)) /*usp_getMembers*/
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("_UserId", UserId);
+                        cmd.Parameters.AddWithValue("_MemberId", 0);
                         cmd.ExecuteNonQuery();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();

@@ -190,9 +190,9 @@
         crossorigin="anonymous"></script>
     <script>
         // Function to open the modal and backdrop when the page renders
-        window.onload = function () {
-            openModal();
-        };
+        //window.onload = function () {
+        //    openModal();
+        //};
 
         // Function to open the modal and backdrop
         function openModal() {

@@ -33,7 +33,7 @@ namespace hfiles
                 //rm = new ResourceManager("hfiles.App_GlobalResources.Strings", Assembly.Load("App_GlobalResources"));
                 ci = Thread.CurrentThread.CurrentCulture;
                 //LoadString(ci);
-                //Session["Userid"] = 20; Response.Redirect("~/samanta.aspx");
+                //Session["Userid"] = 126; Response.Redirect("~/samanta.aspx");
                 if (Session["Userid"] != null)
                 {
                     var sessionuserid = Session["Userid"];

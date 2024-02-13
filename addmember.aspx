@@ -15,8 +15,8 @@
     <title>Add Members</title>
     <style>
         /* *{
-            border:1px solid #000;
-        }*/
+        border:1px solid #000;
+    }*/
         body {
             overflow-x: hidden
         }
@@ -26,6 +26,13 @@
             background: #fff;
             box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
             border-radius: 50px;
+            width: 100%;
+        }
+
+        @media (max-width: 1400px) {
+            .member-type-tabs {
+                font-size: smaller;
+            }
         }
 
         .tab-content {
@@ -34,6 +41,28 @@
 
         .active-tab {
             display: block;
+        }
+
+        .member-type-tabs {
+            cursor: pointer;
+        }
+
+        .active-tab-label {
+            background: #0331b5 !important;
+            color: #fff;
+        }
+
+        .request-btn {
+            padding: 15px 50px;
+            border-radius: 50px;
+            border: 0;
+            outline: 0;
+            background-image: linear-gradient(to right, #0512B9 0%, #081466 100%);
+            color: #ffffff;
+            cursor: pointer;
+            margin-top: 20px;
+            font-family: 'Red Hat Display' !important;
+            font-weight: 700;
         }
     </style>
 </asp:Content>
@@ -64,69 +93,72 @@
                             <div class="w-75">
                                 <div class="row mb-2">
                                     <div class="col-6">
-                                        <label id="addNewMemberTab" class="member-type-tabs" onclick="showTab('abc')"><strong>Add New Member</strong></label>
+                                        <label id="addNewMemberTab" class="member-type-tabs active-tab-label" onclick="showTab('abc', 'addNewMemberTab')"><strong>Add New Member</strong></label>
                                     </div>
                                     <div class="col-6">
-                                        <label id="addExisitingMemberTab" class="member-type-tabs" onclick="showTab('xyz')"><strong>Add Existing Member</strong></label>
+                                        <label id="addExisitingMemberTab" class="member-type-tabs" onclick="showTab('xyz', 'addExisitingMemberTab')"><strong>Add Existing Member</strong></label>
                                     </div>
                                 </div>
                                 <div id="abc" class="tab-content active-tab">
-                                    <!-- Content for addNewMemberTab -->
-                                    <p>Add New Member Content Here</p>
+                                    <div class="mt-2">
+                                        <input type="text" id="firstnameTextBox" runat="server" placeholder="First Name" />
+                                    </div>
+                                    <div class="">
+                                        <input type="text" id="lastnameTextBox" runat="server" placeholder="Last Name" />
+                                    </div>
+                                    <div id="relation-input" class="">
+                                        <asp:HiddenField runat="server" ID="hfMemberType" />
+                                        <div class="relation-div">
+                                            <%-- <span class="fa-solid fa-earth-americas form-control-feedback"></span>--%>
+                                            <select id="relation" runat="server" class="form-select form-control relation-select"
+                                                aria-label="Default select example" onchange="handleRelation()">
+                                                <option selected disabled>Relation</option>
+                                                <option value="father">Father</option>
+                                                <option value="mother">Mother</option>
+                                                <option value="sister">Sister</option>
+                                                <option value="brother">Brother</option>
+                                                <option value="son">Son</option>
+                                                <option value="daughter">Daughter</option>
+                                                <option value="wife">Wife</option>
+                                                <option value="husband">Husband</option>
+                                                <option value="grandMother">Grand Mother</option>
+                                                <option value="grandFather">Grand Father</option>
+                                                <option value="friend">Friend</option>
+                                                <%--<option value="pet">Pet</option>--%>
+                                                <option value="cat">Cat</option>
+                                                <option value="dog">Dog</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <input class="date-input" type="date" id="dobTextBox1" runat="server" />
+                                    </div>
+                                    <div class="">
+                                        <input class="email-input" id="emailTextBox" runat="server" type="email" placeholder="Email ID" />
+                                    </div>
+                                    <div class="">
+                                        <input id="phoneTextBox" runat="server" type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
+                                    </div>
+
+                                    <%--  <div class="">
+     <input class="number-input" id="default-number" type="number" placeholder="default number." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
+</div>--%>
+                                    <div class="btn-div">
+                                        <%--<asp:Button runat="server" Text="Submit" CssClass="btn submit-btn" ID="btnSubmit"></asp:Button>--%>
+                                        <%-- <button id="back-btn"  class="btn thm-back-button mx-3">Back</button>--%>
+                                        <button runat="server" id="btn_Submit" onserverclick="btn_Submit_ServerClick" class="btn submit-btn">Submit</button>
+                                    </div>
                                 </div>
 
                                 <div id="xyz" class="tab-content">
-                                    <!-- Content for addExisitingMemberTab -->
-                                    <p>Add Existing Member Content Here</p>
-                                </div>
-                                <div class="">
-                                    <input type="text" id="firstnameTextBox" runat="server" placeholder="First Name" />
-                                </div>
-                                <div class="">
-                                    <input type="text" id="lastnameTextBox" runat="server" placeholder="Last Name" />
-                                </div>
-                                <div id="relation-input" class="">
-                                    <asp:HiddenField runat="server" ID="hfMemberType" />
-                                    <div class="relation-div">
-                                        <%-- <span class="fa-solid fa-earth-americas form-control-feedback"></span>--%>
-                                        <select id="relation" runat="server" class="form-select form-control relation-select"
-                                            aria-label="Default select example" onchange="handleRelation()">
-                                            <option selected disabled>Relation</option>
-                                            <option value="father">Father</option>
-                                            <option value="mother">Mother</option>
-                                            <option value="sister">Sister</option>
-                                            <option value="brother">Brother</option>
-                                            <option value="son">Son</option>
-                                            <option value="daughter">Daughter</option>
-                                            <option value="wife">Wife</option>
-                                            <option value="husband">Husband</option>
-                                            <option value="grandMother">Grand Mother</option>
-                                            <option value="grandFather">Grand Father</option>
-                                            <option value="friend">Friend</option>
-                                            <%--<option value="pet">Pet</option>--%>
-                                            <option value="cat">Cat</option>
-                                            <option value="dog">Dog</option>
-                                        </select>
+                                    <div class="mt-5">
+                                        <asp:TextBox type="text" ID="hfnumber" runat="server" placeholder="Enter HFiles ID" />
+                                    </div>
+                                    <div class="btn-div">
+                                        <asp:Button runat="server" ID="request" Text="Send Request" OnClick="request_Click" class="btn submit-btn request-btn"></asp:Button>
                                     </div>
                                 </div>
-                                <div class="">
-                                    <input class="date-input" type="date" id="dobTextBox1" runat="server" />
-                                </div>
-                                <div class="">
-                                    <input class="email-input" id="emailTextBox" runat="server" type="email" placeholder="Email ID" />
-                                </div>
-                                <div class="">
-                                    <input id="phoneTextBox" runat="server" type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
-                                </div>
 
-                                <%--  <div class="">
-                             <input class="number-input" id="default-number" type="number" placeholder="default number." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
-                        </div>--%>
-                                <div class="btn-div">
-                                    <%--<asp:Button runat="server" Text="Submit" CssClass="btn submit-btn" ID="btnSubmit"></asp:Button>--%>
-                                    <%-- <button id="back-btn"  class="btn thm-back-button mx-3">Back</button>--%>
-                                    <button runat="server" id="btn_Submit" onserverclick="btn_Submit_ServerClick" class="btn submit-btn">Submit</button>
-                                </div>
                             </div>
                         </div>
 
@@ -154,15 +186,21 @@
     </div>
     <script>
 
-        function showTab(tabId) {
-            // Hide all tabs
+        function showTab(tabId, tabLabelId) {
+            // Hide all tabs and remove active-tab class from labels
             var tabs = document.getElementsByClassName('tab-content');
             for (var i = 0; i < tabs.length; i++) {
                 tabs[i].classList.remove('active-tab');
             }
 
-            // Show the selected tab
+            var labels = document.getElementsByClassName('member-type-tabs');
+            for (var i = 0; i < labels.length; i++) {
+                labels[i].classList.remove('active-tab-label');
+            }
+
+            // Show the selected tab and update label style
             document.getElementById(tabId).classList.add('active-tab');
+            document.getElementById(tabLabelId).classList.add('active-tab-label');
         }
         //let selected = true
         //var relation = ''
