@@ -8,118 +8,118 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
-        integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
-        integrity="sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
-        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css"
-        integrity="sha512-P9pgMgcSNlLb4Z2WAB2sH5KBKGnBfyJnq+bhcfLCFusrRc4XdXrhfDluBl/usq75NF5gTDIMcwI1GaG5gju+Mw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="<%= ResolveUrl("style.css") %>" />
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
+    integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+    integrity="sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+    integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css"
+    integrity="sha512-P9pgMgcSNlLb4Z2WAB2sH5KBKGnBfyJnq+bhcfLCFusrRc4XdXrhfDluBl/usq75NF5gTDIMcwI1GaG5gju+Mw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="<%= ResolveUrl("style.css") %>" />
+  <title>Document</title>
 
-    <style>
-        .footer {
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+  <style>
+    .footer {
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <%--<body class="download-documents">--%>
-    <asp:UpdatePanel runat="server">
-        <ContentTemplate>
-            <asp:ScriptManager runat="server" />
-            <div class="container-fluid download-doc-inner my-5" style="min-height: 80vh;">
-                <div class="heading-title mb-3 py-1 px-5">
-                    <div class="row">
-                        <div class="col-md-6 py-3 d-md-flex justify-content-between align-items-center">
-                            <a class="" href="avatar.aspx">
-                                <img src="../assets/back-arrow.png" alt=""></a>
-                            <%--<h1 class="heading">Documents</h1>--%>
-                            <asp:Label ID="lblReportType" runat="server" CssClass="report-page-title" Text="" />
+  <%--<body class="download-documents">--%>
+  <asp:UpdatePanel runat="server">
+    <ContentTemplate>
+      <asp:ScriptManager runat="server" />
+      <div class="container-fluid download-doc-inner my-5" style="min-height: 80vh;">
+        <div class="heading-title mb-3 py-1 px-5">
+          <div class="row">
+            <div class="col-md-6 py-3 d-md-flex justify-content-between align-items-center">
+              <a class="" href="avatar.aspx">
+                <img src="../assets/back-arrow.png" alt=""></a>
+              <%--<h1 class="heading">Documents</h1>--%>
+              <asp:Label ID="lblReportType" runat="server" CssClass="report-page-title" Text="" />
 
-                        </div>
-                        <div class="col-md-6 text-center py-3 search-file">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <asp:TextBox ID="SearchInput" OnTextChanged="SearchInput_TextChanged" AutoPostBack="true" runat="server" />
-                        </div>
-                    </div>
-                </div>
-                <%--<asp:UpdatePanel ID="uplReports" runat="server">
+            </div>
+            <div class="col-md-6 text-center py-3 search-file">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <asp:TextBox ID="SearchInput" OnTextChanged="SearchInput_TextChanged" AutoPostBack="true" runat="server" />
+            </div>
+          </div>
+        </div>
+        <%--<asp:UpdatePanel ID="uplReports" runat="server">
                     <ContentTemplate>--%>
 
-                <div class="doc-pdf py-5 h-100">
-                    <div class="container">
-                        <div id="divUpload_Doc" style="display: block" runat="server">
-                            <div class="row justify-content-center">
-                                <div class="col-md-5">
-                                    <a href="avatar.aspx">
-                                        <img src="../Avatar/file-not-found-new.jpg" class="card-img-top" alt="pdf-thumbnail" width="90%"></a>
-                                    <h2 class="text-center">No File Found</h2>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="row mb-5">
-                            <asp:Repeater ID="rptReports" runat="server">
-                                <ItemTemplate>
-                                    <div class="col-md-4 col-lg-3 my-2">
-
-                                        <div class="card text-start px-3">
-
-                                            <img src="../assets/pdf-doc.png" class="card-img-top" alt="pdf-thumbnail">
-                                            <div class="card-body">
-                                                <h5 class="card-title"><strong>Name: </strong><%# Eval("ReportName") %></h5>
-                                                <p class="card-text"><strong>Date: </strong><%# Eval("CreatedDate") %> </p>
-
-                                                <div class="text-center">
-                                                    <a href="<%# ResolveUrl( string.Format("~/upload/report/{0}", Eval("ReportUrl"))) %>" target="_blank" class="btn btn-sm btn-primary" style="align-self: center">View File</a>
-                                                </div>
-                                                <asp:LinkButton ID="lbtnShare" runat="server" OnClick="lbtnShare_Click" CommandArgument='<%# Eval("Id")%>'></asp:LinkButton>
-                                                <%--  <asp:LinkButton ID="lbtnShareMail" runat="server" OnCommand="btnShareEmail_Command" OnClick="lbtnShareMail_Click1" CommandArgument='<%# Eval("Id")%>'>
-                                                    <img class="report-share-icon" src="../assets/gmail.png" />
-                                                </asp:LinkButton>--%>
-                                            </div>
-
-                                           <%-- <div id="deletereport" class="report-delete-btn" runat="server" visible='<%#((Convert.ToInt32(Session["memberId"].ToString()) > 0))?false:true %>'>--%>
-                                                <div id="deletereport" class="report-delete-btn" runat="server" visible='<%# Session["memberId"] != null && Convert.ToInt32(Session["memberId"]) > 0 ? false : true %>'>
-                                                <asp:LinkButton Text="text" ID="lbtnremove" OnClick="lbtnremove_Click" runat="server" CommandArgument='<%# Eval("Id")%>'><img src="../Suppor Group (BG  & Icons)/delete-icon.png" /></asp:LinkButton>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </ItemTemplate>
-                            </asp:Repeater>
-                        </div>
-                    </div>
-
+        <div class="doc-pdf py-5 h-100">
+          <div class="container">
+            <div id="divUpload_Doc" style="display: block" runat="server">
+              <div class="row justify-content-center">
+                <div class="col-md-5">
+                  <a href="avatar.aspx">
+                    <img src="../Avatar/file-not-found-new.jpg" class="card-img-top" alt="pdf-thumbnail" width="90%"></a>
+                  <h2 class="text-center">No File Found</h2>
                 </div>
 
-                <%--</ContentTemplate>
+              </div>
+            </div>
+            <div class="row mb-5">
+              <asp:Repeater ID="rptReports" runat="server">
+                <ItemTemplate>
+                  <div class="col-md-4 col-lg-3 my-2">
+
+                    <div class="card text-start px-3">
+
+                      <img src="../assets/pdf-doc.png" class="card-img-top" alt="pdf-thumbnail">
+                      <div class="card-body">
+                        <h5 class="card-title"><strong>Name: </strong><%# Eval("ReportName") %></h5>
+                        <p class="card-text"><strong>Date: </strong><%# Eval("CreatedDate") %> </p>
+
+                        <div class="text-center">
+                          <a href="<%# ResolveUrl( string.Format("~/upload/report/{0}", Eval("ReportUrl"))) %>" target="_blank" class="btn btn-sm btn-primary" style="align-self: center">View File</a>
+                        </div>
+                        <asp:LinkButton ID="lbtnShare" runat="server" OnClick="lbtnShare_Click" CommandArgument='<%# Eval("Id")%>'></asp:LinkButton>
+                        <%--  <asp:LinkButton ID="lbtnShareMail" runat="server" OnCommand="btnShareEmail_Command" OnClick="lbtnShareMail_Click1" CommandArgument='<%# Eval("Id")%>'>
+                                                    <img class="report-share-icon" src="../assets/gmail.png" />
+                                                </asp:LinkButton>--%>
+                      </div>
+
+                      <%-- <div id="deletereport" class="report-delete-btn" runat="server" visible='<%#((Convert.ToInt32(Session["memberId"].ToString()) > 0))?false:true %>'>--%>
+                      <div id="deletereport" class="report-delete-btn" runat="server" visible='<%# Session["memberId"] != null && Convert.ToInt32(Session["memberId"]) > 0 ? false : true %>'>
+                        <asp:LinkButton Text="text" ID="lbtnremove" OnClick="lbtnremove_Click" runat="server" CommandArgument='<%# Eval("Id")%>'><img src="../Suppor Group (BG  & Icons)/delete-icon.png" /></asp:LinkButton>
+                      </div>
+                    </div>
+                  </div>
+
+                </ItemTemplate>
+              </asp:Repeater>
+            </div>
+          </div>
+
+        </div>
+
+        <%--</ContentTemplate>
                 </asp:UpdatePanel>--%>
-                <!-- row -->
-            </div>
-            <div id="toast">
-                <div id="img">Icon</div>
-                <div id="desc">Report Deleted !</div>
-            </div>
-        </ContentTemplate>
-    </asp:UpdatePanel>
-    <%--  </div>--%>
-    <%-- <div class="footer d-flex justify-content-around">
+        <!-- row -->
+      </div>
+      <div id="toast">
+        <div id="img"><img src="assets/h-file-logo-white.png" /></div>
+        <div id="desc"></div>
+      </div>
+    </ContentTemplate>
+  </asp:UpdatePanel>
+  <%--  </div>--%>
+  <%-- <div class="footer d-flex justify-content-around">
         <div class="t-c">
             <a href="#">Terms & Conditions</a>
         </div>
@@ -131,13 +131,15 @@
         </div>
     </div>--%>
 
-    <%--</body>--%>
-    <script>
-        function launch_toast() {
-            var x = document.getElementById("toast")
-            x.className = "show";
-            setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
-        }
+  <%--</body>--%>
+  <script>
+    function launch_toast(message,icon) {
+      var x = document.getElementById("toast")
+      x.className = "show";
+      document.getElementById("img").innerHTML = "<img src='" + icon + "' />"; // Set the message
+      document.getElementById("desc").innerHTML = message; // Set the message
+      setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
+    }
         //launch_toast()
-    </script>
+  </script>
 </asp:Content>
