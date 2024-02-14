@@ -64,6 +64,14 @@
             font-family: 'Red Hat Display' !important;
             font-weight: 700;
         }
+        @media (max-width: 2000px) and (min-width: 1000px) {
+            .footer {
+                position:relative;
+            }
+            .blue-t-bottom-right {
+                position: relative;
+            }
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -86,10 +94,10 @@
                         </div>
                     </div>
                     <div class="row input-group">
-                        <div class="col-12 col-md-7 d-none d-md-block">
+                        <div class="col-12 col-md-5 col-lg-6 d-none d-md-block">
                             <img src="../Add Members/addmember-avatar.png" width="80%" />
                         </div>
-                        <div class="col-12 col-md-5 d-flex justify-content-center">
+                        <div class="col-12 col-md-7 col-lg-6 d-flex justify-content-center">
                             <div class="w-75">
                                 <div class="row mb-2">
                                     <div class="col-6">

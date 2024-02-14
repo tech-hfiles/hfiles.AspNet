@@ -537,7 +537,7 @@ input:-webkit-autofill {
     position: absolute;
     right: 10px;
     top: 10px;
-    width: 100px;
+    width: 155px;
     color: #ffffffff;
 }
 
@@ -592,7 +592,7 @@ span {
     padding: 0 !important;
     border-radius: 5px;
     color: #ffffff !important;
-    width: 80px;
+    width: 100%;
     scroll-behavior: smooth;
     outline: none;
     background: transparent;

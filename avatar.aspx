@@ -179,6 +179,12 @@
             .file-input.-chosen > .label {
                 opacity: 1;
             }
+
+        @media (max-width: 2000px) and (min-width: 1000px) {
+            .footer {
+                position: relative;
+            }
+        }
     </style>
 
     <%--below script for sweetalert --%>
@@ -431,7 +437,7 @@
         <Triggers>
             <%--<asp:PostBackTrigger ControlID="btnSubmit" />--%>
             <%-- <asp:AsyncPostBackTrigger ControlID="repeaterdiv" EventName="Click"/>--%>
-        <%--    <asp:AsyncPostBackTrigger ControlID="btnSubmit" EventName="Click" />--%>
+            <%--    <asp:AsyncPostBackTrigger ControlID="btnSubmit" EventName="Click" />--%>
             <asp:AsyncPostBackTrigger ControlID="btnClose" EventName="Click" />
             <%--            <asp:AsyncPostBackTrigger ControlID="LinkButton1" />--%>
             <%--            <asp:PostBackTrigger ControlID="imageFileUpload1" />--%>

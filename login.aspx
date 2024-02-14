@@ -63,7 +63,7 @@
         <asp:HiddenField runat="server" ID="hfId" />
         <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-block p-0">
 
-            <img src="../assets/login-samanta.png" alt="" style="width: 100%;">
+            <img src="../assets/login-samanta.png" alt="" style="width: 100%; height: 100vh" />
         </div>
         <div class="col-sm-12 col-lg-6 inner-main p-0">
             <div class="d-flex align-items-center justify-content-center h-100 inner-body">
@@ -120,8 +120,7 @@
                         <input type="button" id="changeLoginMode" value="Login with Password" class="btn thm-button my-2" onclick="handleLogin()" />
                     </div>
 
-                    <div class="text-center resend-otp-div">
-                        <br />
+                    <div class="text-center resend-otp-div mt-lg-3">
                         <span style="color: #fff">New User? Click <a style="color: #fdd001; font-weight: 700" href="signup.aspx">here</a> to Signup</span>
                     </div>
                 </div>
@@ -130,15 +129,17 @@
 
         <div class="row footer justify-content-around align-items-center m-0 mr-0">
             <div class="col-4 t-c d-xl-flex justify-content-center text-center">
-                <p class="m-0"><a class="px-lg-3" href="tc.aspx">Terms & Conditions</a></p>
+                <p class="m-0"><a href="tc.aspx">Terms & Conditions</a></p>
+                <div class="d-none d-lg-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
                 <p class="m-0"><a href="privacypolicy.aspx">Privacy & Policy</a></p>
             </div>
 
             <div class="col-4 copy-right text-center p-0">
-                <span>Copyright@2023</span>
+                <span><a href="#" class="text-white">FAQ's</a></span>
             </div>
             <div class="col-4 p-p d-xl-flex text-center">
-                <p class="m-0"><a class="px-xl-3" href="https://wa.me/919930372831"><i class="fa-brands fa-whatsapp"></i>&nbsp; +91-9930372831</a></p>
+                <p class="m-0"><a href="https://wa.me/919930372831"><i class="fa fa-brands fa-whatsapp"></i>&nbsp; +91-9930372831</a></p>
+                <div class="d-none d-lg-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
                 <p class="m-0"><a class="" href="mailto:contact@hfiles.in"><i class="fa fa-solid fa-envelope"></i>&nbsp; contact@hfiles.in</a></p>
 
             </div>

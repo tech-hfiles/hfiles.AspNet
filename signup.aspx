@@ -92,7 +92,7 @@
 
                             <h3 class="color-white">SIGN UP</h3>
                         </div>
-                        <div class="row signin-form form-group has-search text-center ">
+                        <div class="row signin-form form-group has-search text-center justify-content-center ">
                             <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1 input-div">
                                 <i class="fa-solid fa-user form-control-feedback"></i>
                                 <!-- <span class="fa fa-user form-control-feedback"></span> -->
@@ -128,7 +128,7 @@
 
                             </div>
 
-                            <div class="col-12 col-md-12 col-lg-12 col-xl-12 px-1 password-div input-div">
+                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1 password-div input-div">
                                 <i class="fa-solid fa-lock form-control-feedback"></i>
                                 <asp:TextBox ID="cpwdTextBox" runat="server" type="password" class="form-control my-2" placeholder="Confirm Password" required />
                                 <i id="passwordView2" class="fa-solid fa-eye-slash hide-password-toggal"></i>
@@ -175,7 +175,8 @@
 
             <div class="row footer justify-content-around align-items-center m-0">
                 <div class="col-4 t-c d-xl-flex justify-content-center text-center">
-                    <p class="m-0"><a class="px-lg-3" href="TermsAndConditions.aspx">Terms & Conditions</a></p>
+                    <p class="m-0"><a href="TermsAndConditions.aspx">Terms & Conditions</a></p>
+                     <div class="d-none d-lg-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
                     <p class="m-0"><a href="Policy.aspx">Privacy & Policy</a></p>
                 </div>
 
@@ -183,7 +184,9 @@
                     <span>Copyright@2023</span>
                 </div>
                 <div class="col-4 p-p d-xl-flex text-center">
-                    <p class="m-0"><a class="px-xl-3" href="https://wa.me/919930372831"><i class="fa-brands fa-whatsapp"></i>&nbsp; +91-9930372831</a></p>
+                    <p class="m-0"><a 
+                        href="https://wa.me/919930372831"><i class="fa-brands fa-whatsapp"></i>&nbsp; +91-9930372831</a></p>
+                     <div class="d-none d-lg-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
                     <p class="m-0"><a class="" href="mailto:contact@hfiles.in"><i class="fa fa-solid fa-envelope"></i>&nbsp; contact@hfiles.in</a></p>
 
                 </div>
