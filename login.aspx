@@ -48,22 +48,11 @@
 
 <body style="overflow: hidden;">
 
-    <%--<div id="" class="language">
-        <details>
-            <summary>language</summary>
-
-            <ul id="language">
-                <li>English</li>
-            </ul>
-        </details>
-
-    </div>--%>
     <form class="row h-100 align-ceter h-sm-100vh" runat="server">
         <div id="google_translate_element" class="language"></div>
         <asp:HiddenField runat="server" ID="hfId" />
-        <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-block p-0">
-
-            <img src="../assets/login-samanta.png" alt="" style="width: 100%; height: 100vh" />
+        <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-block px-5">
+            <img src="../assets/login-samanta-w-bg.png" alt="" style="width: 100%; height: 80vh; object-fit:contain" />
         </div>
         <div class="col-sm-12 col-lg-6 inner-main p-0">
             <div class="d-flex align-items-center justify-content-center h-100 inner-body">

@@ -244,13 +244,13 @@
                             <div class="col-lg-6 col-md-6 col-4">
                                 <p>Type</p>
                             </div>
-                            <div class="col-lg-2 col-2 text-center">
+                            <div class="col-md-2 col-2 text-center">
                                 <p>Myself</p>
                             </div>
-                            <div class="col-lg-2 col-3 text-center">
+                            <div class="col-md-2 col-3 text-center">
                                 <p>Mother Side's</p>
                             </div>
-                            <div class="col-lg-2 col-3 text-center">
+                            <div class="col-md-2 col-3 text-center">
                                 <p>Father Side's</p>
                             </div>
                         </div>

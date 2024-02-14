@@ -52,6 +52,9 @@
                 width: 100%;
                 padding: 10px
             }
+            .signin-main .vert-cent {
+                min-height: 95vh;
+            }
         }
 
     </style>
@@ -76,12 +79,12 @@
               <div id="google_translate_element" class="language"></div>
             <asp:ScriptManager ID="scmSignUp" runat="server"></asp:ScriptManager>
 
-            <div class="row vert-cent w-100 h-sm-100vh m-0">
-                <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image h-lg-100vh d-none d-md-block">
-                    <img src="<%= ResolveUrl("~/Reception Page/002A.jpg") %>" alt="" width="100%" height="100%" />
+            <div class="row vert-cent w-100 h-sm-100vh m-0 ">
+                <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image h-lg-100vh d-none d-lg-block px-5" style="background:#fff">
+                    <img src="<%= ResolveUrl("~/Reception Page/signup-samanta.png") %>" alt="" style="width: 100%; height: 90%; object-fit:contain" />
                 </div>
 
-                <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 px-5 d-flex justify-content-center align-items-center vh-lg-100"
+                <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12 px-5 d-flex justify-content-center align-items-center vh-lg-100"
                     style="background-image: url('<%= ResolveUrl("~/Reception Page/002B.png") %>'); background-repeat:no-repeat; background-size:cover;">
                     <div>
                         <div class="text-center signin-heading">
@@ -93,31 +96,31 @@
                             <h3 class="color-white">SIGN UP</h3>
                         </div>
                         <div class="row signin-form form-group has-search text-center justify-content-center ">
-                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1 input-div">
+                            <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
                                 <i class="fa-solid fa-user form-control-feedback"></i>
                                 <!-- <span class="fa fa-user form-control-feedback"></span> -->
                                 <input id="firstnameTextBox" runat="server" required type="text" class="form-control my-2" placeholder="Name" />
                             </div>
-                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1 input-div">
+                            <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
                                 <i class="fa-solid fa-user form-control-feedback"></i>
                                 <input id="lastnameTextBox" runat="server" type="text" class="form-control my-2" placeholder="Last Name" required />
                             </div>
 
-                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1 input-div">
+                            <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
                                 <i class="fa-solid fa-cake-candles form-control-feedback"></i>
                                 <input runat="server" id="dobTextBox1" type="date" class="form-control my-2" placeholder="Date Of Birth" required />
                             </div>
 
-                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1 input-div">
+                            <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
                                 <i class="fa-solid fa-phone-volume form-control-feedback"></i>
                                 <input type="number" id="phoneTextBox" runat="server" class="form-control my-2" placeholder="Phone No" required />
                             </div>
-                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1 input-div">
+                            <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
                                 <i class="fa-regular fa-envelope form-control-feedback"></i>
                                 <input id="emailTextBox" runat="server" type="email" class="form-control my-2" placeholder="Email ID" required />
                             </div>
 
-                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1 password-div input-div">
+                            <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 password-div input-div">
                                 <i class="fa-solid fa-lock form-control-feedback"></i>
                                 <asp:UpdatePanel ID="uplSignUp" runat="server">
                                     <ContentTemplate>
@@ -128,12 +131,12 @@
 
                             </div>
 
-                            <div class="col-12 col-md-12 col-lg-6 col-xl-6 px-1 password-div input-div">
+                            <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 password-div input-div">
                                 <i class="fa-solid fa-lock form-control-feedback"></i>
                                 <asp:TextBox ID="cpwdTextBox" runat="server" type="password" class="form-control my-2" placeholder="Confirm Password" required />
                                 <i id="passwordView2" class="fa-solid fa-eye-slash hide-password-toggal"></i>
-                                <asp:RequiredFieldValidator ControlToValidate="cpwdTextBox" ErrorMessage="Please Enter Confirm Password" runat="server" ForeColor="White"></asp:RequiredFieldValidator>
-                                <asp:CompareValidator ControlToValidate="cpwdTextBox" ControlToCompare="pwdTextBox" ErrorMessage="Password and Confirm Password should be same" runat="server" ForeColor="White"></asp:CompareValidator>
+                               <%-- <asp:RequiredFieldValidator ControlToValidate="cpwdTextBox" ErrorMessage="Please Enter Confirm Password" runat="server" ForeColor="White"></asp:RequiredFieldValidator Display="">
+                                <asp:CompareValidator ControlToValidate="cpwdTextBox" ControlToCompare="pwdTextBox" ErrorMessage="Password and Confirm Password should be same" runat="server" ForeColor="White"></asp:CompareValidator>--%>
                             </div>
 
                         </div>
@@ -176,7 +179,7 @@
             <div class="row footer justify-content-around align-items-center m-0">
                 <div class="col-4 t-c d-xl-flex justify-content-center text-center">
                     <p class="m-0"><a href="TermsAndConditions.aspx">Terms & Conditions</a></p>
-                     <div class="d-none d-lg-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
+                     <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
                     <p class="m-0"><a href="Policy.aspx">Privacy & Policy</a></p>
                 </div>
 
@@ -186,7 +189,7 @@
                 <div class="col-4 p-p d-xl-flex text-center">
                     <p class="m-0"><a 
                         href="https://wa.me/919930372831"><i class="fa-brands fa-whatsapp"></i>&nbsp; +91-9930372831</a></p>
-                     <div class="d-none d-lg-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
+                     <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
                     <p class="m-0"><a class="" href="mailto:contact@hfiles.in"><i class="fa fa-solid fa-envelope"></i>&nbsp; contact@hfiles.in</a></p>
 
                 </div>

@@ -185,6 +185,22 @@
                 position: relative;
             }
         }
+
+        @media (max-width: 1200px) {
+            .all-member-avatar-img {
+                position: relative;
+            }
+
+                .all-member-avatar-img img {
+                    position: absolute;
+                    top: 200px;
+                    left: 0px;
+                }
+
+            .avatar {
+                background-position-y: 20%;
+            }
+        }
     </style>
 
     <%--below script for sweetalert --%>
@@ -209,7 +225,7 @@
                                                     <asp:Label Text="" ID="lblUserName" runat="server" Style="font-family: 'Red Hat Display', sans-serif" /></span></li>
 
 
-                                            <br />
+                                            <%--<br />--%>
                                             <div id="repeaterdiv" runat="server">
                                                 <li class="border-bottom w-100px text-center mb-2 mb-lg-3 mb-xxl-4">
                                                     <asp:Repeater ID="rptMember" runat="server" OnItemDataBound="rptMember_ItemDataBound">
@@ -241,7 +257,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="col-6 d-flex align-items-end justify-content-end">
+                                <div class="col-6 d-flex align-items-end justify-content-end all-member-avatar-img">
                                     <asp:Image class="avatar-img" ID="imgAvatar" runat="server" />
                                 </div>
                             </div>

@@ -64,12 +64,36 @@
             font-family: 'Red Hat Display' !important;
             font-weight: 700;
         }
-        @media (max-width: 2000px) and (min-width: 1000px) {
-            .footer {
-                position:relative;
+
+
+       /* @media (min-width: 1024px) {
+            .inner-div {
+                height: auto;
             }
+        }*/
+
+        @media (max-width: 999px) {
+            .inner-div {
+                height: 90vh !important;
+                width: 65% !important;
+
+            }
+        }
+        @media (min-width: 768px) {
+            .footer {
+                position: relative !important;
+            }
+
             .blue-t-bottom-right {
-                position: relative;
+                position: relative !important;
+            }
+        }
+        @media (max-width:768px) {
+            .inner-div {
+                height: auto !important;
+            }
+            .member-type-tabs strong {
+                font-size: 12px;
             }
         }
     </style>
@@ -89,16 +113,16 @@
             <div class="container-fluid d-flex justify-content-center p-0">
                 <div class="inner-div pt-5">
                     <div class="row">
-                        <div class="col-12 text-blue">
+                        <div class="col-12 text-blue mt-2">
                             <h1>Add Members</h1>
                         </div>
                     </div>
                     <div class="row input-group">
-                        <div class="col-12 col-md-5 col-lg-6 d-none d-md-block">
-                            <img src="../Add Members/addmember-avatar.png" width="80%" />
+                        <div class="col-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6 d-none d-md-block mb-md-5">
+                            <img class="avatar-group-img" src="../Add Members/addmember-avatar.png" width="100%" />
                         </div>
-                        <div class="col-12 col-md-7 col-lg-6 d-flex justify-content-center">
-                            <div class="w-75">
+                        <div class="col-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6 d-flex justify-content-center">
+                            <div class="w-100">
                                 <div class="row mb-2">
                                     <div class="col-6">
                                         <label id="addNewMemberTab" class="member-type-tabs active-tab-label" onclick="showTab('abc', 'addNewMemberTab')"><strong>Add New Member</strong></label>
