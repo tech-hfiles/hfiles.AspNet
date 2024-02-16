@@ -42,17 +42,17 @@
   <asp:UpdatePanel runat="server">
     <ContentTemplate>
       <asp:ScriptManager runat="server" />
-      <div class="container-fluid download-doc-inner my-5" style="min-height: 80vh;">
+      <div class="container-fluid download-doc-inner my-5">
         <div class="heading-title mb-3 py-1 px-5">
           <div class="row">
-            <div class="col-md-6 py-3 d-md-flex justify-content-between align-items-center">
+            <div class="col-12 col-md-8 col-xl-6 py-3 d-md-flex justify-content-between align-items-center">
               <a class="" href="avatar.aspx">
                 <img src="../assets/back-arrow.png" alt=""></a>
               <%--<h1 class="heading">Documents</h1>--%>
               <asp:Label ID="lblReportType" runat="server" CssClass="report-page-title" Text="" />
 
             </div>
-            <div class="col-md-6 text-center py-3 search-file">
+            <div class="col-12 col-md-4 col-xl-6 text-center py-3 search-file">
               <i class="fa-solid fa-magnifying-glass"></i>
               <asp:TextBox ID="SearchInput" OnTextChanged="SearchInput_TextChanged" AutoPostBack="true" runat="server" />
             </div>
@@ -78,7 +78,7 @@
                 <ItemTemplate>
                   <div class="col-md-4 col-lg-3 my-2">
 
-                    <div class="card text-start px-3">
+                    <div class="card text-start px-3 h-100">
 
                       <img src="../assets/pdf-doc.png" class="card-img-top" alt="pdf-thumbnail">
                       <div class="card-body">

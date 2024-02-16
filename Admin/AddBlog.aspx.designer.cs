@@ -102,7 +102,7 @@ namespace hfiles
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::CKEditor.NET.CKEditorControl CKEditorBlogSubHeading;
+   // protected global::CKEditor.NET.CKEditorControl CKEditorBlogSubHeading;
 
     /// <summary>
     /// txtKeywords control.
@@ -138,7 +138,7 @@ namespace hfiles
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::CKEditor.NET.CKEditorControl CKEditorBlogSection;
+    //protected global::CKEditor.NET.CKEditorControl CKEditorBlogSection;
 
     /// <summary>
     /// ddlBlog1 control.

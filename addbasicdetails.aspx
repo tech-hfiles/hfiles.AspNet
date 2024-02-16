@@ -44,7 +44,38 @@
     <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Signup - Basic Information</title>
+    <style>
+        @media (min-width: 700px) and (max-width: 1024px) {
+            .footer {
+                position: absolute !important;
+                width: 100%;
+                bottom: 0;
+            }
+        }
 
+        @media (min-width: 1024px) and (min-height: 600px) {
+            .footer {
+                /*position: relative;*/
+                bottom:-20px;
+            }
+
+            .user-info-main {
+                height: auto;
+            }
+        }
+
+        @media (min-width: 1300px) {
+            .footer {
+                position: absolute !important;
+                width: 100%;
+                bottom: 0;
+            }
+
+            .user-info-main {
+                height: auto !important;
+            }
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
@@ -61,27 +92,27 @@
                     <img class="plus-top-left" src="../assets/plus-1.png" alt="">
 
 
-                    <div class="row p-5">
+                    <div class="row px-5">
                         <div class="col-md-4 col-sm-12 col-lg-4 col-xl-4 d-flex mt-sm-5 mt-lg-0 align-items-center justify-content-center">
                             <div class="text-center profile-img">
-                                <img id="imagePreview" class="w-75" alt=""   runat="server"/>
+                                <img id="imagePreview" class="w-75" alt="" runat="server" />
                                 <%-- <img id="imagePreview" runat="server" class="w-75" src="../My Data/default-user-profile.png" alt="" />--%>
                                 <br />
                                 <br />
-                               
+
                                 <asp:UpdatePanel runat="server" UpdateMode="Conditional">
                                     <ContentTemplate>
                                         <asp:FileUpload CssClass="form-control" runat="server" ID="Profileupload" />
                                     </ContentTemplate>
                                     <Triggers>
                                         <asp:PostBackTrigger ControlID="submitButton" />
-                                  
+
                                     </Triggers>
                                 </asp:UpdatePanel>
 
                                 <%-- <p style="color: #ffd101;"><i class="fa-regular fa-pen-to-square mx-2"></i>Edit</p>--%>
                             </div>
-                           
+
                         </div>
 
                         <div class="col-md-4 col-12 col-lg-4 col-xl-4 d-flex align-items-start mt-lg-5 justify-content-center">
@@ -132,7 +163,7 @@
                                     <i class="fa-solid fa-earth-americas form-control-feedback"></i>
                                     <%--<input required id="countryTextBox" runat="server" type="text" class="form-control" placeholder="Enter Country">--%>
                                     <asp:DropDownList ID="ddlCountry" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:DropDownList>
-                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlCountry" ErrorMessage="Please Select Country" CssClass="imp-star"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlCountry" ErrorMessage="Please Select Country" CssClass=""></asp:RequiredFieldValidator>
 
                                     <%--<select runat="server" id="countryTextBox" class="form-select form-control mySelect" aria-label="Default select example">
                             <option selected value="">Country</option>
@@ -148,14 +179,14 @@
                                     <%--  <asp:DropDownList ID="ddlState" runat="server" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>--%>
 
                                     <asp:DropDownList ID="stateDropDownList" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="stateDropDownList_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:DropDownList>
-                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="stateDropDownList" ErrorMessage="Please Select State" CssClass="imp-star"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="stateDropDownList" ErrorMessage="Please Select State" CssClass=""></asp:RequiredFieldValidator>
                                     <input id="stateTextBox" visible="false" runat="server" type="text" class="form-control" placeholder="Enter State" />
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 mb-lg-5">
                                     <span for="" class="imp-star">*</span>
                                     <i class="fa-sharp fa-solid fa-city form-control-feedback"></i>
                                     <asp:DropDownList ID="cityDropDownList" CssClass="form-select form-control mySelect" runat="server"></asp:DropDownList>
-                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="cityDropDownList" ErrorMessage="Please Select City" CssClass="imp-star"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="cityDropDownList" ErrorMessage="Please Select City" CssClass=""></asp:RequiredFieldValidator>
                                     <input id="cityTextBox" visible="false" runat="server" type="text" class="form-control" placeholder="Enter City" />
                                 </div>
                             </div>
@@ -202,9 +233,9 @@
                         </div>
 
                     </div>
-                    <img class="blue-trangle-bottom-left" src="../assets/blue-trangle.png" alt="">
+                    <%-- <img class="blue-trangle-bottom-left" src="../assets/blue-trangle.png" alt="">
                     <img class="blue-trangle-bottom-right" src="../assets/blue-trangle-bottom.png" alt="">
-                    <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
+                    <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">--%>
                 </div>
             </div>
             <div id="toast">

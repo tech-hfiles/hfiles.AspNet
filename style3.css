@@ -841,7 +841,7 @@ a {
 
 @media only screen and (min-width: 1600px) {
     .avatar .avatar-left-sec ul {
-        height: 87vh;
+        height: 89vh;
     }
 
     .input-group input {
@@ -1131,6 +1131,9 @@ a {
         top: 48%;
         left: 184px;
     }
+    .avatar .avatar-left-sec ul {
+        height: 94vh !important;
+    }
 }
 
 @media only screen and (min-width: 912px) {
@@ -1222,7 +1225,11 @@ a {
         width: 70% !important;
     }
 }
-
+@media (min-width: 700px) and (max-width: 1000px) {
+    .avatar {
+        overflow: hidden;
+    }
+}
 @media only screen and (max-width: 786px) {
     .avatar .blue-t-bottom-right {
         left: 14%;

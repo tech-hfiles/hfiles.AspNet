@@ -11,11 +11,25 @@
         crossorigin="anonymous"></script>
     <title>Additional Information</title>
     <style>
-          @media (min-width: 800px) and (max-width: 1024px) {
+        @media (min-width: 800px) and (max-width: 1024px) {
             .footer {
-                position:absolute;
-                bottom:0;
-                width:100%;
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 1024px) and (max-height: 600px) {
+            .footer {
+                position: relative;
+                bottom: 0;
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 700px) and (max-width: 800px) {
+            .medical-main-div {
+                min-height: 85vh;
             }
         }
     </style>
@@ -40,12 +54,12 @@
                                 </div>
                                 <div class="col-lg-2 col-xl-2 col-md-3 col-4">
                                     <div>
-                                        <input runat="server" id="heightfeetTextBox" onkeypress="return isNumberKey(event,this)" required class="hight-input" type="number"><span>ft</span>
+                                        <input runat="server" id="heightfeetTextBox" onkeypress="return isNumberKey(event,this)" required class="hight-input" type="number" /><span>ft</span>
                                     </div>
                                 </div>
                                 <div class="col-lg-2 col-xl-2 col-md-3 col-5">
                                     <div>
-                                        <input runat="server" id="heightinchTextBox" onkeypress="return isNumberKey(event,this)" required class="hight-input" type="number"><span>inch</span>
+                                        <input runat="server" id="heightinchTextBox" onkeypress="return isNumberKey(event,this)" required class="hight-input" type="number" /><span>inch</span>
                                     </div>
                                 </div>
                             </div>
@@ -180,10 +194,10 @@
                                                     <ItemTemplate>
                                                         <div class="d-flex align-items-center justify-content-center">
                                                             <asp:Label ID="lblSurgeryYear" runat="server" Text='<%#Eval("user_surgery_year") %>'></asp:Label>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:ImageButton CssClass="delete-report-btn" ID="lRemoveBtn" runat="server" OnClick="lRemoveBtn_Click1" CommandArgument='<%#Eval("user_surgery_id") %>' Text="Delete" ImageUrl="../Suppor Group (BG  & Icons)/delete-icon.png"></asp:ImageButton>
                                                         </div>
-                                                        
+
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <%--<asp:ButtonField ButtonType="Button" Text="Delete"/>--%>

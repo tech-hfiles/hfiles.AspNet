@@ -140,7 +140,7 @@
                 right: 0px;
                 display: flex;
                 flex-direction: column;
-                z-index: 999;
+                z-index: 1000;
                 background: #fff;
                 justify-content: center;
                 padding: 0;
@@ -169,6 +169,12 @@
                         .profile-menu ul li a i {
                             font-size: 1.2em;
                         }
+
+        @media (max-width: 912px) {
+            .profile-menu ul {
+                right: 50px;
+            }
+        }
 
         .profile .user span {
             font-family: 'Red Hat Display', Sans-serif !important;
@@ -201,7 +207,7 @@
 
         .goog-te-gadget .goog-te-combo {
             background: no-repeat;
-            border: 0;
+            border: 0 !important;
             color: #fff;
             max-height: 40px;
         }
@@ -269,16 +275,16 @@
         <div class="row footer justify-content-around align-items-center m-0">
             <div class="col-4 t-c d-xl-flex justify-content-center text-center">
                 <p class="m-0"><a href="TermsAndConditions.aspx">Terms & Conditions</a></p>
-                <div class="d-none d-lg-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
+                <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
                 <p class="m-0"><a href="Policy.aspx">Privacy & Policy</a></p>
             </div>
 
             <div class="col-4 copy-right text-center p-0">
-                <span><%--Copyright@2023--%> <a class="text-white" href="#">FAQ's</a></span>
+                <span><%--Copyright@2023--%> <a class="text-white" href="/FAQs.aspx">FAQ's</a></span>
             </div>
             <div class="col-4 p-p d-xl-flex text-center">
-                <p class="m-0"><a href="https://wa.me/919978043453"><i class="fa fa-brands fa-whatsapp"></i>&nbsp; +91-9978043453</a></p>
-                <div class="d-none d-lg-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
+                <p class="m-0"><a href="https://wa.me/919978043453"><i class="fa fa-brands fa-whatsapp"></i>&nbsp; 9930372831</a></p>
+                <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
                 <p class="m-0"><a class="" href="mailto:contact@hfiles.in"><i class="fa fa-solid fa-envelope"></i>&nbsp; contact@hfiles.in</a></p>
                 <%--<p class="m-0"><a class="" href="mailto:chetan@diitaledgetech.in"><i class="fa fa-solid fa-envelope"></i>&nbsp; chetan@diitaledgetech.in</a></p>--%>
             </div>

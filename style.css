@@ -393,14 +393,18 @@ input:-webkit-autofill {
     line-height: 1em;
     text-indent: 20px;
     font-size: 14px;
-    margin: 0 70px;
+    margin: 0 55px;
 }
-
-@media (min-width:912px) {
+/*@media (max-width:1200px) {
+    .SingleCheckbox input[type=radio] + label {
+        margin: 0 55px !important;
+    }
+}*/
+/*@media (min-width:912px) {
     .SingleCheckbox input[type=radio] + label {
         margin: 0 35px !important;
     }
-}
+}*/
 
 .SingleCheckbox input[type=checkbox]:checked + label {
     background-color: #ffd101;
@@ -919,11 +923,11 @@ select {
     border: 1px solid #f1f1f1 !important;
     border-radius: 50px;
     background-color: #f1f1f1;
-    padding: 10px 20px;
+    padding: 10px;
 }
 
 .delete-report-btn {
-    width: 60px !important;
+    width: 40px !important;
 }
 
 .surgeries-table {
@@ -1834,14 +1838,77 @@ span.img-notselected {
 
 .manage-members-table th, .manage-members-table td {
     padding: 20px 20px;
-    border: 1px solid #0331b5;
+    border: 0;
 }
 
 .manage-members-table tr:first-child th {
     background: #172ab3;
     color: #ffffffff;
 }
+
+.manage-members-div .member-list-cards {
+    background: #ffffff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+    position: relative;
+}
+
+    .manage-members-div .member-list-cards h4 {
+        color: #08138f;
+        font-weight: 700
+    }
+
+    .manage-members-div .member-list-cards .member-action-btn {
+        padding: 10px 15px;
+        border-radius: 10px;
+        width: 100%;
+    }
+
+    .manage-members-div .member-list-cards .member-accept-btn {
+        background: #08138f;
+        color: #fff;
+    }
+
+    .manage-members-div .member-list-cards .member-rejects-btn {
+        background: #ffd101;
+        color: #08138f;
+    }
+
+    .manage-members-div .member-list-cards img {
+        width: 100px;
+    }
 /*manage-members-table*/
+
+
+.accordion-button:not(.collapsed) {
+    background-color:#ffd101 !important;
+}
+.accordion-button:focus {
+    border-color: #ffd101;
+    box-shadow:none;
+}
+.accordion-button {
+    border-top: 1px solid #ccc;
+}
+.accordion-item {
+    margin-bottom: 20px;
+}
+@media (min-width: 3000px) {
+    .download-doc-inner {
+        min-height: 90vh !important;
+    }
+}
+@media (min-width: 2500px) {
+    .download-doc-inner {
+        min-height: 88vh !important;
+    }
+}
+@media (min-width: 2000px) {
+    .download-doc-inner {
+        min-height: 84vh;
+    }
+}
+
 @media only screen and (min-width: 1700px) {
     .h-lg-100vh {
         height: 100vh !important;
@@ -1887,9 +1954,9 @@ span.img-notselected {
         width: 100%;
     }
 
-    .user-info-main {
+   /* .user-info-main {
         min-height: 90vh;
-    }
+    }*/
 
     .signin-form input, select {
         padding: 16px 40px 16px 50px !important;
@@ -1956,11 +2023,15 @@ span.img-notselected {
     .SingleCheckbox input[type=radio] + label {
         margin: 0 70px;
     }
+
+    .download-doc-inner {
+        min-height: 80vh;
+    }
 }
 
 @media only screen and (min-width: 1024px) {
     .user-info-main {
-        height: auto !important;
+       min-height: 84vh;
     }
 
         .user-info-main .blue-trangle-bottom-left, .user-info-main .blue-trangle-bottom-right {
@@ -1972,6 +2043,17 @@ span.img-notselected {
     .support-group .chat-input-div {
         position: relative;
         bottom: 30px
+    }
+
+    .SingleCheckbox input[type=checkbox] + label {
+        margin: 0 55px;
+    }
+
+    .SingleCheckbox input[type=radio] + label {
+        margin: 0 55px;
+    }
+    .download-doc-inner .report-page-title {
+        font-size: 24px;
     }
 }
 
@@ -2015,11 +2097,18 @@ span.img-notselected {
     .signin-main .samanta-stand-image {
         min-height: 95vh;
     }
+
+    .download-doc-inner {
+        min-height: 84vh;
+    }
 }
 
 @media only screen and (max-width: 1200px) {
     .filter-shorting-icon {
         right: 70px;
+    }
+    .download-doc-inner .report-page-title{
+        font-size:24px;
     }
 }
 
@@ -2095,10 +2184,23 @@ span.img-notselected {
         left: 50% !important;
     }
 
+    .SingleCheckbox input[type=checkbox] + label {
+        margin: 0 35px;
+    }
+
+    .SingleCheckbox input[type=radio] + label {
+        margin: 0 35px;
+    }
 
     /*   .support-group .left-nav-bar, .support-group .tab-content {
             height: 92vh !important;
         }*/
+    .download-doc-inner .report-page-title {
+        font-size: 16px;
+    }
+    .download-doc-inner .search-file input {
+        width:80%
+    }
 }
 
 @media only screen and (min-width: 768px) and (max-width:912px) {
@@ -2121,7 +2223,7 @@ span.img-notselected {
 
 @media only screen and (min-width: 760px) and (max-width: 910px) {
     .user-info-main {
-        height: 85vh;
+        min-height: 74vh;
     }
 
     .signin-main .samanta-stand-image {
@@ -2208,6 +2310,9 @@ span.img-notselected {
     .support-group .chat-history-div {
         max-height: 77%;
     }
+    .download-doc-inner {
+        min-height: 81vh !important;
+    }
 }
 
 @media only screen and (max-width: 540px) {
@@ -2238,7 +2343,7 @@ span.img-notselected {
     }
 
     .SingleCheckbox input[type=checkbox] + label, .SingleCheckbox input[type=radio] + label {
-        margin: 0 15px !important;
+        margin: 0 30px !important;
     }
 
     .user-info-main .blue-trangle-bottom-right {
@@ -2268,6 +2373,10 @@ span.img-notselected {
 }
 
 @media only screen and (max-width: 430px) {
+    .SingleCheckbox input[type=checkbox] + label, .SingleCheckbox input[type=radio] + label {
+        margin: 0 15px !important;
+    }
+
     .h-sm-100vh {
         height: 100vh !important;
     }
@@ -2402,6 +2511,9 @@ span.img-notselected {
     .signin-main .hide-password-toggal {
         top: 24px;
     }
+    .download-doc-inner .report-page-title {
+        font-size: 12px;
+    }
 }
 
 @media only screen and (max-width: 375px) {
@@ -2430,6 +2542,12 @@ span.img-notselected {
 }
 
 @media only screen and (max-width: 300px) {
+    .SingleCheckbox input[type=checkbox] + label, .SingleCheckbox input[type=radio] + label {
+        margin: 0 12px !important;
+        width: 15px;
+        height: 15px;
+    }
+
     .profile .user span {
         font-size: 14px !important;
     }
@@ -2522,6 +2640,9 @@ span.img-notselected {
 
     .support-group .chat-input-div {
         top: 18px;
+    }
+    .download-doc-inner .report-page-title {
+        font-size:8px;
     }
 }
 
