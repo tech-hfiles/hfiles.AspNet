@@ -35,8 +35,6 @@
 <body>
     <form id="form1" runat="server">
         <div>
-
-
             <div id="google_translate_element"></div>
             <div class="privacy_main h-100vh h-xl-90vh">
 

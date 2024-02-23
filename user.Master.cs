@@ -13,12 +13,12 @@ namespace hfiles
     public partial class user : System.Web.UI.MasterPage
     {
         string connectionString = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
-
+        int requestCount;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Userid"] is null)
             {
-                if (Session["JournalPath"]!=null)
+                if (Session["JournalPath"] != null)
                 {
                     //getbasicdetails();
                 }
@@ -33,6 +33,11 @@ namespace hfiles
                 //sesion user_membernumber replaced by username
                 if (Session["username"] != null)
                 {
+                    // Check if there are any requests
+                    bool hasRequests = HasRequests();
+                    ReqCount.Text = requestCount.ToString();
+
+                    //managerMembersTab.Text = $"Manager Members ({requestCount})";
                     memberLabel.Text = Session["username"].ToString();
                     memberId.Text = Session["user_membernumber"].ToString();
                     if (Session["userpic"] != null && !string.IsNullOrEmpty(Session["userpic"].ToString()))
@@ -43,11 +48,33 @@ namespace hfiles
                     {
                         profile.ImageUrl = "../My Data/default-user-profile.png";
                     }
-                        
+
                 }
             }
-            
+        }
+        protected bool HasRequests()
+        {
+            requestCount = GetRequestsCount();
+            return requestCount > 0;
+        }
 
+        protected int GetRequestsCount()
+        {
+            int count = 0;
+            using (MySqlConnection connection = new MySqlConnection(this.connectionString))
+            {
+                connection.Open();
+                using (MySqlCommand selectCommand = new MySqlCommand("usp_getallRequests", connection))
+                {
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.Parameters.AddWithValue("_user_id", (object)DAL.validateInt(this.Session["Userid"]));
+                    MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(selectCommand);
+                    DataTable dataTable = new DataTable();
+                    mySqlDataAdapter.Fill(dataTable);
+                    count = dataTable.Rows.Count;
+                }
+            }
+            return count;
         }
 
         public void getbasicdetails(int id)

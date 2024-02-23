@@ -11,7 +11,7 @@ namespace hfiles
 {
 
 
-  public partial class samanta
-  {
-  }
+    public partial class samanta
+    {
+    }
 }

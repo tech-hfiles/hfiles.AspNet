@@ -25,7 +25,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:ScriptManager ID="scm1" runat="server"></asp:ScriptManager>
+   <%-- <asp:ScriptManager ID="scm1" runat="server"></asp:ScriptManager>--%>
     <%--<body class="journal common-design">
  <form id="form1" runat="server">--%>
     <div class="journal">

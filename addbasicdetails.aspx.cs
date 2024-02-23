@@ -153,7 +153,7 @@ namespace hfiles
             string member = membershipNumber;
             string filePath = "";
             string reporturl = "", Extension1, fileName1, dt1;
-            if (Profileupload.HasFile)
+            if (Profileupload.HasFile ==true)
             {
                 Extension1 = Path.GetExtension(Profileupload.PostedFile.FileName);
                 fileName1 = Path.GetFileName(Profileupload.PostedFile.FileName);
@@ -161,8 +161,11 @@ namespace hfiles
                 Profileupload.PostedFile.SaveAs(Server.MapPath("~/upload/") + dt1 + Extension1);
                 filePath = dt1 + Extension1;
             }
+            else
+            {
+                filePath = Session["ProfileImage"].ToString();
+            }
            
-
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 //procedure adduser replaced by add_update_userdetails
@@ -270,7 +273,7 @@ namespace hfiles
                                 // Use a default image when the database value is blank
                                 imagePath = "../My Data/default-user-profile.png";
                             }
-
+                            Session["ProfileImage"] = reader["user_image"].ToString(); ;
                             imagePreview.Src = imagePath;
 
                             //imagePreview.Src = "~/upload/"+reader["user_image"].ToString();
@@ -278,7 +281,6 @@ namespace hfiles
                     }
                     command.ExecuteNonQuery();
                     connection.Close();
-
                 }
             }
         }
@@ -345,10 +347,7 @@ namespace hfiles
                 stateDropDownList.Visible = false;
                 cityDropDownList.Visible = false;
             }
-
-
         }
-
         protected void stateDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
             getcitylist(stateDropDownList.SelectedItem.Text);

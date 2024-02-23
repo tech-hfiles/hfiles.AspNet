@@ -10,23 +10,23 @@
             width: 100%;
             bottom: 0;
         }
-       /*  @media (min-width: 1000px) and (max-width: 1400px) {
+        /*  @media (min-width: 1000px) and (max-width: 1400px) {
              .footer {
                  position:relative;
              }
          }*/
         @media (min-width: 500px) and (max-width: 540px) {
             .footer {
-                position:relative;
+                position: relative;
             }
         }
+
         .journal {
-            background-image:url('../Reception Page/samanta-bg.png');
-            background-size:contain;
-            background-repeat:no-repeat;
-            background-position:center
+            background-image: url('../Reception Page/samanta-bg.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center
         }
-        
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -53,32 +53,32 @@
                         <a class="support-group my-5" href="additionalinformation.aspx">
                             <div class="my_profile">
                                 <div class="row align-items-center">
-                                   <div class="col-3 tab-icon-div">
-                                       <img src="../Reception Page/health-report-icon.png" />
-                                   </div>
+                                    <div class="col-3 tab-icon-div">
+                                        <img src="../Reception Page/health-report-icon.png" />
+                                    </div>
                                     <div class="col-9">
-                                         <h3>My Medical History</h3>
+                                        <h3>My Medical History</h3>
                                     </div>
                                 </div>
                             </div>
                         </a>
-                        
-                                <a class="support-group mb-lg-5 w-100" href="avatar.aspx">
-                        <div class="my_profile">
-                            <div class="row align-items-center">
-                                
-                                   <div class="col-3 tab-icon-div">
-                                       <img src="../Reception Page/h-files-icon.png" />
-                                   </div>
-                                    <div class="col-9">
-                                         <h3>My H-Files</h3>
+
+                        <a class="support-group mb-lg-5 w-100" href="avatar.aspx">
+                            <div class="my_profile">
+                                <div class="row align-items-center">
+
+                                    <div class="col-3 tab-icon-div">
+                                        <img src="../Reception Page/h-files-icon.png" />
                                     </div>
-                                    
-                                <%--<a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                    <div class="col-9">
+                                        <h3>My H-Files</h3>
+                                    </div>
+
+                                    <%--<a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
                                     aria-expanded="false">My H-Files
                                 <span class="caret"></span>
                                 </a>--%>
-                                <%--<ul class="dropdown-menu p-0 pt-2 px-4">
+                                    <%--<ul class="dropdown-menu p-0 pt-2 px-4">
                                     <div>
                                          <li><img class="dropdown-icon" src="../Reception Page/lock-icon.png" alt=""><a
                                             tabindex="-1" href="#">UNIQUE ID</a></li> 
@@ -101,18 +101,18 @@
                                         </a>
                                     </div>
                                 </ul>--%>
+                                </div>
                             </div>
-                        </div>
-                                </a>
+                        </a>
 
-                        
+
 
                     </div>
                     <div class="col-4 col-md-2 col-lg-1 col-xl-4">
                     </div>
                     <div class="col-lg-5 col-xl-4 col-md-5 col-12 dropdown ">
 
-                         <%--<div class="inner_div mb-lg-5 w-100">
+                        <%--<div class="inner_div mb-lg-5 w-100">
                             <div class="heading w-100">
                                 <a class="w-100" href="<%= ResolveUrl("~/journal.aspx") %>">
                                     <h3>Journal</h3>
@@ -123,31 +123,39 @@
                             <div class="my_profile">
                                 <div class="row align-items-center">
                                     <div class="col-3 tab-icon-div">
-                                       <img src="../Reception Page/journal.png"/>
-                                   </div>
+                                        <img src="../Reception Page/journal.png" />
+                                    </div>
                                     <div class="col-9">
-                                          <h3>Journal</h3>
+                                        <h3>Journal</h3>
                                     </div>
                                 </div>
-                                   
-                                </div>
+
+                            </div>
                         </a>
 
-                        <a class="support-group mb-5 w-100" href="supportgroup.aspx">
+                        <a class="support-group mb-5 w-100" href="#"><%--supportgroup.aspx--%>
                             <div class="my_profile">
                                 <div class="row align-items-center">
                                     <div class="col-3 tab-icon-div">
-                                       <img src="../Reception Page/chat-icon.png" />
-                                   </div>
-                                    <div class="col-9">
-                                         <h3>Chat Room</h3>
+                                        <img src="../Reception Page/chat-icon.png" />
                                     </div>
+                                    <div class="col-9">
+                                        <h3>Chat Room</h3>
+                                        <%--  <img src="Reception Page/coming-soon.png" />--%>
+                                        <%--  <span class="badge bg-warning rounded-circle">Comming Soon !</span>--%>
+                                    </div>
+                                    <%--   <div class="col-4">
+                                        <h5>Comming Soon</h5>
+                                        <%--  <img src="Reception Page/coming-soon.png" />--%>
+                                    <%--  <span class="badge bg-warning rounded-circle">Comming Soon !</span>
+                                    </div>--%>
                                 </div>
-                                   
-                                </div>
+
+
+                            </div>
                         </a>
 
-                       
+
                         <%--<a class="support-group my-5" href="additionalinformation.aspx">
                             <div class="my_profile">
                                 <div>
@@ -160,7 +168,7 @@
                 <div class="row w-100">
                     <div class="col-12 d-flex justify-content-center ">
                         <img class="samanta-image" src="../Reception Page/SamantaGIF.gif" alt="">
-                      <%--  <img class="samanta-image" src="../Reception Page/Samanta1.jpeg" alt="">--%>
+                        <%--  <img class="samanta-image" src="../Reception Page/Samanta1.jpeg" alt="">--%>
                     </div>
                 </div>
                 <%--<div class="progress_div">
@@ -174,17 +182,17 @@
         </div>
     </div>
     <div class="backdrop" id="backdrop"></div>
-   <div class="modal-popup">
+    <div class="modal-popup">
         <div id="myModal" class="modal">
             <div class="modal-header">
                 <h1 class="modal-title">Steps</h1>
                 <span class="modal-close" onclick="closeModal()">&times;</span>
             </div>
             <div class="modal-body">
-            <p>This is your modal content.</p>
+                <p>This is your modal content.</p>
             </div>
         </div>
-   </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>

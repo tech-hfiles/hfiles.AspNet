@@ -15,13 +15,13 @@ namespace hfiles
     {
 
         /// <summary>
-        /// scm1 control.
+        /// SearchInput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager scm1;
+        protected global::System.Web.UI.WebControls.TextBox SearchInput;
 
         /// <summary>
         /// uplManageMembers control.
@@ -42,12 +42,12 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.Repeater rptRequests;
 
         /// <summary>
-        /// gvMembers control.
+        /// gvMembers1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvMembers;
+        protected global::System.Web.UI.WebControls.Repeater gvMembers1;
     }
 }

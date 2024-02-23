@@ -79,7 +79,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+   <%-- <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>--%>
 
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
@@ -102,7 +102,7 @@
 
                                 <asp:UpdatePanel runat="server" UpdateMode="Conditional">
                                     <ContentTemplate>
-                                        <asp:FileUpload CssClass="form-control" runat="server" ID="Profileupload" />
+                                        <asp:FileUpload CssClass="form-control" runat="server" ID="Profileupload"  />
                                     </ContentTemplate>
                                     <Triggers>
                                         <asp:PostBackTrigger ControlID="submitButton" />

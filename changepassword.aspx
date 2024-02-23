@@ -39,7 +39,7 @@
   </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  <asp:ScriptManager runat="server" EnableCdn="true" />
+ <%-- <asp:ScriptManager runat="server" EnableCdn="true" />--%>
   <div class="panel_content">
     <a class="back-arrow-btn" href="javascript: history.go(-1)">
       <img src="../assets/back-arrow.png" alt="">Back</a>

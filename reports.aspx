@@ -41,7 +41,7 @@
   <%--<body class="download-documents">--%>
   <asp:UpdatePanel runat="server">
     <ContentTemplate>
-      <asp:ScriptManager runat="server" />
+   <%--   <asp:ScriptManager runat="server" />--%>
       <div class="container-fluid download-doc-inner my-5">
         <div class="heading-title mb-3 py-1 px-5">
           <div class="row">

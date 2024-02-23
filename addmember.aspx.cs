@@ -42,7 +42,6 @@ namespace hfiles
 
         private void PopulateUserDetails(string userId)
         {
-
             using (MySqlConnection connection = new MySqlConnection(cs))
             {
                 connection.Open();
@@ -69,7 +68,6 @@ namespace hfiles
             }
             //usp_getuserdetailsbyId
         }
-
         protected void request_Click(object sender, EventArgs e)
         {
             using (MySqlConnection connection = new MySqlConnection(this.cs))
@@ -80,11 +78,34 @@ namespace hfiles
                     mySqlCommand.CommandType = CommandType.StoredProcedure;
                     mySqlCommand.Parameters.AddWithValue("_hf_number", (object)this.hfnumber.Text);
                     mySqlCommand.Parameters.AddWithValue("_user_id", (object)Convert.ToInt32(this.Session["Userid"].ToString()));
+                    mySqlCommand.Parameters.AddWithValue("_spType", "check"); // Pass 'check' for checking existence and inserting request
                     mySqlCommand.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
                     mySqlCommand.ExecuteNonQuery();
-                    System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Sent')", true);
-                    connection.Close();
+
+                    int result = Convert.ToInt32(mySqlCommand.Parameters["_Result"].Value);
+                    if (result == 1)
+                    {
+                        using (MySqlCommand mySqlCommand1 = new MySqlCommand("usp_existingmember", connection))
+                        {
+                            mySqlCommand1.CommandType = CommandType.StoredProcedure;
+                            mySqlCommand1.Parameters.AddWithValue("_hf_number", (object)this.hfnumber.Text);
+                            mySqlCommand1.Parameters.AddWithValue("_user_id", (object)Convert.ToInt32(this.Session["Userid"].ToString()));
+                            mySqlCommand1.Parameters.AddWithValue("_spType", 'C');
+                            mySqlCommand1.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
+                            mySqlCommand1.ExecuteNonQuery();
+                            // Member exists and request sent
+                            System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Sent')", true);
+                            //connection.Close();
+                        }
+                    }
+                    else
+                    {
+                        // Member does not exist
+                        System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Member does not exist')", true);
+                    }
+                    //connection.Close();
                 }
+                connection.Close();
             }
         }
 
@@ -198,7 +219,6 @@ namespace hfiles
                         }
                         Response.Write("<script>alert('Memeber already exists with same email id !')</script>");
                     }
-
 
                     //cmdInsert.Parameters.Add("_Result", MySqlDbType.Int32);
                     //cmdInsert.Parameters["_Result"].Direction = ParameterDirection.Output;
