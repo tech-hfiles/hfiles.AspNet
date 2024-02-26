@@ -208,7 +208,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  <%--  <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>--%>
+    <%--  <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>--%>
     <asp:UpdatePanel runat="server" ID="uplavatar">
         <ContentTemplate>
             <div class="avatar">
@@ -394,20 +394,17 @@
                         <%-- <div class="col-5 lbl">
                         </div>--%>
                         <div class="col-12 text-start">
-                            <%--  <asp:FileUpload ID="FileUpload1" runat="server" required/>--%>
-
                             <label><strong>Select File :</strong></label>
                             <asp:UpdatePanel runat="server" UpdateMode="Conditional">
                                 <ContentTemplate>
                                     <div class='file-input'>
                                         <asp:FileUpload ID="imageFileUpload1" CssClass="l" runat="server" required />
                                         <span class='button'>Choose</span>
-                                        <span class='label' data-js-label>No file selected</label>
+                                        <span class='label' data-js-label>No file selected</span>
                                     </div>
                                 </ContentTemplate>
                                 <Triggers>
                                     <asp:PostBackTrigger ControlID="btnSubmit" />
-
                                 </Triggers>
                             </asp:UpdatePanel>
                         </div>
@@ -462,7 +459,25 @@
 
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script type="text/javascript">
+        //document.addEventListener('DOMContentLoaded', function () {
+        //    console.log('load')
+        //    var inputs = document.querySelectorAll('.file-input input');
+        //    inputs.on('change', function () {
+        //        console.log('change')
+        //        var fileName = this.value.split('\\').pop();
+        //        var label = this.parentNode.querySelector('[data-js-label]');
+        //        if (fileName) {
+        //            label.innerText = fileName;
+        //            this.parentNode.classList.add('-chosen');
+        //        } else {
+        //            label.innerText = 'No file selected';
+        //            this.parentNode.classList.remove('-chosen');
+        //        }
+        //    });
+        //});
+
         function Confirm(ctl, event) {
             event.preventDefault();
             swal({
@@ -489,25 +504,25 @@
         //launch_toast()
         // Also see: https://www.quirksmode.org/dom/inputfile.html
 
-        //var inputs = document.querySelectorAll('.file-input')
+        //var inputs = document.querySelectorAll('.file-input');
 
         //for (var i = 0, len = inputs.length; i < len; i++) {
-        //    customInput(inputs[i])
+        //    customInput(inputs[i]);
         //}
 
         //function customInput(el) {
-        //    const fileInput = el.querySelector('[type="file"]')
-        //    const label = el.querySelector('[data-js-label]')
+        //    const fileInput = el.querySelector('input[type="file"]');
+        //    const label = el.querySelector('[data-js-label]');
 
-        //    fileInput.onchange =
-        //        fileInput.onmouseout = function () {
-        //            if (!fileInput.value) return
+        //    fileInput.addEventListener('change', function () {
+        //        if (!fileInput.value) return;
 
-        //            var value = fileInput.value.replace(/^.*[\\\/]/, '')
-        //            el.className += ' -chosen'
-        //            label.innerText = value
-        //        }
+        //        var value = fileInput.value.split('\\').pop();
+        //        el.classList.add('-chosen');
+        //        label.innerText = value;
+        //    });
         //}
+
     </script>
 
 </asp:Content>

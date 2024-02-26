@@ -28,41 +28,42 @@
     <title>Sign Up</title>
     <style>
         @media (min-width: 992px) {
-           
+
             .footer {
                 background: #0331b5;
                 color: #ffffff;
                 text-align: center;
                 position: absolute;
                 bottom: 0;
-                left:0;
+                left: 0;
                 width: 100%;
                 padding: 10px
             }
         }
+
         @media (max-width: 992px) {
-           
+
             .footer {
                 background: #0331b5;
                 color: #ffffff;
                 text-align: center;
                 position: relative;
                 bottom: 0;
-                left:0;
+                left: 0;
                 width: 100%;
                 padding: 10px
             }
+
             .signin-main .vert-cent {
                 min-height: 95vh;
             }
         }
-
     </style>
 
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
-   <%-- <div id="google_translate_element" class="language">
+    <%-- <div id="google_translate_element" class="language">
         Select Language
         <%--<details>
         <summary>Language</summary>
@@ -76,16 +77,16 @@
     <div class="signin-main">
         <form class="w-100 h-100" runat="server">
 
-              <div id="google_translate_element" class="language"></div>
+            <div id="google_translate_element" class="language"></div>
             <asp:ScriptManager ID="scmSignUp" runat="server"></asp:ScriptManager>
 
             <div class="row vert-cent w-100 h-sm-100vh m-0 ">
-                <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image h-lg-100vh d-none d-lg-block px-5" style="background:#fff">
-                    <img src="<%= ResolveUrl("~/Reception Page/signup-samanta.png") %>" alt="" style="width: 100%; height: 90%; object-fit:contain" />
+                <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image h-lg-100vh d-none d-lg-block px-5" style="background: #fff">
+                    <img src="<%= ResolveUrl("~/Reception Page/signup-samanta.png") %>" alt="" style="width: 100%; height: 90%; object-fit: contain" />
                 </div>
 
                 <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12 px-5 d-flex justify-content-center align-items-center vh-lg-100"
-                    style="background-image: url('<%= ResolveUrl("~/Reception Page/002B.png") %>'); background-repeat:no-repeat; background-size:cover;">
+                    style="background-image: url('<%= ResolveUrl("~/Reception Page/002B.png") %>'); background-repeat: no-repeat; background-size: cover;">
                     <div>
                         <div class="text-center signin-heading">
                             <img src="<%= ResolveUrl("~/Sign Up Page/Hfiles Logo.png") %>" alt="" width="120px" />
@@ -135,7 +136,7 @@
                                 <i class="fa-solid fa-lock form-control-feedback"></i>
                                 <asp:TextBox ID="cpwdTextBox" runat="server" type="password" class="form-control my-2" placeholder="Confirm Password" required />
                                 <i id="passwordView2" class="fa-solid fa-eye-slash hide-password-toggal"></i>
-                               <%-- <asp:RequiredFieldValidator ControlToValidate="cpwdTextBox" ErrorMessage="Please Enter Confirm Password" runat="server" ForeColor="White"></asp:RequiredFieldValidator Display="">
+                                <%-- <asp:RequiredFieldValidator ControlToValidate="cpwdTextBox" ErrorMessage="Please Enter Confirm Password" runat="server" ForeColor="White"></asp:RequiredFieldValidator Display="">
                                 <asp:CompareValidator ControlToValidate="cpwdTextBox" ControlToCompare="pwdTextBox" ErrorMessage="Password and Confirm Password should be same" runat="server" ForeColor="White"></asp:CompareValidator>--%>
                             </div>
 
@@ -179,17 +180,21 @@
             <div class="row footer justify-content-around align-items-center m-0">
                 <div class="col-4 t-c d-xl-flex justify-content-center text-center">
                     <p class="m-0"><a href="tc.aspx">Terms & Conditions</a></p>
-                     <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
+                    <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
                     <p class="m-0"><a href="privacypolicy.aspx">Privacy & Policy</a></p>
                 </div>
-
-                <div class="col-4 copy-right text-center p-0">
-                    <span><a href="/FAQ.aspx" class="text-white">FAQ's</a></span>
+                <div class="col-4 copy-right text-center p-0 d-xl-flex text-center justify-content-center">
+                    <p class="m-0"><a href="/FAQ.aspx" class="text-white">FAQ's</a></p>
+                    <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
+                    <p class="m-0"><a class="text-white">Copyright@2024</a></p>
                 </div>
+                
                 <div class="col-4 p-p d-xl-flex text-center">
-                    <p class="m-0"><a 
-                        href="https://wa.me/919930372831"><i class="fa-brands fa-whatsapp"></i>&nbsp; 9978043453</a></p>
-                     <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
+                    <p class="m-0">
+                        <a
+                            href="https://wa.me/919930372831"><i class="fa-brands fa-whatsapp"></i>&nbsp; 9978043453</a>
+                    </p>
+                    <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
                     <p class="m-0"><a class="" href="mailto:contact@hfiles.in"><i class="fa fa-solid fa-envelope"></i>&nbsp; contact@hfiles.in</a></p>
 
                 </div>
@@ -198,14 +203,14 @@
         </form>
     </div>
 
-   <script>
-       function googleTranslateElementInit() {
-           new google.translate.TranslateElement({
-               pageLanguage: 'en',
-               includedLanguages: 'en,hi,mr',
-           }, 'google_translate_element');
-       }
-   </script>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,hi,mr',
+            }, 'google_translate_element');
+        }
+    </script>
 
 
     <script type="text/javascript">
@@ -220,7 +225,7 @@
                 $(this).removeClass('fa-eye')
                 $(this).addClass('fa-eye-slash');
             }
-          
+
         })
         $('#passwordView2').click(function () {
             console.log('password')
@@ -277,7 +282,7 @@
             $('#timer').show()
             timer(60);
         })
-       
+
     </script>
 
     <script>

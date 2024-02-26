@@ -27,6 +27,9 @@
             background-repeat: no-repeat;
             background-position: center
         }
+        .comming-soon  {
+            font-size: 14px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -140,9 +143,9 @@
                                         <img src="../Reception Page/chat-icon.png" />
                                     </div>
                                     <div class="col-9">
-                                        <h3>Chat Room</h3>
-                                        <%--  <img src="Reception Page/coming-soon.png" />--%>
-                                        <%--  <span class="badge bg-warning rounded-circle">Comming Soon !</span>--%>
+                                        <h3>Chat Room  <small class="comming-soon">( Comming Soon ! )</small></h3>
+                                          <%--<img src="Reception Page/coming-soon.png" />--%>
+                                         
                                     </div>
                                     <%--   <div class="col-4">
                                         <h5>Comming Soon</h5>

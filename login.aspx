@@ -17,7 +17,7 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <link rel="stylesheet" href="style.css" />
     <title>H Files | Sign In</title>
     <style>
@@ -27,23 +27,25 @@
             text-align: center;
             position: absolute;
             bottom: 0;
-            left:0;
+            left: 0;
             width: 100%;
             padding: 10px
         }
-       .password-div {
-    position:relative;
-}
-.password-div .hide-password-toggal {
-    position:absolute;
-       right: 10px;
-    top: 22px;
-    cursor:pointer;
-    font-size:25px;
-}
+
+        .password-div {
+            position: relative;
+        }
+
+            .password-div .hide-password-toggal {
+                position: absolute;
+                right: 10px;
+                top: 22px;
+                cursor: pointer;
+                font-size: 25px;
+            }
     </style>
 
-   
+
 </head>
 
 <body style="overflow: hidden;">
@@ -52,7 +54,7 @@
         <div id="google_translate_element" class="language"></div>
         <asp:HiddenField runat="server" ID="hfId" />
         <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-block px-5">
-            <img src="../assets/login-samanta-w-bg.png" alt="" style="width: 100%; height: 80vh; object-fit:contain" />
+            <img src="../assets/login-samanta-w-bg.png" alt="" style="width: 100%; height: 80vh; object-fit: contain" />
         </div>
         <div class="col-sm-12 col-lg-6 inner-main p-0">
             <div class="d-flex align-items-center justify-content-center h-100 inner-body">
@@ -69,7 +71,7 @@
 
                     <div class="password-div">
                         <asp:TextBox runat="server" ID="txtPassword" class="w-100 login-input" type="password" placeholder="Password" />
-                         <i id="passwordView1" class="fa fa-solid fa-eye-slash hide-password-toggal  color-theme-yellow"></i>
+                        <i id="passwordView1" class="fa fa-solid fa-eye-slash hide-password-toggal  color-theme-yellow"></i>
                         <div class="text-end">
                             <span style="color: #fff"><a id="forgotlink" style="color: #fdd001; font-weight: 700" href="ForgotPassword.aspx">Forgot Password ? </a></span>
                         </div>
@@ -123,8 +125,10 @@
                 <p class="m-0"><a href="privacypolicy.aspx">Privacy & Policy</a></p>
             </div>
 
-            <div class="col-4 copy-right text-center p-0">
-                <span><a href="/FAQ.aspx" class="text-white">FAQ's</a></span>
+            <div class="col-4 copy-right text-center p-0 d-xl-flex text-center justify-content-center">
+              <p class="m-0"><a href="/FAQ.aspx" class="text-white">FAQ's</a></p>
+                <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
+                <p class="m-0"><a class="text-white">Copyright@2024</a></p>
             </div>
             <div class="col-4 p-p d-xl-flex text-center">
                 <p class="m-0"><a href="https://wa.me/919930372831"><i class="fa fa-brands fa-whatsapp"></i>&nbsp; 9978043453</a></p>
@@ -236,7 +240,7 @@
             timer(60);
         })
 
-       
+
     </script>
 </body>
 </html>
