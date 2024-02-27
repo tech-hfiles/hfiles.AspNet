@@ -256,13 +256,17 @@
     <Content Include="assets\blue-trangle.png" />
     <Content Include="assets\cancel-icon.png" />
     <Content Include="assets\cancel-white.png" />
+    <Content Include="assets\coming-soon.png" />
     <Content Include="assets\contact.png" />
+    <Content Include="assets\features-hero-6.jpg" />
     <Content Include="assets\features-hero-6.png" />
+    <Content Include="assets\features-hero-61.png" />
     <Content Include="assets\filter.svg" />
     <Content Include="assets\gmail.png" />
     <Content Include="assets\h-file-logo-white.png" />
     <Content Include="assets\h-file-sicon.png" />
     <Content Include="assets\home-icon-white.png" />
+    <Content Include="assets\login-samanta-w-bg.png" />
     <Content Include="assets\login-samanta.png" />
     <Content Include="assets\not-select-red.png" />
     <Content Include="assets\not-select.png" />
@@ -277,6 +281,7 @@
     <Content Include="assets\select-icon-gray.png" />
     <Content Include="assets\select.png" />
     <Content Include="assets\shutoff-white.png" />
+    <Content Include="assets\signup-samanta.png" />
     <Content Include="assets\square-envelope-solid.svg" />
     <Content Include="assets\uploaddoc.png" />
     <Content Include="assets\uploadimg.jpg" />
@@ -618,6 +623,7 @@
     <Content Include="Reception Page\Samanta1.jpeg" />
     <Content Include="Reception Page\samantaGIF.gif" />
     <Content Include="Reception Page\shutdown.png" />
+    <Content Include="Reception Page\signup-samanta.png" />
     <Content Include="Reception Page\user-icon.png" />
     <Content Include="reports.aspx" />
     <Content Include="samanta.aspx" />

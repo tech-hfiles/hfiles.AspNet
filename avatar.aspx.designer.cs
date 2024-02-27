@@ -132,6 +132,15 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.FileUpload imageFileUpload1;
 
         /// <summary>
+        /// litFileName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litFileName;
+
+        /// <summary>
         /// chklist control.
         /// </summary>
         /// <remarks>

@@ -143,7 +143,7 @@
                                         <div class="relation-div">
                                             <%-- <span class="fa-solid fa-earth-americas form-control-feedback"></span>--%>
                                             <select id="relation" runat="server" class="form-select form-control relation-select"
-                                                aria-label="Default select example" onchange="handleRelation()">
+                                                aria-label="Default select example" ><%--onchange="handleRelation()"--%>
                                                 <option selected disabled>Relation</option>
                                                 <option value="father">Father</option>
                                                 <option value="mother">Mother</option>
@@ -163,10 +163,10 @@
                                         </div>
                                     </div>
                                     <div class="">
-                                        <input class="date-input" type="date" id="dobTextBox1" runat="server" />
+                                        <input class="date-input" type="date" id="dobTextBox1" runat="server" /><%--onchange="calculateAge()"--%>
                                     </div>
                                     <div class="">
-                                        <input class="email-input" id="emailTextBox" runat="server" type="email" placeholder="Email ID" />
+                                        <input class="email-input" id="emailTextBox" runat="server" type="email" placeholder="Email ID"  />
                                     </div>
                                     <div class="">
                                         <input id="phoneTextBox" runat="server" type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
@@ -218,6 +218,36 @@
     </div>
     <script>
 
+        function handleRelation() {
+            var relationValue = document.getElementById(<%=relation.ClientID%>);
+            var dobString = document.getElementById(<%=dobTextBox1.ClientID%>);
+            var age = calculateAge(dobString);
+            console.log("Age:", age);
+
+            if ((relationValue === 'grandFather' || relationValue === 'grandMother' ||
+                relationValue === 'cat' || relationValue === 'dog') && age >= 18 && age <= 75) {
+                // Set email and contact number from session
+                document.getElementById(<%=emailTextBox.ClientID%>).value = "<%= Session["Email"] %>";
+                document.getElementById(<%=phoneTextBox.ClientID%>).value = "<%= Session["ContactNo"] %>";
+            } else {
+                // Clear email and contact number
+                document.getElementById(<%=emailTextBox.ClientID%>).value = "test";
+                document.getElementById(<%=phoneTextBox.ClientID%>).value = "test";
+            }
+        }
+
+        function calculateAge() {
+            var dobString = document.getElementById(<%=dobTextBox1.ClientID%>);
+            var dob = new Date(dobString);
+            var today = new Date();
+            var age = today.getFullYear() - dob.getFullYear();
+            var monthDiff = today.getMonth() - dob.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+            return age;
+        }
+
         function showTab(tabId, tabLabelId) {
             // Hide all tabs and remove active-tab class from labels
             var tabs = document.getElementsByClassName('tab-content');
@@ -252,9 +282,6 @@
         //selectMobile.style.display = 'block'
         //relationInput.style.display = 'flex'
 
-
-
-
         <%--function handleTabs(tab) {
             if (tab === 'family') {
                 family.style.color = '#0512b9'
@@ -284,28 +311,7 @@
                     document.getElementById("<%= hfMemberType.ClientID%>").value = "2";
             }
         }--%>
-        //function handleRelation() {
-        //    var relationValue = $(".relation-select").find(":selected").val();
-        //    relation = relationValue;
-        //    console.log(relation)
-        //    $('.email-input').attr('disabled', 'false');
-        //    $('.number-input').attr('disabled', 'false');
-        //    if (relation === 'grandFather' || relation === 'grandMother') {
-        //        defaultNumber.style.display = 'block'
-        //        $(".email-input").removeAttr('disabled');
-        //        $(".number-input").removeAttr('disabled');
-        //    } else if (relation === 'pet') {
-        //        $('.email-input').attr('disabled', 'disabled');
-        //        $('.number-input').attr('disabled', 'disabled');
-        //        defaultNumber.style.display = 'block'
-        //    } else {
-        //        defaultNumber.style.display = 'none'
-        //        $(".email-input").removeAttr('disabled');
-        //        $(".number-input").removeAttr('disabled');
-        //    }
-        //    console.log("relation")
-        //}
-        //console.log("relation")
+     
     </script>
 
 </asp:Content>

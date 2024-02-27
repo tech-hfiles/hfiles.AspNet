@@ -30,6 +30,17 @@
         .comming-soon  {
             font-size: 14px;
         }
+
+
+         @keyframes blink {
+        0% { color: black; }
+        50% { color: red; }
+        100% { color: darkgreen; }
+    }
+
+    .blink {
+        animation: blink 1s infinite; /* Change the duration as needed */
+    }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -143,7 +154,7 @@
                                         <img src="../Reception Page/chat-icon.png" />
                                     </div>
                                     <div class="col-9">
-                                        <h3>Chat Room  <small class="comming-soon">( Comming Soon ! )</small></h3>
+                                        <h3>Chat Room  <small id="typingEffect" class="comming-soon"><span id="comingSoon"  class="blink"></span><%--( Comming Soon ! )--%></small></h3>
                                           <%--<img src="Reception Page/coming-soon.png" />--%>
                                          
                                     </div>
@@ -153,11 +164,8 @@
                                     <%--  <span class="badge bg-warning rounded-circle">Comming Soon !</span>
                                     </div>--%>
                                 </div>
-
-
                             </div>
                         </a>
-
 
                         <%--<a class="support-group my-5" href="additionalinformation.aspx">
                             <div class="my_profile">
@@ -200,6 +208,22 @@
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
     <script>
+
+        var text = "Coming Soon !"; // Text to be typed
+        var speed = 100; // Typing speed in milliseconds
+        var index = 0; // Index of the current character being typed
+
+        function typeWriter() {
+            if (index < text.length) {
+                document.getElementById("comingSoon").innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        typeWriter(); // Start typing when the page loads
+
+
         // Function to open the modal and backdrop when the page renders
         //window.onload = function () {
         //    openModal();

@@ -93,9 +93,31 @@ namespace hfiles
                             mySqlCommand1.Parameters.AddWithValue("_spType", 'C');
                             mySqlCommand1.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
                             mySqlCommand1.ExecuteNonQuery();
-                            // Member exists and request sent
+
+                            int result1 = Convert.ToInt32(mySqlCommand1.Parameters["_Result"].Value);
+
+                            if (result1 == 1)
+                            {
+                                // Request sent
+                                System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Sent')", true);
+                            }
+                            else if (result1 == 2)
+                            {
+                                // Request already sent
+                                System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Already Sent')", true);
+                            }
+                            //else if (result1 == 0)
+                            //{
+                            //    // User does not exist
+                            //    System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('User Does Not Exist')", true);
+                            //}
+                            //else
+                            //{
+                            //    // Handle other cases if needed
+                            //}
+                            //Member exists and request sent
                             System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Sent')", true);
-                            //connection.Close();
+                            connection.Close();
                         }
                     }
                     else
@@ -139,7 +161,6 @@ namespace hfiles
 
                     string selectedRelation = relation.Value;
 
-
                     int age = CalculateAge(Convert.ToDateTime(dobTextBox1.Value));
                     //if ((selectedRelation == "son" || selectedRelation == "daughter" || selectedRelation == "grandfather" || selectedRelation == "grandmother" || selectedRelation == "cat" || selectedRelation == "dog") && (age < 17 || age > 70)) 
                     int gender = 0;
@@ -182,7 +203,7 @@ namespace hfiles
                         if (result == 0)
                         {
                             Response.Write("<script>alert('Memeber already exists with same email id !')</script>");
-                            Response.Write("<script>alert('Memeber added successfully !')</script>");
+                            //Response.Write("<script>alert('Memeber added successfully !')</script>");
                             Response.Redirect("avatar.aspx");
                         }
                     }
@@ -215,7 +236,22 @@ namespace hfiles
 
                             DAL.SendCareerMail(subject, body, email);
                             Response.Write("<script>alert('Memeber added successfully.')</script>");
-                            Response.Redirect("avatar.aspx");
+                            //newly added below code(usign block) for sending requests to created members
+                            using (MySqlCommand mySqlCommand1 = new MySqlCommand("usp_existingmember", con))
+                            {
+                                mySqlCommand1.CommandType = CommandType.StoredProcedure;
+                                mySqlCommand1.Parameters.AddWithValue("_hf_number", member);
+                                mySqlCommand1.Parameters.AddWithValue("_user_id", (object)Convert.ToInt32(this.Session["Userid"].ToString()));
+                                mySqlCommand1.Parameters.AddWithValue("_spType", 'C');
+                                mySqlCommand1.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
+                                mySqlCommand1.ExecuteNonQuery();
+                                // Member exists and request sent
+                                System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Sent')", true);
+                                //connection.Close();
+                                Response.Redirect("avatar.aspx");
+
+
+                            }
                         }
                         Response.Write("<script>alert('Memeber already exists with same email id !')</script>");
                     }

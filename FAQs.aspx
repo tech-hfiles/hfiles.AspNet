@@ -28,7 +28,8 @@
 
         <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
         <img class="blue-trangle-top-right" src="../assets/blue-trangle.png" alt="">
-        <img class="plus-top-left" src="../assets/plus-1.png" alt="">
+        <img class="plus-top-left" src="../assets/plus-1.png" alt="">   
+        <a class="back-arrow-btn" href="javascript: history.go(-1)"><img src="../assets/back-arrow.png" alt="">Back</a>
         <h2 class="heading text-center my-3">Frequently Asked Questions</h2>
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
@@ -54,7 +55,7 @@
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <strong>A total of 2GB disk space is allocated for an individual with free account.
+                                <strong>A total of 500 MB disk space is allocated for an individual with free account.
                                 </strong>
                             </div>
                         </div>

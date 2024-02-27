@@ -398,10 +398,12 @@
                             <asp:UpdatePanel runat="server" UpdateMode="Conditional">
                                 <ContentTemplate>
                                     <div class='file-input'>
-                                        <asp:FileUpload ID="imageFileUpload1" CssClass="l" runat="server" required />
+                                        <asp:FileUpload ID="imageFileUpload1" CssClass="l" runat="server" required onchange="showFileName()" />
                                         <span class='button'>Choose</span>
-                                        <span class='label' data-js-label>No file selected</span>
+                                     <%--   <span class='label' data-js-label>No file selected</label>--%>
+                                             <span id="fileNameLabel" class='label' data-js-label>No file selected</span>
                                     </div>
+                                    <asp:Literal ID="litFileName" runat="server"></asp:Literal>
                                 </ContentTemplate>
                                 <Triggers>
                                     <asp:PostBackTrigger ControlID="btnSubmit" />
@@ -522,6 +524,19 @@
         //        label.innerText = value;
         //    });
         //}
+
+        function showFileName() {
+            var fileInput = document.getElementById('<%= imageFileUpload1.ClientID %>');
+            var label = fileInput.nextElementSibling;
+            var fileNameLabel = document.getElementById("fileNameLabel");
+            if (fileInput.files.length > 0) {
+                //label.innerText = fileInput.files[0].name;
+                fileNameLabel.textContent = fileInput.files[0].name;
+            } else {
+                //label.innerText = 'No file selected';
+                fileNameLabel.innerText = 'No file selected';
+            }
+        }
 
     </script>
 

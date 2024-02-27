@@ -78,7 +78,12 @@ namespace hfiles
             if (remainingCount == 7)
             {
                 repeaterdiv.Visible = false;
-
+                //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You can add only 7 members !')", true);
+            }
+            if (remainingCount == 0)
+            {
+                //repeaterdiv.Visible = false;
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You can add only 7 members !')", true);
             }
             // Generate additional list items
             for (int i = 0; i < remainingCount; i++)
@@ -164,6 +169,7 @@ namespace hfiles
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            litFileName.Text = "File: " + imageFileUpload1.FileName;
             // string reporturl = "", Extension1, fileName1, dt1;
             string reporturl = "", Extension1, fileName1, dt1;
 

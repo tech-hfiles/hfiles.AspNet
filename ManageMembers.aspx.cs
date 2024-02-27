@@ -68,6 +68,7 @@ namespace hfiles
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(MemberId)); //Session["Userid"];
+                    cmd.Parameters.AddWithValue("_UserRedId", DAL.validateInt(Session["Userid"])); //Session["Userid"];
                     cmd.ExecuteNonQuery();
                     icon = "assets/select.png";
                     message = "Member Removed Successfully!";
@@ -172,7 +173,7 @@ namespace hfiles
                     mySqlCommand.Parameters.AddWithValue("_user_id", (object)DAL.validateInt(this.Session["Userid"]));
                     mySqlCommand.Parameters.AddWithValue("_requestedid", value);
                     mySqlCommand.Parameters.AddWithValue("_accepted", (object)0);
-                    mySqlCommand.Parameters.AddWithValue("_rejected", (object)2);
+                    mySqlCommand.Parameters.AddWithValue("_rejected", (object)1);
                     mySqlCommand.ExecuteNonQuery();
                     connection.Close();
                     icon = "assets/not-select-red.png";

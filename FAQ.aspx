@@ -42,7 +42,7 @@
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <strong>A total of 2GB disk space is allocated for an individual with free account.
+                                    <strong>A total of 500 MB disk space is allocated for an individual with free account.
                                     </strong>
                                 </div>
                             </div>
