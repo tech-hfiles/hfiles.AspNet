@@ -186,7 +186,7 @@
             }
         }
 
-        @media (max-width: 1200px) {
+        @media (max-width: 1366px) {
             .all-member-avatar-img {
                 position: relative;
             }
@@ -194,13 +194,20 @@
                 .all-member-avatar-img img {
                     position: absolute;
                     top: 200px;
-                    left: 0px;
+                    left: 50px;
                 }
 
             .avatar {
                 background-position-y: 20%;
             }
         }
+
+        @media(max-width: 700px) {
+            .all-member-avatar-img img {
+                left: 0;
+            }
+        }
+
     </style>
 
     <%--below script for sweetalert --%>
@@ -400,8 +407,8 @@
                                     <div class='file-input'>
                                         <asp:FileUpload ID="imageFileUpload1" CssClass="l" runat="server" required onchange="showFileName()" />
                                         <span class='button'>Choose</span>
-                                     <%--   <span class='label' data-js-label>No file selected</label>--%>
-                                             <span id="fileNameLabel" class='label' data-js-label>No file selected</span>
+                                        <%--   <span class='label' data-js-label>No file selected</label>--%>
+                                        <span id="fileNameLabel" class='label' data-js-label>No file selected</span>
                                     </div>
                                     <asp:Literal ID="litFileName" runat="server"></asp:Literal>
                                 </ContentTemplate>

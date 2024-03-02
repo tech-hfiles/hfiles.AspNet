@@ -11,6 +11,14 @@
         crossorigin="anonymous"></script>
     <title>Additional Information</title>
     <style>
+        @media(min-width: 1366px) {
+            .footer {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+            }
+        }
+
         @media (min-width: 800px) and (max-width: 1024px) {
             .footer {
                 position: absolute;
@@ -35,7 +43,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  <%--  <asp:ScriptManager runat="server" />--%>
+    <%--  <asp:ScriptManager runat="server" />--%>
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
             <div class="additional-information common-design" runat="server" id="AdditionalDiv">
@@ -45,6 +53,7 @@
                 <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
                 <img class="plus-top-left" src="../assets/plus-icon-3.png" alt="">
                 <div class="additionl-main-div container pt-5 px-5 h-90">
+                    <a class="back-arrow-btn" href="javascript: history.go(-1)"><img src="../assets/back-arrow.png" alt="">Back</a>
                     <div class="row pt-5 mb-5">
                         <div class="col-12">
                             <h1 class="heading">Additional Information</h1>
@@ -236,13 +245,14 @@
                         </div>
                     </div>
                     <%-- <img class="blue-trangle-bottom" src="<%= ResolveUrl("~/Add Members/blue-trangle-5.png") %>" alt="">--%>
-                    <img class="blue-trangle-bottom" src="../Add Members/blue-trangle-5.png" alt="">
+                    <%--<img class="blue-trangle-bottom" src="../Add Members/blue-trangle-5.png" alt="">--%>
                 </div>
                 <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
                 <%-- <img class="plus-bottom-right" src="<%= ResolveUrl("~/assets/plus-2.png") %>" alt="">--%>
             </div>
             <div runat="server" id="medicalHistoryDiv" class="medical-history common-design">
                 <%--<img class="home-icon-top-right" src="../Add Members/home-icon.png" alt="">--%>
+                 <a class="back-arrow-btn" href="javascript: history.go(-1)"><img src="../assets/back-arrow.png" alt="">Back</a>
                 <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
                 <img class="blue-trangle-top-right" src="../Terms & Conditions/blue-trangle6.png" alt="">
                 <img class="blue-trangle-right" src="../Terms & Conditions/blue-trangle3.png" alt="">
@@ -312,6 +322,7 @@
                 <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
             </div>
             <div class="allergy">
+                 <a class="back-arrow-btn" href="javascript: history.go(-1)"><img src="../assets/back-arrow.png" alt="">Back</a>
                 <%--<img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
                 <img class="blue-trangle-top-right" src="../Terms & Conditions/blue-trangle6.png" alt="">
                 <img class="blue-trangle-right" src="../Terms & Conditions/blue-trangle3.png" alt="">

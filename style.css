@@ -2132,6 +2132,9 @@ span.img-notselected {
     .download-doc-inner .report-page-title {
         font-size: 24px;
     }
+    .back-arrow-btn {
+        top: 7%;
+    }
 }
 
 @media only screen and (min-width: 912px) {
@@ -2223,6 +2226,9 @@ span.img-notselected {
 
     .download-doc-inner .search-file input {
         width: 80%
+    }
+    .back-arrow-btn {
+        top:7%;
     }
 }
 
@@ -2393,6 +2399,12 @@ span.img-notselected {
 
     .manage-members-div .heading {
         font-size: 18px;
+    }
+    .back-arrow-btn-small-dev {
+        position: absolute;
+        left: 10%;
+        top: 4%;
+        color: #0512b9;
     }
 }
 

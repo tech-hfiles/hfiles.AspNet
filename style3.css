@@ -1595,7 +1595,9 @@ a {
     .avatar .blue-t-bottom-right {
         left: 20%;
     }
-
+    .avatar .avatar-img {
+        height: 150px !important;
+    }
     .avatar ul {
         padding: 0;
     }
@@ -1703,9 +1705,9 @@ a {
     }
 
     .avatar .main-div {
-        background-position-x: center;
+        background-position-x: 20%;
     }
-
+   
     .avatar .modalPopup {
         height: 70%;
         width: 95%;

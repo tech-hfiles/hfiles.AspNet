@@ -21,14 +21,20 @@
         .journal-main-div {
             min-height: 87vh;
         }
+
     </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <%-- <asp:ScriptManager ID="scm1" runat="server"></asp:ScriptManager>--%>
+    <a class="back-arrow-btn d-none d-md-block" href="javascript: history.go(-1)">
+        <img src="../assets/back-arrow.png" alt="" />Back</a>
+    <a class="back-arrow-btn-small-dev d-block d-md-none" href="javascript: history.go(-1)">
+        <img src="../assets/back-arrow.png" alt="" />Back</a>
+    <%-- <asp:ScriptManager ID="scm1" runat="server"></asp:ScriptManager>--%>
     <%--<body class="journal common-design">
  <form id="form1" runat="server">--%>
     <div class="journal">
+
         <%-- <div class="top-icon">
         <img id="" class="" src="../Add Members/save-icon.png" alt="" width="35px">
         <img id="" class="" src="../Add Members/home-icon-gray.png" alt="" width="25px">
@@ -103,8 +109,9 @@
         </div>
       </div>--%>
         </div>
+
         <div class="journal-main-div mt-4 mb-5">
-           
+
             <div class="tab-div container px-5 d-flex justify-content-center my-3">
                 <div class="tab-div container px-5 d-flex justify-content-center mt-5">
                     <div class="tabs d-flex justify-content-between">
@@ -291,39 +298,39 @@
 
 
         <script>
-        const article = document.getElementById('ContentPlaceHolder1_LbtnArticle')
-        const audio = document.getElementById('ContentPlaceHolder1_LbtnAudio')
-        const video = document.getElementById('ContentPlaceHolder1_LbtnVideo')
+            const article = document.getElementById('ContentPlaceHolder1_LbtnArticle')
+            const audio = document.getElementById('ContentPlaceHolder1_LbtnAudio')
+            const video = document.getElementById('ContentPlaceHolder1_LbtnVideo')
 
 
-        //const ArticleTab = document.getElementById('ArticleTab')
-        //const VideoTab = document.getElementById('VideoTab')
-        //const AudioTab = document.getElementById('AudioTab')
+            //const ArticleTab = document.getElementById('ArticleTab')
+            //const VideoTab = document.getElementById('VideoTab')
+            //const AudioTab = document.getElementById('AudioTab')
 
-        //const shorting = document.getElementById('shorting')
-        //const filtering = document.getElementById('filtering')
-        article.style.color = '#172ab3'
-        function handleTabs(value) {
-            if (value === 'article') {
-                article.style.color = '#172ab3'
-                audio.style.color = '#d6d6d6'
-                video.style.color = '#d6d6d6'
-            } else if (value === 'video') {
-                video.style.color = '#172ab3'
-                audio.style.color = '#d6d6d6'
-                article.style.color = '#d6d6d6'
-            } else if (value === 'audio') {
-                audio.style.color = '#172ab3'
-                article.style.color = '#d6d6d6'
-                video.style.color = '#d6d6d6'
+            //const shorting = document.getElementById('shorting')
+            //const filtering = document.getElementById('filtering')
+            article.style.color = '#172ab3'
+            function handleTabs(value) {
+                if (value === 'article') {
+                    article.style.color = '#172ab3'
+                    audio.style.color = '#d6d6d6'
+                    video.style.color = '#d6d6d6'
+                } else if (value === 'video') {
+                    video.style.color = '#172ab3'
+                    audio.style.color = '#d6d6d6'
+                    article.style.color = '#d6d6d6'
+                } else if (value === 'audio') {
+                    audio.style.color = '#172ab3'
+                    article.style.color = '#d6d6d6'
+                    video.style.color = '#d6d6d6'
+                }
             }
-        }
-        function launch_toast() {
-            var x = document.getElementById("toast")
-            x.className = "show";
-            setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
-        }
-      //launch_toast()
+            function launch_toast() {
+                var x = document.getElementById("toast")
+                x.className = "show";
+                setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
+            }
+            //launch_toast()
 
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"

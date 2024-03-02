@@ -118,10 +118,10 @@
                         </div>
                     </div>
                     <div class="row input-group">
-                        <div class="col-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6 d-none d-md-block mb-md-5">
+                        <div class="col-12 col-md-12 col-lg-5 col-xl-6 col-xxl-6 d-none d-md-block mb-md-5">
                             <img class="avatar-group-img" src="../Add Members/addmember-avatar.png" width="100%" />
                         </div>
-                        <div class="col-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6 d-flex justify-content-center">
+                        <div class="col-12 col-md-12 col-lg-7 col-xl-6 col-xxl-6 d-flex justify-content-center">
                             <div class="w-100">
                                 <div class="row mb-2">
                                     <div class="col-6">

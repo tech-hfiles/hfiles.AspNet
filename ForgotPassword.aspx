@@ -54,9 +54,8 @@
             </details>
         </div>
         <asp:HiddenField runat="server" ID="hfId" />
-        <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-block" style="text-align: center;">
-
-            <img src="../assets/features-hero-6.png" alt="" style="width: 80%; margin: 145px 0 0 0;">
+        <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-flex align-items-center" style="text-align: center;">
+            <img src="../assets/features-hero-6.png" alt="" style="width: 100%; height: 90vh; object-fit: contain">
         </div>
         <div class="col-sm-12 col-lg-6 inner-main p-0">
             <div class="d-flex align-items-center justify-content-center h-100 inner-body">
