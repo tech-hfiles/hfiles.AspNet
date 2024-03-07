@@ -41,6 +41,11 @@
     .blink {
         animation: blink 1s infinite; /* Change the duration as needed */
     }
+    @media(max-width: 1024px) {
+        .comming-soon {
+            font-size: 12px;
+        }
+    }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

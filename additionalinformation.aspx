@@ -40,6 +40,12 @@
                 min-height: 85vh;
             }
         }
+
+        @media(max-width: 540px) {
+            .back-arrow-btn-small-dev {
+                top: 80px !important;
+            }
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -53,7 +59,8 @@
                 <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
                 <img class="plus-top-left" src="../assets/plus-icon-3.png" alt="">
                 <div class="additionl-main-div container pt-5 px-5 h-90">
-                    <a class="back-arrow-btn" href="javascript: history.go(-1)"><img src="../assets/back-arrow.png" alt="">Back</a>
+                    <a class="back-arrow-btn" href="javascript: history.go(-1)">
+                        <img src="../assets/back-arrow.png" alt="">Back</a>
                     <div class="row pt-5 mb-5">
                         <div class="col-12">
                             <h1 class="heading">Additional Information</h1>
@@ -237,7 +244,7 @@
                                     </table>--%>
                                 </div>
                             </div>
-                            <div class="mt-5 d-lg-flex d-block">
+                            <div class="mt-2 mt-lg-5 d-lg-flex d-block">
                                 <%--<asp:Button Text="Back" class="thm-back-button" OnClick="btnMedicalBack_Click" type="Button" ID="Button1" runat="server" />--%>
                                 <asp:Button Text="Next" ID="btnUpdateAdditional" class="thm-blue-button mx-lg-3 my-2 my-lg-0" OnClick="btnUpdateAdditional_Click" runat="server" />
                                 <%--<button onclick="HideAdditionalDiv()" type="submit" class="thm-blue-button">Next</button>--%>
@@ -252,7 +259,8 @@
             </div>
             <div runat="server" id="medicalHistoryDiv" class="medical-history common-design">
                 <%--<img class="home-icon-top-right" src="../Add Members/home-icon.png" alt="">--%>
-                 <a class="back-arrow-btn" href="javascript: history.go(-1)"><img src="../assets/back-arrow.png" alt="">Back</a>
+                <a class="back-arrow-btn" href="javascript: history.go(-1)">
+                    <img src="../assets/back-arrow.png" alt="">Back</a>
                 <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
                 <img class="blue-trangle-top-right" src="../Terms & Conditions/blue-trangle6.png" alt="">
                 <img class="blue-trangle-right" src="../Terms & Conditions/blue-trangle3.png" alt="">
@@ -322,7 +330,8 @@
                 <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
             </div>
             <div class="allergy">
-                 <a class="back-arrow-btn" href="javascript: history.go(-1)"><img src="../assets/back-arrow.png" alt="">Back</a>
+                <a class="back-arrow-btn" href="javascript: history.go(-1)">
+                    <img src="../assets/back-arrow.png" alt="">Back</a>
                 <%--<img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
                 <img class="blue-trangle-top-right" src="../Terms & Conditions/blue-trangle6.png" alt="">
                 <img class="blue-trangle-right" src="../Terms & Conditions/blue-trangle3.png" alt="">

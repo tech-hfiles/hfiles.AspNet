@@ -1657,7 +1657,7 @@ ul.dropdown-menu.show {
         }
 
     .t-c a, .p-p a {
-        font-size: 8px !important;
+        font-size: 10px !important;
     }
 }
 
@@ -1808,6 +1808,10 @@ ul.dropdown-menu.show {
     }
 
     .footer a {
-        font-size: 8px !important;
+        font-size: 6px !important;
+    }
+    .support-group .my_profile h3, .journal .journal_main .inner_div .heading h3 {
+        font-size: 14px;
     }
 }
+ 

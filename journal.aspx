@@ -22,6 +22,11 @@
             min-height: 87vh;
         }
 
+        @media(max-width: 540px) {
+            .back-arrow-btn-small-dev {
+                top: 80px !important;
+            }
+        }
     </style>
 </asp:Content>
 
