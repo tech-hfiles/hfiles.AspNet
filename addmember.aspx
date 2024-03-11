@@ -66,7 +66,7 @@
         }
 
 
-       /* @media (min-width: 1024px) {
+        /* @media (min-width: 1024px) {
             .inner-div {
                 height: auto;
             }
@@ -76,9 +76,9 @@
             .inner-div {
                 height: 90vh !important;
                 width: 65% !important;
-
             }
         }
+
         @media (min-width: 768px) {
             .footer {
                 position: relative !important;
@@ -88,14 +88,17 @@
                 position: relative !important;
             }
         }
+
         @media (max-width:768px) {
             .inner-div {
                 height: auto !important;
             }
+
             .member-type-tabs strong {
                 font-size: 12px;
             }
         }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -134,68 +137,75 @@
                                 <div id="abc" class="tab-content active-tab">
                                     <div class="mt-2">
                                         <input type="text" id="firstnameTextBox" runat="server" placeholder="First Name" />
+                                        <asp:RequiredFieldValidator ID="fname" ControlToValidate="firstnameTextBox" runat="server" Display="Dynamic" />
                                     </div>
-                                    <div class="">
-                                        <input type="text" id="lastnameTextBox" runat="server" placeholder="Last Name" />
+                                <div class="">
+                                    <input type="text" id="lastnameTextBox" runat="server" placeholder="Last Name" />
+                                    <asp:RequiredFieldValidator ID="lname" ControlToValidate="lastnameTextBox" runat="server" Display="Dynamic"></asp:RequiredFieldValidator>
+                                </div>
+                                <div id="relation-input" class="">
+                                    <asp:HiddenField runat="server" ID="hfMemberType" />
+                                    <div class="relation-div">
+                                        <%-- <span class="fa-solid fa-earth-americas form-control-feedback"></span>--%>
+                                        <select id="relation" runat="server" class="form-select form-control relation-select"
+                                            aria-label="Default select example">
+                                            <%--onchange="handleRelation()"--%>
+                                            <option selected disabled>Relation</option>
+                                            <option value="father">Father</option>
+                                            <option value="mother">Mother</option>
+                                            <option value="sister">Sister</option>
+                                            <option value="brother">Brother</option>
+                                            <option value="son">Son</option>
+                                            <option value="daughter">Daughter</option>
+                                            <option value="wife">Wife</option>
+                                            <option value="husband">Husband</option>
+                                            <option value="grandMother">Grand Mother</option>
+                                            <option value="grandFather">Grand Father</option>
+                                            <option value="friend">Friend</option>
+                                            <%--<option value="pet">Pet</option>--%>
+                                            <option value="cat">Cat</option>
+                                            <option value="dog">Dog</option>
+                                        </select>
+                                        <asp:RequiredFieldValidator ID="relationvalidator" ControlToValidate="relation" runat="server" Display="Dynamic" ></asp:RequiredFieldValidator>
                                     </div>
-                                    <div id="relation-input" class="">
-                                        <asp:HiddenField runat="server" ID="hfMemberType" />
-                                        <div class="relation-div">
-                                            <%-- <span class="fa-solid fa-earth-americas form-control-feedback"></span>--%>
-                                            <select id="relation" runat="server" class="form-select form-control relation-select"
-                                                aria-label="Default select example" ><%--onchange="handleRelation()"--%>
-                                                <option selected disabled>Relation</option>
-                                                <option value="father">Father</option>
-                                                <option value="mother">Mother</option>
-                                                <option value="sister">Sister</option>
-                                                <option value="brother">Brother</option>
-                                                <option value="son">Son</option>
-                                                <option value="daughter">Daughter</option>
-                                                <option value="wife">Wife</option>
-                                                <option value="husband">Husband</option>
-                                                <option value="grandMother">Grand Mother</option>
-                                                <option value="grandFather">Grand Father</option>
-                                                <option value="friend">Friend</option>
-                                                <%--<option value="pet">Pet</option>--%>
-                                                <option value="cat">Cat</option>
-                                                <option value="dog">Dog</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="">
-                                        <input class="date-input" type="date" id="dobTextBox1" runat="server" /><%--onchange="calculateAge()"--%>
-                                    </div>
-                                    <div class="">
-                                        <input class="email-input" id="emailTextBox" runat="server" type="email" placeholder="Email ID"  />
-                                    </div>
-                                    <div class="">
-                                        <input id="phoneTextBox" runat="server" type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
-                                    </div>
+                                </div>
+                                <div class="">
+                                    <input class="date-input" type="date" id="dobTextBox1" runat="server" onchange="calculateAge()"/><%--onchange="calculateAge()"--%>
+                                    <asp:RequiredFieldValidator ID="dob" ControlToValidate="dobTextBox1" runat="server" Display="Dynamic"></asp:RequiredFieldValidator>
+                                </div>
+                                <div class="">
+                                    <input class="email-input" id="emailTextBox" runat="server" type="email" placeholder="Email ID" />
+                                    <asp:RequiredFieldValidator ID="email" ControlToValidate="emailTextBox" runat="server" Display="Dynamic"></asp:RequiredFieldValidator>
+                                </div>
+                                <div class="">
+                                    <input id="phoneTextBox" runat="server" type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
+                                    <asp:RequiredFieldValidator ID="phone" ControlToValidate="phoneTextBox" runat="server" Display="Dynamic"></asp:RequiredFieldValidator>
+                                </div>
 
-                                    <%--  <div class="">
+                                <%--  <div class="">
      <input class="number-input" id="default-number" type="number" placeholder="default number." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
 </div>--%>
-                                    <div class="btn-div">
-                                        <%--<asp:Button runat="server" Text="Submit" CssClass="btn submit-btn" ID="btnSubmit"></asp:Button>--%>
-                                        <%-- <button id="back-btn"  class="btn thm-back-button mx-3">Back</button>--%>
-                                        <button runat="server" id="btn_Submit" onserverclick="btn_Submit_ServerClick" class="btn submit-btn">Submit</button>
-                                    </div>
+                                <div class="btn-div">
+                                    <%--<asp:Button runat="server" Text="Submit" CssClass="btn submit-btn" ID="btnSubmit"></asp:Button>--%>
+                                    <%-- <button id="back-btn"  class="btn thm-back-button mx-3">Back</button>--%>
+                                    <button runat="server" id="btn_Submit" onserverclick="btn_Submit_ServerClick" class="btn submit-btn">Submit</button>
                                 </div>
-
-                                <div id="xyz" class="tab-content">
-                                    <div class="mt-5">
-                                        <asp:TextBox type="text" ID="hfnumber" runat="server" placeholder="Enter HFiles ID" />
-                                    </div>
-                                    <div class="btn-div">
-                                        <asp:Button runat="server" ID="request" Text="Send Request" OnClick="request_Click" class="btn submit-btn request-btn"></asp:Button>
-                                    </div>
-                                </div>
-
                             </div>
-                        </div>
 
+                            <div id="xyz" class="tab-content">
+                                <div class="mt-5">
+                                    <asp:TextBox type="text" ID="hfnumber" runat="server" placeholder="Enter HFiles ID" />
+                                </div>
+                                <div class="btn-div">
+                                    <asp:Button runat="server" ID="request" Text="Send Request" OnClick="request_Click" class="btn submit-btn request-btn"></asp:Button>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                    <%-- <div class="row my-xl-5 my-lg-3">
+
+                </div>
+                <%-- <div class="row my-xl-5 my-lg-3">
                    s <div class="col-lg-5 col-md-5 col-sm-4 pl-lg-5 pr-0 d-xl-flex justify-content-end">
                         <div id="family" class="tab" style="color: #0116b8;" onclick="handleTabs('family')">
                             Family
@@ -209,12 +219,12 @@
                     </div>
                    
                 </div>--%>
-                </div>
             </div>
         </div>
-        <img class="plus-bottom-right" src="../Add Members/plus-2.png" alt="" />
-        <img class="blue-t-bottom-left" src="../Add Members/blue-trangle-4.png" alt="" />
-        <img class="blue-t-bottom-right" src="../Add Members/blue-trangle-5.png" alt="" />
+    </div>
+    <img class="plus-bottom-right" src="../Add Members/plus-2.png" alt="" />
+    <img class="blue-t-bottom-left" src="../Add Members/blue-trangle-4.png" alt="" />
+    <img class="blue-t-bottom-right" src="../Add Members/blue-trangle-5.png" alt="" />
     </div>
     <script>
 
@@ -311,7 +321,7 @@
                     document.getElementById("<%= hfMemberType.ClientID%>").value = "2";
             }
         }--%>
-     
+
     </script>
 
 </asp:Content>

@@ -12,6 +12,7 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.IO;
 using System.Xml.Linq;
@@ -31,14 +32,17 @@ namespace hfiles
         string reporturl;
         #endregion
         string memberRelation, message, icon;
+        int RId ;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //mp1.Show();
             int RId = DAL.validateInt(Request.QueryString["rid"]);
 
             if (!IsPostBack)
             {
                 getReportType(RId);
                 getReportMaster();
+                //getMembersList();
                 if (Request.QueryString["rid"] != null)
                 {
                     //int RId = DAL.validateInt(Request.QueryString["rid"]);
@@ -163,9 +167,9 @@ namespace hfiles
                         using (MySqlCommand cmd = new MySqlCommand("usp_addreportwithaccess", con))
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(Session["Userid"].ToString()));/* memberId*/
+                            cmd.Parameters.AddWithValue("_UserId", memberId );/* DAL.validateInt(Session["Userid"].ToString())*/
                             cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(ReportId));
-                            cmd.Parameters.AddWithValue("_memberId", DAL.validateInt(UserId));/*UserId*/
+                            cmd.Parameters.AddWithValue("_memberId", DAL.validateInt(Session["Userid"].ToString()));/*UserId*/
                             cmd.Parameters.AddWithValue("_reportname", "");
                             cmd.Parameters.AddWithValue("_reporturl", "");
                             cmd.Parameters.AddWithValue("_SpType", "LR");
@@ -558,6 +562,229 @@ namespace hfiles
             }
         }
 
+        protected void okLinkButton_Click(object sender, EventArgs e)
+        {
+            //mp1.Hide();
+
+        }
+        protected void lbtnEdit_Click(object sender, EventArgs e)
+        {
+            mp1.Show();
+
+            RId = DAL.validateInt(Request.QueryString["rid"]);
+            int UserId = DAL.validateInt(Session["Userid"].ToString());
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(cs))
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("usp_getmember", con)) /*usp_getMembers*/
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("_UserId", UserId);
+                        cmd.Parameters.AddWithValue("_MemberId", 0);
+                        cmd.Parameters.AddWithValue("_SpType", "E");
+                        cmd.Parameters.AddWithValue("_ReportId", RId);
+                        cmd.ExecuteNonQuery();
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        if (dt != null && dt.Rows.Count > 0)
+                        {
+                            ddlMembers2.DataSource = dt;
+                            ddlMembers2.DataTextField = "user_FirstName";
+                            ddlMembers2.DataValueField = "user_Id";
+                            ddlMembers2.DataBind();
+                            ddlMembers2.Items.Insert(0, new ListItem("Select Member", "0"));
+                            //mp1.Show();
+                        }
+                        else
+                        {
+                            ddlMembers2.Items.Insert(0, new ListItem("No Members", "0"));
+                        }
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+
+            }
+            //mp1.Show();
+        }
+        protected void getMembersList()
+        {
+            int UserId = DAL.validateInt(Session["Userid"].ToString());
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(cs))
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("usp_getmember", con)) /*usp_getMembers*/
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("_UserId", UserId);
+                        cmd.Parameters.AddWithValue("_MemberId", 0);
+                        cmd.Parameters.AddWithValue("_SpType", "LS");
+                        cmd.Parameters.AddWithValue("_ReportId", 0);
+                        cmd.ExecuteNonQuery();
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        if (dt != null && dt.Rows.Count > 0)
+                        {
+                            //ddlMembers.DataSource = dt;
+                            //ddlMembers.DataTextField = "user_FirstName";
+                            //ddlMembers.DataValueField = "user_Id";
+                            //ddlMembers.DataBind();
+                            //ddlMembers.Items.Insert(0, new ListItem("Select Member", "0"));
+
+                            //ddlMembers1.DataSource = dt;
+                            //ddlMembers1.DataTextField = "user_FirstName";
+                            //ddlMembers1.DataValueField = "user_Id";
+                            //ddlMembers1.DataBind();
+                            //ddlMembers1.Items.Insert(0, new ListItem("Select Member", "0"));
+
+                            ddlMembers2.DataSource = dt;
+                            ddlMembers2.DataTextField = "user_FirstName";
+                            ddlMembers2.DataValueField = "user_Id";
+                            ddlMembers2.DataBind();
+                            ddlMembers2.Items.Insert(0, new ListItem("Select Member", "0"));
+                        }
+                        else
+                        {
+                            ddlMembers2.Items.Insert(0, new ListItem("No Members", "0"));
+                        }
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+
+            }
+        }
+        protected void lbtnSave_Click(object sender, EventArgs e)
+        {
+            int RId = DAL.validateInt(Request.QueryString["rid"]);
+            int memberId = Convert.ToInt32(Session["memberId"]);
+            List<int> selectedIds = new List<int>();
+
+            foreach (ListItem item in ddlMembers2.Items)
+            {
+                if (item.Selected)
+                {
+                    selectedIds.Add(Convert.ToInt32(item.Value));
+                }
+            }
+            string memberIdList = string.Join(",", selectedIds);
+            //int memberId = Convert.ToInt32(ddlMembers2.SelectedItem.Value);
+            int result = 0;
+            try
+            {
+                //int age= Convert.ToInt32(Session["MemberAge"].ToString());
+                int age = 0;
+
+                using (MySqlConnection con = new MySqlConnection(cs))
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("usp_addreportwithaccess", con))
+                    {
+                        //if (memberId > 0)
+                        if (Session["memberRelation"] == null)
+                        {
+                            Session["memberRelation"] = "Self";
+                        }
+                        if (Session["memberRelation"].ToString() == "Self" || Session["memberRelation"].ToString() == "Son" || Session["memberRelation"].ToString() == "daughter" || Session["memberRelation"].ToString() == "cat" || Session["memberRelation"].ToString() == "Dog" || Session["memberRelation"].ToString() == "GrandFather" || Session["memberRelation"].ToString() == "GrandMother" || Session["memberRelation"].ToString() == "Son" && age < 17 || age > 70)
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("_UserId", int.Parse(Session["Userid"].ToString()));
+                            cmd.Parameters.AddWithValue("_reportname", "");
+                            cmd.Parameters.AddWithValue("_reporturl", "");
+                            cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(RId));
+                            // cmd.Parameters.AddWithValue("_memberId", memberId);
+                            cmd.Parameters.AddWithValue("_memberId", memberIdList);
+                            cmd.Parameters.AddWithValue("_SpType", "U");
+                            cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
+                            cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
+                            cmd.ExecuteNonQuery();
+                            int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
+                            result = DAL.validateInt(retVal);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Added Successfully')", true);
+                            //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
+                            Session["memberId"] = 0;
+                        }
+                        else if (memberId == int.Parse(Session["Userid"].ToString()))
+                        {
+                            //using (MySqlCommand cmd = new MySqlCommand("usp_addreport", con))
+                            //{
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("_UserId", int.Parse(Session["Userid"].ToString()));
+                            cmd.Parameters.AddWithValue("_reportname", "");
+                            cmd.Parameters.AddWithValue("_reporturl", "");
+                            cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(RId));
+                            // cmd.Parameters.AddWithValue("_memberId", memberId);
+                            cmd.Parameters.AddWithValue("_memberId", memberIdList);
+                            cmd.Parameters.AddWithValue("_SpType", "U");
+                            cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
+                            cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
+                            cmd.ExecuteNonQuery();
+                            int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
+                            result = DAL.validateInt(retVal);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Added Successfully')", true);
+                            //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
+                        }
+                        else
+                        {
+                            //using (MySqlCommand cmd = new MySqlCommand("usp_addreport", con))
+                            //{
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("_UserId", int.Parse(Session["Userid"].ToString()));
+                            cmd.Parameters.AddWithValue("_reportname", "");
+                            cmd.Parameters.AddWithValue("_reporturl", "");
+                            cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(RId));
+                            // cmd.Parameters.AddWithValue("_memberId", memberId);
+                            cmd.Parameters.AddWithValue("_memberId", memberIdList);
+                            cmd.Parameters.AddWithValue("_SpType", "U");
+                            cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
+                            cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
+                            cmd.ExecuteNonQuery();
+                            int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
+                            result = DAL.validateInt(retVal);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Added Successfully')", true);
+                            //else
+                            //{
+                            //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You don't have permission to add reports for this member')", true);
+                            //}
+                        }
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+                result = 0;
+            }
+            //return result;
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            mp1.Hide();
+        }
+
+        protected void Linkbtn1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void rptReports_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            Repeater reportRepeater = e.Item.FindControl("rptReports") as Repeater;
+        }
+
         //public static void SendMail(string Subject, string messageBody, string ToEmail, string attachmentFilePath)
         //{
         //    string fromMail = ConfigurationManager.AppSettings["careermailUserId"].ToString();
@@ -661,5 +888,4 @@ namespace hfiles
             //SendEmailWithAttachment();
         }
     }
-
 }

@@ -24,6 +24,15 @@ namespace hfiles
         protected global::System.Web.UI.HtmlControls.HtmlInputText firstnameTextBox;
 
         /// <summary>
+        /// fname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator fname;
+
+        /// <summary>
         /// lastnameTextBox control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText lastnameTextBox;
+
+        /// <summary>
+        /// lname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator lname;
 
         /// <summary>
         /// hfMemberType control.
@@ -51,6 +69,15 @@ namespace hfiles
         protected global::System.Web.UI.HtmlControls.HtmlSelect relation;
 
         /// <summary>
+        /// relationvalidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator relationvalidator;
+
+        /// <summary>
         /// dobTextBox1 control.
         /// </summary>
         /// <remarks>
@@ -58,6 +85,15 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dobTextBox1;
+
+        /// <summary>
+        /// dob control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator dob;
 
         /// <summary>
         /// emailTextBox control.
@@ -69,6 +105,15 @@ namespace hfiles
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl emailTextBox;
 
         /// <summary>
+        /// email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator email;
+
+        /// <summary>
         /// phoneTextBox control.
         /// </summary>
         /// <remarks>
@@ -76,6 +121,15 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl phoneTextBox;
+
+        /// <summary>
+        /// phone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator phone;
 
         /// <summary>
         /// btn_Submit control.

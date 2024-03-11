@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/user.Master" CodeBehind="reports.aspx.cs" Inherits="hfiles.reports" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 
 <%--<html xmlns="http://www.w3.org/1999/xhtml">
@@ -30,6 +31,30 @@
     <title>Document</title>
 
     <style>
+        .modalBackground {
+            background-color: Black;
+            filter: alpha(opacity=90);
+            opacity: 0.8;
+        }
+
+        .modalPopup {
+            background-color: #f4f4f4;
+            border-width: 3px;
+            border-style: solid;
+            border-color: black;
+            padding: 20px;
+            width: 35%;
+            /*height: 48%;*/
+            height: auto;
+            position: fixed;
+            z-index: 100001;
+            left: 20%;
+            /*top: 20%;*/
+            top: 10%;
+            user-select: auto;
+            border-radius: 10px;
+        }
+
         .footer {
             position: relative;
             bottom: 0;
@@ -39,7 +64,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%--<body class="download-documents">--%>
-    <asp:UpdatePanel runat="server">
+    <asp:UpdatePanel runat="server" UpdateMode="Conditional">
         <ContentTemplate>
             <%--   <asp:ScriptManager runat="server" />--%>
             <div class="container-fluid download-doc-inner my-5">
@@ -96,13 +121,21 @@
 
                                             <%-- <div id="deletereport" class="report-delete-btn" runat="server" visible='<%#((Convert.ToInt32(Session["memberId"].ToString()) > 0))?false:true %>'>--%>
                                             <div id="deletereport" class="report-delete-btn" runat="server" visible='<%# Session["memberId"] != null && Convert.ToInt32(Session["memberId"]) > 0 ? false : true %>'>
-                                                <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">
+
+                                                <asp:LinkButton ID="lbtnEdit" runat="server" CommandArgument='<%# Eval("Id")%>' OnClick="lbtnEdit_Click">
+    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512">
+        <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+        <path fill="#FFD43B" d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z" />
+    </svg>
+                                                </asp:LinkButton>
+
+                                                <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap" style="display: none">
                                                     <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512">
                                                         <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                                                         <path fill="#FFD43B" d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z" />
                                                     </svg>
                                                 </a>
-                                                <asp:LinkButton Text="text" ID="lbtnremove" OnClick="lbtnremove_Click" runat="server" CommandArgument='<%# Eval("Id")%>'><img src="../Suppor Group (BG  & Icons)/delete-icon.png" /></asp:LinkButton>
+                                                <asp:LinkButton Text="text" ID="lbtnremove" OnClick="lbtnremove_Click" runat="server" CommandArgument='<%# Eval("Id")%>'><img src="../Suppor Group (BG  & Icons)/delete-icon.png" /></asp:LinkButton><%--lbtnremove_Click--%>
                                             </div>
                                         </div>
                                     </div>
@@ -110,21 +143,28 @@
                                 </ItemTemplate>
                             </asp:Repeater>
 
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">User List</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Give user right to access this report</p>
-                                            <form>
-                                                <div class="form-check form-switch my-1">
-                                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                                    <label class="form-check-label" for="flexSwitchCheckDefault">User 1</label>
-                                                </div>
-                                                <div class="form-check form-switch my-1">
+                            <asp:Button ID="btnShow" runat="server" Text="Show Modal Popup" Style="display: none" />
+                            <cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panel1" TargetControlID="btnShow"
+                                CancelControlID="btnClose" BackgroundCssClass="modalBackground">
+                            </cc1:ModalPopupExtender>
+                             <asp:CheckBoxList ID="CheckBoxList1" CssClass="form-control border-0" runat="server" SelectionMode="Multiple"></asp:CheckBoxList>
+                            <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center" >
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">User List</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Give user right to access this report</p>
+                                                <form>
+                                                    <%--  <div class="form-check form-switch my-1">--%>
+                                                    <asp:CheckBoxList ID="ddlMembers2" CssClass="form-control border-0" runat="server" SelectionMode="Multiple"></asp:CheckBoxList>
+                                                    <%--  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                                    <label class="form-check-label" for="flexSwitchCheckDefault">User 1</label>--%>
+                                                    <%-- </div>--%>
+                                                    <%--   <div class="form-check form-switch my-1">
                                                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
                                                     <label class="form-check-label" for="flexSwitchCheckChecked">User 2</label>
                                                 </div>
@@ -143,32 +183,17 @@
                                                 <div class="form-check form-switch my-1">
                                                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
                                                     <label class="form-check-label" for="flexSwitchCheckChecked">User 2</label>
-                                                </div>
-                                                <div class="form-check form-switch my-1">
-                                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                                    <label class="form-check-label" for="flexSwitchCheckDefault">User 1</label>
-                                                </div>
-                                                <div class="form-check form-switch my-1">
-                                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                                                    <label class="form-check-label" for="flexSwitchCheckChecked">User 2</label>
-                                                </div>
-                                                <div class="form-check form-switch my-1">
-                                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                                    <label class="form-check-label" for="flexSwitchCheckDefault">User 1</label>
-                                                </div>
-                                                <div class="form-check form-switch my-1">
-                                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                                                    <label class="form-check-label" for="flexSwitchCheckChecked">User 2</label>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save</button>
+                                                </div>--%>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" id="btnClose" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <asp:LinkButton ID="lbtnSave" runat="server" OnClick="lbtnSave_Click" Text="Save" class="btn btn-primary"></asp:LinkButton>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </asp:Panel>
                         </div>
                     </div>
 
@@ -185,6 +210,9 @@
                 <div id="desc"></div>
             </div>
         </ContentTemplate>
+        <Triggers>
+           <%-- <asp:AsyncPostBackTrigger ControlID="lbtnEdit" EventName="OnClick" />--%>
+        </Triggers>
     </asp:UpdatePanel>
     <%--  </div>--%>
     <%-- <div class="footer d-flex justify-content-around">

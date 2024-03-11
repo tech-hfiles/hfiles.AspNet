@@ -498,7 +498,6 @@ namespace hfiles
                 divWrapper.Style["padding"] = "10px"; // Adjust the value as needed
             }
         }
-
         protected void getMembersList()
         {
             int UserId = DAL.validateInt(Session["Userid"].ToString());
@@ -512,6 +511,8 @@ namespace hfiles
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("_UserId", UserId);
                         cmd.Parameters.AddWithValue("_MemberId", 0);
+                        cmd.Parameters.AddWithValue("_SpType", "LS");
+                        cmd.Parameters.AddWithValue("_ReportId", 0);
                         cmd.ExecuteNonQuery();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
@@ -528,6 +529,7 @@ namespace hfiles
                             //ddlMembers1.DataTextField = "user_FirstName";
                             //ddlMembers1.DataValueField = "user_Id";
                             //ddlMembers1.DataBind();
+
                             //ddlMembers1.Items.Insert(0, new ListItem("Select Member", "0"));
 
                             ddlMembers2.DataSource = dt;
@@ -561,6 +563,8 @@ namespace hfiles
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("_UserId", UserId);
                         cmd.Parameters.AddWithValue("_MemberId", 0);
+                        cmd.Parameters.AddWithValue("_SpType", "LS");
+                        cmd.Parameters.AddWithValue("_ReportId", 0);
                         cmd.ExecuteNonQuery();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();

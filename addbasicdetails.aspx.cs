@@ -133,7 +133,6 @@ namespace hfiles
             return new string(Enumerable.Repeat(chars, 4)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }
-
         protected void submitButton_Click(object sender, EventArgs e)
         {
             // Generate a unique random number (you can adjust the range as needed)

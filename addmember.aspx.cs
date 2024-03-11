@@ -182,7 +182,6 @@ namespace hfiles
                     }
                     if (age < 17 || age > 70)
                     {
-
                         cmdInsert.Parameters.AddWithValue("_user_reference", Session["Userid"].ToString());
                         cmdInsert.Parameters.AddWithValue("_user_firstname", firstnameTextBox.Value);
                         cmdInsert.Parameters.AddWithValue("_user_lastname", lastnameTextBox.Value);
