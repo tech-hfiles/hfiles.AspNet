@@ -147,18 +147,18 @@
                             <cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panel1" TargetControlID="btnShow"
                                 CancelControlID="btnClose" BackgroundCssClass="modalBackground">
                             </cc1:ModalPopupExtender>
-                             <asp:CheckBoxList ID="CheckBoxList1" CssClass="form-control border-0" runat="server" SelectionMode="Multiple"></asp:CheckBoxList>
-                            <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center" >
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <asp:CheckBoxList ID="CheckBoxList1" CssClass="form-control border-0" runat="server" SelectionMode="Multiple"></asp:CheckBoxList>
+                            <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center">
+                               <%-- modal fade--%><div class="" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"><%----%>
                                     <div class="modal-dialog modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">User List</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">User's List</h1>
+                                                <%--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--%>
                                             </div>
                                             <div class="modal-body">
-                                                <p>Give user right to access this report</p>
-                                                <form>
+                                                <p>Edit Access <%--Give user right to access this report--%></p>
+                                             <%--   <form>--%>
                                                     <%--  <div class="form-check form-switch my-1">--%>
                                                     <asp:CheckBoxList ID="ddlMembers2" CssClass="form-control border-0" runat="server" SelectionMode="Multiple"></asp:CheckBoxList>
                                                     <%--  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
@@ -184,7 +184,7 @@
                                                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
                                                     <label class="form-check-label" for="flexSwitchCheckChecked">User 2</label>
                                                 </div>--%>
-                                                </form>
+                                               <%-- </form>--%>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" id="btnClose" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -211,7 +211,7 @@
             </div>
         </ContentTemplate>
         <Triggers>
-           <%-- <asp:AsyncPostBackTrigger ControlID="lbtnEdit" EventName="OnClick" />--%>
+            <%-- <asp:AsyncPostBackTrigger ControlID="lbtnEdit" EventName="OnClick" />--%>
         </Triggers>
     </asp:UpdatePanel>
     <%--  </div>--%>

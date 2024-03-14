@@ -33,6 +33,7 @@ namespace hfiles
         #endregion
         string memberRelation, message, icon;
         int RId ;
+        DataTable dtMemberList = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
             //mp1.Show();
@@ -40,6 +41,7 @@ namespace hfiles
 
             if (!IsPostBack)
             {
+                getMembersList();
                 getReportType(RId);
                 getReportMaster();
                 //getMembersList();
@@ -171,6 +173,7 @@ namespace hfiles
                             cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(ReportId));
                             cmd.Parameters.AddWithValue("_memberId", DAL.validateInt(Session["Userid"].ToString()));/*UserId*/
                             cmd.Parameters.AddWithValue("_reportname", "");
+                            cmd.Parameters.AddWithValue("_rId", 0);
                             cmd.Parameters.AddWithValue("_reporturl", "");
                             cmd.Parameters.AddWithValue("_SpType", "LR");
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
@@ -569,6 +572,10 @@ namespace hfiles
         }
         protected void lbtnEdit_Click(object sender, EventArgs e)
         {
+            LinkButton lnk = sender as LinkButton;
+            int reportId = Convert.ToInt16(lnk.CommandArgument);
+            Session["ReportUniqueId"] = reportId;
+
             mp1.Show();
 
             RId = DAL.validateInt(Request.QueryString["rid"]);
@@ -585,18 +592,40 @@ namespace hfiles
                         cmd.Parameters.AddWithValue("_MemberId", 0);
                         cmd.Parameters.AddWithValue("_SpType", "E");
                         cmd.Parameters.AddWithValue("_ReportId", RId);
+                        cmd.Parameters.AddWithValue("_RId", reportId);
                         cmd.ExecuteNonQuery();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         da.Fill(dt);
                         if (dt != null && dt.Rows.Count > 0)
                         {
-                            ddlMembers2.DataSource = dt;
+                            //for merging 2 datatables
+                            DataTable mergedTable = MergeDataTables(Session["dtMemberList"] as DataTable, dt);
+
+                            //ddlMembers2.DataSource = dt;
+
+                            ddlMembers2.DataSource = mergedTable;
                             ddlMembers2.DataTextField = "user_FirstName";
                             ddlMembers2.DataValueField = "user_Id";
                             ddlMembers2.DataBind();
-                            ddlMembers2.Items.Insert(0, new ListItem("Select Member", "0"));
-                            //mp1.Show();
+                            //ddlMembers2.Items.Insert(0, new ListItem("Select Member", "0"));
+
+                            // Get selected members based on report ID
+                            List<string> selectedMembers = new List<string>();
+                            foreach (DataRow row in dt.Rows)
+                            {
+                                selectedMembers.Add(row["user_Id"].ToString());
+                            }
+
+                            // Iterate through DropDownList items to select pre-selected members
+                            foreach (ListItem item in ddlMembers2.Items)
+                            {
+                                if (selectedMembers.Contains(item.Value))
+                                {
+                                    item.Selected = true;
+                                }
+                            }
+                            mp1.Show();
                         }
                         else
                         {
@@ -611,6 +640,75 @@ namespace hfiles
             }
             //mp1.Show();
         }
+
+
+        // Method to merge two DataTables
+        private DataTable MergeDataTables(DataTable dt1, DataTable dt2)
+        {
+            // Create a new DataTable
+            DataTable mergedTable = new DataTable();
+
+            // Add columns from dt1 to mergedTable
+            foreach (DataColumn column in dt1.Columns)
+            {
+                mergedTable.Columns.Add(new DataColumn(column.ColumnName, column.DataType));
+            }
+
+            // Add columns from dt2 to mergedTable
+            foreach (DataColumn column in dt2.Columns)
+            {
+                if (!mergedTable.Columns.Contains(column.ColumnName))
+                {
+                    mergedTable.Columns.Add(new DataColumn(column.ColumnName, column.DataType));
+                }
+            }
+
+            // Merge rows from both DataTables
+            foreach (DataRow row1 in dt1.Rows)
+            {
+                DataRow newRow = mergedTable.Rows.Add();
+                foreach (DataColumn column in dt1.Columns)
+                {
+                    newRow[column.ColumnName] = row1[column.ColumnName];
+                }
+            }
+
+            foreach (DataRow row2 in dt2.Rows)
+            {
+                // Check if the same record already exists in mergedTable
+                bool exists = false;
+                foreach (DataRow mergedRow in mergedTable.Rows)
+                {
+                    bool allColumnsMatch = true;
+                    foreach (DataColumn column in dt2.Columns)
+                    {
+                        if (!Equals(row2[column.ColumnName], mergedRow[column.ColumnName]))
+                        {
+                            allColumnsMatch = false;
+                            break;
+                        }
+                    }
+                    if (allColumnsMatch)
+                    {
+                        exists = true;
+                        break;
+                    }
+                }
+
+                // Add the row from dt2 to mergedTable only if it doesn't already exist
+                if (!exists)
+                {
+                    DataRow newRow = mergedTable.Rows.Add();
+                    foreach (DataColumn column in dt2.Columns)
+                    {
+                        newRow[column.ColumnName] = row2[column.ColumnName];
+                    }
+                }
+            }
+
+            return mergedTable;
+        }
+
         protected void getMembersList()
         {
             int UserId = DAL.validateInt(Session["Userid"].ToString());
@@ -625,12 +723,14 @@ namespace hfiles
                         cmd.Parameters.AddWithValue("_UserId", UserId);
                         cmd.Parameters.AddWithValue("_MemberId", 0);
                         cmd.Parameters.AddWithValue("_SpType", "LS");
+                        //cmd.Parameters.AddWithValue("_AccessMappingId", 0);
                         cmd.Parameters.AddWithValue("_ReportId", 0);
+                        cmd.Parameters.AddWithValue("_RId", 0);
                         cmd.ExecuteNonQuery();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
-                        if (dt != null && dt.Rows.Count > 0)
+                        
+                        da.Fill(dtMemberList);
+                        if (dtMemberList != null && dtMemberList.Rows.Count > 0)
                         {
                             //ddlMembers.DataSource = dt;
                             //ddlMembers.DataTextField = "user_FirstName";
@@ -644,11 +744,12 @@ namespace hfiles
                             //ddlMembers1.DataBind();
                             //ddlMembers1.Items.Insert(0, new ListItem("Select Member", "0"));
 
-                            ddlMembers2.DataSource = dt;
+                            ddlMembers2.DataSource = dtMemberList;
+                            Session["dtMemberList"] = dtMemberList;
                             ddlMembers2.DataTextField = "user_FirstName";
                             ddlMembers2.DataValueField = "user_Id";
                             ddlMembers2.DataBind();
-                            ddlMembers2.Items.Insert(0, new ListItem("Select Member", "0"));
+                            //ddlMembers2.Items.Insert(0, new ListItem("Select Member", "0"));
                         }
                         else
                         {
@@ -693,7 +794,7 @@ namespace hfiles
                         {
                             Session["memberRelation"] = "Self";
                         }
-                        if (Session["memberRelation"].ToString() == "Self" || Session["memberRelation"].ToString() == "Son" || Session["memberRelation"].ToString() == "daughter" || Session["memberRelation"].ToString() == "cat" || Session["memberRelation"].ToString() == "Dog" || Session["memberRelation"].ToString() == "GrandFather" || Session["memberRelation"].ToString() == "GrandMother" || Session["memberRelation"].ToString() == "Son" && age < 17 || age > 70)
+                        if (Session["memberRelation"].ToString() == "Self" || Session["memberRelation"].ToString() == "Son" || Session["memberRelation"].ToString() == "daughter" || Session["memberRelation"].ToString() == "cat" || Session["memberRelation"].ToString() == "Dog" || Session["memberRelation"].ToString() == "GrandFather" || Session["memberRelation"].ToString() == "GrandMother" || Session["memberRelation"].ToString() == "Uncle" || Session["memberRelation"].ToString() == "Aunt" || Session["memberRelation"].ToString() == "Son" && age < 17 || age > 70)
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("_UserId", int.Parse(Session["Userid"].ToString()));
@@ -702,13 +803,14 @@ namespace hfiles
                             cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(RId));
                             // cmd.Parameters.AddWithValue("_memberId", memberId);
                             cmd.Parameters.AddWithValue("_memberId", memberIdList);
+                            cmd.Parameters.AddWithValue("_rId", Convert.ToInt32(Session["ReportUniqueId"].ToString()));
                             cmd.Parameters.AddWithValue("_SpType", "U");
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                             cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
                             cmd.ExecuteNonQuery();
                             int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
                             result = DAL.validateInt(retVal);
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Added Successfully')", true);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Updated Successfully')", true);
                             //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
                             Session["memberId"] = 0;
                         }
@@ -723,13 +825,14 @@ namespace hfiles
                             cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(RId));
                             // cmd.Parameters.AddWithValue("_memberId", memberId);
                             cmd.Parameters.AddWithValue("_memberId", memberIdList);
+                            cmd.Parameters.AddWithValue("_rId", Convert.ToInt32(Session["ReportUniqueId"].ToString()));
                             cmd.Parameters.AddWithValue("_SpType", "U");
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                             cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
                             cmd.ExecuteNonQuery();
                             int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
                             result = DAL.validateInt(retVal);
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Added Successfully')", true);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Updated Successfully')", true);
                             //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
                         }
                         else
@@ -743,13 +846,14 @@ namespace hfiles
                             cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(RId));
                             // cmd.Parameters.AddWithValue("_memberId", memberId);
                             cmd.Parameters.AddWithValue("_memberId", memberIdList);
+                            cmd.Parameters.AddWithValue("_rId", Convert.ToInt32(Session["ReportUniqueId"].ToString()));
                             cmd.Parameters.AddWithValue("_SpType", "U");
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                             cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
                             cmd.ExecuteNonQuery();
                             int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
                             result = DAL.validateInt(retVal);
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Added Successfully')", true);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Updated Successfully')", true);
                             //else
                             //{
                             //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You don't have permission to add reports for this member')", true);

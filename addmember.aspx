@@ -161,6 +161,8 @@
                                             <option value="husband">Husband</option>
                                             <option value="grandMother">Grand Mother</option>
                                             <option value="grandFather">Grand Father</option>
+                                            <option value="uncle">Uncle</option>
+                                            <option value="aunt">Aunt</option>
                                             <option value="friend">Friend</option>
                                             <%--<option value="pet">Pet</option>--%>
                                             <option value="cat">Cat</option>

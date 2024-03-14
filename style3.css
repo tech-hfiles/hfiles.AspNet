@@ -191,7 +191,7 @@ input::-webkit-inner-spin-button {
         outline: 0;
         border: 0;
         /* color: #bfbfbf; */
-        width: 200px;
+        /*width: 200px;*/
         text-align: center
     }
 

@@ -241,6 +241,8 @@ namespace hfiles
                             cmd.Parameters.AddWithValue("_reportId", reportId);
                             // cmd.Parameters.AddWithValue("_memberId", memberId);
                             cmd.Parameters.AddWithValue("_memberId", memberIdList);
+
+                            cmd.Parameters.AddWithValue("_rId", 0);
                             cmd.Parameters.AddWithValue("_SpType", "C");
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                             cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
@@ -262,6 +264,7 @@ namespace hfiles
                             cmd.Parameters.AddWithValue("_reportId", reportId);
                             // cmd.Parameters.AddWithValue("_memberId", memberId);
                             cmd.Parameters.AddWithValue("_memberId", memberIdList);
+                            cmd.Parameters.AddWithValue("_rId", 0);
                             cmd.Parameters.AddWithValue("_SpType", "C");
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                             cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
@@ -282,6 +285,7 @@ namespace hfiles
                             cmd.Parameters.AddWithValue("_reportId", reportId);
                             // cmd.Parameters.AddWithValue("_memberId", memberId);
                             cmd.Parameters.AddWithValue("_memberId", memberIdList);
+                            cmd.Parameters.AddWithValue("_rId", 0);
                             cmd.Parameters.AddWithValue("_SpType", "C");
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                             cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
@@ -512,7 +516,9 @@ namespace hfiles
                         cmd.Parameters.AddWithValue("_UserId", UserId);
                         cmd.Parameters.AddWithValue("_MemberId", 0);
                         cmd.Parameters.AddWithValue("_SpType", "LS");
+                        //cmd.Parameters.AddWithValue("_AccessMappingId", 0);
                         cmd.Parameters.AddWithValue("_ReportId", 0);
+                        cmd.Parameters.AddWithValue("_RId", 0);
                         cmd.ExecuteNonQuery();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
@@ -564,7 +570,9 @@ namespace hfiles
                         cmd.Parameters.AddWithValue("_UserId", UserId);
                         cmd.Parameters.AddWithValue("_MemberId", 0);
                         cmd.Parameters.AddWithValue("_SpType", "LS");
+                        //cmd.Parameters.AddWithValue("_AccessMappingId", 0);
                         cmd.Parameters.AddWithValue("_ReportId", 0);
+                        cmd.Parameters.AddWithValue("_RId", 0);
                         cmd.ExecuteNonQuery();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();

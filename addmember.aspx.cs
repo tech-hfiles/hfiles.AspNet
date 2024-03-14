@@ -21,9 +21,12 @@ namespace hfiles
         {
             if (!IsPostBack)
             {
+                PopulateUserDetails(Session["Userid"].ToString());
                 if (Session["Userid"] != null)
                 {
-
+                    //added for getting email and password on page load
+                    //int Userid = Convert.ToInt32(Session["Userid"].ToString());
+                    //PopulateUserDetails(Session["Userid"].ToString());
                 }
                 if (Request.QueryString["UserId"] != null)
                 {
@@ -54,12 +57,12 @@ namespace hfiles
                     {
                         if (reader.Read())
                         {
-                            firstnameTextBox.Value = reader["user_firstname"].ToString();
-                            lastnameTextBox.Value = reader["user_lastname"].ToString();
+                            //firstnameTextBox.Value = reader["user_firstname"].ToString();
+                           // lastnameTextBox.Value = reader["user_lastname"].ToString();
                             phoneTextBox.Value = reader["user_contact"].ToString();
                             emailTextBox.Value = reader["user_email"].ToString();
-                            relation.Value = reader["user_relation"].ToString();
-                            dobTextBox1.Value = reader["user_dob"].ToString();
+                            //relation.Value = reader["user_relation"].ToString();
+                            //dobTextBox1.Value = reader["user_dob"].ToString();
                         }
                     }
                     command.ExecuteNonQuery();
@@ -164,11 +167,11 @@ namespace hfiles
                     int age = CalculateAge(Convert.ToDateTime(dobTextBox1.Value));
                     //if ((selectedRelation == "son" || selectedRelation == "daughter" || selectedRelation == "grandfather" || selectedRelation == "grandmother" || selectedRelation == "cat" || selectedRelation == "dog") && (age < 17 || age > 70)) 
                     int gender = 0;
-                    if (selectedRelation == "son" || selectedRelation == "grandfather")
+                    if (selectedRelation == "son" || selectedRelation == "grandfather" || selectedRelation == "uncle")
                     {
                         gender = 1;
                     }
-                    else if (selectedRelation == "daughter" || selectedRelation == "grandmother")
+                    else if (selectedRelation == "daughter" || selectedRelation == "grandmother" || selectedRelation == "aunt")
                     {
                         gender = 2;
                     }
