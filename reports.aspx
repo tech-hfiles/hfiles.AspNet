@@ -60,6 +60,18 @@
             bottom: 0;
             width: 100%;
         }
+         @media (max-width: 912px) {
+     .modalPopup {
+         width:90%;
+         left:30px !important;
+     }
+ }
+        @media (max-width: 540px) {
+            .modalPopup {
+                width:90%;
+                left:20px !important;
+            }
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
