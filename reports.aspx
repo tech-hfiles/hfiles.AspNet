@@ -198,8 +198,8 @@
                                                 </div>--%>
                                                <%-- </form>--%>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" id="btnClose" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <div class="modal-footer mt-3">
+                                                <button type="button" id="btnClose" class="btn btn-secondary mx-3" data-bs-dismiss="modal">Close</button>
                                                 <asp:LinkButton ID="lbtnSave" runat="server" OnClick="lbtnSave_Click" Text="Save" class="btn btn-primary"></asp:LinkButton>
                                             </div>
                                         </div>

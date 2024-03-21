@@ -21,12 +21,25 @@ namespace hfiles
         {
             if (!IsPostBack)
             {
-                PopulateUserDetails(Session["Userid"].ToString());
-                if (Session["Userid"] != null)
+                //if (Session["Userid"] != null)
+                //{
+                //    bindData(DAL.validateInt(Session["Userid"].ToString()));
+                //}
+                //else
+                //{
+                //    Response.Redirect("~/login.aspx");
+                //}
+                //PopulateUserDetails(Session["Userid"].ToString());
+                if (Session["Userid"] != null || Session["Userid"] == "")
                 {
+                    PopulateUserDetails(Session["Userid"].ToString());
                     //added for getting email and password on page load
                     //int Userid = Convert.ToInt32(Session["Userid"].ToString());
                     //PopulateUserDetails(Session["Userid"].ToString());
+                }
+                else
+                {
+                    Response.Redirect("~/login.aspx");
                 }
                 if (Request.QueryString["UserId"] != null)
                 {

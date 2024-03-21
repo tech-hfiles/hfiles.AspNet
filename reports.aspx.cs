@@ -41,9 +41,19 @@ namespace hfiles
 
             if (!IsPostBack)
             {
-                getMembersList();
-                getReportType(RId);
-                getReportMaster();
+                if (Session["Userid"] != null)
+                {
+                    getMembersList();
+                    getReportType(RId);
+                    getReportMaster();
+                }
+                else
+                {
+                    Response.Redirect("~/login.aspx");
+                }
+                ////getMembersList();
+                ////getReportType(RId);
+                ////getReportMaster();
                 //getMembersList();
                 if (Request.QueryString["rid"] != null)
                 {

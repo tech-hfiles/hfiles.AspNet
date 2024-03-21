@@ -4,6 +4,7 @@ body {
     font-family: 'Playfair Display' !important;
 }
 
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Syne:wght@800&display=swap');
 
 h1,
@@ -1077,6 +1078,13 @@ span {
     }
 }
 
+@media only screen and (max-width: 1550px) {
+    .relation-div .relationdiv10 {
+        position: relative;
+        left: 75px;
+    }
+}
+
 
 @media only screen and (max-width: 1200px) {
     .filter-shorting-icon {
@@ -1281,6 +1289,9 @@ span {
         position: relative;
         bottom: 0;
         top: 20px;
+    }
+    .phoneTextBox-input svg {
+        right: 2px;
     }
 }
 

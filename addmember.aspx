@@ -156,7 +156,7 @@
                                         <asp:HiddenField runat="server" ID="hfMemberType" />
                                         <div class="relation-div">
                                             <%-- <span class="fa-solid fa-earth-americas form-control-feedback"></span>--%>
-                                            <select id="relation" runat="server" class="form-select form-control relation-select"
+                                            <select id="relation" runat="server" class="relationdiv10 form-select form-control relation-select"
                                                 aria-label="Default select example">
                                                 <%--onchange="handleRelation()"--%>
                                                 <option selected disabled>Relation</option>
@@ -219,7 +219,7 @@
                                 </div>
 
                                 <div id="xyz" class="tab-content">
-                                    <div class="mt-5">
+                                    <%--<div class="mt-5">--%>
                                         <asp:TextBox type="text" ID="hfnumber" runat="server" placeholder="Enter HFiles ID" />
                                     </div>
                                     <div class="btn-div">
