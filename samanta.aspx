@@ -159,7 +159,7 @@
                                         <img src="../Reception Page/chat-icon.png" />
                                     </div>
                                     <div class="col-9">
-                                        <h3>Chat Room  <small id="typingEffect" class="comming-soon"><span id="comingSoon"  class="blink"></span><%--( Comming Soon ! )--%></small></h3>
+                                        <h3>Chat Room  <%--<small id="typingEffect" class="comming-soon"><span id="comingSoon"  class="blink"></span>--%><%--( Comming Soon ! )--%><%--</small>--%></h3>
                                           <%--<img src="Reception Page/coming-soon.png" />--%>
                                          
                                     </div>

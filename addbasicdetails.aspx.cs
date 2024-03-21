@@ -234,11 +234,12 @@ namespace hfiles
                             selectgender.Value = reader["user_gender"].ToString();
                             dobTextBox1.Value = reader["user_dob"].ToString();
                             bloodgroup.Value = reader["user_bloodgroup"].ToString();
-                            dialcode.Text = ddlCountry.SelectedValue.ToString();
+                            //dialcode.Text = ddlCountry.SelectedValue.ToString();
                             //stateTextBox.Value = reader["user_state"].ToString();
                             //cityTextBox.Value = reader["user_city"].ToString();
                             ddlCountry.SelectedItem.Text = reader["user_country"].ToString();
-
+                            
+                            dialcode.Text = reader["dialingcode"].ToString();
                             stateDropDownList.SelectedItem.Text = reader["user_state"].ToString();
                             getcitylist(stateDropDownList.SelectedItem.Text);
                             //ddlState.SelectedItem.Text = reader["user_state"].ToString();
