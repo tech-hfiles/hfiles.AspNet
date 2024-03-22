@@ -146,11 +146,11 @@
                                 <div id="abc" class="tab-content active-tab">
                                     <div class="mt-2">
                                         <input type="text" id="firstnameTextBox" runat="server" placeholder="First Name" />
-                                        <asp:RequiredFieldValidator ID="fname" ControlToValidate="firstnameTextBox" runat="server" Display="Dynamic" />
+                                        <asp:RequiredFieldValidator ID="fname" ControlToValidate="firstnameTextBox" runat="server" Display="Dynamic" ValidationGroup="First" />
                                     </div>
                                     <div class="">
-                                        <input type="text" id="lastnameTextBox" runat="server" placeholder="Last Name" />
-                                        <asp:RequiredFieldValidator ID="lname" ControlToValidate="lastnameTextBox" runat="server" Display="Dynamic"></asp:RequiredFieldValidator>
+                                        <input type="text" id="lastnameTextBox" runat="server" placeholder="Last Name"  />
+                                        <asp:RequiredFieldValidator ID="lname" ControlToValidate="lastnameTextBox" runat="server" Display="Dynamic" ValidationGroup="First"></asp:RequiredFieldValidator>
                                     </div>
                                     <div id="relation-input" class="">
                                         <asp:HiddenField runat="server" ID="hfMemberType" />
@@ -177,12 +177,12 @@
                                                 <option value="cat">Cat</option>
                                                 <option value="dog">Dog</option>
                                             </select>
-                                            <asp:RequiredFieldValidator ID="relationvalidator" ControlToValidate="relation" runat="server" Display="Dynamic"></asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="relationvalidator" ControlToValidate="relation" runat="server" Display="Dynamic" ValidationGroup="First"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                     <div class="">
                                         <input class="date-input" type="date" id="dobTextBox1" runat="server" onchange="calculateAge()" /><%--onchange="calculateAge()"--%>
-                                        <asp:RequiredFieldValidator ID="dob" ControlToValidate="dobTextBox1" runat="server" Display="Dynamic"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="dob" ControlToValidate="dobTextBox1" runat="server" Display="Dynamic" ValidationGroup="First"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="">
                                         <div class="phoneTextBox-input">
@@ -195,7 +195,7 @@
                                         </div>
 
 
-                                        <asp:RequiredFieldValidator ID="email" ControlToValidate="emailTextBox" runat="server" Display="Dynamic"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="email" ControlToValidate="emailTextBox" runat="server" Display="Dynamic" ValidationGroup="First"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="">
                                         <div class="phoneTextBox-input">
@@ -205,7 +205,7 @@
                                                 <path fill="#FFD43B" d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z" />
                                             </svg>
                                         </div>
-                                        <asp:RequiredFieldValidator ID="phone" ControlToValidate="phoneTextBox" runat="server" Display="Dynamic"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="phone" ControlToValidate="phoneTextBox" runat="server" Display="Dynamic" ValidationGroup="First"></asp:RequiredFieldValidator>
                                     </div>
 
                                     <%--  <div class="">
@@ -214,16 +214,17 @@
                                     <div class="btn-div">
                                         <%--<asp:Button runat="server" Text="Submit" CssClass="btn submit-btn" ID="btnSubmit"></asp:Button>--%>
                                         <%-- <button id="back-btn"  class="btn thm-back-button mx-3">Back</button>--%>
-                                        <button runat="server" id="btn_Submit" onserverclick="btn_Submit_ServerClick" class="btn submit-btn">Submit</button>
+                                        <button runat="server" id="btn_Submit" onserverclick="btn_Submit_ServerClick" class="btn submit-btn" ValidationGroup="First">Submit</button>
                                     </div>
                                 </div>
 
                                 <div id="xyz" class="tab-content">
-                                    <%--<div class="mt-5">--%>
+                                    <div class="mt-5">
                                         <asp:TextBox type="text" ID="hfnumber" runat="server" placeholder="Enter HFiles ID" />
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorExistingMember" ControlToValidate="hfnumber" runat="server" Display="Dynamic" ValidationGroup="Second"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="btn-div">
-                                        <asp:Button runat="server" ID="request" Text="Send Request" OnClick="request_Click" class="btn submit-btn request-btn"></asp:Button><%--btn submit-btn request-btn--%>
+                                        <button runat="server" id="request" onserverclick="request_Click" class="btn submit-btn" ValidationGroup="Second">Send Request</button><%--btn submit-btn request-btn--%>
                                     </div>
                                 </div>
 

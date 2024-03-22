@@ -41,14 +41,14 @@ namespace hfiles
                 {
                     Response.Redirect("~/login.aspx");
                 }
-                if (Request.QueryString["UserId"] != null)
-                {
-                    string userId = Request.QueryString["UserId"];
+                //if (Request.QueryString["UserId"] != null)
+                //{
+                //    string userId = Request.QueryString["UserId"];
 
-                    // Use the userId to fetch user details from the database
-                    // and pre-fill the form fields
-                    PopulateUserDetails(userId);
-                }
+                //    // Use the userId to fetch user details from the database
+                //    // and pre-fill the form fields
+                //    PopulateUserDetails(userId);
+                //}
             }
         }
         protected void btn_Submit_ServerClick(object sender, EventArgs e)
