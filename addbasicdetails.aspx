@@ -45,6 +45,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Signup - Basic Information</title>
     <style>
+        .signin-form input::placeholder {
+            color: #0512b9 !important;
+        }
+
         @media (min-width: 700px) and (max-width: 1024px) {
             .footer {
                 position: absolute !important;
@@ -56,7 +60,7 @@
         @media (min-width: 1024px) and (min-height: 600px) {
             .footer {
                 /*position: relative;*/
-                bottom:-20px;
+                bottom: -20px;
             }
 
             .user-info-main {
@@ -79,7 +83,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
-   <%-- <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>--%>
+    <%-- <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>--%>
 
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
@@ -102,7 +106,7 @@
 
                                 <asp:UpdatePanel runat="server" UpdateMode="Conditional">
                                     <ContentTemplate>
-                                        <asp:FileUpload CssClass="form-control" runat="server" ID="Profileupload"  />
+                                        <asp:FileUpload CssClass="form-control" runat="server" ID="Profileupload" />
                                     </ContentTemplate>
                                     <Triggers>
                                         <asp:PostBackTrigger ControlID="submitButton" />

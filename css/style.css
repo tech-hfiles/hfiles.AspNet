@@ -365,10 +365,16 @@ select {
     box-shadow: none;
 }
 
-.signin-form input::placeholder {
-    color: #e6e6e6;
-    font-weight: 500;
-}
+    .signin-form input::placeholder {
+        color: #e6e6e6;
+        font-weight: 500;
+        color: #0512b9 !important;
+    }
+
+    .signin-form input::placeholder {
+        color: #0512b9 !important;
+    }
+
 
 .has-search .form-control-feedback {
     position: absolute;
@@ -1059,6 +1065,16 @@ span {
     box-shadow: 2px 5px 5px #ccc;
     border-radius: 50%;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 /* Add indicator arrow for the active tab */

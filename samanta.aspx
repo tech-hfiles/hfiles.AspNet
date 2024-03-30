@@ -10,11 +10,11 @@
             width: 100%;
             bottom: 0;
         }
-        /*  @media (min-width: 1000px) and (max-width: 1400px) {
-             .footer {
-                 position:relative;
+          @media (max-width: 900px) {
+             body {
+                 min-height:100vh;
              }
-         }*/
+         }
         @media (min-width: 500px) and (max-width: 540px) {
             .footer {
                 position: relative;

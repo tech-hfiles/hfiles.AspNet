@@ -74,10 +74,12 @@ namespace hfiles
         public void showmembersdiv()
         {
             int remainingCount = 7 - rptMember.Items.Count;
+            //int remainingCount1 = 7 - Repeater1.Items.Count;
 
             if (remainingCount == 7)
             {
                 repeaterdiv.Visible = false;
+                repeaterdiv1.Visible = false;
                 //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You can add only 7 members !')", true);
             }
             if (remainingCount == 0)
@@ -112,6 +114,34 @@ namespace hfiles
 
                 listmembers.Controls.Add(li);
             }
+
+            //newly added for mobile view
+            //for (int i = 0; i < remainingCount1; i++)
+            //{
+            //    HtmlGenericControl li1 = new HtmlGenericControl("li1");
+            //    li1.Attributes["class"] = "border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4";
+
+            //    HtmlAnchor a = new HtmlAnchor();
+            //    a.HRef = "addmember.aspx";
+
+            //    HtmlImage img = new HtmlImage();
+            //    img.Src = "../Avatar/add-icon.png";
+            //    img.Alt = "";
+            //    img.Width = 30;
+
+            //    HtmlGenericControl div = new HtmlGenericControl("div");
+
+            //    HtmlGenericControl small = new HtmlGenericControl("small");
+            //    small.Attributes["class"] = "add-member-name";
+            //    small.InnerHtml = "add member";
+
+            //    div.Controls.Add(small);
+            //    a.Controls.Add(img);
+            //    a.Controls.Add(div);
+            //    li1.Controls.Add(a);
+
+            //    listmembers1.Controls.Add(li1);
+            //}
         }
 
         public static int GetAge(DateTime reference, DateTime birthday)
@@ -483,12 +513,10 @@ namespace hfiles
             {
                 memberid = values[0];
                 relation = values[1];
-
             }
             linkButton.Style.Add("font-style", "italic");
             Session["memberId"] = memberid.ToString();
             Session["memberRelation"] = relation.ToString();
-
             bindData(Convert.ToInt32(memberid));
         }
 
@@ -499,7 +527,7 @@ namespace hfiles
                 HtmlGenericControl divWrapper = (HtmlGenericControl)e.Item.FindControl("divWrapper");
 
                 // Set padding for each item
-                divWrapper.Style["padding"] = "10px"; // Adjust the value as needed
+                //divWrapper.Style["padding"] = "10px"; // Adjust the value as needed
             }
         }
         protected void getMembersList()
@@ -581,6 +609,8 @@ namespace hfiles
                         {
                             rptMember.DataSource = dt;
                             rptMember.DataBind();
+                            Repeater1.DataSource = dt;
+                            Repeater1.DataBind();
                         }
                         else
                         {
