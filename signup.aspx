@@ -27,6 +27,10 @@
 
     <title>Sign Up</title>
     <style>
+        .signin-form input::placeholder {
+           color: #857d7d !important;
+        }
+
         @media (min-width: 992px) {
 
             .footer {
@@ -82,7 +86,7 @@
 
             <div class="row vert-cent w-100 h-sm-100vh m-0 ">
                 <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image h-lg-100vh d-none d-lg-block px-5" style="background: #fff">
-                    <img src="<%= ResolveUrl("~/Reception Page/signup-samanta.png") %>" alt="" style="width: 100%; height: 90%; object-fit: contain" />
+                    <img src="<%= ResolveUrl("~/Reception Page/Hfiles-signup-page.png") %>" alt="" style="width: 100%; height: 90%; object-fit: contain" />
                 </div>
 
                 <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12 px-5 d-flex justify-content-center align-items-center vh-lg-100"
@@ -94,7 +98,7 @@
                             <%-- below line added for google translator --%>
                             <div id="google_element"></div>
 
-                            <h3 class="color-white">SIGN UP</h3>
+                            <h1 class="color-white">Sign Up</h1>
                         </div>
                         <div class="row signin-form form-group has-search text-center justify-content-center ">
                             <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
@@ -188,7 +192,7 @@
                     <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
                     <p class="m-0"><a class="text-white">Copyright@2024</a></p>
                 </div>
-                
+
                 <div class="col-4 p-p d-xl-flex text-center">
                     <p class="m-0">
                         <a

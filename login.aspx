@@ -65,12 +65,14 @@
                         <h1 class="color-white">Welcome Back!</h1>
                     </div>
                     <div>
-                        <asp:TextBox ID="emailTextBox" CssClass="w-100 login-input" TextMode="SingleLine" placeholder="Email Id / Contact No." runat="server"></asp:TextBox>
+                        <asp:TextBox ID="emailTextBox" CssClass="w-100 login-input" TextMode="SingleLine" placeholder="Email Id / Contact No." runat="server" style="
+    border-radius: 30px"></asp:TextBox>
                         <%-- <asp:TextBox runat="server"  id="emailTextBox" class="w-100 login-input" type="Text" placeholder="Username" />--%>
                     </div>
 
                     <div class="password-div">
-                        <asp:TextBox runat="server" ID="txtPassword" class="w-100 login-input" type="password" placeholder="Password" />
+                        <asp:TextBox runat="server" ID="txtPassword" class="w-100 login-input" type="password" placeholder="Password" style="
+    border-radius: 30px" />
                         <i id="passwordView1" class="fa fa-solid fa-eye-slash hide-password-toggal  color-theme-yellow"></i>
                         <div class="text-end">
                             <span style="color: #fff"><a id="forgotlink" style="color: #fdd001; font-weight: 700" href="ForgotPassword.aspx">Forgot Password ? </a></span>
@@ -112,7 +114,7 @@
                     </div>
 
                     <div class="text-center resend-otp-div mt-lg-3">
-                        <span style="color: #fff">New User? Click <a style="color: #fdd001; font-weight: 700" href="signup.aspx">here</a> to Signup</span>
+                        <span style="color: #fff">New User? Click <a style="color: #fdd001; font-weight: 700" href="signup.aspx">here</a> to Sign Up</span>
                     </div>
                 </div>
             </div>

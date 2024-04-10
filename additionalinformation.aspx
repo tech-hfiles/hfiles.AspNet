@@ -14,8 +14,8 @@
         @media(min-width: 1366px) {
             .footer {
                 position: absolute;
-                bottom: 0;
-                width: 100%;
+                /*                bottom: 0;
+*/ width: 100%;
             }
         }
 
@@ -193,12 +193,12 @@
                                 </div>
                                 <div class="col-lg-1 col-12 mt-3 mt-lg-0">
                                     <div class="">
-                                        <asp:Button Text="add" ID="addsurgeryButton" class="thm-blue-button" OnClick="addsurgeryButton_Click" runat="server" />
+                                        <asp:Button Text="Add" ID="addsurgeryButton" class="thm-blue-button" OnClick="addsurgeryButton_Click" runat="server" />
                                     </div>
                                 </div>
                                 <div class="col-lg-5 col-12 mt-lg-0 mt-5">
-                                    <div style="max-height: 200px; overflow: auto;">
-                                        <asp:GridView ID="surgeryGridView" AutoGenerateColumns="false" CssClass="surgeries-table w-100" runat="server">
+                                    <div style="max-height: 230px; overflow: auto;">
+                                        <asp:GridView ID="surgeryGridView" AutoGenerateColumns="false" CssClass="surgeries-table w-100 text-center table table-striped table-hover" runat="server">
                                             <Columns>
                                                 <asp:BoundField DataField="user_surgery_details" HeaderText="Surgery Details"
                                                     SortExpression="user_surgery_details" />

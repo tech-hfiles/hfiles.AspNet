@@ -11,15 +11,48 @@
             min-height: 100vh;
             background: linear-gradient(to left, #c9c8c8, #f8f8f8);
         }
+
+        .ComingSoonPage img {
+            width: 50%;
+            padding-top: 50px;
+        }
+
+        .ComingSoonPage {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer {
+            position: absolute;
+            width: 100%;
+            bottom: 0px;
+        }
+
+        @media (max-width: 480px) {
+            .ComingSoonPage img {
+                width: 100%;
+                padding-top: 100px;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .ComingSoonPage img {
+                width: 100%;
+            }
+        }
     </style>
     <link rel="stylesheet" href="./style.css" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<%--    <asp:ScriptManager runat="server" />--%>
+    <%--    <asp:ScriptManager runat="server" />--%>
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
-            <div class="support-group">
+            <div class="ComingSoonPage">
+                <img src="../Suppor Group (BG  & Icons)/ComingSoon.png" alt="" />
+            </div>
+            <div class="support-group d-none">
                 <section class=" header">
                     <div class="row m-0">
                         <div class="col-md-4 col-lg-3 left-nav-bar">

@@ -4,6 +4,7 @@ body {
     font-family: 'Red Hat Display', sans-serif !important;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&family=Red+Hat+Display&family=Syne:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Red+Hat+Display&family=Syne:wght@800&display=swap');
 
@@ -507,11 +508,11 @@ input:-webkit-autofill {
 
 .inner-body .login-input {
     border: none;
-    background: transparent;
+    background: white;
     border-bottom: 1px solid #ffffff3d;
     padding: 10px 40px;
     margin: 10px;
-    color: #ffffff;
+    color: #08138f;
     outline: 0;
 }
 
@@ -666,6 +667,7 @@ span {
 .signin-heading h1 {
     color: #0512b9;
     font-weight: 700;
+    font-family: "Roboto", sans-serif !important;
 }
 
 .signin-form input,
@@ -681,7 +683,9 @@ select {
 }
 
     .signin-form input[type="date"] {
-        color: #dddddd;
+        /*        color: #dddddd;
+*/
+        color: #857d7d;
     }
 
 .signin-form input {
@@ -698,7 +702,7 @@ select {
 }
 
 .signin-form input::placeholder {
-    color: #e6e6e6;
+    color: #ccc;
     font-weight: 500;
 }
 
@@ -787,7 +791,14 @@ select {
 
 .OTP-input::placeholder {
     text-align: center;
-    color: #d6d6d6 !important;
+    color: #ccc !important;
+}
+
+.login-input::placeholder {
+    text-align: center;
+    /*    color: #ccc !important;*/
+    color: #857d7d !important;
+    font-weight: 200 !important;
 }
 
 .OTP-input {
@@ -936,7 +947,7 @@ select {
 
     .surgeries-table tbody th {
         background-color: #0331b5;
-        color: #ffffff;
+        color: #ffffff !important
     }
 
     .surgeries-table tbody tr:first-child {
@@ -944,9 +955,14 @@ select {
         padding: 5px;
     }
 
+
     .surgeries-table th, .surgeries-table td {
         padding: 10px !important;
         border: 1px solid #000;
+    }
+
+    .surgeries-table.table {
+        margin-bottom: 0px;
     }
 
 .additionl-main-div .add-surgeries {
@@ -2132,6 +2148,7 @@ span.img-notselected {
     .download-doc-inner .report-page-title {
         font-size: 24px;
     }
+
     .back-arrow-btn {
         top: 7%;
     }
@@ -2227,8 +2244,9 @@ span.img-notselected {
     .download-doc-inner .search-file input {
         width: 80%
     }
+
     .back-arrow-btn {
-        top:7%;
+        top: 7%;
     }
 }
 
@@ -2400,6 +2418,7 @@ span.img-notselected {
     .manage-members-div .heading {
         font-size: 18px;
     }
+
     .back-arrow-btn-small-dev {
         position: absolute;
         left: 10%;

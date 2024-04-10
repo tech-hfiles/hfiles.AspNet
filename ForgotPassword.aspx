@@ -96,7 +96,7 @@
                     </div>
 
                     <div class="text-center my-1">
-                        <asp:Button ID="otpButton" OnClick="signup_Click" runat="server" Text="GET OTP" class="btn thm-button my-2"></asp:Button>
+                        <asp:Button ID="otpButton" OnClick="signup_Click" runat="server" Text="Get OTP" class="btn thm-button my-2"></asp:Button>
                     </div>
 
                     <div class="text-center my-1">

@@ -44,7 +44,7 @@ namespace hfiles
                 //ci = Thread.CurrentThread.CurrentCulture;
                 //LoadString(ci);
                 divOtp.Visible = false;
-                otpButton.Text = "GET OTP";
+                otpButton.Text = "Get OTP";
             }
             else
             {

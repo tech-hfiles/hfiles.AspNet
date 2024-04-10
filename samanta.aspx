@@ -10,11 +10,13 @@
             width: 100%;
             bottom: 0;
         }
-          @media (max-width: 900px) {
-             body {
-                 min-height:100vh;
-             }
-         }
+
+        @media (max-width: 900px) {
+            body {
+                min-height: 100vh;
+            }
+        }
+
         @media (min-width: 500px) and (max-width: 540px) {
             .footer {
                 position: relative;
@@ -27,25 +29,35 @@
             background-repeat: no-repeat;
             background-position: center
         }
-        .comming-soon  {
+
+        .comming-soon {
             font-size: 14px;
         }
 
 
-         @keyframes blink {
-        0% { color: black; }
-        50% { color: red; }
-        100% { color: darkgreen; }
-    }
+        @keyframes blink {
+            0% {
+                color: black;
+            }
 
-    .blink {
-        animation: blink 1s infinite; /* Change the duration as needed */
-    }
-    @media(max-width: 1024px) {
-        .comming-soon {
-            font-size: 12px;
+            50% {
+                color: red;
+            }
+
+            100% {
+                color: darkgreen;
+            }
         }
-    }
+
+        .blink {
+            animation: blink 1s infinite; /* Change the duration as needed */
+        }
+
+        @media(max-width: 1024px) {
+            .comming-soon {
+                font-size: 12px;
+            }
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -152,25 +164,24 @@
                             </div>
                         </a>
 
-                        <a class="support-group mb-5 w-100" href="#"><%--supportgroup.aspx--%>
-                            <div class="my_profile">
-                                <div class="row align-items-center">
-                                    <div class="col-3 tab-icon-div">
-                                        <img src="../Reception Page/chat-icon.png" />
-                                    </div>
-                                    <div class="col-9">
-                                        <h3>Chat Room  <%--<small id="typingEffect" class="comming-soon"><span id="comingSoon"  class="blink"></span>--%><%--( Comming Soon ! )--%><%--</small>--%></h3>
-                                          <%--<img src="Reception Page/coming-soon.png" />--%>
-                                         
-                                    </div>
-                                    <%--   <div class="col-4">
+                            <a class="support-group mb-5 w-100" href="<%= ResolveUrl("~/supportgroup.aspx") %>">
+                                <div class="my_profile">
+                                    <div class="row align-items-center">
+                                        <div class="col-3 tab-icon-div">
+                                            <img src="../Reception Page/chat-icon.png" />
+                                        </div>
+                                        <div class="col-9">
+                                            <h3>Chat Room  <%--<small id="typingEffect" class="comming-soon"><span id="comingSoon"  class="blink"></span>--%><%--( Comming Soon ! )--%><%--</small>--%></h3>
+                                            <%--<img src="Reception Page/coming-soon.png" />--%>
+                                        </div>
+                                        <%--   <div class="col-4">
                                         <h5>Comming Soon</h5>
                                         <%--  <img src="Reception Page/coming-soon.png" />--%>
-                                    <%--  <span class="badge bg-warning rounded-circle">Comming Soon !</span>
+                                        <%--  <span class="badge bg-warning rounded-circle">Comming Soon !</span>
                                     </div>--%>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
 
                         <%--<a class="support-group my-5" href="additionalinformation.aspx">
                             <div class="my_profile">
