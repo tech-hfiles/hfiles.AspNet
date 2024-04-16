@@ -167,30 +167,23 @@
                                     <i class="fa-solid fa-earth-americas form-control-feedback"></i>
                                     <%--<input required id="countryTextBox" runat="server" type="text" class="form-control" placeholder="Enter Country">--%>
                                     <asp:DropDownList ID="ddlCountry" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:DropDownList>
-                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlCountry" ErrorMessage="Please Select Country" CssClass=""></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator InitialValue="0" runat="server" ControlToValidate="ddlCountry" ValidationGroup="updateProfile" Display="Dynamic" ErrorMessage="Please Select Country" CssClass=""></asp:RequiredFieldValidator>
 
-                                    <%--<select runat="server" id="countryTextBox" class="form-select form-control mySelect" aria-label="Default select example">
-                            <option selected value="">Country</option>
-                            <option value="1">India</option>
-                            <option value="2">US</option>
-                            <option value="3">UAE</option>
-                        </select>--%>
+                                   
                                 </div>
                                 <div class="col-12">
                                     <span for="" class="imp-star">*</span>
                                     <i class="fa-solid fa-map-pin form-control-feedback"></i>
 
-                                    <%--  <asp:DropDownList ID="ddlState" runat="server" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>--%>
-
                                     <asp:DropDownList ID="stateDropDownList" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="stateDropDownList_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:DropDownList>
-                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="stateDropDownList" ErrorMessage="Please Select State" CssClass=""></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="stateDropDownList" ValidationGroup="updateProfile" Display="Dynamic" ErrorMessage="Please Select State" CssClass=""></asp:RequiredFieldValidator>
                                     <input id="stateTextBox" visible="false" runat="server" type="text" class="form-control" placeholder="Enter State" />
                                 </div>
                                 <div class="col-12 mb-lg-5">
                                     <span for="" class="imp-star">*</span>
                                     <i class="fa-sharp fa-solid fa-city form-control-feedback"></i>
                                     <asp:DropDownList ID="cityDropDownList" CssClass="form-select form-control mySelect" runat="server"></asp:DropDownList>
-                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="cityDropDownList" ErrorMessage="Please Select City" CssClass=""></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator runat="server" Display="Dynamic" ValidationGroup="updateProfile" ControlToValidate="cityDropDownList" ErrorMessage="Please Select City" CssClass=""></asp:RequiredFieldValidator>
                                     <input id="cityTextBox" visible="false" runat="server" type="text" class="form-control" placeholder="Enter City" />
                                 </div>
                             </div>
@@ -201,7 +194,6 @@
                                 <div class="col-12">
                                     <span for="" class="imp-star">*</span>
                                     <span class="form-control-feedback">
-                                        <%-- <i class="fa-solid fa-phone-volume form-control-feedback"></i>--%>
                                         <asp:Label ID="dialcode" Style="color: #fdd001; font-weight: 600" Text="" runat="server"></asp:Label></span>
                                     <input class="form-control" required id="contactTextBox" name="phone" readonly="true" runat="server" type="tel" placeholder="Contact Number" style="padding-left: 45px !important;" />
 
@@ -228,18 +220,13 @@
                                     <input id="famdocTextBox" runat="server" type="text" class="form-control" placeholder="Family Doctor Name" />
                                 </div>
                                 <div class="text-center">
-                                    <asp:Button ID="submitButton" runat="server" OnClick="submitButton_Click" Text="Update" class="btn thm-button mb-2 mt-4"></asp:Button>
+                                    <asp:Button ID="submitButton"  runat="server" OnClick="submitButton_Click" ValidationGroup="updateProfile" Text="Update" class="btn thm-button mb-2 mt-4"></asp:Button>
                                 </div>
-                                <%-- <div class="text-center">
-                            <asp:Button ID="nextButton" runat="server" PostBackUrl="~/additionalinformation.aspx" Text="Next" class="btn thm-blue-button mb-2 mt-4"></asp:Button>
-                        </div>--%>
                             </div>
                         </div>
 
                     </div>
-                    <%-- <img class="blue-trangle-bottom-left" src="../assets/blue-trangle.png" alt="">
-                    <img class="blue-trangle-bottom-right" src="../assets/blue-trangle-bottom.png" alt="">
-                    <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">--%>
+                
                 </div>
             </div>
             <div id="toast">

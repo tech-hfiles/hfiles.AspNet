@@ -32,7 +32,7 @@ namespace hfiles
                     if (ddlCountry.SelectedIndex == -1)
                     {
                         getcountrylist();
-                        getstatelist();
+                        //getstatelist();
                         //getcitylist("");
                     }
                     //if (ddlCountry.SelectedItem.Text == "India")
@@ -101,6 +101,11 @@ namespace hfiles
             ddlCountry.DataTextField = "countryname";
             ddlCountry.DataValueField = "dialingcode";
             ddlCountry.DataBind();
+            ddlCountry.Items.Insert(0, new ListItem("Select Country", "0"));
+            stateDropDownList.DataSource = null;
+            stateDropDownList.DataBind();
+            cityDropDownList.DataSource = null;
+            cityDropDownList.DataBind();
         }
         private void getstatelist()
         {
@@ -113,6 +118,7 @@ namespace hfiles
             stateDropDownList.DataTextField = "state";
             stateDropDownList.DataValueField = "state";
             stateDropDownList.DataBind();
+            stateDropDownList.Items.Insert(0, new ListItem("Select State", "0"));
         }
         private void getcitylist(string state)
         {
@@ -125,6 +131,7 @@ namespace hfiles
             cityDropDownList.DataTextField = "city";
             cityDropDownList.DataValueField = "city";
             cityDropDownList.DataBind();
+            cityDropDownList.Items.Insert(0, new ListItem("Select City", "0"));
         }
         public static string GenerateId()
         {
@@ -152,7 +159,7 @@ namespace hfiles
             string member = membershipNumber;
             string filePath = "";
             string reporturl = "", Extension1, fileName1, dt1;
-            if (Profileupload.HasFile ==true)
+            if (Profileupload.HasFile == true)
             {
                 Extension1 = Path.GetExtension(Profileupload.PostedFile.FileName);
                 fileName1 = Path.GetFileName(Profileupload.PostedFile.FileName);
@@ -164,7 +171,7 @@ namespace hfiles
             {
                 filePath = Session["ProfileImage"].ToString();
             }
-           
+
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 //procedure adduser replaced by add_update_userdetails
@@ -215,7 +222,6 @@ namespace hfiles
 
         public void getbasicdetails(int id)
         {
-            getstatelist();
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
@@ -237,18 +243,31 @@ namespace hfiles
                             //dialcode.Text = ddlCountry.SelectedValue.ToString();
                             //stateTextBox.Value = reader["user_state"].ToString();
                             //cityTextBox.Value = reader["user_city"].ToString();
-                            ddlCountry.SelectedItem.Text = reader["user_country"].ToString();
-                            
-                            dialcode.Text = reader["dialingcode"].ToString();
-                            stateDropDownList.SelectedItem.Text = reader["user_state"].ToString();
-                            getcitylist(stateDropDownList.SelectedItem.Text);
-                            //ddlState.SelectedItem.Text = reader["user_state"].ToString();
-                            //cityDropDownList.SelectedItem.Text = reader["user_city"].ToString();
-                            if (reader["user_city"].ToString() != string.Empty)
+                            if (reader["user_country"].ToString() != string.Empty)
                             {
-                                cityDropDownList.SelectedItem.Text = reader["user_city"].ToString();
+                                if (reader["user_country"].ToString().ToLower() == "india")
+                                {
+                                    ddlCountry.Items.FindByText(reader["user_country"].ToString()).Selected = true;
+                                    ddlCountry_SelectedIndexChanged(null, null);
+                                    dialcode.Text = reader["dialingcode"].ToString();
+                                    if (reader["user_state"].ToString() != string.Empty)
+                                    {
+                                        getstatelist();
+                                        stateDropDownList.Items.FindByText(reader["user_state"].ToString()).Selected = true;
+                                        stateDropDownList_SelectedIndexChanged(null, null);
+                                        //getcitylist(stateDropDownList.SelectedItem.Text);
+                                        if (reader["user_city"].ToString() != string.Empty)
+                                        {
+                                            cityDropDownList.Items.FindByText(reader["user_city"].ToString()).Selected = true;
+                                        }
+                                    }
+                                }
 
                             }
+
+                            //ddlState.SelectedItem.Text = reader["user_state"].ToString();
+                            //cityDropDownList.SelectedItem.Text = reader["user_city"].ToString();
+
                             else
                             {
                                 //cityDropDownList.SelectedItem.Text = "Mumbai";
@@ -342,6 +361,10 @@ namespace hfiles
             }
             else
             {
+                stateDropDownList.DataSource = null;
+                stateDropDownList.DataBind();
+                cityDropDownList.DataSource = null;
+                cityDropDownList.DataBind();
                 stateTextBox.Visible = true;
                 cityTextBox.Visible = true;
                 stateDropDownList.Visible = false;

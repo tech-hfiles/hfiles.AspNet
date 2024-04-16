@@ -75,29 +75,32 @@ namespace hfiles
         }
         protected void signup_Click(object sender, EventArgs e)
         {
-            if (otpButton.Text == "GET OTP")
+            if (otpButton.Text.ToLower() == "get otp")
             {
                 // Usage:
                 string email = emailTextBox.Text.ToString();
-                if (Bind() > 0)
+                if (emailTextBox.Text != string.Empty)
                 {
-                    string otp = GenerateOTP(6); // Generate a 6-digit OTP
-                    string subject = "# Verification code";
-                    string body = $"<p style=\"text-align: justify\">Please use the verification code below to sign in. If you didn&rsquo;t request this, you can ignore this email.</p>\r\n<p><strong style=\"font-size: 130%\">{otp}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Thanks,&nbsp;</p><p style=\"text-align: justify\">Team Health Files.</p>";
-                    ViewState["OTPvalue"] = otp;
-                    Session["Userid"] = hfId.Value;
-                    DAL.SendCareerMail(subject, body, email);
-                    otpButton.Text = "SIGN IN";
-                    divOtp.Visible = true;
+                    if (Bind() > 0)
+                    {
+                        string otp = GenerateOTP(6); // Generate a 6-digit OTP
+                        string subject = "# Verification code";
+                        string body = $"<p style=\"text-align: justify\">Please use the verification code below to sign in. If you didn&rsquo;t request this, you can ignore this email.</p>\r\n<p><strong style=\"font-size: 130%\">{otp}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Thanks,&nbsp;</p><p style=\"text-align: justify\">Team Health Files.</p>";
+                        ViewState["OTPvalue"] = otp;
+                        DAL.SendCareerMail(subject, body, email);
+                        otpButton.Text = "SIGN IN";
+                        divOtp.Visible = true;
+                    }
+                    else
+                    {
+                        Session["Userid"] = null;
+                        otpButton.Text = "GET OTP";
+                        divOtp.Visible = true;
+                        //Pop Up Message
+                        Response.Redirect("~/signup.aspx");//Redirect to registration page
+                    }
                 }
-                else
-                {
-                    Session["Userid"] = null;
-                    otpButton.Text = "GET OTP";
-                    divOtp.Visible = true;
-                    //Pop Up Message
-                    Response.Redirect("~/signup.aspx");//Redirect to registration page
-                }
+
             }
             else if (otpButton.Text == "SIGN IN")
             {
@@ -105,11 +108,13 @@ namespace hfiles
                 {
                     if (otpTextBox.Value == ViewState["OTPvalue"].ToString())
                     {
+                        Session["Userid"] = hfId.Value;
                         errorLabel.Text = "";
                         Response.Redirect("~/Samanta.aspx");//Redirect to registration page
                     }
                     else
                     {
+                        Session["Userid"] = null;
                         errorLabel.Text = "Inavlid OTP, please enter the correct OTP.";
                     }
                 }
@@ -188,7 +193,7 @@ namespace hfiles
                         Session["UserId"] = dr["user_id"].ToString();
                         //Session["role"] = dr["RoleType"].ToString();
                         Session["user_email"] = dr["user_email"].ToString();
-                        
+
                         FormsAuthentication.RedirectFromLoginPage(emailTextBox.Text + " " + txtPassword.Text, false);
                         //FormsAuthentication.RedirectFromLoginPage(dr["user_firstname"].ToString() + " " + dr["user_lastname"].ToString(), false);
                         Response.Redirect("samanta.aspx");
