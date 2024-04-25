@@ -65,14 +65,12 @@
                         <h1 class="color-white">Welcome Back!</h1>
                     </div>
                     <div>
-                        <asp:TextBox ID="emailTextBox" CssClass="w-100 login-input" TextMode="SingleLine" placeholder="Email Id / Contact No." runat="server" style="
-    border-radius: 30px"></asp:TextBox>
+                        <asp:TextBox ID="emailTextBox" CssClass="w-100 login-input" required TextMode="SingleLine" placeholder="Email Id / Contact No." runat="server" Style="border-radius: 30px"></asp:TextBox>
                         <%-- <asp:TextBox runat="server"  id="emailTextBox" class="w-100 login-input" type="Text" placeholder="Username" />--%>
                     </div>
 
                     <div class="password-div">
-                        <asp:TextBox runat="server" ID="txtPassword" class="w-100 login-input" type="password" placeholder="Password" style="
-    border-radius: 30px" />
+                        <asp:TextBox runat="server" ID="txtPassword" class="w-100 login-input" type="password" placeholder="Password" Style="border-radius: 30px" />
                         <i id="passwordView1" class="fa fa-solid fa-eye-slash hide-password-toggal  color-theme-yellow"></i>
                         <div class="text-end">
                             <span style="color: #fff"><a id="forgotlink" style="color: #fdd001; font-weight: 700" href="ForgotPassword.aspx">Forgot Password ? </a></span>
@@ -93,7 +91,7 @@
                         <%--<div class="text-center resend-otp-div">
                             <input type="checkbox" /><span style="color: #fff"> I agree to <a target="_blank" style="color: #fdd001; font-weight: 700" href="tc.aspx">Terms and Conditions</a> </span>
                         </div>--%>
-                        <asp:Button ID="otpButton" OnClick="signup_Click" runat="server" Text="GET OTP" class="btn thm-button my-2"></asp:Button>
+                        <asp:Button ID="otpButton" OnClick="signup_Click" ValidationGroup="otp" runat="server" Text="GET OTP" class="btn thm-button my-2"></asp:Button>
 
                     </div>
 
@@ -128,7 +126,7 @@
             </div>
 
             <div class="col-4 copy-right text-center p-0 d-xl-flex text-center justify-content-center">
-              <p class="m-0"><a href="/FAQ.aspx" class="text-white">FAQ's</a></p>
+                <p class="m-0"><a href="/FAQ.aspx" class="text-white">FAQ's</a></p>
                 <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
                 <p class="m-0"><a class="text-white">Copyright@2024</a></p>
             </div>

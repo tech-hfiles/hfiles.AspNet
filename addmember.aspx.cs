@@ -216,7 +216,7 @@ namespace hfiles
                     {
                         Response.Write("<script>alert('Memeber already exists with same email id !')</script>");
                         //Response.Write("<script>alert('Memeber added successfully !')</script>");
-                        Response.Redirect("avatar.aspx");
+                        Response.Redirect("avatar2.aspx");
                     }
                 }
                 else
@@ -260,7 +260,7 @@ namespace hfiles
                             // Member exists and request sent
                             System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Sent')", true);
                             //connection.Close();
-                            Response.Redirect("avatar.aspx");
+                            Response.Redirect("avatar2.aspx");
 
 
                         }

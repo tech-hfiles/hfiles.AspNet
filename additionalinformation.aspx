@@ -246,6 +246,8 @@
                             </div>
                             <div class="mt-2 mt-lg-5 d-lg-flex d-block">
                                 <%--<asp:Button Text="Back" class="thm-back-button" OnClick="btnMedicalBack_Click" type="Button" ID="Button1" runat="server" />--%>
+
+                                <asp:Button Text="Back" class="thm-back-button" OnClick="btnAdditionalBack_Click" type="Button" ID="btnMedicalBack" runat="server" />
                                 <asp:Button Text="Next" ID="btnUpdateAdditional" class="thm-blue-button mx-lg-3 my-2 my-lg-0" OnClick="btnUpdateAdditional_Click" runat="server" />
                                 <%--<button onclick="HideAdditionalDiv()" type="submit" class="thm-blue-button">Next</button>--%>
                             </div>
@@ -321,7 +323,6 @@
                         </div>
                     </div>
                     <div class="medic-his-btn mt-3">
-                        <asp:Button Text="Back" class="thm-back-button" OnClick="btnMedicalBack_Click" type="Button" ID="btnMedicalBack" runat="server" />
                         <asp:Button Text="Next" ID="btnMedicalHistory" class="thm-blue-button" OnClick="btnMedicalHistory_Click" runat="server" />
                     </div>
                 </div>

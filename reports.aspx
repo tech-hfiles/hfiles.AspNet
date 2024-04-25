@@ -83,7 +83,7 @@
                 <div class="heading-title mb-3 py-1 px-5">
                     <div class="row">
                         <div class="col-12 col-md-8 col-xl-6 py-3 d-md-flex justify-content-between align-items-center">
-                            <a class="" href="avatar.aspx">
+                            <a class="" href="avatar2.aspx">
                                 <img src="../assets/back-arrow.png" alt=""></a>
                             <%--<h1 class="heading">Documents</h1>--%>
                             <asp:Label ID="lblReportType" runat="server" CssClass="report-page-title" Text="" />
@@ -103,7 +103,7 @@
                         <div id="divUpload_Doc" style="display: block" runat="server">
                             <div class="row justify-content-center">
                                 <div class="col-md-5">
-                                    <a href="avatar.aspx">
+                                    <a href="avatar2.aspx">
                                         <img src="../Avatar/file-not-found-new.jpg" class="card-img-top" alt="pdf-thumbnail" width="90%"></a>
                                     <h2 class="text-center">No File Found</h2>
                                 </div>

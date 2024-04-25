@@ -94,7 +94,7 @@
                             </div>
                         </a>
 
-                        <a class="support-group mb-lg-5 w-100" href="avatar.aspx">
+                        <a class="support-group mb-lg-5 w-100" href="avatar2.aspx">
                             <div class="my_profile">
                                 <div class="row align-items-center">
 

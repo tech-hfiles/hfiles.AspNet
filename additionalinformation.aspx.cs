@@ -24,11 +24,12 @@ namespace hfiles
             {
                 if (!IsPostBack)
                 {
-                    AdditionalDiv.Visible = true;
-                    medicalHistoryDiv.Visible = false;
+                    medicalHistoryDiv.Visible = true;
+                    AdditionalDiv.Visible = false;
                     AllergiesDiv.Visible = false;
-                    updateUserDetails("E");
-                    user_surgery();
+                    disease_master();
+                    get_disease();
+                  
                     int currentYear = DateTime.Now.Year;
                     for (int i = currentYear; i >= currentYear - 70; i--)
                     {
@@ -60,27 +61,35 @@ namespace hfiles
         protected void btnUpdateAdditional_Click(object sender, EventArgs e)// for updating height weight
         {
             AdditionalDiv.Visible = false;
+            allergy_master();
+            get_user_allergy();
             updateUserDetails("U");
             //addSurgery("C");
-            disease_master();
-            get_disease();
             clear();
-            medicalHistoryDiv.Visible = true;
+            medicalHistoryDiv.Visible = false;
+            AllergiesDiv.Visible = true;
         }
         protected void btnMedicalHistory_Click(object sender, EventArgs e)
         {
-            addUpdateDisease();
-            allergy_master();
-            get_user_allergy();
-            AdditionalDiv.Visible = false;
+            addUpdateDisease(); 
+            updateUserDetails("E");
+            user_surgery();
+            AdditionalDiv.Visible = true;
             medicalHistoryDiv.Visible = false;
-            AllergiesDiv.Visible = true;
+            AllergiesDiv.Visible = false;
         }
         protected void btnMedicalBack_Click(object sender, EventArgs e)
         {
             updateUserDetails("E");
             AdditionalDiv.Visible = true;
             medicalHistoryDiv.Visible = false;
+            AllergiesDiv.Visible = false;
+        }
+        protected void btnAdditionalBack_Click(object sender, EventArgs e)
+        {
+            updateUserDetails("E");
+            AdditionalDiv.Visible = false;
+            medicalHistoryDiv.Visible = true;
             AllergiesDiv.Visible = false;
         }
         private void updateUserDetails(string sptype)
@@ -155,14 +164,14 @@ namespace hfiles
         }
         protected void btnAllergyBack_Click(object sender, EventArgs e)
         {
-            AdditionalDiv.Visible = false;
-            medicalHistoryDiv.Visible = true;
+            AdditionalDiv.Visible = true;
+            medicalHistoryDiv.Visible = false;
             AllergiesDiv.Visible = false;
         }
         protected void btnSaveAllergy_Click(object sender, EventArgs e)
         {
             addUpdateAllergy();
-             Response.Redirect("Samanta.aspx");
+            Response.Redirect("Samanta.aspx");
         }
 
 
@@ -415,7 +424,7 @@ namespace hfiles
         }
 
         protected void lRemoveBtn_Click1(object sender, EventArgs e)
-            {
+        {
             //LinkButton lRemoveBtn = (LinkButton)(sender);
             ImageButton lRemoveBtn = (ImageButton)sender; // Get a reference to the clicked ImageButton
 

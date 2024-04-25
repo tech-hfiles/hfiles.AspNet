@@ -237,7 +237,7 @@
                    </a>--%>
                     <nav>
                         <div class="menu-toggle"></div>
-                        <div id="google_translate_element" class=""></div>
+                        <%--<div id="google_translate_element" class=""></div>--%>
 
                         <div class="profile">
                             <div class="user">

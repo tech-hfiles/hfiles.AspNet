@@ -141,6 +141,15 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.GridView surgeryGridView;
 
         /// <summary>
+        /// btnMedicalBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMedicalBack;
+
+        /// <summary>
         /// btnUpdateAdditional control.
         /// </summary>
         /// <remarks>
@@ -166,15 +175,6 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptDisease;
-
-        /// <summary>
-        /// btnMedicalBack control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnMedicalBack;
 
         /// <summary>
         /// btnMedicalHistory control.
