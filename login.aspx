@@ -43,6 +43,12 @@
                 cursor: pointer;
                 font-size: 25px;
             }
+
+        @media (min-height: 598px) and (max-height: 600px) {
+            .footer {
+                bottom:-6px;
+            }
+        }
     </style>
 
 

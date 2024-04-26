@@ -49,11 +49,62 @@
             color: #0512b9 !important;
         }
 
+        .Addbasicbtnboth {
+            display: flex;
+            justify-content: space-around;
+        }
+
+            .Addbasicbtnboth button {
+                padding: 10px 12px;
+                border-radius: 50px;
+                border: 0;
+                outline: 0;
+                background-image: linear-gradient(to right, #0512B9 0%, #081466 100%);
+                color: #ffffff;
+                cursor: pointer;
+                margin-top: 20px;
+                font-family: 'Red Hat Display', Sans-serif !important;
+                font-weight: 700;
+                font-size: 13px;
+            }
+
+        @media (max-width: 480px) {
+            .Addbasicbtnboth button {
+                padding: 8px 10px;
+                font-size: 9px;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .Addbasicbtnboth button {
+                padding: 8px 10px;
+                font-size: 9px;
+            }
+        }
+
+        @media (max-width: 280px) {
+            .Addbasicbtnboth button {
+                padding: 8px 10px;
+                font-size: 9px;
+            }
+        }
+
         @media (min-width: 700px) and (max-width: 1024px) {
             .footer {
                 position: absolute !important;
                 width: 100%;
                 bottom: 0;
+            }
+        }
+
+        @media (min-width: 1022px) and (max-width: 1024px) {
+            .Addbasicbtnboth button {
+                padding: 8px 10px;
+                font-size: 10px
+            }
+
+            .back-arrow-btn {
+                top: 10% !important;
             }
         }
 
@@ -102,6 +153,10 @@
                                 <img id="imagePreview" class="w-75" alt="" runat="server" />
                                 <%-- <img id="imagePreview" runat="server" class="w-75" src="../My Data/default-user-profile.png" alt="" />--%>
                                 <br />
+                                <div class="Addbasicbtnboth">
+                                    <button type="button">Change Profile Image</button>
+                                    <button type="button">Remove Profile Image</button>
+                                </div>
                                 <br />
 
                                 <asp:UpdatePanel runat="server" UpdateMode="Conditional">
@@ -169,7 +224,7 @@
                                     <asp:DropDownList ID="ddlCountry" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:DropDownList>
                                     <asp:RequiredFieldValidator InitialValue="0" runat="server" ControlToValidate="ddlCountry" ValidationGroup="updateProfile" Display="Dynamic" ErrorMessage="Please Select Country" CssClass=""></asp:RequiredFieldValidator>
 
-                                   
+
                                 </div>
                                 <div class="col-12">
                                     <span for="" class="imp-star">*</span>
@@ -220,13 +275,13 @@
                                     <input id="famdocTextBox" runat="server" type="text" class="form-control" placeholder="Family Doctor Name" />
                                 </div>
                                 <div class="text-center">
-                                    <asp:Button ID="submitButton"  runat="server" OnClick="submitButton_Click" ValidationGroup="updateProfile" Text="Update" class="btn thm-button mb-2 mt-4"></asp:Button>
+                                    <asp:Button ID="submitButton" runat="server" OnClick="submitButton_Click" ValidationGroup="updateProfile" Text="Update" class="btn thm-button mb-2 mt-4"></asp:Button>
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                
+
                 </div>
             </div>
             <div id="toast">

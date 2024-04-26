@@ -11,6 +11,12 @@
             bottom: 0;
         }
 
+        @media(max-width: 540px) {
+            .footer {
+                bottom: 0;
+            }
+        }
+
         @media (max-width: 900px) {
             body {
                 min-height: 100vh;
@@ -56,6 +62,18 @@
         @media(max-width: 1024px) {
             .comming-soon {
                 font-size: 12px;
+            }
+        }
+
+        @media (min-width: 1022px) and (max-width: 1024px) {
+            .footer {
+                position: relative;
+            }
+        }
+
+        @media (min-height: 1364px) and (max-height: 1366px) {
+            .footer {
+                position: absolute;
             }
         }
     </style>
@@ -164,24 +182,24 @@
                             </div>
                         </a>
 
-                            <a class="support-group mb-5 w-100" href="<%= ResolveUrl("~/supportgroup.aspx") %>">
-                                <div class="my_profile">
-                                    <div class="row align-items-center">
-                                        <div class="col-3 tab-icon-div">
-                                            <img src="../Reception Page/chat-icon.png" />
-                                        </div>
-                                        <div class="col-9">
-                                            <h3>Chat Room  <%--<small id="typingEffect" class="comming-soon"><span id="comingSoon"  class="blink"></span>--%><%--( Comming Soon ! )--%><%--</small>--%></h3>
-                                            <%--<img src="Reception Page/coming-soon.png" />--%>
-                                        </div>
-                                        <%--   <div class="col-4">
+                        <a class="support-group mb-5 w-100" href="<%= ResolveUrl("~/supportgroup.aspx") %>">
+                            <div class="my_profile">
+                                <div class="row align-items-center">
+                                    <div class="col-3 tab-icon-div">
+                                        <img src="../Reception Page/chat-icon.png" />
+                                    </div>
+                                    <div class="col-9">
+                                        <h3>Chat Room  <%--<small id="typingEffect" class="comming-soon"><span id="comingSoon"  class="blink"></span>--%><%--( Comming Soon ! )--%><%--</small>--%></h3>
+                                        <%--<img src="Reception Page/coming-soon.png" />--%>
+                                    </div>
+                                    <%--   <div class="col-4">
                                         <h5>Comming Soon</h5>
                                         <%--  <img src="Reception Page/coming-soon.png" />--%>
-                                        <%--  <span class="badge bg-warning rounded-circle">Comming Soon !</span>
+                                    <%--  <span class="badge bg-warning rounded-circle">Comming Soon !</span>
                                     </div>--%>
-                                    </div>
                                 </div>
-                            </a>
+                            </div>
+                        </a>
 
                         <%--<a class="support-group my-5" href="additionalinformation.aspx">
                             <div class="my_profile">

@@ -8,6 +8,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title>FAQ's</title>
     <link rel="stylesheet" href="../style.css" />
+    <style>
+        @media (min-height: 598px) and (max-height: 600px) {
+            .back-arrow-btn {
+                top: 13% !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -16,9 +23,10 @@
             <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
             <img class="blue-trangle-top-right" src="../assets/blue-trangle.png" alt="">
             <img class="plus-top-left" src="../assets/plus-1.png" alt="">
-             <a class="back-arrow-btn" href="javascript: history.go(-1)"><img src="../assets/back-arrow.png" alt="">Back</a>
+            <a class="back-arrow-btn" href="javascript: history.go(-1)">
+                <img src="../assets/back-arrow.png" alt="">Back</a>
             <div class="row justify-content-center mt-5 pt-5">
-            <h2 class="heading text-center mt-5 pt-5">Frequently Asked Questions</h2>
+                <h2 class="heading text-center mt-5 pt-5">Frequently Asked Questions</h2>
                 <div class="col-12 col-md-8">
                     <div class="accordion" id="accordionExample">
                         <div class="accordion-item">

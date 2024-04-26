@@ -79,9 +79,9 @@ ul {
     padding: 10px;
 }
 
-.Huz_AddmembersideotherLidiv a img {
-    width: 30px;
-}
+    .Huz_AddmembersideotherLidiv a img {
+        width: 30px;
+    }
 
 .Huz_AddmembersideotherLidiv_name,
 .Huz_AddmembersideotherPlusli a {
@@ -90,9 +90,9 @@ ul {
     font-weight: 500;
 }
 
-.Huz_AddmembersideotherPlusli a img {
-    width: 30px;
-}
+    .Huz_AddmembersideotherPlusli a img {
+        width: 30px;
+    }
 
 .Huz_Avtar_Main_image img {
     height: 350px;
@@ -139,9 +139,9 @@ ul {
     align-items: center;
 }
 
-.Huz_FirstReportInnerImage:hover {
-    background-color: #eec93a;
-}
+    .Huz_FirstReportInnerImage:hover {
+        background-color: #eec93a;
+    }
 
 .Huz_FirstReportInner span {
     font-family: 'Red Hat Display', Sans-serif;
@@ -152,9 +152,9 @@ ul {
     color: #447df0;
 }
 
-.Huz_FirstReportInnerImage a img {
-    height: 35px;
-}
+    .Huz_FirstReportInnerImage a img {
+        height: 35px;
+    }
 
 .Huz_AvtarFirst {
     position: absolute;
@@ -301,7 +301,7 @@ ul {
 
     .Zero {
         left: 45%;
-        top: 40px;    
+        top: 40px;
     }
 
     .Huz_Avtar_main_Content {
@@ -369,11 +369,11 @@ ul {
         height: 50px;
         width: 50px;
     }
+
     .AddmemberRightside {
         justify-content: unset;
         padding: 50px 0px;
     }
-
 }
 
 @media (min-width: 1022px) and (max-width: 1024px) {
@@ -381,6 +381,7 @@ ul {
     .AddmemberRightside {
         justify-content: unset;
         padding: 50px 0px;
+        min-height: 105vh;
     }
 
     .Zero {
@@ -443,6 +444,9 @@ ul {
         background-position-x: 50%;
     }
 
+    .Huz_Addmemberside ul {
+        min-height: 105vh;
+    }
 }
 
 @media (min-width: 1281px) and (max-width: 1480px) {

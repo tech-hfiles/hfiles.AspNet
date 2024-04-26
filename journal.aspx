@@ -27,6 +27,12 @@
                 top: 80px !important;
             }
         }
+
+        @media (min-height: 598px) and (max-height: 600px) {
+            .back-arrow-btn {
+                top: 13% !important;
+            }
+        }
     </style>
 </asp:Content>
 

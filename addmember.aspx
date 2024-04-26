@@ -29,21 +29,34 @@
             width: 100%;
         }
 
+        .Dateinputfield input[type=date]{
+                display: block;
+        }
+     
+
         .phoneTextBox-input {
             position: relative;
         }
 
-            .phoneTextBox-input svg {
-                position: absolute;
-                top: 20px;
-                right: 16px;
-            }
+        .phoneTextBox-input svg {
+            position: absolute;
+            top: 20px;
+            right: 16px;
+        }
 
         @media (max-width: 1400px) {
             .member-type-tabs {
                 font-size: smaller;
             }
         }
+
+        @media (max-width: 480px) {
+
+            .phoneTextBox-input svg {
+                right: 5px;
+            }
+        }
+
 
         .tab-content {
             display: none;
@@ -149,7 +162,7 @@
                                         <asp:RequiredFieldValidator ID="fname" ControlToValidate="firstnameTextBox" runat="server" Display="Dynamic" ValidationGroup="First" />
                                     </div>
                                     <div class="">
-                                        <input type="text" id="lastnameTextBox" runat="server" placeholder="Last Name"  />
+                                        <input type="text" id="lastnameTextBox" runat="server" placeholder="Last Name" />
                                         <asp:RequiredFieldValidator ID="lname" ControlToValidate="lastnameTextBox" runat="server" Display="Dynamic" ValidationGroup="First"></asp:RequiredFieldValidator>
                                     </div>
                                     <div id="relation-input" class="">
@@ -180,7 +193,7 @@
                                             <asp:RequiredFieldValidator ID="relationvalidator" ControlToValidate="relation" runat="server" Display="Dynamic" ValidationGroup="First"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
-                                    <div class="">
+                                    <div class="Dateinputfield">
                                         <input class="date-input" type="date" id="dobTextBox1" runat="server" onchange="calculateAge()" /><%--onchange="calculateAge()"--%>
                                         <asp:RequiredFieldValidator ID="dob" ControlToValidate="dobTextBox1" runat="server" Display="Dynamic" ValidationGroup="First"></asp:RequiredFieldValidator>
                                     </div>
@@ -214,7 +227,7 @@
                                     <div class="btn-div">
                                         <%--<asp:Button runat="server" Text="Submit" CssClass="btn submit-btn" ID="btnSubmit"></asp:Button>--%>
                                         <%-- <button id="back-btn"  class="btn thm-back-button mx-3">Back</button>--%>
-                                        <button runat="server" id="btn_Submit" onserverclick="btn_Submit_ServerClick" class="btn submit-btn" ValidationGroup="First">Submit</button>
+                                        <button runat="server" id="btn_Submit" onserverclick="btn_Submit_ServerClick" class="btn submit-btn" validationgroup="First">Submit</button>
                                     </div>
                                 </div>
 
@@ -224,7 +237,7 @@
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorExistingMember" ControlToValidate="hfnumber" runat="server" Display="Dynamic" ValidationGroup="Second"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="btn-div">
-                                        <button runat="server" id="request" onserverclick="request_Click" class="btn submit-btn" ValidationGroup="Second">Send Request</button><%--btn submit-btn request-btn--%>
+                                        <button runat="server" id="request" onserverclick="request_Click" class="btn submit-btn" validationgroup="Second">Send Request</button><%--btn submit-btn request-btn--%>
                                     </div>
                                 </div>
 
