@@ -409,7 +409,7 @@
                             <div class="col-lg-8 col-md-8">
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4">
-                                        <div class="Huz_AvtarFirstReport Zero">
+                                      <%--  <div class="Huz_AvtarFirstReport Zero">
                                             <div class="Huz_FirstReportInner d-flex align-items-center">
                                                 <span>lab report</span>
                                                 <div class="Huz_FirstReportInnerImage">
@@ -418,7 +418,7 @@
                                                     </a>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>--%>
                                         <div class="Huz_AvtarFirstReport Huz_AvtarFirst">
                                             <div class="Huz_FirstReportInner d-flex align-items-center">
                                                 <span>Lab Reports</span>

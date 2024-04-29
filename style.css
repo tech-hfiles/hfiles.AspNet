@@ -1668,8 +1668,14 @@ span.img-notselected {
 .download-doc-inner .heading-title, .download-doc-inner .doc-pdf {
     background-color: #ffffff;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    
 }
-
+@media (min-width: 900px) {
+    .download-doc-inner .doc-pdf {
+        max-height: 72vh;
+        overflow-y: auto;
+    }
+}
 .download-doc-inner .report-page-title {
     font-size: 30px;
 }
@@ -2022,6 +2028,10 @@ span.img-notselected {
         min-height: 94vh;
     }
 
+    .madical-surgery-table .surgeries-table tbody tr:first-child {
+        position:sticky;
+        top:0;
+    }
     .SingleCheckbox input[type=checkbox] + label {
         margin: 0 90px !important;
     }
@@ -2060,9 +2070,9 @@ span.img-notselected {
         margin: 0 70px;
     }
 
-    .download-doc-inner {
+    /*.download-doc-inner {
         min-height: 80vh;
-    }
+    }*/
 }
 
 @media only screen and (min-width: 1024px) {

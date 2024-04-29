@@ -18,9 +18,9 @@
                 cursor: pointer;
             }
 
-        .journal-main-div {
+        /*.journal-main-div {
             min-height: 87vh;
-        }
+        }*/
 
         @media(max-width: 540px) {
             .back-arrow-btn-small-dev {
@@ -31,6 +31,35 @@
         @media (min-height: 598px) and (max-height: 600px) {
             .back-arrow-btn {
                 top: 13% !important;
+            }
+        }
+
+        @media(min-width: 1800px) {
+            .footer {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+            }
+
+            .journal-main-div #ContentPlaceHolder1_upl1 {
+                overflow-y: auto;
+                max-height: 65vh;
+            }
+        }
+
+        @media (min-width: 1024px) and (min-height: 600px) {
+            .footer {
+                position: relative;
+                bottom: 0;
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 1024px) and (min-height: 1366px) {
+            .footer {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
             }
         }
     </style>

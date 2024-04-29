@@ -28,7 +28,7 @@
     <title>Sign Up</title>
     <style>
         .signin-form input::placeholder {
-           color: #857d7d !important;
+            color: #857d7d !important;
         }
 
         @media (min-width: 992px) {
@@ -60,6 +60,56 @@
 
             .signin-main .vert-cent {
                 min-height: 95vh;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 991px) {
+            .footer {
+                position: absolute;
+            }
+        }
+
+        @media (min-width: 415px) and (max-width: 480px) {
+            .signin-main .vert-cent {
+                height: 110vh !important;
+            }
+        }
+
+        @media (max-width: 414px) {
+            .footer {
+                position: absolute;
+            }
+        }
+
+        @media (max-width: 430px) {
+            .footer {
+                position: absolute;
+            }
+
+            .signin-main .vert-cent {
+                height: 100vh !important;
+            }
+        }
+
+        @media (min-width: 360px) and (max-height: 640px) {
+            .footer {
+                position: relative;
+            }
+
+            .signin-main .vert-cent {
+                height: 110vh !important;
+            }
+        }
+
+        @media (min-width: 370px) and (max-height: 667px) {
+            .footer {
+                position: relative;
+            }
+        }
+
+        @media (min-width: 360px) and (max-height: 740px) {
+            .footer {
+                position: relative;
             }
         }
     </style>

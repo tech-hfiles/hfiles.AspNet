@@ -47,87 +47,93 @@
             }
         }
 
-        @media(max-width: 380px) {
-            .SingleCheckbox input[type=checkbox] + label {
-                margin: 0 11px !important;
-            }
-
-            .common-design .blue-trangle-bottom {
-                position: relative;
-                bottom: 0px;
+        @media(max-width: 480px) {
+            .outertablepadd {
+                padding:0px;
             }
         }
 
-        @media(max-width: 360px) {
-            .SingleCheckbox input[type=checkbox] + label {
-                margin: 0 13px !important;
-            }
-        }
+            @media(max-width: 380px) {
+                .SingleCheckbox input[type=checkbox] + label {
+                    margin: 0 11px !important;
+                }
 
-        @media(max-width: 768px) {
-            .SingleCheckbox input[type=checkbox] + label {
-                margin: 0px 38px;
-            }
-        }
-
-        @media(max-width: 344px) {
-
-            .medical-main-div .inner-main-div {
-                overflow-x: hidden;
-            }
-        }
-
-        @media (min-height: 930px) and (max-height: 932px) {
-            .SingleCheckbox input[type=checkbox] + label {
-                margin: 0px 20px !important;
-            }
-        }
-
-        @media (min-height: 598px) and (max-height: 600px) {
-            .back-arrow-btn {
-                top: 13% !important;
-            }
-        }
-
-        @media (min-height: 665px) and (max-height: 667px) {
-            .SingleCheckbox input[type=checkbox] + label {
-                margin: 0px 14px !important;
-            }
-        }
-
-        @media (min-height: 718px) and (max-height: 720px) {
-            .SingleCheckbox tr td:last-child input[type=checkbox] + label {
-                margin: 0px 40px !important;
+                .common-design .blue-trangle-bottom {
+                    position: relative;
+                    bottom: 0px;
+                }
             }
 
-            /*   .SingleCheckbox tr td:first-child input[type=checkbox] + label {
+            @media(max-width: 360px) {
+                .SingleCheckbox input[type=checkbox] + label {
+                    margin: 0 13px !important;
+                }
+            }
+
+            @media(max-width: 768px) {
+                .SingleCheckbox input[type=checkbox] + label {
+                    margin: 0px 38px;
+                }
+            }
+
+            @media(max-width: 344px) {
+
+                .medical-main-div .inner-main-div {
+                    overflow-x: hidden;
+                }
+            }
+
+            @media (min-height: 930px) and (max-height: 932px) {
+                .SingleCheckbox input[type=checkbox] + label {
+                    margin: 0px 20px !important;
+                }
+            }
+
+            @media (min-height: 598px) and (max-height: 600px) {
+                .back-arrow-btn {
+                    top: 13% !important;
+                }
+            }
+
+            @media (min-height: 665px) and (max-height: 667px) {
+                .SingleCheckbox input[type=checkbox] + label {
+                    margin: 0px 14px !important;
+                }
+            }
+
+            @media (min-height: 718px) and (max-height: 720px) {
+                .SingleCheckbox tr td:last-child input[type=checkbox] + label {
+                    margin: 0px 40px !important;
+                }
+
+                /*   .SingleCheckbox tr td:first-child input[type=checkbox] + label {
                 margin: 0px 42px !important;
             }
 
             .SingleCheckbox tr td:nth-child(2) input[type=checkbox] + label {
                 margin: 0px 42px !important;
             }*/
-        }
-
-
-
-        @media (min-height: 912px) and (max-height:914px) {
-            .common-design .blue-trangle-bottom {
-                position: relative;
             }
-        }
 
-        @media (min-width: 370px) and (max-width: 375px) {
-            .SingleCheckbox input[type=checkbox] + label {
-                margin: 0px 14px !important;
-            }
-        }
 
-        @media (min-width: 1918px) and (max-width: 1920px) {
-            .common-design .blue-trangle-bottom {
-                bottom: -5px;
+
+            @media (min-height: 912px) and (max-height:914px) {
+                .common-design .blue-trangle-bottom {
+                    position: relative;
+                }
             }
-        }
+
+            @media (min-width: 370px) and (max-width: 375px) {
+                .SingleCheckbox input[type=checkbox] + label {
+                    margin: 0px 14px !important;
+                }
+            }
+
+            @media (min-width: 1918px) and (max-width: 1920px) {
+                .common-design .blue-trangle-bottom {
+                    bottom: -5px;
+                }
+            }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -278,8 +284,8 @@
                                         <asp:Button Text="Add" ID="addsurgeryButton" class="thm-blue-button" OnClick="addsurgeryButton_Click" runat="server" />
                                     </div>
                                 </div>
-                                <div class="col-lg-5 col-12 mt-lg-0 mt-5">
-                                    <div style="max-height: 230px; overflow: auto;">
+                                <div class="col-lg-5 col-12 mt-lg-0 mt-5 outertablepadd">
+                                    <div class="madical-surgery-table" style="max-height: 230px; overflow: auto;">
                                         <asp:GridView ID="surgeryGridView" AutoGenerateColumns="false" CssClass="surgeries-table w-100 text-center table table-striped table-hover" runat="server">
                                             <Columns>
                                                 <asp:BoundField DataField="user_surgery_details" HeaderText="Surgery Details"
@@ -293,7 +299,7 @@
                                                         <div class="d-flex align-items-center justify-content-center">
                                                             <asp:Label ID="lblSurgeryYear" runat="server" Text='<%#Eval("user_surgery_year") %>'></asp:Label>
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<%--                                                             <asp:ImageButton CssClass="delete-report-btn" ID="lRemoveBtn" runat="server" OnClick="lRemoveBtn_Click1" CommandArgument='<%#Eval("user_surgery_id") %>' Text="Delete" ImageUrl="../Suppor Group (BG  & Icons)/delete-icon.png"></asp:ImageButton>--%>
+                                                            <%--                                                             <asp:ImageButton CssClass="delete-report-btn" ID="lRemoveBtn" runat="server" OnClick="lRemoveBtn_Click1" CommandArgument='<%#Eval("user_surgery_id") %>' Text="Delete" ImageUrl="../Suppor Group (BG  & Icons)/delete-icon.png"></asp:ImageButton>--%>
                                                         </div>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
@@ -301,7 +307,7 @@
                                                     <HeaderTemplate>Delete Item</HeaderTemplate>
                                                     <ItemTemplate>
                                                         <div class="d-flex align-items-center justify-content-center">
-<%--                                                            <asp:Label ID="lblSurgeryYear" runat="server" Text='<%#Eval("user_surgery_year") %>'></asp:Label>--%>
+                                                            <%--                                                            <asp:Label ID="lblSurgeryYear" runat="server" Text='<%#Eval("user_surgery_year") %>'></asp:Label>--%>
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                               <asp:ImageButton CssClass="delete-report-btn" ID="lRemoveBtn" runat="server" OnClick="lRemoveBtn_Click1" CommandArgument='<%#Eval("user_surgery_id") %>' Text="Delete" ImageUrl="../Suppor Group (BG  & Icons)/delete-icon.png"></asp:ImageButton>
 

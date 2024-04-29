@@ -46,7 +46,7 @@
 
         @media (min-height: 598px) and (max-height: 600px) {
             .footer {
-                bottom:-6px;
+                bottom: -6px;
             }
         }
     </style>
@@ -123,27 +123,27 @@
                 </div>
             </div>
         </div>
+        <div class="container-fluid">
+            <div class="row footer justify-content-around align-items-center m-0 mr-0">
+                <div class="col-4 t-c d-xl-flex justify-content-center text-center">
+                    <p class="m-0"><a href="tc.aspx">Terms & Conditions</a></p>
+                    <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
+                    <p class="m-0"><a href="privacypolicy.aspx">Privacy & Policy</a></p>
+                </div>
 
-        <div class="row footer justify-content-around align-items-center m-0 mr-0">
-            <div class="col-4 t-c d-xl-flex justify-content-center text-center">
-                <p class="m-0"><a href="tc.aspx">Terms & Conditions</a></p>
-                <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
-                <p class="m-0"><a href="privacypolicy.aspx">Privacy & Policy</a></p>
-            </div>
+                <div class="col-4 copy-right text-center p-0 d-xl-flex text-center justify-content-center">
+                    <p class="m-0"><a href="/FAQ.aspx" class="text-white">FAQ's</a></p>
+                    <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
+                    <p class="m-0"><a class="text-white">Copyright@2024</a></p>
+                </div>
+                <div class="col-4 p-p d-xl-flex text-center">
+                    <p class="m-0"><a href="https://wa.me/919930372831"><i class="fa fa-brands fa-whatsapp"></i>&nbsp; 9978043453</a></p>
+                    <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
+                    <p class="m-0"><a class="" href="mailto:contact@hfiles.in"><i class="fa fa-solid fa-envelope"></i>&nbsp; contact@hfiles.in</a></p>
 
-            <div class="col-4 copy-right text-center p-0 d-xl-flex text-center justify-content-center">
-                <p class="m-0"><a href="/FAQ.aspx" class="text-white">FAQ's</a></p>
-                <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
-                <p class="m-0"><a class="text-white">Copyright@2024</a></p>
-            </div>
-            <div class="col-4 p-p d-xl-flex text-center">
-                <p class="m-0"><a href="https://wa.me/919930372831"><i class="fa fa-brands fa-whatsapp"></i>&nbsp; 9978043453</a></p>
-                <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
-                <p class="m-0"><a class="" href="mailto:contact@hfiles.in"><i class="fa fa-solid fa-envelope"></i>&nbsp; contact@hfiles.in</a></p>
-
+                </div>
             </div>
         </div>
-
     </form>
 
 

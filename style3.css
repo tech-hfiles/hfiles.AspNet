@@ -1357,6 +1357,7 @@ a {
     .profile .img-box img {
         height: 85% !important;
         width: 85% !important;
+        border-radius: 100px;
     }
 
     .common-heading img {

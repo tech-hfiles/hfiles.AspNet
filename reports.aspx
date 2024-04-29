@@ -37,6 +37,10 @@
             opacity: 0.8;
         }
 
+        .Report_heading-title {
+            padding-top: 4px;
+        }
+
         .modalPopup {
             background-color: #f4f4f4;
             border-width: 3px;
@@ -60,17 +64,26 @@
             bottom: 0;
             width: 100%;
         }
-         @media (max-width: 912px) {
-     .modalPopup {
-         width:90%;
-         left:30px !important;
-     }
- }
+
+        @media (max-width: 912px) {
+            .modalPopup {
+                width: 90%;
+                left: 30px !important;
+            }
+        }
+
         @media (max-width: 540px) {
             .modalPopup {
-                width:90%;
-                left:20px !important;
+                width: 90%;
+                left: 20px !important;
             }
+        }
+
+        @media (min-width: 1300px) {
+           .footer {
+               position: absolute;
+               bottom: 0;
+           }
         }
     </style>
 </asp:Content>
@@ -79,8 +92,8 @@
     <asp:UpdatePanel runat="server" UpdateMode="Conditional">
         <ContentTemplate>
             <%--   <asp:ScriptManager runat="server" />--%>
-            <div class="container-fluid download-doc-inner my-5">
-                <div class="heading-title mb-3 py-1 px-5">
+            <div class="container-fluid download-doc-inner my-3">
+                <div class="heading-title Report_heading-title mb-3 px-5">
                     <div class="row">
                         <div class="col-12 col-md-8 col-xl-6 py-3 d-md-flex justify-content-between align-items-center">
                             <a class="" href="avatar2.aspx">
@@ -161,7 +174,8 @@
                             </cc1:ModalPopupExtender>
                             <asp:CheckBoxList ID="CheckBoxList1" CssClass="form-control border-0" runat="server" SelectionMode="Multiple"></asp:CheckBoxList>
                             <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center">
-                               <%-- modal fade--%><div class="" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"><%----%>
+                                <%-- modal fade--%><div class="" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <%----%>
                                     <div class="modal-dialog modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -170,13 +184,13 @@
                                             </div>
                                             <div class="modal-body">
                                                 <p>Edit Access <%--Give user right to access this report--%></p>
-                                             <%--   <form>--%>
-                                                    <%--  <div class="form-check form-switch my-1">--%>
-                                                    <asp:CheckBoxList ID="ddlMembers2" CssClass="form-control border-0" runat="server" SelectionMode="Multiple"></asp:CheckBoxList>
-                                                    <%--  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                                <%--   <form>--%>
+                                                <%--  <div class="form-check form-switch my-1">--%>
+                                                <asp:CheckBoxList ID="ddlMembers2" CssClass="form-control border-0" runat="server" SelectionMode="Multiple"></asp:CheckBoxList>
+                                                <%--  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                                                     <label class="form-check-label" for="flexSwitchCheckDefault">User 1</label>--%>
-                                                    <%-- </div>--%>
-                                                    <%--   <div class="form-check form-switch my-1">
+                                                <%-- </div>--%>
+                                                <%--   <div class="form-check form-switch my-1">
                                                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
                                                     <label class="form-check-label" for="flexSwitchCheckChecked">User 2</label>
                                                 </div>
@@ -196,7 +210,7 @@
                                                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
                                                     <label class="form-check-label" for="flexSwitchCheckChecked">User 2</label>
                                                 </div>--%>
-                                               <%-- </form>--%>
+                                                <%-- </form>--%>
                                             </div>
                                             <div class="modal-footer mt-3">
                                                 <button type="button" id="btnClose" class="btn btn-secondary mx-3" data-bs-dismiss="modal">Close</button>

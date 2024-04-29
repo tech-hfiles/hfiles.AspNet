@@ -120,7 +120,7 @@ p, a, span, li button {
 
     .privacy_main .inner_div {
         width: 65%;
-        height: 66%;
+        height: 70vh;
     }
 
         .privacy_main .inner_div .desciption {
@@ -1135,6 +1135,7 @@ ul.dropdown-menu.show {
     }
 }
 
+
 @media only screen and (min-width: 1200px) {
     .p-p p, .t-c p {
         font-size: 16px !important;
@@ -1288,9 +1289,9 @@ ul.dropdown-menu.show {
         height: 87vh
     }
 
-        .privacy_main .blue_trangle_bottom_right {
+      /*  .privacy_main .blue_trangle_bottom_right {
             top: 30px
-        }
+        }*/
 
     .journal .journal_main .jur-width-div {
         padding-left: 20px;
@@ -1340,9 +1341,9 @@ ul.dropdown-menu.show {
         height: 86vh
     }
 
-        .privacy_main .blue_trangle_bottom_right {
+      /*  .privacy_main .blue_trangle_bottom_right {
             top: 0px
-        }
+        }*/
 }
 
 @media only screen and (max-width: 600px) {
@@ -1810,8 +1811,8 @@ ul.dropdown-menu.show {
     .footer a {
         font-size: 6px !important;
     }
+
     .support-group .my_profile h3, .journal .journal_main .inner_div .heading h3 {
         font-size: 14px;
     }
 }
- 

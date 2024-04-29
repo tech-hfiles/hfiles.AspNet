@@ -376,186 +376,214 @@ ul {
     }
 }
 
-@media (min-width: 1022px) and (max-width: 1024px) {
+@media (min-width: 1270px) and (max-width: 1280px){
+    .Huz_Addmemberside ul {
+        min-height: 87vh;
+    }
+    .AddmemberRightside {
+        min-height: 87vh;
+    }
+
+    }
+
+@media (min-width: 1024px) and (min-height: 1366px) {
 
     .AddmemberRightside {
         justify-content: unset;
         padding: 50px 0px;
-        min-height: 105vh;
+        min-height: 90.4vh !important;
     }
-
-    .Zero {
-        top: 90px;
-        left: 41%;
-    }
-
-    .Huz_Avtar_Main_image img {
-        /* top: 340px;
-        left: 46%; */
-        top: 190px;
-        left: -20%;
-    }
-
-    .Huz_AvtarFirst {
-        top: 175px;
-        left: 28%;
-    }
-
-    .Second {
-        top: 285px;
-        left: 23%;
-    }
-
-    .Huz_Avtar_Main_image h3 {
-        top: 160px;
-    }
-
-    .third {
-        top: 385px;
-        left: 20%;
-    }
-
-    .forth {
-        top: 475px;
-        left: 27%;
-    }
-
-    .fifth {
-        top: 175px;
-        right: 24%;
-    }
-
-    .sixth {
-        top: 285px;
-        right: 22%;
-    }
-
-    .seven {
-        top: 385px;
-        right: 20%;
-    }
-
-    .Eight {
-        top: 475px;
-        right: 19%;
-    }
-
-    .Huz_Avtar_main_Content {
-        background-position-x: 50%;
-    }
-
     .Huz_Addmemberside ul {
-        min-height: 105vh;
+        min-height: 90.4vh !important;
     }
+
 }
 
-@media (min-width: 1281px) and (max-width: 1480px) {
-    /* .Zero {
+    @media (min-width: 1022px) and (max-width: 1024px) {
+
+        .AddmemberRightside {
+            justify-content: unset;
+            padding: 50px 0px;
+            min-height: 105vh;
+        }
+
+        .Zero {
+            top: 90px;
+            left: 41%;
+        }
+
+        .Huz_Avtar_Main_image img {
+            /* top: 340px;
+        left: 46%; */
+            top: 190px;
+            left: -20%;
+        }
+
+        .Huz_AvtarFirst {
+            top: 175px;
+            left: 28%;
+        }
+
+        .Second {
+            top: 285px;
+            left: 23%;
+        }
+
+        .Huz_Avtar_Main_image h3 {
+            top: 160px;
+        }
+
+        .third {
+            top: 385px;
+            left: 20%;
+        }
+
+        .forth {
+            top: 475px;
+            left: 27%;
+        }
+
+        .fifth {
+            top: 175px;
+            right: 24%;
+        }
+
+        .sixth {
+            top: 285px;
+            right: 22%;
+        }
+
+        .seven {
+            top: 385px;
+            right: 20%;
+        }
+
+        .Eight {
+            top: 475px;
+            right: 19%;
+        }
+
+        .Huz_Avtar_main_Content {
+            background-position-x: 50%;
+        }
+
+        .Huz_Addmemberside ul {
+            min-height: 105vh;
+        }
+    }
+
+    @media (min-width: 1281px) and (max-width: 1480px) {
+        /* .Zero {
         left: 51%;
     } */
 
-    .Huz_Avtar_Main_image img {
-        left: 35px;
+        .Huz_Avtar_Main_image img {
+            left: 35px;
+        }
+
+        .Huz_Avtar_Main_image h3 {
+            left: 30px;
+        }
+
+        .AddmemberRightside {
+            justify-content: unset;
+            padding: 50px 0px;
+        }
     }
 
-    .Huz_Avtar_Main_image h3 {
-        left: 30px;
-    }
-
-    .AddmemberRightside {
-        justify-content: unset;
-        padding: 50px 0px;
-    }
-}
-
-@media (min-width: 1481px) and (max-width: 1600px) {
-    /* .Zero {
+    @media (min-width: 1481px) and (max-width: 1600px) {
+        /* .Zero {
         left: 52%;
     } */
-}
-
-
-@media (min-width: 1600px) and (max-width: 1920px) {
-
-    .AddmemberRightside {
-        justify-content: unset;
-        padding: 50px 0px;
     }
 
-    .Huz_Avtar_Main_image img {
-        left: 110px;
-        top: 150px;
+
+    @media (min-width: 1600px) and (max-width: 1920px) {
+
+        .AddmemberRightside {
+            justify-content: unset;
+            padding: 50px 0px;
+        }
+
+        .Huz_Avtar_Main_image img {
+            /* left: 110px;
+        top: 150px;*/
+            left: 100px;
+            top: 370px;
+        }
+
+        .Huz_Avatar_section {
+            background-position-x: 48% !important;
+        }
+
+        .Huz_Avtar_main_Content {
+            background-position-x: 54%;
+            background-size: 40%;
+        }
+
+
+        .Zero {
+            left: 48%;
+            top: 250px;
+        }
+
+        .Huz_Avtar_Main_image h3 {
+            /*  top: 140px;
+        left: 40px;*/
+            top: 335px;
+            left: 40px;
+        }
+
+        .Huz_AvtarFirst {
+            top: 405px;
+        }
+
+        .forth {
+            top: 690px;
+        }
+
+        .third {
+            top: 595px;
+        }
+
+        .Second {
+            top: 500px;
+        }
+
+        .fifth {
+            top: 405px;
+        }
+
+        .sixth {
+            top: 500px;
+        }
+
+        .seven {
+            top: 595px;
+        }
+
+        .Eight {
+            top: 690px;
+        }
     }
 
-    .Huz_Avatar_section {
-        background-position-x: 48%;
+    @media (min-width: 1921px) and (max-width: 2560px) {
+
+        .Zero {
+            left: 49%;
+        }
+
+        .Huz_Avtar_Main_image img {
+            left: 175px;
+        }
+
+        .Huz_Avtar_Main_image h3 {
+            left: 30px;
+            top: 120px;
+        }
+
+        .AddmemberRightside {
+            justify-content: unset;
+            padding: 50px 0px;
+        }
     }
-
-    .Huz_Avtar_main_Content {
-        background-position-x: 54%;
-    }
-
-    .Zero {
-        left: 48%;
-    }
-
-    .Huz_Avtar_Main_image h3 {
-        top: 140px;
-        left: 40px;
-    }
-
-    /* .forth {
-        top: 470px;
-        left: 33%;
-    } */
-
-    /* .third {
-        top: 365px;
-        left: 24%;
-    } */
-
-    /* .Second {
-        top: 255px;
-        left: 31%;
-    } */
-
-    /* .fifth {
-        right: 27%;
-    } */
-
-    /* .sixth {
-        right: 25%;
-        top: 255px;
-    } */
-
-    /* .seven {
-        right: 25%;
-        top: 365px;
-    }
-
-    .Eight {
-        top: 470px;
-        right: 20%;
-    } */
-}
-
-@media (min-width: 1921px) and (max-width: 2560px) {
-
-    .Zero {
-        left: 49%;
-    }
-
-    .Huz_Avtar_Main_image img {
-        left: 175px;
-    }
-
-    .Huz_Avtar_Main_image h3 {
-        left: 30px;
-        top: 120px;
-    }
-
-    .AddmemberRightside {
-        justify-content: unset;
-        padding: 50px 0px;
-    }
-}

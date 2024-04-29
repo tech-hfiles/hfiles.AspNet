@@ -80,6 +80,10 @@
                 padding: 8px 10px;
                 font-size: 9px;
             }
+
+            .back-arrow-btn {
+                top: 10% !important;
+            }
         }
 
         @media (max-width: 280px) {
@@ -89,11 +93,19 @@
             }
         }
 
-        @media (min-width: 700px) and (max-width: 1024px) {
+        @media (min-width: 700px) and (max-width: 1022px) {
             .footer {
                 position: absolute !important;
                 width: 100%;
                 bottom: 0;
+            }
+
+            .user-info-main .profile-img img {
+                width: 100% !important;
+            }
+
+            .Addbasicbtnboth button {
+                font-size: 10px;
             }
         }
 
@@ -105,6 +117,14 @@
 
             .back-arrow-btn {
                 top: 10% !important;
+            }
+        }
+
+        @media (min-width: 1022px) and (min-height: 1366px) {
+            .footer {
+                position: absolute;
+                width: 100%;
+                bottom: 0px !important;
             }
         }
 

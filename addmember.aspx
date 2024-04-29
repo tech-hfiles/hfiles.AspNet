@@ -29,20 +29,20 @@
             width: 100%;
         }
 
-        .Dateinputfield input[type=date]{
-                display: block;
+        .Dateinputfield input[type=date] {
+            display: block;
         }
-     
+
 
         .phoneTextBox-input {
             position: relative;
         }
 
-        .phoneTextBox-input svg {
-            position: absolute;
-            top: 20px;
-            right: 16px;
-        }
+            .phoneTextBox-input svg {
+                position: absolute;
+                top: 20px;
+                right: 16px;
+            }
 
         @media (max-width: 1400px) {
             .member-type-tabs {
@@ -119,6 +119,69 @@
 
             .member-type-tabs strong {
                 font-size: 12px;
+            }
+        }
+
+        @media (min-width: 300px) and (max-width: 375px) {
+            .footer {
+                position: relative !important;
+                bottom: 0px !important;
+            }
+        }
+
+        @media (min-width: 1022px) and (max-width: 1024px) {
+            .footer {
+                position: absolute !important;
+                bottom: 0px;
+            }
+        }
+
+        @media (min-width: 900px) and (max-width: 912px) {
+            .add-member .inner-div {
+                min-height: 90vh;
+            }
+
+            .footer {
+                position: absolute;
+                bottom: 0px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer {
+                position: absolute;
+                bottom: 0px;
+            }
+        }
+
+
+
+        @media (min-width: 1800px) {
+            .footer {
+                position: absolute !important;
+            }
+
+            .blue-t-bottom-right {
+                position: absolute !important;
+            }
+        }
+
+        @media (min-width: 1024px) and (min-height: 600px) {
+            .footer {
+                position: relative !important;
+            }
+        }
+
+        @media (min-width: 1024px) and (min-height: 1366px) {
+            .footer {
+                position: absolute !important;
+            }
+        }
+
+        @media (min-width: 912px) and (min-height: 1368px) {
+            .footer {
+                position: absolute !important;
+                bottom: 0px;
             }
         }
     </style>
@@ -264,7 +327,7 @@
         </div>
         <img class="plus-bottom-right" src="../Add Members/plus-2.png" alt="" />
         <img class="blue-t-bottom-left" src="../Add Members/blue-trangle-4.png" alt="" />
-        <img class="blue-t-bottom-right" src="../Add Members/blue-trangle-5.png" alt="" />
+        <%--<img class="blue-t-bottom-right" src="../Add Members/blue-trangle-5.png" alt="" />--%>
     </div>
     <script>
 
