@@ -511,7 +511,7 @@ namespace hfiles
                 memberid = values[0];
                 relation = values[1];
             }
-            linkButton.Style.Add("font-style", "italic");
+            linkButton.Style.Add("font-weight", "900");
             Session["memberId"] = memberid.ToString();
             Session["memberRelation"] = relation.ToString();
             bindData(Convert.ToInt32(memberid));

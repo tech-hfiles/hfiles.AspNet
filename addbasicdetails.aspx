@@ -56,16 +56,16 @@
 
             .Addbasicbtnboth button {
                 padding: 10px 12px;
-                border-radius: 50px;
+                /* border-radius: 50px; */
                 border: 0;
                 outline: 0;
-                background-image: linear-gradient(to right, #0512B9 0%, #081466 100%);
-                color: #ffffff;
+                color: #0512b9;
                 cursor: pointer;
                 margin-top: 20px;
                 font-family: 'Red Hat Display', Sans-serif !important;
                 font-weight: 700;
                 font-size: 13px;
+                background-color: #fdd001;
             }
 
         @media (max-width: 480px) {
@@ -160,7 +160,8 @@
         <ContentTemplate>
             <div class="user-info-main" runat="server">
                 <a class="back-arrow-btn" href="javascript: history.go(-1)">
-                    <img src="../assets/back-arrow.png" alt="">Back</a>
+<%--                    <img src="../assets/back-arrow.png" alt="">--%>
+                    Back</a>
                 <div class="container mt-768-80">
                     <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
                     <img class="blue-trangle-top-right" src="../assets/blue-trangle.png" alt="">
@@ -285,8 +286,9 @@
                                 </div>
                                 <div class="col-12">
                                     <span for="" class="imp-star">&nbsp;</span>
-                                    <i class="fa-solid fa-phone-volume form-control-feedback"></i>
-                                    <input id="relativecontactTextBox" runat="server" type="tel" class="form-control" placeholder="Relative To Emergency Contact No" />
+                                    <%--                                    <i class="fa-solid fa-phone-volume form-control-feedback"></i>--%>
+                                    <i class="fa-solid fa-user-group form-control-feedback"></i>
+                                    <input id="relativecontactTextBox" runat="server" type="tel" class="form-control" placeholder="Relation To Emergency Contact No" />
                                 </div>
 
                                 <div class="col-12">

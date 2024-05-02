@@ -66,10 +66,10 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <a class="back-arrow-btn d-none d-md-block" href="javascript: history.go(-1)">
+  <%--  <a class="back-arrow-btn d-none d-md-block" href="javascript: history.go(-1)">
         <img src="../assets/back-arrow.png" alt="" />Back</a>
     <a class="back-arrow-btn-small-dev d-block d-md-none" href="javascript: history.go(-1)">
-        <img src="../assets/back-arrow.png" alt="" />Back</a>
+        <img src="../assets/back-arrow.png" alt="" />Back</a>--%>
     <%-- <asp:ScriptManager ID="scm1" runat="server"></asp:ScriptManager>--%>
     <%--<body class="journal common-design">
  <form id="form1" runat="server">--%>

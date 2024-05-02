@@ -423,7 +423,7 @@
                                             <div class="Huz_FirstReportInner d-flex align-items-center">
                                                 <span>Lab Reports</span>
                                                 <div class="Huz_FirstReportInnerImage">
-                                                    <a href="">
+                                                    <a href="reports.aspx?rid=3">
                                                         <img src="Avatar2/bill icon png (1).png" alt="">
                                                     </a>
                                                 </div>

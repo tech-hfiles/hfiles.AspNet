@@ -270,6 +270,12 @@
 
         /*avatar responsive*/
 
+        .avatar .add-member-name {
+            font-size: 14px;
+            color: #0331b5;
+            font-weight: 700;hanging-punctuation  
+        }
+
 
         .avatar .Mobile_menu-circle {
             height: 50px;
@@ -510,7 +516,7 @@
                     <div class="d-flex justify-content-between align-items-center py-4 px-2 w-100" style="height: 250px">
                         <div class="add-member-icons add-member-icons_mobile_responsive  text-center">
                             <a class="text-center" href="addmember.aspx">
-                                <img src="../My Data/default-user-profile.png" alt="" />
+                                <img src="../My Data/Hfiles.png" alt="" />
                                 <%-- <asp:ImageButton ID="addmember" runat="server" ImageUrl="../My Data/default-user-profile.png" AlternateText="Add Member" Height="90px" Width="90px"/>--%>
                                 <br />
                                 <div>
@@ -526,7 +532,12 @@
                         <div class="add-report-icon add-member-icons_mobile_responsive">
                             <asp:LinkButton Text="text" runat="server" ID="LinkButton2" OnClick="lbtnAddReport_Click">
                                 <%--plus-icon--%>
-<img class="" src="<%= ResolveUrl("~/Avatar/add-report.png") %>" alt="" />
+<img class="" src="<%= ResolveUrl("~/Avatar/Hfiles2.png") %>" alt="" />
+                                <br />
+<div>
+    <small class="add-member-name">Add Report
+    </small>
+</div>
                             </asp:LinkButton>
                             <%--<img class="" src="<%= ResolveUrl("~/Avatar/add-report.png") %>" alt="" />--%>
                         </div>
@@ -540,7 +551,7 @@
                                             Select Members
                                         </button>
                                     </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <div class="row Mobile_accordion_body">
                                                 <h2>Members List</h2>
@@ -643,7 +654,7 @@
                                             View Reports
                                         </button>
                                     </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                    <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <div class="row Mobile_accordion_body">
                                                 <%--                                                <h2>Members List</h2>--%>

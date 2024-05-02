@@ -55,8 +55,52 @@ a {
     position: absolute;
     left: 10%;
     top: 10%;
+    /*    color: #0512b9;
+*/
+    padding: 5px 20px;
+    border-radius: 50px;
+    border: 0;
+    outline: 0;
     color: #0512b9;
+    cursor: pointer;
+    margin-top: 20px;
+    font-family: 'Red Hat Display', Sans-serif !important;
+    font-weight: 700;
+    font-size: 16px;
+    background-color: #fdd001;
 }
+
+
+
+    .back-arrow-btn img {
+        width: 40px;
+    }
+
+.back-arrow-btn-2 img {
+    width: 40px;
+}
+
+.back-arrow-btn-2 {
+    /* position: absolute; */
+    /*    left: 10%;
+    top: 10%;
+*/ /* color: #0512b9; */
+
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 50px;
+    border: 0;
+    outline: 0;
+    color: #0512b9;
+    cursor: pointer;
+    /* margin-top: 20px; */
+    font-family: 'Red Hat Display', Sans-serif !important;
+    font-weight: 700;
+    font-size: 16px;
+    background-color: #fdd001;
+}
+
+
 
 .thm-back-button {
     padding: 10px 60px;
@@ -1628,11 +1672,16 @@ span.img-notselected {
     position: relative;
 }
 
-    .download-doc-inner .card .report-share-icon {
-        height: 30px !important;
-        width: auto !important;
-        margin-left: 5px;
-    }
+.card .Whatappicon i {
+    font-size: 25px;
+    color: #25d366;
+}
+
+.download-doc-inner .card .report-share-icon {
+    height: 30px !important;
+    width: auto !important;
+    margin-left: 5px;
+}
 
 .download-doc-inner .report-delete-btn {
     position: absolute;
@@ -1668,14 +1717,15 @@ span.img-notselected {
 .download-doc-inner .heading-title, .download-doc-inner .doc-pdf {
     background-color: #ffffff;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    
 }
+
 @media (min-width: 900px) {
     .download-doc-inner .doc-pdf {
         max-height: 72vh;
         overflow-y: auto;
     }
 }
+
 .download-doc-inner .report-page-title {
     font-size: 30px;
 }
@@ -1913,9 +1963,72 @@ span.img-notselected {
     width: 50%;
     outline: 0;
 }
+
+
+@media (min-width: 1022px) and (max-width: 1024px) {
+    .manage-members-div .search-file input {
+        width: 100%;
+    }
+
+    .search-file {
+        position: relative;
+    }
+
+    .manage-members-div .search-file i {
+        position: absolute;
+        left: 22px;
+        top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .manage-members-div .search-file input {
+        width: 100%;
+    }
+
+    .search-file {
+        position: relative;
+    }
+
+    .manage-members-div .search-file i {
+        position: absolute;
+        left: 22px;
+        top: 30px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .manage-members-div .search-file input {
+        width: 100%;
+    }
+
+    .search-file {
+        position: relative;
+    }
+
+    .manage-members-div .search-file i {
+        position: absolute;
+        left: 22px;
+        top: 30px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .manage-members-div .search-file input {
+        width: 100%;
+    }
+
+    .search-file {
+        position: relative;
+    }
+
+    .manage-members-div .search-file i {
+        position: absolute;
+        left: 22px;
+        top: 30px;
+    }
+}
 /*manage-members-table*/
-
-
 .accordion-button:not(.collapsed) {
     background-color: #ffd101 !important;
 }
@@ -2029,9 +2142,10 @@ span.img-notselected {
     }
 
     .madical-surgery-table .surgeries-table tbody tr:first-child {
-        position:sticky;
-        top:0;
+        position: sticky;
+        top: 0;
     }
+
     .SingleCheckbox input[type=checkbox] + label {
         margin: 0 90px !important;
     }
@@ -2101,6 +2215,8 @@ span.img-notselected {
 
     .download-doc-inner .report-page-title {
         font-size: 24px;
+        font-family: 'Red Hat Display', Sans-serif !important;
+        font-weight: 600;
     }
 }
 
@@ -2172,9 +2288,9 @@ span.img-notselected {
         font-size: 24px;
     }
 
-    .back-arrow-btn {
+    /*  .back-arrow-btn {
         top: 7%;
-    }
+    }*/
 }
 
 @media only screen and (min-width: 912px) {
@@ -2268,16 +2384,35 @@ span.img-notselected {
         width: 80%
     }
 
-    .back-arrow-btn {
+    /*  .back-arrow-btn {
         top: 7%;
-    }
+    }*/
 }
 
 @media (max-width: 480px) {
     .back-arrow-btn {
-/*        top: 12%;
-*/        top: 8% !important;
+        top: 8% !important;
+        padding: 1px 10px;
+        font-size: 15px;
     }
+
+        .back-arrow-btn img {
+            width: 30px;
+        }
+
+    .back-arrow-btn-2 {
+        padding: 1px 10px;
+        font-size: 15px;
+    }
+
+        .back-arrow-btn-2 img {
+            width: 30px;
+        }
+
+         .report-page-title {
+            display: block;
+            text-align: center;
+        }
 }
 
 @media only screen and (min-width: 768px) and (max-width:912px) {
@@ -2295,6 +2430,17 @@ span.img-notselected {
 
     .support-group .chat-input-div {
         bottom: -35px
+    }
+
+    .back-arrow-btn {
+        top: 7%;
+    }
+}
+
+@media only screen and (min-width: 1022px) and (max-width:1024px) {
+
+    .back-arrow-btn {
+        top: 6%;
     }
 }
 
@@ -2772,7 +2918,7 @@ span.img-notselected {
 }
 
 @media (min-width: 1022px) and (max-width: 1024px) {
-  /*  .common-design .blue-trangle-bottom {
+    /*  .common-design .blue-trangle-bottom {
         position: absolute !important;
     }*/
 }

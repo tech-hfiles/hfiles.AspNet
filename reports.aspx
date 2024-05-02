@@ -80,10 +80,10 @@
         }
 
         @media (min-width: 1300px) {
-           .footer {
-               position: absolute;
-               bottom: 0;
-           }
+            .footer {
+                position: absolute;
+                bottom: 0;
+            }
         }
     </style>
 </asp:Content>
@@ -96,8 +96,10 @@
                 <div class="heading-title Report_heading-title mb-3 px-5">
                     <div class="row">
                         <div class="col-12 col-md-8 col-xl-6 py-3 d-md-flex justify-content-between align-items-center">
-                            <a class="" href="avatar2.aspx">
-                                <img src="../assets/back-arrow.png" alt=""></a>
+                            <a class="back-arrow-btn-2" href="avatar2.aspx">
+<%--                                <img src="../assets/back-arrow.png" alt="">--%>
+                                Back
+                            </a>
                             <%--<h1 class="heading">Documents</h1>--%>
                             <asp:Label ID="lblReportType" runat="server" CssClass="report-page-title" Text="" />
 
@@ -135,8 +137,9 @@
                                                 <h5 class="card-title"><strong>Name: </strong><%# Eval("ReportName") %></h5>
                                                 <p class="card-text"><strong>Date: </strong><%# Eval("CreatedDate") %> </p>
 
-                                                <div class="text-center">
+                                                <div class="Whatappicon d-flex align-items-center justify-content-between">
                                                     <a href="<%# ResolveUrl( string.Format("~/upload/report/{0}", Eval("ReportUrl"))) %>" target="_blank" class="btn btn-sm btn-primary" style="align-self: center">View File</a>
+                                                    <i class="fa-brands fa-whatsapp"></i>
                                                 </div>
                                                 <asp:LinkButton ID="lbtnShare" runat="server" OnClick="lbtnShare_Click" CommandArgument='<%# Eval("Id")%>'></asp:LinkButton>
                                                 <%--  <asp:LinkButton ID="lbtnShareMail" runat="server" OnCommand="btnShareEmail_Command" OnClick="lbtnShareMail_Click1" CommandArgument='<%# Eval("Id")%>'>
