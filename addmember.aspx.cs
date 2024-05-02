@@ -86,6 +86,8 @@ namespace hfiles
         }
         protected void request_Click(object sender, EventArgs e)
         {
+            ScriptManager.RegisterStartupScript((sender as Control), this.GetType(), Guid.NewGuid().ToString(), "showTab('xyz', 'addExisitingMemberTab');", true);
+            //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Thank You! We will get back to you soon.');", true);
             using (MySqlConnection connection = new MySqlConnection(this.cs))
             {
                 connection.Open();
@@ -103,37 +105,46 @@ namespace hfiles
                     if (result1 == 1)
                     {
                         // Request sent
-                        System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Sent')", true);
+                        //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Sent')", true);
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Request Sent');", true);
                     }
                     else if (result1 == 2)
                     {
                         // Request already sent
-                        System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Already Sent')", true);
+
+                        //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Already Sent')", true);
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Request Already Sent');", true);
                     }
                     else if (result1 == 3)
                     {
                         // Request already sent
-                        System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Member already added')", true);
+
+                        //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Member already added')", true);
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Member already added.');", true);
                     }
                     else if (result1 == 4)
                     {
                         // Request already sent
-                        System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Member did not accept the request')", true);
+                        //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Member did not accept the request')", true);
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Member did not accept the request.');", true);
                     }
                     else if (result1 == 5)
                     {
                         // Request already sent
-                        System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Already Sent')", true);
+                        //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Request Already Sent');", true);
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Request Already Sent');", true);
                     }
                     else if (result1 == 6)
                     {
                         // User does not exist
-                        System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Can not send request to yourself')", true);
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Can not send request to yourself');", true);
+                        //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Can not send request to yourself')", true);
                     }
                     else if (result1 == 0)
                     {
                         // User does not exist
-                        System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Member Does Not Exist')", true);
+                        //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Member Does Not Exist')", true);
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Member Does Not Exist');", true);
                     }
                     else
                     {
@@ -142,170 +153,174 @@ namespace hfiles
                 }
             }
         }
-    
 
-    protected void AddMember(object sender)
-    {
-        Random random = new Random();
-        int randomNumber = random.Next(1000, 9999);
-        int randomNumber2 = random.Next(10, 99);
 
-        // Format the date of birth in MMDDYYYY format
-        string formattedDateOfBirth = Convert.ToDateTime(dobTextBox1.Value).ToString("MMddyy");
-
-        // Take a portion of the last name (first three characters)
-        string partialLastName = firstnameTextBox.Value.Substring(0, Math.Min(3, lastnameTextBox.Value.Length)).ToUpper();
-
-        // Concatenate the components to create the membership number
-        string membershipNumber = $"HF{formattedDateOfBirth}{partialLastName}{randomNumber}";
-        string membershippasword = $"HF{partialLastName}{randomNumber}";
-
-        #region variable
-        string member = membershipNumber;
-        string password = membershippasword;
-        string uniqueid = randomNumber + membershipNumber + randomNumber2;
-
-        using (MySqlConnection con = new MySqlConnection(cs))
+        protected void AddMember(object sender)
         {
-            con.Open();
-            using (MySqlCommand cmdInsert = new MySqlCommand("usp_signup", con))
+            Random random = new Random();
+            int randomNumber = random.Next(1000, 9999);
+            int randomNumber2 = random.Next(10, 99);
+
+            // Format the date of birth in MMDDYYYY format
+            string formattedDateOfBirth = Convert.ToDateTime(dobTextBox1.Value).ToString("MMddyy");
+
+            // Take a portion of the last name (first three characters)
+            string partialLastName = firstnameTextBox.Value.Substring(0, Math.Min(3, lastnameTextBox.Value.Length)).ToUpper();
+
+            // Concatenate the components to create the membership number
+            string membershipNumber = $"HF{formattedDateOfBirth}{partialLastName}{randomNumber}";
+            string membershippasword = $"HF{partialLastName}{randomNumber}";
+
+            #region variable
+            string member = membershipNumber;
+            string password = membershippasword;
+            string uniqueid = randomNumber + membershipNumber + randomNumber2;
+
+            using (MySqlConnection con = new MySqlConnection(cs))
             {
-                cmdInsert.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                using (MySqlCommand cmdInsert = new MySqlCommand("usp_signup", con))
+                {
+                    cmdInsert.CommandType = CommandType.StoredProcedure;
 
-                string selectedRelation = relation.Value;
+                    string selectedRelation = relation.Value;
 
-                int age = CalculateAge(Convert.ToDateTime(dobTextBox1.Value));
-                //if ((selectedRelation == "son" || selectedRelation == "daughter" || selectedRelation == "grandfather" || selectedRelation == "grandmother" || selectedRelation == "cat" || selectedRelation == "dog") && (age < 17 || age > 70)) 
-                int gender = 0;
-                if (selectedRelation == "son" || selectedRelation == "grandfather" || selectedRelation == "uncle")
-                {
-                    gender = 1;
-                }
-                else if (selectedRelation == "daughter" || selectedRelation == "grandmother" || selectedRelation == "aunt")
-                {
-                    gender = 2;
-                }
-                else if (selectedRelation == "cat")
-                {
-                    gender = 4;
-                }
-                else if (selectedRelation == "dog")
-                {
-                    gender = 5;
-                }
-                if (age < 17 || age > 70)
-                {
-                    cmdInsert.Parameters.AddWithValue("_user_reference", Session["Userid"].ToString());
-                    cmdInsert.Parameters.AddWithValue("_user_firstname", firstnameTextBox.Value);
-                    cmdInsert.Parameters.AddWithValue("_user_lastname", lastnameTextBox.Value);
-                    cmdInsert.Parameters.AddWithValue("_user_dob", dobTextBox1.Value);
-                    cmdInsert.Parameters.AddWithValue("_user_relation", selectedRelation);
-                    cmdInsert.Parameters.AddWithValue("_user_email", Session["user_email"].ToString());
-                    cmdInsert.Parameters.AddWithValue("_user_contact", Session["user_contact"].ToString());
-                    cmdInsert.Parameters.AddWithValue("_user_gender", gender);
-                    cmdInsert.Parameters.AddWithValue("_user_password", "0");
-                    cmdInsert.Parameters.AddWithValue("_user_membernumber", member);
-                    cmdInsert.Parameters.AddWithValue("_user_uniquekey", "0");
-                    cmdInsert.Parameters.AddWithValue("_user_isactive", true);
-                    cmdInsert.Parameters.AddWithValue("_chkmail", 0);
-                    cmdInsert.Parameters.Add("_Result", MySqlDbType.Int32);
-                    cmdInsert.Parameters["_Result"].Direction = ParameterDirection.Output;
-                    cmdInsert.ExecuteNonQuery();
-                    int result = DAL.validateInt(cmdInsert.Parameters["_Result"].Value.ToString());
-                    if (result == 0)
+                    int age = CalculateAge(Convert.ToDateTime(dobTextBox1.Value));
+                    //if ((selectedRelation == "son" || selectedRelation == "daughter" || selectedRelation == "grandfather" || selectedRelation == "grandmother" || selectedRelation == "cat" || selectedRelation == "dog") && (age < 17 || age > 70)) 
+                    int gender = 0;
+                    if (selectedRelation == "son" || selectedRelation == "grandfather" || selectedRelation == "uncle")
                     {
-                        Response.Write("<script>alert('Memeber already exists with same email id !')</script>");
-                        //Response.Write("<script>alert('Memeber added successfully !')</script>");
-                        Response.Redirect("avatar2.aspx");
+                        gender = 1;
                     }
-                }
-                else
-                {
-                    cmdInsert.Parameters.AddWithValue("_user_reference", Session["Userid"].ToString());
-                    cmdInsert.Parameters.AddWithValue("_user_firstname", firstnameTextBox.Value);
-                    cmdInsert.Parameters.AddWithValue("_user_lastname", lastnameTextBox.Value);
-                    cmdInsert.Parameters.AddWithValue("_user_dob", dobTextBox1.Value);
-                    cmdInsert.Parameters.AddWithValue("_user_relation", selectedRelation);
-                    cmdInsert.Parameters.AddWithValue("_user_email", emailTextBox.Value);
-                    cmdInsert.Parameters.AddWithValue("_user_contact", phoneTextBox.Value);
-                    cmdInsert.Parameters.AddWithValue("_user_password", membershippasword);
-                    cmdInsert.Parameters.AddWithValue("_user_gender", gender);
-                    cmdInsert.Parameters.AddWithValue("_user_membernumber", member);
-                    cmdInsert.Parameters.AddWithValue("_user_uniquekey", uniqueid);
-                    cmdInsert.Parameters.AddWithValue("_user_isactive", false);
-                    cmdInsert.Parameters.AddWithValue("_chkmail", 1);
-                    cmdInsert.Parameters.Add("_Result", MySqlDbType.Int32);
-                    cmdInsert.Parameters["_Result"].Direction = ParameterDirection.Output;
-                    cmdInsert.ExecuteNonQuery();
-                    int result = DAL.validateInt(cmdInsert.Parameters["_Result"].Value.ToString());
-                    if (result == 1)
+                    else if (selectedRelation == "daughter" || selectedRelation == "grandmother" || selectedRelation == "aunt")
                     {
-                        string email = emailTextBox.Value.ToString();
-                        //string subject = "# Verification code";
-                        string subject = "Welcome to HFiles";
-                        string body = $"<p style=\"text-align: justify;\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify;\"> {Session["username"].ToString()} has added you to HFiles Portal,&nbsp;</p>\r\n<p style=\"text-align: justify;\">Please verify your Email Id to complete signup process.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Use below link to verify your Email Id.&nbsp;<br> http://68.178.164.174//membersignup.aspx/?id={uniqueid}</p> <p style=\"text-align: justify;\">&nbsp;</p>";
-                        //Use below password for sigining up { membershippasword}
-
-                        DAL.SendCareerMail(subject, body, email);
-                        Response.Write("<script>alert('Memeber added successfully.')</script>");
-                        //newly added below code(usign block) for sending requests to created members
-                        using (MySqlCommand mySqlCommand1 = new MySqlCommand("usp_existingmember", con))
+                        gender = 2;
+                    }
+                    else if (selectedRelation == "cat")
+                    {
+                        gender = 4;
+                    }
+                    else if (selectedRelation == "dog")
+                    {
+                        gender = 5;
+                    }
+                    if (age < 17 || age > 70)
+                    {
+                        cmdInsert.Parameters.AddWithValue("_user_reference", Session["Userid"].ToString());
+                        cmdInsert.Parameters.AddWithValue("_user_firstname", firstnameTextBox.Value);
+                        cmdInsert.Parameters.AddWithValue("_user_lastname", lastnameTextBox.Value);
+                        cmdInsert.Parameters.AddWithValue("_user_dob", dobTextBox1.Value);
+                        cmdInsert.Parameters.AddWithValue("_user_relation", selectedRelation);
+                        cmdInsert.Parameters.AddWithValue("_user_email", Session["user_email"].ToString());
+                        cmdInsert.Parameters.AddWithValue("_user_contact", Session["user_contact"].ToString());
+                        cmdInsert.Parameters.AddWithValue("_user_gender", gender);
+                        cmdInsert.Parameters.AddWithValue("_user_password", "0");
+                        cmdInsert.Parameters.AddWithValue("_user_membernumber", member);
+                        cmdInsert.Parameters.AddWithValue("_user_uniquekey", "0");
+                        cmdInsert.Parameters.AddWithValue("_user_isactive", true);
+                        cmdInsert.Parameters.AddWithValue("_chkmail", 0);
+                        cmdInsert.Parameters.Add("_Result", MySqlDbType.Int32);
+                        cmdInsert.Parameters["_Result"].Direction = ParameterDirection.Output;
+                        cmdInsert.ExecuteNonQuery();
+                        int result = DAL.validateInt(cmdInsert.Parameters["_Result"].Value.ToString());
+                        if (result == 0)
                         {
-                            mySqlCommand1.CommandType = CommandType.StoredProcedure;
-                            mySqlCommand1.Parameters.AddWithValue("_hf_number", member);
-                            mySqlCommand1.Parameters.AddWithValue("_user_id", (object)Convert.ToInt32(this.Session["Userid"].ToString()));
-                            mySqlCommand1.Parameters.AddWithValue("_spType", 'C');
-                            mySqlCommand1.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
-                            mySqlCommand1.ExecuteNonQuery();
-                            // Member exists and request sent
-                            System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Sent')", true);
-                            //connection.Close();
+                            //Response.Write("<script>alert('Memeber already exists with same email id !')</script>");
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Memeber already exists with same email id !');", true);
+                            //Response.Write("<script>alert('Memeber added successfully !')</script>");
                             Response.Redirect("avatar2.aspx");
+                        }
+                    }
+                    else
+                    {
+                        cmdInsert.Parameters.AddWithValue("_user_reference", Session["Userid"].ToString());
+                        cmdInsert.Parameters.AddWithValue("_user_firstname", firstnameTextBox.Value);
+                        cmdInsert.Parameters.AddWithValue("_user_lastname", lastnameTextBox.Value);
+                        cmdInsert.Parameters.AddWithValue("_user_dob", dobTextBox1.Value);
+                        cmdInsert.Parameters.AddWithValue("_user_relation", selectedRelation);
+                        cmdInsert.Parameters.AddWithValue("_user_email", emailTextBox.Value);
+                        cmdInsert.Parameters.AddWithValue("_user_contact", phoneTextBox.Value);
+                        cmdInsert.Parameters.AddWithValue("_user_password", membershippasword);
+                        cmdInsert.Parameters.AddWithValue("_user_gender", gender);
+                        cmdInsert.Parameters.AddWithValue("_user_membernumber", member);
+                        cmdInsert.Parameters.AddWithValue("_user_uniquekey", uniqueid);
+                        cmdInsert.Parameters.AddWithValue("_user_isactive", false);
+                        cmdInsert.Parameters.AddWithValue("_chkmail", 1);
+                        cmdInsert.Parameters.Add("_Result", MySqlDbType.Int32);
+                        cmdInsert.Parameters["_Result"].Direction = ParameterDirection.Output;
+                        cmdInsert.ExecuteNonQuery();
+                        int result = DAL.validateInt(cmdInsert.Parameters["_Result"].Value.ToString());
+                        if (result == 1)
+                        {
+                            string email = emailTextBox.Value.ToString();
+                            //string subject = "# Verification code";
+                            string subject = "Welcome to HFiles";
+                            string body = $"<p style=\"text-align: justify;\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify;\"> {Session["username"].ToString()} has added you to HFiles Portal,&nbsp;</p>\r\n<p style=\"text-align: justify;\">Please verify your Email Id to complete signup process.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Use below link to verify your Email Id.&nbsp;<br> http://68.178.164.174//membersignup.aspx/?id={uniqueid}</p> <p style=\"text-align: justify;\">&nbsp;</p>";
+                            //Use below password for sigining up { membershippasword}
+
+                            DAL.SendCareerMail(subject, body, email);
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Memeber added successfully');", true);
+                            //Response.Write("<script>alert('Memeber added successfully.')</script>");
+                            //newly added below code(usign block) for sending requests to created members
+                            using (MySqlCommand mySqlCommand1 = new MySqlCommand("usp_existingmember", con))
+                            {
+                                mySqlCommand1.CommandType = CommandType.StoredProcedure;
+                                mySqlCommand1.Parameters.AddWithValue("_hf_number", member);
+                                mySqlCommand1.Parameters.AddWithValue("_user_id", (object)Convert.ToInt32(this.Session["Userid"].ToString()));
+                                mySqlCommand1.Parameters.AddWithValue("_spType", 'C');
+                                mySqlCommand1.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
+                                mySqlCommand1.ExecuteNonQuery();
+                                // Member exists and request sent
+                                //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Sent')", true);
+                                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Request Sent');", true);
+                                //connection.Close();
+                                Response.Redirect("avatar2.aspx");
 
 
+                            }
                         }
-                        }
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", "toastr.success('User Deleted Successfully')", true);
-                        Response.Write("<script>alert('Memeber already exists with same email id !')</script>");
+                        //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", "toastr.success('User Deleted Successfully')", true);
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Memeber already exists with same email id !');", true);
+                        //Response.Write("<script>alert('Memeber already exists with same email id !')</script>");
+                    }
+
+                    //cmdInsert.Parameters.Add("_Result", MySqlDbType.Int32);
+                    //cmdInsert.Parameters["_Result"].Direction = ParameterDirection.Output;
+                    //cmdInsert.ExecuteNonQuery();
+
+                    //int result = DAL.validateInt(cmdInsert.Parameters["_Result"].Value.ToString());
+                    //if (result == 1)
+                    //{
+                    //    string email = emailTextBox.Value.ToString();
+                    //    //string subject = "# Verification code";
+                    //    string subject = "Welcome to HFiles";
+                    //    string body = $"<p style=\"text-align: justify;\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify;\">Please verify your Email Id to complete signup process.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Use below link to verify your Email Id.&nbsp;<br> http://68.178.164.174//membersignup.aspx/?id={uniqueid}</p> <p style=\"text-align: justify;\">&nbsp;</p>";
+                    //    //Use below password for sigining up { membershippasword}
+
+                    //    DAL.SendCareerMail(subject, body, email);
+                    //    Response.Write("<script>alert('Memeber added successfully.')</script>");
+                    //    Response.Redirect("avatar.aspx");
+                    //}
+                    //else if (result == 0)
+                    //{
+                    //    Response.Write("<script>alert('Memeber already exists with same email id!')</script>");
+                    //    Response.Redirect("avatar.aspx");
+                    //}
                 }
-
-                //cmdInsert.Parameters.Add("_Result", MySqlDbType.Int32);
-                //cmdInsert.Parameters["_Result"].Direction = ParameterDirection.Output;
-                //cmdInsert.ExecuteNonQuery();
-
-                //int result = DAL.validateInt(cmdInsert.Parameters["_Result"].Value.ToString());
-                //if (result == 1)
-                //{
-                //    string email = emailTextBox.Value.ToString();
-                //    //string subject = "# Verification code";
-                //    string subject = "Welcome to HFiles";
-                //    string body = $"<p style=\"text-align: justify;\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify;\">Please verify your Email Id to complete signup process.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Use below link to verify your Email Id.&nbsp;<br> http://68.178.164.174//membersignup.aspx/?id={uniqueid}</p> <p style=\"text-align: justify;\">&nbsp;</p>";
-                //    //Use below password for sigining up { membershippasword}
-
-                //    DAL.SendCareerMail(subject, body, email);
-                //    Response.Write("<script>alert('Memeber added successfully.')</script>");
-                //    Response.Redirect("avatar.aspx");
-                //}
-                //else if (result == 0)
-                //{
-                //    Response.Write("<script>alert('Memeber already exists with same email id!')</script>");
-                //    Response.Redirect("avatar.aspx");
-                //}
             }
         }
-    }
-    private int CalculateAge(DateTime birthdate)
-    {
-        DateTime currentDate = DateTime.Now;
-        int age = currentDate.Year - birthdate.Year;
-
-        if (currentDate.Month < birthdate.Month || (currentDate.Month == birthdate.Month && currentDate.Day < birthdate.Day))
+        private int CalculateAge(DateTime birthdate)
         {
-            age--;
-        }
+            DateTime currentDate = DateTime.Now;
+            int age = currentDate.Year - birthdate.Year;
 
-        return age;
+            if (currentDate.Month < birthdate.Month || (currentDate.Month == birthdate.Month && currentDate.Day < birthdate.Day))
+            {
+                age--;
+            }
+
+            return age;
+        }
     }
-}
 }
 #endregion

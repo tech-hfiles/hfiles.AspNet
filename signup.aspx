@@ -131,7 +131,7 @@
     <div class="signin-main">
         <form class="w-100 h-100" runat="server">
 
-            <div id="google_translate_element" class="language"></div>
+            <%--<div id="google_translate_element" class="language"></div>--%>
             <asp:ScriptManager ID="scmSignUp" runat="server"></asp:ScriptManager>
 
             <div class="row vert-cent w-100 h-sm-100vh m-0 ">

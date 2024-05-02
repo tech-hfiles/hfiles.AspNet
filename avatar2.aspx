@@ -377,7 +377,8 @@
                                 <div class="Huz_Addmemberside">
                                     <ul class="m-0">
                                         <li><span class="First">
-                                            <asp:Label Text="" ID="lblUserName" runat="server" /></span></li>
+                                            <asp:LinkButton ID="member2" runat="server"  Text="" OnClick="member2_Click" CommandArgument='<%# Session["UserId"] +"|"+Eval("user_relation") %>'><asp:Label Text="" ID="lblUserName" runat="server" /></asp:LinkButton>
+                                           </a></span></li>
 
 
                                         <div class="Huz_Addmembersideother" id="repeaterdiv" runat="server">
@@ -386,7 +387,7 @@
                                                     <ItemTemplate>
                                                         <div class="Huz_AddmembersideotherLidiv" id="divWrapper" runat="server">
                                                             <a href="">
-                                                                <img src="Avatar2/default-user-profile.png" alt="">
+                                                                <img  src='<%# Eval("user_image") != string.Empty ? "upload/" + Eval("user_image").ToString() : "Avatar2/default-user-profile.png" %>' alt="" />
                                                             </a>
                                                             <div class="Huz_AddmembersideotherLidiv_name">
                                                                 <asp:LinkButton ID="member1" runat="server" Text='<%#Eval("user_FirstName") %>' OnClick="member1_Click" CommandArgument='<%#Eval("user_Id")+"|"+Eval("user_relation") %>'></asp:LinkButton>
@@ -463,7 +464,7 @@
                                     </div>
                                     <div class="col-lg-4 col-md-4">
                                         <div class="Huz_Avtar_Main_image">
-                                            <asp:Image ID="imgAvatar" runat="server" src="Avatar2/male/45.png" alt="" />
+                                            <asp:Image ID="imgAvatar" runat="server"  alt="" />
                                             <h3>
                                                 <asp:Label Text="" ID="lbluser" runat="server" /></h3>
                                         </div>

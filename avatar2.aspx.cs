@@ -44,7 +44,7 @@ namespace hfiles
                     getMembers();
                     getReports();
                     getMembersList();
-                    showmembersdiv();
+                    showmembersdiv(sender);
                     getUsedStorage();
                     //bindData(Convert.ToInt32(Session["memberId"].ToString()));
 
@@ -62,13 +62,35 @@ namespace hfiles
                         //imgAvatar.ImageUrl = GetImagePath(age, gender);
                     }
                 }
+
+                //if (Session["memberId"] != null && Session["memberRelation"] != null)
+                //{
+                //    foreach (RepeaterItem item in rptMember.Items)
+                //    {
+                //        HiddenField hfmemberid = item.FindControl("hfmemberid") as HiddenField;
+                //        LinkButton linkButton1 = item.FindControl("member1") as LinkButton;
+
+                //        if (DAL.validateInt(hfmemberid.Value) == DAL.validateInt(Session["memberId"]))
+                //        {
+                //            linkButton1.Style.Add("font-weight", "900");
+                //            member1_Click(linkButton1, null);
+                //        }
+                //        else
+                //        {
+                //            linkButton1.Style.Add("font-weight", "450");
+                //        }
+                       
+                //    }
+
+                    
+                //}
             }
             else
             {
                 Response.Redirect("~/login.aspx");
             }
         }
-        public void showmembersdiv()
+        public void showmembersdiv(object sender)
         {
             int remainingCount = 7 - rptMember.Items.Count;
             //int remainingCount1 = 7 - Repeater1.Items.Count;
@@ -81,7 +103,8 @@ namespace hfiles
             if (remainingCount == 0)
             {
                 //repeaterdiv.Visible = false;
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You can add only 7 members !')", true);
+                // ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You can add only 7 members !')", true);
+                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Logged in successfully');", true);
             }
             // Generate additional list items
             for (int i = 0; i < remainingCount; i++)
@@ -149,12 +172,12 @@ namespace hfiles
         }
         protected void lbtnAddReport_Click(object sender, EventArgs e)
         {
-            showmembersdiv();
+            showmembersdiv(sender);
             mp1.Show();
         }
         protected void okLinkButton_Click(object sender, EventArgs e)
         {
-            showmembersdiv();
+            showmembersdiv(sender);
             mp1.Hide();
 
         }
@@ -212,7 +235,7 @@ namespace hfiles
             string reportname = txtReportName.Text;
             int reportId = DAL.validateInt(ddlReports.SelectedValue);
             double fileSize = DAL.validateDouble_(imageFileUpload1.PostedFile.ContentLength);
-            int msg = AddReport(UserId, reportname, reporturl, reportId, fileSize);
+            int msg = AddReport(sender, UserId, reportname, reporturl, reportId, fileSize);
 
             //if (msg > 0)
             //{
@@ -229,7 +252,7 @@ namespace hfiles
             txtReportName.Text = string.Empty;
             ddlReports.ClearSelection();
         }
-        public int AddReport(int UserId, string reportname, string reporturl, int reportId, double FileSize)
+        public int AddReport(object sender, int UserId, string reportname, string reporturl, int reportId, double FileSize)
         {
             int memberId = Convert.ToInt32(Session["memberId"]);
             List<int> selectedIds = new List<int>();
@@ -276,7 +299,8 @@ namespace hfiles
                             cmd.ExecuteNonQuery();
                             int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
                             result = DAL.validateInt(retVal);
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Added Successfully')", true);
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Added Successfully');", true);
+                            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Added Successfully')", true);
                             //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
                             Session["memberId"] = 0;
                         }
@@ -298,7 +322,8 @@ namespace hfiles
                             cmd.ExecuteNonQuery();
                             int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
                             result = DAL.validateInt(retVal);
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Added Successfully')", true);
+                            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Added Successfully')", true);
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Added Successfully');", true);
                             //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
                         }
                         else
@@ -319,14 +344,15 @@ namespace hfiles
                             cmd.ExecuteNonQuery();
                             int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
                             result = DAL.validateInt(retVal);
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Added Successfully')", true);
+                            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Added Successfully')", true);
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Added Successfully');", true);
                             //else
                             //{
                             //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You don't have permission to add reports for this member')", true);
                             //}
                         }
                     }
-                    showmembersdiv();
+                    showmembersdiv(sender);
                 }
             }
             catch (Exception Ex)
@@ -357,6 +383,7 @@ namespace hfiles
                     if (dt != null && dt.Rows.Count > 0)
                     {
                         gender = dt.Rows[0]["user_gender"].ToString();
+                        lbluser.Text = dt.Rows[0]["user_firstname"].ToString();
                         age = 0;
                         dob = dt.Rows[0]["user_dob"].ToString();
                         relation = dt.Rows[0]["user_relation"].ToString();
@@ -492,9 +519,27 @@ namespace hfiles
             }
             //imgAvatar.ImageUrl = GetImagePath(age, gender);
         }
+
+        protected void member3_Click(object sender, EventArgs e)
+        {
+            showmembersdiv(sender);
+            string memberid = "";
+            string relation = "";
+            string IdName = member2.CommandArgument;
+
+            string[] IdNamevalues = IdName.Split('|');
+            if (IdNamevalues.Length == 2)
+            {
+                memberid = IdNamevalues[0];
+                relation = IdNamevalues[1];
+            }
+            Session["memberId"] = memberid.ToString();
+            Session["memberRelation"] = relation.ToString();
+            bindData(Convert.ToInt32(memberid));
+        }
         protected void member1_Click(object sender, EventArgs e)
         {
-            showmembersdiv();
+            showmembersdiv(sender);
             LinkButton linkButton = (LinkButton)(sender);
             string commandArgument = linkButton.CommandArgument;
             string[] values = commandArgument.Split('|');
@@ -510,6 +555,11 @@ namespace hfiles
             {
                 memberid = values[0];
                 relation = values[1];
+            }
+            foreach (RepeaterItem item in rptMember.Items)
+            {
+                LinkButton linkButton1 = item.FindControl("member1") as LinkButton;
+                linkButton1.Style.Add("font-weight", "450");
             }
             linkButton.Style.Add("font-weight", "900");
             Session["memberId"] = memberid.ToString();
@@ -581,6 +631,19 @@ namespace hfiles
 
             }
         }
+
+        protected void member2_Click(object sender, EventArgs e)
+        {
+            Session["memberId"] = null;
+            bindData(DAL.validateInt(Session["UserId"]));
+            foreach (RepeaterItem item in rptMember.Items)
+            {
+                LinkButton linkButton = item.FindControl("member1") as LinkButton;
+                linkButton.Style.Add("font-weight", "450");
+            }
+            showmembersdiv(sender);
+        }
+
         protected void getMembers()
         {
             int UserId = DAL.validateInt(Session["Userid"].ToString());
