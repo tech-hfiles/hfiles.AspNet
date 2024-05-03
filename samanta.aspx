@@ -102,7 +102,7 @@
                         <a class="support-group my-5" href="additionalinformation.aspx">
                             <div class="my_profile">
                                 <div class="row align-items-center">
-                                    <div class="col-3 tab-icon-div">
+                                    <div class="col-3 tab-icon-div" style="margin-left:-15px;">
                                         <img src="../Reception Page/health-report-icon.png" />
                                     </div>
                                     <div class="col-9">
@@ -116,10 +116,10 @@
                             <div class="my_profile">
                                 <div class="row align-items-center">
 
-                                    <div class="col-3 tab-icon-div">
+                                    <div class="col-3 tab-icon-div" style="margin-left:-15px;">
                                         <img src="../Reception Page/h-files-icon.png" />
                                     </div>
-                                    <div class="col-9">
+                                    <div class="col-9" >
                                         <h3>My H-Files</h3>
                                     </div>
 
@@ -171,7 +171,7 @@
                         <a class="support-group mb-5 w-100" href="<%= ResolveUrl("~/journal.aspx") %>">
                             <div class="my_profile">
                                 <div class="row align-items-center">
-                                    <div class="col-3 tab-icon-div">
+                                    <div class="col-3 tab-icon-div" style="margin-left:-15px;">
                                         <img src="../Reception Page/journal.png" />
                                     </div>
                                     <div class="col-9">
@@ -185,7 +185,7 @@
                         <a class="support-group mb-5 w-100" href="<%= ResolveUrl("~/supportgroup.aspx") %>">
                             <div class="my_profile">
                                 <div class="row align-items-center">
-                                    <div class="col-3 tab-icon-div">
+                                    <div class="col-3 tab-icon-div" style="margin-left:-15px;">
                                         <img src="../Reception Page/chat-icon.png" />
                                     </div>
                                     <div class="col-9">

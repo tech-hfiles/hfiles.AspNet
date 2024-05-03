@@ -184,6 +184,14 @@
                 bottom: 0px;
             }
         }
+        #back_btn_add_member{
+            font-weight: 700;
+            font-size: 18px;
+            background-color: #fdd001;
+            padding:3px 8px ;
+            border:1px solid transparent;
+            border-radius:50px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -197,8 +205,9 @@
                     <%--<img class="home-icon-top-right" src="../Add Members/home-icon.png" alt="">--%></a>
                 <img class="plus-top-left" src="../assets/plus-icon-3.png" alt="">
                 <div class="main-div">
-                    <a class="back-arrow-btn" href="javascript: history.go(-1)">
-                        <img src="../assets/back-arrow.png" alt="">Back</a>
+
+                  <a class="back-arrow-btn" href="javascript: history.go(-1)" id="back_btn_add_member">
+                        &nbsp Back&nbsp</a>
                     <div class="container-fluid d-flex justify-content-center p-0">
                         <div class="inner-div pt-5">
                             <div class="row">

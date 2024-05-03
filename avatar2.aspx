@@ -8,7 +8,7 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style_avatar.css" />
     <link rel="stylesheet" href="style3.css" />
-    <style>
+    <style>0
         .avatar {
             background-image: url(../Avatar/avatar-background.png);
             background-size: 50%;
@@ -515,7 +515,12 @@
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 p-0">
-                                <div class="AddmemberRightside">
+                                <div class="AddmemberRightside" style="">
+                                    <div class="Huz_AvatarAddReportbtn" style="align-items:center;">
+                                        <asp:LinkButton runat="server" ID="LinkButton1" OnClick="lbtnAddReport_Click"><span style="font-size:20px;">Add Reports<br/>
+                                            &nbsp&nbsp&nbsp&nbsp<img src="Avatar2/add-report-old.png" alt="file-img"></span>
+                                        </asp:LinkButton>
+                                    </div>
                                     <div class="AddmemberRightside_Card">
                                         <span id="storageused" runat="server"></span>
                                         <span id="storageleft" runat="server"></span>
@@ -525,14 +530,10 @@
                                         <span>2 GB use</span>
                                         <span>15gb</span>
                                     </div>
-                                    <div class="Huz_AvatarAddReportbtn">
-                                        <asp:LinkButton runat="server" ID="LinkButton1" OnClick="lbtnAddReport_Click">Add Report
-                                        </asp:LinkButton>
-                                        <img src="Avatar2/add-report-old.png" alt="">
-                                    </div>
+                                    
                                     <div class="ContactUs">
                                         <p>Need Space?</p>
-                                        <p>Contact Us...</p>
+                                        <a href="mailto:contact@hfiles.in"><p>Contact Us...</p></a>
                                     </div>
                                 </div>
                             </div>

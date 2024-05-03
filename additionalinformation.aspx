@@ -134,6 +134,20 @@
                     bottom: -5px;
                 }
             }
+
+
+            /*#surgery-row{
+                justify-items:center;
+                justify-content:center;
+                align-items:center;
+
+            }
+            #surgery-row td{
+                padding:0px;
+                align-content:center;
+                text-align:center;
+            }*/
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -147,9 +161,9 @@
                 <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
                 <img class="plus-top-left" src="../assets/plus-icon-3.png" alt="">
                 <div class="additionl-main-div container pt-5 px-5 h-90">
-                    <a class="back-arrow-btn" href="javascript: history.go(-1)">
+                   <%-- <a class="back-arrow-btn" href="javascript: history.go(-1)">
 <%--                        <img src="../assets/back-arrow.png" alt="">--%>
-                        Back</a>
+                       <%-- Back</a>--%>
                     <div class="row pt-5 mb-5">
                         <div class="col-12">
                             <h1 class="heading">Additional Information</h1>
@@ -334,10 +348,10 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>abc</td>
-                                                <td>05-08-1997</td>
-                                                <td class="text-center"><i class="fa fa-sharp fa-solid fa-trash color-primary fa-2x"></i></td>
+                                            <tr id="surgery-row">
+                                                <td></td>
+                                                <td>1997</td>
+                                                <td><i class="fa fa-sharp fa-solid fa-trash color-primary"></i></td>
                                             </tr>
                                         </tbody>
                                     </table>--%>
@@ -359,10 +373,7 @@
                 <%-- <img class="plus-bottom-right" src="<%= ResolveUrl("~/assets/plus-2.png") %>" alt="">--%>
             </div>
             <div runat="server" id="medicalHistoryDiv" class="medical-history common-design">
-                <%--<img class="home-icon-top-right" src="../Add Members/home-icon.png" alt="">--%>
-                <a class="back-arrow-btn" href="javascript: history.go(-1)">
-<%--                    <img src="../assets/back-arrow.png" alt="">--%>
-                    Back</a>
+                
                 <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
                 <img class="blue-trangle-top-right" src="../Terms & Conditions/blue-trangle6.png" alt="">
                 <img class="blue-trangle-right" src="../Terms & Conditions/blue-trangle3.png" alt="">
