@@ -523,11 +523,10 @@
                                     </div>
                                     <div class="AddmemberRightside_Card">
                                         <span id="storageused" runat="server"></span>
-                                        <span id="storageleft" runat="server"></span>
                                     </div>
                                     <div class="AddmemberRightside_Card">
                                         <span>1.5 data</span>
-                                        <span>2 GB use</span>
+                                        
                                         <span>15gb</span>
                                     </div>
                                     
