@@ -171,7 +171,7 @@
                     <div class="row px-5">
                         <div class="col-md-4 col-sm-12 col-lg-4 col-xl-4 d-flex mt-sm-5 mt-lg-0 align-items-center justify-content-center">
                             <div class="text-center profile-img">
-                                <img id="imagePreview" class="w-75" alt="" runat="server" />
+                                <img id="imagePreview" class="w-75" alt="profile_image" runat="server" style="border:1px solid transparent;border-radius:50%;" />
                                 <%-- <img id="imagePreview" runat="server" class="w-75" src="../My Data/default-user-profile.png" alt="" />--%>
                                 <br />
                                 <div class="Addbasicbtnboth">
