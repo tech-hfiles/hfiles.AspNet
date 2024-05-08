@@ -20,7 +20,7 @@
 <%--        <img src="../assets/back-arrow.png" alt="">--%>
         Back</a>
     <div class="manage-members-div">
-        <div class="row justify-content-center pt-5 m-0" style="min-height: 100vh">
+        <div class="row justify-content-center pt-5 m-100">
             <div class="col-12 col-md-10 col-lg-10">
                         <h2 class="text-center heading mb-5">Request List
                         </h2>

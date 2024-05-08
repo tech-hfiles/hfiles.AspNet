@@ -17,7 +17,7 @@ span,
 p,
 button,
 a {
-    font-family: 'Playfair Display' !important;
+    font-family: Red Hat Display, sans-serif !important;
 }
 
 a {
@@ -185,6 +185,7 @@ a {
 .heading {
     color: #0512B9;
     font-weight: 700 !important;
+    font-family: /*Red Hat Display,*/ roboto !important;
 }
 
 /* login left side */
@@ -344,6 +345,7 @@ span {
 }
 
 .signin-heading h1 {
+    font-family: Red Hat Display, sans-serif !important;
     color: #0512b9;
     font-weight: 700;
 }

@@ -361,7 +361,9 @@
                 width: 60px !important;
             }
         }
-
+        .side_user_profile_img{
+            border-radius:50%;
+        }
 
         /*avatar responsive*/
     </style>
@@ -387,7 +389,7 @@
                                                     <ItemTemplate>
                                                         <div class="Huz_AddmembersideotherLidiv" id="divWrapper" runat="server">
                                                             <a href="">
-                                                                <img  src='<%# Eval("user_image") != string.Empty ? "upload/" + Eval("user_image").ToString() : "Avatar2/default-user-profile.png" %>' alt="" />
+                                                                <img  src='<%# Eval("user_image") != string.Empty ? "upload/" + Eval("user_image").ToString() : "Avatar2/default-user-profile.png" %>' alt="" class="side_user_profile_img"/>
                                                             </a>
                                                             <div class="Huz_AddmembersideotherLidiv_name">
                                                                 <asp:LinkButton ID="member1" runat="server" Text='<%#Eval("user_FirstName") %>' OnClick="member1_Click" CommandArgument='<%#Eval("user_Id")+"|"+Eval("user_relation") %>'></asp:LinkButton>

@@ -3,14 +3,17 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="<%= ResolveUrl("~/style.css") %>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
         crossorigin="anonymous"></script>
     <title>Additional Information</title>
     <style>
+       .heading mb-4 h1{
+            font-family:'Red Hat Display', sans-serif !important;
+        }
         @media(min-width: 1366px) {
             .footer {
                 position: absolute;
@@ -165,7 +168,7 @@
 <%--                        <img src="../assets/back-arrow.png" alt="">--%>
                        <%-- Back</a>--%>
                     <div class="row pt-5 mb-5">
-                        <div class="col-12">
+                        <div class="col-12" style="font-family: 'Red Hat Display', sans-serif !important;">
                             <h1 class="heading">Additional Information</h1>
                             <div class="row py-2">
                                 <div class="col-lg-1 col-xl-1 col-md-2 col-3">
@@ -372,7 +375,7 @@
                 <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
                 <%-- <img class="plus-bottom-right" src="<%= ResolveUrl("~/assets/plus-2.png") %>" alt="">--%>
             </div>
-            <div runat="server" id="medicalHistoryDiv" class="medical-history common-design">
+            <div runat="server" id="medicalHistoryDiv" class="medical-history common-design" style="font-family: 'Red Hat Display', sans-serif !important;">
                 
                 <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
                 <img class="blue-trangle-top-right" src="../Terms & Conditions/blue-trangle6.png" alt="">
@@ -383,7 +386,7 @@
                 <div class="medical-main-div container pt-5 px-5 h-90vh h-ssm-100vh mb-5 mb-lg-0">
                     <div class="row mt-5">
                         <div class="col-12">
-                            <h1 class="heading mb-4">Medical History</h1>
+                            <h1 class="heading mb-4" style="font-family: 'Red Hat Display', sans-serif !important;">Medical History</h1>
                         </div>
                         <div class="row border-bottom p-0">
                             <div class="col-lg-6 col-md-6 col-4">

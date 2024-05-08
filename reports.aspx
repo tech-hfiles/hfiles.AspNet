@@ -31,6 +31,12 @@
     <title>Document</title>
 
     <style>
+        .card-title {
+            font-family:Red Hat Display, sans-serif !important;
+            font-size:18px;
+            font-weight:500;
+        }
+
         .modalBackground {
             background-color: Black;
             filter: alpha(opacity=90);

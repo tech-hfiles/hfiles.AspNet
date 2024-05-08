@@ -300,7 +300,7 @@
                                             <div class="btn-div">
                                                 <%--<asp:Button runat="server" Text="Submit" CssClass="btn submit-btn" ID="btnSubmit"></asp:Button>--%>
                                                 <%-- <button id="back-btn"  class="btn thm-back-button mx-3">Back</button>--%>
-                                                <button runat="server" id="btn_Submit" onserverclick="btn_Submit_ServerClick" class="btn submit-btn" validationgroup="First">Submit</button>
+                                                <button runat="server" id="btn_Submit" onserverclick="btn_Submit_ServerClick" class="btn " validationgroup="First">Submit</button>
                                             </div>
                                         </div>
 

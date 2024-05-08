@@ -700,7 +700,7 @@ namespace hfiles
                         double usedStorage = DAL.validateDouble_(cmd.ExecuteScalar());
                         double TotalAllotStorage = DAL.validateDouble_(ConfigurationManager.AppSettings["StorageLimit"].ToString());
                         storageused.InnerText = (usedStorage).ToString() + " gb Storage";
-                        storageleft.InnerText = (TotalAllotStorage - usedStorage).ToString() + " gb of " + TotalAllotStorage.ToString() + " gb";
+                        //storageleft.InnerText = (TotalAllotStorage - usedStorage).ToString() + " gb of " + TotalAllotStorage.ToString() + " gb";
                     }
                 }
             }

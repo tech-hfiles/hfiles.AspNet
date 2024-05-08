@@ -21,11 +21,11 @@ h3,
 h4,
 h5,
 h5 {
-    font-family: 'Red Hat Display' !important;
+    font-family: 'Red Hat Display',sans-serif !important;
 }
 
 p, a, span, li button {
-    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Red Hat Display', sans-serif !important;
 }
 
 .color-thm-blue {
@@ -148,7 +148,7 @@ p, a, span, li button {
             margin: 10px 0px;
             color: #0331b5;
             font-weight: 800;
-            font-family: 'Red Hat Display' !important;
+            font-family: 'Red Hat Display',sans-serif !important;
         }
 
     .privacy_main .blue_trangle_top_left {
@@ -290,13 +290,13 @@ p, a, span, li button {
     .contact .contact-main .q_heading {
         color: #0a18bc;
         font-weight: 600 !important;
-        font-family: 'Red Hat Display' !important;
+        font-family: 'Red Hat Display',sans-serif !important;
     }
 
         .contact .contact-main .q_heading h2 {
             color: #0331b5;
             font-weight: 800 !important;
-            font-family: 'Red Hat Display' !important;
+            font-family: 'Red Hat Display',sans-serif !important;
         }
 
     .contact .contact-main ol {
@@ -409,7 +409,7 @@ p, a, span, li button {
     color: #0331b5;
     font-weight: 600;
     font-size: 15px;
-    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Red Hat Display', sans-serif !important;
 }
 
 .contact .contact-form span {
