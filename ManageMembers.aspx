@@ -146,7 +146,7 @@
 
                             <%--</div>--%>
                         </div>
-                        <div>
+                        <div class="container-fluid">
                             <div class="row justify-content-center">
                                 <h2 class="text-center heading my-3">Members List</h2>
                                 <asp:Repeater ID="gvMembers1" runat="server">

@@ -17,6 +17,21 @@
         /* *{
         border:1px solid #000;
     }*/
+                .body{
+            margin:0;
+            height:auto;
+/*            overflow:hidden;
+*/            max-width:100%;
+        }
+        .container-fluid{
+            margin:0;
+            width:100%;
+            height:100%;
+            max-height:100%;
+            margin-bottom:0.5%;
+
+
+        }
         body {
             overflow-x: hidden
         }
@@ -197,6 +212,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
+            <div class="container-fluid">
             <div class="add-member">
                 <img class="blue-t-top-left" src="../Avatar/blue-trangle-1.png" alt="">
                 <img class="blue-t-top-right" src="../Avatar/blue-trangle-2.png" alt="">
@@ -338,6 +354,7 @@
                 <img class="plus-bottom-right" src="../Add Members/plus-2.png" alt="" />
                 <img class="blue-t-bottom-left" src="../Add Members/blue-trangle-4.png" alt="" />
                 <%--<img class="blue-t-bottom-right" src="../Add Members/blue-trangle-5.png" alt="" />--%>
+            </div>
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>

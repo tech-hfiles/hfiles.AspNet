@@ -31,6 +31,16 @@
     <title>Document</title>
 
     <style>
+        .body{
+            margin:0;
+            height:auto;
+/*            overflow:hidden;
+*/           
+        }
+        .container-fluid{
+            max-width:100%;
+            margin:0;
+        }
         .card-title {
             font-family:Red Hat Display, sans-serif !important;
             font-size:18px;

@@ -158,8 +158,7 @@
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
             <div class="additional-information common-design" runat="server" id="AdditionalDiv">
-                <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
-                <img class="blue-trangle-top-right" src="../Terms & Conditions/blue-trangle6.png" alt="">
+          
                 <img class="blue-trangle-right" src="../Terms & Conditions/blue-trangle3.png" alt="">
                 <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
                 <img class="plus-top-left" src="../assets/plus-icon-3.png" alt="">
@@ -372,13 +371,13 @@
                     <%-- <img class="blue-trangle-bottom" src="<%= ResolveUrl("~/Add Members/blue-trangle-5.png") %>" alt="">--%>
                     <%--<img class="blue-trangle-bottom" src="../Add Members/blue-trangle-5.png" alt="">--%>
                 </div>
-                <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
+                <%--<img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
                 <%-- <img class="plus-bottom-right" src="<%= ResolveUrl("~/assets/plus-2.png") %>" alt="">--%>
             </div>
-            <div runat="server" id="medicalHistoryDiv" class="medical-history common-design" style="font-family: 'Red Hat Display', sans-serif !important;">
+            <div class="container">
+            <div runat="server" id="medicalHistoryDiv" class="medical-history common-design">
                 
-                <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
-                <img class="blue-trangle-top-right" src="../Terms & Conditions/blue-trangle6.png" alt="">
+               
                 <img class="blue-trangle-right" src="../Terms & Conditions/blue-trangle3.png" alt="">
                 <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
                 <img class="plus-top-left" src="../assets/plus-1.png" alt="">
@@ -386,7 +385,7 @@
                 <div class="medical-main-div container pt-5 px-5 h-90vh h-ssm-100vh mb-5 mb-lg-0">
                     <div class="row mt-5">
                         <div class="col-12">
-                            <h1 class="heading mb-4" style="font-family: 'Red Hat Display', sans-serif !important;">Medical History</h1>
+                            <h1 class="heading mb-4" >Medical History</h1>
                         </div>
                         <div class="row border-bottom p-0">
                             <div class="col-lg-6 col-md-6 col-4">

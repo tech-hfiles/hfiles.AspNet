@@ -21,6 +21,21 @@
     <link rel="stylesheet" href="style.css" />
     <title>H Files | Sign In</title>
     <style>
+        .body{
+            margin:0;
+            height:auto;
+/*            overflow:hidden;
+*/            max-width:100%;
+        }
+        .container-fluid{
+            margin:0 !important;
+            width:100%;
+
+
+        }
+        .inner-main,{
+                      margin:0 !important;
+}
         .footer {
             background: #0331b5;
             color: #ffffff;
@@ -29,7 +44,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            padding: 10px
+            height:auto !important;
         }
 
         .password-div {
@@ -46,7 +61,7 @@
 
         @media (min-height: 598px) and (max-height: 600px) {
             .footer {
-                bottom: -6px;
+                bottom: 0;
             }
         }
     </style>
@@ -54,6 +69,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
     <style>
+
+        
         #toast-container > .toast-success {
             background-color: #fdd001;
         }
@@ -73,15 +90,15 @@
 
 </head>
 
-<body style="overflow: hidden;">
-
-    <form class="row h-100 align-ceter h-sm-100vh" runat="server">
+<body>
+    <div class="container-fluid ">
+    <form class="row h-100 align-ceter" runat="server">
         <%--<div id="google_translate_element" class="language"></div>--%>
         <asp:HiddenField runat="server" ID="hfId" />
-        <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-block px-5">
+        <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-block px-5 justify-content-center align-items-center">
             <img src="../assets/login-samanta-w-bg.png" alt="" style="width: 100%; height: 80vh; object-fit: contain" />
         </div>
-        <div class="col-sm-12 col-lg-6 inner-main p-0">
+        <div class="col-sm-12 col-lg-6 inner-main" id="right-side-bar">
             <div class="d-flex align-items-center justify-content-center h-100 inner-body">
                 <div class="text-center">
                     <div class="text-center signin-heading">
@@ -165,7 +182,7 @@
             </div>
         </div>
     </form>
-
+    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -5,6 +5,10 @@
 
     <link rel="stylesheet" href="./style2.css" />
     <style>
+        body{
+            margin:0 !important;
+            max-height:100%;
+        }
         .footer {
             position: absolute;
             width: 100%;
@@ -33,7 +37,7 @@
             background-image: url('../Reception Page/samanta-bg.png');
             background-size: contain;
             background-repeat: no-repeat;
-            background-position: center
+            background-position: center;
         }
 
         .comming-soon {

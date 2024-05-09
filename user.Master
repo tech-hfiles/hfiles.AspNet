@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css"/>
     <style>
         #toast-container > .toast-success {
             background-color: #fdd001;
@@ -51,6 +52,18 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style>
+        .body{
+            margin:0;
+            height:auto;
+/*            overflow:hidden;
+*/            width:100%;
+        }
+        /*.container-fluid{
+            margin:0 !important;
+            width:100%;
+
+
+        }*/
         body > .skiptranslate {
             display: none;
         }
@@ -186,6 +199,14 @@
                         .profile-menu ul li a i {
                             font-size: 1.2em;
                         }
+                .members-image{
+                    border-radius:50%;
+                }
+                .manage-members-div{
+                    max-width:90% !important;
+                    height:100% !important;
+                    margin:0;
+                }
 
         @media (max-width: 912px) {
             .profile-menu ul {
@@ -238,7 +259,6 @@
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
-
     <form id="form1" runat="server">
         <asp:ScriptManager ID="scm1" runat="server"></asp:ScriptManager>
         <div class="top-home-icons d-flex justify-content-between align-items-center w-100">

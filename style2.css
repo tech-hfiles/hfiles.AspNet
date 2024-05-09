@@ -692,6 +692,7 @@ select {
     justify-content: center;
     align-items: center;
     padding: 30px 20px;
+    height:100% !important;
 }
 
     .journal .journal_main .inner_div {
