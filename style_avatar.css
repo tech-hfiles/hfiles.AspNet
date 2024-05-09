@@ -1,0 +1,599 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+.Avatar_Topnavbar_logo img {
+    width: 128px;
+    height: 40px;
+}
+
+.Huz_Addmemberside {
+    width: 180px;
+}
+
+
+.First {
+    width: 100px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #dee2e6;
+    display: inline-block;
+}
+
+.Huz_AddmembersideotherPlusli {
+    width: 100px;
+    text-align: center;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 5px;
+}
+
+.Huz_Addmemberside ul .First {
+    font-size: 30px;
+    color: #eec93a;
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+.Huz_Avatar_section {
+    background-image: url(Avatar/avatar-background.png);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    /* background-position-x: 55%; */
+    background-position-y: 50%;
+    background-color: #f4f4f4;
+    background-position-x: 40%;
+}
+
+.Huz_Avtar_main_Content {
+    background-image: url(Avatar/lamp-light.png);
+    background-repeat: no-repeat;
+    /* background-position-x: 62%; */
+    background-position-x: 53%;
+}
+
+ul {
+    list-style: none;
+}
+
+.Huz_Addmemberside ul {
+    min-height: 89vh;
+    background: #eec93a14;
+    /* border-radius: 5px; */
+}
+
+.Huz_AddmembersideotherLi {
+    width: 100px;
+    text-align: center;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.Huz_AddmembersideotherLidiv {
+    padding: 10px;
+}
+
+    .Huz_AddmembersideotherLidiv a img {
+        width: 30px;
+    }
+
+.Huz_AddmembersideotherLidiv_name,
+.Huz_AddmembersideotherPlusli a {
+    font-size: 14px;
+    color: #ccc;
+    font-weight: 500;
+}
+
+    .Huz_AddmembersideotherPlusli a img {
+        width: 30px;
+    }
+
+.Huz_Avtar_Main_image img {
+    height: 350px;
+    margin-bottom: 50px;
+    /* position: absolute; */
+    position: relative;
+    /* top: 200px; */
+    /* bottom: 0px; */
+    top: 132px;
+}
+
+.Huz_Avtar_Main_image h3 {
+    position: relative;
+    top: 90px;
+    text-align: center;
+}
+
+.Huz_AvtarFirstReport {
+    color: #447df0;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.Zero {
+    position: absolute;
+    /* top: 120px; */
+    /* left: 50%;
+    top: 90px; */
+    left: 45%;
+    top: 55px;
+}
+
+
+.Huz_FirstReportInnerImage {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: #447df0;
+    color: #ffffff;
+    text-align: center;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .Huz_FirstReportInnerImage:hover {
+        background-color: #eec93a;
+    }
+
+.Huz_FirstReportInner span {
+    font-family: 'Red Hat Display', Sans-serif;
+}
+
+
+.Huz_FirstReportInnerImage a {
+    color: #447df0;
+}
+
+    .Huz_FirstReportInnerImage a img {
+        height: 35px;
+    }
+
+.Huz_AvtarFirst {
+    position: absolute;
+    /* top: 160px; */
+    /* left: 34%; */
+    left: 29%;
+    top: 120px;
+}
+
+.Second {
+    position: absolute;
+    /* top: 235px;
+    left: 27%; */
+    /* top: 245px; */
+    /* left: 30%; */
+    left: 26%;
+    top: 215px;
+}
+
+.third {
+    position: absolute;
+    left: 24%;
+    top: 310px;
+    left: 25%;
+}
+
+.forth {
+    position: absolute;
+    /* top: 415px; */
+    /* left: 35%; */
+    left: 29%;
+    top: 405px;
+}
+
+
+.fifth {
+    position: absolute;
+    /* top: 160px; */
+    /* right: 19%; */
+    right: 24%;
+    top: 120px;
+}
+
+
+.sixth {
+    position: absolute;
+    /* top: 235px; */
+    /* right: 16%; */
+    /* top: 245px; */
+    right: 22%;
+    top: 215px;
+}
+
+.seven {
+    position: absolute;
+    top: 310px;
+    /* right: 17%; */
+    /* top: 330px; */
+    right: 20%;
+    top: 310px;
+}
+
+.Eight {
+    position: absolute;
+    top: 415px;
+    top: 405px;
+    right: 20%;
+}
+
+.Huz_AvatarAddReportbtn img {
+    width: 25px;
+    margin-left: 10px;
+}
+
+.Huz_AvatarAddReportbtn a {
+    font-family: 'Red Hat Display', Sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-block;
+    color: #447df0;
+    text-transform: capitalize;
+}
+
+/* .Huz_AvatarAddReportbtn {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: blanchedalmond;
+    position: absolute;
+    right: 30px;
+    top: 90px;
+    border: 1.5px solid #447df0;
+} */
+
+
+.Huz_AvatarAddReportbtn {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: blanchedalmond;
+    /* position: absolute; */
+    /* right: 30px; */
+    /* bottom: 30%; */
+    border: 1.5px solid #447df0;
+}
+
+.AddmemberRightside .ContactUs {
+    padding: 15px 10px;
+    width: 140px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: blanchedalmond;
+    border: 1.5px solid #447df0;
+}
+
+.AddmemberRightside {
+    width: 180px;
+    min-height: 89vh;
+    background: #eec93a14;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 40px;
+    /* padding: 70px 0px; */
+}
+
+.AddmemberRightside_Card span,
+.ContactUs p {
+    display: block;
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.AddmemberRightside_Card {
+    padding: 15px 10px;
+    width: 140px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: blanchedalmond;
+    border: 1.5px solid #447df0;
+}
+
+.ContactUs p {
+    margin: 0px;
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .Zero {
+        left: 45%;
+        top: 40px;
+    }
+
+    .Huz_Avtar_main_Content {
+        background-position-x: 50%;
+    }
+
+    .Huz_Avtar_Main_image img {
+        left: -40%;
+    }
+
+    .fifth {
+        top: 130px;
+        right: 27%;
+    }
+
+    .Huz_FirstReportInner {
+        flex-direction: column-reverse !important;
+        row-gap: 10px;
+    }
+
+    .Huz_AvtarFirst {
+        left: 28%;
+        top: 130px;
+    }
+
+    .Second {
+        left: 30%;
+        top: 245px;
+    }
+
+    .sixth {
+        right: 30%;
+        top: 245px;
+    }
+
+    .third {
+        top: 495px;
+        left: 30%;
+    }
+
+    .seven {
+        top: 495px;
+        right: 30%;
+    }
+
+    .Eight {
+        right: 25%;
+        top: 360px;
+        text-align: center;
+    }
+
+    .forth {
+        top: 360px;
+    }
+
+    .Huz_FirstReportInner span {
+        font-size: 12px;
+    }
+
+    .Huz_FirstReportInnerImage a img {
+        height: 30px;
+    }
+
+    .Huz_FirstReportInnerImage {
+        height: 50px;
+        width: 50px;
+    }
+
+    .AddmemberRightside {
+        justify-content: unset;
+        padding: 50px 0px;
+    }
+}
+
+@media (min-width: 1270px) and (max-width: 1280px) {
+    .Huz_Addmemberside ul {
+        min-height: 87vh;
+    }
+
+    .AddmemberRightside {
+        min-height: 87vh;
+    }
+}
+
+@media (min-width: 1024px) and (min-height: 1366px) {
+
+    .AddmemberRightside {
+        justify-content: unset;
+        padding: 50px 0px;
+        min-height: 90.4vh !important;
+    }
+
+    .Huz_Addmemberside ul {
+        min-height: 90.4vh !important;
+    }
+}
+
+@media (min-width: 1022px) and (max-width: 1024px) {
+
+    .AddmemberRightside {
+        justify-content: unset;
+        padding: 50px 0px;
+        min-height: 105vh;
+    }
+
+    .Zero {
+        top: 90px;
+        left: 41%;
+    }
+
+    .Huz_Avtar_Main_image img {
+        /* top: 340px;
+        left: 46%; */
+        top: 190px;
+        left: -20%;
+    }
+
+    .Huz_AvtarFirst {
+        top: 175px;
+        left: 28%;
+    }
+
+    .Second {
+        top: 285px;
+        left: 23%;
+    }
+
+    .Huz_Avtar_Main_image h3 {
+        top: 160px;
+    }
+
+    .third {
+        top: 385px;
+        left: 20%;
+    }
+
+    .forth {
+        top: 475px;
+        left: 27%;
+    }
+
+    .fifth {
+        top: 175px;
+        right: 24%;
+    }
+
+    .sixth {
+        top: 285px;
+        right: 22%;
+    }
+
+    .seven {
+        top: 385px;
+        right: 20%;
+    }
+
+    .Eight {
+        top: 475px;
+        right: 19%;
+    }
+
+    .Huz_Avtar_main_Content {
+        background-position-x: 50%;
+    }
+
+    .Huz_Addmemberside ul {
+        min-height: 105vh;
+    }
+}
+
+@media (min-width: 1281px) and (max-width: 1480px) {
+    /* .Zero {
+        left: 51%;
+    } */
+
+    .Huz_Avtar_Main_image img {
+        left: 35px;
+    }
+
+    .Huz_Avtar_Main_image h3 {
+        left: 30px;
+    }
+
+    .AddmemberRightside {
+        justify-content: unset;
+        padding: 50px 0px;
+    }
+}
+
+@media (min-width: 1481px) and (max-width: 1600px) {
+    /* .Zero {
+        left: 52%;
+    } */
+}
+
+
+@media (min-width: 1600px) and (max-width: 1920px) {
+
+    .AddmemberRightside {
+        justify-content: unset;
+        padding: 50px 0px;
+    }
+
+    .Huz_Avtar_Main_image img {
+        /* left: 110px;
+        top: 150px;*/
+        left: 100px;
+        top: 370px;
+    }
+
+    .Huz_Avatar_section {
+        background-position-x: 48% !important;
+    }
+
+    .Huz_Avtar_main_Content {
+        background-position-x: 54%;
+        background-size: 40%;
+    }
+
+
+    .Zero {
+        left: 48%;
+        top: 250px;
+    }
+
+    .Huz_Avtar_Main_image h3 {
+        /*  top: 140px;
+        left: 40px;*/
+        top: 335px;
+        left: 40px;
+    }
+
+    .Huz_AvtarFirst {
+        top: 405px;
+    }
+
+    .forth {
+        top: 690px;
+    }
+
+    .third {
+        top: 595px;
+    }
+
+    .Second {
+        top: 500px;
+    }
+
+    .fifth {
+        top: 405px;
+    }
+
+    .sixth {
+        top: 500px;
+    }
+
+    .seven {
+        top: 595px;
+    }
+
+    .Eight {
+        top: 690px;
+    }
+}
+
+@media (min-width: 1921px) and (max-width: 2560px) {
+
+    .Zero {
+        left: 49%;
+    }
+
+    .Huz_Avtar_Main_image img {
+        left: 175px;
+    }
+
+    .Huz_Avtar_Main_image h3 {
+        left: 30px;
+        top: 120px;
+    }
+
+    .AddmemberRightside {
+        justify-content: unset;
+        padding: 50px 0px;
+    }
+}

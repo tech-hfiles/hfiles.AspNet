@@ -186,7 +186,7 @@
             }
         }
 
-        @media (max-width: 1200px) {
+        @media (max-width: 1366px) {
             .all-member-avatar-img {
                 position: relative;
             }
@@ -194,14 +194,168 @@
                 .all-member-avatar-img img {
                     position: absolute;
                     top: 200px;
-                    left: 0px;
+                    left: 50px;
                 }
 
             .avatar {
                 background-position-y: 20%;
             }
         }
+
+        @media(max-width: 700px) {
+            .all-member-avatar-img img {
+                left: 0;
+            }
+
+            .member-mobile-view {
+                min-height: 85vh
+            }
+        }
+
+        @media(max-width: 540px) {
+            .member-mobile-view {
+                min-height: 85vh
+            }
+        }
+
+        .Mobile_accordion_body h2 {
+            color: #172ab3;
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+            font-family: 'Red Hat Display Black' !important;
+        }
+
+        .accordion-body {
+            padding: 20px 0px;
+        }
+
+        .Mobile_delete_btn .Main_Mobile_delete_btn {
+            background: #ffd101;
+            color: #08138f;
+            padding: 10px 15px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+
+        .Mobile_member-list-cards {
+            background: #ffffff;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            border-radius: 10px;
+            position: relative;
+            text-align: center;
+        }
+
+        .Mobile_both_btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .Mobile_Member_avtar_img img {
+            width: 50px;
+        }
+
+        #Mobile_Avtar_accordion .accordion-button:focus {
+            box-shadow: none;
+            border-color: transparent;
+        }
+
+        #Mobile_Avtar_accordion .accordion-button {
+            background: #0331b5;
+            color: #ffffff;
+        }
+
+
+        /*avatar responsive*/
+
+        .avatar .add-member-name {
+            font-size: 14px;
+            color: #0331b5;
+            font-weight: 700;hanging-punctuation  
+        }
+
+
+        .avatar .Mobile_menu-circle {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background-color: #447df0;
+            color: #ffffff;
+            text-align: center;
+            margin: 0 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .avatar .Mobile_menu-circle img {
+                height: 35px;
+            }
+
+        .avatar .Mobile_menu-circle_outer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 10px 0px;
+        }
+
+        .avatar .Mobile_menu-circle_name span {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 90px !important;
+            display: inline-block;
+            font-size: 11.5px;
+            margin-top: 10px;
+            color: black;
+            text-transform: uppercase;
+        }
+
+        .Mobile_members-details span {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 90px;
+            display: inline-block;
+            font-size: 11.5px;
+            margin-top: 10px;
+            color: black;
+            text-transform: uppercase;
+        }
+
+        .add-member-icons_mobile_responsive img {
+            width: 70px;
+        }
+
+        @media only screen and (max-width: 430px) {
+            .avatar .main-div {
+                background-position-x: 44%;
+            }
+        }
+
+        @media only screen and (max-width: 280px) {
+            .add-member-icons_mobile_responsive img {
+                width: 50px;
+            }
+
+            .avatar .add-member-name {
+                font-size: 11px !important;
+            }
+
+            .Mobile_members-details h4 {
+                width: 44px;
+            }
+
+            .avatar .Mobile_menu-circle_name span {
+                width: 60px !important;
+            }
+        }
+
+
+        /*avatar responsive*/
     </style>
+
 
     <%--below script for sweetalert --%>
     <script type="text/javascript" src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -213,7 +367,7 @@
         <ContentTemplate>
             <div class="avatar">
                 <img class="plus-top-left" src="<%= ResolveUrl("~/Add Members/plus-1.png") %>" alt="" />
-                <div class="main-div">
+                <div class="main-div d-none d-md-block">
                     <div class="row">
                         <div class="col-lg-7 col-md-7 col-sm-12 p-0 h-50 d-flex justify-content-between align-items-center">
                             <div class="row">
@@ -230,7 +384,7 @@
                                                 <li class="border-bottom w-100px text-center mb-2 mb-lg-3 mb-xxl-4">
                                                     <asp:Repeater ID="rptMember" runat="server" OnItemDataBound="rptMember_ItemDataBound">
                                                         <ItemTemplate>
-                                                            <div id="divWrapper" runat="server">
+                                                            <div id="divWrapper" runat="server" style="padding: 10px">
                                                                 <%-- <a href="#">--%>
                                                                 <%--<a href="addmember.aspx">--%>
                                                                 <%--  <img src="../Avatar/add-icon.png" alt=""
@@ -357,97 +511,356 @@
                         </div>
                     </div>
                 </div>
-                <asp:Button ID="btnShow" runat="server" Text="Show Modal Popup" Style="display: none" />
-                <cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panel1" TargetControlID="btnShow"
-                    CancelControlID="btnClose" BackgroundCssClass="modalBackground">
-                </cc1:ModalPopupExtender>
-                <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center" Style="display: none">
-                    <div class="row my-2">
-                        <div class="col-12">
-                            <h2>Upload Report</h2>
+
+                <div class="main-div member-mobile-view d-block d-md-none">
+                    <div class="d-flex justify-content-between align-items-center py-4 px-2 w-100" style="height: 250px">
+                        <div class="add-member-icons add-member-icons_mobile_responsive  text-center">
+                            <a class="text-center" href="addmember.aspx">
+                                <img src="../My Data/Hfiles.png" alt="" />
+                                <%-- <asp:ImageButton ID="addmember" runat="server" ImageUrl="../My Data/default-user-profile.png" AlternateText="Add Member" Height="90px" Width="90px"/>--%>
+                                <br />
+                                <div>
+                                    <small class="add-member-name">Add Member
+                                    </small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="member-avatar-img">
+                            <%--                            <asp:Image class="avatar-img" ID="Image1" runat="server" />--%>
+                            <img src="../Avatar/male/45.png" alt="" width="150px" />
+                        </div>
+                        <div class="add-report-icon add-member-icons_mobile_responsive">
+                            <asp:LinkButton Text="text" runat="server" ID="LinkButton2" OnClick="lbtnAddReport_Click">
+                                <%--plus-icon--%>
+<img class="" src="<%= ResolveUrl("~/Avatar/Hfiles2.png") %>" alt="" />
+                                <br />
+<div>
+    <small class="add-member-name">Add Report
+    </small>
+</div>
+                            </asp:LinkButton>
+                            <%--<img class="" src="<%= ResolveUrl("~/Avatar/add-report.png") %>" alt="" />--%>
                         </div>
                     </div>
-                    <div class="row w-100 my-1" style="width: 100%">
-                        <div class="col-12">
-                            <div class="row">
-                                <%-- <div class="col-5 lbl">
-                                </div>--%>
-                                <div class="col-12 text-start">
-                                    <label><strong>Select Report Type :</strong></label>
-                                    <asp:DropDownList CssClass="select-report-dropdown" runat="server" ID="ddlReports">
-                                    </asp:DropDownList>
-                                    <asp:RequiredFieldValidator runat="server" ErrorMessage="Please Select Report Type" ControlToValidate="ddlReports" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                    <div class="container-fluid">
+                        <div id="Mobile_Avtar_accordion">
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item mb-4">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button color-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Select Members
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="row Mobile_accordion_body">
+                                                <h2>Members List</h2>
+                                                <div class="col-12">
+                                                    <div class="Mobile_member-list-cards py-3">
+                                                        <div class="row" id="repeaterdiv1" runat="server">
+                                                            <asp:Repeater ID="Repeater1" runat="server" OnItemDataBound="rptMember_ItemDataBound">
+                                                                <ItemTemplate>
+                                                                    <div class="col-4">
+                                                                        <div class="Mobile_Member_avtar_img">
+                                                                            <img src="/My Data/default-user-profile.png" />
+                                                                        </div>
+                                                                        <div class="Mobile_members-details py-2">
+                                                                            <%--<h4>Kuldeep</h4>--%>
+                                                                            <span>
+                                                                                <asp:LinkButton ID="member2" ForeColor="Black" runat="server" Text='<%#Eval("user_FirstName") %>' OnClick="member1_Click" CommandArgument='<%#Eval("user_Id")+"|"+Eval("user_relation") %>'></asp:LinkButton></span>
+                                                                            <asp:HiddenField ID="hfmemberid2" runat="server" Value='<%#Eval("user_Id") %>' />
+                                                                        </div>
+                                                                    </div>
+                                                                </ItemTemplate>
+                                                            </asp:Repeater>
+                                                            <%--<div class="col-4">
+                                                                <div class="Mobile_Member_avtar_img">
+                                                                    <img src="/My Data/default-user-profile.png" />
+                                                                </div>
+                                                                <div class="Mobile_members-details py-2">
+                                                                    <span>Kuldeep</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <div class="Mobile_Member_avtar_img">
+                                                                    <img src="/My Data/default-user-profile.png" />
+                                                                </div>
+                                                                <div class="Mobile_members-details py-2">
+                                                                    <h4>Kuldeep</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <div class="Mobile_Member_avtar_img">
+                                                                    <img src="/My Data/default-user-profile.png" />
+                                                                </div>
+                                                                <div class="Mobile_members-details py-2">
+                                                                    <h4>Kuldeep</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <div class="Mobile_Member_avtar_img">
+                                                                    <img src="/My Data/default-user-profile.png" />
+                                                                </div>
+                                                                <div class="Mobile_members-details py-2">
+                                                                    <h4>Kuldeep</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <div class="Mobile_Member_avtar_img">
+                                                                    <img src="/My Data/default-user-profile.png" />
+                                                                </div>
+                                                                <div class="Mobile_members-details py-2">
+                                                                    <h4>Kuldeep</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <div class="Mobile_Member_avtar_img">
+                                                                    <img src="/My Data/default-user-profile.png" />
+                                                                </div>
+                                                                <div class="Mobile_members-details py-2">
+                                                                    <h4>Kuldeep</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <div class="Mobile_Member_avtar_img">
+                                                                    <img src="/My Data/default-user-profile.png" />
+                                                                </div>
+                                                                <div class="Mobile_members-details py-2">
+                                                                    <h4>Kuldeep</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <div class="Mobile_Member_avtar_img">
+                                                                    <img src="/My Data/default-user-profile.png" />
+                                                                </div>
+                                                                <div class="Mobile_members-details py-2">
+                                                                    <h4>Kuldeep</h4>
+                                                                </div>
+                                                            </div>--%>
+                                                        </div>
+                                                        <div id="listmembers1" runat="server">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion">
+                                <div class="accordion-item mb-4">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            View Reports
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="row Mobile_accordion_body">
+                                                <%--                                                <h2>Members List</h2>--%>
+                                                <div class="col-12">
+                                                    <div class="Mobile_member-list-cards py-3">
+                                                        <div class="row">
+                                                            <div class="col-4">
+                                                                <div class="Mobile_menu-circle_outer">
+                                                                    <div class="Mobile_menu-circle">
+                                                                        <a href="reports.aspx?rid=3">
+                                                                            <img src="../Avatar/lab-report.png" alt="" />
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="Mobile_menu-circle_name py-2">
+                                                                        <span>lab report</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <div class="Mobile_menu-circle_outer">
+                                                                    <div class="Mobile_menu-circle">
+                                                                        <a href="reports.aspx?rid=5">
+                                                                            <img src="../Avatar/immunization.png" alt="" />
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="Mobile_menu-circle_name py-2">
+                                                                        <span>Immunization</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <div class="Mobile_menu-circle_outer">
+                                                                    <div class="Mobile_menu-circle">
+                                                                        <a href="reports.aspx?rid=6">
+                                                                            <img src="../Avatar/medications.png" alt="" />
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="Mobile_menu-circle_name py-2">
+                                                                        <span>medications/prescription</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <div class="Mobile_menu-circle_outer">
+                                                                    <div class="Mobile_menu-circle">
+                                                                        <a href="reports.aspx?rid=7">
+                                                                            <img src="../Avatar/rediology.png" alt="" />
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="Mobile_menu-circle_name py-2">
+                                                                        <span>radiology</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <div class="Mobile_menu-circle_outer">
+                                                                    <div class="Mobile_menu-circle">
+                                                                        <a href="reports.aspx?rid=8">
+                                                                            <img src="../Avatar/Opthalmologyicon.png" alt="" />
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="Mobile_menu-circle_name py-2">
+                                                                        <span>Opthalmology</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <div class="Mobile_menu-circle_outer">
+                                                                    <div class="Mobile_menu-circle">
+                                                                        <a href="reports.aspx?rid=4">
+                                                                            <img src="../Avatar/dental.png" alt="" />
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="Mobile_menu-circle_name py-2">
+                                                                        <span>dental report</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <div class="Mobile_menu-circle_outer">
+                                                                    <div class="Mobile_menu-circle">
+                                                                        <a href="reports.aspx?rid=9">
+                                                                            <img src="../Avatar/spacial-report.png" alt="" />
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="Mobile_menu-circle_name py-2">
+                                                                        <span>special report</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <div class="Mobile_menu-circle_outer">
+                                                                    <div class="Mobile_menu-circle">
+                                                                        <a href="reports.aspx?rid=10">
+                                                                            <img src="../Avatar/mediclaim.png" alt="" />
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="Mobile_menu-circle_name py-2">
+                                                                        <span>mediclaim/insurance</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row my-1" style="width: 100%">
-                        <%-- <div class="col-5 lbl">
-                        </div>--%>
-                        <div class="col-12 text-start">
-                            <label><strong>File Name : </strong></label>
-                            <asp:TextBox runat="server" ID="txtReportName" CssClass="filename-txtbox" required />
-                        </div>
+                </div>
+            </div>
+            </div>
+                            </div>
+                            <asp:Button ID="btnShow" runat="server" Text="Show Modal Popup" Style="display: none" />
+            <cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panel1" TargetControlID="btnShow"
+                CancelControlID="btnClose" BackgroundCssClass="modalBackground">
+            </cc1:ModalPopupExtender>
+            <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center" Style="display: none">
+                <div class="row my-2">
+                    <div class="col-12">
+                        <h2>Upload Report</h2>
                     </div>
-
-                    <div class="row my-2" style="width: 100%">
-                        <%-- <div class="col-5 lbl">
-                        </div>--%>
-                        <div class="col-12 text-start">
-                            <label><strong>Select File :</strong></label>
-                            <asp:UpdatePanel runat="server" UpdateMode="Conditional">
-                                <ContentTemplate>
-                                    <div class='file-input'>
-                                        <asp:FileUpload ID="imageFileUpload1" CssClass="l" runat="server" required onchange="showFileName()" />
-                                        <span class='button'>Choose</span>
-                                     <%--   <span class='label' data-js-label>No file selected</label>--%>
-                                             <span id="fileNameLabel" class='label' data-js-label>No file selected</span>
-                                    </div>
-                                    <asp:Literal ID="litFileName" runat="server"></asp:Literal>
-                                </ContentTemplate>
-                                <Triggers>
-                                    <asp:PostBackTrigger ControlID="btnSubmit" />
-                                </Triggers>
-                            </asp:UpdatePanel>
-                        </div>
-                    </div>
-                    <div class="row w-100 my-3" style="width: 100%">
-                        <div class="col-12">
-                            <div class="row">
-                                <%-- <div class="col-5 lbl">
+                </div>
+                <div class="row w-100 my-1" style="width: 100%">
+                    <div class="col-12">
+                        <div class="row">
+                            <%-- <div class="col-5 lbl">
                                 </div>--%>
-                                <div class="col-12 text-start">
-                                    <label><strong>Give View Access To :</strong></label><br />
-                                    <asp:CheckBoxList ID="chklist" runat="server"></asp:CheckBoxList>
-                                    <asp:CheckBoxList ID="ddlMembers2" CssClass="form-control border-0" runat="server" SelectionMode="Multiple"></asp:CheckBoxList>
-                                    <p>(If none selected then the document will be private)</p>
-                                    <%--<asp:ListBox ID="ddlMembers1" CssClass="select-report-dropdown" runat="server" SelectionMode="Multiple"></asp:ListBox>--%>
+                            <div class="col-12 text-start">
+                                <label><strong>Select Report Type :</strong></label>
+                                <asp:DropDownList CssClass="select-report-dropdown" runat="server" ID="ddlReports">
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator runat="server" ErrorMessage="Please Select Report Type" ControlToValidate="ddlReports" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-1" style="width: 100%">
+                    <%-- <div class="col-5 lbl">
+                        </div>--%>
+                    <div class="col-12 text-start">
+                        <label><strong>File Name : </strong></label>
+                        <asp:TextBox runat="server" ID="txtReportName" CssClass="filename-txtbox" required />
+                    </div>
+                </div>
 
-                                    <%--   <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ForeColor="Red" InitialValue="0" runat="server" SetFocusOnError="true" ControlToValidate="ddlMembers2" ErrorMessage="Select Members" Display="Dynamic" ValidationGroup="a"></asp:RequiredFieldValidator>--%>
-                                    <%--      <asp:DropDownList CssClass="select-report-dropdown" runat="server" ID="ddlMembers">
+                <div class="row my-2" style="width: 100%">
+                    <%-- <div class="col-5 lbl">
+                        </div>--%>
+                    <div class="col-12 text-start">
+                        <label><strong>Select File :</strong></label>
+                        <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+                            <ContentTemplate>
+                                <div class='file-input'>
+                                    <asp:FileUpload ID="imageFileUpload1" CssClass="l" runat="server" required onchange="showFileName()" />
+                                    <span class='button'>Choose</span>
+                                    <%--   <span class='label' data-js-label>No file selected</label>--%>
+                                    <span id="fileNameLabel" class='label' data-js-label>No file selected</span>
+                                </div>
+                                <asp:Literal ID="litFileName" runat="server"></asp:Literal>
+                            </ContentTemplate>
+                            <Triggers>
+                                <asp:PostBackTrigger ControlID="btnSubmit" />
+                            </Triggers>
+                        </asp:UpdatePanel>
+                    </div>
+                </div>
+                <div class="row w-100 my-3" style="width: 100%">
+                    <div class="col-12">
+                        <div class="row">
+                            <%-- <div class="col-5 lbl">
+                                </div>--%>
+                            <div class="col-12 text-start">
+                                <label><strong>Give View Access To :</strong></label><br />
+                                <asp:CheckBoxList ID="chklist" runat="server"></asp:CheckBoxList>
+                                <asp:CheckBoxList ID="ddlMembers2" CssClass="form-control border-0" runat="server" SelectionMode="Multiple"></asp:CheckBoxList>
+                                <p>(If none selected then the document will be private)</p>
+                                <%--<asp:ListBox ID="ddlMembers1" CssClass="select-report-dropdown" runat="server" SelectionMode="Multiple"></asp:ListBox>--%>
+
+                                <%--   <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ForeColor="Red" InitialValue="0" runat="server" SetFocusOnError="true" ControlToValidate="ddlMembers2" ErrorMessage="Select Members" Display="Dynamic" ValidationGroup="a"></asp:RequiredFieldValidator>--%>
+                                <%--      <asp:DropDownList CssClass="select-report-dropdown" runat="server" ID="ddlMembers">
                                         <%--   <asp:ListItem Text="Member1"></asp:ListItem>
                                         <asp:ListItem Text="Member2"></asp:ListItem>
                                         <asp:ListItem Text="Member3"></asp:ListItem>
                                     </asp:DropDownList>--%>
-                                    <%-- <asp:RequiredFieldValidator runat="server" ErrorMessage="Please Select Member" ControlToValidate="ddlMembers2" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                    --%>
-                                </div>
+                                <%-- <asp:RequiredFieldValidator runat="server" ErrorMessage="Please Select Member" ControlToValidate="ddlMembers2" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                --%>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <br />
-                    <br />
-                    <asp:Button Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click" runat="server" CssClass="submit-btn" />
-                    <%--<asp:Label Text="" ID="lblMsg" runat="server" />--%>
-                    <asp:Button ID="btnClose" runat="server" OnClick="okLinkButton_Click" Text="Close" CssClass="close-btn" />
-                </asp:Panel>
+                <br />
+                <br />
+                <asp:Button Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click" runat="server" CssClass="submit-btn" />
+                <%--<asp:Label Text="" ID="lblMsg" runat="server" />--%>
+                <asp:Button ID="btnClose" runat="server" OnClick="okLinkButton_Click" Text="Close" CssClass="close-btn" />
+            </asp:Panel>
             </div>
-            <div id="toast" runat="server" style="display: none">
-                <div id="img">Icon</div>
-                <div id="desc">A notification message..</div>
-            </div>
-
+                        <div id="toast" runat="server" style="display: none">
+                            <div id="img">Icon</div>
+                            <div id="desc">A notification message..</div>
+                        </div>
         </ContentTemplate>
         <Triggers>
             <%--<asp:PostBackTrigger ControlID="btnSubmit" />--%>

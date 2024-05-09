@@ -45,18 +45,17 @@
 
 <body style="overflow: hidden;">
     <form class="row h-100 align-ceter h-sm-100vh" runat="server">
-        <div class="language">
+       <%--<div class="language">
             <details>
                 <summary>language</summary>
                 <ul id="language">
                     <li>English</li>
                 </ul>
             </details>
-        </div>
+        </div>--%>
         <asp:HiddenField runat="server" ID="hfId" />
-        <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-block" style="text-align: center;">
-
-            <img src="../assets/features-hero-6.png" alt="" style="width: 80%; margin: 145px 0 0 0;">
+        <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-flex align-items-center" style="text-align: center;">
+            <img src="../assets/features-hero-6.png" alt="" style="width: 100%; height: 90vh; object-fit: contain">
         </div>
         <div class="col-sm-12 col-lg-6 inner-main p-0">
             <div class="d-flex align-items-center justify-content-center h-100 inner-body">
@@ -68,7 +67,7 @@
                     </div>
 
                     <div>
-                        <asp:TextBox ID="emailTextBox" CssClass="w-100 login-input" TextMode="SingleLine" placeholder="Email ID" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="emailTextBox" CssClass="w-100 login-input" TextMode="SingleLine" placeholder="Email ID" runat="server" style="border-radius:50px;"></asp:TextBox>
                         <%-- <asp:TextBox runat="server"  id="emailTextBox" class="w-100 login-input" type="Text" placeholder="Username" />--%>
                     </div>
 
@@ -97,7 +96,7 @@
                     </div>
 
                     <div class="text-center my-1">
-                        <asp:Button ID="otpButton" OnClick="signup_Click" runat="server" Text="GET OTP" class="btn thm-button my-2"></asp:Button>
+                        <asp:Button ID="otpButton" OnClick="signup_Click" runat="server" Text="Get OTP" class="btn thm-button my-2"></asp:Button>
                     </div>
 
                     <div class="text-center my-1">

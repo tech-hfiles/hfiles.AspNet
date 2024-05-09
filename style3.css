@@ -23,7 +23,7 @@ p,
 span,
 li,
 button {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Red Hat Display',sans-serif !important;
 }
 
 input:-webkit-autofill {
@@ -79,7 +79,7 @@ input:-webkit-autofill {
 .inner-div .text-blue h1 {
     font-weight: 600;
     font-size: 60px;
-    font-family: 'Red Hat Display' !important;
+    font-family: 'Red Hat Display',sans-serif !important;
 }
 
 .main-div {
@@ -185,18 +185,22 @@ input::-webkit-inner-spin-button {
 
     .input-group input {
         padding: 20px;
-        margin: 7px;
+        margin: 15px 7px;
         border-radius: 50px;
         background-color: #f5f5f5;
         outline: 0;
         border: 0;
         /* color: #bfbfbf; */
-        width: 200px;
-        text-align: center
+        /*width: 200px;*/
+        text-align: center;
+        text-align: -webkit-center;
+        text-align: -moz-center;
+        display: flex;
+        justify-content: center;
     }
 
     .input-group .relation-div {
-        padding: 15px 0;
+        padding: 15px 20px;
         margin: 0 5px;
         margin: 5px 0;
         border-radius: 50px;
@@ -207,6 +211,10 @@ input::-webkit-inner-spin-button {
         color: #bababa;
         text-align: center;
     }
+
+        .input-group .relation-div select {
+            padding: 0;
+        }
 
     .input-group select {
         background: none;
@@ -242,7 +250,7 @@ input::-webkit-inner-spin-button {
 .input-group input::placeholder {
     text-align: center;
     color: #bababa;
-    font-family: 'Red Hat Display' !important;
+    font-family: 'Red Hat Display',sans-serif !important;
 }
 
 .btn-div {
@@ -266,7 +274,7 @@ input::-webkit-inner-spin-button {
     color: #ffffff;
     cursor: pointer;
     margin-top: 20px;
-    font-family: 'Red Hat Display' !important;
+    font-family: 'Red Hat Display',sans-serif !important;
     font-weight: 700;
 }
 
@@ -280,7 +288,7 @@ input::-webkit-inner-spin-button {
     border: 1px solid #d6d6d6;
     cursor: pointer;
     margin-top: 20px;
-    font-family: 'Red Hat Display' !important;
+    font-family: 'Red Hat Display',sans-serif !important;
     font-weight: 700;
 }
 
@@ -1089,9 +1097,9 @@ a {
         width: 100%;
     }
 
-    .input-group input {
+   /* .input-group input {
         width: 185px;
-    }
+    }*/
 
     .avatar .avatar-left-sec ul {
         height: 100vh !important;
@@ -1100,7 +1108,6 @@ a {
         .avatar .avatar-left-sec ul li {
             padding: 0 !important;
         }
-   
 }
 
 @media only screen and (min-width: 1024px) {
@@ -1131,6 +1138,7 @@ a {
         top: 48%;
         left: 184px;
     }
+
     .avatar .avatar-left-sec ul {
         height: 94vh !important;
     }
@@ -1225,11 +1233,13 @@ a {
         width: 70% !important;
     }
 }
+
 @media (min-width: 700px) and (max-width: 1000px) {
     .avatar {
         overflow: hidden;
     }
 }
+
 @media only screen and (max-width: 786px) {
     .avatar .blue-t-bottom-right {
         left: 14%;
@@ -1347,6 +1357,7 @@ a {
     .profile .img-box img {
         height: 85% !important;
         width: 85% !important;
+        border-radius: 100px;
     }
 
     .common-heading img {
@@ -1361,14 +1372,17 @@ a {
         min-height: 80vh !important;
         width: 80% !important;
     }
+
     .avatar .avatar-img {
         height: 230px;
     }
+
     .avatar .main-div {
         background-position-x: 5%;
     }
+
     .profile-menu ul {
-        right:50px;
+        right: 50px;
     }
 }
 
@@ -1405,9 +1419,11 @@ a {
     .avatar .avatar-img {
         height: 200px;
     }
+
     .avatar .main-div {
         background-position-x: 5%;
     }
+
     .avatar .blue-t-top-left {
         position: absolute;
         top: 0;
@@ -1567,13 +1583,13 @@ a {
         color: #ccc !important;
     }
 
-    .input-group input {
+   /* .input-group input {
         width: 170px;
-    }
+    }*/
 
     .input-group .relation-div {
         width: 95%;
-        padding: 10px 0;
+        padding: 20px 0;
     }
 }
 
@@ -1594,6 +1610,10 @@ a {
 @media only screen and (max-width: 300px) {
     .avatar .blue-t-bottom-right {
         left: 20%;
+    }
+
+    .avatar .avatar-img {
+        height: 150px !important;
     }
 
     .avatar ul {
@@ -1703,7 +1723,7 @@ a {
     }
 
     .avatar .main-div {
-        background-position-x: center;
+        background-position-x: 20%;
     }
 
     .avatar .modalPopup {
@@ -1716,3 +1736,4 @@ a {
         font-size: 8px !important;
     }
 }
+

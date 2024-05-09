@@ -1,9 +1,18 @@
 body {
+    margin:0 !important;
+    height:100%;
+    max-width:100%;
+
     /* height: 100vh; */
     background-color: #ffffff;
     font-family: 'Red Hat Display', sans-serif !important;
 }
-
+.container-fluid{
+    margin:0 !important;
+    max-height:100%;
+    max-width:100%
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&family=Red+Hat+Display&family=Syne:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Red+Hat+Display&family=Syne:wght@800&display=swap');
 
@@ -13,11 +22,11 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Red Hat Display' !important;
+    font-family: 'Red Hat Display', sans-serif !important;
 }
 
 p, a, span, li, button {
-    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Red Hat Display', sans-serif !important;
 }
 
 a {
@@ -54,8 +63,52 @@ a {
     position: absolute;
     left: 10%;
     top: 10%;
+    /*    color: #0512b9;
+*/
+    padding: 5px 20px;
+    border-radius: 50px;
+    border: 0;
+    outline: 0;
     color: #0512b9;
+    cursor: pointer;
+    margin-top: 20px;
+    font-family: 'Red Hat Display', Sans-serif !important;
+    font-weight: 700;
+    font-size: 16px;
+    background-color: #fdd001;
 }
+
+
+
+    .back-arrow-btn img {
+        width: 40px;
+    }
+
+.back-arrow-btn-2 img {
+    width: 40px;
+}
+
+.back-arrow-btn-2 {
+    /* position: absolute; */
+    /*    left: 10%;
+    top: 10%;
+*/ /* color: #0512b9; */
+
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 50px;
+    border: 0;
+    outline: 0;
+    color: #0512b9;
+    cursor: pointer;
+    /* margin-top: 20px; */
+    font-family: 'Red Hat Display', Sans-serif !important;
+    font-weight: 700;
+    font-size: 16px;
+    background-color: #fdd001;
+}
+
+
 
 .thm-back-button {
     padding: 10px 60px;
@@ -277,6 +330,7 @@ input:-webkit-autofill {
 }
 
 .heading {
+    font-family: 'Red Hat Display', sans-serif !important;
     color: #0512B9;
     font-weight: 700 !important;
 }
@@ -501,17 +555,18 @@ input:-webkit-autofill {
 /* checkbox */
 /* login left side */
 .inner-body h1 {
+    font-family: 'Red Hat Display', Sans-serif !important;
     color: #ffffff;
     font-weight: 700;
 }
 
 .inner-body .login-input {
     border: none;
-    background: transparent;
+    background: white;
     border-bottom: 1px solid #ffffff3d;
     padding: 10px 40px;
     margin: 10px;
-    color: #ffffff;
+    color: #08138f;
     outline: 0;
 }
 
@@ -666,6 +721,11 @@ span {
 .signin-heading h1 {
     color: #0512b9;
     font-weight: 700;
+    font-family: 'Red Hat Display', sans-serif !important;
+    
+}
+.mb-4 {
+    font-family: 'Red Hat Display', sans-serif !important;
 }
 
 .signin-form input,
@@ -681,7 +741,9 @@ select {
 }
 
     .signin-form input[type="date"] {
-        color: #dddddd;
+        /*        color: #dddddd;
+*/
+        color: #857d7d;
     }
 
 .signin-form input {
@@ -698,7 +760,7 @@ select {
 }
 
 .signin-form input::placeholder {
-    color: #e6e6e6;
+    color: #ccc;
     font-weight: 500;
 }
 
@@ -716,9 +778,9 @@ select {
     margin-left: 5px;
 }
 
-.signin-main .has-search .form-control-feedback {
+/*.signin-main .has-search .form-control-feedback {
     margin-top: 12px !important;
-}
+}*/
 
 .signin-main .password-div {
     position: relative;
@@ -787,7 +849,14 @@ select {
 
 .OTP-input::placeholder {
     text-align: center;
-    color: #d6d6d6 !important;
+    color: #ccc !important;
+}
+
+.login-input::placeholder {
+    text-align: center;
+    /*    color: #ccc !important;*/
+    color: #857d7d !important;
+    font-weight: 200 !important;
 }
 
 .OTP-input {
@@ -898,11 +967,13 @@ select {
 }
 
 .additionl-main-div .heading {
+    font-family: 'Red Hat Display', sans-serif !important;
     color: #0512b9;
     font-weight: 600;
 }
 
 .additionl-main-div .sub-heading {
+    font-family: 'Red Hat Display', sans-serif !important;
     color: #0512b9;
     font-weight: 700;
     font-size: 22px;
@@ -936,17 +1007,22 @@ select {
 
     .surgeries-table tbody th {
         background-color: #0331b5;
-        color: #ffffff;
+        color: #ffffff !important
     }
 
     .surgeries-table tbody tr:first-child {
         /*background: #ccc;*/
-        padding: 5px;
+        padding: 1px;
     }
 
+
     .surgeries-table th, .surgeries-table td {
-        padding: 10px !important;
+        padding: 8px !important;
         border: 1px solid #000;
+    }
+
+    .surgeries-table.table {
+        margin-bottom: 0px;
     }
 
 .additionl-main-div .add-surgeries {
@@ -985,7 +1061,7 @@ select {
     outline: 0 !important;
     box-shadow: none !important;
     color: #08138f;
-    font-family: 'Red Hat Display' !important;
+    font-family: 'Red Hat Display', Sans-serif !important;
     font-weight: 700;
 }
 
@@ -993,6 +1069,7 @@ select {
 /* medical history */
 
 .medical-main-div .inner-main-div {
+    font-family: 'Red Hat Display', Sans-serif !important;
     max-height: 60vh;
     overflow-y: auto;
     padding: 10px;
@@ -1004,11 +1081,13 @@ select {
 }
 
 .medical-main-div p {
+    font-family: 'Red Hat Display', Sans-serif !important;
     color: #0512b9;
     font-weight: 700;
 }
 
 .inner-main-div p {
+    font-family: 'Red Hat Display', Sans-serif !important;
     font-size: 20px;
 }
 
@@ -1049,7 +1128,7 @@ span.img-notselected {
         font-size: 60px;
         font-weight: 900;
         margin: 0 10px;
-        font-family: 'Red Hat Display Black' !important;
+        font-family: 'Red Hat Display', sans-serif !important;
     }
 
     .journal .heading-title .hr {
@@ -1338,7 +1417,7 @@ span.img-notselected {
     border: 1px solid #000;
     border-radius: 20px;
     padding: 10px 15px;
-    font-family: 'Red Hat Display', serif;
+    font-family: 'Red Hat Display', sans-serif !important;
     font-weight: 400 !important;
     background: transparent;
     outline: 0;
@@ -1346,8 +1425,8 @@ span.img-notselected {
 
     .support-group .chat-input-div input::placeholder {
         font-weight: 400 !important;
-        font-family: 'Red Hat Display', serif;
-    }
+        font-family: 'Red Hat Display', sans-serif !important;
+s    }
 
 .support-group .chat-history-div {
     max-height: 70%;
@@ -1612,11 +1691,16 @@ span.img-notselected {
     position: relative;
 }
 
-    .download-doc-inner .card .report-share-icon {
-        height: 30px !important;
-        width: auto !important;
-        margin-left: 5px;
-    }
+.card .Whatappicon i {
+    font-size: 25px;
+    color: #25d366;
+}
+
+.download-doc-inner .card .report-share-icon {
+    height: 30px !important;
+    width: auto !important;
+    margin-left: 5px;
+}
 
 .download-doc-inner .report-delete-btn {
     position: absolute;
@@ -1652,6 +1736,13 @@ span.img-notselected {
 .download-doc-inner .heading-title, .download-doc-inner .doc-pdf {
     background-color: #ffffff;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+@media (min-width: 900px) {
+    .download-doc-inner .doc-pdf {
+        max-height: 72vh;
+        overflow-y: auto;
+    }
 }
 
 .download-doc-inner .report-page-title {
@@ -1822,12 +1913,16 @@ span.img-notselected {
 /*g-translate*/
 
 /*manage-members-table*/
+.manage-members-div{
+    height:100% !important;
+    max-width:100% !important;
+}
 .manage-members-div .heading {
     color: #172ab3;
     font-size: 35px;
     font-weight: 900;
-    margin: 0 10px;
-    font-family: 'Red Hat Display Black' !important;
+/*    margin: 0 10px;
+*/    font-family: 'Red Hat Display', sans-serif !important;
 }
 
 .manage-members-table thead th {
@@ -1891,9 +1986,72 @@ span.img-notselected {
     width: 50%;
     outline: 0;
 }
+
+
+@media (min-width: 1022px) and (max-width: 1024px) {
+    .manage-members-div .search-file input {
+        width: 100%;
+    }
+
+    .search-file {
+        position: relative;
+    }
+
+    .manage-members-div .search-file i {
+        position: absolute;
+        left: 22px;
+        top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .manage-members-div .search-file input {
+        width: 100%;
+    }
+
+    .search-file {
+        position: relative;
+    }
+
+    .manage-members-div .search-file i {
+        position: absolute;
+        left: 22px;
+        top: 30px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .manage-members-div .search-file input {
+        width: 100%;
+    }
+
+    .search-file {
+        position: relative;
+    }
+
+    .manage-members-div .search-file i {
+        position: absolute;
+        left: 22px;
+        top: 30px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .manage-members-div .search-file input {
+        width: 100%;
+    }
+
+    .search-file {
+        position: relative;
+    }
+
+    .manage-members-div .search-file i {
+        position: absolute;
+        left: 22px;
+        top: 30px;
+    }
+}
 /*manage-members-table*/
-
-
 .accordion-button:not(.collapsed) {
     background-color: #ffd101 !important;
 }
@@ -2006,6 +2164,11 @@ span.img-notselected {
         min-height: 94vh;
     }
 
+    .madical-surgery-table .surgeries-table tbody tr:first-child {
+        position: sticky;
+        top: 0;
+    }
+
     .SingleCheckbox input[type=checkbox] + label {
         margin: 0 90px !important;
     }
@@ -2044,9 +2207,9 @@ span.img-notselected {
         margin: 0 70px;
     }
 
-    .download-doc-inner {
+    /*.download-doc-inner {
         min-height: 80vh;
-    }
+    }*/
 }
 
 @media only screen and (min-width: 1024px) {
@@ -2066,7 +2229,7 @@ span.img-notselected {
     }
 
     .SingleCheckbox input[type=checkbox] + label {
-        margin: 0 55px;
+        margin: 0 57px;
     }
 
     .SingleCheckbox input[type=radio] + label {
@@ -2075,6 +2238,21 @@ span.img-notselected {
 
     .download-doc-inner .report-page-title {
         font-size: 24px;
+        font-family: 'Red Hat Display', Sans-serif !important;
+        font-weight: 600;
+    }
+}
+
+
+@media only screen and (min-width: 1025px) and (max-width: 1280px) {
+
+
+    .SingleCheckbox input[type=checkbox] + label {
+        margin: 0px 71px;
+    }
+
+    .common-design .blue-trangle-bottom {
+        position: relative !important;
     }
 }
 
@@ -2132,6 +2310,10 @@ span.img-notselected {
     .download-doc-inner .report-page-title {
         font-size: 24px;
     }
+
+    /*  .back-arrow-btn {
+        top: 7%;
+    }*/
 }
 
 @media only screen and (min-width: 912px) {
@@ -2224,6 +2406,36 @@ span.img-notselected {
     .download-doc-inner .search-file input {
         width: 80%
     }
+
+    /*  .back-arrow-btn {
+        top: 7%;
+    }*/
+}
+
+@media (max-width: 480px) {
+    .back-arrow-btn {
+        top: 8% !important;
+        padding: 1px 10px;
+        font-size: 15px;
+    }
+
+        .back-arrow-btn img {
+            width: 30px;
+        }
+
+    .back-arrow-btn-2 {
+        padding: 1px 10px;
+        font-size: 15px;
+    }
+
+        .back-arrow-btn-2 img {
+            width: 30px;
+        }
+
+         .report-page-title {
+            display: block;
+            text-align: center;
+        }
 }
 
 @media only screen and (min-width: 768px) and (max-width:912px) {
@@ -2241,6 +2453,17 @@ span.img-notselected {
 
     .support-group .chat-input-div {
         bottom: -35px
+    }
+
+    .back-arrow-btn {
+        top: 7%;
+    }
+}
+
+@media only screen and (min-width: 1022px) and (max-width:1024px) {
+
+    .back-arrow-btn {
+        top: 6%;
     }
 }
 
@@ -2394,11 +2617,18 @@ span.img-notselected {
     .manage-members-div .heading {
         font-size: 18px;
     }
+
+    .back-arrow-btn-small-dev {
+        position: absolute;
+        left: 10%;
+        top: 4%;
+        color: #0512b9;
+    }
 }
 
 @media only screen and (max-width: 430px) {
     .SingleCheckbox input[type=checkbox] + label, .SingleCheckbox input[type=radio] + label {
-        margin: 0 15px !important;
+        margin: 0px 18px !important;
     }
 
     .h-sm-100vh {
@@ -2708,4 +2938,10 @@ span.img-notselected {
         position: absolute;
         bottom: 0;
     }
+}
+
+@media (min-width: 1022px) and (max-width: 1024px) {
+    /*  .common-design .blue-trangle-bottom {
+        position: absolute !important;
+    }*/
 }

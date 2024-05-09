@@ -4,6 +4,7 @@ body {
     font-family: 'Playfair Display' !important;
 }
 
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Syne:wght@800&display=swap');
 
 h1,
@@ -16,7 +17,7 @@ span,
 p,
 button,
 a {
-    font-family: 'Playfair Display' !important;
+    font-family: Red Hat Display, sans-serif !important;
 }
 
 a {
@@ -184,6 +185,7 @@ a {
 .heading {
     color: #0512B9;
     font-weight: 700 !important;
+    font-family: /*Red Hat Display,*/ roboto !important;
 }
 
 /* login left side */
@@ -343,6 +345,7 @@ span {
 }
 
 .signin-heading h1 {
+    font-family: Red Hat Display, sans-serif !important;
     color: #0512b9;
     font-weight: 700;
 }
@@ -364,10 +367,16 @@ select {
     box-shadow: none;
 }
 
-.signin-form input::placeholder {
-    color: #e6e6e6;
-    font-weight: 500;
-}
+    .signin-form input::placeholder {
+        color: #e6e6e6;
+        font-weight: 500;
+        color: #0512b9 !important;
+    }
+
+    .signin-form input::placeholder {
+        color: #0512b9 !important;
+    }
+
 
 .has-search .form-control-feedback {
     position: absolute;
@@ -1060,6 +1069,16 @@ span {
 }
 
 
+
+
+
+
+
+
+
+
+
+
 /* Add indicator arrow for the active tab */
 @media (min-width: 992px) {
     .nav-pills-custom .nav-link::before {
@@ -1074,6 +1093,13 @@ span {
         transform: translateY(-50%);
         opacity: 0;
         z-index: 1;
+    }
+}
+
+@media only screen and (max-width: 1550px) {
+    .relation-div .relationdiv10 {
+        position: relative;
+        left: 75px;
     }
 }
 
@@ -1281,6 +1307,9 @@ span {
         position: relative;
         bottom: 0;
         top: 20px;
+    }
+    .phoneTextBox-input svg {
+        right: 2px;
     }
 }
 

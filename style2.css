@@ -21,11 +21,11 @@ h3,
 h4,
 h5,
 h5 {
-    font-family: 'Red Hat Display' !important;
+    font-family: 'Red Hat Display',sans-serif !important;
 }
 
 p, a, span, li button {
-    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Red Hat Display', sans-serif !important;
 }
 
 .color-thm-blue {
@@ -120,7 +120,7 @@ p, a, span, li button {
 
     .privacy_main .inner_div {
         width: 65%;
-        height: 66%;
+        height: 70vh;
     }
 
         .privacy_main .inner_div .desciption {
@@ -148,7 +148,7 @@ p, a, span, li button {
             margin: 10px 0px;
             color: #0331b5;
             font-weight: 800;
-            font-family: 'Red Hat Display' !important;
+            font-family: 'Red Hat Display',sans-serif !important;
         }
 
     .privacy_main .blue_trangle_top_left {
@@ -290,13 +290,13 @@ p, a, span, li button {
     .contact .contact-main .q_heading {
         color: #0a18bc;
         font-weight: 600 !important;
-        font-family: 'Red Hat Display' !important;
+        font-family: 'Red Hat Display',sans-serif !important;
     }
 
         .contact .contact-main .q_heading h2 {
             color: #0331b5;
             font-weight: 800 !important;
-            font-family: 'Red Hat Display' !important;
+            font-family: 'Red Hat Display',sans-serif !important;
         }
 
     .contact .contact-main ol {
@@ -409,7 +409,7 @@ p, a, span, li button {
     color: #0331b5;
     font-weight: 600;
     font-size: 15px;
-    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Red Hat Display', sans-serif !important;
 }
 
 .contact .contact-form span {
@@ -692,6 +692,7 @@ select {
     justify-content: center;
     align-items: center;
     padding: 30px 20px;
+    height:100% !important;
 }
 
     .journal .journal_main .inner_div {
@@ -1135,6 +1136,7 @@ ul.dropdown-menu.show {
     }
 }
 
+
 @media only screen and (min-width: 1200px) {
     .p-p p, .t-c p {
         font-size: 16px !important;
@@ -1288,9 +1290,9 @@ ul.dropdown-menu.show {
         height: 87vh
     }
 
-        .privacy_main .blue_trangle_bottom_right {
+      /*  .privacy_main .blue_trangle_bottom_right {
             top: 30px
-        }
+        }*/
 
     .journal .journal_main .jur-width-div {
         padding-left: 20px;
@@ -1340,9 +1342,9 @@ ul.dropdown-menu.show {
         height: 86vh
     }
 
-        .privacy_main .blue_trangle_bottom_right {
+      /*  .privacy_main .blue_trangle_bottom_right {
             top: 0px
-        }
+        }*/
 }
 
 @media only screen and (max-width: 600px) {
@@ -1657,7 +1659,7 @@ ul.dropdown-menu.show {
         }
 
     .t-c a, .p-p a {
-        font-size: 8px !important;
+        font-size: 9px !important;
     }
 }
 
@@ -1808,6 +1810,10 @@ ul.dropdown-menu.show {
     }
 
     .footer a {
-        font-size: 8px !important;
+        font-size: 6px !important;
+    }
+
+    .support-group .my_profile h3, .journal .journal_main .inner_div .heading h3 {
+        font-size: 14px;
     }
 }

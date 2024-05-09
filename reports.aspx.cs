@@ -12,6 +12,7 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.IO;
 using System.Xml.Linq;
@@ -31,14 +32,29 @@ namespace hfiles
         string reporturl;
         #endregion
         string memberRelation, message, icon;
+        int RId ;
+        DataTable dtMemberList = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
+            //mp1.Show();
             int RId = DAL.validateInt(Request.QueryString["rid"]);
 
             if (!IsPostBack)
             {
-                getReportType(RId);
-                getReportMaster();
+                if (Session["Userid"] != null)
+                {
+                    getMembersList();
+                    getReportType(RId);
+                    getReportMaster();
+                }
+                else
+                {
+                    Response.Redirect("~/login.aspx");
+                }
+                ////getMembersList();
+                ////getReportType(RId);
+                ////getReportMaster();
+                //getMembersList();
                 if (Request.QueryString["rid"] != null)
                 {
                     //int RId = DAL.validateInt(Request.QueryString["rid"]);
@@ -48,7 +64,7 @@ namespace hfiles
                         int UserId = int.Parse(Session["Userid"].ToString());
                         //Reports(UserId, RId);
                         //below condition is added newly for reports access
-                        if (Session["memberId"] == null || Convert.ToInt32(Session["memberId"]) > 0)
+                        if (Session["memberId"] != null && Convert.ToInt32(Session["memberId"]) > 0)
                         {
                             UserReports(Convert.ToInt32(Session["memberId"]), RId);
                         }
@@ -163,10 +179,11 @@ namespace hfiles
                         using (MySqlCommand cmd = new MySqlCommand("usp_addreportwithaccess", con))
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(Session["Userid"].ToString()));/* memberId*/
+                            cmd.Parameters.AddWithValue("_UserId", memberId );/* DAL.validateInt(Session["Userid"].ToString())*/
                             cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(ReportId));
-                            cmd.Parameters.AddWithValue("_memberId", DAL.validateInt(UserId));/*UserId*/
+                            cmd.Parameters.AddWithValue("_memberId", DAL.validateInt(Session["Userid"].ToString()));/*UserId*/
                             cmd.Parameters.AddWithValue("_reportname", "");
+                            cmd.Parameters.AddWithValue("_rId", 0);
                             cmd.Parameters.AddWithValue("_reporturl", "");
                             cmd.Parameters.AddWithValue("_SpType", "LR");
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
@@ -237,7 +254,7 @@ namespace hfiles
                         }
                     }
                 }
-                Session["memberId"] = 0;
+                //Session["memberId"] = 0;
             }
             catch (Exception Ex)
             {
@@ -558,6 +575,330 @@ namespace hfiles
             }
         }
 
+        protected void okLinkButton_Click(object sender, EventArgs e)
+        {
+            //mp1.Hide();
+
+        }
+        protected void lbtnEdit_Click(object sender, EventArgs e)
+        {
+            LinkButton lnk = sender as LinkButton;
+            int reportId = Convert.ToInt16(lnk.CommandArgument);
+            Session["ReportUniqueId"] = reportId;
+
+            mp1.Show();
+
+            RId = DAL.validateInt(Request.QueryString["rid"]);
+            int UserId = DAL.validateInt(Session["Userid"].ToString());
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(cs))
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("usp_getmember", con)) /*usp_getMembers*/
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("_UserId", UserId);
+                        cmd.Parameters.AddWithValue("_MemberId", 0);
+                        cmd.Parameters.AddWithValue("_SpType", "E");
+                        cmd.Parameters.AddWithValue("_ReportId", RId);
+                        cmd.Parameters.AddWithValue("_RId", reportId);
+                        cmd.ExecuteNonQuery();
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        if (dt != null && dt.Rows.Count > 0)
+                        {
+                            //for merging 2 datatables
+                            DataTable mergedTable = MergeDataTables(Session["dtMemberList"] as DataTable, dt);
+
+                            //ddlMembers2.DataSource = dt;
+
+                            ddlMembers2.DataSource = mergedTable;
+                            ddlMembers2.DataTextField = "user_FirstName";
+                            ddlMembers2.DataValueField = "user_Id";
+                            ddlMembers2.DataBind();
+                            //ddlMembers2.Items.Insert(0, new ListItem("Select Member", "0"));
+
+                            // Get selected members based on report ID
+                            List<string> selectedMembers = new List<string>();
+                            foreach (DataRow row in dt.Rows)
+                            {
+                                selectedMembers.Add(row["user_Id"].ToString());
+                            }
+
+                            // Iterate through DropDownList items to select pre-selected members
+                            foreach (ListItem item in ddlMembers2.Items)
+                            {
+                                if (selectedMembers.Contains(item.Value))
+                                {
+                                    item.Selected = true;
+                                }
+                            }
+                            mp1.Show();
+                        }
+                        else
+                        {
+                            ddlMembers2.Items.Insert(0, new ListItem("No Members", "0"));
+                        }
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+
+            }
+            //mp1.Show();
+        }
+
+
+        // Method to merge two DataTables
+        private DataTable MergeDataTables(DataTable dt1, DataTable dt2)
+        {
+            // Create a new DataTable
+            DataTable mergedTable = new DataTable();
+
+            // Add columns from dt1 to mergedTable
+            foreach (DataColumn column in dt1.Columns)
+            {
+                mergedTable.Columns.Add(new DataColumn(column.ColumnName, column.DataType));
+            }
+
+            // Add columns from dt2 to mergedTable
+            foreach (DataColumn column in dt2.Columns)
+            {
+                if (!mergedTable.Columns.Contains(column.ColumnName))
+                {
+                    mergedTable.Columns.Add(new DataColumn(column.ColumnName, column.DataType));
+                }
+            }
+
+            // Merge rows from both DataTables
+            foreach (DataRow row1 in dt1.Rows)
+            {
+                DataRow newRow = mergedTable.Rows.Add();
+                foreach (DataColumn column in dt1.Columns)
+                {
+                    newRow[column.ColumnName] = row1[column.ColumnName];
+                }
+            }
+
+            foreach (DataRow row2 in dt2.Rows)
+            {
+                // Check if the same record already exists in mergedTable
+                bool exists = false;
+                foreach (DataRow mergedRow in mergedTable.Rows)
+                {
+                    bool allColumnsMatch = true;
+                    foreach (DataColumn column in dt2.Columns)
+                    {
+                        if (!Equals(row2[column.ColumnName], mergedRow[column.ColumnName]))
+                        {
+                            allColumnsMatch = false;
+                            break;
+                        }
+                    }
+                    if (allColumnsMatch)
+                    {
+                        exists = true;
+                        break;
+                    }
+                }
+
+                // Add the row from dt2 to mergedTable only if it doesn't already exist
+                if (!exists)
+                {
+                    DataRow newRow = mergedTable.Rows.Add();
+                    foreach (DataColumn column in dt2.Columns)
+                    {
+                        newRow[column.ColumnName] = row2[column.ColumnName];
+                    }
+                }
+            }
+
+            return mergedTable;
+        }
+
+        protected void getMembersList()
+        {
+            int UserId = DAL.validateInt(Session["Userid"].ToString());
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(cs))
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("usp_getmember", con)) /*usp_getMembers*/
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("_UserId", UserId);
+                        cmd.Parameters.AddWithValue("_MemberId", 0);
+                        cmd.Parameters.AddWithValue("_SpType", "LS");
+                        //cmd.Parameters.AddWithValue("_AccessMappingId", 0);
+                        cmd.Parameters.AddWithValue("_ReportId", 0);
+                        cmd.Parameters.AddWithValue("_RId", 0);
+                        cmd.ExecuteNonQuery();
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        
+                        da.Fill(dtMemberList);
+                        if (dtMemberList != null && dtMemberList.Rows.Count > 0)
+                        {
+                            //ddlMembers.DataSource = dt;
+                            //ddlMembers.DataTextField = "user_FirstName";
+                            //ddlMembers.DataValueField = "user_Id";
+                            //ddlMembers.DataBind();
+                            //ddlMembers.Items.Insert(0, new ListItem("Select Member", "0"));
+
+                            //ddlMembers1.DataSource = dt;
+                            //ddlMembers1.DataTextField = "user_FirstName";
+                            //ddlMembers1.DataValueField = "user_Id";
+                            //ddlMembers1.DataBind();
+                            //ddlMembers1.Items.Insert(0, new ListItem("Select Member", "0"));
+
+                            ddlMembers2.DataSource = dtMemberList;
+                            Session["dtMemberList"] = dtMemberList;
+                            ddlMembers2.DataTextField = "user_FirstName";
+                            ddlMembers2.DataValueField = "user_Id";
+                            ddlMembers2.DataBind();
+                            //ddlMembers2.Items.Insert(0, new ListItem("Select Member", "0"));
+                        }
+                        else
+                        {
+                            ddlMembers2.Items.Insert(0, new ListItem("No Members", "0"));
+                        }
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+
+            }
+        }
+        protected void lbtnSave_Click(object sender, EventArgs e)
+        {
+            int RId = DAL.validateInt(Request.QueryString["rid"]);
+            int memberId = Convert.ToInt32(Session["memberId"]);
+            List<int> selectedIds = new List<int>();
+
+            foreach (ListItem item in ddlMembers2.Items)
+            {
+                if (item.Selected)
+                {
+                    selectedIds.Add(Convert.ToInt32(item.Value));
+                }
+            }
+            string memberIdList = string.Join(",", selectedIds);
+            //int memberId = Convert.ToInt32(ddlMembers2.SelectedItem.Value);
+            int result = 0;
+            try
+            {
+                //int age= Convert.ToInt32(Session["MemberAge"].ToString());
+                int age = 0;
+
+                using (MySqlConnection con = new MySqlConnection(cs))
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("usp_addreportwithaccess", con))
+                    {
+                        //if (memberId > 0)
+                        if (Session["memberRelation"] == null)
+                        {
+                            Session["memberRelation"] = "Self";
+                        }
+                        if (Session["memberRelation"].ToString() == "Self" || Session["memberRelation"].ToString() == "Son" || Session["memberRelation"].ToString() == "daughter" || Session["memberRelation"].ToString() == "cat" || Session["memberRelation"].ToString() == "Dog" || Session["memberRelation"].ToString() == "GrandFather" || Session["memberRelation"].ToString() == "GrandMother" || Session["memberRelation"].ToString() == "Uncle" || Session["memberRelation"].ToString() == "Aunt" || Session["memberRelation"].ToString() == "Son" && age < 17 || age > 70)
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("_UserId", int.Parse(Session["Userid"].ToString()));
+                            cmd.Parameters.AddWithValue("_reportname", "");
+                            cmd.Parameters.AddWithValue("_reporturl", "");
+                            cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(RId));
+                            // cmd.Parameters.AddWithValue("_memberId", memberId);
+                            cmd.Parameters.AddWithValue("_memberId", memberIdList);
+                            cmd.Parameters.AddWithValue("_rId", Convert.ToInt32(Session["ReportUniqueId"].ToString()));
+                            cmd.Parameters.AddWithValue("_SpType", "U");
+                            cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
+                            cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
+                            cmd.ExecuteNonQuery();
+                            int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
+                            result = DAL.validateInt(retVal);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Updated Successfully')", true);
+                            //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
+                            Session["memberId"] = 0;
+                        }
+                        else if (memberId == int.Parse(Session["Userid"].ToString()))
+                        {
+                            //using (MySqlCommand cmd = new MySqlCommand("usp_addreport", con))
+                            //{
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("_UserId", int.Parse(Session["Userid"].ToString()));
+                            cmd.Parameters.AddWithValue("_reportname", "");
+                            cmd.Parameters.AddWithValue("_reporturl", "");
+                            cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(RId));
+                            // cmd.Parameters.AddWithValue("_memberId", memberId);
+                            cmd.Parameters.AddWithValue("_memberId", memberIdList);
+                            cmd.Parameters.AddWithValue("_rId", Convert.ToInt32(Session["ReportUniqueId"].ToString()));
+                            cmd.Parameters.AddWithValue("_SpType", "U");
+                            cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
+                            cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
+                            cmd.ExecuteNonQuery();
+                            int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
+                            result = DAL.validateInt(retVal);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Updated Successfully')", true);
+                            //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
+                        }
+                        else
+                        {
+                            //using (MySqlCommand cmd = new MySqlCommand("usp_addreport", con))
+                            //{
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("_UserId", int.Parse(Session["Userid"].ToString()));
+                            cmd.Parameters.AddWithValue("_reportname", "");
+                            cmd.Parameters.AddWithValue("_reporturl", "");
+                            cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(RId));
+                            // cmd.Parameters.AddWithValue("_memberId", memberId);
+                            cmd.Parameters.AddWithValue("_memberId", memberIdList);
+                            cmd.Parameters.AddWithValue("_rId", Convert.ToInt32(Session["ReportUniqueId"].ToString()));
+                            cmd.Parameters.AddWithValue("_SpType", "U");
+                            cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
+                            cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
+                            cmd.ExecuteNonQuery();
+                            int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
+                            result = DAL.validateInt(retVal);
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Updated Successfully')", true);
+                            //else
+                            //{
+                            //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You don't have permission to add reports for this member')", true);
+                            //}
+                        }
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+                result = 0;
+            }
+            //return result;
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            mp1.Hide();
+        }
+
+        protected void Linkbtn1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void rptReports_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            Repeater reportRepeater = e.Item.FindControl("rptReports") as Repeater;
+        }
+
         //public static void SendMail(string Subject, string messageBody, string ToEmail, string attachmentFilePath)
         //{
         //    string fromMail = ConfigurationManager.AppSettings["careermailUserId"].ToString();
@@ -661,5 +1002,4 @@ namespace hfiles
             //SendEmailWithAttachment();
         }
     }
-
 }

@@ -5,16 +5,28 @@
 
     <link rel="stylesheet" href="./style2.css" />
     <style>
+        body{
+            margin:0 !important;
+            max-height:100%;
+        }
         .footer {
             position: absolute;
             width: 100%;
             bottom: 0;
         }
-        /*  @media (min-width: 1000px) and (max-width: 1400px) {
-             .footer {
-                 position:relative;
-             }
-         }*/
+
+        @media(max-width: 540px) {
+            .footer {
+                bottom: 0;
+            }
+        }
+
+        @media (max-width: 900px) {
+            body {
+                min-height: 100vh;
+            }
+        }
+
         @media (min-width: 500px) and (max-width: 540px) {
             .footer {
                 position: relative;
@@ -25,22 +37,49 @@
             background-image: url('../Reception Page/samanta-bg.png');
             background-size: contain;
             background-repeat: no-repeat;
-            background-position: center
+            background-position: center;
         }
-        .comming-soon  {
+
+        .comming-soon {
             font-size: 14px;
         }
 
 
-         @keyframes blink {
-        0% { color: black; }
-        50% { color: red; }
-        100% { color: darkgreen; }
-    }
+        @keyframes blink {
+            0% {
+                color: black;
+            }
 
-    .blink {
-        animation: blink 1s infinite; /* Change the duration as needed */
-    }
+            50% {
+                color: red;
+            }
+
+            100% {
+                color: darkgreen;
+            }
+        }
+
+        .blink {
+            animation: blink 1s infinite; /* Change the duration as needed */
+        }
+
+        @media(max-width: 1024px) {
+            .comming-soon {
+                font-size: 12px;
+            }
+        }
+
+        @media (min-width: 1022px) and (max-width: 1024px) {
+            .footer {
+                position: relative;
+            }
+        }
+
+        @media (min-height: 1364px) and (max-height: 1366px) {
+            .footer {
+                position: absolute;
+            }
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -67,7 +106,7 @@
                         <a class="support-group my-5" href="additionalinformation.aspx">
                             <div class="my_profile">
                                 <div class="row align-items-center">
-                                    <div class="col-3 tab-icon-div">
+                                    <div class="col-3 tab-icon-div" style="margin-left:-15px;">
                                         <img src="../Reception Page/health-report-icon.png" />
                                     </div>
                                     <div class="col-9">
@@ -77,14 +116,14 @@
                             </div>
                         </a>
 
-                        <a class="support-group mb-lg-5 w-100" href="avatar.aspx">
+                        <a class="support-group mb-lg-5 w-100" href="avatar2.aspx">
                             <div class="my_profile">
                                 <div class="row align-items-center">
 
-                                    <div class="col-3 tab-icon-div">
+                                    <div class="col-3 tab-icon-div" style="margin-left:-15px;">
                                         <img src="../Reception Page/h-files-icon.png" />
                                     </div>
-                                    <div class="col-9">
+                                    <div class="col-9" >
                                         <h3>My H-Files</h3>
                                     </div>
 
@@ -136,7 +175,7 @@
                         <a class="support-group mb-5 w-100" href="<%= ResolveUrl("~/journal.aspx") %>">
                             <div class="my_profile">
                                 <div class="row align-items-center">
-                                    <div class="col-3 tab-icon-div">
+                                    <div class="col-3 tab-icon-div" style="margin-left:-15px;">
                                         <img src="../Reception Page/journal.png" />
                                     </div>
                                     <div class="col-9">
@@ -147,16 +186,15 @@
                             </div>
                         </a>
 
-                        <a class="support-group mb-5 w-100" href="#"><%--supportgroup.aspx--%>
+                        <a class="support-group mb-5 w-100" href="<%= ResolveUrl("~/supportgroup.aspx") %>">
                             <div class="my_profile">
                                 <div class="row align-items-center">
-                                    <div class="col-3 tab-icon-div">
+                                    <div class="col-3 tab-icon-div" style="margin-left:-15px;">
                                         <img src="../Reception Page/chat-icon.png" />
                                     </div>
                                     <div class="col-9">
-                                        <h3>Chat Room  <small id="typingEffect" class="comming-soon"><span id="comingSoon"  class="blink"></span><%--( Comming Soon ! )--%></small></h3>
-                                          <%--<img src="Reception Page/coming-soon.png" />--%>
-                                         
+                                        <h3>Chat Room  <%--<small id="typingEffect" class="comming-soon"><span id="comingSoon"  class="blink"></span>--%><%--( Comming Soon ! )--%><%--</small>--%></h3>
+                                        <%--<img src="Reception Page/coming-soon.png" />--%>
                                     </div>
                                     <%--   <div class="col-4">
                                         <h5>Comming Soon</h5>

@@ -373,7 +373,8 @@ namespace hfiles
         protected void btnShareWhatsApp_Command(object sender, CommandEventArgs e)
         {
             // string message = "Check out this cool content: " + Request.Url.AbsoluteUri;
-            string message = "Check out this cool content: " + "https://hfiles.com/journal.aspx";
+           // string message = "Check out this cool content: " + "https://hfiles.com/journal.aspx";
+            string message = "Check out this cool content: " + "http://web.hfiles.in/journal.aspx";
 
             // Construct the WhatsApp share link
             string whatsappLink = "https://wa.me/?text=" + Uri.EscapeDataString(message);

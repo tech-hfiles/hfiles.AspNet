@@ -88,7 +88,6 @@ namespace hfiles
                     }
                 }
             }
-
         }
 
         public static int GetAge(DateTime reference, DateTime birthday)

@@ -26,6 +26,7 @@ namespace hfiles
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
+            //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on ');", true);
             if (!IsPostBack)
             {
                 Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
@@ -44,7 +45,7 @@ namespace hfiles
                 //ci = Thread.CurrentThread.CurrentCulture;
                 //LoadString(ci);
                 divOtp.Visible = false;
-                otpButton.Text = "GET OTP";
+                otpButton.Text = "Get OTP";
             }
             else
             {
@@ -75,29 +76,33 @@ namespace hfiles
         }
         protected void signup_Click(object sender, EventArgs e)
         {
-            if (otpButton.Text == "GET OTP")
+            if (otpButton.Text.ToLower() == "get otp")
             {
                 // Usage:
                 string email = emailTextBox.Text.ToString();
-                if (Bind() > 0)
+                if (emailTextBox.Text != string.Empty)
                 {
-                    string otp = GenerateOTP(6); // Generate a 6-digit OTP
-                    string subject = "# Verification code";
-                    string body = $"<p style=\"text-align: justify\">Please use the verification code below to sign in. If you didn&rsquo;t request this, you can ignore this email.</p>\r\n<p><strong style=\"font-size: 130%\">{otp}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Thanks,&nbsp;</p><p style=\"text-align: justify\">Team Health Files.</p>";
-                    ViewState["OTPvalue"] = otp;
-                    Session["Userid"] = hfId.Value;
-                    DAL.SendCareerMail(subject, body, email);
-                    otpButton.Text = "SIGN IN";
-                    divOtp.Visible = true;
+                    if (Bind() > 0)
+                    {
+                        string otp = GenerateOTP(6); // Generate a 6-digit OTP
+                        string subject = "# Verification code";
+                        string body = $"<p style=\"text-align: justify\">Please use the verification code below to sign in. If you didn&rsquo;t request this, you can ignore this email.</p>\r\n<p><strong style=\"font-size: 130%\">{otp}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Thanks,&nbsp;</p><p style=\"text-align: justify\">Team Health Files.</p>";
+                        ViewState["OTPvalue"] = otp;
+                        DAL.SendCareerMail(subject, body, email);
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on " + emailTextBox.Text + "');", true);
+                        otpButton.Text = "SIGN IN";
+                        divOtp.Visible = true;
+                    }
+                    else
+                    {
+                        Session["Userid"] = null;
+                        otpButton.Text = "GET OTP";
+                        divOtp.Visible = true;
+                        //Pop Up Message
+                        Response.Redirect("~/signup.aspx");//Redirect to registration page
+                    }
                 }
-                else
-                {
-                    Session["Userid"] = null;
-                    otpButton.Text = "GET OTP";
-                    divOtp.Visible = true;
-                    //Pop Up Message
-                    Response.Redirect("~/signup.aspx");//Redirect to registration page
-                }
+
             }
             else if (otpButton.Text == "SIGN IN")
             {
@@ -105,15 +110,20 @@ namespace hfiles
                 {
                     if (otpTextBox.Value == ViewState["OTPvalue"].ToString())
                     {
+                        Session["Userid"] = hfId.Value;
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Logged in successfully');", true);
                         errorLabel.Text = "";
                         Response.Redirect("~/Samanta.aspx");//Redirect to registration page
                     }
                     else
                     {
-                        errorLabel.Text = "Inavlid OTP, please enter the correct OTP.";
+                        Session["Userid"] = null;
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Inavlid OTP, please enter the correct OTP');", true);
+                        errorLabel.Text = "";
                     }
                 }
             }
+
 
         }
 
@@ -188,10 +198,14 @@ namespace hfiles
                         Session["UserId"] = dr["user_id"].ToString();
                         //Session["role"] = dr["RoleType"].ToString();
                         Session["user_email"] = dr["user_email"].ToString();
-                        
+
                         FormsAuthentication.RedirectFromLoginPage(emailTextBox.Text + " " + txtPassword.Text, false);
+                        //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Logged in successfully');", true);
                         //FormsAuthentication.RedirectFromLoginPage(dr["user_firstname"].ToString() + " " + dr["user_lastname"].ToString(), false);
                         Response.Redirect("samanta.aspx");
+                        divpassword.Visible = true;
+                        ScriptManager.RegisterStartupScript((sender as Control), this.GetType(), Guid.NewGuid().ToString(), "changemodevalue();", true);
+                        ScriptManager.RegisterStartupScript((sender as Control), this.GetType(), Guid.NewGuid().ToString(), "handleLogin();", true);
                         //if (Session["cartprevPath"] != null)
                         //{
                         //    Response.Redirect("~/" + Session["cartprevPath"].ToString());
@@ -211,7 +225,12 @@ namespace hfiles
                     }
                     else
                     {
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", "alert('invalid username or password')", true);
+                        divOtp.Visible = false;
+                        divpassword.Visible = true;
+                        ScriptManager.RegisterStartupScript((sender as Control), this.GetType(), Guid.NewGuid().ToString(), "changemodevalue();", true);
+                        ScriptManager.RegisterStartupScript((sender as Control), this.GetType(), Guid.NewGuid().ToString(), "handleLogin();", true);
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('invalid username or password');", true);
+                        //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", "alert('invalid username or password')", true);
                     }
                 }
             }

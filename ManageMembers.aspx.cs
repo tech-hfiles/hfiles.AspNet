@@ -30,7 +30,6 @@ namespace hfiles
                 
             //    string labelText = masterPageLabel.Text;
             //}
-
         }
 
         protected void user_members()
@@ -43,6 +42,10 @@ namespace hfiles
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(Session["Userid"])); //Session["Userid"];
                     cmd.Parameters.AddWithValue("_MemberId", 0); //Session["Userid"];
+                    cmd.Parameters.AddWithValue("_SpType", "LS"); //Session["Userid"];
+                    cmd.Parameters.AddWithValue("_ReportId", 0); //Session["Userid"];
+                    cmd.Parameters.AddWithValue("_RId", 0); //Session["Userid"];
+                   // cmd.Parameters.AddWithValue("_AccessMappingId", 0); //Session["Userid"];
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
@@ -51,7 +54,6 @@ namespace hfiles
                 }
             }
         }
-
         protected void lbtnRemove_Click(object sender, EventArgs e)
         {
             LinkButton lnk = sender as LinkButton;

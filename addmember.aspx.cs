@@ -21,23 +21,39 @@ namespace hfiles
         {
             if (!IsPostBack)
             {
-                if (Session["Userid"] != null)
+                //if (Session["Userid"] != null)
+                //{
+                //    bindData(DAL.validateInt(Session["Userid"].ToString()));
+                //}
+                //else
+                //{
+                //    Response.Redirect("~/login.aspx");
+                //}
+                //PopulateUserDetails(Session["Userid"].ToString());
+                if (Session["Userid"] != null || Session["Userid"] == "")
                 {
-
+                    PopulateUserDetails(Session["Userid"].ToString());
+                    //added for getting email and password on page load
+                    //int Userid = Convert.ToInt32(Session["Userid"].ToString());
+                    //PopulateUserDetails(Session["Userid"].ToString());
                 }
-                if (Request.QueryString["UserId"] != null)
+                else
                 {
-                    string userId = Request.QueryString["UserId"];
-
-                    // Use the userId to fetch user details from the database
-                    // and pre-fill the form fields
-                    PopulateUserDetails(userId);
+                    Response.Redirect("~/login.aspx");
                 }
+                //if (Request.QueryString["UserId"] != null)
+                //{
+                //    string userId = Request.QueryString["UserId"];
+
+                //    // Use the userId to fetch user details from the database
+                //    // and pre-fill the form fields
+                //    PopulateUserDetails(userId);
+                //}
             }
         }
         protected void btn_Submit_ServerClick(object sender, EventArgs e)
         {
-            AddMember();
+            AddMember(sender);
         }
 
         private void PopulateUserDetails(string userId)
@@ -54,12 +70,12 @@ namespace hfiles
                     {
                         if (reader.Read())
                         {
-                            firstnameTextBox.Value = reader["user_firstname"].ToString();
-                            lastnameTextBox.Value = reader["user_lastname"].ToString();
+                            //firstnameTextBox.Value = reader["user_firstname"].ToString();
+                            // lastnameTextBox.Value = reader["user_lastname"].ToString();
                             phoneTextBox.Value = reader["user_contact"].ToString();
                             emailTextBox.Value = reader["user_email"].ToString();
-                            relation.Value = reader["user_relation"].ToString();
-                            dobTextBox1.Value = reader["user_dob"].ToString();
+                            //relation.Value = reader["user_relation"].ToString();
+                            //dobTextBox1.Value = reader["user_dob"].ToString();
                         }
                     }
                     command.ExecuteNonQuery();
@@ -70,68 +86,76 @@ namespace hfiles
         }
         protected void request_Click(object sender, EventArgs e)
         {
+            ScriptManager.RegisterStartupScript((sender as Control), this.GetType(), Guid.NewGuid().ToString(), "showTab('xyz', 'addExisitingMemberTab');", true);
+            //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Thank You! We will get back to you soon.');", true);
             using (MySqlConnection connection = new MySqlConnection(this.cs))
             {
                 connection.Open();
-                using (MySqlCommand mySqlCommand = new MySqlCommand("usp_existingmember", connection))
+                using (MySqlCommand mySqlCommand1 = new MySqlCommand("usp_existingmember", connection))
                 {
-                    mySqlCommand.CommandType = CommandType.StoredProcedure;
-                    mySqlCommand.Parameters.AddWithValue("_hf_number", (object)this.hfnumber.Text);
-                    mySqlCommand.Parameters.AddWithValue("_user_id", (object)Convert.ToInt32(this.Session["Userid"].ToString()));
-                    mySqlCommand.Parameters.AddWithValue("_spType", "check"); // Pass 'check' for checking existence and inserting request
-                    mySqlCommand.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
-                    mySqlCommand.ExecuteNonQuery();
+                    mySqlCommand1.CommandType = CommandType.StoredProcedure;
+                    mySqlCommand1.Parameters.AddWithValue("_hf_number", (object)this.hfnumber.Text);
+                    mySqlCommand1.Parameters.AddWithValue("_user_id", (object)Convert.ToInt32(this.Session["Userid"].ToString()));
+                    mySqlCommand1.Parameters.AddWithValue("_spType", 'C');
+                    mySqlCommand1.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
+                    mySqlCommand1.ExecuteNonQuery();
 
-                    int result = Convert.ToInt32(mySqlCommand.Parameters["_Result"].Value);
-                    if (result == 1)
+                    int result1 = Convert.ToInt32(mySqlCommand1.Parameters["_Result"].Value);
+
+                    if (result1 == 1)
                     {
-                        using (MySqlCommand mySqlCommand1 = new MySqlCommand("usp_existingmember", connection))
-                        {
-                            mySqlCommand1.CommandType = CommandType.StoredProcedure;
-                            mySqlCommand1.Parameters.AddWithValue("_hf_number", (object)this.hfnumber.Text);
-                            mySqlCommand1.Parameters.AddWithValue("_user_id", (object)Convert.ToInt32(this.Session["Userid"].ToString()));
-                            mySqlCommand1.Parameters.AddWithValue("_spType", 'C');
-                            mySqlCommand1.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
-                            mySqlCommand1.ExecuteNonQuery();
+                        // Request sent
+                        //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Sent')", true);
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Request Sent');", true);
+                    }
+                    else if (result1 == 2)
+                    {
+                        // Request already sent
 
-                            int result1 = Convert.ToInt32(mySqlCommand1.Parameters["_Result"].Value);
+                        //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Already Sent')", true);
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Request Already Sent');", true);
+                    }
+                    else if (result1 == 3)
+                    {
+                        // Request already sent
 
-                            if (result1 == 1)
-                            {
-                                // Request sent
-                                System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Sent')", true);
-                            }
-                            else if (result1 == 2)
-                            {
-                                // Request already sent
-                                System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Already Sent')", true);
-                            }
-                            //else if (result1 == 0)
-                            //{
-                            //    // User does not exist
-                            //    System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('User Does Not Exist')", true);
-                            //}
-                            //else
-                            //{
-                            //    // Handle other cases if needed
-                            //}
-                            //Member exists and request sent
-                            System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Sent')", true);
-                            connection.Close();
-                        }
+                        //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Member already added')", true);
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Member already added.');", true);
+                    }
+                    else if (result1 == 4)
+                    {
+                        // Request already sent
+                        //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Member did not accept the request')", true);
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Member did not accept the request.');", true);
+                    }
+                    else if (result1 == 5)
+                    {
+                        // Request already sent
+                        //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Request Already Sent');", true);
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Request Already Sent');", true);
+                    }
+                    else if (result1 == 6)
+                    {
+                        // User does not exist
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Can not send request to yourself');", true);
+                        //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Can not send request to yourself')", true);
+                    }
+                    else if (result1 == 0)
+                    {
+                        // User does not exist
+                        //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Member Does Not Exist')", true);
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Member Does Not Exist');", true);
                     }
                     else
                     {
-                        // Member does not exist
-                        System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Member does not exist')", true);
+                        System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Try Again!')", true);
                     }
-                    //connection.Close();
                 }
-                connection.Close();
             }
         }
 
-        protected void AddMember()
+
+        protected void AddMember(object sender)
         {
             Random random = new Random();
             int randomNumber = random.Next(1000, 9999);
@@ -164,11 +188,11 @@ namespace hfiles
                     int age = CalculateAge(Convert.ToDateTime(dobTextBox1.Value));
                     //if ((selectedRelation == "son" || selectedRelation == "daughter" || selectedRelation == "grandfather" || selectedRelation == "grandmother" || selectedRelation == "cat" || selectedRelation == "dog") && (age < 17 || age > 70)) 
                     int gender = 0;
-                    if (selectedRelation == "son" || selectedRelation == "grandfather")
+                    if (selectedRelation == "son" || selectedRelation == "grandfather" || selectedRelation == "uncle")
                     {
                         gender = 1;
                     }
-                    else if (selectedRelation == "daughter" || selectedRelation == "grandmother")
+                    else if (selectedRelation == "daughter" || selectedRelation == "grandmother" || selectedRelation == "aunt")
                     {
                         gender = 2;
                     }
@@ -182,7 +206,6 @@ namespace hfiles
                     }
                     if (age < 17 || age > 70)
                     {
-
                         cmdInsert.Parameters.AddWithValue("_user_reference", Session["Userid"].ToString());
                         cmdInsert.Parameters.AddWithValue("_user_firstname", firstnameTextBox.Value);
                         cmdInsert.Parameters.AddWithValue("_user_lastname", lastnameTextBox.Value);
@@ -202,9 +225,10 @@ namespace hfiles
                         int result = DAL.validateInt(cmdInsert.Parameters["_Result"].Value.ToString());
                         if (result == 0)
                         {
-                            Response.Write("<script>alert('Memeber already exists with same email id !')</script>");
+                            //Response.Write("<script>alert('Memeber already exists with same email id !')</script>");
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Memeber already exists with same email id !');", true);
                             //Response.Write("<script>alert('Memeber added successfully !')</script>");
-                            Response.Redirect("avatar.aspx");
+                            Response.Redirect("avatar2.aspx");
                         }
                     }
                     else
@@ -235,7 +259,8 @@ namespace hfiles
                             //Use below password for sigining up { membershippasword}
 
                             DAL.SendCareerMail(subject, body, email);
-                            Response.Write("<script>alert('Memeber added successfully.')</script>");
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Memeber added successfully');", true);
+                            //Response.Write("<script>alert('Memeber added successfully.')</script>");
                             //newly added below code(usign block) for sending requests to created members
                             using (MySqlCommand mySqlCommand1 = new MySqlCommand("usp_existingmember", con))
                             {
@@ -246,14 +271,17 @@ namespace hfiles
                                 mySqlCommand1.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
                                 mySqlCommand1.ExecuteNonQuery();
                                 // Member exists and request sent
-                                System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Sent')", true);
+                                //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Sent')", true);
+                                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Request Sent');", true);
                                 //connection.Close();
-                                Response.Redirect("avatar.aspx");
+                                Response.Redirect("avatar2.aspx");
 
 
                             }
                         }
-                        Response.Write("<script>alert('Memeber already exists with same email id !')</script>");
+                        //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", "toastr.success('User Deleted Successfully')", true);
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Memeber already exists with same email id !');", true);
+                        //Response.Write("<script>alert('Memeber already exists with same email id !')</script>");
                     }
 
                     //cmdInsert.Parameters.Add("_Result", MySqlDbType.Int32);

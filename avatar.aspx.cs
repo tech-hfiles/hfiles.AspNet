@@ -65,6 +65,8 @@ namespace hfiles
                         //imgAvatar.ImageUrl = GetImagePath(age, gender);
                     }
                 }
+
+                
             }
             else
             {
@@ -74,10 +76,12 @@ namespace hfiles
         public void showmembersdiv()
         {
             int remainingCount = 7 - rptMember.Items.Count;
+            //int remainingCount1 = 7 - Repeater1.Items.Count;
 
             if (remainingCount == 7)
             {
                 repeaterdiv.Visible = false;
+                repeaterdiv1.Visible = false;
                 //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You can add only 7 members !')", true);
             }
             if (remainingCount == 0)
@@ -112,6 +116,34 @@ namespace hfiles
 
                 listmembers.Controls.Add(li);
             }
+
+            //newly added for mobile view
+            //for (int i = 0; i < remainingCount1; i++)
+            //{
+            //    HtmlGenericControl li1 = new HtmlGenericControl("li1");
+            //    li1.Attributes["class"] = "border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4";
+
+            //    HtmlAnchor a = new HtmlAnchor();
+            //    a.HRef = "addmember.aspx";
+
+            //    HtmlImage img = new HtmlImage();
+            //    img.Src = "../Avatar/add-icon.png";
+            //    img.Alt = "";
+            //    img.Width = 30;
+
+            //    HtmlGenericControl div = new HtmlGenericControl("div");
+
+            //    HtmlGenericControl small = new HtmlGenericControl("small");
+            //    small.Attributes["class"] = "add-member-name";
+            //    small.InnerHtml = "add member";
+
+            //    div.Controls.Add(small);
+            //    a.Controls.Add(img);
+            //    a.Controls.Add(div);
+            //    li1.Controls.Add(a);
+
+            //    listmembers1.Controls.Add(li1);
+            //}
         }
     public static int GetAge(DateTime reference, DateTime birthday)
         {
@@ -240,6 +272,8 @@ namespace hfiles
                             cmd.Parameters.AddWithValue("_reportId", reportId);
                             // cmd.Parameters.AddWithValue("_memberId", memberId);
                             cmd.Parameters.AddWithValue("_memberId", memberIdList);
+
+                            cmd.Parameters.AddWithValue("_rId", 0);
                             cmd.Parameters.AddWithValue("_SpType", "C");
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                             cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
@@ -261,6 +295,7 @@ namespace hfiles
                             cmd.Parameters.AddWithValue("_reportId", reportId);
                             // cmd.Parameters.AddWithValue("_memberId", memberId);
                             cmd.Parameters.AddWithValue("_memberId", memberIdList);
+                            cmd.Parameters.AddWithValue("_rId", 0);
                             cmd.Parameters.AddWithValue("_SpType", "C");
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                             cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
@@ -281,6 +316,7 @@ namespace hfiles
                             cmd.Parameters.AddWithValue("_reportId", reportId);
                             // cmd.Parameters.AddWithValue("_memberId", memberId);
                             cmd.Parameters.AddWithValue("_memberId", memberIdList);
+                            cmd.Parameters.AddWithValue("_rId", 0);
                             cmd.Parameters.AddWithValue("_SpType", "C");
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                             cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
@@ -478,12 +514,10 @@ namespace hfiles
             {
                 memberid = values[0];
                 relation = values[1];
-
             }
             linkButton.Style.Add("font-style", "italic");
             Session["memberId"] = memberid.ToString();
             Session["memberRelation"] = relation.ToString();
-
             bindData(Convert.ToInt32(memberid));
         }
 
@@ -494,10 +528,9 @@ namespace hfiles
                 HtmlGenericControl divWrapper = (HtmlGenericControl)e.Item.FindControl("divWrapper");
 
                 // Set padding for each item
-                divWrapper.Style["padding"] = "10px"; // Adjust the value as needed
+                //divWrapper.Style["padding"] = "10px"; // Adjust the value as needed
             }
         }
-
         protected void getMembersList()
         {
             int UserId = DAL.validateInt(Session["Userid"].ToString());
@@ -511,6 +544,10 @@ namespace hfiles
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("_UserId", UserId);
                         cmd.Parameters.AddWithValue("_MemberId", 0);
+                        cmd.Parameters.AddWithValue("_SpType", "LS");
+                        //cmd.Parameters.AddWithValue("_AccessMappingId", 0);
+                        cmd.Parameters.AddWithValue("_ReportId", 0);
+                        cmd.Parameters.AddWithValue("_RId", 0);
                         cmd.ExecuteNonQuery();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
@@ -527,6 +564,7 @@ namespace hfiles
                             //ddlMembers1.DataTextField = "user_FirstName";
                             //ddlMembers1.DataValueField = "user_Id";
                             //ddlMembers1.DataBind();
+
                             //ddlMembers1.Items.Insert(0, new ListItem("Select Member", "0"));
 
                             ddlMembers2.DataSource = dt;
@@ -560,6 +598,10 @@ namespace hfiles
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("_UserId", UserId);
                         cmd.Parameters.AddWithValue("_MemberId", 0);
+                        cmd.Parameters.AddWithValue("_SpType", "LS");
+                        //cmd.Parameters.AddWithValue("_AccessMappingId", 0);
+                        cmd.Parameters.AddWithValue("_ReportId", 0);
+                        cmd.Parameters.AddWithValue("_RId", 0);
                         cmd.ExecuteNonQuery();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
@@ -568,6 +610,8 @@ namespace hfiles
                         {
                             rptMember.DataSource = dt;
                             rptMember.DataBind();
+                            Repeater1.DataSource = dt;
+                            Repeater1.DataBind();
                         }
                         else
                         {

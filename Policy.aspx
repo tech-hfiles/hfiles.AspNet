@@ -2,9 +2,23 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
      <link rel="stylesheet" href="../style2.css"/>
     <title>Privacy Policy</title>
+
+   <style>
+       @media (min-width: 1300px) {
+           .privacy_main {
+               max-height: 60vh;
+               margin-top: 50px;
+           }
+           .footer {
+               position:absolute;
+               bottom: 0;
+               width: 100%;
+           }
+       }
+   </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="privacy_main h-100vh h-xl-90vh">
+    <div class="privacy_main">
     
     <img class="blue_trangle_top_left" src="../Terms & Conditions/blue-trangle1.png" alt="">
     <img class="blue_trangle_top_right" src="../Terms & Conditions/blue-trangle2.png" alt="">

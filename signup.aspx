@@ -27,6 +27,10 @@
 
     <title>Sign Up</title>
     <style>
+        .signin-form input::placeholder {
+            color: #857d7d !important;
+        }
+
         @media (min-width: 992px) {
 
             .footer {
@@ -58,9 +62,78 @@
                 min-height: 95vh;
             }
         }
+
+        @media (min-width: 768px) and (max-width: 991px) {
+            .footer {
+                position: absolute;
+            }
+        }
+
+        @media (min-width: 415px) and (max-width: 480px) {
+            .signin-main .vert-cent {
+                height: 110vh !important;
+            }
+        }
+
+        @media (max-width: 414px) {
+            .footer {
+                position: absolute;
+            }
+        }
+
+        @media (max-width: 430px) {
+            .footer {
+                position: absolute;
+            }
+
+            .signin-main .vert-cent {
+                height: 100vh !important;
+            }
+        }
+
+        @media (min-width: 360px) and (max-height: 640px) {
+            .footer {
+                position: relative;
+            }
+
+            .signin-main .vert-cent {
+                height: 110vh !important;
+            }
+        }
+
+        @media (min-width: 370px) and (max-height: 667px) {
+            .footer {
+                position: relative;
+            }
+        }
+
+        @media (min-width: 360px) and (max-height: 740px) {
+            .footer {
+                position: relative;
+            }
+        }
     </style>
 
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <style>
+        #toast-container > .toast-success {
+            background-color: #fdd001;
+        }
+        /*.toast-message {
+         background-color: #0331b5;
+     }*/
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        toastr.options = {
+            closeButton: true,
+            progressBar: true,
+            positionClass: 'toast-top-right'
+        };
+
+    </script>
 </head>
 <body>
     <%-- <div id="google_translate_element" class="language">
@@ -77,12 +150,12 @@
     <div class="signin-main">
         <form class="w-100 h-100" runat="server">
 
-            <div id="google_translate_element" class="language"></div>
+            <%--<div id="google_translate_element" class="language"></div>--%>
             <asp:ScriptManager ID="scmSignUp" runat="server"></asp:ScriptManager>
 
             <div class="row vert-cent w-100 h-sm-100vh m-0 ">
                 <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image h-lg-100vh d-none d-lg-block px-5" style="background: #fff">
-                    <img src="<%= ResolveUrl("~/Reception Page/signup-samanta.png") %>" alt="" style="width: 100%; height: 90%; object-fit: contain" />
+                    <img src="<%= ResolveUrl("~/Reception Page/Hfiles-signup-page.png") %>" alt="" style="width: 100%; height: 90%; object-fit: contain" />
                 </div>
 
                 <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12 px-5 d-flex justify-content-center align-items-center vh-lg-100"
@@ -94,7 +167,7 @@
                             <%-- below line added for google translator --%>
                             <div id="google_element"></div>
 
-                            <h3 class="color-white">SIGN UP</h3>
+                            <h1 class="color-white">Sign Up</h1>
                         </div>
                         <div class="row signin-form form-group has-search text-center justify-content-center ">
                             <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
@@ -123,22 +196,21 @@
 
                             <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 password-div input-div">
                                 <i class="fa-solid fa-lock form-control-feedback"></i>
-                                <asp:UpdatePanel ID="uplSignUp" runat="server">
-                                    <ContentTemplate>
-                                        <asp:TextBox ID="pwdTextBox" runat="server" type="password" class="form-control my-2" placeholder="Password" required />
-                                        <i id="passwordView1" class="fa-solid fa-eye-slash hide-password-toggal"></i>
-                                    </ContentTemplate>
-                                </asp:UpdatePanel>
 
+                                <asp:TextBox ID="pwdTextBox" runat="server" type="password" class="form-control my-2" placeholder="Password" required />
+                                <i id="passwordView1" class="fa-solid fa-eye-slash hide-password-toggal"></i>
+
+                                
                             </div>
 
                             <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 password-div input-div">
                                 <i class="fa-solid fa-lock form-control-feedback"></i>
                                 <asp:TextBox ID="cpwdTextBox" runat="server" type="password" class="form-control my-2" placeholder="Confirm Password" required />
                                 <i id="passwordView2" class="fa-solid fa-eye-slash hide-password-toggal"></i>
-                                <%-- <asp:RequiredFieldValidator ControlToValidate="cpwdTextBox" ErrorMessage="Please Enter Confirm Password" runat="server" ForeColor="White"></asp:RequiredFieldValidator Display="">
-                                <asp:CompareValidator ControlToValidate="cpwdTextBox" ControlToCompare="pwdTextBox" ErrorMessage="Password and Confirm Password should be same" runat="server" ForeColor="White"></asp:CompareValidator>--%>
-                            </div>
+                                <%-- <asp:RequiredFieldValidator ControlToValidate="cpwdTextBox" ErrorMessage="Please Enter Confirm Password" runat="server" ForeColor="White"></asp:RequiredFieldValidator Display="">--%>
+                              
+
+                            </div>  <asp:CompareValidator ControlToValidate="cpwdTextBox" Display="Dynamic" ControlToCompare="pwdTextBox" ErrorMessage="Password and Confirm Password should be same" runat="server" ForeColor="White"></asp:CompareValidator>
 
                         </div>
                         <div class="text-center my-3" runat="server" id="divOtp">
@@ -188,7 +260,7 @@
                     <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
                     <p class="m-0"><a class="text-white">Copyright@2024</a></p>
                 </div>
-                
+
                 <div class="col-4 p-p d-xl-flex text-center">
                     <p class="m-0">
                         <a
@@ -202,18 +274,35 @@
 
         </form>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script>
+        toastr.options = {
+            closeButton: true,
+            progressBar: true,
+            positionClass: 'toast-top-right',
+            "showDuration": "3000",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+
+        };
+
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en',
                 includedLanguages: 'en,hi,mr',
             }, 'google_translate_element');
         }
-    </script>
 
 
-    <script type="text/javascript">
+
+
         $('#passwordView1').click(function () {
             console.log('password')
             if ($('#pwdTextBox').attr('type') == 'password') {
@@ -283,9 +372,7 @@
             timer(60);
         })
 
-    </script>
 
-    <script>
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en'

@@ -45,18 +45,93 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Signup - Basic Information</title>
     <style>
-        @media (min-width: 700px) and (max-width: 1024px) {
+        .signin-form input::placeholder {
+            color: #0512b9 !important;
+        }
+
+        .Addbasicbtnboth {
+            display: flex;
+            justify-content: space-around;
+        }
+
+            .Addbasicbtnboth button {
+                padding: 10px 12px;
+                /* border-radius: 50px; */
+                border: 0;
+                outline: 0;
+                color: #0512b9;
+                cursor: pointer;
+                margin-top: 20px;
+                font-family: 'Red Hat Display', Sans-serif !important;
+                font-weight: 700;
+                font-size: 13px;
+                background-color: #fdd001;
+            }
+
+        @media (max-width: 480px) {
+            .Addbasicbtnboth button {
+                padding: 8px 10px;
+                font-size: 9px;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .Addbasicbtnboth button {
+                padding: 8px 10px;
+                font-size: 9px;
+            }
+
+            .back-arrow-btn {
+                top: 10% !important;
+            }
+        }
+
+        @media (max-width: 280px) {
+            .Addbasicbtnboth button {
+                padding: 8px 10px;
+                font-size: 9px;
+            }
+        }
+
+        @media (min-width: 700px) and (max-width: 1022px) {
             .footer {
                 position: absolute !important;
                 width: 100%;
                 bottom: 0;
+            }
+
+            .user-info-main .profile-img img {
+                width: 100% !important;
+            }
+
+            .Addbasicbtnboth button {
+                font-size: 10px;
+            }
+        }
+
+        @media (min-width: 1022px) and (max-width: 1024px) {
+            .Addbasicbtnboth button {
+                padding: 8px 10px;
+                font-size: 10px
+            }
+
+            .back-arrow-btn {
+                top: 10% !important;
+            }
+        }
+
+        @media (min-width: 1022px) and (min-height: 1366px) {
+            .footer {
+                position: absolute;
+                width: 100%;
+                bottom: 0px !important;
             }
         }
 
         @media (min-width: 1024px) and (min-height: 600px) {
             .footer {
                 /*position: relative;*/
-                bottom:-20px;
+                bottom: -20px;
             }
 
             .user-info-main {
@@ -79,13 +154,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
-   <%-- <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>--%>
+    <%-- <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>--%>
 
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
             <div class="user-info-main" runat="server">
                 <a class="back-arrow-btn" href="javascript: history.go(-1)">
-                    <img src="../assets/back-arrow.png" alt="">Back</a>
+<%--                    <img src="../assets/back-arrow.png" alt="">--%>
+                    Back</a>
                 <div class="container mt-768-80">
                     <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
                     <img class="blue-trangle-top-right" src="../assets/blue-trangle.png" alt="">
@@ -95,14 +171,18 @@
                     <div class="row px-5">
                         <div class="col-md-4 col-sm-12 col-lg-4 col-xl-4 d-flex mt-sm-5 mt-lg-0 align-items-center justify-content-center">
                             <div class="text-center profile-img">
-                                <img id="imagePreview" class="w-75" alt="" runat="server" />
+                                <img id="imagePreview" class="w-75" alt="profile_image" runat="server" style="border:1px solid transparent;border-radius:50%;" />
                                 <%-- <img id="imagePreview" runat="server" class="w-75" src="../My Data/default-user-profile.png" alt="" />--%>
                                 <br />
+                                <div class="Addbasicbtnboth">
+                                    <button type="button">Change Profile Image</button>
+                                    <button type="button">Remove Profile Image</button>
+                                </div>
                                 <br />
 
                                 <asp:UpdatePanel runat="server" UpdateMode="Conditional">
                                     <ContentTemplate>
-                                        <asp:FileUpload CssClass="form-control" runat="server" ID="Profileupload"  />
+                                        <asp:FileUpload CssClass="form-control" runat="server" ID="Profileupload" />
                                     </ContentTemplate>
                                     <Triggers>
                                         <asp:PostBackTrigger ControlID="submitButton" />
@@ -163,30 +243,23 @@
                                     <i class="fa-solid fa-earth-americas form-control-feedback"></i>
                                     <%--<input required id="countryTextBox" runat="server" type="text" class="form-control" placeholder="Enter Country">--%>
                                     <asp:DropDownList ID="ddlCountry" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:DropDownList>
-                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlCountry" ErrorMessage="Please Select Country" CssClass=""></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator InitialValue="0" runat="server" ControlToValidate="ddlCountry" ValidationGroup="updateProfile" Display="Dynamic" ErrorMessage="Please Select Country" CssClass=""></asp:RequiredFieldValidator>
 
-                                    <%--<select runat="server" id="countryTextBox" class="form-select form-control mySelect" aria-label="Default select example">
-                            <option selected value="">Country</option>
-                            <option value="1">India</option>
-                            <option value="2">US</option>
-                            <option value="3">UAE</option>
-                        </select>--%>
+
                                 </div>
                                 <div class="col-12">
                                     <span for="" class="imp-star">*</span>
                                     <i class="fa-solid fa-map-pin form-control-feedback"></i>
 
-                                    <%--  <asp:DropDownList ID="ddlState" runat="server" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>--%>
-
                                     <asp:DropDownList ID="stateDropDownList" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="stateDropDownList_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:DropDownList>
-                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="stateDropDownList" ErrorMessage="Please Select State" CssClass=""></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="stateDropDownList" ValidationGroup="updateProfile" Display="Dynamic" ErrorMessage="Please Select State" CssClass=""></asp:RequiredFieldValidator>
                                     <input id="stateTextBox" visible="false" runat="server" type="text" class="form-control" placeholder="Enter State" />
                                 </div>
                                 <div class="col-12 mb-lg-5">
                                     <span for="" class="imp-star">*</span>
                                     <i class="fa-sharp fa-solid fa-city form-control-feedback"></i>
                                     <asp:DropDownList ID="cityDropDownList" CssClass="form-select form-control mySelect" runat="server"></asp:DropDownList>
-                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="cityDropDownList" ErrorMessage="Please Select City" CssClass=""></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator runat="server" Display="Dynamic" ValidationGroup="updateProfile" ControlToValidate="cityDropDownList" ErrorMessage="Please Select City" CssClass=""></asp:RequiredFieldValidator>
                                     <input id="cityTextBox" visible="false" runat="server" type="text" class="form-control" placeholder="Enter City" />
                                 </div>
                             </div>
@@ -197,7 +270,6 @@
                                 <div class="col-12">
                                     <span for="" class="imp-star">*</span>
                                     <span class="form-control-feedback">
-                                        <%-- <i class="fa-solid fa-phone-volume form-control-feedback"></i>--%>
                                         <asp:Label ID="dialcode" Style="color: #fdd001; font-weight: 600" Text="" runat="server"></asp:Label></span>
                                     <input class="form-control" required id="contactTextBox" name="phone" readonly="true" runat="server" type="tel" placeholder="Contact Number" style="padding-left: 45px !important;" />
 
@@ -214,8 +286,9 @@
                                 </div>
                                 <div class="col-12">
                                     <span for="" class="imp-star">&nbsp;</span>
-                                    <i class="fa-solid fa-phone-volume form-control-feedback"></i>
-                                    <input id="relativecontactTextBox" runat="server" type="tel" class="form-control" placeholder="Relative To Emergency Contact No" />
+                                    <%--                                    <i class="fa-solid fa-phone-volume form-control-feedback"></i>--%>
+                                    <i class="fa-solid fa-user-group form-control-feedback"></i>
+                                    <input id="relativecontactTextBox" runat="server" type="tel" class="form-control" placeholder="Relation To Emergency Contact No" />
                                 </div>
 
                                 <div class="col-12">
@@ -224,18 +297,13 @@
                                     <input id="famdocTextBox" runat="server" type="text" class="form-control" placeholder="Family Doctor Name" />
                                 </div>
                                 <div class="text-center">
-                                    <asp:Button ID="submitButton" runat="server" OnClick="submitButton_Click" Text="Update" class="btn thm-button mb-2 mt-4"></asp:Button>
+                                    <asp:Button ID="submitButton" runat="server" OnClick="submitButton_Click" ValidationGroup="updateProfile" Text="Update" class="btn thm-button mb-2 mt-4"></asp:Button>
                                 </div>
-                                <%-- <div class="text-center">
-                            <asp:Button ID="nextButton" runat="server" PostBackUrl="~/additionalinformation.aspx" Text="Next" class="btn thm-blue-button mb-2 mt-4"></asp:Button>
-                        </div>--%>
                             </div>
                         </div>
 
                     </div>
-                    <%-- <img class="blue-trangle-bottom-left" src="../assets/blue-trangle.png" alt="">
-                    <img class="blue-trangle-bottom-right" src="../assets/blue-trangle-bottom.png" alt="">
-                    <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">--%>
+
                 </div>
             </div>
             <div id="toast">

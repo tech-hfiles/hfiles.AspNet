@@ -33,6 +33,24 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.TextBox emailTextBox;
 
         /// <summary>
+        /// divpassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divpassword;
+
+        /// <summary>
+        /// hfIsPasswordDivActive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfIsPasswordDivActive;
+
+        /// <summary>
         /// txtPassword control.
         /// </summary>
         /// <remarks>

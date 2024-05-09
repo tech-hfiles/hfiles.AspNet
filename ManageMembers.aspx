@@ -17,9 +17,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <%--    <asp:ScriptManager ID="scm1" runat="server"></asp:ScriptManager>--%>
     <a class="back-arrow-btn" href="javascript: history.go(-1)">
-        <img src="../assets/back-arrow.png" alt="">Back</a>
-    <div class="manage-members-div">
-        <div class="row justify-content-center pt-5 m-0" style="min-height: 100vh">
+<%--        <img src="../assets/back-arrow.png" alt="">--%>
+        Back</a>
+    <div class="manage-members-div" style="min-height: 100vh">
+         <div class="row justify-content-center pt-5 m-0" style="min-height: 100vh">
             <div class="col-12 col-md-10 col-lg-10">
                         <h2 class="text-center heading mb-5">Request List
                         </h2>
@@ -145,7 +146,7 @@
 
                             <%--</div>--%>
                         </div>
-                        <div>
+                        <div class="container-fluid">
                             <div class="row justify-content-center">
                                 <h2 class="text-center heading my-3">Members List</h2>
                                 <asp:Repeater ID="gvMembers1" runat="server">
