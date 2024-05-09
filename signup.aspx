@@ -115,6 +115,25 @@
     </style>
 
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <style>
+        #toast-container > .toast-success {
+            background-color: #fdd001;
+        }
+        /*.toast-message {
+         background-color: #0331b5;
+     }*/
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        toastr.options = {
+            closeButton: true,
+            progressBar: true,
+            positionClass: 'toast-top-right'
+        };
+
+    </script>
 </head>
 <body>
     <%-- <div id="google_translate_element" class="language">
@@ -177,22 +196,21 @@
 
                             <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 password-div input-div">
                                 <i class="fa-solid fa-lock form-control-feedback"></i>
-                                <asp:UpdatePanel ID="uplSignUp" runat="server">
-                                    <ContentTemplate>
-                                        <asp:TextBox ID="pwdTextBox" runat="server" type="password" class="form-control my-2" placeholder="Password" required />
-                                        <i id="passwordView1" class="fa-solid fa-eye-slash hide-password-toggal"></i>
-                                    </ContentTemplate>
-                                </asp:UpdatePanel>
 
+                                <asp:TextBox ID="pwdTextBox" runat="server" type="password" class="form-control my-2" placeholder="Password" required />
+                                <i id="passwordView1" class="fa-solid fa-eye-slash hide-password-toggal"></i>
+
+                                
                             </div>
 
                             <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 password-div input-div">
                                 <i class="fa-solid fa-lock form-control-feedback"></i>
                                 <asp:TextBox ID="cpwdTextBox" runat="server" type="password" class="form-control my-2" placeholder="Confirm Password" required />
                                 <i id="passwordView2" class="fa-solid fa-eye-slash hide-password-toggal"></i>
-                                <%-- <asp:RequiredFieldValidator ControlToValidate="cpwdTextBox" ErrorMessage="Please Enter Confirm Password" runat="server" ForeColor="White"></asp:RequiredFieldValidator Display="">
-                                <asp:CompareValidator ControlToValidate="cpwdTextBox" ControlToCompare="pwdTextBox" ErrorMessage="Password and Confirm Password should be same" runat="server" ForeColor="White"></asp:CompareValidator>--%>
-                            </div>
+                                <%-- <asp:RequiredFieldValidator ControlToValidate="cpwdTextBox" ErrorMessage="Please Enter Confirm Password" runat="server" ForeColor="White"></asp:RequiredFieldValidator Display="">--%>
+                              
+
+                            </div>  <asp:CompareValidator ControlToValidate="cpwdTextBox" Display="Dynamic" ControlToCompare="pwdTextBox" ErrorMessage="Password and Confirm Password should be same" runat="server" ForeColor="White"></asp:CompareValidator>
 
                         </div>
                         <div class="text-center my-3" runat="server" id="divOtp">
@@ -256,18 +274,35 @@
 
         </form>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script>
+        toastr.options = {
+            closeButton: true,
+            progressBar: true,
+            positionClass: 'toast-top-right',
+            "showDuration": "3000",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+
+        };
+
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en',
                 includedLanguages: 'en,hi,mr',
             }, 'google_translate_element');
         }
-    </script>
 
 
-    <script type="text/javascript">
+
+
         $('#passwordView1').click(function () {
             console.log('password')
             if ($('#pwdTextBox').attr('type') == 'password') {
@@ -337,9 +372,7 @@
             timer(60);
         })
 
-    </script>
 
-    <script>
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en'

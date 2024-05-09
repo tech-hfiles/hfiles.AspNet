@@ -63,27 +63,25 @@ namespace hfiles
                     }
                 }
 
-                //if (Session["memberId"] != null && Session["memberRelation"] != null)
-                //{
-                //    foreach (RepeaterItem item in rptMember.Items)
-                //    {
-                //        HiddenField hfmemberid = item.FindControl("hfmemberid") as HiddenField;
-                //        LinkButton linkButton1 = item.FindControl("member1") as LinkButton;
+                if (Session["memberId"] != null && Session["memberRelation"] != null)
+                {
+                    foreach (RepeaterItem item in rptMember.Items)
+                    {
+                        HiddenField hfmemberid = item.FindControl("hfmemberid") as HiddenField;
+                        LinkButton linkButton1 = item.FindControl("member1") as LinkButton;
 
-                //        if (DAL.validateInt(hfmemberid.Value) == DAL.validateInt(Session["memberId"]))
-                //        {
-                //            linkButton1.Style.Add("font-weight", "900");
-                //            member1_Click(linkButton1, null);
-                //        }
-                //        else
-                //        {
-                //            linkButton1.Style.Add("font-weight", "450");
-                //        }
-                       
-                //    }
+                        if (DAL.validateInt(hfmemberid.Value) == DAL.validateInt(Session["memberId"]))
+                        {
+                            linkButton1.Style.Add("font-weight", "900");
+                            member1_Click(linkButton1, null);
+                        }
+                        else
+                        {
+                            linkButton1.Style.Add("font-weight", "450");
+                        }
 
-                    
-                //}
+                    }
+                }
             }
             else
             {
@@ -92,6 +90,7 @@ namespace hfiles
         }
         public void showmembersdiv(object sender)
         {
+            listmembers.Controls.Clear();
             int remainingCount = 7 - rptMember.Items.Count;
             //int remainingCount1 = 7 - Repeater1.Items.Count;
 
@@ -696,7 +695,7 @@ namespace hfiles
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("_UserId", UserId);
-                        string usedStorage1 = cmd.ExecuteScalar().ToString();
+                        string usedStorage1 = "0";//cmd.ExecuteScalar().ToString();
                         double usedStorage = DAL.validateDouble_(cmd.ExecuteScalar());
                         double TotalAllotStorage = DAL.validateDouble_(ConfigurationManager.AppSettings["StorageLimit"].ToString());
                         storageused.InnerText = (usedStorage).ToString() + " gb Storage";

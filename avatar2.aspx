@@ -528,7 +528,7 @@
                                     </div>
                                     <div class="AddmemberRightside_Card">
                                         <span>1.5 data</span>
-                                        
+                                        <span id="storageleft" runat="server"></span>
                                         <span>15gb</span>
                                     </div>
                                     

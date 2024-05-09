@@ -651,6 +651,7 @@
     <Content Include="Help Page\blue-trangle6.png" />
     <Content Include="Help Page\blue-trangle7.png" />
     <Content Include="Help Page\home-icon.png" />
+    <Content Include="index.aspx" />
     <Content Include="journal-page-images\961B8877-6322-4557-9520-5D0C9F5D9506 %28enhanced%29.wav" />
     <Content Include="journal-page-images\Article.jpg" />
     <Content Include="journal-page-images\article\Article.jpg" />
@@ -987,6 +988,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="journal.aspx.cs">
       <DependentUpon>journal.aspx</DependentUpon>

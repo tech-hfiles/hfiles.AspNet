@@ -64,7 +64,7 @@ namespace hfiles
                         int UserId = int.Parse(Session["Userid"].ToString());
                         //Reports(UserId, RId);
                         //below condition is added newly for reports access
-                        if (Session["memberId"] == null || Convert.ToInt32(Session["memberId"]) > 0)
+                        if (Session["memberId"] != null && Convert.ToInt32(Session["memberId"]) > 0)
                         {
                             UserReports(Convert.ToInt32(Session["memberId"]), RId);
                         }
@@ -254,7 +254,7 @@ namespace hfiles
                         }
                     }
                 }
-                Session["memberId"] = 0;
+                //Session["memberId"] = 0;
             }
             catch (Exception Ex)
             {

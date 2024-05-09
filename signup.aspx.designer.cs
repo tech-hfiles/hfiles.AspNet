@@ -69,15 +69,6 @@ namespace hfiles
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl emailTextBox;
 
         /// <summary>
-        /// uplSignUp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel uplSignUp;
-
-        /// <summary>
         /// pwdTextBox control.
         /// </summary>
         /// <remarks>
