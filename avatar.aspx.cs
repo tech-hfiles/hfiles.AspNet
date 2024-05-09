@@ -113,8 +113,7 @@ namespace hfiles
                 listmembers.Controls.Add(li);
             }
         }
-
-        public static int GetAge(DateTime reference, DateTime birthday)
+    public static int GetAge(DateTime reference, DateTime birthday)
         {
             int age = reference.Year - birthday.Year;
             if (reference < birthday.AddYears(age))
