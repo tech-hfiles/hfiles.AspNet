@@ -45,6 +45,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Signup - Basic Information</title>
     <style>
+        input::placeholder,input::selection{
+            color: #0512b9 !important;
+
+        }
         .signin-form input::placeholder {
             color: #0512b9 !important;
         }
@@ -131,7 +135,6 @@
         @media (min-width: 1024px) and (min-height: 600px) {
             .footer {
                 /*position: relative;*/
-                bottom: -20px;
             }
 
             .user-info-main {
@@ -242,8 +245,8 @@
                                     <span for="" class="imp-star">*</span>
                                     <i class="fa-solid fa-earth-americas form-control-feedback"></i>
                                     <%--<input required id="countryTextBox" runat="server" type="text" class="form-control" placeholder="Enter Country">--%>
-                                    <asp:DropDownList ID="ddlCountry" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:DropDownList>
-                                    <asp:RequiredFieldValidator InitialValue="0" runat="server" ControlToValidate="ddlCountry" ValidationGroup="updateProfile" Display="Dynamic" ErrorMessage="Please Select Country" CssClass=""></asp:RequiredFieldValidator>
+                                    <asp:DropDownList ID="ddlCountry" CssClass="form-select form-control mySelect"  OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:DropDownList>
+                                    <asp:RequiredFieldValidator InitialValue="0" runat="server" ControlToValidate="ddlCountry" placeholder="Select Your Country" ValidationGroup="updateProfile" Display="Dynamic" ErrorMessage="Please Select Country" CssClass=""></asp:RequiredFieldValidator>
 
 
                                 </div>
@@ -252,8 +255,9 @@
                                     <i class="fa-solid fa-map-pin form-control-feedback"></i>
 
                                     <asp:DropDownList ID="stateDropDownList" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="stateDropDownList_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:DropDownList>
+                                                                        <input id="stateTextBox" visible="false" runat="server" type="text" class="form-control" placeholder="Enter State" />
+
                                     <asp:RequiredFieldValidator runat="server" ControlToValidate="stateDropDownList" ValidationGroup="updateProfile" Display="Dynamic" ErrorMessage="Please Select State" CssClass=""></asp:RequiredFieldValidator>
-                                    <input id="stateTextBox" visible="false" runat="server" type="text" class="form-control" placeholder="Enter State" />
                                 </div>
                                 <div class="col-12 mb-lg-5">
                                     <span for="" class="imp-star">*</span>

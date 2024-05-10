@@ -139,9 +139,9 @@
                     </div>
 
                     <div class="text-center my-1" id="btnSubmitDiv">
-                        <div class="text-center resend-otp-div">
+                        <%--<div class="text-center resend-otp-div">
                             <input type="checkbox" /><span style="color: #fff"> I agree to <a target="_blank" style="color: #fdd001; font-weight: 700" href="tc.aspx">Terms and Conditions</a> </span>
-                        </div>
+                        </div>--%>
                         <asp:LinkButton class="btn thm-button my-2" Text="Login" ValidationGroup="login" OnClick="btnSubmit_Click" ID="btnSubmit" runat="server" meta:resourcekey="btnsubmitlogin" />
 
                     </div>

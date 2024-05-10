@@ -11,12 +11,13 @@
         crossorigin="anonymous"></script>
     <title>Additional Information</title>
     <style>
+        
        .heading mb-4 h1{
             font-family:'Red Hat Display', sans-serif !important;
         }
-        @media(min-width: 1366px) {
+        @media(min-width: <1246px) {
             .footer {
-                position: absolute;
+                position: relative;
                 /* bottom: 0;*/
                 width: 100%;
             }
@@ -24,7 +25,7 @@
 
         @media (min-width: 800px) and (max-width: 1024px) {
             .footer {
-                position: absolute;
+                position: relative;
                 bottom: 0;
                 width: 100%;
             }
@@ -60,6 +61,10 @@
                 .SingleCheckbox input[type=checkbox] + label {
                     margin: 0 11px !important;
                 }
+                .SingleCheckbox{
+                  justify-items:center;
+                  align-items:center;
+                }
 
                 .common-design .blue-trangle-bottom {
                     position: relative;
@@ -67,7 +72,7 @@
                 }
             }
 
-            @media(max-width: 360px) {
+            @media(max-width: 460px) {
                 .SingleCheckbox input[type=checkbox] + label {
                     margin: 0 13px !important;
                 }
@@ -150,7 +155,13 @@
                 align-content:center;
                 text-align:center;
             }*/
-
+            .thm-back-button{
+              background-color:#FFD101 !important;
+              padding:0px 45px !important;
+            }
+            .thm-back-button:hover{
+              background-color:white;
+            }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -166,9 +177,9 @@
                    <%-- <a class="back-arrow-btn" href="javascript: history.go(-1)">
 <%--                        <img src="../assets/back-arrow.png" alt="">--%>
                        <%-- Back</a>--%>
-                    <div class="row pt-5 mb-5">
+                    <div class="row <%--pt-5 px-5--%> pb-1">
                         <div class="col-12" style="font-family: 'Red Hat Display', sans-serif !important;">
-                            <h1 class="heading">Additional Information</h1>
+                            <h1 class="heading text-blue">Additional Information</h1>
                             <div class="row py-2">
                                 <div class="col-lg-1 col-xl-1 col-md-2 col-3">
                                     <p class="sub-heading">Height</p>
@@ -359,7 +370,7 @@
                                     </table>--%>
                                 </div>
                             </div>
-                            <div class="mt-2 mt-lg-5 d-lg-flex d-block">
+                            <div class="mt-2 mt-lg-5 d-lg-flex d-flex">
                                 <%--<asp:Button Text="Back" class="thm-back-button" OnClick="btnMedicalBack_Click" type="Button" ID="Button1" runat="server" />--%>
 
                                 <asp:Button Text="Back" class="thm-back-button" OnClick="btnAdditionalBack_Click" type="Button" ID="btnMedicalBack" runat="server" />
@@ -382,10 +393,10 @@
                 <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
                 <img class="plus-top-left" src="../assets/plus-1.png" alt="">
 
-                <div class="medical-main-div container pt-5 px-5 h-90vh h-ssm-100vh mb-5 mb-lg-0">
-                    <div class="row mt-5">
+                <div class="medical-main-div container <%--pt-5 px-5--%> h-90vh h-ssm-100vh mb-5 mb-lg-0">
+                    <div class="row mt-5 m-0">
                         <div class="col-12">
-                            <h1 class="heading mb-4" >Medical History</h1>
+                            <h1 class="heading mb-4 text-center">Medical History</h1>
                         </div>
                         <div class="row border-bottom p-0">
                             <div class="col-lg-6 col-md-6 col-4">
@@ -406,14 +417,14 @@
                             <asp:Repeater runat="server" ID="rptDisease">
                                 <ItemTemplate>
                                     <div class="row py-4 border-bottom medical-history-row">
-                                        <div class="col-md-6 col-4">
+                                        <div class="col-md-6 col-3">
                                             <p><%# Eval("disease_name") %></p>
                                             <asp:HiddenField runat="server" ID="hfdisease_id" Value='<%# Eval("disease_id") %>' />
                                             </p>
                                         
                                         </div>
                                         <%--                                    --%>
-                                        <div class="col-md-6 col-5 SingleCheckbox">
+                                        <div class="col-md-6 col-5 SingleCheckbox justify-content-center align-items-center">
                                             <asp:CheckBoxList runat="server" ID="cbl" class="" RepeatDirection="Horizontal">
                                                 <asp:ListItem Value="1" Text=" " class="CheckBoxLabel" />
                                                 <asp:ListItem Value="2" Text=" " />
@@ -452,7 +463,7 @@
                 <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
                 <img class="plus-top-left" src="../assets/plus-1.png" alt="">--%>
 
-                <div id="AllergiesDiv" runat="server" class="medical-main-div container pt-5 px-5 h-90 ">
+                <div id="AllergiesDiv" runat="server" class="medical-main-div container <%--pt-5 px-5--%> h-90 ">
                     <div class="row mt-5">
                         <div class="col-12">
                             <h1 class="heading mb-4">Do You Have Any of These Allergies?</h1>
