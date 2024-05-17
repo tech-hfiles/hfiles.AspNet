@@ -104,16 +104,16 @@
                     <div class="text-center signin-heading">
                         <img src="<%= ResolveUrl("~/Sign Up Page/Hfiles Logo.png") %>" alt="" width="120px" />
                         <br />
-                        <h1 class="color-white">Welcome Back!</h1>
+                        <h1 class="color-white pl-3">Welcome Back!</h1>
                     </div>
                     <div>
-                        <asp:TextBox ID="emailTextBox" CssClass="w-100 login-input" required TextMode="SingleLine" placeholder="Email Id / Contact No." runat="server" Style="border-radius: 30px"></asp:TextBox>
+                        <asp:TextBox ID="emailTextBox" CssClass="w-95 login-input" required TextMode="SingleLine" placeholder="Email Id / Contact No." runat="server" Style="border-radius: 30px"></asp:TextBox>
                         <%-- <asp:TextBox runat="server"  id="emailTextBox" class="w-100 login-input" type="Text" placeholder="Username" />--%>
                     </div>
 
                     <div class="password-div" id="divpassword" runat="server">
                         <asp:HiddenField    runat="server" ID="hfIsPasswordDivActive"  />
-                        <asp:TextBox runat="server" ID="txtPassword" class="w-100 login-input" type="password" placeholder="Password" Style="border-radius: 30px" />
+                        <asp:TextBox runat="server" ID="txtPassword" class="w-95 login-input" type="password" placeholder="Password" Style="border-radius: 30px" />
                         <i id="passwordView1" class="fa fa-solid fa-eye-slash hide-password-toggal  color-theme-yellow"></i>
                         <div class="text-end">
                             <span style="color: #fff"><a id="forgotlink" style="color: #fdd001; font-weight: 700" href="ForgotPassword.aspx">Forgot Password ? </a></span>

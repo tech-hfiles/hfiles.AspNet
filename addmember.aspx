@@ -14,6 +14,14 @@
 
     <title>Add Members</title>
     <style>
+        .btn-div{
+            padding:0 20px 0 20px;
+        }
+
+        #back-btn{
+
+    background-color:#FFD101 !important;
+}
         /* *{
         border:1px solid #000;
     }*/
@@ -21,14 +29,15 @@
             margin:0;
             height:auto;
 /*            overflow:hidden;
-*/            max-width:100%;
+*/            /*max-width:100%;*/
         }
         .container-fluid{
             margin:0;
             width:100%;
-            height:100%;
-            max-height:100%;
-            margin-bottom:0.5%;
+            height:auto;
+/*            max-height:fit-content;
+*/            margin-bottom:0.5%;
+            overflow:;
 
 
         }
@@ -76,6 +85,7 @@
         .tab-content {
             display: none;
         }
+        
 
         .active-tab {
             display: block;
@@ -99,7 +109,7 @@
             color: #ffffff;
             cursor: pointer;
             margin-top: 20px;
-            font-family: 'Red Hat Display' !important;
+            font-family: 'Red Hat Display', sans-serif !important;
             font-weight: 700;
         }
 
@@ -110,17 +120,39 @@
             }
         }*/
 
-        @media (max-width: 999px) {
+        /*@media (max-width: 816px) {
             .inner-div {
-                height: 90vh !important;
+                height: 100vh !important;
                 width: 65% !important;
             }
+        }*/
+        @media only screen 
+    and (min-device-width: 375px) 
+    and (max-device-width: 812px) 
+    and (-webkit-device-pixel-ratio: 3) {
+        .container-fluid {
+            margin-bottom: 5% !important; /* Adjust the margin value as needed */
         }
+        
+        #back-btn{
+            background-color:#FFD101;
+        }
+        .add-member-battans{
+            padding:10px 15px !important;
+            margin:5% !important;
+        }
+        /*.plus-top-left{
+            visibility:hidden;
+            display:none;
+        }*/
+        
+    }
+
 
         @media (min-width: 768px) {
-            .footer {
+            /*.footer {
                 position: relative !important;
-            }
+            }*/
 
             .blue-t-bottom-right {
                 position: relative !important;
@@ -137,12 +169,12 @@
             }
         }
 
-        @media (min-width: 300px) and (max-width: 375px) {
+        /*@media (min-width: 300px) and (max-width: 375px) {
             .footer {
                 position: relative !important;
                 bottom: 0px !important;
             }
-        }
+        }*/
 
         @media (min-width: 1022px) and (max-width: 1024px) {
             .footer {
@@ -162,12 +194,12 @@
             }
         }
 
-        @media (max-width: 480px) {
+       /* @media (max-width: 480px) {
             .footer {
                 position: absolute;
                 bottom: 0px;
             }
-        }
+        }*/
 
 
 
@@ -207,6 +239,9 @@
             border:1px solid transparent;
             border-radius:50px;
         }
+        ::-webkit-input-placeholder, selected { /* Chrome/Opera/Safari */
+  color: black !important; /* Change the color */
+}
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -222,22 +257,22 @@
                 <img class="plus-top-left" src="../assets/plus-icon-3.png" alt="">
                 <div class="main-div">
 
-                  <a class="back-arrow-btn" href="javascript: history.go(-1)" id="back_btn_add_member">
-                        &nbsp Back&nbsp</a>
+                  <!--<a class="back-arrow-btn" href="javascript: history.go(-1)" id="back_btn_add_member">
+                        &nbsp Back&nbsp</a>-->
                     <div class="container-fluid d-flex justify-content-center p-0">
                         <div class="inner-div pt-5">
                             <div class="row">
-                                <div class="col-12 text-blue mt-2">
-                                    <h1>Add Members</h1>
+                                <div class="col-12 text-blue">
+                                    <h2 class="font-weight-bold">Add Members</h2>
                                 </div>
                             </div>
                             <div class="row input-group">
-                                <div class="col-12 col-md-12 col-lg-5 col-xl-6 col-xxl-6 d-none d-md-block mb-md-5">
+                                <div class="col-12 col-md-12 col-lg-5 col-xl-6 col-xxl-6 d-none d-md-block mb-md-5 text-center justify-content-center">
                                     <img class="avatar-group-img" src="../Add Members/addmember-avatar.png" width="100%" />
                                 </div>
                                 <div class="col-12 col-md-12 col-lg-7 col-xl-6 col-xxl-6 d-flex justify-content-center">
                                     <div class="w-100">
-                                        <div class="row mb-2">
+                                        <div class="row mb-2 justify-item-center">
                                             <div class="col-6">
                                                 <label id="addNewMemberTab" class="member-type-tabs active-tab-label" onclick="showTab('abc', 'addNewMemberTab')"><strong>Add New Member</strong></label>
                                             </div>
@@ -261,7 +296,7 @@
                                                     <select id="relation" runat="server" class="relationdiv10 form-select form-control relation-select"
                                                         aria-label="Default select example">
                                                         <%--onchange="handleRelation()"--%>
-                                                        <option selected disabled>Relation</option>
+                                                        <option selected style="color:black;">Relation</option>
                                                         <option value="father">Father</option>
                                                         <option value="mother">Mother</option>
                                                         <option value="sister">Sister</option>
@@ -315,8 +350,9 @@
 </div>--%>
                                             <div class="btn-div">
                                                 <%--<asp:Button runat="server" Text="Submit" CssClass="btn submit-btn" ID="btnSubmit"></asp:Button>--%>
-                                                <%-- <button id="back-btn"  class="btn thm-back-button mx-3">Back</button>--%>
-                                                <button runat="server" id="btn_Submit" onserverclick="btn_Submit_ServerClick" class="btn " validationgroup="First">Submit</button>
+                                                  <%--<a class="" href="javascript: history.go(-1)" id="back_btn_add_member"float="left">&nbsp Back&nbsp</a>--%>
+                                                 <button runat="server" id="btn_Submit" onserverclick="btn_Submit_ServerClick" class="add-member-battans" validationgroup="First">Submit</button>
+                                                
                                             </div>
                                         </div>
 

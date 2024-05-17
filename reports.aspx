@@ -95,10 +95,18 @@
             }
         }
 
-        @media (min-width: 1300px) {
+        @media (min-width: 1020px) {
             .footer {
                 position: absolute;
                 bottom: 0;
+            }
+        }
+
+        @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) {
+            .report-page-title{
+                font-family: 'Red Hat Display', Sans-serif !important;
+                font-size:18px !important;
+                font-weight:600;
             }
         }
     </style>
@@ -111,7 +119,7 @@
             <div class="container-fluid download-doc-inner my-3">
                 <div class="heading-title Report_heading-title mb-3 px-5">
                     <div class="row">
-                        <div class="col-12 col-md-8 col-xl-6 py-3 d-md-flex justify-content-between align-items-center">
+                        <div class="col-12 col-md-8 col-xl-6 py-3 d-md-flex justify-content-between align-items-center text-center">
                             <a class="back-arrow-btn-2" href="avatar2.aspx">
 <%--                                <img src="../assets/back-arrow.png" alt="">--%>
                                 Back

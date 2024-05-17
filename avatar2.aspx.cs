@@ -103,7 +103,7 @@ namespace hfiles
             {
                 //repeaterdiv.Visible = false;
                 // ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You can add only 7 members !')", true);
-                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Logged in successfully');", true);
+                //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Logged in successfully');", true);
             }
             // Generate additional list items
             for (int i = 0; i < remainingCount; i++)

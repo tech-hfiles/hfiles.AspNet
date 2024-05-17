@@ -11,13 +11,24 @@
         crossorigin="anonymous"></script>
     <title>Additional Information</title>
     <style>
+
+        .thm-back-button {
+    margin:8px 0 !important;
+    padding: 10px 45px;
+    background: #d6d6d6;
+    border-radius: 20px;
+    color: #08138f;
+    font-weight: 700;
+    outline: 0;
+    border: 1px solid #d6d6d6;
+}
         
        .heading mb-4 h1{
             font-family:'Red Hat Display', sans-serif !important;
         }
         @media(min-width: <1246px) {
             .footer {
-                position: relative;
+                position: absolute;
                 /* bottom: 0;*/
                 width: 100%;
             }
@@ -25,7 +36,7 @@
 
         @media (min-width: 800px) and (max-width: 1024px) {
             .footer {
-                position: relative;
+                position: absolute;
                 bottom: 0;
                 width: 100%;
             }
@@ -33,7 +44,7 @@
 
         @media (min-width: 1024px) and (max-height: 600px) {
             .footer {
-                position: relative;
+                position: absolute;
                 bottom: 0;
                 width: 100%;
             }
@@ -133,8 +144,11 @@
 
             @media (min-width: 370px) and (max-width: 375px) {
                 .SingleCheckbox input[type=checkbox] + label {
-                    margin: 0px 14px !important;
+                    margin: 0px 19px !important;
                 }
+                #type{
+/*                    margin-left:10px !important;
+*/                }
             }
 
             @media (min-width: 1918px) and (max-width: 1920px) {
@@ -155,13 +169,13 @@
                 align-content:center;
                 text-align:center;
             }*/
-            .thm-back-button{
+            /*.thm-back-button{
               background-color:#FFD101 !important;
               padding:0px 45px !important;
             }
             .thm-back-button:hover{
               background-color:white;
-            }
+            }*/
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -373,7 +387,7 @@
                             <div class="mt-2 mt-lg-5 d-lg-flex d-flex">
                                 <%--<asp:Button Text="Back" class="thm-back-button" OnClick="btnMedicalBack_Click" type="Button" ID="Button1" runat="server" />--%>
 
-                                <asp:Button Text="Back" class="thm-back-button" OnClick="btnAdditionalBack_Click" type="Button" ID="btnMedicalBack" runat="server" />
+                                <asp:Button Text="Back" class="thm-back-button" style="background-color:#FFD101;" OnClick="btnAdditionalBack_Click" type="Button" ID="btnMedicalBack" runat="server" />
                                 <asp:Button Text="Next" ID="btnUpdateAdditional" class="thm-blue-button mx-lg-3 my-2 my-lg-0" OnClick="btnUpdateAdditional_Click" runat="server" />
                                 <%--<button onclick="HideAdditionalDiv()" type="submit" class="thm-blue-button">Next</button>--%>
                             </div>
@@ -398,9 +412,9 @@
                         <div class="col-12">
                             <h1 class="heading mb-4 text-center">Medical History</h1>
                         </div>
-                        <div class="row border-bottom p-0">
-                            <div class="col-lg-6 col-md-6 col-4">
-                                <p>Type</p>
+                        <div class="row border-bottom p-1">
+                            <div class="col-lg-6 col-md-6 col-4 pl-4">
+                                <p id="type">Type</p>
                             </div>
                             <div class="col-md-2 col-2 text-center">
                                 <p>Myself</p>
@@ -425,7 +439,7 @@
                                         </div>
                                         <%--                                    --%>
                                         <div class="col-md-6 col-5 SingleCheckbox justify-content-center align-items-center">
-                                            <asp:CheckBoxList runat="server" ID="cbl" class="" RepeatDirection="Horizontal">
+                                            <asp:CheckBoxList runat="server" ID="cbl" style="padding:20px;" RepeatDirection="Horizontal">
                                                 <asp:ListItem Value="1" Text=" " class="CheckBoxLabel" />
                                                 <asp:ListItem Value="2" Text=" " />
                                                 <asp:ListItem Value="3" Text=" " />
@@ -450,7 +464,7 @@
                         <asp:Button Text="Next" ID="btnMedicalHistory" class="thm-blue-button" OnClick="btnMedicalHistory_Click" runat="server" />
                     </div>
                 </div>
-                <img class="blue-trangle-bottom" src="../Add Members/blue-trangle-5.png" alt="">
+                <%--<img class="blue-trangle-bottom" src="../Add Members/blue-trangle-5.png" alt=""> --%>
 
                 <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
             </div>
@@ -505,7 +519,7 @@
                         </div>
                     </div>
                     <div class="medic-his-btn mt-3">
-                        <asp:Button Text="Back" CssClass="thm-back-button my-2" ID="btnAllergyBack" OnClick="btnAllergyBack_Click" runat="server" />
+                        <asp:Button Text="Back" CssClass="thm-back-button my-2" ID="btnAllergyBack" style="background-color:#FFD101;" OnClick="btnAllergyBack_Click" runat="server" />
                         <asp:Button Text="Save" CssClass="thm-blue-button" ID="btnSaveAllergy" OnClick="btnSaveAllergy_Click" runat="server" />
                     </div>
                 </div>

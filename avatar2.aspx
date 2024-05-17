@@ -8,11 +8,19 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style_avatar.css" />
     <link rel="stylesheet" href="style3.css" />
-    <style>0
+    <style>
+
+        #selected-member-name{
+            margin-top:5px;
+            font-family:'Red Hat Display', sans-serif;
+            color:#0331b5;
+            font-size:18px;
+            font-weight:800;
+        }
         .avatar {
             background-image: url(../Avatar/avatar-background.png);
             background-size: 50%;
-            background-repeat: no-repeat;
+            background-repeat: no-repeat;        
             /* background-position: center; */
             background-position-x: 40%;
             background-position-y: 50%;
@@ -123,7 +131,7 @@
         @media only screen and (max-width: 300px) {
             .modalPopup {
                 width: 90%;
-                height: 50%;
+                height: auto;
             }
         }
         /*   * {
@@ -232,10 +240,11 @@
             font-size: 20px;
             font-weight: 700;
             text-align: center;
-            font-family: 'Red Hat Display Black' !important;
+            font-family: 'Red Hat Display',sans-serif !important;
         }
 
         .accordion-body {
+            font-family: 'Red Hat Display',sans-serif !important;
             padding: 20px 0px;
         }
 
@@ -518,21 +527,21 @@
                             </div>
                             <div class="col-lg-2 col-md-2 p-0">
                                 <div class="AddmemberRightside" style="">
-                                    <div class="Huz_AvatarAddReportbtn" style="align-items:center;">
+                                    <div class="Huz_AvatarAddReportbtn text-center">
                                         <asp:LinkButton runat="server" ID="LinkButton1" OnClick="lbtnAddReport_Click"><span style="font-size:20px;">Add Reports<br/>
-                                            &nbsp&nbsp&nbsp&nbsp<img src="Avatar2/add-report-old.png" alt="file-img"></span>
+                                            <img src="Avatar2/add-report-old.png" alt="file-img"></span>
                                         </asp:LinkButton>
                                     </div>
-                                    <div class="AddmemberRightside_Card">
+                                    <div class="AddmemberRightside_Card text-center">
                                         <span id="storageused" runat="server"></span>
                                     </div>
-                                    <div class="AddmemberRightside_Card">
+                                    <div class="AddmemberRightside_Card text-center">
                                         <span>1.5 data</span>
                                         <span id="storageleft" runat="server"></span>
                                         <span>15gb</span>
                                     </div>
                                     
-                                    <div class="ContactUs">
+                                    <div class="ContactUs text-center">
                                         <p>Need Space?</p>
                                         <a href="mailto:contact@hfiles.in"><p>Contact Us...</p></a>
                                     </div>
@@ -555,10 +564,12 @@
                                 </small>
                             </div>
                         </a>
+                        
                     </div>
                     <div class="member-avatar-img">
                         <%--                            <asp:Image class="avatar-img" ID="Image1" runat="server" />--%>
                         <img src="../Avatar/male/45.png" alt="" width="150px" />
+                        <h5 class="text-center" id="selected-member-name">Member Name</h5>
                     </div>
                     <div class="add-report-icon add-member-icons_mobile_responsive">
                         <asp:LinkButton Text="text" runat="server" ID="LinkButton2" OnClick="lbtnAddReport_Click">
@@ -578,7 +589,7 @@
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item mb-4">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button color-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <button class="accordion-button text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                         Select Members
                                     </button>
                                 </h2>
@@ -680,7 +691,7 @@
                         </div>
                         <div class="accordion">
                             <div class="accordion-item mb-4">
-                                <h2 class="accordion-header">
+                                <h2 class="accordion-header text-white">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                         View Reports
                                     </button>
@@ -828,7 +839,7 @@
             </div>--%>
                     <div class="col-12 text-start">
                         <label><strong>File Name : </strong></label>
-                        <asp:TextBox runat="server" ID="txtReportName" CssClass="filename-txtbox" required />
+                        <asp:TextBox runat="server" ID="txtReportName" placeHolder="Enter your Name" CssClass="filename-txtbox" required />
                     </div>
                 </div>
 
@@ -837,16 +848,16 @@
             </div>--%>
                     <div class="col-12 text-start">
                         <label><strong>Select File :</strong></label>
-                        <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+                       <asp:UpdatePanel runat="server" UpdateMode="Conditional">
                             <ContentTemplate>
-                                <div class='file-input'>
+                                <div >
                                     <asp:FileUpload ID="imageFileUpload1" CssClass="l" runat="server" required onchange="showFileName()" />
-                                    <span class='button'>Choose</span>
-                                    <%--   <span class='label' data-js-label>No file selected</label>--%>
-                                    <span id="fileNameLabel" class='label' data-js-label>No file selected</span>
+                                 <%--   <span class='button'>Choose</span>--%>
+                                    <%--   <span class='label' data-js-label>No file selected</label>
+                                    <span id="fileNameLabel" class='label' data-js-label>No file selected</span>--%>
                                 </div>
                                 <asp:Literal ID="litFileName" runat="server"></asp:Literal>
-                            </ContentTemplate>
+                           </ContentTemplate>
                             <Triggers>
                                 <asp:PostBackTrigger ControlID="btnSubmit" />
                             </Triggers>

@@ -28,7 +28,7 @@
     <title>Sign Up</title>
     <style>
         .signin-form input::placeholder {
-            color: #857d7d !important;
+            color: black !important;
         }
 
         @media (min-width: 992px) {

@@ -1538,7 +1538,7 @@ a {
     }
 
     .footer {
-        position: relative;
+        position: absolute;
     }
 
     .avatar .inner-menu-div span {

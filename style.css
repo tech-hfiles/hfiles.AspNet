@@ -743,7 +743,7 @@ select {
     .signin-form input[type="date"] {
         /*        color: #dddddd;
 */
-        color: #857d7d;
+        color: #0512b9 !important;
     }
 
 .signin-form input {
@@ -872,7 +872,7 @@ select {
 }
 
 .signin-form .form-select {
-    color: #e6e6e6;
+    color: #0512b9 !important;
 }
 
 .signin-form .imp-star {
@@ -2052,13 +2052,13 @@ s    }
     }
 }
 /*manage-members-table*/
-.accordion-button:not(.collapsed) {
-    background-color: #ffd101 !important;
-}
+/*.accordion-button:not(.collapsed) {
+    background-color: #ffd101;
+}*/
 
 .accordion-button:focus {
-    border-color: #ffd101;
-    box-shadow: none;
+/*    border-color: #ffd101;
+*/    box-shadow: none;
 }
 
 .accordion-button {
@@ -2399,7 +2399,7 @@ s    }
     /*   .support-group .left-nav-bar, .support-group .tab-content {
             height: 92vh !important;
         }*/
-    .download-doc-inner .report-page-title {
+    .download-doc-inner ./*report-page-title*/ {
         font-size: 16px;
     }
 
@@ -2435,6 +2435,7 @@ s    }
          .report-page-title {
             display: block;
             text-align: center;
+            justify-content:center;
         }
 }
 
