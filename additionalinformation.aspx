@@ -12,7 +12,20 @@
     <title>Additional Information</title>
     <style>
 
+        .thm-blue-buttn{
+    margin:8px 0 !important;
+    font-size:15px;
+    padding: 10px 45px;
+    background: #0512B9;
+    border-radius: 20px;
+    color: #ffffff;
+    font-weight: 700;
+    outline: 0;
+    border: 1px solid #d6d6d6;
+        }
+
         .thm-back-button {
+    font-size:15px;
     margin:8px 0 !important;
     padding: 10px 45px;
     background: #d6d6d6;
@@ -327,7 +340,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-5 col-12 mt-lg-0 mt-5 outertablepadd">
-                                    <div class="madical-surgery-table" style="max-height: 230px; overflow: auto;">
+                                    <div class="madical-surgery-table" style="max-height: 230px; overflow: auto;border-radius:10px;">
                                         <asp:GridView ID="surgeryGridView" AutoGenerateColumns="false" CssClass="surgeries-table w-100 text-center table table-striped table-hover" runat="server">
                                             <Columns>
                                                 <asp:BoundField DataField="user_surgery_details" HeaderText="Surgery Details"
@@ -339,8 +352,8 @@
                                                     <HeaderTemplate>Surgery Date</HeaderTemplate>
                                                     <ItemTemplate>
                                                         <div class="d-flex align-items-center justify-content-center">
-                                                            <asp:Label ID="lblSurgeryYear" runat="server" Text='<%#Eval("user_surgery_year") %>'></asp:Label>
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                            <asp:Label ID="lblSurgeryYear" runat="server" style="border-radius:10px !important;" Text='<%#Eval("user_surgery_year") %>'></asp:Label>
+                                                           
                                                             <%--                                                             <asp:ImageButton CssClass="delete-report-btn" ID="lRemoveBtn" runat="server" OnClick="lRemoveBtn_Click1" CommandArgument='<%#Eval("user_surgery_id") %>' Text="Delete" ImageUrl="../Suppor Group (BG  & Icons)/delete-icon.png"></asp:ImageButton>--%>
                                                         </div>
                                                     </ItemTemplate>
@@ -350,7 +363,6 @@
                                                     <ItemTemplate>
                                                         <div class="d-flex align-items-center justify-content-center">
                                                             <%--                                                            <asp:Label ID="lblSurgeryYear" runat="server" Text='<%#Eval("user_surgery_year") %>'></asp:Label>--%>
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                               <asp:ImageButton CssClass="delete-report-btn" ID="lRemoveBtn" runat="server" OnClick="lRemoveBtn_Click1" CommandArgument='<%#Eval("user_surgery_id") %>' Text="Delete" ImageUrl="../Suppor Group (BG  & Icons)/delete-icon.png"></asp:ImageButton>
 
                                                         </div>
@@ -387,8 +399,8 @@
                             <div class="mt-2 mt-lg-5 d-lg-flex d-flex">
                                 <%--<asp:Button Text="Back" class="thm-back-button" OnClick="btnMedicalBack_Click" type="Button" ID="Button1" runat="server" />--%>
 
-                                <asp:Button Text="Back" class="thm-back-button" style="background-color:#FFD101;" OnClick="btnAdditionalBack_Click" type="Button" ID="btnMedicalBack" runat="server" />
-                                <asp:Button Text="Next" ID="btnUpdateAdditional" class="thm-blue-button mx-lg-3 my-2 my-lg-0" OnClick="btnUpdateAdditional_Click" runat="server" />
+                                <asp:Button Text="Back" class="thm-back-button" style="background-color:#FFD101;margin-right:10px !important;" OnClick="btnAdditionalBack_Click" type="Button" ID="btnMedicalBack" runat="server" />
+                                <asp:Button Text="Next" ID="btnUpdateAdditional" class="thm-blue-buttn mx-lg-3 my-2 my-lg-0" OnClick="btnUpdateAdditional_Click" runat="server" />
                                 <%--<button onclick="HideAdditionalDiv()" type="submit" class="thm-blue-button">Next</button>--%>
                             </div>
                         </div>
@@ -461,7 +473,7 @@
                         </div>
                     </div>
                     <div class="medic-his-btn mt-3">
-                        <asp:Button Text="Next" ID="btnMedicalHistory" class="thm-blue-button" OnClick="btnMedicalHistory_Click" runat="server" />
+                        <asp:Button Text="Next" ID="btnMedicalHistory" class="thm-blue-buttn" OnClick="btnMedicalHistory_Click" runat="server" />
                     </div>
                 </div>
                 <%--<img class="blue-trangle-bottom" src="../Add Members/blue-trangle-5.png" alt=""> --%>
@@ -520,7 +532,7 @@
                     </div>
                     <div class="medic-his-btn mt-3">
                         <asp:Button Text="Back" CssClass="thm-back-button my-2" ID="btnAllergyBack" style="background-color:#FFD101;" OnClick="btnAllergyBack_Click" runat="server" />
-                        <asp:Button Text="Save" CssClass="thm-blue-button" ID="btnSaveAllergy" OnClick="btnSaveAllergy_Click" runat="server" />
+                        <asp:Button Text="Save" CssClass="thm-blue-buttn" ID="btnSaveAllergy" OnClick="btnSaveAllergy_Click" runat="server" />
                     </div>
                 </div>
 

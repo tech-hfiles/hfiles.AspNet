@@ -73,7 +73,7 @@
 
         .select-report-dropdown, .filename-txtbox {
             width: 100%;
-            border-radius: 10px;
+            border-radius: 30px;
             border: none;
             padding: 15px;
             outline: 0;
