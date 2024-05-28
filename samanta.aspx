@@ -7,12 +7,12 @@
     <style>
         body{
             margin:0 !important;
-            max-height:100%;
+            padding: 0 0 0 0 !important;
         }
         .footer {
             position: absolute;
             width: 100%;
-            bottom: 0;
+            margin:0 0 0 0!important; 
         }
 
         @media(max-width: 540px) {
@@ -38,6 +38,7 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
+            height:100%;
         }
 
         .comming-soon {

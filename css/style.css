@@ -42,7 +42,7 @@ a {
     border-radius: 20px;
     color: #ffffff;
     font-weight: 700;
-    font-family: 'Playfair Display' !important;
+    font-family: 'Red Hat Display',sans-serif !important;
     outline: 0;
     border: 1px solid #d6d6d6;
 }
@@ -60,7 +60,7 @@ a {
     border-radius: 20px;
     color: #ffffff;
     font-weight: 700;
-    font-family: 'Playfair Display' !important;
+    font-family: 'Red Hat Display',sans-serif !important;
 }
 
 .thm-blue-button:hover {

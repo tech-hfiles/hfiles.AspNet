@@ -467,6 +467,9 @@
                                 <div class="elementor-widget-container">
                                     <style>
                                         /*! elementor - v3.21.0 - 25-04-2024 */
+                                        .text-white{
+                                            color:#FFFFFF !important;
+                                        }
                                         .elementor-widget-image {
                                             text-align: center
                                         }
@@ -767,7 +770,7 @@
                                     <div class="elementor-widget-wrap elementor-element-populated">
                                         <div class="elementor-element elementor-element-db5ed71 elementor-invisible elementor-widget elementor-widget-heading" data-id="db5ed71" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="heading.default">
                                             <div class="elementor-widget-container">
-                                                <h2 class="elementor-heading-title elementor-size-default">Why get your hFile?</h2>
+                                                <h2 class="elementor-heading-title" style="font-size:50px !important;">Why get your hFile?</h2>
                                             </div>
                                         </div>
                                         <div class="elementor-element elementor-element-8050479 elementor-widget__width-initial elementor-invisible elementor-widget elementor-widget-text-editor" data-id="8050479" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="text-editor.default">
@@ -1098,7 +1101,7 @@ Update your bond with health by signing up with us today!
                 </div>
             </div>
         </section>
-        <section class="elementor-section elementor-top-section elementor-element elementor-element-57e9951 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="57e9951" data-element_type="section" id="leadForm">
+        <%--<section class="elementor-section elementor-top-section elementor-element elementor-element-57e9951 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="57e9951" data-element_type="section" id="leadForm">
             <div class="elementor-container elementor-column-gap-default">
                 <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-19f2bfc" data-id="19f2bfc" data-element_type="column">
                     <div class="elementor-widget-wrap elementor-element-populated">
@@ -1264,8 +1267,10 @@ Update your bond with health by signing up with us today!
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="elementor-section elementor-top-section elementor-element elementor-element-4004501 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="4004501" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+        </section>--%>
+
+
+        <%--<section class="elementor-section elementor-top-section elementor-element elementor-element-4004501 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="4004501" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
             <div class="elementor-container elementor-column-gap-default">
                 <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-0eed7a7" data-id="0eed7a7" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                     <div class="elementor-widget-wrap elementor-element-populated">
@@ -1339,7 +1344,7 @@ Update your bond with health by signing up with us today!
                     </div>
                 </div>
             </div>
-        </section>
+        </section>--%>
         <section class="elementor-section elementor-top-section elementor-element elementor-element-c1589d8 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c1589d8" data-element_type="section">
             <div class="elementor-container elementor-column-gap-default">
                 <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-7f757d5 animated-fast elementor-invisible" data-id="7f757d5" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeIn&quot;}">
@@ -1799,6 +1804,7 @@ Update your bond with health by signing up with us today!
                                         <div class="elementor-widget-wrap">
                                         </div>
                                     </div>
+
                                     <div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-4f4c1c7" data-id="4f4c1c7" data-element_type="column">
                                         <div class="elementor-widget-wrap elementor-element-populated">
                                             <div class="elementor-element elementor-element-2157551d elementor-widget-mobile__width-initial elementor-widget elementor-widget-heading" data-id="2157551d" data-element_type="widget" data-widget_type="heading.default">
@@ -1812,12 +1818,19 @@ Update your bond with health by signing up with us today!
                                                         <li class="elementor-icon-list-item">
                                                             <span class="elementor-icon-list-icon">
                                                                 <i aria-hidden="true" class="fas fa-map-marker-alt"></i></span>
-                                                            <span class="elementor-icon-list-text">Mumbai, India</span>
+                                                            <span class="elementor-icon-list-text">H-Files <br />Mumbai, India</span>
                                                         </li>
+
+                                                        <li class="elementor-icon-list-item">
+                                                            <span class="elementor-icon-list-icon">
+                                                                <i aria-hidden="true" class="fas fa-phone elementor-phone-icon"></i></span>
+                                                                    <span class="elementor-icon-list-text"><a class="text-white" href="tel:+919978043453"/>9978043453</span>
+                                                         </li>
+
                                                         <li class="elementor-icon-list-item">
                                                             <span class="elementor-icon-list-icon">
                                                                 <i aria-hidden="true" class="icon icon-envelope1"></i></span>
-                                                            <span class="elementor-icon-list-text"><a href="https://hfiles.in/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="066e606f6a6375286f6846616b676f6a2865696b">[email&#160;protected]</a></span>
+                                                            <span class="elementor-icon-list-text" ><a href="https://hfiles.in/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="066e606f6a6375286f6846616b676f6a2865696b">[email&#160;protected]</a></span>
                                                         </li>
                                                     </ul>
                                                 </div>

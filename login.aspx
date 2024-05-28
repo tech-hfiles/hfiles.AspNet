@@ -33,6 +33,24 @@
 
 
         }
+        .thm-button {
+            padding: 10px 40px;
+            background: #fdd001;
+            border-radius: 20px;
+            color: #08138f;
+            font-weight: 700;
+            width:100% !important;
+        }
+        .inner-body .login-input {
+            border: none;
+            background: white;
+            border-bottom: 1px solid #ffffff3d;
+            padding: 10px 40px;
+            margin: 8px 0;
+            color: #08138f;
+            outline: 0;
+            width: 100%;
+        }
         .inner-main,{
                       margin:0 !important;
 }

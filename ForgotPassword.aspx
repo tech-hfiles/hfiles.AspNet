@@ -20,6 +20,32 @@
 
     <title>H Files | Sign In</title>
     <style>
+        .thm-button {
+            padding: 10px 40px;
+            background: #fdd001;
+            border-radius: 20px;
+            color: #08138f;
+            font-weight: 700;
+            width: 100% !important;
+        }
+        .inner-body .login-input,.divOtp .login-input{
+            border: none;
+            background: white;
+            border-bottom: 1px solid #ffffff3d;
+            padding: 10px 40px;
+            margin: 8px 0px !important;
+            color: #08138f;
+            outline: 0;
+        }
+        .divOtp .login-input{
+            border: none;
+            background: white;
+            border-bottom: 1px solid #ffffff3d;
+            padding: 10px 40px;
+            margin: 8px 0px !important;
+            color: #08138f;
+            border-radius: 30px !important;
+        }
         .footer {
             background: #0331b5;
             color: #ffffff;
@@ -27,13 +53,14 @@
             position: absolute;
             bottom: 0;
             width: 100%;
-            padding: 10px
+            padding: 10px;
         }
-               .password-div {
-    position:relative;
-}
+        .password-div {
+            position:relative;
+            border-radius:30px;
+         }
 .password-div .hide-password-toggal {
-    position:absolute;
+    position:relative;
        right: 10px;
     top: 22px;
     cursor:pointer;
@@ -43,8 +70,8 @@
 
 </head>
 
-<body style="overflow: hidden;">
-    <form class="row h-100 align-ceter h-sm-100vh" runat="server">
+<body>
+    <form class="row h-100 align-center h-sm-100vh" runat="server">
        <%--<div class="language">
             <details>
                 <summary>language</summary>
@@ -55,11 +82,11 @@
         </div>--%>
         <asp:HiddenField runat="server" ID="hfId" />
         <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-flex align-items-center" style="text-align: center;">
-            <img src="../assets/features-hero-6.png" alt="" style="width: 100%; height: 90vh; object-fit: contain">
+            <img src="../assets/features-hero-6.png" alt="" style="width: 100%; height: 90vh; object-fit: contain" />
         </div>
-        <div class="col-sm-12 col-lg-6 inner-main p-0">
+        <div class="col-sm-12 col-lg-6 inner-main p-5">
             <div class="d-flex align-items-center justify-content-center h-100 inner-body">
-                <div class="text-center w-50">
+                <div class="text-center w-100">
                     <div class="text-center signin-heading">
                         <img src="<%= ResolveUrl("~/Sign Up Page/Hfiles Logo.png") %>" alt="" width="120px" />
                         <br />
@@ -72,7 +99,7 @@
                     </div>
 
                     <div runat="server" id="divOtp">
-                        <input runat="server" required id="otpTextBox" autocomplete="off" class="w-100 login-input" type="Text" placeholder="Enter OTP" />
+                        <input runat="server" required id="otpTextBox" autocomplete="off" class="login-input" type="Text" placeholder="Enter OTP" />
                         <div class="text-end">
                             <asp:Label Text="" ID="errorLabel" runat="server" Style="color: #fff" />
                             <span id="timer" style="color: #fff"></span>
@@ -84,11 +111,11 @@
 
                         <div class="password-div">
                              <i id="passwordView1" class="fa fa-solid fa-eye-slash hide-password-toggal color-theme-yellow"></i>
-                            <asp:TextBox runat="server" ID="txtPassword" class="w-100 login-input" type="password" placeholder="Password" />
+                            <asp:TextBox runat="server" ID="txtPassword" class="w-50 login-input" type="password" placeholder="Password" />
                         </div>
                         <div class="password-div">
                              <i id="passwordView2" class="fa fa-solid fa-eye-slash hide-password-toggal color-theme-yellow"></i>
-                            <asp:TextBox ID="cpwdTextBox" runat="server" type="password" class="w-100 login-input" placeholder="Confirm Password" required />
+                            <asp:TextBox ID="cpwdTextBox" runat="server" type="password" class="w-50 login-input" placeholder="Confirm Password" required />
                             <asp:RequiredFieldValidator ControlToValidate="cpwdTextBox" ErrorMessage="Please Enter Confirm Password" runat="server"></asp:RequiredFieldValidator>
                             <asp:CompareValidator ControlToValidate="cpwdTextBox" ControlToCompare="txtPassword" ErrorMessage="Password and Confirm Password should be same" runat="server" ForeColor="White"></asp:CompareValidator>
                         </div>
@@ -122,24 +149,23 @@
 
 
         </div>
-        <div class="row footer justify-content-around align-items-center m-0">
-            <div class="col-4 t-c d-xl-flex justify-content-center text-center">
-                <p class="m-0"><a class="px-lg-3" href="TermsAndConditions.aspx">Terms & Conditions</a></p>
-                <p class="m-0"><a href="Policy.aspx">Privacy & Policy</a></p>
-            </div>
-
-            <div class="col-4 copy-right text-center p-0">
-                <span>Copyright@2023</span>
-            </div>
-            <div class="col-4 p-p d-xl-flex text-center">
-                <p class="m-0"><a class="px-xl-3" href="https://wa.me/919930372831"><i class="fa-brands fa-whatsapp"></i>&nbsp; +91-9930372831</a></p>
-                <p class="m-0"><a class="" href="mailto:contact@hfiles.in"><i class="fa fa-solid fa-envelope"></i>&nbsp; contact@hfiles.in</a></p>
-
-            </div>
-        </div>
-
-
     </form>
+
+    <div class="row footer justify-content-around align-items-center m-0">
+    <div class="col-4 t-c d-xl-flex justify-content-center text-center">
+        <p class="m-0"><a class="px-lg-3" href="TermsAndConditions.aspx">Terms & Conditions</a></p>
+        <p class="m-0"><a href="Policy.aspx">Privacy & Policy</a></p>
+    </div>
+
+    <div class="col-4 copy-right text-center p-0">
+        <span>&copy 2024</span>
+    </div>
+    <div class="col-4 p-p d-xl-flex text-center">
+        <p class="m-0"><a class="px-xl-3" href="https://wa.me/919930372831"><i class="fa-brands fa-whatsapp"></i>&nbsp; +91-9930372831</a></p>
+        <p class="m-0"><a class="" href="mailto:contact@hfiles.in"><i class="fa fa-solid fa-envelope"></i>&nbsp; contact@hfiles.in</a></p>
+
+    </div>
+    </div>
 
     <script language="JavaScript">
 
