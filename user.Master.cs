@@ -35,8 +35,29 @@ namespace hfiles
                 {
                     // Check if there are any requests
                     bool hasRequests = HasRequests();
-                    ReqCount.Text = requestCount.ToString();
+                    //ReqCount.Text = requestCount.ToString();
+                    using (MySqlConnection con = new MySqlConnection(connectionString))
+                    {
+                        con.Open();
+                        using (MySqlCommand cmd = new MySqlCommand("usp_getmember", con))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(Session["Userid"])); //Session["Userid"];
+                            cmd.Parameters.AddWithValue("_MemberId", 0); //Session["Userid"];
+                            cmd.Parameters.AddWithValue("_SpType", "LS"); //Session["Userid"];
+                            cmd.Parameters.AddWithValue("_ReportId", 0); //Session["Userid"];
+                            cmd.Parameters.AddWithValue("_RId", 0); //Session["Userid"];
+                                                                    // cmd.Parameters.AddWithValue("_AccessMappingId", 0); //Session["Userid"];
+                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
 
+
+                            //MasterPage page = new MasterPage();
+                            //Label ReqCount = Master.FindControl("ReqCount") as Label;
+                            ReqCount.Text = dt != null && dt.Rows.Count > 0 ? dt.Rows.Count.ToString() : "0";
+                        }
+                    }
                     //managerMembersTab.Text = $"Manager Members ({requestCount})";
                     memberLabel.Text = Session["username"].ToString();
                     memberId.Text = Session["user_membernumber"].ToString();

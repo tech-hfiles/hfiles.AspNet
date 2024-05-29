@@ -104,12 +104,14 @@ namespace hfiles
 
                     if (result1 == 1)
                     {
+                        hfnumber.Text = string.Empty;
                         // Request sent
                         //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Sent')", true);
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Request Sent');", true);
                     }
                     else if (result1 == 2)
                     {
+                        hfnumber.Text = string.Empty;
                         // Request already sent
 
                         //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Already Sent')", true);
@@ -117,6 +119,7 @@ namespace hfiles
                     }
                     else if (result1 == 3)
                     {
+                        hfnumber.Text = string.Empty;
                         // Request already sent
 
                         //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Member already added')", true);
@@ -124,18 +127,21 @@ namespace hfiles
                     }
                     else if (result1 == 4)
                     {
+                        hfnumber.Text = string.Empty;
                         // Request already sent
                         //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Member did not accept the request')", true);
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Member did not accept the request.');", true);
                     }
                     else if (result1 == 5)
                     {
+                        hfnumber.Text = string.Empty;
                         // Request already sent
                         //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Request Already Sent');", true);
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Request Already Sent');", true);
                     }
                     else if (result1 == 6)
                     {
+                        hfnumber.Text = string.Empty;
                         // User does not exist
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Can not send request to yourself');", true);
                         //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Can not send request to yourself')", true);
