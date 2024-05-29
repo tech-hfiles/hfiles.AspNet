@@ -5,40 +5,40 @@
     <link rel="stylesheet" href="<%= ResolveUrl("~/style.css") %>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"/>
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
         crossorigin="anonymous"></script>
     <title>Additional Information</title>
     <style>
-
-        .thm-blue-buttn{
-    margin:8px 0 !important;
-    font-size:15px;
-    padding: 10px 45px;
-    background: #0512B9;
-    border-radius: 20px;
-    color: #ffffff;
-    font-weight: 700;
-    outline: 0;
-    border: 1px solid #d6d6d6;
+        .thm-blue-buttn {
+            margin: 8px 0 !important;
+            font-size: 15px;
+            padding: 10px 45px;
+            background: #0512B9;
+            border-radius: 20px;
+            color: #ffffff;
+            font-weight: 700;
+            outline: 0;
+            border: 1px solid #d6d6d6;
         }
 
         .thm-back-button {
-    font-size:15px;
-    margin:8px 0 !important;
-    padding: 10px 45px;
-    background: #d6d6d6;
-    border-radius: 20px;
-    color: #08138f;
-    font-weight: 700;
-    outline: 0;
-    border: 1px solid #d6d6d6;
-}
-        
-       .heading mb-4 h1{
-            font-family:'Red Hat Display', sans-serif !important;
+            font-size: 15px;
+            margin: 8px 0 !important;
+            padding: 10px 45px;
+            background: #d6d6d6;
+            border-radius: 20px;
+            color: #08138f;
+            font-weight: 700;
+            outline: 0;
+            border: 1px solid #d6d6d6;
         }
+
+        .heading mb-4 h1 {
+            font-family: 'Red Hat Display', sans-serif !important;
+        }
+
         @media(min-width: <1246px) {
             .footer {
                 position: absolute;
@@ -77,101 +77,104 @@
 
         @media(max-width: 480px) {
             .outertablepadd {
-                padding:0px;
+                padding: 0px;
             }
         }
 
-            @media(max-width: 380px) {
-                .SingleCheckbox input[type=checkbox] + label {
-                    margin: 0 11px !important;
-                }
-                .SingleCheckbox{
-                  justify-items:center;
-                  align-items:center;
-                }
-
-                .common-design .blue-trangle-bottom {
-                    position: relative;
-                    bottom: 0px;
-                }
+        @media(max-width: 380px) {
+            .SingleCheckbox input[type=checkbox] + label {
+                margin: 0 11px !important;
             }
 
-            @media(max-width: 460px) {
-                .SingleCheckbox input[type=checkbox] + label {
-                    margin: 0 13px !important;
-                }
+            .SingleCheckbox {
+                justify-items: center;
+                align-items: center;
             }
 
-            @media(max-width: 768px) {
-                .SingleCheckbox input[type=checkbox] + label {
-                    margin: 0px 38px;
-                }
+            .common-design .blue-trangle-bottom {
+                position: relative;
+                bottom: 0px;
+            }
+        }
+
+        @media(max-width: 460px) {
+            .SingleCheckbox input[type=checkbox] + label {
+                margin: 0 13px !important;
+            }
+        }
+
+        @media(max-width: 768px) {
+            .SingleCheckbox input[type=checkbox] + label {
+                margin: 0px 38px;
+            }
+        }
+
+        @media(max-width: 344px) {
+
+            .medical-main-div .inner-main-div {
+                overflow-x: hidden;
+            }
+        }
+
+        @media (min-height: 930px) and (max-height: 932px) {
+            .SingleCheckbox input[type=checkbox] + label {
+                margin: 0px 20px !important;
+            }
+        }
+
+        @media (min-height: 598px) and (max-height: 600px) {
+            .back-arrow-btn {
+                top: 13% !important;
+            }
+        }
+
+        @media (min-height: 665px) and (max-height: 667px) {
+            .SingleCheckbox input[type=checkbox] + label {
+                margin: 0px 14px !important;
+            }
+        }
+
+        @media (min-height: 718px) and (max-height: 720px) {
+            .SingleCheckbox tr td:last-child input[type=checkbox] + label {
+                margin: 0px 40px !important;
             }
 
-            @media(max-width: 344px) {
-
-                .medical-main-div .inner-main-div {
-                    overflow-x: hidden;
-                }
-            }
-
-            @media (min-height: 930px) and (max-height: 932px) {
-                .SingleCheckbox input[type=checkbox] + label {
-                    margin: 0px 20px !important;
-                }
-            }
-
-            @media (min-height: 598px) and (max-height: 600px) {
-                .back-arrow-btn {
-                    top: 13% !important;
-                }
-            }
-
-            @media (min-height: 665px) and (max-height: 667px) {
-                .SingleCheckbox input[type=checkbox] + label {
-                    margin: 0px 14px !important;
-                }
-            }
-
-            @media (min-height: 718px) and (max-height: 720px) {
-                .SingleCheckbox tr td:last-child input[type=checkbox] + label {
-                    margin: 0px 40px !important;
-                }
-
-                /*   .SingleCheckbox tr td:first-child input[type=checkbox] + label {
+            /*   .SingleCheckbox tr td:first-child input[type=checkbox] + label {
                 margin: 0px 42px !important;
             }
 
             .SingleCheckbox tr td:nth-child(2) input[type=checkbox] + label {
                 margin: 0px 42px !important;
             }*/
+        }
+
+
+
+        @media (min-height: 912px) and (max-height:914px) {
+            .common-design .blue-trangle-bottom {
+                position: relative;
+            }
+        }
+
+        @media (min-width: 370px) and (max-width: 375px) {
+            .SingleCheckbox input[type=checkbox] + label {
+                margin: 0px 19px !important;
             }
 
-
-
-            @media (min-height: 912px) and (max-height:914px) {
-                .common-design .blue-trangle-bottom {
-                    position: relative;
-                }
+            #type {
+                /*                    margin-left:10px !important;
+*/
             }
+        }
 
-            @media (min-width: 370px) and (max-width: 375px) {
-                .SingleCheckbox input[type=checkbox] + label {
-                    margin: 0px 19px !important;
-                }
-                #type{
-/*                    margin-left:10px !important;
-*/                }
+        @media (min-width: 1918px) and (max-width: 1920px) {
+            .common-design .blue-trangle-bottom {
+                bottom: -5px;
             }
-
-            @media (min-width: 1918px) and (max-width: 1920px) {
-                .common-design .blue-trangle-bottom {
-                    bottom: -5px;
-                }
-            }
+        }
 
 
-            /*#surgery-row{
+        /*#surgery-row{
                 justify-items:center;
                 justify-content:center;
                 align-items:center;
@@ -182,7 +185,7 @@
                 align-content:center;
                 text-align:center;
             }*/
-            /*.thm-back-button{
+        /*.thm-back-button{
               background-color:#FFD101 !important;
               padding:0px 45px !important;
             }
@@ -196,14 +199,14 @@
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
             <div class="additional-information common-design" runat="server" id="AdditionalDiv">
-          
+
                 <img class="blue-trangle-right" src="../Terms & Conditions/blue-trangle3.png" alt="">
                 <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
                 <img class="plus-top-left" src="../assets/plus-icon-3.png" alt="">
                 <div class="additionl-main-div container pt-5 px-5 h-90">
-                   <%-- <a class="back-arrow-btn" href="javascript: history.go(-1)">
+                    <%-- <a class="back-arrow-btn" href="javascript: history.go(-1)">
 <%--                        <img src="../assets/back-arrow.png" alt="">--%>
-                       <%-- Back</a>--%>
+                    <%-- Back</a>--%>
                     <div class="row <%--pt-5 px-5--%> pb-1">
                         <div class="col-12" style="font-family: 'Red Hat Display', sans-serif !important;">
                             <h1 class="heading text-blue">Additional Information</h1>
@@ -340,7 +343,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-5 col-12 mt-lg-0 mt-5 outertablepadd">
-                                    <div class="madical-surgery-table" style="max-height: 230px; overflow: auto;border-radius:10px;">
+                                    <div class="madical-surgery-table" style="max-height: 230px; overflow: auto; border-radius: 10px;">
                                         <asp:GridView ID="surgeryGridView" AutoGenerateColumns="false" CssClass="surgeries-table w-100 text-center table table-striped table-hover" runat="server">
                                             <Columns>
                                                 <asp:BoundField DataField="user_surgery_details" HeaderText="Surgery Details"
@@ -352,8 +355,8 @@
                                                     <HeaderTemplate>Surgery Date</HeaderTemplate>
                                                     <ItemTemplate>
                                                         <div class="d-flex align-items-center justify-content-center">
-                                                            <asp:Label ID="lblSurgeryYear" runat="server" style="border-radius:10px !important;" Text='<%#Eval("user_surgery_year") %>'></asp:Label>
-                                                           
+                                                            <asp:Label ID="lblSurgeryYear" runat="server" Style="border-radius: 10px !important;" Text='<%#Eval("user_surgery_year") %>'></asp:Label>
+
                                                             <%--                                                             <asp:ImageButton CssClass="delete-report-btn" ID="lRemoveBtn" runat="server" OnClick="lRemoveBtn_Click1" CommandArgument='<%#Eval("user_surgery_id") %>' Text="Delete" ImageUrl="../Suppor Group (BG  & Icons)/delete-icon.png"></asp:ImageButton>--%>
                                                         </div>
                                                     </ItemTemplate>
@@ -363,7 +366,7 @@
                                                     <ItemTemplate>
                                                         <div class="d-flex align-items-center justify-content-center">
                                                             <%--                                                            <asp:Label ID="lblSurgeryYear" runat="server" Text='<%#Eval("user_surgery_year") %>'></asp:Label>--%>
-                                                              <asp:ImageButton CssClass="delete-report-btn" ID="lRemoveBtn" runat="server" OnClick="lRemoveBtn_Click1" CommandArgument='<%#Eval("user_surgery_id") %>' Text="Delete" ImageUrl="../Suppor Group (BG  & Icons)/delete-icon.png"></asp:ImageButton>
+                                                            <asp:ImageButton CssClass="delete-report-btn" ID="lRemoveBtn" runat="server" OnClick="lRemoveBtn_Click1" CommandArgument='<%#Eval("user_surgery_id") %>' Text="Delete" ImageUrl="../Suppor Group (BG  & Icons)/delete-icon.png"></asp:ImageButton>
 
                                                         </div>
                                                     </ItemTemplate>
@@ -399,7 +402,7 @@
                             <div class="mt-2 mt-lg-5 d-lg-flex d-flex">
                                 <%--<asp:Button Text="Back" class="thm-back-button" OnClick="btnMedicalBack_Click" type="Button" ID="Button1" runat="server" />--%>
 
-                                <asp:Button Text="Back" class="thm-back-button" style="background-color:#FFD101;margin-right:10px !important;" OnClick="btnAdditionalBack_Click" type="Button" ID="btnMedicalBack" runat="server" />
+                                <asp:Button Text="Back" class="thm-back-button" Style="background-color: #FFD101; margin-right: 10px !important;" OnClick="btnAdditionalBack_Click" type="Button" ID="btnMedicalBack" runat="server" />
                                 <asp:Button Text="Next" ID="btnUpdateAdditional" class="thm-blue-buttn mx-lg-3 my-2 my-lg-0" OnClick="btnUpdateAdditional_Click" runat="server" />
                                 <%--<button onclick="HideAdditionalDiv()" type="submit" class="thm-blue-button">Next</button>--%>
                             </div>
@@ -411,10 +414,9 @@
                 <%--<img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
                 <%-- <img class="plus-bottom-right" src="<%= ResolveUrl("~/assets/plus-2.png") %>" alt="">--%>
             </div>
-            <div class="container">
             <div runat="server" id="medicalHistoryDiv" class="medical-history common-design">
-                
-               
+
+
                 <img class="blue-trangle-right" src="../Terms & Conditions/blue-trangle3.png" alt="">
                 <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
                 <img class="plus-top-left" src="../assets/plus-1.png" alt="">
@@ -451,7 +453,7 @@
                                         </div>
                                         <%--                                    --%>
                                         <div class="col-md-6 col-5 SingleCheckbox justify-content-center align-items-center">
-                                            <asp:CheckBoxList runat="server" ID="cbl" style="padding:20px;" RepeatDirection="Horizontal">
+                                            <asp:CheckBoxList runat="server" ID="cbl" Style="padding: 20px;" RepeatDirection="Horizontal">
                                                 <asp:ListItem Value="1" Text=" " class="CheckBoxLabel" />
                                                 <asp:ListItem Value="2" Text=" " />
                                                 <asp:ListItem Value="3" Text=" " />
@@ -481,7 +483,7 @@
                 <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
             </div>
             <div class="allergy">
-             <%--   <a class="back-arrow-btn" href="javascript: history.go(-1)">
+                <%--   <a class="back-arrow-btn" href="javascript: history.go(-1)">
                     <img src="../assets/back-arrow.png" alt="">Back</a>--%>
                 <%--<img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
                 <img class="blue-trangle-top-right" src="../Terms & Conditions/blue-trangle6.png" alt="">
@@ -531,13 +533,12 @@
                         </div>
                     </div>
                     <div class="medic-his-btn mt-3">
-                        <asp:Button Text="Back" CssClass="thm-back-button my-2" ID="btnAllergyBack" style="background-color:#FFD101;" OnClick="btnAllergyBack_Click" runat="server" />
+                        <asp:Button Text="Back" CssClass="thm-back-button my-2" ID="btnAllergyBack" Style="background-color: #FFD101;" OnClick="btnAllergyBack_Click" runat="server" />
                         <asp:Button Text="Save" CssClass="thm-blue-buttn" ID="btnSaveAllergy" OnClick="btnSaveAllergy_Click" runat="server" />
                     </div>
                 </div>
 
             </div>
-
         </ContentTemplate>
     </asp:UpdatePanel>
 

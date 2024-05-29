@@ -45,17 +45,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Signup - Basic Information</title>
     <style>
-        .seleced-option-color{
-            color:#0512b9 !important;
-        }
-        #contentPlaceHolder1_ddlCountry{
-            color:#0512b9!important;
-        }
-
-        input::placeholder,input::selection{
+        .seleced-option-color {
             color: #0512b9 !important;
-
         }
+
+        #contentPlaceHolder1_ddlCountry {
+            color: #0512b9 !important;
+        }
+
+        input::placeholder, input::selection {
+            color: #0512b9 !important;
+        }
+
         .signin-form input::placeholder {
             color: #0512b9 !important;
         }
@@ -170,7 +171,7 @@
         <ContentTemplate>
             <div class="user-info-main" runat="server">
                 <a class="back-arrow-btn" href="javascript: history.go(-1)">
-<%--                    <img src="../assets/back-arrow.png" alt="">--%>
+                    <%--                    <img src="../assets/back-arrow.png" alt="">--%>
                     Back</a>
                 <div class="container mt-768-80">
                     <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
@@ -181,7 +182,7 @@
                     <div class="row px-5">
                         <div class="col-md-4 col-sm-12 col-lg-4 col-xl-4 d-flex mt-sm-5 mt-lg-0 align-items-center justify-content-center">
                             <div class="text-center profile-img">
-                                <img id="imagePreview" class="w-75" alt="profile_image" runat="server" style="border:1px solid transparent;border-radius:50%;" />
+                                <img id="imagePreview" class="w-75" alt="profile_image" runat="server" style="border: 1px solid transparent; border-radius: 50%;" />
                                 <%-- <img id="imagePreview" runat="server" class="w-75" src="../My Data/default-user-profile.png" alt="" />--%>
                                 <br />
                                 <div class="Addbasicbtnboth">
@@ -231,7 +232,7 @@
                                     <span for="" class="imp-star">*</span>
                                     <i class="fa-solid fa-cake-candles form-control-feedback"></i>
                                     <%--<asp:Calendar ID="calendar1" runat="server" DayStyle-BorderColor="#FFCC66"></asp:Calendar>--%>
-                                    <input runat="server" id="dobTextBox1" type="date" class="form-control" placeholder="" style="padding-right: 10px !important;" required />
+                                    <input runat="server" id="dobTextBox1" type="date" class="form-control" placeholder="" style="padding-right: 10px !important;" required max=""/>
                                 </div>
                                 <div class="col-12">
                                     <span for="" class="imp-star">*</span>
@@ -252,7 +253,7 @@
                                     <span for="" class="imp-star">*</span>
                                     <i class="fa-solid fa-earth-americas form-control-feedback"></i>
                                     <%--<input required id="countryTextBox" runat="server" type="text" class="form-control" placeholder="Enter Country">--%>
-                                    <asp:DropDownList ID="ddlCountry" CssClass="form-select form-control mySelect"  OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:DropDownList>
+                                    <asp:DropDownList ID="ddlCountry" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:DropDownList>
                                     <asp:RequiredFieldValidator InitialValue="0" runat="server" ControlToValidate="ddlCountry" placeholder="Select Your Country" ValidationGroup="updateProfile" Display="Dynamic" ErrorMessage="Please Select Country" CssClass=""></asp:RequiredFieldValidator>
 
 
@@ -262,7 +263,7 @@
                                     <i class="fa-solid fa-map-pin form-control-feedback"></i>
 
                                     <asp:DropDownList ID="stateDropDownList" CssClass="form-select form-control mySelect" OnSelectedIndexChanged="stateDropDownList_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:DropDownList>
-                                                                        <input id="stateTextBox" visible="false" runat="server" type="text" class="form-control" placeholder="Enter State" />
+                                    <input id="stateTextBox" visible="false" runat="server" type="text" class="form-control" placeholder="Enter State" />
 
                                     <asp:RequiredFieldValidator runat="server" ControlToValidate="stateDropDownList" ValidationGroup="updateProfile" Display="Dynamic" ErrorMessage="Please Select State" CssClass=""></asp:RequiredFieldValidator>
                                 </div>
@@ -469,9 +470,9 @@
             utilsScript:
                 "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
         }); fileName;
-        });
 
-
+        var today = new Date().toISOString().split('T')[0];
+        docu.getElementById("dobTextBox1").setAttribute("max", today);
 
     </script>
 
