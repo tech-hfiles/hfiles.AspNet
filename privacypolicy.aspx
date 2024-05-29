@@ -30,23 +30,56 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <style>
+        .back-arrow-btn {
+            position: absolute;
+            left: 10%;
+            top: 10%;
+            /* color: #0512b9; */
+            padding: 5px 20px;
+            border-radius: 50px;
+            border: 0;
+            outline: 0;
+            color: #0512b9;
+            cursor: pointer;
+            margin-top: 20px;
+            font-family: 'Red Hat Display', Sans-serif !important;
+            font-weight: 700;
+            font-size: 16px;
+            background-color: #fdd001;
+        }
+
+        @media (max-width:540px) {
+            .blue_trangle_top_left {
+                display: none;
+                visibility: hidden;
+            }
+
+            .back-arrow-btn {
+                left: 5%;
+                top: 0%;
+               
+            }
+        }
+
         @media (min-width: 768px) and (max-width: 991px) {
             .PrivacyPolicyblue_trangle_bottom_right {
                 position: absolute !important;
                 bottom: 0px !important;
             }
         }
-         @media (min-width: 1022px) and (max-width: 1024px) {
-     .PrivacyPolicyblue_trangle_bottom_right {
-         position: absolute !important;
-         bottom: 0px !important;
-     }
- }
+
+        @media (min-width: 1022px) and (max-width: 1024px) {
+            .PrivacyPolicyblue_trangle_bottom_right {
+                position: absolute !important;
+                bottom: 0px !important;
+            }
+        }
+
         @media only screen and (max-width: 1300px) {
-          
-     .PrivacyPolicyblue_trangle_bottom_right {
-                    position: absolute !important;
-                }
+
+            .PrivacyPolicyblue_trangle_bottom_right {
+                position: absolute !important;
+            }
         }
     </style>
 
@@ -59,10 +92,9 @@
             <img class="blue_trangle_top_right" src="../Terms & Conditions/blue-trangle2.png" alt="">
             <img class="plus_top_left" src="../Terms & Conditions/plus-1.png" alt="">
 
-            <a class="back-arrow-btn" href="javascript: history.go(-1)">
-                <img src="../assets/back-arrow.png" alt="">Back</a>
+            <a class="back-arrow-btn" href="javascript: history.go(-1)">Back</a>
 
-            <div class="mt-5 mt-lg-0" style="height: 90%;">
+            <div class="mt-5 mt-lg-0" style="height: 100%;">
                 <div class="d-flex justify-content-center align-items-center h-100">
                     <div class="inner_div">
                         <div class="heading">

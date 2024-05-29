@@ -31,6 +31,7 @@
             color: black !important;
         }
 
+
         @media (min-width: 992px) {
 
             .footer {
@@ -132,6 +133,8 @@
             progressBar: true,
             positionClass: 'toast-top-right'
         };
+        /* Style for checkbox */
+
 
     </script>
 </head>
@@ -173,7 +176,7 @@
                             <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
                                 <i class="fa-solid fa-user form-control-feedback"></i>
                                 <!-- <span class="fa fa-user form-control-feedback"></span> -->
-                                <input id="firstnameTextBox" runat="server" required type="text" class="form-control my-2" placeholder="Name" />
+                                <input id="firstnameTextBox" runat="server" required type="text" class="form-control my-2" placeholder="First Name" />
                             </div>
                             <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
                                 <i class="fa-solid fa-user form-control-feedback"></i>
@@ -200,7 +203,7 @@
                                 <asp:TextBox ID="pwdTextBox" runat="server" type="password" class="form-control my-2" placeholder="Password" required />
                                 <i id="passwordView1" class="fa-solid fa-eye-slash hide-password-toggal"></i>
 
-                                
+
                             </div>
 
                             <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 password-div input-div">
@@ -208,11 +211,15 @@
                                 <asp:TextBox ID="cpwdTextBox" runat="server" type="password" class="form-control my-2" placeholder="Confirm Password" required />
                                 <i id="passwordView2" class="fa-solid fa-eye-slash hide-password-toggal"></i>
                                 <%-- <asp:RequiredFieldValidator ControlToValidate="cpwdTextBox" ErrorMessage="Please Enter Confirm Password" runat="server" ForeColor="White"></asp:RequiredFieldValidator Display="">--%>
-                              
-
-                            </div>  <asp:CompareValidator ControlToValidate="cpwdTextBox" Display="Dynamic" ControlToCompare="pwdTextBox" ErrorMessage="Password and Confirm Password should be same" runat="server" ForeColor="White"></asp:CompareValidator>
+                            </div>
+                            <asp:CompareValidator ControlToValidate="cpwdTextBox" Display="Dynamic" ControlToCompare="pwdTextBox" ErrorMessage="Password and Confirm Password should be same" runat="server" ForeColor="White"></asp:CompareValidator>
 
                         </div>
+                        <div class="text-center my-3 text-white">
+                            <input type="checkbox" id="termsCheckbox" required />
+                            <label for="termsCheckbox">I accept the <a href="tc.aspx" target="_blank">Terms & Conditions</a></label>
+                        </div>
+
                         <div class="text-center my-3" runat="server" id="divOtp">
                             <asp:Button ID="genOTPButton" runat="server" Text="Sign Up" OnClick="signup_Click" OnClientClick="JSalert()" class="btn thm-button"></asp:Button>
                         </div>

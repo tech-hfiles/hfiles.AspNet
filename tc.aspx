@@ -30,20 +30,48 @@
     <link rel="stylesheet" href="../style2.css" />
 
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <style>
+        .back-arrow-btn {
+            position: absolute;
+            left: 10%;
+            top: 10%;
+            /* color: #0512b9; */
+            padding: 5px 20px;
+            border-radius: 50px;
+            border: 0;
+            outline: 0;
+            color: #0512b9;
+            cursor: pointer;
+            margin-top: 20px;
+            font-family: 'Red Hat Display', Sans-serif !important;
+            font-weight: 700;
+            font-size: 16px;
+            background-color: #fdd001;
+        }
 
+        @media (max-width:540px) {
+            .blue_trangle_top_left {
+                display: none;
+                visibility: hidden;
+            }
+
+            .back-arrow-btn {
+                left: 5%;
+                top: 0%;
+            }
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <div id="google_translate_element"></div>
             <div class="privacy_main h-100vh h-xl-90vh">
 
                 <img class="blue_trangle_top_left" src="../Terms & Conditions/blue-trangle1.png" alt="">
                 <img class="blue_trangle_top_right" src="../Terms & Conditions/blue-trangle2.png" alt="">
                 <img class="plus_top_left" src="../Terms & Conditions/plus-1.png" alt="">
 
-                <a class="back-arrow-btn" href="javascript: history.go(-1)">
-                    <img src="../assets/back-arrow.png" alt="">Back</a>
+                <a class="back-arrow-btn" href="javascript: history.go(-1)">Back</a>
 
                 <div class="mt-5 mt-lg-0" style="height: 90%;">
                     <div class="d-flex justify-content-center align-items-center h-100">

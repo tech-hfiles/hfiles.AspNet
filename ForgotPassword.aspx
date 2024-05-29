@@ -20,31 +20,34 @@
 
     <title>H Files | Sign In</title>
     <style>
+        .container {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .form-container .login-input, .form-container .btn {
+            width: 100%;
+            border-radius: 30px;
+            margin: 10px 0;
+        }
         .thm-button {
             padding: 10px 40px;
             background: #fdd001;
             border-radius: 20px;
             color: #08138f;
             font-weight: 700;
-            width: 100% !important;
         }
-        .inner-body .login-input,.divOtp .login-input{
+        .inner-body .login-input, .divOtp .login-input {
             border: none;
             background: white;
             border-bottom: 1px solid #ffffff3d;
-            padding: 10px 40px;
-            margin: 8px 0px !important;
+            padding: 10px 20px;
             color: #08138f;
             outline: 0;
-        }
-        .divOtp .login-input{
-            border: none;
-            background: white;
-            border-bottom: 1px solid #ffffff3d;
-            padding: 10px 40px;
-            margin: 8px 0px !important;
-            color: #08138f;
-            border-radius: 30px !important;
         }
         .footer {
             background: #0331b5;
@@ -56,125 +59,93 @@
             padding: 10px;
         }
         .password-div {
-            position:relative;
-            border-radius:30px;
-         }
-.password-div .hide-password-toggal {
-    position:relative;
-       right: 10px;
-    top: 22px;
-    cursor:pointer;
-    font-size:25px;
-}
+            position: relative;
+            border-radius: 30px;
+           
+        }
+        .password-div .hide-password-toggal {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 20px;
+        }
     </style>
-
 </head>
 
 <body>
-    <form class="row h-100 align-center h-sm-100vh" runat="server">
-       <%--<div class="language">
-            <details>
-                <summary>language</summary>
-                <ul id="language">
-                    <li>English</li>
-                </ul>
-            </details>
-        </div>--%>
-        <asp:HiddenField runat="server" ID="hfId" />
-        <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-flex align-items-center" style="text-align: center;">
-            <img src="../assets/features-hero-6.png" alt="" style="width: 100%; height: 90vh; object-fit: contain" />
-        </div>
-        <div class="col-sm-12 col-lg-6 inner-main p-5">
-            <div class="d-flex align-items-center justify-content-center h-100 inner-body">
-                <div class="text-center w-100">
-                    <div class="text-center signin-heading">
-                        <img src="<%= ResolveUrl("~/Sign Up Page/Hfiles Logo.png") %>" alt="" width="120px" />
-                        <br />
-                        <h1 class="color-white">Forgot Password</h1>
-                    </div>
-
-                    <div>
-                        <asp:TextBox ID="emailTextBox" CssClass="w-100 login-input" TextMode="SingleLine" placeholder="Email ID" runat="server" style="border-radius:50px;"></asp:TextBox>
-                        <%-- <asp:TextBox runat="server"  id="emailTextBox" class="w-100 login-input" type="Text" placeholder="Username" />--%>
-                    </div>
-
-                    <div runat="server" id="divOtp">
-                        <input runat="server" required id="otpTextBox" autocomplete="off" class="login-input" type="Text" placeholder="Enter OTP" />
-                        <div class="text-end">
-                            <asp:Label Text="" ID="errorLabel" runat="server" Style="color: #fff" />
-                            <span id="timer" style="color: #fff"></span>
-                            <span class="mx-2">
-                                <asp:LinkButton ID="resendLinkButton" OnClick="resendLinkButton_Click" runat="server">Resend OTP</asp:LinkButton></span>
+    <div class="container">
+        <form class="row h-100 align-center h-sm-100vh" runat="server">
+            <asp:HiddenField runat="server" ID="hfId" />
+            <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-flex align-items-center" style="text-align: center;">
+                <img src="../assets/features-hero-6.png" alt="" style="width: 100%; height: 90vh; object-fit: contain" />
+            </div>
+            <div class="col-sm-12 col-lg-6 inner-main p-5">
+                <div class="d-flex align-items-center justify-content-center h-100 inner-body">
+                    <div class="form-container">
+                        <div class="signin-heading">
+                            <img src="<%= ResolveUrl("~/Sign Up Page/Hfiles Logo.png") %>" alt="" width="120px" />
+                            <br />
+                            <h1 class="color-white">Forgot Password</h1>
                         </div>
 
-
-
-                        <div class="password-div">
-                             <i id="passwordView1" class="fa fa-solid fa-eye-slash hide-password-toggal color-theme-yellow"></i>
-                            <asp:TextBox runat="server" ID="txtPassword" class="w-50 login-input" type="password" placeholder="Password" />
-                        </div>
-                        <div class="password-div">
-                             <i id="passwordView2" class="fa fa-solid fa-eye-slash hide-password-toggal color-theme-yellow"></i>
-                            <asp:TextBox ID="cpwdTextBox" runat="server" type="password" class="w-50 login-input" placeholder="Confirm Password" required />
-                            <asp:RequiredFieldValidator ControlToValidate="cpwdTextBox" ErrorMessage="Please Enter Confirm Password" runat="server"></asp:RequiredFieldValidator>
-                            <asp:CompareValidator ControlToValidate="cpwdTextBox" ControlToCompare="txtPassword" ErrorMessage="Password and Confirm Password should be same" runat="server" ForeColor="White"></asp:CompareValidator>
+                        <div>
+                            <asp:TextBox ID="emailTextBox" CssClass="login-input" TextMode="SingleLine" placeholder="Email ID" runat="server" required></asp:TextBox>
                         </div>
 
+                        <div runat="server" id="divOtp">
+                            <input runat="server" required id="otpTextBox" autocomplete="off" class="login-input" type="Text" placeholder="Enter OTP" />
+                            <div class="text-end">
+                                <asp:Label Text="" ID="errorLabel" runat="server" Style="color: #fff" />
+                                <span id="timer" style="color: #fff"></span>
+                                <span class="mx-2">
+                                    <asp:LinkButton ID="resendLinkButton" OnClick="resendLinkButton_Click" runat="server">Resend OTP</asp:LinkButton></span>
+                            </div>
+
+                            <div class="password-div">
+                                <i id="passwordView1" class="fa fa-solid fa-eye-slash hide-password-toggal color-theme-yellow"></i>
+                                <asp:TextBox runat="server" ID="txtPassword" class="login-input" type="password" placeholder="Password" />
+                            </div>
+                            <div class="password-div">
+                                <i id="passwordView2" class="fa fa-solid fa-eye-slash hide-password-toggal color-theme-yellow"></i>
+                                <asp:TextBox runat="server" ID="cpwdTextBox" class="login-input" type="password" placeholder="Password" />
+                                <asp:RequiredFieldValidator ControlToValidate="cpwdTextBox" ErrorMessage="Please Enter Confirm Password" runat="server"></asp:RequiredFieldValidator>
+                                <asp:CompareValidator ControlToValidate="cpwdTextBox" ControlToCompare="txtPassword" ErrorMessage="Password and Confirm Password should be same" runat="server" ForeColor="White"></asp:CompareValidator>
+                            </div>
+                        </div>
+
+                        <div>
+                            <asp:Button ID="otpButton" OnClick="signup_Click" runat="server" Text="Get OTP" class="btn thm-button"></asp:Button>
+                        </div>
+
+                        <div>
+                            <asp:LinkButton class="btn thm-button" Text="Login" ValidationGroup="login" OnClick="btnSubmit_Click" ID="btnSubmit" runat="server" />
+                        </div>
                     </div>
-
-                    <div class="text-center my-1">
-                        <asp:Button ID="otpButton" OnClick="signup_Click" runat="server" Text="Get OTP" class="btn thm-button my-2"></asp:Button>
-                    </div>
-
-                    <div class="text-center my-1">
-
-                        <asp:LinkButton class="btn thm-button my-2" Text="Login" ValidationGroup="login" OnClick="btnSubmit_Click" ID="btnSubmit" runat="server" />
-                    </div>
-
-                    <%--<div class="text-center my-1">
-                        <span style="color: #fff">Or</span>
-                    </div>
-
-                    <%--  <div class="text-center my-1">
-                        <input type="button" id="changeLoginMode" value="Login with Password" class="btn thm-button my-2" onclick="handleLogin()" />
-                    </div>--%>
-
-                    <%-- <div class="text-center resend-otp-div">
-                        <br />
-                        <span style="color: #fff">New User? Click <a style="color: #fdd001; font-weight: 700" href="signup.aspx">here</a> to Signup</span>
-                    </div>--%>
                 </div>
             </div>
-
-
-
-        </div>
-    </form>
+        </form>
+    </div>
 
     <div class="row footer justify-content-around align-items-center m-0">
-    <div class="col-4 t-c d-xl-flex justify-content-center text-center">
-        <p class="m-0"><a class="px-lg-3" href="TermsAndConditions.aspx">Terms & Conditions</a></p>
-        <p class="m-0"><a href="Policy.aspx">Privacy & Policy</a></p>
-    </div>
+        <div class="col-4 t-c d-xl-flex justify-content-center text-center">
+            <p class="m-0"><a class="px-lg-3" href="TermsAndConditions.aspx">Terms & Conditions</a></p>
+            <p class="m-0"><a href="Policy.aspx">Privacy & Policy</a></p>
+        </div>
 
-    <div class="col-4 copy-right text-center p-0">
-        <span>&copy 2024</span>
-    </div>
-    <div class="col-4 p-p d-xl-flex text-center">
-        <p class="m-0"><a class="px-xl-3" href="https://wa.me/919930372831"><i class="fa-brands fa-whatsapp"></i>&nbsp; +91-9930372831</a></p>
-        <p class="m-0"><a class="" href="mailto:contact@hfiles.in"><i class="fa fa-solid fa-envelope"></i>&nbsp; contact@hfiles.in</a></p>
-
-    </div>
+        <div class="col-4 copy-right text-center p-0">
+            <span>&copy 2024</span>
+        </div>
+        <div class="col-4 p-p d-xl-flex text-center">
+            <p class="m-0"><a class="px-xl-3" href="https://wa.me/919978043453"><i class="fa-brands fa-whatsapp"></i>&nbsp; +91-9978043453</a></p>
+            <p class="m-0"><a class="" href="mailto:contact@hfiles.in"><i class="fa fa-solid fa-envelope"></i>&nbsp; contact@hfiles.in</a></p>
+        </div>
     </div>
 
     <script language="JavaScript">
-
         $('.password-div .hide-password-toggal').click(function () {
-            console.log('password');
-            // Find the associated password textbox
             var passwordTextBox = $(this).siblings('.login-input');
-
-            // Toggle the password visibility
             if (passwordTextBox.attr('type') == 'password') {
                 passwordTextBox.attr('type', 'text');
                 $(this).removeClass('fa-eye-slash');
@@ -185,42 +156,15 @@
                 $(this).addClass('fa-eye-slash');
             }
         });
-        //var changeloginmodebtn = document.getElementById('changeloginmode')
-        var loginMode = 'password'
 
-        // $('#txtPassword').hide()
-        $('#btnSubmit').hide()
-        document.getElementById('changeLoginMode').value = 'Login with Password'
-
-        //function handleLogin() {
-        //    console.log('logn mode')
-        //    if (loginMode == 'password') {
-        //        $('#divOtp').hide()
-        //        $('#otpButton').hide()
-        //        $('#txtPassword').show()
-        //        $('#btnSubmit').show()
-        //        $('#changeLoginMode').val('Login with OTP')
-        //        //document.getElementById('changeLoginMode').value = 'Login with OTP'
-        //        loginMode = 'OTP'
-        //    } else if (loginMode == 'OTP') {
-        //        $('#divOtp').show()
-        //        $('#otpButton').show()
-        //        $('#txtPassword').hide()
-        //        $('#btnSubmit').hide()
-        //        $('#changeLoginMode').val('Login with password')
-        //        //document.getElementById('changeLoginMode').value = 'Login with password'
-        //        loginMode = 'password'
-        //    }
-
-        //}
+        $('#btnSubmit').hide();
+        document.getElementById('changeLoginMode').value = 'Login with Password';
 
         let timerOn = true;
         $('#resendLinkButton').hide();
         function timer(remaining) {
-
             var m = Math.floor(remaining / 60);
             var s = remaining % 60;
-
             m = m < 10 ? '0' + m : m;
             s = s < 10 ? '0' + s : s;
             document.getElementById('timer').innerHTML = m + ':' + s;
@@ -234,21 +178,18 @@
             }
 
             if (!timerOn) {
-                // Do validate stuff here
                 return;
             }
 
-            // Do timeout stuff here
-            $('#timer').hide()
-            $('#resendLinkButton').show()
+            $('#timer').hide();
+            $('#resendLinkButton').show();
         }
         timer(60);
         $('#resendLinkButton').click(function () {
             $('#resendLinkButton').hide();
-            $('#timer').show()
+            $('#timer').show();
             timer(60);
-        })
-
+        });
     </script>
 </body>
 </html>

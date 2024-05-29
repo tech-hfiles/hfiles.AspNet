@@ -4,6 +4,37 @@
     <link rel="stylesheet" href="../style2.css" />
     <title>T&C</title>
     <style>
+        .back-arrow-btn {
+            position: absolute;
+            left: 10%;
+            top: 10%;
+            /* color: #0512b9; */
+            padding: 5px 20px;
+            border-radius: 50px;
+            border: 0;
+            outline: 0;
+            color: #0512b9;
+            cursor: pointer;
+            margin-top: 20px;
+            font-family: 'Red Hat Display', Sans-serif !important;
+            font-weight: 700;
+            font-size: 16px;
+            background-color: #fdd001;
+        }
+
+        @media (max-width:540px) {
+            .blue_trangle_top_left {
+                display: none;
+                visibility: hidden;
+            }
+
+            .back-arrow-btn {
+                left: 5%;
+                top: 0%;
+            }
+        }
+
+
         @media (min-width: 1600px) and (max-width: 1920px) {
             .footer {
                 position: absolute;
@@ -80,7 +111,7 @@
         <img class="plus_top_left" src="../Terms & Conditions/plus-1.png" alt="">
 
         <a class="back-arrow-btn" href="javascript: history.go(-1)">
-            <img src="../assets/back-arrow.png" alt="">Back</a>
+            Back</a>
 
         <div class="mt-5 mt-lg-0" style="height: 90%;">
             <div class="d-flex justify-content-center align-items-center h-100">
