@@ -166,7 +166,7 @@ namespace hfiles
                                     //Response.Redirect("~/samanta.aspx");
                                     if (Bind() > 0)
                                     {
-                                        Response.Redirect("~/samanta.aspx");
+                                        Response.Redirect("~/addbasicdetails.aspx");
                                     }
                                     else
                                     {

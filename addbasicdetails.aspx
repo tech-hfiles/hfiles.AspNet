@@ -222,7 +222,7 @@
                                     <span for="" class="imp-star">*</span>
                                     <i class="fa-solid fa-venus-mars form-control-feedback"></i>
                                     <select runat="server" id="selectgender" class="form-select form-control mySelect" style="color: blue" aria-label="Default select example" required>
-                                        <option selected>Gender</option>
+                                        <option disabled selected>Select Gender</option>
                                         <option value="1">Male</option>
                                         <option value="2">Female</option>
                                         <option value="3">Others</option>
@@ -231,8 +231,7 @@
                                 <div class="col-12">
                                     <span for="" class="imp-star">*</span>
                                     <i class="fa-solid fa-cake-candles form-control-feedback"></i>
-                                    <%--<asp:Calendar ID="calendar1" runat="server" DayStyle-BorderColor="#FFCC66"></asp:Calendar>--%>
-                                    <input runat="server" id="dobTextBox1" type="date" class="form-control" placeholder="" style="padding-right: 10px !important;" required max=""/>
+                                    <input runat="server" id="dobTextBox1" onclick="setMaxDate()" type="date" class="form-control" placeholder="" style="padding-right: 10px !important;" required max="" />
                                 </div>
                                 <div class="col-12">
                                     <span for="" class="imp-star">*</span>
@@ -404,7 +403,7 @@
 
 
     <script type="text/javascript">
-        console.log("aaaaaaaaaaaaaaaaaaaaaaaaaa")
+      
 
         $(function () {
             console.log("fun 1")
@@ -471,10 +470,34 @@
                 "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
         }); fileName;
 
-        var today = new Date().toISOString().split('T')[0];
-        docu.getElementById("dobTextBox1").setAttribute("max", today);
+        //var today = new Date().toISOString().split('T')[0];
+        //// Set the max attribute of the date input to today's date
+        //console.log(today, "Today")
+        //document.getElementById("dobTextBox1").setAttribute("max", today);
+        console.log(today, "Today")
+        //document.addEventListener("DOMContentLoaded", function () {
+        //    // Get today's date in YYYY-MM-DD format
+        //    var today = new Date().toISOString().split('T')[0];
+        //    // Log today's date for debugging
+        //    console.log(today, "Today");
+        //    // Set the max attribute of the date input to today's date
+        //    document.getElementById("dobTextBox1").setAttribute("max", today);
+        //});
+
+        function setMaxDate() {
+            // Get today's date in YYYY-MM-DD format
+            var today = new Date().toISOString().split('T')[0];
+            // Log today's date for debugging
+            console.log(today, "Today");
+            // Set the max attribute of the date input to today's date
+            var dobTextBox = document.getElementById("ContentPlaceHolder1_dobTextBox1");
+            if (dobTextBox) {
+                dobTextBox.setAttribute("max", today);
+            } else {
+                console.error("Element with ID 'dobTextBox1' not found");
+            }
+        }
 
     </script>
-
 </asp:Content>
 

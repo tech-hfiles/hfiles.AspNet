@@ -235,21 +235,15 @@ namespace hfiles
             int reportId = DAL.validateInt(ddlReports.SelectedValue);
             double fileSize = DAL.validateDouble_(imageFileUpload1.PostedFile.ContentLength);
             int msg = AddReport(sender, UserId, reportname, reporturl, reportId, fileSize);
+            //Clear all
+            clear();
 
-            //if (msg > 0)
-            //{
-            //    lblMsg.Text = "Report added successfully";
-            //    clear();
-            //}
-            //else
-            //{
-            //    lblMsg.Text = "some error occured, please try again.";
-            //}
         }
         protected void clear()
         {
             txtReportName.Text = string.Empty;
             ddlReports.ClearSelection();
+            litFileName.Text = string.Empty;
         }
         public int AddReport(object sender, int UserId, string reportname, string reporturl, int reportId, double FileSize)
         {
