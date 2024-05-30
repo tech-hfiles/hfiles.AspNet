@@ -187,7 +187,7 @@
                                 <br />
                                 <div class="Addbasicbtnboth">
                                     <button type="button">Change Profile Image</button>
-                                    <button type="button">Remove Profile Image</button>
+                                    <asp:Button ID="removeProfileButton" runat="server" OnClick="removeProfileButton_Click" Text="Remove Profile Image"></asp:Button>
                                 </div>
                                 <br />
 
@@ -222,7 +222,7 @@
                                     <span for="" class="imp-star">*</span>
                                     <i class="fa-solid fa-venus-mars form-control-feedback"></i>
                                     <select runat="server" id="selectgender" class="form-select form-control mySelect" style="color: blue" aria-label="Default select example" required>
-                                        <option disabled selected>Select Gender</option>
+                                        <option value="" disabled selected>Select Gender</option>
                                         <option value="1">Male</option>
                                         <option value="2">Female</option>
                                         <option value="3">Others</option>
@@ -403,7 +403,7 @@
 
 
     <script type="text/javascript">
-      
+
 
         $(function () {
             console.log("fun 1")

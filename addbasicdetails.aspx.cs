@@ -380,5 +380,11 @@ namespace hfiles
         {
             getcitylist(stateDropDownList.SelectedItem.Text);
         }
+
+        protected void removeProfileButton_Click(object sender, EventArgs e)
+        {
+            string imagePath = "../My Data/default-user-profile.png";
+            imagePreview.Src = imagePath;
+        }
     }
 }
