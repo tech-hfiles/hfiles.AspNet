@@ -32,7 +32,7 @@ namespace hfiles
         string reporturl;
         #endregion
         string memberRelation, message, icon;
-        int RId ;
+        int RId;
         DataTable dtMemberList = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -179,7 +179,7 @@ namespace hfiles
                         using (MySqlCommand cmd = new MySqlCommand("usp_addreportwithaccess", con))
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Parameters.AddWithValue("_UserId", memberId );/* DAL.validateInt(Session["Userid"].ToString())*/
+                            cmd.Parameters.AddWithValue("_UserId", memberId);/* DAL.validateInt(Session["Userid"].ToString())*/
                             cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(ReportId));
                             cmd.Parameters.AddWithValue("_memberId", DAL.validateInt(Session["Userid"].ToString()));/*UserId*/
                             cmd.Parameters.AddWithValue("_reportname", "");
@@ -738,7 +738,7 @@ namespace hfiles
                         cmd.Parameters.AddWithValue("_RId", 0);
                         cmd.ExecuteNonQuery();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        
+
                         da.Fill(dtMemberList);
                         if (dtMemberList != null && dtMemberList.Rows.Count > 0)
                         {
@@ -889,16 +889,24 @@ namespace hfiles
             mp1.Hide();
         }
 
-        protected void Linkbtn1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         protected void rptReports_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             Repeater reportRepeater = e.Item.FindControl("rptReports") as Repeater;
         }
 
+        protected void whatsappLinkButton_Click(object sender, EventArgs e)
+        {
+            LinkButton lnk = sender as LinkButton;
+            string fileUrl = "https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf";//lnk.CommandArgument;
+            string whatsappUrl = GenerateWhatsAppUrl(fileUrl);
+            Response.Redirect(whatsappUrl);
+        }
+        private string GenerateWhatsAppUrl(string fileUrl)
+        {
+            string message = "Here is your PDF: " + fileUrl;
+            string encodedMessage = HttpUtility.UrlEncode(message);
+            return "https://wa.me/?text=" + encodedMessage;
+        }
         //public static void SendMail(string Subject, string messageBody, string ToEmail, string attachmentFilePath)
         //{
         //    string fromMail = ConfigurationManager.AppSettings["careermailUserId"].ToString();
