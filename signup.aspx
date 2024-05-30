@@ -158,7 +158,7 @@
 
             <div class="row vert-cent w-100 h-sm-100vh m-0 ">
                 <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image h-lg-100vh d-none d-lg-block px-5" style="background: #fff">
-                    <img src="<%= ResolveUrl("~/Reception Page/Hfiles-signup-page.png") %>" alt="" style="width: 100%; height: 90%; object-fit: contain" />
+                    <img src="<%= ResolveUrl("~/assets/signup-samanta.png") %>" alt="" style="width: 100%; height: 90%; object-fit: contain" />
                 </div>
 
                 <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12 px-5 d-flex justify-content-center align-items-center vh-lg-100"
