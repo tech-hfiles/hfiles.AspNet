@@ -546,9 +546,9 @@
                                         <span id="storageused" runat="server"></span>
                                     </div>
                                     <div class="AddmemberRightside_Card text-center">
-                                        <span>1.5 data</span>
+                                        
                                         <span id="storageleft" runat="server"></span>
-                                        <span>15gb</span>
+                                       
                                     </div>
 
                                     <div class="ContactUs text-center">

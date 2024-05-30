@@ -233,7 +233,7 @@ namespace hfiles
             int UserId = DAL.validateInt(Session["Userid"].ToString());//
             string reportname = txtReportName.Text;
             int reportId = DAL.validateInt(ddlReports.SelectedValue);
-            double fileSize = DAL.validateDouble_(imageFileUpload1.PostedFile.ContentLength);
+            double fileSize =  Math.Round(DAL.validateDouble_(imageFileUpload1.PostedFile.ContentLength)/1024, 0);
             int msg = AddReport(sender, UserId, reportname, reporturl, reportId, fileSize);
             //Clear all
             clear();
@@ -244,6 +244,7 @@ namespace hfiles
             txtReportName.Text = string.Empty;
             ddlReports.ClearSelection();
             litFileName.Text = string.Empty;
+            ddlMembers2.ClearSelection();
         }
         public int AddReport(object sender, int UserId, string reportname, string reporturl, int reportId, double FileSize)
         {
@@ -284,7 +285,7 @@ namespace hfiles
                             cmd.Parameters.AddWithValue("_reportId", reportId);
                             // cmd.Parameters.AddWithValue("_memberId", memberId);
                             cmd.Parameters.AddWithValue("_memberId", memberIdList);
-                            // cmd.Parameters.AddWithValue("_FileSize", FileSize);
+                            cmd.Parameters.AddWithValue("_FileSize", FileSize);
                             cmd.Parameters.AddWithValue("_rId", 0);
                             cmd.Parameters.AddWithValue("_SpType", "C");
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
@@ -692,8 +693,8 @@ namespace hfiles
                         string usedStorage1 = "0";//cmd.ExecuteScalar().ToString();
                         double usedStorage = DAL.validateDouble_(cmd.ExecuteScalar());
                         double TotalAllotStorage = DAL.validateDouble_(ConfigurationManager.AppSettings["StorageLimit"].ToString());
-                        storageused.InnerText = (usedStorage).ToString() + " gb Storage";
-                        //storageleft.InnerText = (TotalAllotStorage - usedStorage).ToString() + " gb of " + TotalAllotStorage.ToString() + " gb";
+                        storageused.InnerText = (usedStorage).ToString() + " GB Storage Used ";
+                        storageleft.InnerText = (Math.Round(TotalAllotStorage - usedStorage, 2)).ToString() + " of " + TotalAllotStorage.ToString() + " GB Left";
                     }
                 }
             }
