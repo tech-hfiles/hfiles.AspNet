@@ -9,18 +9,18 @@
     <link rel="stylesheet" href="style_avatar.css" />
     <%--<link rel="stylesheet" href="style3.css" />--%>
     <style>
-
-        #selected-member-name{
-            margin-top:5px;
-            font-family:'Red Hat Display', sans-serif;
-            color:#0331b5;
-            font-size:18px;
-            font-weight:800;
+        #selected-member-name {
+            margin-top: 5px;
+            font-family: 'Red Hat Display', sans-serif;
+            color: #0331b5;
+            font-size: 18px;
+            font-weight: 800;
         }
+
         .avatar {
             background-image: url(../Avatar/avatar-background.png);
             background-size: 50%;
-            background-repeat: no-repeat;        
+            background-repeat: no-repeat;
             /* background-position: center; */
             background-position-x: 40%;
             background-position-y: 50%;
@@ -96,6 +96,8 @@
             background: linear-gradient(to right, #0512B9 0%, #081466 100%);
             color: #fff;
             border: none;
+            font-weight: 700;
+            font-size: 16px;
             border-radius: 10px;
             font-size: 14px;
             width: 100px;
@@ -103,15 +105,20 @@
         }
 
         .close-btn {
-            padding: 15px 20px;
-            background: linear-gradient(to right, #f57272 0%, #fa5656 100%);
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 14px;
             width: 100px;
-            margin-left: 10px;
+            margin-left: 5px !important;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 0;
+            color: #0512b9;
             cursor: pointer;
+            /* margin-top: 20px; */
+            font-family: 'Red Hat Display', Sans-serif !important;
+            font-weight: 700;
+            font-size: 16px;
+            background-color: #fdd001;
+        }
+
         }
 
         td, th {
@@ -370,8 +377,9 @@
                 width: 60px !important;
             }
         }
-        .side_user_profile_img{
-            border-radius:50%;
+
+        .side_user_profile_img {
+            border-radius: 50%;
         }
 
         /*avatar responsive*/
@@ -386,10 +394,12 @@
                         <div class="row">
                             <div class="col-lg-2 col-md-2 p-0">
                                 <div class="Huz_Addmemberside">
-                                    <ul class="m-0">
+                                    <ul class="m-0 pt-5">
                                         <li><span class="First">
-                                            <asp:LinkButton ID="member2" runat="server"  Text="" OnClick="member2_Click" CommandArgument='<%# Session["UserId"] +"|"+Eval("user_relation") %>'><asp:Label Text="" ID="lblUserName" runat="server" /></asp:LinkButton>
-                                           </a></span></li>
+                                            <asp:LinkButton ID="member2" runat="server" Text="" OnClick="member2_Click" CommandArgument='<%# Session["UserId"] +"|"+Eval("user_relation") %>'>
+                                                <asp:Label Text="" ID="lblUserName" runat="server" />
+                                            </asp:LinkButton>
+                                            </a></span></li>
 
 
                                         <div class="Huz_Addmembersideother" id="repeaterdiv" runat="server">
@@ -398,7 +408,7 @@
                                                     <ItemTemplate>
                                                         <div class="Huz_AddmembersideotherLidiv" id="divWrapper" runat="server">
                                                             <a href="">
-                                                                <img  src='<%# Eval("user_image") != string.Empty ? "upload/" + Eval("user_image").ToString() : "Avatar2/default-user-profile.png" %>' alt="" class="side_user_profile_img"/>
+                                                                <img src='<%# Eval("user_image") != string.Empty ? "upload/" + Eval("user_image").ToString() : "Avatar2/default-user-profile.png" %>' alt="" class="side_user_profile_img" />
                                                             </a>
                                                             <div class="Huz_AddmembersideotherLidiv_name">
                                                                 <asp:LinkButton ID="member1" runat="server" Text='<%#Eval("user_FirstName") %>' OnClick="member1_Click" CommandArgument='<%#Eval("user_Id")+"|"+Eval("user_relation") %>'></asp:LinkButton>
@@ -421,7 +431,7 @@
                             <div class="col-lg-8 col-md-8">
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4">
-                                      <%--  <div class="Huz_AvtarFirstReport Zero">
+                                        <%--  <div class="Huz_AvtarFirstReport Zero">
                                             <div class="Huz_FirstReportInner d-flex align-items-center">
                                                 <span>lab report</span>
                                                 <div class="Huz_FirstReportInnerImage">
@@ -475,7 +485,7 @@
                                     </div>
                                     <div class="col-lg-4 col-md-4">
                                         <div class="Huz_Avtar_Main_image">
-                                            <asp:Image ID="imgAvatar" runat="server"  alt="" />
+                                            <asp:Image ID="imgAvatar" runat="server" alt="" />
                                             <h3>
                                                 <asp:Label Text="" ID="lbluser" runat="server" /></h3>
                                         </div>
@@ -526,7 +536,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 p-0">
-                                <div class="AddmemberRightside" style="">
+                                <div class="AddmemberRightside pt-5" style="">
                                     <div class="Huz_AvatarAddReportbtn text-center">
                                         <asp:LinkButton runat="server" ID="LinkButton1" OnClick="lbtnAddReport_Click"><span style="font-size:20px;">Add Reports<br/>
                                             <img src="Avatar2/add-report-old.png" alt="file-img"></span>
@@ -540,10 +550,12 @@
                                         <span id="storageleft" runat="server"></span>
                                         <span>15gb</span>
                                     </div>
-                                    
+
                                     <div class="ContactUs text-center">
                                         <p>Need Space?</p>
-                                        <a href="mailto:contact@hfiles.in"><p>Contact Us...</p></a>
+                                        <a href="mailto:contact@hfiles.in">
+                                            <p>Contact Us...</p>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -564,7 +576,7 @@
                                 </small>
                             </div>
                         </a>
-                        
+
                     </div>
                     <div class="member-avatar-img">
                         <%--                            <asp:Image class="avatar-img" ID="Image1" runat="server" />--%>
@@ -825,7 +837,7 @@
                         <div class="row">
                             <%-- <div class="col-5 lbl">
                     </div>--%>
-                            <div class="col-12 text-start">
+                            <div class="col-12">
                                 <label><strong>Select Report Type :</strong></label>
                                 <asp:DropDownList CssClass="select-report-dropdown" runat="server" ID="ddlReports">
                                 </asp:DropDownList>
@@ -848,16 +860,16 @@
             </div>--%>
                     <div class="col-12 text-start">
                         <label><strong>Select File :</strong></label>
-                       <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+                        <asp:UpdatePanel runat="server" UpdateMode="Conditional">
                             <ContentTemplate>
-                                <div >
+                                <div>
                                     <asp:FileUpload ID="imageFileUpload1" CssClass="l" runat="server" required onchange="showFileName()" />
-                                 <%--   <span class='button'>Choose</span>--%>
+                                    <%--   <span class='button'>Choose</span>--%>
                                     <%--   <span class='label' data-js-label>No file selected</label>
                                     <span id="fileNameLabel" class='label' data-js-label>No file selected</span>--%>
                                 </div>
                                 <asp:Literal ID="litFileName" runat="server"></asp:Literal>
-                           </ContentTemplate>
+                            </ContentTemplate>
                             <Triggers>
                                 <asp:PostBackTrigger ControlID="btnSubmit" />
                             </Triggers>

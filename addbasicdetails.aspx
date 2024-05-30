@@ -66,9 +66,9 @@
             justify-content: space-around;
         }
 
-            .Addbasicbtnboth button {
+            .Addbasicbtnboth .button-change {
                 padding: 10px 12px;
-                /* border-radius: 50px; */
+                border-radius: 50px;
                 border: 0;
                 outline: 0;
                 color: #0512b9;
@@ -79,6 +79,10 @@
                 font-size: 13px;
                 background-color: #fdd001;
             }
+
+        .hidden {
+            visibility: hidden;
+        }
 
         @media (max-width: 480px) {
             .Addbasicbtnboth button {
@@ -186,14 +190,15 @@
                                 <%-- <img id="imagePreview" runat="server" class="w-75" src="../My Data/default-user-profile.png" alt="" />--%>
                                 <br />
                                 <div class="Addbasicbtnboth">
-                                    <button type="button">Change Profile Image</button>
-                                    <asp:Button ID="removeProfileButton" runat="server" OnClick="removeProfileButton_Click" Text="Remove Profile Image"></asp:Button>
+                                    <asp:Button ID="showInputButton" CssClass="button-change" runat="server" Text="Change Profile Image" OnClientClick="showFileUpload(); return false;" />
+
+                                    <asp:Button ID="removeProfileButton" CssClass="button-change" runat="server" OnClick="removeProfileButton_Click" Text="Remove Profile Image"></asp:Button>
                                 </div>
                                 <br />
 
                                 <asp:UpdatePanel runat="server" UpdateMode="Conditional">
                                     <ContentTemplate>
-                                        <asp:FileUpload CssClass="form-control" runat="server" ID="Profileupload" />
+                                        <asp:FileUpload CssClass="form-control hidden" runat="server" ID="Profileupload" />
                                     </ContentTemplate>
                                     <Triggers>
                                         <asp:PostBackTrigger ControlID="submitButton" />
@@ -325,7 +330,14 @@
     </asp:UpdatePanel>
 
     <script type="text/javascript">
-
+        //document.getElementById("change-profile-img").addEventListener("click", function () {
+        //    var inputBox = document.getElementById("Profileupload");
+        //    inputBox.classList.remove("hidden");
+        //});
+        function showFileUpload() {
+            var fileUpload = document.getElementById('<%= Profileupload.ClientID %>');
+            fileUpload.classList.remove("hidden");
+        }
         function previewImage() {
             var fileInput = document.getElementById('Profileupload');
             var preview = document.getElementById('imagePreview');

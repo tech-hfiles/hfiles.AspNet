@@ -80,7 +80,7 @@ ul {
 }
 
     .Huz_AddmembersideotherLidiv a img {
-        width: 30px;
+        width: 50px;
     }
 
 .Huz_AddmembersideotherLidiv_name,
@@ -382,8 +382,8 @@ ul {
 
     .AddmemberRightside {
         justify-content: unset;
-        padding: 50px 0px;
-    }
+/*        padding: 50px 0px;
+*/    }
 }
 
 @media (min-width: 1270px) and (max-width: 1280px) {
@@ -497,7 +497,7 @@ ul {
 
     .AddmemberRightside {
         justify-content: unset;
-        padding: 50px 0px;
+
     }
 }
 
@@ -512,7 +512,6 @@ ul {
 
     .AddmemberRightside {
         justify-content: unset;
-        padding: 50px 0px;
     }
 
     .Huz_Avtar_Main_image img {
@@ -594,6 +593,5 @@ ul {
 
     .AddmemberRightside {
         justify-content: unset;
-        padding: 50px 0px;
     }
 }
