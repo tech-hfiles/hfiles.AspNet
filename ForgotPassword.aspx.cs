@@ -73,7 +73,7 @@ namespace hfiles
                     string subject = "# Forgot Password ?";
                     string body = $"<p style=\"text-align: justify\">Please use the verification code below to change your password. If you didn&rsquo;t request this, you can ignore this email.</p>\r\n<p><strong style=\"font-size: 130%\">{otp}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Thanks,&nbsp;</p><p style=\"text-align: justify\">Team Health Files.</p>";
                     ViewState["OTPvalue"] = otp;
-                    Session["Userid"] = hfId.Value;
+                    //Session["Userid"] = hfId.Value;
                     DAL.SendCareerMail(subject, body, email);
                     otpButton.Text = "Change Password";
                     divOtp.Visible = true;
@@ -108,44 +108,34 @@ namespace hfiles
                                 command.Parameters.AddWithValue("@userId", emailTextBox.Text);
 
                                 string otpCodeFromDatabase = (string)command.ExecuteScalar();
-
-                                if (ViewState["OTPvalue"].ToString() == otpTextBox.Value)
+                                using (MySqlCommand cmdInsert = new MySqlCommand("usp_changepassword", connection))
                                 {
+                                    cmdInsert.CommandType = CommandType.StoredProcedure;
 
-                                    using (MySqlCommand cmdInsert = new MySqlCommand("usp_changepassword", connection))
+                                    cmdInsert.CommandType = CommandType.StoredProcedure;
+                                    cmdInsert.Parameters.AddWithValue("_EmailId", emailTextBox.Text);
+                                    cmdInsert.Parameters.AddWithValue("_OldPassword", txtPassword.Text);
+                                    cmdInsert.Parameters.AddWithValue("_NewPassword", cpwdTextBox.Text);
+                                    cmdInsert.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
+                                    cmdInsert.ExecuteNonQuery();
+
+                                    if (DAL.validateInt(cmdInsert.Parameters["_Result"].Value.ToString()) == 1)
                                     {
-                                        cmdInsert.CommandType = CommandType.StoredProcedure;
-
-                                        cmdInsert.CommandType = CommandType.StoredProcedure;
-                                        cmdInsert.Parameters.AddWithValue("_UserId", hfId.Value);
-                                        cmdInsert.Parameters.AddWithValue("_OldPassword", txtPassword.Text);
-                                        cmdInsert.Parameters.AddWithValue("_NewPassword", cpwdTextBox.Text);
-                                        cmdInsert.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
-                                        cmdInsert.ExecuteNonQuery();
-
-                                        if (DAL.validateInt(cmdInsert.Parameters["_Result"].Value.ToString()) == 1)
-                                        {
-                                            //CleanUp();
-                                            Response.Write("<script>alert('Password Changed Successfully.')</script>");
-                                            Response.Redirect("login.aspx");
-                                        }
-                                        cmdInsert.Parameters.Add("_Result", MySqlDbType.Int32);
-                                        cmdInsert.Parameters["_Result"].Direction = ParameterDirection.Output;
-                                        cmdInsert.ExecuteNonQuery();
-                                        userexist = Convert.ToInt32(cmdInsert.Parameters["_Result"].Value.ToString());
+                                        //CleanUp();
+                                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Password Changed Successfully.');", true);
+                                        Response.Redirect("~/login.aspx");
                                     }
-                                }
-
-                                else
-                                {
-                                    errorLabel.Text = "Invalid OTP, please enter the correct OTP.";
                                 }
                             }
                             connection.Close();
                         }
                     }
-
+                    else
+                    {
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.error('Invalid OTP, please enter the correct OTP.');", true);
+                    }
                 }
+                
             }
 
         }

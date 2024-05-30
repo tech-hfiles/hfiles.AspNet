@@ -27,7 +27,7 @@ namespace hfiles
             //if (masterPageLabel != null)
             //{
             //    masterPageLabel.Text = Requestcount.ToString();
-                
+
             //    string labelText = masterPageLabel.Text;
             //}
         }
@@ -45,12 +45,13 @@ namespace hfiles
                     cmd.Parameters.AddWithValue("_SpType", "LS"); //Session["Userid"];
                     cmd.Parameters.AddWithValue("_ReportId", 0); //Session["Userid"];
                     cmd.Parameters.AddWithValue("_RId", 0); //Session["Userid"];
-                   // cmd.Parameters.AddWithValue("_AccessMappingId", 0); //Session["Userid"];
+                                                            // cmd.Parameters.AddWithValue("_AccessMappingId", 0); //Session["Userid"];
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
                     gvMembers1.DataSource = dt;
                     gvMembers1.DataBind();
+                    ViewState["usermemberlist"] = dt;
                 }
             }
         }
@@ -59,6 +60,8 @@ namespace hfiles
             LinkButton lnk = sender as LinkButton;
             int value = Convert.ToInt16(lnk.CommandArgument);
             RemoveMember(value);
+
+            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Member Removed Successfully');", true);
         }
 
         protected void RemoveMember(int MemberId)
@@ -72,11 +75,12 @@ namespace hfiles
                     cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(MemberId)); //Session["Userid"];
                     cmd.Parameters.AddWithValue("_UserRedId", DAL.validateInt(Session["Userid"])); //Session["Userid"];
                     cmd.ExecuteNonQuery();
-                    icon = "assets/select.png";
-                    message = "Member Removed Successfully!";
-                    string script = "<script type=\"text/javascript\"> launch_toast('" + message + "','\"+icon+\"'); </script>";
-                    ClientScript.RegisterStartupScript(this.GetType(), "reportalert", script);
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Member Removed Successfully')", true);
+                    //icon = "assets/select.png";
+                    //message = "Member Removed Successfully!";
+                    //string script = "<script type=\"text/javascript\"> launch_toast('" + message + "','\"+icon+\"'); </script>";
+                    //ClientScript.RegisterStartupScript(this.GetType(), "reportalert", script);
+                    //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Member Removed Successfully')", true);
+
                 }
                 user_members();
             }
@@ -133,7 +137,7 @@ namespace hfiles
                     }
                 }
             }
-           // return Requestcount;
+            // return Requestcount;
         }
         protected void acceptBtn_Click(object sender, EventArgs e)
         {
@@ -150,15 +154,17 @@ namespace hfiles
                     mySqlCommand.Parameters.AddWithValue("_rejected", (object)0);
                     mySqlCommand.ExecuteNonQuery();
                     connection.Close();
-                    icon = "assets/select.png";
-                    message = "Request Accepted !";
-                    string script = "<script type=\"text/javascript\"> launch_toast('" + message + "','" + icon + "'); </script>";
-                    ClientScript.RegisterStartupScript(this.GetType(), "requestalert", script);
-                    System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Accepted')", true);
+                    //icon = "assets/select.png";
+                    //message = "Request Accepted !";
+                    //string script = "<script type=\"text/javascript\"> launch_toast('" + message + "','" + icon + "'); </script>";
+                    //ClientScript.RegisterStartupScript(this.GetType(), "requestalert", script);
+                    //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Accepted')", true);
+
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Request Accepted');", true);
                 }
             }
-            user_members();
             requests();
+            user_members();
         }
         protected void friendrequests_RowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -178,11 +184,13 @@ namespace hfiles
                     mySqlCommand.Parameters.AddWithValue("_rejected", (object)1);
                     mySqlCommand.ExecuteNonQuery();
                     connection.Close();
-                    icon = "assets/not-select-red.png";
-                    message = "Request Rejected!";
-                    string script = "<script type=\"text/javascript\"> launch_toast('" + message + "','" + icon + "'); </script>";
-                    ClientScript.RegisterStartupScript(this.GetType(), "reportalert", script);
-                    System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Rejected')", true);
+                    //icon = "assets/not-select-red.png";
+                    //message = "Request Rejected!";
+                    //string script = "<script type=\"text/javascript\"> launch_toast('" + message + "','" + icon + "'); </script>";
+                    //ClientScript.RegisterStartupScript(this.GetType(), "reportalert", script);
+                    //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Rejected')", true);
+
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Request Rejected');", true);
                 }
             }
             user_members();
@@ -190,9 +198,10 @@ namespace hfiles
         }
         protected void SearchInput_TextChanged(object sender, EventArgs e)
         {
-            DataTable dt;
+
             try
             {
+                DataTable dt;
                 using (MySqlConnection con = new MySqlConnection(cs))
                 {
                     con.Open();
@@ -238,6 +247,49 @@ namespace hfiles
             catch (Exception Ex)
             {
             }
+
+            try
+            {
+                DataTable dt = new DataTable();
+                if (ViewState["usermemberlist"] != null)
+                {
+                    dt = (DataTable)ViewState["usermemberlist"];
+                }
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    //tcount.InnerHtml = dt.Rows.Count.ToString();
+                    string searchTerm = SearchInput.Text;
+
+                    // Filter the DataTable based on the search term.
+                    DataTable filteredData = new DataTable();
+                    filteredData = dt.Clone(); // Clone the structure of the original DataTable.
+
+                    //foreach (DataRow row in dt.Rows) 
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        string firstName = row["user_firstname"].ToString().ToLower();
+                        string lastName = row["user_lastname"].ToString().ToLower();
+                        if (firstName.Contains(searchTerm) || lastName.Contains(searchTerm))
+                        {
+                            filteredData.ImportRow(row);
+                        }
+                    }
+
+                    // Bind the filtered DataTable to the Repeater.
+                    gvMembers1.DataSource = filteredData;
+                    gvMembers1.DataBind();
+                }
+                else
+                {
+                    gvMembers1.DataSource = dt;
+                    gvMembers1.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         protected void btnAddMember_Click(object sender, EventArgs e)
@@ -255,11 +307,12 @@ namespace hfiles
             //    Response.Redirect("avatar.aspx");
             //}
 
-            icon = "assets/select.png";
-            message = "Request Sent to Member!";
-            string script = "<script type=\"text/javascript\"> launch_toast('" + message + "','" + icon + "'); </script>";
-            ClientScript.RegisterStartupScript(this.GetType(), "reportalert", script);
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Request Sent to Member !')", true);
+            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Request Sent to Member');", true);
+            //icon = "assets/select.png";
+            //message = "Request Sent to Member!";
+            //string script = "<script type=\"text/javascript\"> launch_toast('" + message + "','" + icon + "'); </script>";
+            //ClientScript.RegisterStartupScript(this.GetType(), "reportalert", script);
+            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Request Sent to Member !')", true);
 
 
         }

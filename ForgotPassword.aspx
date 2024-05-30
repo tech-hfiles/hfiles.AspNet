@@ -24,16 +24,19 @@
             max-width: 100%;
             overflow-x: hidden;
         }
+
         .form-container {
             max-width: 400px;
             margin: 0 auto;
             text-align: center;
         }
-        .form-container .login-input, .form-container .btn {
-            width: 100%;
-            border-radius: 30px;
-            margin: 10px 0;
-        }
+
+            .form-container .login-input, .form-container .btn {
+                width: 100%;
+                border-radius: 30px;
+                margin: 10px 0;
+            }
+
         .thm-button {
             padding: 10px 40px;
             background: #fdd001;
@@ -41,6 +44,7 @@
             color: #08138f;
             font-weight: 700;
         }
+
         .inner-body .login-input, .divOtp .login-input {
             border: none;
             background: white;
@@ -49,6 +53,7 @@
             color: #08138f;
             outline: 0;
         }
+
         .footer {
             background: #0331b5;
             color: #ffffff;
@@ -58,20 +63,38 @@
             width: 100%;
             padding: 10px;
         }
+
         .password-div {
             position: relative;
             border-radius: 30px;
-           
         }
-        .password-div .hide-password-toggal {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            font-size: 20px;
+
+            .password-div .hide-password-toggal {
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                cursor: pointer;
+                font-size: 20px;
+            }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    
+    <style>
+        #toast-container > .toast-success {
+            background-color: #fdd001;
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        toastr.options = {
+            closeButton: true,
+            progressBar: true,
+            positionClass: 'toast-top-right'
+        };
+
+    </script>
 </head>
 
 <body>
@@ -107,12 +130,14 @@
                                 <i id="passwordView1" class="fa fa-solid fa-eye-slash hide-password-toggal color-theme-yellow"></i>
                                 <asp:TextBox runat="server" ID="txtPassword" class="login-input" type="password" placeholder="Password" />
                             </div>
+
                             <div class="password-div">
                                 <i id="passwordView2" class="fa fa-solid fa-eye-slash hide-password-toggal color-theme-yellow"></i>
                                 <asp:TextBox runat="server" ID="cpwdTextBox" class="login-input" type="password" placeholder="Password" />
-                                <asp:RequiredFieldValidator ControlToValidate="cpwdTextBox" ErrorMessage="Please Enter Confirm Password" runat="server"></asp:RequiredFieldValidator>
-                                <asp:CompareValidator ControlToValidate="cpwdTextBox" ControlToCompare="txtPassword" ErrorMessage="Password and Confirm Password should be same" runat="server" ForeColor="White"></asp:CompareValidator>
+
                             </div>
+                            <asp:RequiredFieldValidator ControlToValidate="cpwdTextBox" Display="Dynamic" ErrorMessage="Please enter Password" ForeColor="White" runat="server"></asp:RequiredFieldValidator>
+                            <asp:CompareValidator ControlToValidate="cpwdTextBox" Display="Dynamic" ControlToCompare="txtPassword" ErrorMessage="Both Password should be same" runat="server" ForeColor="White"></asp:CompareValidator>
                         </div>
 
                         <div>
