@@ -52,6 +52,9 @@ namespace hfiles
                     gvMembers1.DataSource = dt;
                     gvMembers1.DataBind();
                     ViewState["usermemberlist"] = dt;
+
+                    Label ReqCount = Master.FindControl("ReqCount") as Label;
+                    ReqCount.Text = dt != null && dt.Rows.Count > 0 ? dt.Rows.Count.ToString() : "0";
                 }
             }
         }
