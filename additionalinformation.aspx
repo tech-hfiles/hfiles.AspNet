@@ -35,8 +35,65 @@
             border: 1px solid #d6d6d6;
         }
 
+
+
         .heading mb-4 h1 {
             font-family: 'Red Hat Display', sans-serif !important;
+        }
+
+        .medical-surgery-table {
+            padding: 2px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 5px 5px 8px #cecece !important;
+        }
+
+        .surgeries-table tr {
+            box-shadow: 5px 5px 8px #cecece !important;
+        }
+
+        th {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        .surgeries-table asp:BoundField {
+            text-align: center;
+        }
+
+        .surgeries-table td, .surgeries-table th {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .surgery-year-label {
+            border-radius: 10px;
+            background-color: #e9ecef;
+            padding: 5px 10px;
+            font-weight: bold;
+        }
+
+        .delete-report-btn {
+            border: none;
+            background: none;
+        }
+
+            .delete-report-btn img {
+                width: 20px;
+                height: 20px;
+            }
+
+        @media (max-width: 567px) {
+            .buttons-container {
+                justify-content: center;
+                text-align: center;
+                display: flex;
+                flex-direction: row;
+            }
+
+                .buttons-container asp\:button {
+                    margin: 10px 0; /* Add some margin to buttons for spacing */
+                }
         }
 
         @media(min-width: <1246px) {
@@ -73,6 +130,13 @@
             .back-arrow-btn-small-dev {
                 top: 80px !important;
             }
+
+            .medic-his-btn {
+                /*margin: 10px 20px;
+                padding:0 20px;*/
+                justify-items: center;
+                align-items: center;
+            }
         }
 
         @media(max-width: 480px) {
@@ -105,7 +169,21 @@
 
         @media(max-width: 768px) {
             .SingleCheckbox input[type=checkbox] + label {
-                margin: 0px 38px;
+                margin: 0px 20px !important;
+            }
+
+            .medical-history-row {
+                padding: 20px 0px !important;
+                /*                gap:5% !important;
+*/
+            }
+
+            .allergy-row {
+                padding: 10px 10px !important;
+            }
+
+            .SingleCheckbox input[type=radio] + label {
+                margin: 1px 25px !important;
             }
         }
 
@@ -113,6 +191,10 @@
 
             .medical-main-div .inner-main-div {
                 overflow-x: hidden;
+            }
+
+            .SingleCheckbox input[type=radio] + label {
+                margin: 1px 18px !important;
             }
         }
 
@@ -343,21 +425,15 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-5 col-12 mt-lg-0 mt-5 outertablepadd">
-                                    <div class="madical-surgery-table" style="max-height: 230px; overflow: auto; border-radius: 10px;">
+                                    <div class="medical-surgery-table" style="overflow: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
                                         <asp:GridView ID="surgeryGridView" AutoGenerateColumns="false" CssClass="surgeries-table w-100 text-center table table-striped table-hover" runat="server">
                                             <Columns>
-                                                <asp:BoundField DataField="user_surgery_details" HeaderText="Surgery Details"
-                                                    SortExpression="user_surgery_details" />
-                                                <%--<asp:BoundField DataField="user_surgery_year" HeaderText="Surgery Date"
-                                                    SortExpression="user_surgery_year" />--%>
-                                                <%--<asp:CommandField ShowDeleteButton="true" ButtonType="Image" DeleteImageUrl="../assets/not-select-red.png" HeaderText="Action" />--%>
+                                                <asp:BoundField DataField="user_surgery_details" HeaderText="Surgery Details" SortExpression="user_surgery_details" />
                                                 <asp:TemplateField>
                                                     <HeaderTemplate>Surgery Date</HeaderTemplate>
                                                     <ItemTemplate>
                                                         <div class="d-flex align-items-center justify-content-center">
-                                                            <asp:Label ID="lblSurgeryYear" runat="server" Style="border-radius: 10px !important;" Text='<%#Eval("user_surgery_year") %>'></asp:Label>
-
-                                                            <%--                                                             <asp:ImageButton CssClass="delete-report-btn" ID="lRemoveBtn" runat="server" OnClick="lRemoveBtn_Click1" CommandArgument='<%#Eval("user_surgery_id") %>' Text="Delete" ImageUrl="../Suppor Group (BG  & Icons)/delete-icon.png"></asp:ImageButton>--%>
+                                                            <asp:Label ID="lblSurgeryYear" runat="server" CssClass="surgery-year-label" Text='<%#Eval("user_surgery_year") %>'></asp:Label>
                                                         </div>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
@@ -365,21 +441,12 @@
                                                     <HeaderTemplate>Delete Item</HeaderTemplate>
                                                     <ItemTemplate>
                                                         <div class="d-flex align-items-center justify-content-center">
-                                                            <%--                                                            <asp:Label ID="lblSurgeryYear" runat="server" Text='<%#Eval("user_surgery_year") %>'></asp:Label>--%>
-                                                            <asp:ImageButton CssClass="delete-report-btn" ID="lRemoveBtn" runat="server" OnClick="lRemoveBtn_Click1" CommandArgument='<%#Eval("user_surgery_id") %>' Text="Delete" ImageUrl="../Suppor Group (BG  & Icons)/delete-icon.png"></asp:ImageButton>
-
+                                                            <asp:ImageButton CssClass="delete-report-btn" ID="lRemoveBtn" runat="server" OnClick="lRemoveBtn_Click1" CommandArgument='<%#Eval("user_surgery_id") %>' ImageUrl="../Suppor Group (BG  & Icons)/delete-icon.png"></asp:ImageButton>
                                                         </div>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-                                                <%--<asp:ButtonField ButtonType="Button" Text="Delete"/>--%>
-
-                                                <%-- <asp:BoundField HeaderText="Action" >
-                                                
-                                               <%--<asp:ImageButton ID="button1" Text="text" CssClass="log-out-btn" ImageUrl="../assets/not-select-red.png" runat="server"></asp:ImageButton>
-                                            </asp:BoundField>--%>
                                             </Columns>
                                         </asp:GridView>
-
                                     </div>
                                     <%--<table class="surgeries-table w-100">
                                         <thead>
@@ -399,7 +466,7 @@
                                     </table>--%>
                                 </div>
                             </div>
-                            <div class="mt-2 mt-lg-5 d-lg-flex d-flex">
+                            <div class="mt-2 mt-lg-5 d-lg-flex d-flex buttons-container">
                                 <%--<asp:Button Text="Back" class="thm-back-button" OnClick="btnMedicalBack_Click" type="Button" ID="Button1" runat="server" />--%>
 
                                 <asp:Button Text="Back" class="thm-back-button" Style="background-color: #FFD101; margin-right: 10px !important;" OnClick="btnAdditionalBack_Click" type="Button" ID="btnMedicalBack" runat="server" />
@@ -445,11 +512,12 @@
                             <asp:Repeater runat="server" ID="rptDisease">
                                 <ItemTemplate>
                                     <div class="row py-4 border-bottom medical-history-row">
-                                        <div class="col-md-6 col-3">
+                                        <div class="col-md-6 col-4">
                                             <p><%# Eval("disease_name") %></p>
                                             <asp:HiddenField runat="server" ID="hfdisease_id" Value='<%# Eval("disease_id") %>' />
-                                            </p>
-                                        
+
+
+
                                         </div>
                                         <%--                                    --%>
                                         <div class="col-md-6 col-5 SingleCheckbox justify-content-center align-items-center">
@@ -497,7 +565,7 @@
                             <h1 class="heading mb-4">Do You Have Any of These Allergies?</h1>
                         </div>
                         <div class="row border-bottom">
-                            <div class="col-md-6 col-4">
+                            <div class="col-md-6 col-4 m-0">
                                 <p>Type</p>
                             </div>
                             <div class="col-md-2 col-3 text-center">
@@ -518,7 +586,7 @@
                                                 <asp:HiddenField runat="server" ID="hfallergy_id" Value='<%# Eval("allergy_id") %>' />
                                             </div>
 
-                                            <div class="col-4 text-center SingleCheckbox">
+                                            <div class="col-4 text-center align-items-center SingleCheckbox">
                                                 <asp:RadioButtonList runat="server" ID="rblAllergy" class="col-6" CssClass="" RepeatDirection="Horizontal">
                                                     <asp:ListItem Value="1" Text=" " class="CheckBoxLabel" />
                                                     <asp:ListItem Value="0" Text=" " class="CheckBoxLabel" />
@@ -532,7 +600,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="medic-his-btn mt-3">
+                    <div class="medic-his-btn mt-3 buttons-container">
                         <asp:Button Text="Back" CssClass="thm-back-button my-2" ID="btnAllergyBack" Style="background-color: #FFD101;" OnClick="btnAllergyBack_Click" runat="server" />
                         <asp:Button Text="Save" CssClass="thm-blue-buttn" ID="btnSaveAllergy" OnClick="btnSaveAllergy_Click" runat="server" />
                     </div>

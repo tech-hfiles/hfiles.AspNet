@@ -1,17 +1,18 @@
 body {
-    margin:0 !important;
-    height:100%;
-    max-width:100%;
-
+    margin: 0 !important;
+    height: 100%;
+    max-width: 100%;
     /* height: 100vh; */
     background-color: #ffffff;
     font-family: 'Red Hat Display', sans-serif !important;
 }
-.container-fluid{
-    margin:0 !important;
-    max-height:100%;
-    max-width:100%
+
+.container-fluid {
+    margin: 0 !important;
+    max-height: 100%;
+    max-width: 100%
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&family=Red+Hat+Display&family=Syne:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Red+Hat+Display&family=Syne:wght@800&display=swap');
@@ -722,8 +723,8 @@ span {
     color: #0512b9;
     font-weight: 700;
     font-family: 'Red Hat Display', sans-serif !important;
-    
 }
+
 .mb-4 {
     font-family: 'Red Hat Display', sans-serif !important;
 }
@@ -1070,8 +1071,8 @@ select {
 
 .medical-main-div .inner-main-div {
     font-family: 'Red Hat Display', Sans-serif !important;
-    max-height: 60vh;
-    overflow-y: auto;
+    /*max-height: 60vh;
+    overflow-y: auto;*/
     padding: 10px;
     width: 100% !important;
 }
@@ -1426,7 +1427,8 @@ span.img-notselected {
     .support-group .chat-input-div input::placeholder {
         font-weight: 400 !important;
         font-family: 'Red Hat Display', sans-serif !important;
-s    }
+        s
+    }
 
 .support-group .chat-history-div {
     max-height: 70%;
@@ -1913,17 +1915,18 @@ s    }
 /*g-translate*/
 
 /*manage-members-table*/
-.manage-members-div{
-    height:100% !important;
-    max-width:100% !important;
+.manage-members-div {
+    height: 100% !important;
+    max-width: 100% !important;
 }
-.manage-members-div .heading {
-    color: #172ab3;
-    font-size: 35px;
-    font-weight: 900;
-/*    margin: 0 10px;
-*/    font-family: 'Red Hat Display', sans-serif !important;
-}
+
+    .manage-members-div .heading {
+        color: #172ab3;
+        font-size: 35px;
+        font-weight: 900;
+        /*    margin: 0 10px;
+*/ font-family: 'Red Hat Display', sans-serif !important;
+    }
 
 .manage-members-table thead th {
     background: #0331b5;
@@ -2057,8 +2060,8 @@ s    }
 }*/
 
 .accordion-button:focus {
-/*    border-color: #ffd101;
-*/    box-shadow: none;
+    /*    border-color: #ffd101;
+*/ box-shadow: none;
 }
 
 .accordion-button {
@@ -2399,13 +2402,13 @@ s    }
     /*   .support-group .left-nav-bar, .support-group .tab-content {
             height: 92vh !important;
         }*/
-    .download-doc-inner ./*report-page-title*/ {
+    .download-doc-inner . /*report-page-title*/ {
         font-size: 16px;
     }
 
-    .download-doc-inner .search-file input {
-        width: 80%
-    }
+        .download-doc-inner .search-file input {
+            width: 80%
+        }
 
     /*  .back-arrow-btn {
         top: 7%;
@@ -2432,11 +2435,11 @@ s    }
             width: 30px;
         }
 
-         .report-page-title {
-            display: block;
-            text-align: center;
-            justify-content:center;
-        }
+    .report-page-title {
+        display: block;
+        text-align: center;
+        justify-content: center;
+    }
 }
 
 @media only screen and (min-width: 768px) and (max-width:912px) {
@@ -2692,6 +2695,7 @@ s    }
 
     .medical-main-div .thm-back-button {
         padding: 10px 45px;
+        margin: 8px 10px 8px 0 !important
     }
 
     .additionl-main-div .heading {
@@ -2945,4 +2949,62 @@ s    }
     /*  .common-design .blue-trangle-bottom {
         position: absolute !important;
     }*/
+}
+
+@media(max-width:540px) {
+    .manage-members-div {
+        margin: 0 5% !important;
+        flex-direction: column-reverse !important;
+    }
+
+    .profile-card {
+        width: auto;
+        height: fit-content;
+        margin: 5px 0 !important;
+    }
+}
+
+.profile-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 5px 10px;
+    color: #172ab3;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 320px;
+    max-width: 350px;
+    height: 320px;
+    max-height: 320px;
+    margin: 0px 10px;
+    background-color: #fff;
+    text-align: center;
+}
+
+    .profile-card img {
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        margin-bottom: 15px;
+    }
+
+.u-name {
+    color: #172ab3;
+}
+
+.profile-card .btn-delete {
+    background-color: #fdd001;
+    border: none;
+    color: #0512b9 !important;
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+    .profile-card .btn-delete:hover {
+        background-color: #e0a800;
+    }
+
+.profile-card .list-unstyled li {
+    text-align: left !important;
+    margin: 1% 1%;
 }
