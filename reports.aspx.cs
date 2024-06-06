@@ -179,13 +179,14 @@ namespace hfiles
                         using (MySqlCommand cmd = new MySqlCommand("usp_addreportwithaccess", con))
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Parameters.AddWithValue("_UserId", memberId);/* DAL.validateInt(Session["Userid"].ToString())*/
+                            cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(Session["Userid"].ToString()));// memberId);/* DAL.validateInt(Session["Userid"].ToString())*/
                             cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(ReportId));
-                            cmd.Parameters.AddWithValue("_memberId", DAL.validateInt(Session["Userid"].ToString()));/*UserId*/
+                            cmd.Parameters.AddWithValue("_memberId", memberId);// DAL.validateInt(Session["Userid"].ToString()));/*UserId*/
                             cmd.Parameters.AddWithValue("_reportname", "");
                             cmd.Parameters.AddWithValue("_rId", 0);
                             cmd.Parameters.AddWithValue("_reporturl", "");
-                            cmd.Parameters.AddWithValue("_SpType", "LR");
+                            cmd.Parameters.AddWithValue("_FileSize", 0);
+                            cmd.Parameters.AddWithValue("_SpType", "LR"); 
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                             cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
                             MySqlDataAdapter da = new MySqlDataAdapter(cmd);

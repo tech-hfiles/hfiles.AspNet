@@ -580,8 +580,8 @@
                     </div>
                     <div class="member-avatar-img">
                         <%--                            <asp:Image class="avatar-img" ID="Image1" runat="server" />--%>
-                        <img src="../Avatar/male/45.png" alt="" width="150px" />
-                        <h5 class="text-center" id="selected-member-name">Member Name</h5>
+                        <img src="../Avatar/male/45.png" id="mobileAvatar" alt="" width="150px" />
+                        <h5 class="text-center" runat="server" id="selectedmembername">Member Name</h5>
                     </div>
                     <div class="add-report-icon add-member-icons_mobile_responsive">
                         <asp:LinkButton Text="text" runat="server" ID="LinkButton2" OnClick="lbtnAddReport_Click">

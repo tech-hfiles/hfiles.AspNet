@@ -94,9 +94,9 @@ namespace hfiles
                 using (MySqlCommand mySqlCommand1 = new MySqlCommand("usp_existingmember", connection))
                 {
                     mySqlCommand1.CommandType = CommandType.StoredProcedure;
-                    mySqlCommand1.Parameters.AddWithValue("_hf_number", (object)this.hfnumber.Text);
+                    mySqlCommand1.Parameters.AddWithValue("_hf_number", (object)this.hfnumber.Text.Trim());
                     mySqlCommand1.Parameters.AddWithValue("_user_id", (object)Convert.ToInt32(this.Session["Userid"].ToString()));
-                    mySqlCommand1.Parameters.AddWithValue("_spType", 'C');
+                    mySqlCommand1.Parameters.AddWithValue("_spType", "C");
                     mySqlCommand1.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
                     mySqlCommand1.ExecuteNonQuery();
 

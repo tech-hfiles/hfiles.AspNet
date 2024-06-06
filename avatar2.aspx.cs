@@ -48,7 +48,7 @@ namespace hfiles
                     getUsedStorage();
                     //bindData(Convert.ToInt32(Session["memberId"].ToString()));
 
-                    lblUserName.Text = lbluser.Text = Session["username"].ToString();
+                    selectedmembername.InnerText = lblUserName.Text = lbluser.Text = Session["username"].ToString();
                     if (Session["gender_string"] != null && Session["age"] != null)
                     {
                         imgAvatar.ImageUrl = GetImagePath(DAL.validateInt(Session["age"].ToString()), Session["gender_string"].ToString());
@@ -233,10 +233,24 @@ namespace hfiles
             int UserId = DAL.validateInt(Session["Userid"].ToString());//
             string reportname = txtReportName.Text;
             int reportId = DAL.validateInt(ddlReports.SelectedValue);
-            double fileSize =  Math.Round(DAL.validateDouble_(imageFileUpload1.PostedFile.ContentLength)/1024, 0);
-            int msg = AddReport(sender, UserId, reportname, reporturl, reportId, fileSize);
-            //Clear all
-            clear();
+            double fileSize = Math.Round(DAL.validateDouble_(imageFileUpload1.PostedFile.ContentLength) / 1024, 0);
+            if (Session["CurrentusedStorage"] != null)
+            {
+                double usedSt = (double)Session["CurrentusedStorage"];
+                double TotalAllotStorage = DAL.validateDouble_(ConfigurationManager.AppSettings["StorageLimit"].ToString());
+                if ((usedSt + (fileSize/1024)) <= TotalAllotStorage)
+                {
+                    int msg = AddReport(sender, UserId, reportname, reporturl, reportId, fileSize);
+                    //Clear all
+                    clear();
+                }
+                else
+                {
+                    clear();
+                    showmembersdiv(sender);
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.error('Not enough storage.');", true);
+                }
+            }
 
         }
         protected void clear()
@@ -353,6 +367,7 @@ namespace hfiles
             {
                 result = 0;
             }
+            getUsedStorage();
             return result;
         }
 
@@ -377,7 +392,7 @@ namespace hfiles
                     if (dt != null && dt.Rows.Count > 0)
                     {
                         gender = dt.Rows[0]["user_gender"].ToString();
-                        lbluser.Text = dt.Rows[0]["user_firstname"].ToString();
+                        selectedmembername.InnerText = lbluser.Text = dt.Rows[0]["user_firstname"].ToString();
                         age = 0;
                         dob = dt.Rows[0]["user_dob"].ToString();
                         relation = dt.Rows[0]["user_relation"].ToString();
@@ -692,9 +707,20 @@ namespace hfiles
                         cmd.Parameters.AddWithValue("_UserId", UserId);
                         string usedStorage1 = "0";//cmd.ExecuteScalar().ToString();
                         double usedStorage = DAL.validateDouble_(cmd.ExecuteScalar());
+                        Session["CurrentusedStorage"] = usedStorage;
                         double TotalAllotStorage = DAL.validateDouble_(ConfigurationManager.AppSettings["StorageLimit"].ToString());
-                        storageused.InnerText = (usedStorage).ToString() + " GB Storage Used ";
-                        storageleft.InnerText = (Math.Round(TotalAllotStorage - usedStorage, 2)).ToString() + " of " + TotalAllotStorage.ToString() + " GB Left";
+                        storageused.InnerText = (usedStorage).ToString() + " MB Storage Used ";
+                        storageleft.InnerText = (Math.Round(TotalAllotStorage - usedStorage, 2)).ToString() + " of " + TotalAllotStorage.ToString() + " MB Left";
+                        if (usedStorage >= TotalAllotStorage)
+                        {
+                            //btnSubmit.Enabled = false;
+                            //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Logged in successfully');", true);
+                        }
+                        else
+                        {
+                            //btnSubmit.Enabled = true;
+
+                        }
                     }
                 }
             }

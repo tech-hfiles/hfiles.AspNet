@@ -14,20 +14,6 @@
 
     <title>Add Members</title>
     <style>
-       /* input[type="text"],
-        input[type="email"],
-        input[type="number"],
-        input[type="date"],
-        select {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }*/
-
-
         .btn-div {
             padding: 0 20px 0 20px;
         }
@@ -195,7 +181,7 @@
             }
         }*/
 
-        @media (min-width: 1022px) and (max-width: 1024px) {
+        /* @media (min-width: 1022px) and (max-width: 1024px) {
             .footer {
                 position: absolute !important;
                 bottom: 0px;
@@ -211,7 +197,7 @@
                 position: absolute;
                 bottom: 0px;
             }
-        }
+        }*/
 
         /* @media (max-width: 480px) {
             .footer {
@@ -223,31 +209,16 @@
 
 
         @media (min-width: 1800px) {
-            .footer {
-                position: absolute !important;
-            }
+
 
             .blue-t-bottom-right {
                 position: absolute !important;
             }
         }
 
-        @media (min-width: 1024px) and (min-height: 600px) {
+        @media (max-width:540px) {
             .footer {
                 position: relative !important;
-            }
-        }
-
-        @media (min-width: 1024px) and (min-height: 1366px) {
-            .footer {
-                position: absolute !important;
-            }
-        }
-
-        @media (min-width: 912px) and (min-height: 1368px) {
-            .footer {
-                position: absolute !important;
-                bottom: 0px;
             }
         }
 
@@ -263,6 +234,7 @@
         ::-webkit-input-placeholder, selected { /* Chrome/Opera/Safari */
             color: black !important; /* Change the color */
         }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -270,7 +242,7 @@
         <ContentTemplate>
             <div class="container-fluid">
                 <div class="add-member">
-                    <img class="blue-t-top-left" src="../Avatar/blue-trangle-1.png" alt="">
+                    <%--<img class="blue-t-top-left" src="../Avatar/blue-trangle-1.png" alt="">--%>
                     <img class="blue-t-top-right" src="../Avatar/blue-trangle-2.png" alt="">
                     <img class="blue-t-right" src="../Add Members/blue-trangle-3.png" alt="">
                     <a href="#">
@@ -331,6 +303,7 @@
                                                             <option value="uncle">Uncle</option>
                                                             <option value="aunt">Aunt</option>
                                                             <option value="friend">Friend</option>
+                                                            <option value="staff">Staff</option>
                                                             <%--<option value="pet">Pet</option>--%>
                                                             <option value="cat">Cat</option>
                                                             <option value="dog">Dog</option>
@@ -391,7 +364,20 @@
                                     </div>
 
                                 </div>
-
+                                <%-- <div class="row my-xl-5 my-lg-3">
+                   s <div class="col-lg-5 col-md-5 col-sm-4 pl-lg-5 pr-0 d-xl-flex justify-content-end">
+                        <div id="family" class="tab" style="color: #0116b8;" onclick="handleTabs('family')">
+                            Family
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 or p-0" style="color: #bababa; font-size: 28px;">OR </div>
+                    <div class="col-lg-5 col-md-5 col-sm-4 pr-lg-5 pl-0">
+                        <div id="friends" class="tab" style="color: #bababa;" onclick="handleTabs('friend')">
+                            Friends
+                        </div>
+                    </div>
+                   
+                </div>--%>
                             </div>
                         </div>
                     </div>
@@ -406,14 +392,14 @@
 
         function handleRelation() {
             var relationValue = document.getElementById(<%=relation.ClientID%>);
-        var dobString = document.getElementById(<%=dobTextBox1.ClientID%>);
-        var age = calculateAge(dobString);
-        console.log("Age:", age);
+            var dobString = document.getElementById(<%=dobTextBox1.ClientID%>);
+            var age = calculateAge(dobString);
+            console.log("Age:", age);
 
-        if ((relationValue === 'grandFather' || relationValue === 'grandMother' ||
-            relationValue === 'cat' || relationValue === 'dog') && age >= 18 && age <= 75) {
-            // Set email and contact number from session
-            document.getElementById(<%=emailTextBox.ClientID%>).value = "<%= Session["Email"] %>";
+            if ((relationValue === 'grandFather' || relationValue === 'grandMother' ||
+                relationValue === 'cat' || relationValue === 'dog') && age >= 18 && age <= 75) {
+                // Set email and contact number from session
+                document.getElementById(<%=emailTextBox.ClientID%>).value = "<%= Session["Email"] %>";
             document.getElementById(<%=phoneTextBox.ClientID%>).value = "<%= Session["ContactNo"] %>";
         } else {
             // Clear email and contact number
@@ -450,6 +436,23 @@
             document.getElementById(tabId).classList.add('active-tab');
             document.getElementById(tabLabelId).classList.add('active-tab-label');
         }
+        //let selected = true
+        //var relation = ''
+
+        //const family = document.getElementById('family');
+        //const friends = document.getElementById('friends');
+        //const relationInput = document.getElementById('relation-input');
+        //const friendInput = document.getElementById('friend-input');
+        //const defaultNumber = document.getElementById('default-number');
+
+        //family.classList.add('active')
+        //friends.classList.add('inactive')
+
+        //defaultNumber.style.display = 'none'
+        //friendInput.style.display = 'none'
+        //notSelectMobile.style.display = 'none'
+        //selectMobile.style.display = 'block'
+        //relationInput.style.display = 'flex'
 
 
     </script>
