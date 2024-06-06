@@ -31,7 +31,9 @@
             color: black !important;
         }
 
-
+        .input-div input[type='date']{
+            color: #000 !important;
+        }
         @media (min-width: 992px) {
 
             .footer {
@@ -258,7 +260,7 @@
 
             <div class="row footer justify-content-around align-items-center m-0">
                 <div class="col-4 t-c d-xl-flex justify-content-center text-center">
-                    <p class="m-0"><a href="tc.aspx">Terms & Conditions</a></p>
+                    <p class="m-0"><a href="TermsAndConditions.aspx">Terms & Conditions</a></p>
                     <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
                     <p class="m-0"><a href="privacypolicy.aspx">Privacy & Policy</a></p>
                 </div>

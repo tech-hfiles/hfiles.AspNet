@@ -54,7 +54,14 @@
         .container-fluid {
 /*            border-right:1px solid #000;
 */        }
-
+        .profile-card .btn-delete, .profile-card .btn-accept, .profile-card .btn-reject {
+            border: none;
+            border-radius: 10px;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        
         @media(max-width:540px) {
             .container-fluid {
                 width: 100% !important;
@@ -112,10 +119,26 @@
     <div class="manage-members-div" style="min-height: 100vh; display: flex; flex-direction: row-reverse;">
         <%--<div class="row justify-content-center pt-5 m-0" style="min-height: 100vh">
              <div class="col-12 col-md-10 col-lg-10">--%>
-        <div class="container-fluid w-50">
+        <div class="container-fluid w-50 justify-content-center">
             <h2 class="text-center heading my-3">Request List
             </h2>
-
+            <asp:Repeater ID="rptRequests" runat="server">
+    <ItemTemplate>
+        <div class="container-fluid member-cards ">
+        <div class="profile-card">
+            <img class="members-image" src="<%# ResolveUrl(string.Format("~/upload/{0}", string.IsNullOrEmpty(Eval("user_image").ToString()) ? "../My Data/default-user-profile.png" : Eval("user_image"))) %>" alt="<%#Eval("user_firstname")  %>" class="img-fluid">
+            <h5 class="font-weight-bold text-primary u-name"><%#Eval("user_firstname") + " " + Eval("user_lastname") %></h5>
+            <ul class="list-unstyled text-left mx-auto" style="max-width: 280px;">
+                <li><strong>HF - ID :</strong> <%# Eval("user_membernumber")%></li>
+                <li><strong>Email:</strong> <%# Eval("user_email")%></li>
+                <li><strong>Mobile No :</strong> <%# Eval("user_contact")%></li>
+            </ul>
+            <asp:LinkButton class="btn btn-accept" ID="LinkButton1" runat="server" Text="Accept" OnClick="acceptBtn_Click" CommandArgument='<%# Eval("sentby")%>'></asp:LinkButton>
+            <asp:LinkButton ID="LinkButton2" class="btn btn-reject" runat="server" Text="Reject" OnClick="rejectBtn_Click" CommandArgument='<%# Eval("sentby")%>'></asp:LinkButton>
+        </div>
+    </div>
+    </ItemTemplate>
+</asp:Repeater>
         </div>
         <%-- <div class="col-12 col-md-4 col-xl-6 text-center py-3 search-file">
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -180,52 +203,7 @@
                     <div>
                         <div class="">
 
-                            <asp:Repeater ID="rptRequests" runat="server">
-                                <ItemTemplate>
-                                    <div class="col-12 col-md-12 col-xl-6">
-                                        <div class="member-list-cards">
-                                            <div class="row">
-                                                <div class="col-12 col-md-3 d-flex justify-content-center align-items-center">
-                                                    <div class="text-center">
-                                                        <img class="members-image" src="<%# ResolveUrl(string.Format("~/upload/{0}", string.IsNullOrEmpty(Eval("user_image").ToString()) ? "../My Data/default-user-profile.png" : Eval("user_image"))) %>" alt="<%#Eval("user_firstname")  %>" />
-                                                        <%-- <img class="members-image" src="MY Data/default-user-profile.png" alt="member image" />--%>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-5">
-                                                    <div class="members-details py-2">
-                                                        <div class="px-3 tex">
-                                                            <h4><%#Eval("user_firstname") + " " + Eval("user_lastname") %></h4>
-                                                        </div>
-                                                        <ul>
-                                                            <li>
-                                                                <strong>HF - ID : </strong><%# Eval("user_membernumber")%>
-                                                            </li>
-                                                            <li>
-                                                                <strong>Email: </strong><%# Eval("user_email")%>
-                                                            </li>
-                                                            <li>
-                                                                <strong>Mobile No :</strong><%# Eval("user_contact")%>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
-                                                    <div class="d-flex d-md-block">
-                                                        <div class="my-4 mx-1">
-                                                            <asp:LinkButton class="member-accept-btn member-action-btn" ID="LinkButton1" runat="server" Text="Accept" OnClick="acceptBtn_Click" CommandArgument='<%# Eval("sentby")%>' />
-                                                            <%--  <a class="member-accept-btn member-action-btn" href="#">Accept</a>--%>
-                                                        </div>
-                                                        <div class="my-4 mx-1">
-                                                            <asp:LinkButton ID="LinkButton2" class="member-rejects-btn member-action-btn" runat="server" Text="Reject" OnClick="rejectBtn_Click" CommandArgument='<%# Eval("sentby")%>' />
-                                                            <%-- <a class="member-rejects-btn member-action-btn" href="#">Reject</a>--%>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </ItemTemplate>
-                            </asp:Repeater>
+                            
                         </div>
                     </div>
 

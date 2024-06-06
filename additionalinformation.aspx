@@ -96,7 +96,7 @@
                 }
         }
 
-        @media(min-width: <1246px) {
+        @media(min-width<1246px) {
             .footer {
                 position: absolute;
                 /* bottom: 0;*/

@@ -154,19 +154,27 @@
     </div>
 
     <div class="row footer justify-content-around align-items-center m-0">
-        <div class="col-4 t-c d-xl-flex justify-content-center text-center">
-            <p class="m-0"><a class="px-lg-3" href="TermsAndConditions.aspx">Terms & Conditions</a></p>
-            <p class="m-0"><a href="Policy.aspx">Privacy & Policy</a></p>
-        </div>
-
-        <div class="col-4 copy-right text-center p-0">
-            <span>&copy 2024</span>
-        </div>
-        <div class="col-4 p-p d-xl-flex text-center">
-            <p class="m-0"><a class="px-xl-3" href="https://wa.me/919978043453"><i class="fa-brands fa-whatsapp"></i>&nbsp; +91-9978043453</a></p>
-            <p class="m-0"><a class="" href="mailto:contact@hfiles.in"><i class="fa fa-solid fa-envelope"></i>&nbsp; contact@hfiles.in</a></p>
-        </div>
+    <div class="col-4 t-c d-xl-flex justify-content-center text-center">
+        <p class="m-0"><a href="TermsAndConditions.aspx">Terms & Conditions</a></p>
+        <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
+        <p class="m-0"><a href="privacypolicy.aspx">Privacy & Policy</a></p>
     </div>
+    <div class="col-4 copy-right text-center p-0 d-xl-flex text-center justify-content-center">
+        <p class="m-0"><a href="/FAQ.aspx" class="text-white">FAQ's</a></p>
+        <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
+        <p class="m-0"><a class="text-white">Copyright@2024</a></p>
+    </div>
+
+    <div class="col-4 p-p d-xl-flex text-center">
+        <p class="m-0">
+            <a
+                href="https://wa.me/919930372831"><i class="fa-brands fa-whatsapp"></i>&nbsp; 9978043453</a>
+        </p>
+        <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
+        <p class="m-0"><a class="" href="mailto:contact@hfiles.in"><i class="fa fa-solid fa-envelope"></i>&nbsp; contact@hfiles.in</a></p>
+
+    </div>
+</div>
 
     <script language="JavaScript">
         $('.password-div .hide-password-toggal').click(function () {

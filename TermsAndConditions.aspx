@@ -494,10 +494,10 @@
                         </div>
 
                     </div>
-                    <div class="agree">
+                    <%--<div class="agree">
                         <input id="agree" type="checkbox">
                         <label for="agree">I Agree to all the term and conditions.</label>
-                    </div>
+                    </div>--%>
                 </div>
 
             </div>

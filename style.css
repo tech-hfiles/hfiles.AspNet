@@ -584,7 +584,7 @@ input:-webkit-autofill {
     }
 
 .inner-main {
-    background-image: url('../assets/blue-bg.png');
+    background-image: url('../Reception Page/002B.png'); 
     height: 100vh;
     background-size: cover;
 }
@@ -2972,8 +2972,7 @@ span.img-notselected {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     width: 320px;
     max-width: 350px;
-    height: 320px;
-    max-height: 320px;
+    max-height: fit-content;
     margin: 0px 10px;
     background-color: #fff;
     text-align: center;
@@ -2987,7 +2986,7 @@ span.img-notselected {
     }
 
 .u-name {
-    color: #172ab3;
+    color: #172ab3 !important;
 }
 
 .profile-card .btn-delete {
@@ -3008,3 +3007,27 @@ span.img-notselected {
     text-align: left !important;
     margin: 1% 1%;
 }
+.profile-card .btn-delete {
+    background-color: #ffc107;
+}
+
+    .profile-card .btn-delete:hover {
+        background-color: #e0a800;
+    }
+
+.profile-card .btn-accept {
+    background-color: #172ab3;
+    color: white;
+}
+
+    .profile-card .btn-accept:hover {
+        background-color: #172ab4;
+    }
+
+.profile-card .btn-reject {
+    background-color: #fdd001;
+}
+
+    .profile-card .btn-reject:hover {
+        background-color: #e0a800;
+    }
