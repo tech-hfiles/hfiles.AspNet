@@ -21,6 +21,7 @@ namespace hfiles
         {
             if (!IsPostBack)
             {
+                //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Member added');", true);
                 //if (Session["Userid"] != null)
                 //{
                 //    bindData(DAL.validateInt(Session["Userid"].ToString()));
@@ -53,9 +54,21 @@ namespace hfiles
         }
         protected void btn_Submit_ServerClick(object sender, EventArgs e)
         {
+            if (firstnameTextBox.Value != string.Empty)
+            {
             AddMember(sender);
+
+            
+            }
+           
+
         }
 
+        public void clear()
+        {
+            firstnameTextBox.Value = lastnameTextBox.Value = dobTextBox1.Value = emailTextBox.Value = phoneTextBox.Value = string.Empty;
+/*            relation. = null;
+*/        }
         private void PopulateUserDetails(string userId)
         {
             using (MySqlConnection connection = new MySqlConnection(cs))
@@ -160,6 +173,10 @@ namespace hfiles
             }
         }
 
+        protected void btnAddNewMember_Click(object sender, EventArgs e)
+        {
+
+        }
 
         protected void AddMember(object sender)
         {
@@ -177,7 +194,7 @@ namespace hfiles
             string membershipNumber = $"HF{formattedDateOfBirth}{partialLastName}{randomNumber}";
             string membershippasword = $"HF{partialLastName}{randomNumber}";
 
-            #region variable
+
             string member = membershipNumber;
             string password = membershippasword;
             string uniqueid = randomNumber + membershipNumber + randomNumber2;
@@ -231,10 +248,16 @@ namespace hfiles
                         int result = DAL.validateInt(cmdInsert.Parameters["_Result"].Value.ToString());
                         if (result == 0)
                         {
+                            clear();
                             //Response.Write("<script>alert('Memeber already exists with same email id !')</script>");
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Memeber already exists with same email id !');", true);
                             //Response.Write("<script>alert('Memeber added successfully !')</script>");
                             Response.Redirect("avatar2.aspx");
+                        }
+                        else if (result > 0)
+                        {
+
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Memeber added successfully');", true);
                         }
                     }
                     else
@@ -256,7 +279,7 @@ namespace hfiles
                         cmdInsert.Parameters["_Result"].Direction = ParameterDirection.Output;
                         cmdInsert.ExecuteNonQuery();
                         int result = DAL.validateInt(cmdInsert.Parameters["_Result"].Value.ToString());
-                        if (result == 1)
+                        if (result >0)
                         {
                             string email = emailTextBox.Value.ToString();
                             //string subject = "# Verification code";
@@ -264,7 +287,7 @@ namespace hfiles
                             string body = $"<p style=\"text-align: justify;\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify;\"> {Session["username"].ToString()} has added you to HFiles Portal,&nbsp;</p>\r\n<p style=\"text-align: justify;\">Please verify your Email Id to complete signup process.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Use below link to verify your Email Id.&nbsp;<br> http://68.178.164.174//membersignup.aspx/?id={uniqueid}</p> <p style=\"text-align: justify;\">&nbsp;</p>";
                             //Use below password for sigining up { membershippasword}
 
-                            DAL.SendCareerMail(subject, body, email);
+                            //DAL.SendCareerMail(subject, body, email);
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Memeber added successfully');", true);
                             //Response.Write("<script>alert('Memeber added successfully.')</script>");
                             //newly added below code(usign block) for sending requests to created members
@@ -280,10 +303,12 @@ namespace hfiles
                                 //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Sent')", true);
                                 ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Request Sent');", true);
                                 //connection.Close();
+                                clear();
                                 Response.Redirect("avatar2.aspx");
 
 
                             }
+                            clear();
                         }
                         //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", "toastr.success('User Deleted Successfully')", true);
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Memeber already exists with same email id !');", true);
@@ -329,4 +354,5 @@ namespace hfiles
         }
     }
 }
+#region variable
 #endregion

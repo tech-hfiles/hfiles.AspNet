@@ -1,0 +1,2 @@
+Id,ProductId,FranchiseId,PackageName,Price,DiscountPercent,SalePrice,MinQuantity,StockQuantity,DisplayOrder,CreatedDate,ModifiedDate,IsActive
+17,11,2,"Offer 1",780000,10,740000,100,0,1,"2023-08-07 05:14:18",NULL,1

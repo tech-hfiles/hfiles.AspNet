@@ -143,8 +143,7 @@
             }
 
             .add-member-battans {
-                padding: 10px 15px !important;
-                margin: 5% !important;
+                margin: 15px 7px !important;
             }
             /*.plus-top-left{
             visibility:hidden;
@@ -216,7 +215,7 @@
             }
         }
 
-        @media (max-width:540px) {
+        @media (max-width:375px) {
             .footer {
                 position: relative !important;
             }
@@ -240,7 +239,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
-            <div class="container-fluid">
+            <div class="container-fluid h-100">
                 <div class="add-member">
                     <%--<img class="blue-t-top-left" src="../Avatar/blue-trangle-1.png" alt="">--%>
                     <img class="blue-t-top-right" src="../Avatar/blue-trangle-2.png" alt="">
@@ -261,7 +260,7 @@
                                 </div>
                                 <div class="row input-group">
                                     <div class="col-12 col-md-12 col-lg-5 col-xl-6 col-xxl-6 d-none d-md-block mb-md-5 text-center justify-content-center">
-                                        <img class="avatar-group-img" src="../Add Members/addmember-avatar.png" width="100%" />
+                                        <img class="avatar-group-img" src="../Add Members/addmember-avatar.png"/>
                                     </div>
                                     <div class="col-12 col-md-12 col-lg-7 col-xl-6 col-xxl-6 d-flex justify-content-center">
                                         <div class="w-100">
@@ -345,7 +344,8 @@
                                                 <div class="btn-div">
                                                     <%--<asp:Button runat="server" Text="Submit" CssClass="btn submit-btn" ID="btnSubmit"></asp:Button>--%>
                                                     <%--<a class="" href="javascript: history.go(-1)" id="back_btn_add_member"float="left">&nbsp Back&nbsp</a>--%>
-                                                    <button runat="server" id="btn_Submit" onserverclick="btn_Submit_ServerClick" class="add-member-battans" validationgroup="First">Submit</button>
+                                                    <button runat="server" id="btn_Submit" type="submit" onserverclick="btn_Submit_ServerClick" class="add-member-battans" validationgroup="First">Submit</button>
+                                                    <%--<asp:Button ID="btnAddNewMember"  ValidationGroup="First" Text="Submit" OnClick="btnAddNewMember_Click" CssClass="add-member-battans" runat="server" />--%>
 
                                                 </div>
                                             </div>

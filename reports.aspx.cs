@@ -399,22 +399,25 @@ namespace hfiles
 
                     if (retVal == 1)
                     {
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report deleted successfully');", true);
                         //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report deleted successfully')", true);
                         //Reports(UserId, RId);
-                        icon = "assets/select.png";
-                        message = "Report Deleted Sucessfully !";
-                        string script = "<script type=\"text/javascript\"> launch_toast('" + message + "','\"+icon+\"'); </script>";
-                        ClientScript.RegisterStartupScript(this.GetType(), "reportalert", script);
+                        //icon = "assets/select.png";
+                        //message = "Report Deleted Sucessfully !";
+                        //string script = "<script type=\"text/javascript\"> launch_toast('" + message + "','\"+icon+\"'); </script>";
+                        //ClientScript.RegisterStartupScript(this.GetType(), "reportalert", script);
                         //lbtn_GetClickedCategoryData(DAL.validateInt(Session["CatId"]));
                         //Session["CatId"] = null;
                     }
                     else
                     {
-                        icon = "assets/not-select-red.png";
-                        message = "Please Try Again !";
-                        string script = "<script type=\"text/javascript\"> launch_toast('" + message + "','" + icon + "'); </script>";
-                        ClientScript.RegisterStartupScript(this.GetType(), "reportalert", script);
+                        //icon = "assets/not-select-red.png";
+                        //message = "Please Try Again !";
+                        //string script = "<script type=\"text/javascript\"> launch_toast('" + message + "','" + icon + "'); </script>";
+                        //ClientScript.RegisterStartupScript(this.GetType(), "reportalert", script);
                         //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please try again')", true);
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('No rights');", true);
+                        UserReports(UserId, RId);
                     }
                 }
             }
