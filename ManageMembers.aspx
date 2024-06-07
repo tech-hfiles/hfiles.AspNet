@@ -55,6 +55,7 @@
             }
 
         .container-fluid {
+            min-height:90vh;
             /*            border-right:1px solid #000;
 */
         }
