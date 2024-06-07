@@ -95,7 +95,7 @@
                               </div>
                         <div class="my-1" id="btnSubmitDiv">
                             <div class="resend-otp-div">
-                                <input type="checkbox" /><span style="color: #fff"> I agree to <a target="_blank" style="color: #fdd001; font-weight: 700" href="tc.aspx">Terms and Conditions</a> </span>
+                                <input type="checkbox" required /><span style="color: #fff"> I agree to <a target="_blank" style="color: #fdd001; font-weight: 700" href="tc.aspx">Terms and Conditions</a> </span>
                             </div>
                          
                         </div>
