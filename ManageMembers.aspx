@@ -20,9 +20,11 @@
         .container-search {
             width: 100%;
         }
-        .list-unstyled{
-            color:#000;
+
+        .list-unstyled {
+            color: #000;
         }
+
         .back-arrow-btn-managem {
             padding: 10px 20px;
             border-radius: 50px;
@@ -35,7 +37,7 @@
             font-weight: 700;
             font-size: 16px;
             background-color: #fdd001;
-            margin:1px 10px;
+            margin: 1px 10px;
             /*top:10% !important;
         left:1% !important;
         margin-top: 0 !important;*/
@@ -52,8 +54,10 @@
             }
 
         .container-fluid {
-/*            border-right:1px solid #000;
-*/        }
+            /*            border-right:1px solid #000;
+*/
+        }
+
         .profile-card .btn-delete, .profile-card .btn-accept, .profile-card .btn-reject {
             border: none;
             border-radius: 10px;
@@ -61,7 +65,7 @@
             padding: 10px;
             margin-top: 20px;
         }
-        
+
         @media(max-width:540px) {
             .container-fluid {
                 width: 100% !important;
@@ -71,10 +75,11 @@
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
-                margin:10px 10px;
+                margin: 10px 10px;
             }
-            .manage-members-div{
-                margin-top:0 !important;
+
+            .manage-members-div {
+                margin-top: 0 !important;
             }
             /*.back-arrow-btn {
                 top: 8% !important;
@@ -123,22 +128,22 @@
             <h2 class="text-center heading my-3">Request List
             </h2>
             <asp:Repeater ID="rptRequests" runat="server">
-    <ItemTemplate>
-        <div class="container-fluid member-cards ">
-        <div class="profile-card">
-            <img class="members-image" src="<%# ResolveUrl(string.Format("~/upload/{0}", string.IsNullOrEmpty(Eval("user_image").ToString()) ? "../My Data/default-user-profile.png" : Eval("user_image"))) %>" alt="<%#Eval("user_firstname")  %>" class="img-fluid">
-            <h5 class="font-weight-bold text-primary u-name"><%#Eval("user_firstname") + " " + Eval("user_lastname") %></h5>
-            <ul class="list-unstyled text-left mx-auto" style="max-width: 280px;">
-                <li><strong>HF - ID :</strong> <%# Eval("user_membernumber")%></li>
-                <li><strong>Email:</strong> <%# Eval("user_email")%></li>
-                <li><strong>Mobile No :</strong> <%# Eval("user_contact")%></li>
-            </ul>
-            <asp:LinkButton class="btn btn-accept" ID="LinkButton1" runat="server" Text="Accept" OnClick="acceptBtn_Click" CommandArgument='<%# Eval("sentby")%>'></asp:LinkButton>
-            <asp:LinkButton ID="LinkButton2" class="btn btn-reject" runat="server" Text="Reject" OnClick="rejectBtn_Click" CommandArgument='<%# Eval("sentby")%>'></asp:LinkButton>
-        </div>
-    </div>
-    </ItemTemplate>
-</asp:Repeater>
+                <ItemTemplate>
+                    <div class="container-fluid member-cards ">
+                        <div class="profile-card">
+                            <img class="members-image" src="<%# ResolveUrl(string.Format("~/upload/{0}", string.IsNullOrEmpty(Eval("user_image").ToString()) ? "../My Data/default-user-profile.png" : Eval("user_image"))) %>" alt="<%#Eval("user_firstname")  %>" class="img-fluid">
+                            <h5 class="font-weight-bold text-primary u-name"><%#Eval("user_firstname") + " " + Eval("user_lastname") %></h5>
+                            <ul class="list-unstyled text-left mx-auto" style="max-width: 280px;">
+                                <li><strong>HF - ID :</strong> <%# Eval("user_membernumber")%></li>
+                                <li><strong>Email:</strong> <%# Eval("user_email")%></li>
+                                <li><strong>Mobile No :</strong> <%# Eval("user_contact")%></li>
+                            </ul>
+                            <asp:LinkButton class="btn btn-accept" ID="LinkButton1" runat="server" Text="Accept" OnClick="acceptBtn_Click" CommandArgument='<%# Eval("sentby")%>'></asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton2" class="btn btn-reject" runat="server" Text="Reject" OnClick="rejectBtn_Click" CommandArgument='<%# Eval("sentby")%>'></asp:LinkButton>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
         <%-- <div class="col-12 col-md-4 col-xl-6 text-center py-3 search-file">
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -202,8 +207,6 @@
 
                     <div>
                         <div class="">
-
-                            
                         </div>
                     </div>
 
