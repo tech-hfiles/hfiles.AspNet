@@ -64,6 +64,7 @@
         .Addbasicbtnboth {
             display: flex;
             justify-content: space-around;
+            gap:10px;
         }
 
             .Addbasicbtnboth .button-change {
@@ -86,7 +87,7 @@
 
         @media (max-width: 480px) {
             .Addbasicbtnboth button {
-                padding: 8px 10px;
+                padding: 8px 15px;
                 font-size: 9px;
             }
         }
@@ -97,9 +98,9 @@
                 font-size: 9px;
             }
 
-            .back-arrow-btn {
+            ./*back-arrow-btn {
                 top: 10% !important;
-            }
+            }*/
         }
 
         @media (max-width: 280px) {
