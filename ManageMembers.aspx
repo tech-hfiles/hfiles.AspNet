@@ -13,6 +13,7 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style.css" />
     <style>
+        
         .manage-members-div {
             max-width: 100% !important;
         }
@@ -26,7 +27,7 @@
         }
 
         .back-arrow-btn-managem {
-            padding: 10px 20px;
+            padding: 5px 10px;
             border-radius: 50px;
             border: 0;
             outline: 0;
@@ -34,7 +35,7 @@
             cursor: pointer;
             margin-top: 20px;
             font-family: 'Red Hat Display', Sans-serif !important;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 16px;
             background-color: #fdd001;
             margin: 1px 10px;
@@ -69,6 +70,7 @@
         @media(max-width:540px) {
             .container-fluid {
                 width: 100% !important;
+                min-height:50vh;
             }
 
             .search-file {
@@ -121,7 +123,7 @@
         </div>
     </div>
 
-    <div class="manage-members-div" style="min-height: 100vh; display: flex; flex-direction: row-reverse;">
+    <div class="manage-members-div" style=" display: flex; flex-direction: row-reverse;">
         <%--<div class="row justify-content-center pt-5 m-0" style="min-height: 100vh">
              <div class="col-12 col-md-10 col-lg-10">--%>
         <div class="container-fluid w-50 justify-content-center">

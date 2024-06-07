@@ -135,16 +135,16 @@
         <ContentTemplate>
             <%--   <asp:ScriptManager runat="server" />--%>
             <div class="container-fluid download-doc-inner my-3">
-                <div class="heading-title Report_heading-title mb-3 px-5">
+                <div class="heading-title Report_heading-title mb-3 px-3">
                     <div class="row report-page-header">
-                        <div class="col-md-4 d-flex justify-content-md-start justify-content-center py-3">
+                        <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
                             <a class="back-arrow-btn-2" href="avatar2.aspx">Back
                                 </a>
                         </div>
-                        <div class="col-md-4 d-flex justify-content-center py-3">
+                        <div class="col-md-4 d-flex justify-content-center py-3 font-size-1em">
                             <asp:Label ID="lblReportType" runat="server" CssClass="report-page-title" Text="INVOICES/MEDICLAIM INSURANCE" />
                         </div>
-                        <div class="col-md-4 d-flex justify-content-md-end justify-content-center align-items-center py-3 search-file">
+                        <div class="col-md-4 d-flex justify-content-md-end justify-content-center align-items-center py-2 search-file">
                             <i class="fas fa-magnifying-glass"></i>
                             <asp:TextBox ID="SearchInput" OnTextChanged="SearchInput_TextChanged" AutoPostBack="true" runat="server" />
                         </div>

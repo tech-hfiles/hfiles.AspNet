@@ -2606,10 +2606,10 @@ span.img-notselected {
         width: 100%;
     }
 
-    .download-doc-inner .search-file i {
+    /*.download-doc-inner .search-file i {
         left: 42%;
         top: 35px;
-    }
+    }*/
 
     .support-group .chat-history-div {
         min-height: 70%;
@@ -2773,7 +2773,8 @@ span.img-notselected {
     }
 
     .download-doc-inner .report-page-title {
-        font-size: 12px;
+        font-size: 20px;
+        font-weight:500;
     }
 }
 
