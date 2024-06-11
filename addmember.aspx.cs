@@ -92,8 +92,8 @@ namespace hfiles
                             //dobTextBox1.Value = reader["user_dob"].ToString();
                         }
                     }
-                    command.ExecuteNonQuery();
-                    connection.Close();
+                    //command.ExecuteNonQuery();
+                    //connection.Close();
                 }
             }
             //usp_getuserdetailsbyId
@@ -228,6 +228,7 @@ namespace hfiles
                     {
                         gender = 5;
                     }
+
                     if (age < 17 || age > 70)
                     {
                         cmdInsert.Parameters.AddWithValue("_user_reference", Session["Userid"].ToString());
@@ -254,8 +255,9 @@ namespace hfiles
                         }
                         else if (result > 0)
                         {
+                            clear();
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Memeber added successfully');", true);
-                            Response.Redirect("avatar2.aspx");
+                            Response.Redirect("~/avatar2.aspx");
                         }
                     }
                     else
@@ -279,7 +281,7 @@ namespace hfiles
                         int result = DAL.validateInt(cmdInsert.Parameters["_Result"].Value.ToString());
                         if (result > 0)
                         {
-                            string email = "kuldeep@digitaledgetech.in"; //emailTextBox.Value.ToString();
+                            string email = emailTextBox.Value.ToString();
                             //string subject = "# Verification code";
                             string subject = "Welcome to HFiles";
                             string body = $"<p style=\"text-align: justify;\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify;\"> {Session["username"].ToString()} has added you to HFiles Portal,&nbsp;</p>\r\n<p style=\"text-align: justify;\">Please verify your Email Id to complete signup process.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Use below link to verify your Email Id.&nbsp;<br> http://68.178.164.174//membersignup.aspx/?id={uniqueid}</p> <p style=\"text-align: justify;\">&nbsp;</p>";
@@ -296,12 +298,12 @@ namespace hfiles
                                 mySqlCommand1.Parameters.AddWithValue("_user_id", (object)Convert.ToInt32(this.Session["Userid"].ToString()));
                                 mySqlCommand1.Parameters.AddWithValue("_spType", 'C');
                                 mySqlCommand1.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
-                               //mySqlCommand1.ExecuteNonQuery();
+                                //mySqlCommand1.ExecuteNonQuery();
                                 // Member exists and request sent
                                 //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Sent')", true);
                                 //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Request Sent');", true);
                                 //connection.Close();
-                                Response.Redirect("avatar2.aspx");
+                                clear();
                             }
                         }
                         else if (result == 0)

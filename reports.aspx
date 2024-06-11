@@ -229,6 +229,7 @@
                                                 <%--   <form>--%>
                                                 <%--  <div class="form-check form-switch my-1">--%>
                                                 <asp:CheckBoxList ID="ddlMembers2" CssClass="form-control border-0" runat="server" SelectionMode="Multiple"></asp:CheckBoxList>
+                                                <asp:Label Text="" ID="lblNoMember" runat="server" />
                                                 <%--  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                                                     <label class="form-check-label" for="flexSwitchCheckDefault">User 1</label>--%>
                                                 <%-- </div>--%>

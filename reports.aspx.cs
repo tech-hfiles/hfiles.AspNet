@@ -22,6 +22,10 @@ using System.Web.Mail;
 using System.Web.Services.Description;
 using MimeKit.Text;
 using MimeKit.Utils;
+using MySqlX.XDevAPI;
+using System.Web.SessionState;
+using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 namespace hfiles
 {
@@ -64,7 +68,7 @@ namespace hfiles
                         int UserId = int.Parse(Session["Userid"].ToString());
                         //Reports(UserId, RId);
                         //below condition is added newly for reports access
-                        if (Session["memberId"] != null && Convert.ToInt32(Session["memberId"]) > 0)
+                         if (Session["memberId"] != null && Convert.ToInt32(Session["memberId"]) > 0)
                         {
                             UserReports(Convert.ToInt32(Session["memberId"]), RId);
                         }
@@ -158,6 +162,8 @@ namespace hfiles
             try
             {
                 int memberId = Convert.ToInt32(Session["memberId"]);
+                int user_referenceId = Convert.ToInt32(Session["user_reference"]);
+
                 if (Session["memberRelation"] == null || Session["memberRelation"] == "")
                 {
                     memberRelation = "Self";
@@ -171,7 +177,56 @@ namespace hfiles
                 //{
 
                 //}
-                if (memberId > 0)
+                if (user_referenceId > 0 && memberId > 0 && ((IsValidEmail(Session["user_reference_email"]) == true && IsValidEmail(Session["user_email"]) == true) ? Session["user_reference_email"].ToString() == Session["user_email"].ToString() : false))
+                {
+                    using (MySqlConnection con = new MySqlConnection(cs))
+                    {
+                        con.Open();
+                        using (MySqlCommand cmd = new MySqlCommand("usp_addreportwithaccess", con))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("_UserId", memberId);// memberId);/* DAL.validateInt(Session["Userid"].ToString())*/
+                            cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(ReportId));
+                            cmd.Parameters.AddWithValue("_memberId", user_referenceId);// DAL.validateInt(Session["Userid"].ToString()));/*UserId*/
+                            cmd.Parameters.AddWithValue("_reportname", "");
+                            cmd.Parameters.AddWithValue("_rId", 0);
+                            cmd.Parameters.AddWithValue("_reporturl", "");
+                            cmd.Parameters.AddWithValue("_FileSize", 0);
+                            cmd.Parameters.AddWithValue("_SpType", "LR");
+                            cmd.Parameters.AddWithValue("_UploadType", "dependent");
+                            cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
+                            cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
+                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            if (dt != null && dt.Rows.Count > 0)
+                            {
+                                //if (memberId != Convert.ToInt32(Session["Userid"].ToString()))
+                                //{
+
+                                //}
+                                //tcount.InnerHtml = dt.Rows.Count.ToString();
+                                rptReports.DataSource = dt;
+                                rptReports.DataBind();
+                                divUpload_Doc.Visible = false;
+                                MySqlDataReader sdr = cmd.ExecuteReader();
+                                while (sdr.Read())
+                                {
+                                    reporturl = sdr["ReportUrl"].ToString();
+                                    Session["reporturl"] = reporturl;
+                                }
+                            }
+                            else
+                            {
+                                divUpload_Doc.Visible = true;
+                                rptReports.DataSource = null;
+                                rptReports.DataBind();
+
+                            }
+                        }
+                    }
+                }
+                else if (memberId > 0)
                 {
                     using (MySqlConnection con = new MySqlConnection(cs))
                     {
@@ -186,7 +241,8 @@ namespace hfiles
                             cmd.Parameters.AddWithValue("_rId", 0);
                             cmd.Parameters.AddWithValue("_reporturl", "");
                             cmd.Parameters.AddWithValue("_FileSize", 0);
-                            cmd.Parameters.AddWithValue("_SpType", "LR"); 
+                            cmd.Parameters.AddWithValue("_SpType", "LR");
+                            cmd.Parameters.AddWithValue("_UploadType", "");
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                             cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
                             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -586,6 +642,7 @@ namespace hfiles
         }
         protected void lbtnEdit_Click(object sender, EventArgs e)
         {
+            lblNoMember.Text = string.Empty;
             LinkButton lnk = sender as LinkButton;
             int reportId = Convert.ToInt16(lnk.CommandArgument);
             Session["ReportUniqueId"] = reportId;
@@ -596,6 +653,7 @@ namespace hfiles
             int UserId = DAL.validateInt(Session["Userid"].ToString());
             try
             {
+                //ddlMembers2.Items.Clear();
                 using (MySqlConnection con = new MySqlConnection(cs))
                 {
                     con.Open();
@@ -643,7 +701,11 @@ namespace hfiles
                         }
                         else
                         {
-                            ddlMembers2.Items.Insert(0, new ListItem("No Members", "0"));
+                            //ddlMembers2.Items.Insert(0, new ListItem("No Members", "0"));
+                            //    ddlMembers2.DataSource = null;
+                            //    ddlMembers2.DataBind();
+                            //    ddlMembers2.Items.Clear();
+                            //    lblNoMember.Text = "No Members";
                         }
                     }
                 }
@@ -819,12 +881,15 @@ namespace hfiles
                             cmd.Parameters.AddWithValue("_memberId", memberIdList);
                             cmd.Parameters.AddWithValue("_rId", Convert.ToInt32(Session["ReportUniqueId"].ToString()));
                             cmd.Parameters.AddWithValue("_SpType", "U");
+                            cmd.Parameters.AddWithValue("_UploadType", "");
+                            cmd.Parameters.AddWithValue("_FileSize", 0);
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                             cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
                             cmd.ExecuteNonQuery();
                             int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
                             result = DAL.validateInt(retVal);
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Updated Successfully')", true);
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');", true);
+                            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Updated Successfully')", true);
                             //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
                             Session["memberId"] = 0;
                         }
@@ -841,12 +906,15 @@ namespace hfiles
                             cmd.Parameters.AddWithValue("_memberId", memberIdList);
                             cmd.Parameters.AddWithValue("_rId", Convert.ToInt32(Session["ReportUniqueId"].ToString()));
                             cmd.Parameters.AddWithValue("_SpType", "U");
+                            cmd.Parameters.AddWithValue("_UploadType", "");
+                            cmd.Parameters.AddWithValue("_FileSize", 0);
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                             cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
                             cmd.ExecuteNonQuery();
                             int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
                             result = DAL.validateInt(retVal);
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Updated Successfully')", true);
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');", true);
+                            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Updated Successfully')", true);
                             //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
                         }
                         else
@@ -862,12 +930,15 @@ namespace hfiles
                             cmd.Parameters.AddWithValue("_memberId", memberIdList);
                             cmd.Parameters.AddWithValue("_rId", Convert.ToInt32(Session["ReportUniqueId"].ToString()));
                             cmd.Parameters.AddWithValue("_SpType", "U");
+                            cmd.Parameters.AddWithValue("_UploadType", "");
+                            cmd.Parameters.AddWithValue("_FileSize", 0);
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                             cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
                             cmd.ExecuteNonQuery();
                             int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
                             result = DAL.validateInt(retVal);
-                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Updated Successfully')", true);
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');", true);
+                            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Updated Successfully')", true);
                             //else
                             //{
                             //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You don't have permission to add reports for this member')", true);
@@ -1012,6 +1083,18 @@ namespace hfiles
             DAL.SendCareerMail(subject, body, email);
             //DAL.SendMailPDF(subject, body, email, pdfFilePath);
             //SendEmailWithAttachment();
+        }
+        protected bool IsValidEmail(object sessionvalue)
+        {
+            string email = sessionvalue as string;
+            if (email == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }    
         }
     }
 }

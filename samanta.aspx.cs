@@ -57,6 +57,7 @@ namespace hfiles
                         Session["user_gender"] = dt.Rows[0]["user_gender"].ToString();
                         Session["user_membernumber"] = dt.Rows[0]["user_membernumber"].ToString();
                         Session["user_contact"] = dt.Rows[0]["user_contact"].ToString();
+                        Session["user_email"] = dt.Rows[0]["user_email"].ToString();
 
                         Session["user_dob"] = null;
                         Session["user_dob"] = dt.Rows[0]["user_dob"].ToString();

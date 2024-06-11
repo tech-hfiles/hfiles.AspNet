@@ -238,7 +238,7 @@ namespace hfiles
             {
                 double usedSt = (double)Session["CurrentusedStorage"];
                 double TotalAllotStorage = DAL.validateDouble_(ConfigurationManager.AppSettings["StorageLimit"].ToString());
-                if ((usedSt + (fileSize/1024)) <= TotalAllotStorage)
+                if ((usedSt + (fileSize / 1024)) <= TotalAllotStorage)
                 {
                     int msg = AddReport(sender, UserId, reportname, reporturl, reportId, fileSize);
                     //Clear all
@@ -263,6 +263,8 @@ namespace hfiles
         public int AddReport(object sender, int UserId, string reportname, string reporturl, int reportId, double FileSize)
         {
             int memberId = Convert.ToInt32(Session["memberId"]);
+
+            int user_referenceId = Convert.ToInt32(Session["user_reference"]);
             List<int> selectedIds = new List<int>();
 
             foreach (ListItem item in ddlMembers2.Items)
@@ -290,18 +292,20 @@ namespace hfiles
                         {
                             Session["memberRelation"] = "Self";
                         }
-                        if (Session["memberRelation"].ToString() == "Self" || Session["memberRelation"].ToString() == "Son" || Session["memberRelation"].ToString() == "daughter" || Session["memberRelation"].ToString() == "cat" || Session["memberRelation"].ToString() == "Dog" || Session["memberRelation"].ToString() == "GrandFather" || Session["memberRelation"].ToString() == "GrandMother" || Session["memberRelation"].ToString() == "Son" && age < 17 || age > 70)
+                        if (Session["memberRelation"].ToString() == "Self" || Session["memberRelation"].ToString() == "Son" || Session["memberRelation"].ToString() == "daughter" || Session["memberRelation"].ToString() == "cat" || Session["memberRelation"].ToString() == "Dog" || Session["memberRelation"].ToString() == "GrandFather" || Session["memberRelation"].ToString() == "GrandMother" || Session["memberRelation"].ToString() == "Son" && (age < 17 || age > 70))
                         {
+
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("_UserId", UserId);
                             cmd.Parameters.AddWithValue("_reportname", reportname);
                             cmd.Parameters.AddWithValue("_reporturl", reporturl);
                             cmd.Parameters.AddWithValue("_reportId", reportId);
-                            // cmd.Parameters.AddWithValue("_memberId", memberId);
-                            cmd.Parameters.AddWithValue("_memberId", memberIdList);
+                            //cmd.Parameters.AddWithValue("_memberId", memberId);
+                            cmd.Parameters.AddWithValue("_memberId", memberId);
                             cmd.Parameters.AddWithValue("_FileSize", FileSize);
                             cmd.Parameters.AddWithValue("_rId", 0);
                             cmd.Parameters.AddWithValue("_SpType", "C");
+                            cmd.Parameters.AddWithValue("_UploadType", "");
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                             cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
                             cmd.ExecuteNonQuery();
@@ -323,8 +327,10 @@ namespace hfiles
                             cmd.Parameters.AddWithValue("_reportId", reportId);
                             // cmd.Parameters.AddWithValue("_memberId", memberId);
                             cmd.Parameters.AddWithValue("_memberId", memberIdList);
+                            cmd.Parameters.AddWithValue("_FileSize", FileSize);
                             cmd.Parameters.AddWithValue("_rId", 0);
                             cmd.Parameters.AddWithValue("_SpType", "C");
+                            cmd.Parameters.AddWithValue("_UploadType", "");
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                             cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
                             cmd.ExecuteNonQuery();
@@ -333,6 +339,27 @@ namespace hfiles
                             //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Added Successfully')", true);
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Added Successfully');", true);
                             //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
+                        }
+                        else if (user_referenceId > 0)
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("_UserId", UserId);
+                            cmd.Parameters.AddWithValue("_reportname", reportname);
+                            cmd.Parameters.AddWithValue("_reporturl", reporturl);
+                            cmd.Parameters.AddWithValue("_reportId", reportId);
+                            // cmd.Parameters.AddWithValue("_memberId", memberId);
+                            cmd.Parameters.AddWithValue("_memberId", memberId);
+                            cmd.Parameters.AddWithValue("_FileSize", FileSize);
+                            cmd.Parameters.AddWithValue("_rId", 0);
+                            cmd.Parameters.AddWithValue("_SpType", "C");
+                            cmd.Parameters.AddWithValue("_UploadType", "dependent"); 
+                            cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
+                            cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
+                            cmd.ExecuteNonQuery();
+                            int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
+                            result = DAL.validateInt(retVal);
+                            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Added Successfully')", true);
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Added Successfully');", true);
                         }
                         else
                         {
@@ -345,8 +372,10 @@ namespace hfiles
                             cmd.Parameters.AddWithValue("_reportId", reportId);
                             // cmd.Parameters.AddWithValue("_memberId", memberId);
                             cmd.Parameters.AddWithValue("_memberId", memberIdList);
+                            cmd.Parameters.AddWithValue("_FileSize", FileSize);
                             cmd.Parameters.AddWithValue("_rId", 0);
                             cmd.Parameters.AddWithValue("_SpType", "C");
+                            cmd.Parameters.AddWithValue("_UploadType", "");
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                             cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
                             cmd.ExecuteNonQuery();
@@ -391,6 +420,8 @@ namespace hfiles
                     da.Fill(dt);
                     if (dt != null && dt.Rows.Count > 0)
                     {
+                        Session["user_reference"] = dt.Rows[0]["user_reference"].ToString();
+                        Session["user_reference_email"] = dt.Rows[0]["user_email"].ToString();
                         gender = dt.Rows[0]["user_gender"].ToString();
                         selectedmembername.InnerText = lbluser.Text = dt.Rows[0]["user_firstname"].ToString();
                         age = 0;
@@ -644,6 +675,8 @@ namespace hfiles
         protected void member2_Click(object sender, EventArgs e)
         {
             Session["memberId"] = null;
+            Session["user_reference"] = null;
+            Session["user_reference_email"] = null;
             bindData(DAL.validateInt(Session["UserId"]));
             foreach (RepeaterItem item in rptMember.Items)
             {

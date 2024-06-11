@@ -96,6 +96,15 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.CheckBoxList ddlMembers2;
 
         /// <summary>
+        /// lblNoMember control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNoMember;
+
+        /// <summary>
         /// lbtnSave control.
         /// </summary>
         /// <remarks>

@@ -1,0 +1,1606 @@
+ProductId,Id1,Id2,Id3,Id4,ProductName,Brand,Category,SubCategory,ChildCategory,BundleId1,Bundle1,MOQ1,Price1,Bundle2,MOQ2,Price2,Bundle3,MOQ3,Price3,Bundle4,MOQ4,Price4
+1616,0,0,0,0,,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1641,0,0,0,0,,Mercusys,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+19,0,0,0,0,,Mercusys,Routers,USB,,0,,0,0,,0,0,,0,0,,0,0
+1413,0,0,0,0," 8PK-326 x 2","Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1494,0,0,0,0," BDN-05/95-WoC x 10",Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1495,1,0,0,0," BDN-05/95-WoC x 20",Beldon,,SFP,1G,0,Refurbished,40,850,,0,0,,0,0,,0,0
+712,0,0,0,0," CAT-5 2pair + RJ-45 ",D-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1405,0,0,0,0," DG-GR6821AC x 10",Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1404,0,0,0,0," DG-GR6821AC x 5",Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1851,2,0,0,0," R6120","Netgear ",Routers,300N Router,,0,Refurbished,10,200,,0,0,,0,0,,0,0
+1949,516,0,0,0," Rayee RG-NBS3100-8GT2SFP-P-V2 ",Ruijie Reyee,Switches,Gigabit switches,L2,0,New,1,8200,,0,0,,0,0,,0,0
+551,0,0,0,0," RB-450G",Mikrotik,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+833,0,0,0,0," RJ45 & RJ12 Crimping tool",iBall,FTTH,Peripherals,,0,,0,0,,0,0,,0,0,,0,0
+453,0,0,0,0,1.25G Dual Fiber 20Kms,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+455,0,0,0,0,1.25G SF 80Kms LC Type,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+454,0,0,0,0,1.25G SFP-1310/1440 LC-40,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1187,0,0,0,0,1.25G SFP-1310/1440 LC-40 x 2units,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+452,0,0,0,0,1.25G SFP-1310/1550  LC-20,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+933,0,0,0,0,1.25G SFP-1310/1550 LC-20 x 2units,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+451,0,0,0,0,1.25G SFP-1310/1550 SC-20,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+935,0,0,0,0,1.25G SFP-1310/1550 SC-20 x 2units,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+872,0,0,0,0,1.25G SFP-1550/1310  LC-20,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+932,0,0,0,0,1.25G SFP-1550/1310 SC-20,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1188,0,0,0,0,1.25G SFP-1550/1310 SC-20 x 2units,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1883,0,0,0,0,1.25G SFP-15501310 LC-20,DBC,SFP-DAC,Regular,1G,0,,0,0,,0,0,,0,0,,0,0
+963,0,0,0,0,10G DAC 1M,DBC,,SFP,DAC Cable,0,,0,0,,0,0,,0,0,,0,0
+971,0,0,0,0,10G DAC 1M x 5units,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+964,0,0,0,0,10G DAC 3M,DBC,,SFP,DAC Cable,0,,0,0,,0,0,,0,0,,0,0
+972,0,0,0,0,10G DAC 3M x 5units,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+965,3,4,0,0,10G DAC 5M,DBC,,SFP,DAC Cable,0,Offer 1,1,1700,Offer 2,4,1400,,0,0,,0,0
+973,0,0,0,0,10G DAC 5M x 3units,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+461,0,0,0,0,10G SFP 1220/1310 LC-40,DBC,,SFP,10G,0,,0,0,,0,0,,0,0,,0,0
+1185,0,0,0,0,10G SFP 1220/1310 LC-40 x 2units,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1880,0,0,0,0,10G SFP 1220/1310 LC-80,DBC,SFP-DAC,Regular,10G,0,,0,0,,0,0,,0,0,,0,0
+460,0,0,0,0,10G SFP 1310/1220 LC-20,DBC,,SFP,10G,0,,0,0,,0,0,,0,0,,0,0
+1186,0,0,0,0,10G SFP 1310/1220 LC-20 x 2units,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1881,0,0,0,0,10G SFP 1310/1220 LC-80,DBC,SFP-DAC,Regular,10G,0,,0,0,,0,0,,0,0,,0,0
+463,0,0,0,0,10G SFP+ Dual Fiber 20Kms,DBC,,SFP,10G,0,,0,0,,0,0,,0,0,,0,0
+462,0,0,0,0,10G SFP+ SF 60Kms,DBC,,SFP,10G,0,,0,0,,0,0,,0,0,,0,0
+734,0,0,0,0,12 core - 4km,dr.com,Fibres,Unitube,Un-Armoured,0,,0,0,,0,0,,0,0,,0,0
+733,0,0,0,0,12 core -2km,dr.com,Fibres,Unitube,Un-Armoured,0,,0,0,,0,0,,0,0,,0,0
+970,0,0,0,0,12 core ~ 1km (200 to 800Mtr),dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+437,0,0,0,0,12 Cores FMS SC/UPC,"Un-Branded ",FTTH,FMS,,0,,0,0,,0,0,,0,0,,0,0
+425,0,0,0,0,12 Way Fiber Coupler with SC/APC,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+1909,501,502,0,0,12F Cut Length (200 - 8000)Meters,dr.com,Fibres,Unitube,Cut Lengths,0,Offer 1,1,8200,Offer 2,4,7600,,0,0,,0,0
+199,5,6,7,0,12F with Yarn,dr.com,Fibres,Unitube,Un-Armoured,0,Offer 1,1,10500,Offer 2,2,9000,Offer 3,10,8200,,0,0
+565,8,9,10,0,12F-73-GOLD-AR,dr.com,Fibres,Unitube,Armoured,0,Offer 1,1,19000,Offer 2,2,16500,Offer 3,6,14500,,0,0
+1163,0,0,0,0,"12F-73MM- 10km ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1162,0,0,0,0,"12F-73MM- 2km ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1316,0,0,0,0,12F-CATC-58-UA,dr.com,Fibres,Unitube,Un-Armoured,0,,0,0,,0,0,,0,0,,0,0
+1324,0,0,0,0,12F-CATC-58-UA x 2km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1325,0,0,0,0,12F-CATC-58-UA x 6km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+839,0,0,0,0,12V Adapters,"Un-Branded ",,DC Adapter,12V DC,0,,0,0,,0,0,,0,0,,0,0
+946,0,0,0,0,12V Adapters Bundle,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+797,0,0,0,0,16 Way FDB (BC-FDB-1*16),DBC,Enclousre,"Fibre Distribution Box ",,0,,0,0,,0,0,,0,0,,0,0
+1114,0,0,0,0,16 Way FDB (DRC-FDB-1*16),dr.com,Enclousre,"Fibre Distribution Box ",,0,,0,0,,0,0,,0,0,,0,0
+1603,11,12,0,0,16 Way FDB (DRC-FDB-1*16),dr.com,Enclousre,"Fibre Distribution Box ",,0,Offer 1,1,550,Offer 2,2,510,,0,0,,0,0
+1614,0,0,0,0,16 Way FDB (DRC-FDB-1*16) x 2,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1144,0,0,0,0,16 Way FDB x 2units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1145,0,0,0,0,"16 Way FDB x 5units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+827,0,0,0,0,16 Way FTTH Box,"Un-Branded ",FTTH,Peripherals,,0,,0,0,,0,0,,0,0,,0,0
+435,0,0,0,0,16 way PLC (Cassette) SC/APC,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+432,0,0,0,0,16 Way PLC (Cassette) SC/UPC,DBC,PLC Splitters,"Cassette Type ",,0,,0,0,,0,0,,0,0,,0,0
+613,0,0,0,0,16 Way PLC Tube W/c SC/APC,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+421,13,0,0,0,16 Way PLC Tube W/c SC/UPC,DBC,PLC Splitters,Without Connector,,0,Offer 1,12,22,,0,0,,0,0,,0,0
+420,0,0,0,0,16 Way PLC Tube Wo/c,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+1479,0,0,0,0,16 Way Single Mode PLC Splitter,"Un-Branded ",PLC Splitters,,,0,,0,0,,0,0,,0,0,,0,0
+344,0,0,0,0,1930 24G 4SFP/SFP+ Switch (JL682A),Aruba,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+345,0,0,0,0,1930 24G Class 4 PoE 4SFP/SFP+ 195W Switch (JL683A),Aruba,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+347,0,0,0,0,1930 24G Class 4 PoE 4SFP/SFP+ 370W Switch (JL684A),Aruba,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+348,0,0,0,0,1930 48G 4SFP/SFP+ Switch (JL685A),Aruba,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+349,0,0,0,0,1930 48G Class 4 PoE 4SFP/SFP+ 370W Switch (JL686A),Aruba,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+342,0,0,0,0,1930 8G 2SFP Switch (JL680A),Aruba,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+343,0,0,0,0,1930 8G Class 4 PoE 2SFP 124W Switch  (JL681A),Aruba,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+1613,0,0,0,0,1:16way Tube (SC/APC-SC/UPC) ABS x 2,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1593,14,15,16,0,"1:16way Tube (SC/UPC-SC/UPC)  ABS ",dr.com,PLC Splitters,ABS Type,,0,Offer 1,1,850,Offer 2,2,750,Offer 3,4,700,,0,0
+1591,17,18,19,20,1:2way Tube (SC/UPC-SC/UPC) ABS,dr.com,PLC Splitters,ABS Type,,0,Offer 1,1,350,Offer 2,2,300,Offer 3,5,280,Offer 4,10,240
+1608,0,0,0,0,1:2way Tube (SC/UPC-SC/UPC) ABS x 2,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1590,21,22,23,24,"1:4way Tube (SC/UPC-SC/UPC) ABS ",dr.com,PLC Splitters,ABS Type,,0,Offer 1,1,380,Offer 2,2,350,Offer 3,5,320,Offer 4,10,285
+1611,0,0,0,0,1:4way Tube (SC/UPC-SC/UPC) ABS x 2,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1592,25,26,27,0,1:8way Tube (SC/UPC-SC/UPC) ABS,dr.com,PLC Splitters,ABS Type,,0,Offer 1,1,490,Offer 2,2,440,Offer 3,5,370,,0,0
+1609,0,0,0,0,1:8way Tube (SC/UPC-SC/UPC) ABS x 2,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1191,0,0,0,0,"1F- FTTH-2FRP-100Mtr x 2units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1192,0,0,0,0,1F- FTTH-2FRP-100Mtr x 5units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1199,0,0,0,0,1F- FTTH-2FRP-30Mtr x 2units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1200,0,0,0,0,1F- FTTH-2FRP-30Mtr x 5units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1197,0,0,0,0,1F- FTTH-2FRP-50Mtr x 2units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1198,0,0,0,0,1F- FTTH-2FRP-50Mtr x 5units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1195,0,0,0,0,1F- FTTH-2FRP-70Mtr x 2units	,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1196,0,0,0,0,1F- FTTH-2FRP-70Mtr x 5units	,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1193,0,0,0,0,"1F- FTTH-2FRP-80Mtr x 2units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1194,0,0,0,0,1F- FTTH-2FRP-80Mtr x 5units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1202,0,0,0,0,1F- FTTH-3STEEL-100Mtr x 2units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1201,0,0,0,0,1F- FTTH-3STEEL-100Mtr x 5units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1209,0,0,0,0,1F- FTTH-3STEEL-30Mtr x 2units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1210,0,0,0,0,1F- FTTH-3STEEL-30Mtr x 5units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1207,0,0,0,0,1F- FTTH-3STEEL-50Mtr x 2units	,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1208,0,0,0,0,1F- FTTH-3STEEL-50Mtr x 5units	,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1206,0,0,0,0,1F- FTTH-3STEEL-70Mtr x 2units	,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1205,0,0,0,0,1F- FTTH-3STEEL-70Mtr x 5units	,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1203,0,0,0,0,1F- FTTH-3STEEL-80Mtr x 2units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1204,0,0,0,0,1F- FTTH-3STEEL-80Mtr x 5units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1353,0,0,0,0,1F-2FRP+STEEL-100Mtr x 2units	,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1354,0,0,0,0,1F-2FRP+STEEL-100Mtr x 5units	,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1345,0,0,0,0,1F-2FRP+STEEL-30Mtr x 2units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1346,0,0,0,0,1F-2FRP+STEEL-30Mtr x 5units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1347,0,0,0,0,1F-2FRP+STEEL-50Mtr x 2units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1348,0,0,0,0,1F-2FRP+STEEL-50Mtr x 5units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1349,0,0,0,0,1F-2FRP+STEEL-70Mtr x 2units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1350,0,0,0,0,1F-2FRP+STEEL-70Mtr x 5units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1351,0,0,0,0,1F-2FRP+STEEL-80Mtr x 2units	,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1352,0,0,0,0,1F-2FRP+STEEL-80Mtr x 5units	,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+626,0,0,0,0,1F-31-2P-FT-FC-100,dr.com,1F 2FRP,,,0,,0,0,,0,0,,0,0,,0,0
+763,0,0,0,0,1F-31-2P-FT-FC-30,dr.com,1F 2FRP,,,0,,0,0,,0,0,,0,0,,0,0
+623,0,0,0,0,1F-31-2P-FT-FC-50,dr.com,1F 2FRP,,,0,,0,0,,0,0,,0,0,,0,0
+624,0,0,0,0,1F-31-2P-FT-FC-70,dr.com,1F 2FRP,,,0,,0,0,,0,0,,0,0,,0,0
+625,0,0,0,0,1F-31-2P-FT-FC-80,dr.com,1F 2FRP,,,0,,0,0,,0,0,,0,0,,0,0
+771,0,0,0,0,1F-31-2S-FT-PC-100,dr.com,FTTH Cords,1F 2 Steel Wire,,0,,0,0,,0,0,,0,0,,0,0
+768,0,0,0,0,1F-31-2S-FT-PC-30,dr.com,FTTH Cords,1F 2 Steel Wire,,0,,0,0,,0,0,,0,0,,0,0
+769,0,0,0,0,1F-31-2S-FT-PC-50,dr.com,FTTH Cords,1F 2 Steel Wire,,0,,0,0,,0,0,,0,0,,0,0
+770,0,0,0,0,1F-31-2S-FT-PC-70,dr.com,FTTH Cords,1F 2 Steel Wire,,0,,0,0,,0,0,,0,0,,0,0
+1884,0,0,0,0,1F-31-2S-FT-SC/UPC-SC/UPC,dr.com,FTTH Cords,2-GI,,0,,0,0,,0,0,,0,0,,0,0
+1166,0,0,0,0,1F-40-FTTH x 10km,dr.com,Fibres,FTTH Cable,Round,0,,0,0,,0,0,,0,0,,0,0
+1165,0,0,0,0,1F-40-FTTH x 2km,dr.com,Fibres,FTTH Cable,Round,0,,0,0,,0,0,,0,0,,0,0
+804,28,29,0,0,1F-40-GF-RT,dr.com,Fibres,FTTH Cable,Round,0,Clearance,2000,3400,Clearance,10000,2500,,0,0,,0,0
+776,0,0,0,0,1F-50-2P-1S-FT-100,dr.com,1F 2FRP+1 STEEL,,,0,,0,0,,0,0,,0,0,,0,0
+772,0,0,0,0,1F-50-2P-1S-FT-30,dr.com,1F 2FRP+1 STEEL,,,0,,0,0,,0,0,,0,0,,0,0
+773,0,0,0,0,1F-50-2P-1S-FT-50,dr.com,1F 2FRP+1 STEEL,,,0,,0,0,,0,0,,0,0,,0,0
+774,0,0,0,0,1F-50-2P-1S-FT-70,dr.com,1F 2FRP+1 STEEL,,,0,,0,0,,0,0,,0,0,,0,0
+775,0,0,0,0,1F-50-2P-1S-FT-80,dr.com,1F 2FRP+1 STEEL,,,0,,0,0,,0,0,,0,0,,0,0
+622,0,0,0,0,1F-50-3S-FT-FC-100,dr.com,1F 3 Steel Wire,,,0,,0,0,,0,0,,0,0,,0,0
+618,0,0,0,0,1F-50-3S-FT-FC-30,dr.com,1F 3 Steel Wire,,,0,,0,0,,0,0,,0,0,,0,0
+1886,0,0,0,0,1F-50-3S-FT-FC-30-SC/UPC-SC/UPC,dr.com,FTTH Cords,3-GI,,0,,0,0,,0,0,,0,0,,0,0
+619,0,0,0,0,1F-50-3S-FT-FC-50,dr.com,1F 3 Steel Wire,,,0,,0,0,,0,0,,0,0,,0,0
+1887,0,0,0,0,1F-50-3S-FT-FC-50-SC/UPC-SC/UPC,dr.com,FTTH Cords,3-GI,,0,,0,0,,0,0,,0,0,,0,0
+620,0,0,0,0,1F-50-3S-FT-FC-70,dr.com,1F 3 Steel Wire,,,0,,0,0,,0,0,,0,0,,0,0
+621,0,0,0,0,1F-50-3S-FT-FC-80,dr.com,1F 3 Steel Wire,,,0,,0,0,,0,0,,0,0,,0,0
+943,0,0,0,0,2 core (FTTH) ~ 1km (200 to 800Mtr),dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1154,30,31,32,0,2 core - 4km,dr.com,Fibres,Unitube,Un-Armoured,0,Offer 1,1,4900,Offer 2,2,4700,Offer 3,6,4200,,0,0
+916,0,0,0,0,2 core -10km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+730,0,0,0,0,2 core Drop - 2km,dr.com,Fibres,Unitube,Un-Armoured,0,,0,0,,0,0,,0,0,,0,0
+1164,0,0,0,0,2 core FTTH - 10km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+915,0,0,0,0,2 core FTTH - 2km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+940,0,0,0,0,2 core ~ 1km (200 to 800Mtr),dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1147,0,0,0,0,"2 hole Tiffin box x 10units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+903,0,0,0,0,"2 hole Tiffin box x 5units ",DBC,,SFP,10G,0,,0,0,,0,0,,0,0,,0,0
+467,0,0,0,0,2 Port OLT Layer 2,DBC,FTTH,OLT,,0,,0,0,,0,0,,0,0,,0,0
+1111,35,33,34,0,2 WAY FIBER PLC WoC,dr.com,PLC Splitters,Without Connector,,0,,10,110,Offer 1,1,150,Offer 2,5,130,,0,0
+1136,0,0,0,0,"2 WAY FIBER PLC WoC x 10units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1137,0,0,0,0,"2 WAY FIBER PLC WoC x 20units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+867,36,0,0,0,"2 Way Joint Enclosure Box / Tiffin box ",DBC,FTTH,Peripherals,,0,Offer 1,2,35,,0,0,,0,0,,0,0
+780,37,38,39,0,"2 Way Joint Enclosure Box / Tiffin box (PREMIUM) Mini ",dr.com,Enclousre,Enclosure Box,"Joint Enclosure Box ",0,Offer 1,1,30,Offer 2,10,24,Offer 3,100,21,,0,0
+429,0,0,0,0,2 Way PLC (Cassette) SC/UPC,DBC,PLC Splitters,"Cassette Type ",,0,,0,0,,0,0,,0,0,,0,0
+610,0,0,0,0,2 Way PLC Tube W/c SC/APC,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+413,0,0,0,0,2 Way PLC Tube W/c SC/UPC,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+412,0,0,0,0,2 Way PLC Tube WO/c,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+799,0,0,0,0,2*2 Way PLC Tube Wo/c,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+800,0,0,0,0,2*4 Way PLC Tube Wo/c,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+801,0,0,0,0,2*8 Way PLC Tube Wo/c,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+1460,40,41,42,0,2-way PLC woC,Beldon,PLC Splitters,Without Connector,,0,Clearance,1,140,Clearance,5,120,Clearance,10,100,,0,0
+1502,0,0,0,0,2-way PLC woC x 10,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1503,0,0,0,0,2-way PLC woC x 20,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+815,0,0,0,0,"24 Cores FMS Loaded SC/APC ","Un-Branded ",FMS,Rack Mount,Loaded FMS,0,,0,0,,0,0,,0,0,,0,0
+439,0,0,0,0,"24 Cores FMS Unloaded ","Un-Branded ",FMS,Rack Mount,Unloaded FMS,0,,0,0,,0,0,,0,0,,0,0
+1155,0,0,0,0,"24F Core - 10km ",dr.com,Fibres,Unitube,Un-Armoured,0,,0,0,,0,0,,0,0,,0,0
+735,0,0,0,0,"24F Core - 2km ",dr.com,Fibres,Unitube,Un-Armoured,0,,0,0,,0,0,,0,0,,0,0
+1580,43,0,0,0,24F Rack Mount FMS fully loaded,dr.com,FMS,Rack Mount,Loaded FMS,0,Offer 1,1,2950,,0,0,,0,0,,0,0
+1586,44,0,0,0,24F Wall Mount FMS fully loaded,dr.com,FMS,"Wall Mount ",Loaded FMS,0,Offer 1,1,3050,,0,0,,0,0,,0,0
+1167,0,0,0,0,24F-110-PLAT x 2km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1168,0,0,0,0,24F-110-PLAT x 5km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+865,45,46,0,0,24F-110-PLAT-AR,dr.com,Fibres,Multitube,Armoured,0,Offer 1,2000,36000,Offer 2,4000,32000,,0,0,,0,0
+736,47,48,0,0,24F-85-GOLD-UA,dr.com,Fibres,Unitube,Un-Armoured,0,Offer 1,2,21000,Offer 2,4,19000,,0,0,,0,0
+860,49,50,0,0,24F-95-GOLD-UA,dr.com,Fibres,Multitube,Un-Armoured,0,Offer 1,2000,31000,Offer 2,4000,26000,,0,0,,0,0
+1156,0,0,0,0,24F-95MM x 2km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1157,0,0,0,0,24F-95MM x 5km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1583,0,0,0,0,24F-Dome Unloaded Bamboo Type,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1365,0,0,0,0,24F-MLT-AR,Sterlite,Fibres,Multitube,Armoured,0,,0,0,,0,0,,0,0,,0,0
+1410,0,0,0,0,24F-MLT-AR x 2km,Sterlite,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1411,0,0,0,0,24F-MLT-AR x 4km,Sterlite,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1795,0,0,0,0,24F-Wall-Mount Unloaded-FMS,dr.com,FMS,"Wall Mount ",Unloaded FMS,0,,0,0,,0,0,,0,0,,0,0
+1599,51,52,0,0,"2:16way Tube (SC/APC-SC/APC) ABS ",dr.com,PLC Splitters,ABS Type,,0,Offer 1,1,1200,Offer 2,2,1050,,0,0,,0,0
+1612,0,0,0,0,2:16way Tube (SC/APC-SC/UPC) ABS x 2,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1598,53,54,55,0,"2:8way Tube (SC/APC-SC/APC) ABS ",dr.com,PLC Splitters,ABS Type,,0,Offer 1,1,690,Offer 2,2,630,Offer 3,4,785,,0,0
+1610,0,0,0,0,2:8way Tube (SC/APC-SC/UPC) ABS x 2,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1906,503,504,505,506,2F CUT LENGTH ( 200-800) Meters,dr.com,Fibres,Unitube,Cut Lengths,0,Offer 1,2,4200,Offer 2,4,3900,Offer 3,6,3650,Offer 4,10,3200
+562,56,57,58,0,"2F Drop ",dr.com,Fibres,Unitube,Un-Armoured,0,Offer 1,1,4100,Offer 2,2,3800,Offer 3,20,3500,,0,0
+569,62,59,60,61,2F-45-ECO-RT,dr.com,Fibres,FTTH Cable,Round,0,,20000,3400,Offer 1,1000,4400,Offer 2,4000,4000,Offer 3,10000,3700
+805,0,0,0,0,2F-45-ECO-RT,dr.com,Fibres,FTTH Cable,Round,0,,0,0,,0,0,,0,0,,0,0
+568,0,0,0,0,2F-45-ECO-SW,dr.com,Fibres,FTTH Cable,Round,0,,0,0,,0,0,,0,0,,0,0
+729,0,0,0,0,2F-45-ECO-SW 2km Bundle,dr.com,Fibres,FTTH Cable,Round,0,,0,0,,0,0,,0,0,,0,0
+803,0,0,0,0,2F-50-ECO-UA,dr.com,Fibres,Unitube,Un-Armoured,0,,0,0,,0,0,,0,0,,0,0
+561,0,0,0,0,2F-55-ECO-UA,dr.com,Fibres,Unitube,Un-Armoured,0,,0,0,,0,0,,0,0,,0,0
+208,0,0,0,0,2F-60-ECO-UA,dr.com,Fibres,Unitube,Un-Armoured,0,,0,0,,0,0,,0,0,,0,0
+1313,0,0,0,0,2F-CATC-50-UA,dr.com,Fibres,Unitube,Un-Armoured,0,,0,0,,0,0,,0,0,,0,0
+1317,0,0,0,0,2F-CATC-50-UA x 2km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1318,0,0,0,0,2F-CATC-50-UA x 6km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1802,63,64,65,0,2T1W/C-SC/UPC,dr.com,PLC Splitters,"With connector ",,0,Offer 1,1,250,Offer 2,5,235,Offer 3,10,200,,0,0
+1595,66,67,0,0,2x16 PLC Splitter,dr.com,PLC Splitters,Without Connector,,0,Offer 1,1,750,Offer 2,2,620,,0,0,,0,0
+1597,68,69,0,0,2x16 PLC Splitter with Connector,dr.com,PLC Splitters,"With connector ",,0,Offer 1,1,1200,Offer 2,2,1050,,0,0,,0,0
+1607,0,0,0,0,2x16 PLC Splitter with Connector x 2,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1605,0,0,0,0,2x16 PLC Splitter WoC x 2,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1594,70,71,0,0,2x8 PLC Splitter,dr.com,PLC Splitters,Without Connector,,0,Offer 1,1,500,Offer 2,5,440,,0,0,,0,0
+1596,72,73,74,0,2x8 PLC Splitter with Connector,dr.com,PLC Splitters,"With connector ",,0,Offer 1,1,790,Offer 2,2,640,Offer 3,4,590,,0,0
+1606,0,0,0,0,2x8 PLC Splitter with Connector x 2,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1602,0,0,0,0,2x8 PLC Splitter WoC x 2,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+445,0,0,0,0,32 Way FDB (BC-FDB-1*32A),DBC,Enclousre,"Fibre Distribution Box ",,0,,0,0,,0,0,,0,0,,0,0
+1604,75,76,0,0,32 Way FDB (DRC-FDB-1*32),dr.com,Enclousre,"Fibre Distribution Box ",,0,Offer 1,1,1100,Offer 2,2,1020,,0,0,,0,0
+1615,0,0,0,0,32 Way FDB (DRC-FDB-1*32) x 2,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+491,0,0,0,0,32 Way PLC (Cassette Type) SC/UPC,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+436,0,0,0,0,32 Way PLC (Cassette) SC/APC,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+614,0,0,0,0,32 Way PLC Tube W/c SC/APC,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+423,0,0,0,0,32 Way PLC Tube W/c SC/UPC,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+422,0,0,0,0,32 Way PLC Tube Wo/c,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+732,0,0,0,0,4 core -2km,dr.com,Fibres,Unitube,Un-Armoured,0,,0,0,,0,0,,0,0,,0,0
+1153,0,0,0,0,4 core -4km,dr.com,Fibres,Unitube,Un-Armoured,0,,0,0,,0,0,,0,0,,0,0
+941,0,0,0,0,4 core ~ 1km (200 to 800Mtr),dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+904,0,0,0,0,4 hole Tiffin box,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+471,0,0,0,0,4 Port OLT Gold DUAL SMPS,DBC,FTTH,OLT,,0,,0,0,,0,0,,0,0,,0,0
+1112,77,78,79,0,4 WAY FIBER PLC WoC,dr.com,PLC Splitters,Without Connector,,0,Offer 1,1,200,Offer 2,5,160,Offer 3,10,120,,0,0
+1138,0,0,0,0,"4 WAY FIBER PLC WoC x 10units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1139,0,0,0,0,4 WAY FIBER PLC WoC x 20units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+868,0,0,0,0,4 Way Joint Enclosure Box / Tiffin box (ECO),DBC,FTTH,Peripherals,,0,,0,0,,0,0,,0,0,,0,0
+781,0,0,0,0,4 Way Joint Enclosure Box / Tiffin box (PREMIUM),dr.com,Enclousre,Enclosure Box,"Joint Enclosure Box ",0,,0,0,,0,0,,0,0,,0,0
+433,0,0,0,0,4 Way PLC (Cassette) SC/APC,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+430,0,0,0,0,4 Way PLC (Cassette) SC/UPC,DBC,PLC Splitters,"Cassette Type ",,0,,0,0,,0,0,,0,0,,0,0
+611,0,0,0,0,4 Way PLC Tube W/c SC/APC,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+415,0,0,0,0,4 Way PLC Tube W/c SC/UPC,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+414,0,0,0,0,4 Way PLC Tube Wo/c,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+416,0,0,0,0,4 Way PLC Yellow Jacket W/c SC/UPC,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+608,0,0,0,0,4 Way Yellow Jacket W/c SC/APC,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+1461,80,81,82,0,4-way PLC woC,Beldon,PLC Splitters,Without Connector,,0,Clearance,1,190,Clearance,5,150,Clearance,10,110,,0,0
+1504,0,0,0,0,4-way PLC woC x 10,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1505,0,0,0,0,4-way PLC woC x 20,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+966,83,84,0,0,40G DAC 1M,DBC,,SFP,DAC Cable,0,Offer 1,1,2450,Offer 2,2,2100,,0,0,,0,0
+974,0,0,0,0,40G DAC 1M,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+967,86,85,0,0,40G DAC 3M,DBC,,SFP,DAC Cable,0,,2,2400,Offer 1,1,2700,,0,0,,0,0
+975,0,0,0,0,40G DAC 3M,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+466,0,0,0,0,40G QSFP+ ER4-40Kms,DBC,,SFP,PON,0,,0,0,,0,0,,0,0,,0,0
+1763,0,0,0,0,41R Kit,Fujikura,Splicing Machine,4 Motors,,0,,0,0,,0,0,,0,0,,0,0
+1762,0,0,0,0,45S,Fujikura,Splicing Machine,4 Motors,,0,,0,0,,0,0,,0,0,,0,0
+440,0,0,0,0,48 Cores FMS loaded SC/APC,"Un-Branded ",FMS,Rack Mount,Loaded FMS,0,,0,0,,0,0,,0,0,,0,0
+441,0,0,0,0,48 Cores FMS Unloaded,"Un-Branded ",FMS,Rack Mount,Unloaded FMS,0,,0,0,,0,0,,0,0,,0,0
+1581,87,0,0,0,48F Rack Mount FMS fully loaded,dr.com,FMS,Rack Mount,Loaded FMS,0,,1,6200,,0,0,,0,0,,0,0
+1588,88,0,0,0,48F Wall Mount FMS fully loaded,dr.com,FMS,"Wall Mount ",Loaded FMS,0,Offer 1,1,6200,,0,0,,0,0,,0,0
+1173,0,0,0,0,48F-110-PLAT x 2km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1174,0,0,0,0,48F-110-PLAT x 5km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+862,89,90,0,0,48F-110-PLAT-AR,dr.com,Fibres,Multitube,Armoured,0,Offer 1,2000,48000,Offer 2,4000,41000,,0,0,,0,0
+1175,0,0,0,0,48F-95-GOLD x 2km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1176,0,0,0,0,48F-95-GOLD x 5km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+861,91,0,0,0,48F-95-GOLD-UA,dr.com,Fibres,Multitube,Un-Armoured,0,Offer 1,2000,39000,,0,0,,0,0,,0,0
+1584,92,0,0,0,48F-Dome Unloaded Bamboo Type,dr.com,Enclousre,Dome Type,,0,Offer 1,1,1900,,0,0,,0,0,,0,0
+1799,93,0,0,0,48F-Wall-Mount Unloaded-FMS,dr.com,FMS,"Wall Mount ",Unloaded FMS,0,,1,0,,0,0,,0,0,,0,0
+1907,507,508,509,510,4F Cut Length (200 - 800) Meters,dr.com,Fibres,Unitube,Cut Lengths,0,Offer 1,2,4800,Offer 2,4,4600,Offer 3,6,4400,Offer 4,10,4100
+563,94,95,96,97,4F with Yarn,dr.com,Fibres,Unitube,Un-Armoured,0,Offer 1,1,5800,Offer 2,5,5500,Offer 3,10,5200,Offer 4,20,4800
+731,0,0,0,0,4F-58-ECO-UA 2km Bundle,dr.com,Fibres,Unitube,Un-Armoured,0,,0,0,,0,0,,0,0,,0,0
+212,0,0,0,0,4F-60-ECO-UA,dr.com,Fibres,Unitube,Un-Armoured,0,,0,0,,0,0,,0,0,,0,0
+566,98,99,100,0,4F-73-GOLD-AR,dr.com,Fibres,Unitube,Armoured,0,Offer 1,1,11500,Offer 2,4,9500,Offer 3,10,8500,,0,0
+1160,0,0,0,0,"4F-73MM- 2km ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1161,0,0,0,0,4F-73MM-10km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1314,0,0,0,0,4F-CATC-58-UA,dr.com,Fibres,Unitube,Un-Armoured,0,,0,0,,0,0,,0,0,,0,0
+1319,0,0,0,0,4F-CATC-58-UA x 2km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1320,0,0,0,0,4F-CATC-58-UA x 6km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+894,0,0,0,0,4P Fully Loaded OLT,DBC,,SFP,10G,0,,0,0,,0,0,,0,0,,0,0
+889,0,0,0,0,4P OLT - ONT,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+890,0,0,0,0,4P OLT -Voip ONT,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+891,0,0,0,0,4P OLT -Wifi ONT,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1803,101,102,103,0,4T1W/C-SC/UPC,dr.com,PLC Splitters,"With connector ",,0,Offer 1,1,350,Offer 2,2,280,Offer 3,10,250,,0,0
+841,0,0,0,0,5V Adapters,"Un-Branded ",,DC Adapter,5V DC,0,,0,0,,0,0,,0,0,,0,0
+944,0,0,0,0,"5V Adapters Bundle ","Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+977,0,0,0,0,5V-9V-12V Adapters,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+739,0,0,0,0,6 core -2km,dr.com,Fibres,Unitube,Un-Armoured,0,,0,0,,0,0,,0,0,,0,0
+958,0,0,0,0,6 core -4km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+942,0,0,0,0,6 core ~ 1km (200 to 800Mtr),dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+424,0,0,0,0,6 Way Fiber Coupler with SC/APC,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+1908,511,512,513,0,6F Cut Length (200 - 800) Meters,dr.com,Fibres,Unitube,Cut Lengths,0,Offer 1,2,5900,Offer 2,4,5700,Offer 3,8,5250,,0,0
+564,104,105,106,107,6F with Yarn,dr.com,Fibres,Unitube,Un-Armoured,0,Offer 1,1,7500,Offer 2,2,6700,Offer 3,10,6300,Offer 4,20,5900
+740,0,0,0,0,6F-58-ECO-UA 2km Bundle,dr.com,Fibres,Unitube,Un-Armoured,0,,0,0,,0,0,,0,0,,0,0
+214,0,0,0,0,"6F-60-ECO-UA ",dr.com,Fibres,Unitube,Un-Armoured,0,,0,0,,0,0,,0,0,,0,0
+567,108,109,110,0,6F-73-GOLD-AR,dr.com,Fibres,Unitube,Armoured,0,Offer 1,2,14000,Offer 2,4,13000,Offer 3,10,11500,,0,0
+1159,0,0,0,0,6F-73MM- 10km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1158,0,0,0,0,6F-73MM- 2km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1315,0,0,0,0,6F-CATC-58-UA,dr.com,Fibres,Unitube,Un-Armoured,0,,0,0,,0,0,,0,0,,0,0
+1322,0,0,0,0,6F-CATC-58-UA x 2km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1323,0,0,0,0,6F-CATC-58-UA x 6km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1170,0,0,0,0,72F-110-PLAT x 10km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1169,0,0,0,0,72F-110-PLAT x 2km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+864,0,0,0,0,72F-110-PLAT-AR,dr.com,Fibres,Multitube,Armoured,0,,0,0,,0,0,,0,0,,0,0
+443,0,0,0,0,8 Way FDB (BC-FDB-1*8),DBC,Enclousre,"Fibre Distribution Box ",,0,,0,0,,0,0,,0,0,,0,0
+950,111,112,113,0,8 Way FDB (DRC-FDB-1*8),dr.com,Enclousre,"Fibre Distribution Box ",,0,Offer 1,1,325,Offer 2,2,300,Offer 3,5,275,,0,0
+976,0,0,0,0,"8 Way FDB / PLC (Cassette) ",DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1143,0,0,0,0,"8 Way FDB x 2units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+952,0,0,0,0,8 way FDB x 5units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1113,114,115,116,0,8 WAY FIBER PLC WoC,dr.com,PLC Splitters,Without Connector,,0,Offer 1,1,500,Offer 2,5,550,Offer 3,10,420,,0,0
+1141,0,0,0,0,"8 WAY FIBER PLC WoC x 10units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1142,0,0,0,0,"8 WAY FIBER PLC WoC x 20units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+434,0,0,0,0,8 Way PLC (Cassette) SC/APC,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+431,0,0,0,0,8 Way PLC (Cassette) SC/UPC,DBC,PLC Splitters,"Cassette Type ",,0,,0,0,,0,0,,0,0,,0,0
+612,0,0,0,0,8 Way PLC Tube W/c SC/APC,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+418,0,0,0,0,8 Way PLC Tube W/c SC/PC,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+417,0,0,0,0,8 Way PLC Tube Wo/c,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+609,0,0,0,0,8 Way Yellow Jacket W/c SC/APC,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+419,0,0,0,0,8 Way Yellow Jacket W/c SC/UPC,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+1462,117,118,119,0,8-way PLC woC,Beldon,PLC Splitters,Without Connector,,0,Clearance,1,490,Clearance,5,540,Clearance,10,410,,0,0
+1506,0,0,0,0,8-way PLC woC x 10,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1507,0,0,0,0,8-way PLC woC x 20,PPC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+515,0,0,0,0,800-WDP,DBC,FTTH,Peripherals,,0,,0,0,,0,0,,0,0,,0,0
+1759,0,0,0,0,82C+,Sumitomo,Splicing Machine,6 Motors,,0,,0,0,,0,0,,0,0,,0,0
+893,0,0,0,0,8P Fully Loaded OLT,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+743,0,0,0,0,8P OLT -Voip ONT,DBC,FTTH Cords,1F 2 Steel Wire,,0,,0,0,,0,0,,0,0,,0,0
+979,0,0,0,0,8P OLT+ ONT,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+742,0,0,0,0,8P OLT-Voip ONT,DBC,FTTH Cords,1F 2 Steel Wire,,0,,0,0,,0,0,,0,0,,0,0
+887,0,0,0,0,8P OLT-Wifi ONT,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+838,0,0,0,0,8PK-326 Fiber Stipper,"Un-Branded ",Stripper,,,0,,0,0,,0,0,,0,0,,0,0
+1414,0,0,0,0,8PK-326 x 5,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1761,0,0,0,0,90S+ Kit,Fujikura,Splicing Machine,6 Motors,,0,,0,0,,0,0,,0,0,,0,0
+814,0,0,0,0,96 Cores FMS Loaded SC/APC,"Un-Branded ",FMS,Rack Mount,Loaded FMS,0,,0,0,,0,0,,0,0,,0,0
+442,0,0,0,0,"96 Cores FMS Unloaded SC/UPC ","Un-Branded ",FTTH,FMS,,0,,0,0,,0,0,,0,0,,0,0
+1582,120,0,0,0,96F Rack Mount FMS fully loaded,dr.com,FMS,Rack Mount,Loaded FMS,0,Offer 1,1,11500,,0,0,,0,0,,0,0
+1589,121,0,0,0,96F Wall Mount FMS fully loaded,dr.com,FMS,"Wall Mount ",Loaded FMS,0,,1,11500,,0,0,,0,0,,0,0
+1171,0,0,0,0,96F-125-PLAT x 2km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1172,0,0,0,0,96F-125-PLAT x 5km,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+863,122,123,0,0,96F-125-PLAT-AR,dr.com,Fibres,Multitube,Armoured,0,Offer 1,2000,75000,Offer 2,4000,68000,,0,0,,0,0
+1585,124,0,0,0,96F-Dome Unloaded Bamboo Type,dr.com,Enclousre,Dome Type,,0,Offer 1,1,2700,,0,0,,0,0,,0,0
+1794,0,0,0,0,96F-Wall-Mount Unloaded-FMS,dr.com,FMS,"Wall Mount ",Unloaded FMS,0,,0,0,,0,0,,0,0,,0,0
+840,0,0,0,0,9V Adapters,"Un-Branded ",,DC Adapter,9V DC,0,,0,0,,0,0,,0,0,,0,0
+945,0,0,0,0,"9V Adapters Bundle ","Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1013,0,0,0,0,Above 20k Stock Clearence,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+777,0,0,0,0,AC-10,Tenda,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+27,0,0,0,0,AC10,Mercusys,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+1779,0,0,0,0,AC10,Tenda,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+1805,0,0,0,0,AC10,Tenda,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+896,0,0,0,0,AC10 10Units Bundle,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+12,0,0,0,0,AC12,Mercusys,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+720,0,0,0,0,AC12 10units Bundle,Mercusys,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+1768,125,0,0,0,AC12G,Mercusys,Routers,AC Router,,0,Clearance,5,1200,,0,0,,0,0,,0,0
+987,0,0,0,0,AC12G + MW330HP,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1227,0,0,0,0,Accessories 1,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1228,0,0,0,0,Accessories 2,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1230,0,0,0,0,Accessories 4,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+948,0,0,0,0,ACCESSORIES Solutions,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1842,126,127,0,0,AF-MPX4,Ubiquiti,Wireless,Backhaul,,0,Clearance,1,5200,Clearance,3,4200,,0,0,,0,0
+529,130,128,129,0,Air Router AR,Ubiquiti,Wireless,Access point,,0,Clearance,7,500,Offer 1,1,900,Offer 2,2,800,,0,0
+366,0,0,0,0,airFiber AF-11,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+118,0,0,0,0,airFiber AF-5G-23-S45,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+121,0,0,0,0,airFiber AF-5G-30-S45,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+122,0,0,0,0,airFiber AF-5G-34-S45,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+125,0,0,0,0,"airFiber AF-5U ",Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+126,0,0,0,0,airFiber AF-5X,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+367,0,0,0,0,airFiber AF-60,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+368,0,0,0,0,airFiber AF-60-LR,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+365,0,0,0,0,airFiber AF?5XHD,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+363,0,0,0,0,airFiber AF?MPx4,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+364,0,0,0,0,airFiber AF?MPx8,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+528,131,132,133,134,AirGateway,Ubiquiti,Wireless,Access point,,0,Clearance,1,500,Clearance,4,450,Clearance,10,300,Clearance,100,250
+996,0,0,0,0,AirGateway,Ubiquiti,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+959,0,0,0,0,AirGateway.,Ubiquiti,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1636,136,135,0,0,airMAX AG-HP-2G-20,Ubiquiti,WISP,,,0,Clearance,4,3500,Offer 1,2,4500,,0,0,,0,0
+91,0,0,0,0,airMAX AG-HP-5G23,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+92,0,0,0,0,airMAX AG-HP-5G27,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+115,0,0,0,0,airMAX AM-5AC-21,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+113,137,138,0,0,airMAX AM-5G-19-120,Ubiquiti,WISP,,,0,Offer 1,1,8500,Offer 2,2,7000,,0,0,,0,0
+526,139,0,0,0,airMAX AM-5G17-90,Ubiquiti,WISP,,,0,Clearance,1,4200,,0,0,,0,0,,0,0
+117,140,141,0,0,airMAX AM-V5GTi-60,Ubiquiti,WISP,,,0,Clearance,1,9500,Clearance,2,6500,,0,0,,0,0
+114,0,0,0,0,airMAX AMO-2G-13,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+112,0,0,0,0,airMAX AMO-5G-13,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+541,0,0,0,0,airMAX BM2HP,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+379,0,0,0,0,airMAX GigaBeam-GBE,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+95,0,0,0,0,airMAX LBE-5AC-16,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+94,0,0,0,0,airMAX LBE-5AC-Gen2,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+108,142,0,0,0,airMAX LocoM2,Ubiquiti,WISP,,,0,Clearance,1,3300,,0,0,,0,0,,0,0
+109,0,0,0,0,airMAX LocoM5,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+107,0,0,0,0,airMAX Nano station NS-5AC,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+104,144,145,143,0,airMAX Nano Station NSM2,Ubiquiti,WISP,,,0,Clearance,2,4900,Clearance,8,4500,Offer 1,1,6500,,0,0
+106,0,0,0,0,airMAX Nano station NSM5,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+540,0,0,0,0,airMAX NBE-5AC-GEN2,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+535,0,0,0,0,airMax NBE-M5-19,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+100,146,0,0,0,"airMAX PBE 5AC-ISO-Gen2 ",Ubiquiti,WISP,,,0,Clearance,1,11500,,0,0,,0,0,,0,0
+98,0,0,0,0,airMAX PBE-5AC-500,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+101,0,0,0,0,airMAX PBE-5AC-500-ISO,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+99,0,0,0,0,airMAX PBE-5AC-620,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+103,0,0,0,0,airMAX PBE-5AC-Gen2,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1635,0,0,0,0,airMAX PBE-5AC-ISO-GEN2,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+96,0,0,0,0,airMAX PBE-M5-300,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+97,148,147,0,0,airMAX PBE-M5-400,Ubiquiti,WISP,,,0,Clearance,3,6500,Offer 1,1,7800,,0,0,,0,0
+538,150,149,0,0,airMAX PBE-M5-620,Ubiquiti,WISP,,,0,Clearance,4,9500,Offer 1,2,13500,,0,0,,0,0
+102,0,0,0,0,airMAX PS-5AC,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+116,0,0,0,0,airMAX RD-5AC-31,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+766,0,0,0,0,airMAX RM2-Ti,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+123,0,0,0,0,airMAX Rocket 5AC Lite,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+124,0,0,0,0,airMAX Rocket 5AC PRISM/Gen2,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+111,0,0,0,0,airMAX Rocket Dish RD-34,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+110,0,0,0,0,airMAX Rocket Dish RD-5G-30LW,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+544,0,0,0,0,airMAX Rocket Dish RD-5G30,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+128,0,0,0,0,airMAX RocketM2,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+127,0,0,0,0,airMAX RocketM5,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1843,0,0,0,0,AM-5G19-120,Ubiquiti,Wireless,Antenna,Sector Antenna,0,,0,0,,0,0,,0,0,,0,0
+1241,151,152,0,0,Archer A10,TP-Link,Routers,AC Router,,0,Offer 1,5,0,Offer 2,10,0,,0,0,,0,0
+1261,0,0,0,0,Archer A10 x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1262,0,0,0,0,Archer A10 x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1235,153,154,0,0,Archer A5,TP-Link,Routers,AC Router,,0,Offer 1,5,0,Offer 2,10,0,,0,0,,0,0
+1269,0,0,0,0,Archer A5 x 10,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1268,0,0,0,0,Archer A5 x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+858,155,0,0,0,Archer A6,TP-Link,Routers,AC Router,,0,Offer 1,1,1970,,0,0,,0,0,,0,0
+1812,0,0,0,0,Archer A7,TP-Link,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+1285,0,0,0,0,Archer AX10,TP-Link,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+1299,0,0,0,0,Archer AX10 x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1300,0,0,0,0,Archer AX10 x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1281,0,0,0,0,Archer AX20,TP-Link,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+1291,0,0,0,0,Archer AX20 x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1292,0,0,0,0,Archer AX20 x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1559,0,0,0,0,Archer AXE75,TP-Link,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+560,156,157,158,159,Archer C1200,TP-Link,Routers,AC Router,,0,Offer 1,5,0,Offer 2,10,0,Offer 3,20,0,Offer 4,50,0
+1287,0,0,0,0,Archer C2,TP-Link,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+35,162,160,161,0,Archer C20,TP-Link,Routers,AC Router,,0,,20,0,Offer 1,5,0,Offer 2,10,0,,0,0
+1248,0,0,0,0,Archer C20 x 10,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1060,0,0,0,0,Archer C20 x 5,TP-Link,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+1900,0,0,0,0,ARCHER C20I,TP-Link,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+1830,0,0,0,0,ARCHER C2300,TP-Link,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+854,163,0,0,0,Archer C24,TP-Link,Routers,AC Router,,0,Offer 1,3,0,,0,0,,0,0,,0,0
+1063,0,0,0,0,Archer C24*20,TP-Link,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+857,164,0,0,0,Archer C5,TP-Link,Routers,AC Router,,0,Clearance,4,0,,0,0,,0,0,,0,0
+1069,0,0,0,0,Archer C5*20,TP-Link,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+30,165,0,0,0,Archer C50,TP-Link,Routers,AC Router,,0,Clearance,6,0,,0,0,,0,0,,0,0
+855,166,167,0,0,Archer C54,TP-Link,Routers,AC Router,,0,Offer 1,1,1390,Offer 2,20,1320,,0,0,,0,0
+1062,0,0,0,0,Archer C54*20,TP-Link,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+1257,168,169,170,0,Archer C5400,TP-Link,Routers,AC Router,,0,Offer 1,1,16499,Offer 2,2,15999,Offer 3,5,14999,,0,0
+1258,0,0,0,0,Archer C5400 x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1265,0,0,0,0,Archer C5400 x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+34,171,172,0,0,Archer C6,TP-Link,Routers,AC Router,,0,Offer 1,2,2000,Offer 2,20,1978,,0,0,,0,0
+1059,173,0,0,0,Archer C6*20,TP-Link,Routers,AC Router,,0,Offer 1,20,1978,,0,0,,0,0,,0,0
+1236,174,175,0,0,Archer C64,TP-Link,Routers,AC Router,,0,Offer 1,1,0,Offer 2,2,0,,0,0,,0,0
+1274,0,0,0,0,Archer C64 x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1275,0,0,0,0,Archer C64 x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1065,176,177,0,0,Archer C6U,TP-Link,Routers,AC Router,,0,Offer 1,1,2125,Offer 2,20,2025,,0,0,,0,0
+1068,0,0,0,0,Archer C6U*20,TP-Link,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+1891,0,0,0,0,ARCHER C7,TP-Link,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+1289,0,0,0,0,Archer C80,TP-Link,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+1309,0,0,0,0,Archer C80 x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1310,0,0,0,0,Archer C80 x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1820,0,0,0,0,ARCHER C9,TP-Link,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+1286,0,0,0,0,Archer MR200,TP-Link,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+1301,0,0,0,0,Archer MR200 x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1302,0,0,0,0,Archer MR200 x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1897,0,0,0,0,ARCHER T2E,TP-Link,Routers,"USB Adapter ",,0,,0,0,,0,0,,0,0,,0,0
+1558,0,0,0,0,Archer T2U Nano,TP-Link,Routers,"USB Adapter ",,0,,0,0,,0,0,,0,0,,0,0
+1564,0,0,0,0,Archer T2U Nano x 7,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1835,0,0,0,0,ARCHER T2U PLUS,TP-Link,Routers,"USB Adapter ",,0,,0,0,,0,0,,0,0,,0,0
+1855,0,0,0,0,ARCHER T600U NANO,TP-Link,Routers,"USB Adapter ",,0,,0,0,,0,0,,0,0,,0,0
+1546,0,0,0,0,Archer T6E,TP-Link,Routers,"USB Adapter ",,0,,0,0,,0,0,,0,0,,0,0
+1810,0,0,0,0,ARCHER T6E,TP-Link,Adapter,POE Adapters,12V,0,,0,0,,0,0,,0,0,,0,0
+336,0,0,0,0,Aruba AP11,Aruba,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+340,0,0,0,0,Aruba AP11D,Aruba,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+337,0,0,0,0,Aruba AP12,Aruba,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+339,0,0,0,0,Aruba AP15,Aruba,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+341,0,0,0,0,Aruba AP17,Aruba,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+338,0,0,0,0,Aruba AP22,Aruba,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+1375,0,0,0,0,AX R15,D-Link,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+1428,0,0,0,0,"AX R15 x 5 ",D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1846,0,0,0,0,AX1500,D-Link,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+162,0,0,0,0,"BaseBox 2 ",Mikrotik,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+495,0,0,0,0,BC-2020S-CLV Fiber Cleaver,DBC,FTTH,Peripherals,,0,,0,0,,0,0,,0,0,,0,0
+486,0,0,0,0,BC-21-SPLT-04 Splicing machine,DBC,"Splicing Machine ",,,0,,0,0,,0,0,,0,0,,0,0
+487,0,0,0,0,BC-21-SPLT-06 Splicing machine,DBC,"Splicing Machine ",,,0,,0,0,,0,0,,0,0,,0,0
+518,0,0,0,0,BC-315A VFL 10km,"Un-Branded ",Testing,VFL,,0,,0,0,,0,0,,0,0,,0,0
+605,0,0,0,0,BC-315A VFL 20km,"Un-Branded ",Testing,VFL,,0,,0,0,,0,0,,0,0,,0,0
+606,0,0,0,0,BC-315A VFL 30km,"Un-Branded ",Testing,VFL,,0,,0,0,,0,0,,0,0,,0,0
+519,0,0,0,0,BC-336FI Optical Line Identifier,DBC,FTTH,Peripherals,,0,,0,0,,0,0,,0,0,,0,0
+1865,0,0,0,0,BC-PLC 1-2-W/C-SC/UPC-PT,DBC,PLC Splitters,"With connector ",,0,,0,0,,0,0,,0,0,,0,0
+1889,0,0,0,0,BC-PLC 1-4W/CSC/UPC-PT,DBC,PLC Splitters,"With connector ",,0,,0,0,,0,0,,0,0,,0,0
+1807,0,0,0,0,BC-PLC-1 : 8-W/C-SC/APC,Secureye,PLC Splitters,"Cassette Type ",,0,,0,0,,0,0,,0,0,,0,0
+1882,0,0,0,0,BC-PLC-1-16-W/C-SC/UPC-0.9,DBC,Ratio Couplers,Without Window,,0,,0,0,,0,0,,0,0,,0,0
+1862,0,0,0,0,BC-PLC-1-4-W/C-SC/APC,DBC,PLC Splitters,"With connector ",,0,,0,0,,0,0,,0,0,,0,0
+1863,0,0,0,0,BC-PLC-1-4-W/C-SC/UPC .09,DBC,PLC Splitters,"With connector ",,0,,0,0,,0,0,,0,0,,0,0
+1903,0,0,0,0,BC-PLC-1-8-W/C-SC/APC,DBC,PLC Splitters,"With connector ",,0,,0,0,,0,0,,0,0,,0,0
+1861,0,0,0,0,BC-PLC-1-8-Wo/c-0.9,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+1905,0,0,0,0,BC-PLC1-16W/CSC/APC-PT,DBC,PLC Splitters,"Cassette Type ",,0,,0,0,,0,0,,0,0,,0,0
+1904,0,0,0,0,BC-PLC1-16W/CSC/UPC-PT,DBC,PLC Splitters,"Cassette Type ",,0,,0,0,,0,0,,0,0,,0,0
+1875,0,0,0,0,BC-SC/APC ADP,DBC,Connectors,BNC,,0,,0,0,,0,0,,0,0,,0,0
+1888,0,0,0,0,BC-SC/UPC-S3-L5,DBC,Patch cords,Simplex,SC-SC Connector,0,,0,0,,0,0,,0,0,,0,0
+1876,0,0,0,0,BC-SC/UPC-S3-PTC 5Meters,DBC,Patch cords,Simplex,,0,,0,0,,0,0,,0,0,,0,0
+484,0,0,0,0,BC2050E(D),DBC,FTTH,"Testing Equipment ",,0,,0,0,,0,0,,0,0,,0,0
+500,0,0,0,0,"BC323POV PON Meter ",DBC,FTTH,"Testing Equipment ",,0,,0,0,,0,0,,0,0,,0,0
+483,0,0,0,0,BC323PV-BR,DBC,FTTH,"Testing Equipment ",,0,,0,0,,0,0,,0,0,,0,0
+501,0,0,0,0,BC328 Optical Power Meter,DBC,FTTH,"Testing Equipment ",,0,,0,0,,0,0,,0,0,,0,0
+1452,178,179,180,181,BDN-05/95-WoC,Beldon,Ratio Couplers,Without Window,,0,Offer 1,1,120,Offer 2,5,100,Offer 3,20,80,Offer 4,100,50
+1455,182,183,184,185,BDN-10/90-WoC,Beldon,Ratio Couplers,Without Window,,0,Offer 1,1,120,Offer 2,5,100,Offer 3,20,80,Offer 4,100,50
+1488,0,0,0,0,BDN-10/90-WoC x 10,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1489,0,0,0,0,BDN-10/90-WoC x 20,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1456,186,187,188,189,BDN-15/85-WoC,Beldon,Ratio Couplers,Without Window,,0,Offer 1,1,120,Offer 2,5,100,Offer 3,20,80,Offer 4,100,50
+1486,0,0,0,0,BDN-15/85-WoC x 10,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1487,0,0,0,0,BDN-15/85-WoC x 20,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1458,190,191,192,193,BDN-20/80-WoC,Beldon,Ratio Couplers,Without Window,,0,Offer 1,1,120,Offer 2,5,100,Offer 3,20,80,Offer 4,100,50
+1482,0,0,0,0,BDN-20/80-WoC x 10,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1483,0,0,0,0,BDN-20/80-WoC x 20,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1454,194,195,196,197,BDN-25/75-WoC,Beldon,Ratio Couplers,Without Window,,0,Offer 1,1,120,Offer 2,5,100,Offer 3,20,80,Offer 4,100,50
+1490,0,0,0,0,BDN-25/75-WoC x 10,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1491,0,0,0,0,BDN-25/75-WoC x 20,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1453,198,199,200,201,BDN-30/70-WoC,Beldon,Ratio Couplers,Without Window,,0,Offer 1,1,120,Offer 2,5,100,Offer 3,20,80,Offer 4,100,50
+1492,0,0,0,0,BDN-30/70-WoC x 10,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1493,0,0,0,0,BDN-30/70-WoC x 20,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1459,202,203,204,205,BDN-35/65-WoC,Beldon,Ratio Couplers,Without Window,,0,Offer 1,1,120,Offer 2,5,100,Offer 3,20,80,Offer 4,100,50
+1480,0,0,0,0,BDN-35/65-WoC x 10,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1481,0,0,0,0,BDN-35/65-WoC x 20,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1457,206,207,208,209,BDN-40/60-WoC,Beldon,Ratio Couplers,Without Window,,0,Offer 1,1,120,Offer 2,5,100,Offer 3,20,80,Offer 4,100,50
+1484,0,0,0,0,BDN-40/60-WoC x 10,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1485,0,0,0,0,BDN-40/60-WoC x 20,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1451,210,211,212,213,BDN-50/50-WoC,Beldon,Ratio Couplers,Without Window,,0,Offer 1,1,120,Offer 2,5,100,Offer 3,20,80,Offer 4,100,50
+1496,0,0,0,0,BDN-50/50-WoC x 10,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1497,0,0,0,0,BDN-50/50-WoC x 20,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1396,0,0,0,0,Belden Sleeve,Beldon,Accessories,Sleeves,,0,,0,0,,0,0,,0,0,,0,0
+1422,0,0,0,0,Belden Sleeve x 10000,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1421,0,0,0,0,Belden Sleeve x 5000,Beldon,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+488,0,0,0,0,BGC-SF1310-20-BCH A Giga Media Converter,DBC,Switches,Media Converter,10/100/1000,0,,0,0,,0,0,,0,0,,0,0
+870,0,0,0,0,BGC-SF1550-20-BCH B Giga Media Converter,DBC,Switches,Media Converter,10/100/1000,0,,0,0,,0,0,,0,0,,0,0
+1364,0,0,0,0,Birla 48F,"Birla ",Fibres,Multitube,Un-Armoured,0,,0,0,,0,0,,0,0,,0,0
+1408,0,0,0,0,Birla 48F x 2km,"Birla ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1409,0,0,0,0,Birla 48F x 4km,"Birla ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1376,0,0,0,0,Birla Cat6,"Birla ",Cat Cables,Cat6 Cable,4 Pair,0,,0,0,,0,0,,0,0,,0,0
+1654,0,0,0,0,BL-SF801,Huawei,Switches,10-100 Switches,,0,,0,0,,0,0,,0,0,,0,0
+898,0,0,0,0,"BMC-SF1310-A Giga Media Converter 1Units Bundle ",Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+508,0,0,0,0,BMC-SF1310-A Media Converter,DBC,Switches,Media Converter,10/100,0,,0,0,,0,0,,0,0,,0,0
+869,0,0,0,0,BMC-SF1550-B Media Converter,DBC,Switches,Media Converter,10/100,0,,0,0,,0,0,,0,0,,0,0
+325,0,0,0,0,Cambium PTP 550,Cambium,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+151,0,0,0,0,"CAP ",Mikrotik,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+148,0,0,0,0,"CAP Lite ",Mikrotik,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+1796,214,215,216,0,"CAT 5E ",dr.com,Cat Cables,Cat5 Cable,4 Pair,0,Offer 1,1,5900,Offer 2,2,5500,Offer 3,10,4950,,0,0
+782,0,0,0,0,Cat 6 Cable Box 100mtr,D-Link,Cat Cables,Cat6 Cable,4 Pair,0,,0,0,,0,0,,0,0,,0,0
+1527,0,0,0,0,Cat 6 Patch cord 0.5 Mtr x 10,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+783,0,0,0,0,Cat 6 Patch Cord 0.5M Grey (NCB-C6UGRYR1-0.5),D-Link,Cat Cables,Cat 6 cable," Patch Cord",0,,0,0,,0,0,,0,0,,0,0
+1528,0,0,0,0,Cat 6 Patch cord 1 Mtr x 10,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+796,0,0,0,0,Cat 6 Patch Cord 10M Grey (NCB-C6UGRYR1-10),D-Link,Cat Cables,Cat 6 cable," Patch Cord",0,,0,0,,0,0,,0,0,,0,0
+1088,0,0,0,0,Cat 6 Patch Cord 15M Grey (NCB-C6UGRYR1-15),D-Link,Cat Cables,Cat 6 cable," Patch Cord",0,,0,0,,0,0,,0,0,,0,0
+786,0,0,0,0,Cat 6 Patch Cord 1M Blue (NCB-C6UBLUR1-1),D-Link,Cat Cables,Cat 6 cable,Patch Cord,0,,0,0,,0,0,,0,0,,0,0
+784,0,0,0,0,Cat 6 Patch Cord 1M Grey (NCB-C6UGRYR1-1),D-Link,Cat Cables,Cat 6 cable," Patch Cord",0,,0,0,,0,0,,0,0,,0,0
+1087,0,0,0,0,Cat 6 Patch Cord 20M Grey (NCB-C6UGRYR1-20),D-Link,Cat Cables,Cat 6 cable," Patch Cord",0,,0,0,,0,0,,0,0,,0,0
+789,0,0,0,0,Cat 6 Patch Cord 2M Blue (NCB-C6UBLUR1-2),D-Link,Cat Cables,Cat 6 cable,Patch Cord,0,,0,0,,0,0,,0,0,,0,0
+788,0,0,0,0,Cat 6 Patch Cord 2M Grey (NCB-C6UGRYR1-2),D-Link,Cat Cables,Cat 6 cable," Patch Cord",0,,0,0,,0,0,,0,0,,0,0
+792,0,0,0,0,Cat 6 Patch Cord 2M Yellow (NCB-C6UYELR1-2),D-Link,Cat Cables,Cat 6 cable,Patch Cord,0,,0,0,,0,0,,0,0,,0,0
+794,0,0,0,0,Cat 6 Patch Cord 3M Grey (NCB-C6UGRYR1-3),D-Link,Cat Cables,Cat 6 cable," Patch Cord",0,,0,0,,0,0,,0,0,,0,0
+795,0,0,0,0,Cat 6 Patch Cord 5M Grey (NCB-C6UGRYR1-5),D-Link,Cat Cables,Cat 6 cable," Patch Cord",0,,0,0,,0,0,,0,0,,0,0
+713,0,0,0,0,CAT-5 2pair,D-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+984,0,0,0,0,CAT-5 2pair + 1 free unit,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+715,0,0,0,0,CAT-5 4pair,D-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+985,0,0,0,0,CAT-5 4pair + 1 free unit,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+714,0,0,0,0,CAT-5 4pair*2,D-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+826,0,0,0,0,"Cat-6 Lan Cable ",Polycab,Cat Cables,Cat6 Cable,4 Pair,0,,0,0,,0,0,,0,0,,0,0
+595,0,0,0,0,CCR-1009-7G-1C-1S+,Mikrotik,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+1639,0,0,0,0,CCR-1009-7G-1C-PC,Mikrotik,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+83,0,0,0,0,CCR-1016-12G,Mikrotik,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+84,0,0,0,0,CCR-1016-12S-1S+,Mikrotik,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+85,0,0,0,0,CCR-1036-12G-4S,Mikrotik,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+86,0,0,0,0,CCR-1036-12G-4S+EM,Mikrotik,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+88,0,0,0,0,CCR-1036-8G-2S+ EM,Mikrotik,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+89,0,0,0,0,CCR-1072-1G-8S+,Mikrotik,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+859,0,0,0,0,CCR-2004-1G-12S+2XS,Mikrotik,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+73,0,0,0,0,CE6810-24S2Q-LI,Huawei,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+1549,0,0,0,0,CH-12V-2A,"Un-Branded ",,DC Adapter,12V DC,0,,0,0,,0,0,,0,0,,0,0
+829,0,0,0,0,Cleaver SKL-6C,"Un-Branded ",Testing,Fiber Cleaver,,0,,0,0,,0,0,,0,0,,0,0
+329,0,0,0,0,"cnPilot e400 ",Cambium,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+330,0,0,0,0,cnPilot e410,Cambium,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+331,0,0,0,0,cnPilot e430,Cambium,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+323,0,0,0,0,"cnPilot e500 ",Cambium,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+324,0,0,0,0,"cnPilot e600 ",Cambium,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+327,0,0,0,0,"cnPilot e700 ",Cambium,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1219,0,0,0,0,Complete Fiber Mega ISP,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+922,0,0,0,0,Copper Solution,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+757,0,0,0,0,CPE 210,TP-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+758,0,0,0,0,CPE 220,TP-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+760,0,0,0,0,CPE 510,TP-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1251,0,0,0,0,CPE 510 x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1252,0,0,0,0,CPE 510 x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+759,0,0,0,0,CPE 610,TP-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+756,0,0,0,0,CPE 710,TP-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+905,0,0,0,0,Crimping tool*10,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+546,0,0,0,0,CRS-105-5S-FB,Mikrotik,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1816,219,217,218,0,CRS-105-FB(FIBER BOX),Mikrotik,Server & Routing,Router Board,,0,Clearance,15,3200,Offer 1,1,4200,Offer 2,2,3800,,0,0
+597,0,0,0,0,CRS-106-1C-5S,Mikrotik,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+74,0,0,0,0,CRS-112-8G-4S-IN,Mikrotik,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+600,0,0,0,0,CRS-112-8P-4S-IN,Mikrotik,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+77,0,0,0,0,CRS-125-24G-1S-IN,Mikrotik,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+79,0,0,0,0,CRS-212-1G-10S-1S+IN,Mikrotik,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+598,0,0,0,0,CRS-305-1G-4S+IN,Mikrotik,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+599,0,0,0,0,CRS-309-1G-8S+IN,Mikrotik,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+604,0,0,0,0,CRS-312-4C+8XG-RM,Mikrotik,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+80,0,0,0,0,CRS-317-1G-16S+RM,Mikrotik,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+390,0,0,0,0,"CRS-326-24G-2S+IN ",Mikrotik,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+78,0,0,0,0,CRS-326-24G-2S+RM,Mikrotik,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+603,0,0,0,0,CRS-326-24S+2Q+RM,Mikrotik,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+602,0,0,0,0,CRS-328-24P-4S+RM,Mikrotik,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+601,0,0,0,0,CRS-328-4C-20S-4S+RM,Mikrotik,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+596,0,0,0,0,CSS-106-1G-4P-1S (RB260GSP),Mikrotik,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+547,0,0,0,0,CSS-106-5G-1S (RB260GS),Mikrotik,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+75,0,0,0,0,CSS-326-24G-2S+RM,Mikrotik,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+389,0,0,0,0,CSS-610-8G-2S+IN,Mikrotik,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+831,0,0,0,0,CT-08 Fiber Cleaver,Fujikura,Testing,Fiber Cleaver,,0,,0,0,,0,0,,0,0,,0,0
+1371,0,0,0,0,CT50 Fiber Cleaver,Fujikura,Testing,Fiber Cleaver,,0,,0,0,,0,0,,0,0,,0,0
+1226,0,0,0,0,Cut lenght cross 9,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+458,0,0,0,0,CWDM Mux/Demux 4 Channel,DBC,FTTH,CWDM Mux/Demux,,0,,0,0,,0,0,,0,0,,0,0
+616,0,0,0,0,CWDM Mux/Demux 8 Channel,DBC,FTTH,CWDM Mux/Demux,,0,,0,0,,0,0,,0,0,,0,0
+457,0,0,0,0,CWDM SFP 10G 80Kms,DBC,,SFP,10G,0,,0,0,,0,0,,0,0,,0,0
+1852,0,0,0,0,D500-100PES-A,"Netgear ",Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+38,0,0,0,0,DAP-2230/IAU,D-Link,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+39,0,0,0,0,DAP-2610/IIN,D-Link,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+40,0,0,0,0,DAP-2620/DL,D-Link,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+41,0,0,0,0,DAP-2680/IIN,D-Link,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+42,0,0,0,0,DAP-3666/IDL,D-Link,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+43,220,0,0,0,DAP-F3704-I,D-Link,WISP,,,0,Clearance,1,2500,,0,0,,0,0,,0,0
+694,0,0,0,0,DAP-F3704-I Bundle,D-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+44,0,0,0,0,DAP-F3705-N,D-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+691,0,0,0,0,DAP-F3705-N Bundle,D-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+692,0,0,0,0,DAP-F3706,D-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+45,221,0,0,0,DAP-F3706-N,D-Link,WISP,,,0,Clearance,1,3500,,0,0,,0,0,,0,0
+693,0,0,0,0,DAP-F3711,D-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+46,223,222,0,0,DAP-F3711-I,D-Link,WISP,,,0,Clearance,2,5000,Offer 1,1,6500,,0,0,,0,0
+47,225,224,0,0,DAP-F3712-N,D-Link,WISP,,,0,Clearance,2,6500,Offer 1,1,8000,,0,0,,0,0
+968,0,0,0,0,DAP-F3712-N + AC12G,D-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1808,0,0,0,0,DBC-BC-LC/UPC-S3-PTC,DBC,Patch cords,Simplex,LC-LC Connector,0,,0,0,,0,0,,0,0,,0,0
+1806,226,227,228,0,DBC-SC/APC-SC/UPC-30,DBC,Patch cords,Simplex,SC-SC Connector,0,Offer 1,10,48,Offer 2,20,43,Offer 3,40,38,,0,0
+1815,229,230,231,0,DBC-SC/APC-SC/UPC-50,DBC,Patch cords,Simplex,SC-SC Connector,0,Offer 1,10,54,Offer 2,20,48,Offer 3,50,44,,0,0
+1858,232,233,234,0,DBC-SC/UPC-SC/UPC-30,DBC,Patch cords,Simplex,SC-SC Connector,0,Offer 1,10,48,Offer 2,20,43,Offer 3,40,38,,0,0
+520,0,0,0,0,DCH-100,dr.com,Accessories,,,0,,0,0,,0,0,,0,0,,0,0
+1833,0,0,0,0,"DECO E4 ",TP-Link,Routers,Mesh Router,,0,,0,0,,0,0,,0,0,,0,0
+1890,0,0,0,0,Deco M3W,TP-Link,Routers,Mesh Router,,0,,0,0,,0,0,,0,0,,0,0
+1827,0,0,0,0,DECO M4,TP-Link,Routers,Mesh Router,,0,,0,0,,0,0,,0,0,,0,0
+1828,0,0,0,0,Deco M5,TP-Link,Routers,Mesh Router,,0,,0,0,,0,0,,0,0,,0,0
+1838,0,0,0,0,DECO X60,TP-Link,Routers,Mesh Router,,0,,0,0,,0,0,,0,0,,0,0
+1089,0,0,0,0,DEM-310GT,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1066,0,0,0,0,DES-1005A,D-Link,Switches,10-100 Switches,,0,,0,0,,0,0,,0,0,,0,0
+881,235,0,0,0,DES-1008-C-8 Port,D-Link,Switches,10-100 Switches,,0,Clearance,2,400,,0,0,,0,0,,0,0
+1090,0,0,0,0,DES-1008A,D-Link,Switches,10-100 Switches,,0,,0,0,,0,0,,0,0,,0,0
+238,0,0,0,0,DES-1008P,D-Link,Switches,Unanaged PoE,,0,,0,0,,0,0,,0,0,,0,0
+1091,0,0,0,0,DES-1016A,D-Link,Switches,10-100 Switches,,0,,0,0,,0,0,,0,0,,0,0
+1092,236,0,0,0,DES-1024D,D-Link,Switches,10-100 Switches,,0,Clearance,3,2500,,0,0,,0,0,,0,0
+1513,0,0,0,0,DES-1024D x 2,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+229,0,0,0,0,DES-1210-08P,D-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+222,0,0,0,0,DES-1210-28,D-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+230,0,0,0,0,DES-1210-28P,D-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+224,0,0,0,0,DES-1210-52,D-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+233,0,0,0,0,DES-F1006P-E,D-Link,Switches,Unanaged PoE,,0,,0,0,,0,0,,0,0,,0,0
+234,0,0,0,0,DES-F1009P-E,D-Link,Switches,Unanaged PoE,,0,,0,0,,0,0,,0,0,,0,0
+235,0,0,0,0,DES-F1010P-E,D-Link,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+316,0,0,0,0,DFE-855MI,D-Link,Switches,Media Converter,,0,,0,0,,0,0,,0,0,,0,0
+242,0,0,0,0,DFE-855S-15I,D-Link,Switches,Media Converter,10/100,0,,0,0,,0,0,,0,0,,0,0
+1646,0,0,0,0,DG-BG4100NU,Digisol,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1578,0,0,0,0,DG-BG4300NU,Digisol,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1363,0,0,0,0,DG-GO4204-8E,Digisol,EPON OLT,,,0,,0,0,,0,0,,0,0,,0,0
+1749,0,0,0,0,DG-GO4208-12E4SFPP,Digisol,OLT,GPON,"UnLoaded ",0,,0,0,,0,0,,0,0,,0,0
+1751,0,0,0,0,DG-GO4304-2E2SFPP,Digisol,OLT,GPON,"UnLoaded ",0,,0,0,,0,0,,0,0,,0,0
+1750,0,0,0,0,DG-GO4308-6E2SFPP,Digisol,OLT,GPON,"UnLoaded ",0,,0,0,,0,0,,0,0,,0,0
+1361,237,238,239,0,DG-GR1321,Digisol,FTTH,XPON,ONU/ONT,0,Offer 1,2,1625,Offer 2,5,1575,Offer 3,10,1525,,0,0
+1403,0,0,0,0,DG-GR1321 x 10,Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1402,0,0,0,0,DG-GR1321 x 5,Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1360,240,241,242,0,DG-GR6010,Digisol,FTTH,XPON,ONU/ONT,0,Offer 1,2,849,Offer 2,5,829,Offer 3,10,775,,0,0
+1400,0,0,0,0,DG-GR6010 x 10,Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1401,0,0,0,0,DG-GR6010 x 5,Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1362,243,244,245,0,DG-GR6821AC,Digisol,FTTH,XPON,ONU/ONT,0,Offer 1,2,4598,Offer 2,5,2249,Offer 3,10,2199,,0,0
+1328,0,0,0,0,DG-GS1005,Digisol,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1333,0,0,0,0,DG-GS1005 x 10,Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1332,0,0,0,0,DG-GS1005 x 5,Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+830,0,0,0,0,DG-GS1008DG,Digisol,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1334,0,0,0,0,DG-GS1008DG x 2,Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1335,0,0,0,0,DG-GS1008DG x 5,Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1329,0,0,0,0,DG-GS1016D-A,Digisol,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1336,0,0,0,0,DG-GS1016D-A x 2,Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1337,0,0,0,0,DG-GS1016D-A x 5,Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1331,0,0,0,0,DG-GS1024D,Digisol,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1338,0,0,0,0,DG-GS1024D x 2,Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1339,0,0,0,0,DG-GS1024D x 5,Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1372,0,0,0,0,DG-GS1510PL,Digisol,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+1629,0,0,0,0,DG-HR1400,Digisol,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1630,0,0,0,0,DG-HR330TA,Digisol,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1628,0,0,0,0,DG-HR3400,Digisol,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1644,0,0,0,0,DG-WR3001N,Digisol,Routers,Range Extender,,0,,0,0,,0,0,,0,0,,0,0
+1368,0,0,0,0,DGC-PC6UMGY-1L,Digisol,Cat Cables,Cat 6 cable," Patch Cord",0,,0,0,,0,0,,0,0,,0,0
+1415,0,0,0,0,DGC-PC6UMGY-1L x 10,Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1416,0,0,0,0,DGC-PC6UMGY-1L x 20,Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1369,0,0,0,0,DGC-PC6UMGY-2L,Digisol,Cat Cables,Cat 6 cable," Patch Cord",0,,0,0,,0,0,,0,0,,0,0
+1417,0,0,0,0,DGC-PC6UMGY-2L x 10,Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1418,0,0,0,0,DGC-PC6UMGY-2L x 20,Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1370,0,0,0,0,DGC-PC6UMGY-3L,Digisol,Cat Cables,Cat 6 cable," Patch Cord",0,,0,0,,0,0,,0,0,,0,0
+1419,0,0,0,0,DGC-PC6UMGY-3L x 10,Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1420,0,0,0,0,DGC-PC6UMGY-3L x 20,Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1093,0,0,0,0,DGS-1005A,D-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1067,0,0,0,0,DGS-1008A,D-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1514,0,0,0,0,DGS-1008A x 2,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+236,0,0,0,0,DGS-1008MP,D-Link,Switches,Unanaged PoE,,0,,0,0,,0,0,,0,0,,0,0
+237,0,0,0,0,DGS-1008P,D-Link,Switches,Unanaged PoE,,0,,0,0,,0,0,,0,0,,0,0
+1070,0,0,0,0,"DGS-1016A ",D-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1367,247,246,0,0,DGS-1024C,D-Link,Switches,Switches,Gigabit Switches,0,,2,7900,Offer 1,1,8500,,0,0,,0,0
+1412,0,0,0,0,DGS-1024C x 2,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1071,0,0,0,0,DGS-1024D,D-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1643,0,0,0,0,DGS-1100-08,D-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+231,0,0,0,0,DGS-1210-10P,D-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+225,0,0,0,0,DGS-1210-28,D-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+232,0,0,0,0,DGS-1210-28P,D-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+226,0,0,0,0,DGS-1210-52,D-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+227,0,0,0,0,DGS-1250-28X,D-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+228,0,0,0,0,DGS-1510-28X,D-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+642,0,0,0,0,DGS-F1018P-E,D-Link,Switches,Unanaged PoE,,0,,0,0,,0,0,,0,0,,0,0
+1359,0,0,0,0,Digisol RJ-45,Digisol,Connectors,RJ45,Cat 5,0,,0,0,,0,0,,0,0,,0,0
+1398,0,0,0,0,DigiSol RJ-45 x 10,Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1397,0,0,0,0,DigiSol RJ-45 x 5,Digisol,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1627,248,0,0,0,DIR-600M,D-Link,Routers,300N Router,,0,Clearance,5,400,,0,0,,0,0,,0,0
+1626,0,0,0,0,DIR-605L,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+761,249,0,0,0,DIR-615,D-Link,Routers,300N Router,,0,Clearance,3,400,,0,0,,0,0,,0,0
+1391,0,0,0,0,DIR-615 x 10,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1390,0,0,0,0,DIR-615 x 5,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1633,250,0,0,0,DIR-803,D-Link,Routers,AC Router,,0,Clearance,2,2500,,0,0,,0,0,,0,0
+1374,252,251,0,0,DIR-841,D-Link,Routers,AC Router,,0,Clearance,10,1500,Offer 1,1,1800,,0,0,,0,0
+1769,0,0,0,0,DIR-841,D-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1427,0,0,0,0,DIR-841 x 10,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1426,0,0,0,0,DIR-841 x 5,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+159,0,0,0,0,"Disc Lite 5 ",Mikrotik,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1719,253,254,255,0,DLB 5-20N,LigoWave,Wireless,Access point,,0,Offer 1,1,5500,Offer 2,2,4800,Offer 3,4,4000,,0,0
+1786,0,0,0,0,DLB-5-20N,LigoWave,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+1640,256,257,258,0,DLB-ECHO-5D,LigoWave,WISP,,,0,Offer 1,1,9500,Offer 2,2,8400,Offer 3,4,7600,,0,0
+910,0,0,0,0,Dlink RJ-45 x 2,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1442,0,0,0,0,Dlink RJ-45 x 5,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+243,0,0,0,0,DMC-G1000SC,D-Link,Switches,Media Converter,10/100/1000,0,,0,0,,0,0,,0,0,,0,0
+1781,0,0,0,0,DR - 323DAC,dr.com,ONT-ONU,Dual Band,,0,,0,0,,0,0,,0,0,,0,0
+1670,259,260,261,0,DR-16 Way (Cassette) SC/UPC,dr.com,PLC Splitters,"Cassette Type ",,0,Offer 1,1,700,Offer 2,5,660,Offer 3,10,590,,0,0
+1793,262,263,264,0,DR-323DAC,dr.com,ONT-ONU,Dual Band,,0,Offer 1,1,2400,Offer 2,2,2200,Offer 3,10,1950,,0,0
+1767,265,266,267,0,DR-323RGW,dr.com,ONT-ONU,Single Band,,0,Offer 1,1,1800,Offer 2,2,1600,Offer 3,10,1350,,0,0
+1099,268,269,270,0,DR-5050-FBT-WoC,dr.com,Ratio Couplers,Without Window,,0,Offer 1,1,90,Offer 2,10,70,Offer 3,20,45,,0,0
+1116,0,0,0,0,"DR-5050-FBT-WoC x 10units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1117,0,0,0,0,DR-5050-FBT-WoC x 20units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1109,271,272,273,0,DR-5545-FBT-WoC,dr.com,,Ratio Couplers,With Window,0,Offer 1,1,90,Offer 2,10,70,Offer 3,20,45,,0,0
+1134,0,0,0,0,DR-5545-FBT-WoC x 10units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1135,0,0,0,0,DR-5545-FBT-WoC x 20units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1106,274,275,276,0,DR-6040-FBT-WoC,dr.com,Ratio Couplers,Without Window,,0,Offer 1,1,90,Offer 2,10,70,Offer 3,20,45,,0,0
+1128,0,0,0,0,"DR-6040-FBT-WoC x 10units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1129,0,0,0,0,"DR-6040-FBT-WoC x 20units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1108,277,278,279,0,DR-6535-FBT-WoC,dr.com,Ratio Couplers,Without Window,,0,Offer 1,1,90,Offer 2,10,70,Offer 3,20,45,,0,0
+1132,0,0,0,0,"DR-6535-FBT-WoC x 10units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1133,0,0,0,0,"DR-6535-FBT-WoC x 20units ",Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1101,280,281,282,0,DR-7030-FBT-WoC,dr.com,Ratio Couplers,Without Window,,0,Offer 1,1,90,Offer 2,10,70,Offer 3,20,45,,0,0
+1120,0,0,0,0,DR-7030-FBT-WoC x 10units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1121,0,0,0,0,DR-7030-FBT-WoC x 20units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1102,283,284,285,0,DR-7525-FBT-WoC,dr.com,Ratio Couplers,Without Window,,0,Offer 1,1,90,Offer 2,10,70,Offer 3,20,45,,0,0
+1122,0,0,0,0,"DR-7525-FBT-WoC x 10units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1123,0,0,0,0,DR-7525-FBT-WoC x 20units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1669,286,287,288,0,DR-8 Way (Cassette) SC/UPC,dr.com,PLC Splitters,"Cassette Type ",,0,Offer 1,1,450,Offer 2,5,420,Offer 3,10,350,,0,0
+1107,289,290,291,0,DR-8020-FBT-WoC,dr.com,Ratio Couplers,Without Window,,0,Offer 1,1,90,Offer 2,10,70,Offer 3,20,45,,0,0
+1130,0,0,0,0,"DR-8020-FBT-WoC x 10units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1131,0,0,0,0,"DR-8020-FBT-WoC x 20units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1105,292,293,294,0,DR-8515-FBT-WoC,dr.com,Ratio Couplers,Without Window,,0,Offer 1,1,90,Offer 2,10,70,Offer 3,20,45,,0,0
+1126,0,0,0,0,DR-8515-FBT-WoC x 10units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1127,0,0,0,0,DR-8515-FBT-WoC x 20units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1104,295,296,297,0,DR-9010-FBT-WoC,dr.com,Ratio Couplers,Without Window,,0,Offer 1,1,90,Offer 2,10,70,Offer 3,20,45,,0,0
+1124,0,0,0,0,DR-9010-FBT-WoC x 10units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1125,0,0,0,0,DR-9010-FBT-WoC x 20units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1100,298,299,300,0,DR-9505-FBT-WoC,dr.com,Ratio Couplers,Without Window,,0,Offer 1,1,90,Offer 2,10,70,Offer 3,20,45,,0,0
+1118,0,0,0,0,"DR-9505-FBT-WoC x 10units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1119,0,0,0,0,"DR-9505-FBT-WoC x 20units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1098,301,302,303,0,DR-CON5E-100 (Pack of 100),dr.com,Connectors,RJ45,Cat 5,0,Offer 1,1,300,Offer 2,2,275,Offer 3,10,220,,0,0
+1115,0,0,0,0,DR-CON5E-100 x  5,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1148,0,0,0,0,DR-CON5E-100 x 10,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+902,0,0,0,0,"DR-FTTH Box x 100units ",dr.com,,SFP,10G,0,,0,0,,0,0,,0,0,,0,0
+1190,0,0,0,0,DR-FTTH Box x 40units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+448,304,305,306,0,DR-FTTH Termination Box,dr.com,Enclousre,Enclosure Box,Termination Box,0,Offer 1,1,40,Offer 2,10,32,Offer 3,20,27,,0,0
+1110,0,0,0,0,DR-SLE-60,dr.com,Accessories,Sleeves,,0,,0,0,,0,0,,0,0,,0,0
+1211,0,0,0,0,DR-SLE-60 x 10000 units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1189,0,0,0,0,DR-SLE-60 x 5000 units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1097,0,0,0,0,"DR.COM 16 WAY Fiber Distribution box ",dr.com,Enclousre,"Fibre Distribution Box ",,0,,0,0,,0,0,,0,0,,0,0
+507,307,308,309,0,DRU - 8000,dr.com,Accessories,Router UPS,,0,Offer 1,1,1800,Offer 2,4,1500,Offer 3,10,1300,,0,0
+1791,310,311,312,0,DRU-6000,dr.com,Accessories,Router UPS,,0,Offer 1,1,1500,Offer 2,2,1300,Offer 3,10,1100,,0,0
+1472,0,0,0,0,"DRU-6000 Mini UPS ",dr.com,Accessories,Router UPS,,0,,0,0,,0,0,,0,0,,0,0
+1792,0,0,0,0,DRU-8000,dr.com,Accessories,Router UPS,,0,,0,0,,0,0,,0,0,,0,0
+1729,0,0,0,0,DS-P7001-04,TP-Link,OLT,GPON,"UnLoaded ",0,,0,0,,0,0,,0,0,,0,0
+1730,0,0,0,0,DS-P7001-08,TP-Link,OLT,GPON,"UnLoaded ",0,,0,0,,0,0,,0,0,,0,0
+499,0,0,0,0,DSF-888-BC,DBC,FTTH,"Testing Equipment ",,0,,0,0,,0,0,,0,0,,0,0
+1516,0,0,0,0,DSL-2600U,D-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1770,0,0,0,0,DSL-2600U,D-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1632,0,0,0,0,DSL-2750U,D-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+914,0,0,0,0,Dual Band ONT,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1716,0,0,0,0,Dummy1,Mercusys,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+1377,0,0,0,0,DWA-131,D-Link,Routers,"USB Adapter ",,0,,0,0,,0,0,,0,0,,0,0
+1429,0,0,0,0,DWA-131 x 5,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+160,0,0,0,0,"Dyna Dish 5 ",Mikrotik,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+874,0,0,0,0,EA-5801 8port B+OLT,Huawei,FTTH,OLT,,0,,0,0,,0,0,,0,0,,0,0
+1854,313,0,0,0,EA5800-X2,Huawei,OLT,GPON,"UnLoaded ",0,Offer 1,1,280000,,0,0,,0,0,,0,0
+1048,0,0,0,0,EAP 265HD,TP-Link,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+1047,0,0,0,0,EAP 620HD,TP-Link,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+1046,0,0,0,0,EAP 660HD,TP-Link,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+690,0,0,0,0,EAP110,TP-Link,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+1311,0,0,0,0,EAP110 x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1312,0,0,0,0,EAP110 x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+686,0,0,0,0,EAP110-Outdoor,TP-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1423,0,0,0,0,EAP110-Outdoor x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1052,0,0,0,0,EAP115,TP-Link,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+688,0,0,0,0,EAP115-Wall,TP-Link,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+755,0,0,0,0,EAP225,TP-Link,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+689,0,0,0,0,EAP225-Outdoor,TP-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1424,0,0,0,0,EAP225-Outdoor x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1051,0,0,0,0,EAP225-Wall,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1050,0,0,0,0,EAP230-Wall,TP-Link,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+1049,0,0,0,0,EAP235-Wall,TP-Link,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+1373,0,0,0,0,EAP245,TP-Link,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+1425,0,0,0,0,EAP245 x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1382,314,315,316,0,Earth-1000R,Genexis,FTTH,XPON,ONU/ONT,0,Offer 1,2,2198,Offer 2,5,1050,Offer 3,10,990,,0,0
+1431,0,0,0,0,Earth-1000R x 10,Genexis,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1430,0,0,0,0,Earth-1000R x 5,Genexis,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1383,0,0,0,0,Earth-1010,Genexis,FTTH,XPON,ONU/ONT,0,,0,0,,0,0,,0,0,,0,0
+1433,0,0,0,0,Earth-1010 x 10,Genexis,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1432,0,0,0,0,Earth-1010 x 5,Genexis,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1385,317,318,319,0,Earth-2022,Genexis,FTTH,XPON,ONU/ONT,0,Offer 1,2,5198,Offer 2,5,2559,Offer 3,10,2499,,0,0
+1437,0,0,0,0,Earth-2022 x 10,Genexis,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1436,0,0,0,0,Earth-2022 x 5,Genexis,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1765,0,0,0,0,EC220-G5,TP-Link,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+1388,0,0,0,0,ECS-412028Fv2,Edgecore,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1389,0,0,0,0,ECS-5520-18X,Edgecore,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+505,0,0,0,0,EDFA WITH BUILT-IN WDM,DBC,Accessories,Testing,,0,,0,0,,0,0,,0,0,,0,0
+779,0,0,0,0,EdgePoint EP-54V-150W,Ubiquiti,Accessories,Power Module,,0,,0,0,,0,0,,0,0,,0,0
+187,320,0,0,0,EdgePoint EP-R8,Ubiquiti,WISP,,,0,Clearance,1,25500,,0,0,,0,0,,0,0
+188,321,0,0,0,EdgePoint EP-S-16,Ubiquiti,Switches,Switches,PoE switches,0,Clearance,1,29500,,0,0,,0,0,,0,0
+192,0,0,0,0,EdgeRouter ER-Lite-3,Ubiquiti,SME,Enterprise Routers,,0,,0,0,,0,0,,0,0,,0,0
+197,0,0,0,0,EdgeRouter ER-POE-5,Ubiquiti,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+196,0,0,0,0,EdgeRouter ER-PRO-8,Ubiquiti,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+178,322,0,0,0,EdgeSwitch ES-12F,Ubiquiti,Switches,10G switches,,0,Clearance,1,12500,,0,0,,0,0,,0,0
+198,0,0,0,0,EdgeSwitch ES-16XG,Ubiquiti,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+167,0,0,0,0,EdgeSwitch ES-24-250,Ubiquiti,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+168,323,0,0,0,EdgeSwitch ES-24-500,Ubiquiti,Switches,Switches,PoE switches,0,Clearance,1,32500,,0,0,,0,0,,0,0
+170,0,0,0,0,EdgeSwitch ES-48-500,Ubiquiti,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+171,0,0,0,0,EdgeSwitch ES-48-750,Ubiquiti,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+537,324,0,0,0,EdgeSwitch ES-48-LITE,Ubiquiti,Switches,Switches,Gigabit Switches,0,Clearance,1,25000,,0,0,,0,0,,0,0
+536,0,0,0,0,EdgeSwitch ES-8-150W,Ubiquiti,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+875,325,0,0,0,EG-8145V5,Huawei,FTTH,XPON,ONU/ONT,0,Clearance,2,2800,,0,0,,0,0,,0,0
+1653,329,326,327,328,"EG8M8010 ",Huawei,FTTH,XPON,ONU/ONT,0,Clearance,39,1250,Offer 1,1,1850,Offer 2,4,1650,Offer 3,10,1400
+333,0,0,0,0,ePMP 1000,Cambium,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+332,0,0,0,0,ePMP Force 180,Cambium,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+320,0,0,0,0,Epmp Force 190,Cambium,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+335,0,0,0,0,ePMP Force 200,Cambium,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+319,0,0,0,0,Epmp Force 300-25,Cambium,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+842,0,0,0,0,"EPON Module ",dr.com,,SFP,PON,0,,0,0,,0,0,,0,0,,0,0
+924,0,0,0,0,EPON Solutions,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+469,330,0,0,0,EPON-3304-4TE-2AC-L3,DBC,EPON OLT,,,0,Offer 1,1,29999,,0,0,,0,0,,0,0
+470,331,0,0,0,EPON-3308-4TE-2AC-L3,DBC,EPON OLT,,,0,Offer 1,1,52500,,0,0,,0,0,,0,0
+1841,0,0,0,0,ERPro-8,Ubiquiti,Server & Routing,Cloud Core,,0,,0,0,,0,0,,0,0,,0,0
+1771,0,0,0,0,ES0W2PSA0150,Huawei,Switches,Cloud Router Switches,,0,,0,0,,0,0,,0,0,,0,0
+184,0,0,0,0,ETH?SP,Ubiquiti,Accessories," Ethernet Surge Protector",,0,,0,0,,0,0,,0,0,,0,0
+185,0,0,0,0,ETH?SP-G2,Ubiquiti,Accessories," Ethernet Surge Protector",,0,,0,0,,0,0,,0,0,,0,0
+183,0,0,0,0,"F-PoE ",Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1221,0,0,0,0,FB2,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1222,0,0,0,0,Fiber Bundle 4,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1223,0,0,0,0,Fiber Bundle 5,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1224,0,0,0,0,FIber Bundle 6,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1225,0,0,0,0,"Fiber Bundle 7 ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1220,0,0,0,0,Fiber Network bundle 1,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+837,0,0,0,0,Fiber Sleeves 40mm,DBC,FTTH,Peripherals,,0,,0,0,,0,0,,0,0,,0,0
+449,0,0,0,0,Fiber Sleeves 60mm,DBC,Accessories,Sleeves,,0,,0,0,,0,0,,0,0,,0,0
+930,0,0,0,0,Fiber Solution,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+494,0,0,0,0,"Fiber Stipper ",DBC,Stripper,,,0,,0,0,,0,0,,0,0,,0,0
+947,0,0,0,0,FIBRE CUT Solutions,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+892,0,0,0,0,Fibre stipper+ Mini OTDR,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1587,0,0,0,0,fms,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1849,0,0,0,0,FS108-PEU,"Netgear ",Switches,10-100 Switches,Unmanaged,0,,0,0,,0,0,,0,0,,0,0
+1550,0,0,0,0,FS726T,"Netgear ",Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+823,0,0,0,0,FSM-28S,Fujikura,"Splicing Machine ",,,0,,0,0,,0,0,,0,0,,0,0
+822,0,0,0,0,FSM-38S,Fujikura,"Splicing Machine ",,,0,,0,0,,0,0,,0,0,,0,0
+819,0,0,0,0,FSM-48S,Fujikura,"Splicing Machine ",,,0,,0,0,,0,0,,0,0,,0,0
+817,0,0,0,0,FSM-66S,Fujikura,"Splicing Machine ",,,0,,0,0,,0,0,,0,0,,0,0
+492,0,0,0,0,"FTTH Drop Cable Stripper ",DBC,FTTH,Peripherals,,0,,0,0,,0,0,,0,0,,0,0
+447,0,0,0,0,FTTH Fiber Joint Protection Box,DBC,FTTH,Peripherals,,0,,0,0,,0,0,,0,0,,0,0
+509,0,0,0,0,FTTH NODE with POWER,DBC,FTTH,Peripherals,,0,,0,0,,0,0,,0,0,,0,0
+836,332,0,0,0,FTTH Termination Box,DBC,Enclousre,Enclosure Box,Termination Box,0,Offer 1,1,33,,0,0,,0,0,,0,0
+888,0,0,0,0,"G.Media Converter ",Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1776,0,0,0,0,gghj,Genexis,Testing,,,0,,0,0,,0,0,,0,0,,0,0
+1343,0,0,0,0,GIGA RPOE SWITCH,DBC,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1748,0,0,0,0,GOMC-1312-SFP,Syrotech,Switches,Media Converter,,0,,0,0,,0,0,,0,0,,0,0
+1747,0,0,0,0,GOMC-BI3512-20,Syrotech,Switches,Media Converter,,0,,0,0,,0,0,,0,0,,0,0
+1744,0,0,0,0,GOXS-1512-120D,Syrotech,SFP-DAC,Copper SFP,,0,,0,0,,0,0,,0,0,,0,0
+1743,0,0,0,0,GOXS-1512-80D,Syrotech,SFP-DAC,Copper SFP,,0,,0,0,,0,0,,0,0,,0,0
+1746,0,0,0,0,GOXS-8512-02D,Syrotech,SFP-DAC,Regular,,0,,0,0,,0,0,,0,0,,0,0
+1358,0,0,0,0,GOXS-BI3512-20,Syrotech,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1392,0,0,0,0,GOXS-BI3512-20 x 2,Syrotech,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1393,0,0,0,0,GOXS-BI3512-20 x 4,Syrotech,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1380,0,0,0,0,GOXS-BI5312-20,Syrotech,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1394,0,0,0,0,GOXS-BI5312-20 x 2,Syrotech,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1395,0,0,0,0,GOXS-BI5312-20 x 4,Syrotech,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1736,0,0,0,0,GPOLT-3601-1TE-1AC / DC,DBC,OLT,GPON,"UnLoaded ",0,,0,0,,0,0,,0,0,,0,0
+1735,0,0,0,0,GPOLT-3616-4TE-2AC-B,DBC,OLT,GPON,"UnLoaded ",0,,0,0,,0,0,,0,0,,0,0
+843,0,0,0,0,GPON Module,dr.com,,SFP,PON,0,,0,0,,0,0,,0,0,,0,0
+923,0,0,0,0,GPON Solutions,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+475,333,0,0,0,GPON-3608-2TE-2AC-B,DBC,GPON OLT,,,0,Offer 1,1,95000,,0,0,,0,0,,0,0
+873,334,0,0,0,"GPON-3609-2TE-2AC ",DBC,GPON OLT,,,0,Offer 1,1,66999,,0,0,,0,0,,0,0
+1850,0,0,0,0,GS-108PE,"Netgear ",Switches,Gigabit switches,L2,0,,0,0,,0,0,,0,0,,0,0
+1848,0,0,0,0,GS110TP,"Netgear ",Switches,Gigabit switches,L2,0,,0,0,,0,0,,0,0,,0,0
+1532,0,0,0,0,GS308-300PES x 10,"Netgear ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1531,0,0,0,0,GS308-300PES x 5,"Netgear ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1470,0,0,0,0,GS324TP-100EUS,"Netgear ",Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+1463,0,0,0,0,GS605-400PES,"Netgear ",Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1530,0,0,0,0,GS605-400PES x 10,"Netgear ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1529,0,0,0,0,GS605-400PES x 5,"Netgear ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1885,0,0,0,0,GS724TP-200INS,"Netgear ",Switches,Gigabit switches,L3,0,,0,0,,0,0,,0,0,,0,0
+1853,0,0,0,0,GSM7224-200,"Netgear ",Switches,Gigabit switches,L2,0,,0,0,,0,0,,0,0,,0,0
+1847,0,0,0,0,GSM7248-200,"Netgear ",Switches,Gigabit switches,L2,0,,0,0,,0,0,,0,0,,0,0
+1538,337,335,336,0,Halo S12 (3 Pack),Mercusys,Routers,AC Router,,0,Clearance,10,3300,Offer 1,1,4500,Offer 2,2,4000,,0,0
+9,338,0,0,0,Halo S12(2 Pack),Mercusys,Routers,AC Router,,0,Clearance,1,2500,,0,0,,0,0,,0,0
+1515,339,340,341,0,Halo S3 (2 Pack),Mercusys,Routers,AC Router,,0,Offer 1,1,1800,Offer 2,2,1600,Offer 3,10,1450,,0,0
+149,0,0,0,0,"HAP ",Mikrotik,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+152,0,0,0,0,"HAP AC Lite ",Mikrotik,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+145,0,0,0,0,"HAP Lite ",Mikrotik,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+144,0,0,0,0,"HAP Mini ",Mikrotik,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+1340,342,343,344,0,HGU-C210-2N,DBC,FTTH,XPON,ONU/ONT,0,Offer 1,2,3098,Offer 2,5,1489,Offer 3,10,1399,,0,0
+1342,0,0,0,0,HGU-C210-2N x 10,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1341,0,0,0,0,HGU-C210-2N x 5,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1733,0,0,0,0,HGU-V100-2N,DBC,ONT-ONU,Single Band,,0,,0,0,,0,0,,0,0,,0,0
+1731,0,0,0,0,HGU-V110,DBC,ONT-ONU,ONU,,0,,0,0,,0,0,,0,0,,0,0
+1732,0,0,0,0,HGU-V110-2N,DBC,ONT-ONU,Single Band,,0,,0,0,,0,0,,0,0,,0,0
+1734,0,0,0,0,HGU-V200-4AC,DBC,ONT-ONU,Dual Band,,0,,0,0,,0,0,,0,0,,0,0
+871,0,0,0,0,HGU-V200-4AC,DBC,FTTH,XPON,ONU/ONT,0,,0,0,,0,0,,0,0,,0,0
+478,345,346,347,0,HGU-V210-2N,DBC,FTTH,XPON,ONU/ONT,0,Offer 1,2,3398,Offer 2,5,1649,Offer 3,10,1550,,0,0
+1151,0,0,0,0,HGU-V210-2N x 10units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+747,0,0,0,0,HGU-V210-2N x 5units,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+617,0,0,0,0,HGU-V210-4AC,DBC,FTTH,XPON,ONU/ONT,0,,0,0,,0,0,,0,0,,0,0
+1152,0,0,0,0,HGU-V210-4AC x 10units,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+913,0,0,0,0,HGU-V210-4AC x 5units,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1355,348,349,350,0,HGX-1001-BC,DBC,FTTH,XPON,ONU/ONT,0,Offer 1,2,2858,Offer 2,5,1399,Offer 3,10,1349,,0,0
+1357,0,0,0,0,HGX-1001-BC x 10,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1356,0,0,0,0,HGX-1001-BC x 5,DBC,FTTH,XPON,ONU/ONT,0,,0,0,,0,0,,0,0,,0,0
+927,0,0,0,0,Housing Solutions,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1859,0,0,0,0,HS-100,TP-Link,Routers,"USB Adapter ",,0,,0,0,,0,0,,0,0,,0,0
+11,0,0,0,0,IPhone 101,Mercusys,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+1231,0,0,0,0,ISP Juntion setup - Accessories 5,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1212,0,0,0,0,LAN ISP Bundle 1,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1214,0,0,0,0,LAN ISP Bundle 2,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1215,0,0,0,0,LAN ISP Bundle 3,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1216,0,0,0,0,LAN ISP Bundle 4,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1218,0,0,0,0,LAN ISP Bundle 5,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1213,0,0,0,0,LAN Mega ISP Starter,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1183,0,0,0,0,"LC-APC-5mtr x 100units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1006,0,0,0,0,"LC-APC-5mtr x 50units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1184,0,0,0,0,"LC-UPC-5mtr x 100units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1007,0,0,0,0,"LC-UPC-5mtr x 50units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+572,351,352,353,0,LC/APC - LC/APC-3 Meters,dr.com,Patch cords,Simplex,LC-LC Connector,0,Offer 1,5,48,Offer 2,10,43,Offer 3,20,38,,0,0
+573,354,355,356,0,LC/APC - LC/APC-5 Meters,dr.com,Patch cords,Simplex,LC-LC Connector,0,Offer 1,5,54,Offer 2,20,48,Offer 3,50,44,,0,0
+574,357,358,359,0,LC/APC - LC/UPC-3 Meters,dr.com,Patch cords,Simplex,MIX Connector,0,Offer 1,5,48,Offer 2,10,43,Offer 3,20,38,,0,0
+575,360,361,362,0,LC/APC - LC/UPC-5 Meters,dr.com,Patch cords,Simplex,MIX Connector,0,Offer 1,5,54,Offer 2,20,48,Offer 3,50,44,,0,0
+1005,0,0,0,0,"LC/APC - UPC-5mtr x 50units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1182,0,0,0,0,"LC/APC - UPC-5mtr x100units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+408,0,0,0,0,LC/PC to LC/PC Patch Cord 1Mtr,DBC,Patch cords,,,0,,0,0,,0,0,,0,0,,0,0
+401,0,0,0,0,LC/PC to LC/PC Patch Cord 5Mtrs,DBC,Patch cords,,,0,,0,0,,0,0,,0,0,,0,0
+409,0,0,0,0,LC/PC to SC/PC Patch Cord 1Mtr,DBC,Patch cords,,,0,,0,0,,0,0,,0,0,,0,0
+398,0,0,0,0,LC/PC to SC/PC Patch Cord 5Mtrs,DBC,Patch cords,,,0,,0,0,,0,0,,0,0,,0,0
+570,363,364,365,0,LC/UPC - LC/UPC-3 Meters,dr.com,Patch cords,Simplex,LC-LC Connector,0,Offer 1,5,48,Offer 2,10,43,Offer 3,20,38,,0,0
+571,366,367,368,0,LC/UPC - LC/UPC-5 Meters,dr.com,Patch cords,Simplex,LC-LC Connector,0,Offer 1,5,54,Offer 2,20,48,Offer 3,50,44,,0,0
+156,0,0,0,0,"LHG 5 ",Mikrotik,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+315,0,0,0,0,Ligo DLB 5-15,LigoWave,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1642,369,370,0,0,Ligo DLB 5-15AC,LigoWave,WISP,,,0,Offer 1,1,8500,Offer 2,2,7500,,0,0,,0,0
+309,371,372,373,0,Ligo DLB 5-20AC,LigoWave,WISP,,,0,Offer 1,1,9000,Offer 2,2,8500,Offer 3,4,7600,,0,0
+313,0,0,0,0,Ligo DLB 5-20N,LigoWave,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+990,0,0,0,0,"Ligo DLB 5-20N + N301 ",LigoWave,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+310,374,375,0,0,Ligo DLB 5-90AC,LigoWave,WISP,,,0,Offer 1,1,12500,Offer 2,2,11000,,0,0,,0,0
+311,376,377,0,0,Ligo DLB 5AC,LigoWave,WISP,,,0,Offer 1,1,9500,Offer 2,2,8500,,0,0,,0,0
+312,378,379,0,0,Ligo NFT 2AC,LigoWave,Wireless,Access point,,0,Offer 1,1,9500,Offer 2,2,8500,,0,0,,0,0
+1724,0,0,0,0,LigoDLB 2-14n,LigoWave,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+1720,0,0,0,0,LigoDLB 5-90-17ac PRO,LigoWave,Wireless,Antenna,Sector Antenna,0,,0,0,,0,0,,0,0,,0,0
+1721,0,0,0,0,LigoDLB 5-90-20ac PRO,LigoWave,Wireless,Antenna,Sector Antenna,0,,0,0,,0,0,,0,0,,0,0
+1718,0,0,0,0,LigoDLB 6 - 90ac,LigoWave,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+1723,380,381,0,0,LigoPTP RapidFire 5-N,LigoWave,Wireless,PTP,,0,Offer 1,1,46000,Offer 2,2,38000,,0,0,,0,0
+1722,0,0,0,0,LigoPTP RapidFire 6,LigoWave,Wireless,PTP,,0,,0,0,,0,0,,0,0,,0,0
+1547,0,0,0,0,LMR CABLE SMALL 1 BOTH SIDE,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1764,0,0,0,0,LS1008,TP-Link,Switches,10-100 Switches,Unmanaged,0,,0,0,,0,0,,0,0,,0,0
+374,0,0,0,0,LTU-Lite,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+377,0,0,0,0,LTU-LR,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+375,0,0,0,0,LTU-Pro,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+371,0,0,0,0,LTU-Rocket,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+936,0,0,0,0,M-A/B converter*10 pair,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+900,0,0,0,0,M-A/B converter*20 pair,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+895,0,0,0,0,M. converter +Patch cord,DBC,Switches,Media Converter,10/100,0,,0,0,,0,0,,0,0,,0,0
+1819,0,0,0,0,M5350,TP-Link,Routers,"USB Adapter ",,0,,0,0,,0,0,,0,0,,0,0
+388,0,0,0,0,"mANTBox 52 15s ",Mikrotik,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+146,0,0,0,0,"MAP Lite ",Mikrotik,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+1041,0,0,0,0,MC100CM,TP-Link,Switches,Media Converter,10/100,0,,0,0,,0,0,,0,0,,0,0
+380,0,0,0,0,MC110CS,TP-Link,Switches,Media Converter,10/100,0,,0,0,,0,0,,0,0,,0,0
+1249,0,0,0,0,MC110CS x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1250,0,0,0,0,MC110CS x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1040,382,0,0,0,MC111CS,TP-Link,Switches,Media Converter,10/100,0,Clearance,1,1100,,0,0,,0,0,,0,0
+1039,0,0,0,0,MC112CS,TP-Link,Switches,Media Converter,10/100,0,,0,0,,0,0,,0,0,,0,0
+1038,0,0,0,0,MC200CM,TP-Link,Switches,Media Converter,10/100/1000,0,,0,0,,0,0,,0,0,,0,0
+381,0,0,0,0,MC210CS,TP-Link,Switches,Media Converter,10/100/1000,0,,0,0,,0,0,,0,0,,0,0
+1037,0,0,0,0,MC220L,TP-Link,Switches,Media Converter,10/100/1000,0,,0,0,,0,0,,0,0,,0,0
+719,0,0,0,0,Mercusys AC12G,Mercusys,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+727,0,0,0,0,Mercusys MW301,Mercusys,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1276,0,0,0,0,Monsoon Combo Offer,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1280,0,0,0,0,"Monsoon Mega Sale ",TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1293,0,0,0,0,MR100 x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1294,0,0,0,0,MR100 x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+26,0,0,0,0,MR50G,Mercusys,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+1263,0,0,0,0,MR6400 x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1264,0,0,0,0,MR6400 x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+23,383,0,0,0,MS105,Mercusys,Switches,10-100 Switches,,0,Clearance,5,250,,0,0,,0,0,,0,0
+21,384,0,0,0,MS105G,Mercusys,Switches,Switches,Gigabit Switches,0,Clearance,5,530,,0,0,,0,0,,0,0
+20,385,386,387,0,MS108,Mercusys,Switches,10-100 Switches,,0,Offer 1,2,390,Offer 2,5,365,Offer 3,20,300,,0,0
+1441,0,0,0,0,MS108 x 10,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1440,0,0,0,0,MS108 x 5,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+22,0,0,0,0,MS108G,Mercusys,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+721,0,0,0,0,MS108G*20,Mercusys,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+722,0,0,0,0,MS108G*60,Mercusys,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+24,0,0,0,0,MU 6H,Mercusys,Routers,USB,,0,,0,0,,0,0,,0,0,,0,0
+1898,0,0,0,0,MW-300UM,Mercusys,Routers,"USB Adapter ",,0,,0,0,,0,0,,0,0,,0,0
+18,388,389,390,391,MW300RE,Mercusys,Routers,Range Extender,,0,Offer 1,1,750,Offer 2,2,700,Offer 3,10,680,Offer 4,50,590
+1243,0,0,0,0,MW300RE x 2,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+993,0,0,0,0,MW300RE x 5,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+25,0,0,0,0,MW300UH,Mercusys,Routers,USB,,0,,0,0,,0,0,,0,0,,0,0
+1811,395,392,393,394,MW300UH,Mercusys,Routers,"USB Adapter ",,0,Clearance,20,430,Offer 1,1,650,Offer 2,2,560,Offer 3,5,500
+1804,0,0,0,0,MW301R,Mercusys,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+17,398,396,397,0,MW301R,Mercusys,Routers,300N Router,,0,Clearance,50,450,Offer 1,5,630,Offer 2,20,570,,0,0
+989,0,0,0,0,MW301R + MW302R,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+16,401,399,400,0,MW302R,Mercusys,Routers,300N Router,,0,Clearance,20,690,Offer 1,2,900,Offer 2,5,810,,0,0
+991,0,0,0,0,MW302R + MW305R,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1278,0,0,0,0,MW302R x 10,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1290,0,0,0,0,MW302R x 50,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+15,402,403,0,0,MW305R,Mercusys,Routers,300N Router,,0,Offer 1,2,600,Offer 2,10,520,,0,0,,0,0
+992,0,0,0,0,MW305R + MW302R,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+880,404,405,0,0,MW325R,Mercusys,Routers,300N Router,,0,Offer 1,5,820,Offer 2,20,750,,0,0,,0,0
+13,407,0,0,0,MW330HP,Mercusys,Routers,300N Router,,0,Offer 1,5,785,,0,0,,0,0,,0,0
+994,406,0,0,0,MW330HP,Mercusys,,SFP,1G,0,Clearance,1,990,,0,0,,0,0,,0,0
+834,0,0,0,0,MX Crimping tool,"Un-Branded ",Accessories,Tools,,0,,0,0,,0,0,,0,0,,0,0
+1572,0,0,0,0,N100RE,TOTOLINK,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1573,0,0,0,0,N200RE,TOTOLINK,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+878,0,0,0,0,N300 TE-F3,Tenda,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1443,0,0,0,0,N300 TE-F3 x 10,Tenda,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+918,0,0,0,0,N300 TE-F3 x 5,Tenda,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+825,0,0,0,0,"N301 ",Tenda,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1083,0,0,0,0,NBB-011,D-Link,Housing,Face Plates / Back Box,,0,,0,0,,0,0,,0,0,,0,0
+1517,0,0,0,0,NBB-011 x 10,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1519,0,0,0,0,NBB-011 x 20,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+384,0,0,0,0,NCB-5E2PUBLKR-250-40,D-Link,Cat Cables,Cat5 Cable,2 Pair,0,,0,0,,0,0,,0,0,,0,0
+383,0,0,0,0,NCB-5E4PUBLKR-250-40,D-Link,Cat Cables,Cat5 Cable,4 Pair,0,,0,0,,0,0,,0,0,,0,0
+698,410,408,409,0,NCB-5E4PUBLKR-250-40,D-Link,Cat Cables,Cat5 Cable,4 Pair,0,Clearance,10,3200,Offer 1,1,4200,Offer 2,2,3500,,0,0
+1279,0,0,0,0,NCB-5E4PUBLKR-250-40 x 2,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1647,411,412,0,0,NCB-5EUBLUR1-3,D-Link,Cat Cables,Cat5 Cable,4 Pair,0,Offer 1,10,50,Offer 2,50,42,,0,0,,0,0
+1072,0,0,0,0,NCB-5EUGRYR-305,D-Link,Cat Cables,Cat5 Cable,4 Pair,0,,0,0,,0,0,,0,0,,0,0
+1073,0,0,0,0,NCB-6AUGRYR-305,D-Link,Cat Cables,Cat6 Cable,4 Pair,0,,0,0,,0,0,,0,0,,0,0
+1074,0,0,0,0,NCB-C6SGRYR-305,D-Link,Cat Cables,Cat6 Cable,4 Pair,0,,0,0,,0,0,,0,0,,0,0
+1075,0,0,0,0,NCB-C6UBLKR-305-A,D-Link,Cat Cables,Cat6 Cable,4 Pair,0,,0,0,,0,0,,0,0,,0,0
+1076,0,0,0,0,NCB-C6UBLKR-305-O,D-Link,Cat Cables,Cat6 Cable,4 Pair,0,,0,0,,0,0,,0,0,,0,0
+1079,0,0,0,0,NCB-C6UGRYR-100,D-Link,Cat Cables,Cat6 Cable,4 Pair,0,,0,0,,0,0,,0,0,,0,0
+385,0,0,0,0,NCB-C6UGRYR-305,D-Link,Cat Cables,Cat6 Cable,4 Pair,0,,0,0,,0,0,,0,0,,0,0
+1077,0,0,0,0,NCB-C6UGRYR-305-LS,D-Link,Cat Cables,Cat6 Cable,4 Pair,0,,0,0,,0,0,,0,0,,0,0
+1467,0,0,0,0,NETGEAR - GS108E-300NAS,"Netgear ",Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1466,0,0,0,0,NETGEAR - GS108LP-100INS,"Netgear ",Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+1465,0,0,0,0,NETGEAR - GS305P-200PES,"Netgear ",Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+1464,0,0,0,0,NETGEAR - GS308-300PES,"Netgear ",Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1471,0,0,0,0,NETGEAR - WAX202-100EUS,"Netgear ",Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+163,0,0,0,0,"NetMetal 5 ",Mikrotik,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1712,0,0,0,0,New Product Test Router 23,"Birla ",Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+1084,0,0,0,0,NFP-0WHI11,D-Link,Housing,Face Plates / Back Box,,0,,0,0,,0,0,,0,0,,0,0
+1520,0,0,0,0,NFP-0WHI11 x 10,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1521,0,0,0,0,NFP-0WHI11 x 20,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1085,0,0,0,0,NFP-0WHI21,D-Link,Housing,Face Plates / Back Box,,0,,0,0,,0,0,,0,0,,0,0
+1522,0,0,0,0,NFP-0WHI21 x 10,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1525,0,0,0,0,NFP-0WHI21 x 20,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+657,0,0,0,0,NFR-15U-8080-BL-IP54,D-Link,Housing,Racks,Outdoor Floor Standing Rack,0,,0,0,,0,0,,0,0,,0,0
+643,0,0,0,0,NFR-17U-6060-BL-SK,D-Link,Housing,Racks,Floor Standing Rack,0,,0,0,,0,0,,0,0,,0,0
+644,0,0,0,0,NFR-22U-6060-BL-SK,D-Link,Housing,Racks,Floor Standing Rack,0,,0,0,,0,0,,0,0,,0,0
+645,0,0,0,0,NFR-24U-6065-BL-SK,D-Link,Housing,Racks,Floor Standing Rack,0,,0,0,,0,0,,0,0,,0,0
+646,0,0,0,0,NFR-27U-6065-BL-SK,D-Link,Housing,Racks,Floor Standing Rack,0,,0,0,,0,0,,0,0,,0,0
+647,0,0,0,0,NFR-32U-6065-BL-SK,D-Link,Housing,Racks,Floor Standing Rack,0,,0,0,,0,0,,0,0,,0,0
+648,0,0,0,0,NFR-36U-6065-BL-SK,D-Link,Housing,Racks,Floor Standing Rack,0,,0,0,,0,0,,0,0,,0,0
+649,0,0,0,0,"NFR-42U-6065-BL-SK ",D-Link,Housing,Racks,Floor Standing Rack,0,,0,0,,0,0,,0,0,,0,0
+1086,0,0,0,0,NKJ-C6WHI1B21,D-Link,Housing,Keystone Jacks,,0,,0,0,,0,0,,0,0,,0,0
+1523,0,0,0,0,NKJ-C6WHI1B21 x 10,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1524,0,0,0,0,NKJ-C6WHI1B21 x 20,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+654,0,0,0,0,NOR-OPR45-2P,D-Link,Housing,Racks,Open Rack,0,,0,0,,0,0,,0,0,,0,0
+655,0,0,0,0,NOR-OPR45-2P-PD,D-Link,Housing,Racks,Open Rack,0,,0,0,,0,0,,0,0,,0,0
+386,0,0,0,0,NPG-5E1TRA031-100,D-Link,Connectors,RJ45,Cat 5,0,,0,0,,0,0,,0,0,,0,0
+1080,0,0,0,0,NPP-AL1BLK241,D-Link,Housing,Patch Panels,,0,,0,0,,0,0,,0,0,,0,0
+1081,0,0,0,0,NPP-C61BLK241,D-Link,Housing,Patch Panels,,0,,0,0,,0,0,,0,0,,0,0
+1526,0,0,0,0,NPP-C61BLK241 x 2,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1082,0,0,0,0,NPP-C61BLK481,D-Link,Housing,Patch Panels,,0,,0,0,,0,0,,0,0,,0,0
+1500,0,0,0,0,NSS5810-26XF-AC,MAIPU,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+1501,0,0,0,0,"NSS5820-30XQFP-AC ",MAIPU,Switches,Switches,40G Switches,0,,0,0,,0,0,,0,0,,0,0
+664,0,0,0,0,NWR-12U-5045-GR,D-Link,Housing,Racks,Wall mount Rack,0,,0,0,,0,0,,0,0,,0,0
+1511,0,0,0,0,NWR-12U-5545-GR,D-Link,Housing,Racks,Wall mount Rack,0,,0,0,,0,0,,0,0,,0,0
+1512,0,0,0,0,NWR-15U-5545-GR,D-Link,Housing,Racks,Wall mount Rack,0,,0,0,,0,0,,0,0,,0,0
+658,0,0,0,0,"NWR-4U-5040-GR ",D-Link,Housing,Racks,Wall mount Rack,0,,0,0,,0,0,,0,0,,0,0
+1508,0,0,0,0,NWR-4U-5540-GR,Mercusys,Housing,Racks,Wall mount Rack,0,,0,0,,0,0,,0,0,,0,0
+659,0,0,0,0,NWR-6U-5045-GR,D-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1509,0,0,0,0,NWR-6U-5545-GR,D-Link,Housing,Racks,Wall mount Rack,0,,0,0,,0,0,,0,0,,0,0
+663,413,0,0,0,NWR-9U-5045-GR,D-Link,Housing,Racks,Wall mount Rack,0,Offer 1,1,3750,,0,0,,0,0,,0,0
+1510,0,0,0,0,NWR-9U-5545-GR,Mercusys,Housing,Racks,Wall mount Rack,0,,0,0,,0,0,,0,0,,0,0
+1045,0,0,0,0,OC 200,TP-Link,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+1043,0,0,0,0,OC 300,TP-Link,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+1548,0,0,0,0,Omni Antenna,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+161,0,0,0,0,"OmniTik 5 ",Mikrotik,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+925,0,0,0,0,ONT/ONU,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+607,0,0,0,0,OPM-BC341N-PV,DBC,Testing,Optical Power Meter,,0,,0,0,,0,0,,0,0,,0,0
+1757,0,0,0,0,Optical Fiber Identifier,DBC,Testing,VFL,,0,,0,0,,0,0,,0,0,,0,0
+481,0,0,0,0,OTDR DB-88M,DBC,Testing,OTDR,,0,,0,0,,0,0,,0,0,,0,0
+522,0,0,0,0,OTDR-BC-99M (MINI),DBC,Testing,OTDR,,0,,0,0,,0,0,,0,0,,0,0
+835,0,0,0,0,OUBOU Crimping tool,"Un-Branded ",Accessories,Tools,,0,,0,0,,0,0,,0,0,,0,0
+1892,0,0,0,0,P1201-08,TP-Link,OLT,GPON,"UnLoaded ",0,,0,0,,0,0,,0,0,,0,0
+1229,0,0,0,0,Part ISP Juntion setup - Accessories 3,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+517,0,0,0,0,"Passive WDM Optical receiver ",DBC,FTTH,Peripherals,,0,,0,0,,0,0,,0,0,,0,0
+1845,0,0,0,0,PBE 5AC 620,Ubiquiti,Wireless,Antenna,Dish Antenna,0,,0,0,,0,0,,0,0,,0,0
+929,0,0,0,0,Peripherals Solution,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1800,414,415,416,417,"PIGTAIL SC/UPC ",dr.com,PLC Splitters,"With connector ",,0,Offer 1,1,40,Offer 2,10,34,Offer 3,50,29,Offer 4,100,26
+1384,418,419,420,0,PLATINUM-4410,Genexis,FTTH,XPON,ONU/ONT,0,Offer 1,2,3558,Offer 2,5,1749,Offer 3,10,1699,,0,0
+1435,0,0,0,0,PLATINUM-4410 x 10,Genexis,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1434,0,0,0,0,PLATINUM-4410 x 5,Genexis,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1789,421,0,0,0,PLC-4T1LGX-SC-UPC,dr.com,PLC Splitters,"Cassette Type ",,0,Offer 1,1,0,,0,0,,0,0,,0,0
+1801,422,423,424,0,PLC-8T1LGX-SC-APC,dr.com,PLC Splitters,"Cassette Type ",,0,Offer 1,1,450,Offer 2,5,420,Offer 3,10,350,,0,0
+851,0,0,0,0,POE 12V,"Un-Branded ",,POE,12V PoE,0,,0,0,,0,0,,0,0,,0,0
+949,0,0,0,0,"POE 12V Bundle ","Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+852,0,0,0,0,POE 24V,"Un-Branded ",,POE,24V PoE,0,,0,0,,0,0,,0,0,,0,0
+190,0,0,0,0,POE-24V-24W,Ubiquiti,,POE,24V PoE,0,,0,0,,0,0,,0,0,,0,0
+191,425,426,427,0,POE-48V-24W-G,Ubiquiti,,POE,48V PoE,0,Offer 1,1,1400,Offer 2,4,1150,Offer 3,10,990,,0,0
+1000,0,0,0,0,POE-48V-24W-G + AirGateway,Ubiquiti,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+962,0,0,0,0,POE-48V-24W-G*5,Ubiquiti,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+931,0,0,0,0,"PON SFP 7 ~ 9dBm x 2units ",DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+939,0,0,0,0,PON SFP 7 ~ 9dBm x 4units,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+464,0,0,0,0,PON SFP++ 5 ~ 7dBm,DBC,,SFP,PON,0,,0,0,,0,0,,0,0,,0,0
+465,0,0,0,0,PON SFP+++ 7 ~ 9dBm,DBC,,SFP,PON,0,,0,0,,0,0,,0,0,,0,0
+954,0,0,0,0,Power Mtr + Splicing Machine,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+978,0,0,0,0,"Power Mtr + VFL + Enclosure ",DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+980,0,0,0,0,Power Mtr + VFL + Enclosure,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+955,0,0,0,0,Power Mtr+ OTDR,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1705,0,0,0,0,Product 11785,Genexis,Adapter,,,0,,0,0,,0,0,,0,0,,0,0
+1695,0,0,0,0,Product New 114,D-Link,1F 3 Steel Wire,,,0,,0,0,,0,0,,0,0,,0,0
+1690,0,0,0,0,Product New Data,iBall,Cat Cables,"RG6 CATV Coaxial ","Aluminium Cable ",0,,0,0,,0,0,,0,0,,0,0
+1692,0,0,0,0,Product New Data 110,D-Link,ONT-ONU,Dual Band,,0,,0,0,,0,0,,0,0,,0,0
+1777,0,0,0,0,Product New Data 110 jjbjhbhbh,Beldon,Routers,,,0,,0,0,,0,0,,0,0,,0,0
+1702,0,0,0,0,Product New Data 11054545765765767,iBall,Routers,,,0,,0,0,,0,0,,0,0,,0,0
+1697,0,0,0,0,Product New Data 1106,Beldon,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1703,0,0,0,0,Product New Data 110qrweretrtr,D-Link,Accessories,,,0,,0,0,,0,0,,0,0,,0,0
+1694,0,0,0,0,Product New Data 111,iBall,Couplers,,,0,,0,0,,0,0,,0,0,,0,0
+1693,0,0,0,0,Product New Data 120,Fujikura,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1691,0,0,0,0,Product New Data1,Dasan,Cat Cables,Cat5 Cable,4 Pair,0,,0,0,,0,0,,0,0,,0,0
+1688,0,0,0,0,Product New1,iBall,Cat Cables,"RG6 CATV Coaxial ",Copper Cable,0,,0,0,,0,0,,0,0,,0,0
+1696,0,0,0,0,Product New12,"Birla ",Adapter,DC Adapters,12V Adapters,0,,0,0,,0,0,,0,0,,0,0
+1708,0,0,0,0,Product New121312,DBC,Fibres,,,0,,0,0,,0,0,,0,0,,0,0
+155,0,0,0,0,"QRT 2 ",Mikrotik,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1648,0,0,0,0,QSFP-40G-CU3M,Mercusys,,SFP,DAC Cable,0,,0,0,,0,0,,0,0,,0,0
+1866,0,0,0,0,R-52,Mikrotik,Server & Routing,Router Board,,0,,0,0,,0,0,,0,0,,0,0
+1867,0,0,0,0,R-52HN,Mikrotik,Server & Routing,Router Board,,0,,0,0,,0,0,,0,0,,0,0
+956,0,0,0,0,Ratio coupler (40/60;25/75;15/85),DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+957,0,0,0,0,Ratio coupler (5/95),DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+953,0,0,0,0,Ratio coupler (50/50;10/90;30/70),DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+813,0,0,0,0,Ratio Coupler 1/99,DBC,Ratio Couplers,Without Window,,0,,0,0,,0,0,,0,0,,0,0
+811,0,0,0,0,Ratio Coupler 10/90,DBC,Ratio Couplers,Without Window,,0,,0,0,,0,0,,0,0,,0,0
+810,0,0,0,0,Ratio Coupler 15/85,DBC,Ratio Couplers,Without Window,,0,,0,0,,0,0,,0,0,,0,0
+1814,0,0,0,0,Ratio Coupler 2/98,DBC,Ratio Couplers,Without Window,,0,,0,0,,0,0,,0,0,,0,0
+809,0,0,0,0,Ratio Coupler 25/75,DBC,Ratio Couplers,Without Window,,0,,0,0,,0,0,,0,0,,0,0
+1874,0,0,0,0,Ratio Coupler 3/97,DBC,Ratio Couplers,Without Window,,0,,0,0,,0,0,,0,0,,0,0
+808,0,0,0,0,Ratio Coupler 30/70,DBC,Ratio Couplers,Without Window,,0,,0,0,,0,0,,0,0,,0,0
+1902,0,0,0,0,Ratio Coupler 35/65,DBC,Ratio Couplers,Without Window,,0,,0,0,,0,0,,0,0,,0,0
+1813,0,0,0,0,Ratio Coupler 4/96,DBC,Ratio Couplers,Without Window,,0,,0,0,,0,0,,0,0,,0,0
+807,0,0,0,0,Ratio Coupler 40/60,DBC,Ratio Couplers,Without Window,,0,,0,0,,0,0,,0,0,,0,0
+1817,0,0,0,0,Ratio Coupler 45/55,DBC,Ratio Couplers,Without Window,,0,,0,0,,0,0,,0,0,,0,0
+812,0,0,0,0,Ratio Coupler 5/95,DBC,Ratio Couplers,Without Window,,0,,0,0,,0,0,,0,0,,0,0
+806,0,0,0,0,Ratio Coupler 50/50,DBC,Ratio Couplers,Without Window,,0,,0,0,,0,0,,0,0,,0,0
+1947,0,0,0,0,"Rayee RG-ES208GC ",Ruijie Reyee,Switches,10-100 Switches,Unmanaged,0,,0,0,,0,0,,0,0,,0,0
+1948,519,0,0,0,"Rayee RG-ES216GC-V2 ",Ruijie Reyee,Switches,10-100 Switches,Unmanaged,0,New,1,26000,,0,0,,0,0,,0,0
+1950,0,0,0,0,"Rayee RG-NBS3100-48GT4SFP-P ",Ruijie Reyee,Switches,Gigabit switches,L2,0,,0,0,,0,0,,0,0,,0,0
+1951,0,0,0,0,"Rayee RG-NBS5100-24GT4SFP ",Ruijie Reyee,Switches,Gigabit switches,L3,0,,0,0,,0,0,,0,0,,0,0
+1952,0,0,0,0,"Rayee RG-NBS5100-48GT4SFP ",Ruijie Reyee,Switches,Gigabit switches,L3,0,,0,0,,0,0,,0,0,,0,0
+1872,0,0,0,0,Rb Metal 2sphn,Mikrotik,Server & Routing,Router Board,,0,,0,0,,0,0,,0,0,,0,0
+553,428,0,0,0,RB-1100AHX2,Mikrotik,SME,Routing,Cloud Core Routing,0,Clearance,1,14500,,0,0,,0,0,,0,0
+591,0,0,0,0,RB-2011-UIAS-RM,Mikrotik,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+1619,0,0,0,0,RB-2011LS,Mikrotik,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+592,0,0,0,0,RB-3011-UIAS-RM,Mikrotik,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+593,0,0,0,0,RB-4011-IGS-RM,Mikrotik,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+1620,0,0,0,0,RB-450,Mikrotik,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+1625,0,0,0,0,RB-450-GX-4,Mikrotik,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+558,0,0,0,0,RB-750-GR3 (hEX),Mikrotik,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+548,0,0,0,0,RB-750P-PBR2,Mikrotik,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+557,0,0,0,0,RB-750UPR2 (hEX PoE lite),Mikrotik,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+588,0,0,0,0,"RB-760-IGS (hEX S) ",Mikrotik,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+554,430,429,0,0,RB-850-GX-2,Mikrotik,SME,Routing,Cloud Core Routing,0,Clearance,4,6500,Offer 1,1,9500,,0,0,,0,0
+153,0,0,0,0,RB-951Ui-2HnD,Mikrotik,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+1621,0,0,0,0,RB-R52,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1622,0,0,0,0,RB-R52HN,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1624,0,0,0,0,RBMETAL-125HPN,Mikrotik,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1570,0,0,0,0,RE200,TP-Link,Routers,Range Extender,,0,,0,0,,0,0,,0,0,,0,0
+1896,0,0,0,0,RE220,TP-Link,Routers,Range Extender,,0,,0,0,,0,0,,0,0,,0,0
+1834,0,0,0,0,RE505X,TP-Link,Routers,Range Extender,,0,,0,0,,0,0,,0,0,,0,0
+1955,0,0,0,0,"Reyee RG-AirMetro550G-B ",Ruijie Reyee,Wireless,Antenna,Sector Antenna,0,,0,0,,0,0,,0,0,,0,0
+1953,518,0,0,0,"Reyee RG-RAP1200(F) ",Ruijie Reyee,Wireless,Access point,,0,New,1,3800,,0,0,,0,0,,0,0
+1954,517,0,0,0,"Reyee RG-RAP2260(G) ",Ruijie Reyee,Wireless,Access point,,0,New,1,14000,,0,0,,0,0,,0,0
+1448,0,0,0,0,RG-11 EX11-N716WS+X,PPC,Connectors,RJ45,Cat 6,0,,0,0,,0,0,,0,0,,0,0
+1477,0,0,0,0,RG-11 EX11-N716WS+X x 20,PPC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1478,0,0,0,0,RG-11 EX11-N716WS+X x 40,PPC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1447,0,0,0,0,RG-6 CMX6-SD,PPC,Connectors,RJ45,Cat 6,0,,0,0,,0,0,,0,0,,0,0
+1475,0,0,0,0,RG-6 CMX6-SD x 20,PPC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1476,0,0,0,0,RG-6 CMX6-SD x 40,PPC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1553,0,0,0,0,RG6-CCS-305 x 2,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+885,432,431,0,0,RG6-CCS100,dr.com,Cat Cables,"RG6 CATV Coaxial ","Aluminium Cable ",0,,4,3900,Offer 1,1,4500,,0,0,,0,0
+883,433,434,0,0,RG6-CCU-100,dr.com,Cat Cables,"RG6 CATV Coaxial ",Copper Cable,0,Offer 1,1,6500,Offer 2,4,5500,,0,0,,0,0
+884,0,0,0,0,RG6-CCU-100,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+886,0,0,0,0,RG6-CCU-100,"Un-Branded ",,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1552,0,0,0,0,RG6-CCU-305 x 2,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+882,0,0,0,0,RJ-45 + CAT-5 2pair,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+493,0,0,0,0,"RJ-45 Crimping Tool ",DBC,FTTH,Peripherals,,0,,0,0,,0,0,,0,0,,0,0
+1689,0,0,0,0,Router 1234,iBall,Cat Cables,Cat5 Cable,2 Pair,0,,0,0,,0,0,,0,0,,0,0
+744,0,0,0,0,Router Solution,DBC,FTTH Cords,1F 2 Steel Wire,,0,,0,0,,0,0,,0,0,,0,0
+552,0,0,0,0,S-35/53LC20D,Mikrotik,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1877,0,0,0,0,S-3553LC20D,Mikrotik,SFP-DAC,Regular,1G,0,,0,0,,0,0,,0,0,,0,0
+549,0,0,0,0,S-RJ01,Mikrotik,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1378,0,0,0,0,S-SMSF-FE,Secureye,Switches,Media Converter,10/100,0,,0,0,,0,0,,0,0,,0,0
+1446,0,0,0,0,S-SMSF-FE x 4,Secureye,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1379,0,0,0,0,S-SMSF-GE,Secureye,Switches,Media Converter,10/100/1000,0,,0,0,,0,0,,0,0,,0,0
+1445,0,0,0,0,S-SMSF-GE x 10,Secureye,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1444,0,0,0,0,S-SMSF-GE x 4,Secureye,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+69,0,0,0,0,S1720-28GWR-4P,Huawei,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+68,0,0,0,0,S1720-28GWR-4X,Huawei,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+1760,0,0,0,0,S1V Ultra,Sumitomo,Splicing Machine,6 Motors,,0,,0,0,,0,0,,0,0,,0,0
+1498,0,0,0,0,"S3330-12TXF-AC ",MAIPU,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+1499,0,0,0,0,"S3330-28GXF-AC ",MAIPU,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+53,0,0,0,0,S5700-28P-LI-24S-BAT,Huawei,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+70,0,0,0,0,S5701-28X-LI-24S-AC,Huawei,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+64,0,0,0,0,S5720-12TP-LI-AC,Huawei,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+1652,436,435,0,0,S5720-28P-LI-AC,Huawei,Switches,Switches,Gigabit Switches,0,Clearance,2,16500,Offer 1,1,18500,,0,0,,0,0
+52,0,0,0,0,"S5720-28X-LI-24S-AC ",Huawei,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+71,0,0,0,0,S5720-32X-EI-AC,Huawei,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+54,0,0,0,0,S5720-36C-EI-28S-AC,Huawei,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+1094,0,0,0,0,S5720-36C-EI-AC,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1651,437,0,0,0,S5720-52P-LI-AC,Huawei,Switches,Switches,Gigabit Switches,0,Offer 1,1,38500,,0,0,,0,0,,0,0
+1650,438,0,0,0,S5720-52P-PWR-LI-AC,Huawei,Switches,Switches,Gigabit Switches,0,Offer 1,1,55000,,0,0,,0,0,,0,0
+1078,0,0,0,0,"S5735-L8T4S-A1 ",Huawei,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+67,0,0,0,0,S6720-16X-LI-16S-AC,Huawei,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+66,0,0,0,0,S6720-26Q-LI-24S-AC,Huawei,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+63,0,0,0,0,S6720-30C-EI-24S-AC,Huawei,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+62,0,0,0,0,S6720-54C-EI-48S-AC,Huawei,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+65,0,0,0,0,S6720S-26Q-EI-24S-AC,Huawei,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+876,0,0,0,0,S6730-H24X6C,Huawei,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+516,0,0,0,0,sadasd,Mercusys,Smart UPS,,,0,,0,0,,0,0,,0,0,,0,0
+512,0,0,0,0,SC-404 Node,DBC,FTTH,Peripherals,,0,,0,0,,0,0,,0,0,,0,0
+514,0,0,0,0,SC-808 Node,DBC,FTTH,Peripherals,,0,,0,0,,0,0,,0,0,,0,0
+1181,0,0,0,0,SC-APC-5 Mtr x 100units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+906,0,0,0,0,SC-APC-5 Mtr x 50units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1601,0,0,0,0,SC-APC-FAST CONNECTOR,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+513,0,0,0,0,SC-RF Node,DBC,FTTH,Peripherals,,0,,0,0,,0,0,,0,0,,0,0
+1180,0,0,0,0,"SC-UPC-5 Mtr x 100units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+908,0,0,0,0,"SC-UPC-5 Mtr x 50units ",dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+502,0,0,0,0,SC-UPC-FAST CONNECTOR,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1600,0,0,0,0,SC-UPC-FAST CONNECTOR,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+584,0,0,0,0,SC/APC - LC/APC-3 Meters,dr.com,Patch cords,CROSS Connector,,0,,0,0,,0,0,,0,0,,0,0
+585,0,0,0,0,SC/APC - LC/APC-5 Meters,dr.com,Patch cords,CROSS Connector,,0,,0,0,,0,0,,0,0,,0,0
+582,0,0,0,0,SC/APC - LC/UPC-3 Meters,dr.com,Patch cords,CROSS Connector,,0,,0,0,,0,0,,0,0,,0,0
+583,0,0,0,0,SC/APC - LC/UPC-5 Meters,dr.com,Patch cords,CROSS Connector,,0,,0,0,,0,0,,0,0,,0,0
+802,439,440,441,0,SC/APC - SC/APC-1.5 Meters,dr.com,Patch cords,Simplex,SC-SC Connector,0,Offer 1,5,42,Offer 1,2,2398,Offer 1,5,815,,0,0
+576,442,443,444,0,SC/APC - SC/APC-3 Meters,dr.com,Patch cords,Simplex,SC-SC Connector,0,Offer 1,2,830,Offer 1,2,799,Offer 3,20,38,,0,0
+577,445,446,447,0,SC/APC - SC/APC-5 Meters,dr.com,Patch cords,Simplex,SC-SC Connector,0,Offer 1,5,54,Offer 2,20,49,Offer 3,50,44,,0,0
+580,448,449,450,0,SC/APC - SC/UPC-3 Meters,dr.com,Patch cords,Simplex,MIX Connector,0,Offer 1,5,48,Offer 2,10,43,Offer 3,20,38,,0,0
+581,451,452,453,0,SC/APC - SC/UPC-5 Meters,dr.com,Patch cords,Simplex,MIX Connector,0,Offer 1,5,54,Offer 2,20,48,Offer 3,50,44,,0,0
+1179,0,0,0,0,SC/APC - UPC-5mtr x 100units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+907,0,0,0,0,SC/APC - UPC-5mtr x 50units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+393,0,0,0,0,SC/APC Patch Cord 5Mtrs,DBC,Patch cords,,,0,,0,0,,0,0,,0,0,,0,0
+402,0,0,0,0,SC/APC to SC/PC PatchCord 5Mtrs Wo/Brand,DBC,Patch cords,,,0,,0,0,,0,0,,0,0,,0,0
+909,0,0,0,0,SC/APC- 1.5 Meters,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1797,0,0,0,0,SC/APC-SC/APC,dr.com,Patch cords,Simplex,SC-SC Connector,0,,0,0,,0,0,,0,0,,0,0
+1790,0,0,0,0,SC/APC-SC/APC-15,dr.com,Patch cords,Simplex,SC-SC Connector,0,,0,0,,0,0,,0,0,,0,0
+396,0,0,0,0,SC/PC Patch Cord 5 Mtrs,DBC,Patch cords,,,0,,0,0,,0,0,,0,0,,0,0
+586,0,0,0,0,SC/UPC - LC/UPC-3 Meters,dr.com,Patch cords,CROSS Connector,,0,,0,0,,0,0,,0,0,,0,0
+587,0,0,0,0,SC/UPC - LC/UPC-5 Meters,dr.com,Patch cords,CROSS Connector,,0,,0,0,,0,0,,0,0,,0,0
+578,454,455,456,0,SC/UPC - SC/UPC-3 Meters,dr.com,Patch cords,Simplex,SC-SC Connector,0,Offer 1,5,48,Offer 2,10,43,Offer 3,20,38,,0,0
+579,457,458,459,0,SC/UPC - SC/UPC-5 Meters,dr.com,Patch cords,Simplex,SC-SC Connector,0,Offer 1,5,54,Offer 2,20,48,Offer 3,50,44,,0,0
+405,0,0,0,0,SC/UPC Patch Cord 1Mtr,DBC,Patch cords,,,0,,0,0,,0,0,,0,0,,0,0
+1798,0,0,0,0,SC/UPC-SC/UPC,dr.com,Patch cords,Simplex,SC-SC Connector,0,,0,0,,0,0,,0,0,,0,0
+848,0,0,0,0,SFP 10G GIGA MODULE 20KM,dr.com,,SFP,10G,0,,0,0,,0,0,,0,0,,0,0
+849,0,0,0,0,SFP 10G GIGA MODULE 40KM,dr.com,,SFP,10G,0,,0,0,,0,0,,0,0,,0,0
+850,0,0,0,0,SFP 10G GIGA MODULE 60KM,dr.com,,SFP,10G,0,,0,0,,0,0,,0,0,,0,0
+845,0,0,0,0,SFP 1G GIGA MODULE 20KM LC,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+844,0,0,0,0,SFP 1G GIGA MODULE 20KM SC,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+846,0,0,0,0,SFP 1G GIGA MODULE 40KM LC,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+847,0,0,0,0,SFP 1G GIGA MODULE 80KM LC,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+550,461,462,460,0,SFP ONU,Mikrotik,,SFP,PON,0,Clearance,2,3500,Clearance,10,2900,Offer 1,1,4500,,0,0
+1870,0,0,0,0,SFP S-35LC20D,Mikrotik,SFP-DAC,Regular,1G,0,,0,0,,0,0,,0,0,,0,0
+1878,0,0,0,0,SFP S-35LC20D,Mikrotik,SFP-DAC,Regular,1G,0,,0,0,,0,0,,0,0,,0,0
+1869,0,0,0,0,SFP S-53-LC20D,Mikrotik,SFP-DAC,Regular,1G,0,,0,0,,0,0,,0,0,,0,0
+928,0,0,0,0,SFP Solution,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1649,0,0,0,0,SFP-10G-CU3M,Mercusys,,SFP,DAC Cable,0,,0,0,,0,0,,0,0,,0,0
+476,463,464,465,0,SFU-VZ 100,DBC,FTTH,XPON,ONU/ONT,0,Offer 1,2,1798,Offer 2,5,849,Offer 3,10,799,,0,0
+1150,0,0,0,0,SFU-VZ 100 x 10units,dr.com,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+749,0,0,0,0,SFU-VZ 100 x 5units,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+911,0,0,0,0,Single port ONT,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1899,0,0,0,0,SmartAX EA5800-X2,Huawei,OLT,GPON,"UnLoaded ",0,,0,0,,0,0,,0,0,,0,0
+824,0,0,0,0,SmartOTDR 100A,Viavi,Testing,OTDR,,0,,0,0,,0,0,,0,0,,0,0
+920,0,0,0,0,SME Solutions,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1381,0,0,0,0,SOLT33-08P OLT,Genexis,GPON OLT,,,0,,0,0,,0,0,,0,0,,0,0
+741,0,0,0,0,Splicing machine + Sleeves,DBC,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+154,0,0,0,0,"SXT Lite 2 ",Mikrotik,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+158,0,0,0,0,"SXT lite 5 AC ",Mikrotik,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+157,0,0,0,0,"SXT Lite5 ",Mikrotik,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1742,0,0,0,0,SY-GOPON-0400-ONU,Syrotech,ONT-ONU,ONU,,0,,0,0,,0,0,,0,0,,0,0
+1741,0,0,0,0,SY-GOPON-1000R-ONU,Syrotech,ONT-ONU,ONU,,0,,0,0,,0,0,,0,0,,0,0
+1756,0,0,0,0,SY-GOPON-16OLT-L3,Syrotech,OLT,EPON,"UnLoaded ",0,,0,0,,0,0,,0,0,,0,0
+1661,0,0,0,0,SY-GOPON-4OLT-L3,Syrotech,EPON OLT,,,0,,0,0,,0,0,,0,0,,0,0
+1754,0,0,0,0,SY-GOPON-4OLT-L3,Syrotech,OLT,EPON,"UnLoaded ",0,,0,0,,0,0,,0,0,,0,0
+1755,0,0,0,0,SY-GOPON-8OLT L3,Syrotech,OLT,EPON,"UnLoaded ",0,,0,0,,0,0,,0,0,,0,0
+1665,466,467,468,0,SY-GPON-1000-2WDONT,Syrotech,FTTH,XPON,ONU/ONT,0,Offer 1,1,1489,Offer 2,5,1399,Offer 3,10,1275,,0,0
+1667,0,0,0,0,SY-GPON-1000-2WDONT x 10,Syrotech,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1666,0,0,0,0,SY-GPON-1000-2WDONT x 5,Syrotech,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1660,0,0,0,0,SY-GPON-1000R-DONT,Syrotech,FTTH,XPON,ONU/ONT,0,,0,0,,0,0,,0,0,,0,0
+1737,0,0,0,0,SY-GPON-1101WDONT,Syrotech,ONT-ONU,Single Band,,0,,0,0,,0,0,,0,0,,0,0
+1655,469,470,471,0,SY-GPON-1110-WDONT,Syrotech,FTTH,XPON,ONU/ONT,0,Offer 1,1,1699,Offer 2,5,1649,Offer 3,10,1530,,0,0
+1657,0,0,0,0,SY-GPON-1110-WDONT x 10,Syrotech,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1656,0,0,0,0,SY-GPON-1110-WDONT x 5,Syrotech,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1738,0,0,0,0,SY-GPON-1111-WDONT,Syrotech,ONT-ONU,Single Band,,0,,0,0,,0,0,,0,0,,0,0
+1753,0,0,0,0,SY-GPON-16OLT,Syrotech,OLT,GPON,"UnLoaded ",0,,0,0,,0,0,,0,0,,0,0
+1740,0,0,0,0,SY-GPON-2000-WADONT,Syrotech,ONT-ONU,Dual Band,,0,,0,0,,0,0,,0,0,,0,0
+1658,472,473,474,0,SY-GPON-2010-WADONT,Syrotech,FTTH,XPON,ONU/ONT,0,Offer 1,1,2499,Offer 2,5,2449,Offer 3,10,2200,,0,0
+1664,0,0,0,0,SY-GPON-2010-WADONT x 10,Syrotech,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1663,0,0,0,0,SY-GPON-2010-WADONT x 5,Syrotech,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1739,0,0,0,0,SY-GPON-4010-WADONT,Syrotech,ONT-ONU,Dual Band,,0,,0,0,,0,0,,0,0,,0,0
+1711,0,0,0,0,SY-GPON-4OLT,Huawei,Accessories,Extension Cable,,0,,0,0,,0,0,,0,0,,0,0
+1715,0,0,0,0,SY-GPON-4OLT,Syrotech,OLT,GPON,"Loaded ",0,,0,0,,0,0,,0,0,,0,0
+1752,0,0,0,0,SY-GPON-4OLT,Syrotech,OLT,GPON,"UnLoaded ",0,,0,0,,0,0,,0,0,,0,0
+1668,0,0,0,0,SY-GPON-8OLT,Syrotech,GPON OLT,,,0,,0,0,,0,0,,0,0,,0,0
+268,0,0,0,0,T1500-28PCT,TP-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+262,0,0,0,0,T1500-28TC(TL-SL2428),TP-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+263,0,0,0,0,T1500G-10MPS,TP-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+255,0,0,0,0,T1500G-8T,TP-Link,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+1015,0,0,0,0,T1500G-8T(TL-SG2008),TP-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+267,0,0,0,0,T1600G-28PS(TL-SG2424P),TP-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+260,0,0,0,0,T1600G-28TS(TL-SG2424),TP-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+261,0,0,0,0,T1600G-52PS (TL-SG2452P),TP-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+259,0,0,0,0,T1600G-52TS(TL-SG2452),TP-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+266,0,0,0,0,T1700G-28TQ,TP-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+265,0,0,0,0,T1700X-16TS,TP-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+253,0,0,0,0,T2500-28TC(TL-SL5428E),TP-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+251,0,0,0,0,T2600G-18TS(TL-SG3216),TP-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+245,0,0,0,0,T2600G-28MPS(TL-SG3424P),TP-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+247,0,0,0,0,T2600G-28SQ,D-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+1232,0,0,0,0,T2600G-28TS (TL-SG3424),TP-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1244,0,0,0,0,T2600G-28TS (TL-SG3424) x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1245,0,0,0,0,T2600G-28TS (TL-SG3424) x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+246,0,0,0,0,T2600G-52TS(TL-SG3452),TP-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+250,0,0,0,0,T2700G-28TQ,TP-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+249,0,0,0,0,T3700G-28TQ,TP-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+248,0,0,0,0,T3700G-52TQ,D-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+1555,0,0,0,0,Tapo C200,TP-Link,Others,Camera,,0,,0,0,,0,0,,0,0,,0,0
+1561,0,0,0,0,Tapo C200 x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1556,0,0,0,0,Tapo C210,TP-Link,Others,Camera,,0,,0,0,,0,0,,0,0,,0,0
+1562,0,0,0,0,Tapo C210 x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1766,0,0,0,0,TC-70,TP-Link,Others,Camera,"Lens ",0,,0,0,,0,0,,0,0,,0,0
+533,475,476,0,0,TC-Carrier,Ubiquiti,Cat Cables,Cat5 Cable,4 Pair,0,Offer 1,2,5598,Offer 2,5,2779,,0,0,,0,0
+534,478,477,0,0,TC-CON,Ubiquiti,Connectors,RJ45,Cat 5,0,Clearance,5,1500,Offer 3,10,2699,,0,0,,0,0
+999,0,0,0,0,TC-CON,Ubiquiti,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+951,0,0,0,0,TC-CON Bundle,Ubiquiti,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1785,0,0,0,0,TC70,TP-Link,Others,Camera,"Lens ",0,,0,0,,0,0,,0,0,,0,0
+1822,0,0,0,0,TD-8817,TP-Link,Routers,Mesh Router,,0,,0,0,,0,0,,0,0,,0,0
+1544,0,0,0,0,TD-W8151N,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1240,0,0,0,0,TD-W8961N,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1788,0,0,0,0,TD-W8961N,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1259,0,0,0,0,TD-W8961N x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1260,0,0,0,0,TD-W8961N x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1551,0,0,0,0,TD-W8980,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+897,0,0,0,0,Tenda AC10,Tenda,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1772,0,0,0,0,test,Mikrotik,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+1710,0,0,0,0,Test 1324 Pr,Cambium,Connectors,,,0,,0,0,,0,0,,0,0,,0,0
+1778,0,0,0,0,test 23,Beldon,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+926,0,0,0,0,Testing Solution,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1829,0,0,0,0,TF-3239DL,TP-Link,Adapter,PCI Adapters,,0,,0,0,,0,0,,0,0,,0,0
+1832,0,0,0,0,TG-3269,TP-Link,Adapter,PCI Adapters,,0,,0,0,,0,0,,0,0,,0,0
+1831,0,0,0,0,TG-3468,TP-Link,Adapter,PCI Adapters,,0,,0,0,,0,0,,0,0,,0,0
+1386,0,0,0,0,TITANIUM 2122A,Genexis,FTTH,XPON,ONU/ONT,0,,0,0,,0,0,,0,0,,0,0
+1439,0,0,0,0,TITANIUM 2122A x 10,Genexis,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1438,0,0,0,0,TITANIUM 2122A x 5,Genexis,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1839,0,0,0,0,TL-AC500,TP-Link,Switches,Cloud Router Switches,,0,,0,0,,0,0,,0,0,,0,0
+1823,0,0,0,0,TL-ANT2405C,TP-Link,Others,IP Phone,UVP Executive,0,,0,0,,0,0,,0,0,,0,0
+1825,0,0,0,0,TL-ANT2406A,TP-Link,Wireless,Antenna,Sector Antenna,0,,0,0,,0,0,,0,0,,0,0
+1534,479,0,0,0,TL-ANT2409A,TP-Link,WISP,,,0,Clearance,2,150,,0,0,,0,0,,0,0
+1574,0,0,0,0,TL-ANT2409B,TP-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1836,0,0,0,0,TL-ANT2412D,TP-Link,Wireless,Antenna,Sector Antenna,0,,0,0,,0,0,,0,0,,0,0
+1540,0,0,0,0,TL-ANT2415MS,TP-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1575,0,0,0,0,TL-ANT24EC6N,TP-Link,Accessories,Extension Cable,,0,,0,0,,0,0,,0,0,,0,0
+1541,0,0,0,0,"TL-ANT24SP ",TP-Link,Accessories," Ethernet Surge Protector",,0,,0,0,,0,0,,0,0,,0,0
+1238,480,481,0,0,TL-ANT5819MS,TP-Link,WISP,,,0,Clearance,1,3500,Clearance,2,2500,,0,0,,0,0
+1270,0,0,0,0,TL-ANT5819MS x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1271,0,0,0,0,TL-ANT5819MS x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1542,0,0,0,0,TL-ANT5823B,TP-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1576,0,0,0,0,TL-ANT5830B,TP-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1057,0,0,0,0,TL-ER605,TP-Link,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+1056,0,0,0,0,TL-ER7206,TP-Link,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+1518,0,0,0,0,TL-LS1008,TP-Link,Switches,10-100 Switches,,0,,0,0,,0,0,,0,0,,0,0
+1042,0,0,0,0,TL-MC1400,TP-Link,Switches,Media Converter,10/100/1000,0,,0,0,,0,0,,0,0,,0,0
+1283,0,0,0,0,TL-MR100,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1569,0,0,0,0,TL-MR3020,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1840,0,0,0,0,TL-MR3220,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1787,0,0,0,0,TL-MR3420,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1239,0,0,0,0,TL-MR6400,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1327,0,0,0,0,TL-MR6400 x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1568,0,0,0,0,TL-PA2010KIT,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1032,0,0,0,0,TL-POE10R,TP-Link,,POE,12V PoE,0,,0,0,,0,0,,0,0,,0,0
+1031,0,0,0,0,TL-POE150S,TP-Link,,POE,48V PoE,0,,0,0,,0,0,,0,0,,0,0
+1030,0,0,0,0,TL-POE200,TP-Link,,POE,12V PoE,0,,0,0,,0,0,,0,0,,0,0
+1034,0,0,0,0,TL-POE2412G,TP-Link,,POE,24V PoE,0,,0,0,,0,0,,0,0,,0,0
+1033,0,0,0,0,TL-POE4824G,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1054,0,0,0,0,TL-R470T+,TP-Link,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+1053,0,0,0,0,TL-R480T+,TP-Link,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+1784,0,0,0,0,TL-SF 1016D,TP-Link,Switches,10-100 Switches,Unmanaged,0,,0,0,,0,0,,0,0,,0,0
+298,0,0,0,0,TL-SF1005D,TP-Link,Switches,10-100 Switches,,0,,0,0,,0,0,,0,0,,0,0
+1307,0,0,0,0,TL-SF1005D x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1308,0,0,0,0,TL-SF1005D x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+278,0,0,0,0,TL-SF1005LP,TP-Link,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+290,0,0,0,0,TL-SF1005P,TP-Link,Switches,Unanaged PoE,,0,,0,0,,0,0,,0,0,,0,0
+1284,0,0,0,0,TL-SF1006P,TP-Link,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+1295,0,0,0,0,TL-SF1006P x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1296,0,0,0,0,TL-SF1006P x 5,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+299,0,0,0,0,TL-SF1008D,TP-Link,Switches,10-100 Switches,,0,,0,0,,0,0,,0,0,,0,0
+1406,0,0,0,0,TL-SF1008D x 10,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+724,0,0,0,0,TL-SF1008D x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+286,0,0,0,0,TL-SF1008P,TP-Link,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+281,0,0,0,0,TL-SF1009P,TP-Link,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+37,0,0,0,0,TL-SF1016,TP-Link,Switches,10-100 Switches,,0,,0,0,,0,0,,0,0,,0,0
+300,0,0,0,0,TL-SF1016D,TP-Link,Switches,10-100 Switches,,0,,0,0,,0,0,,0,0,,0,0
+1246,0,0,0,0,TL-SF1016D x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+726,0,0,0,0,TL-SF1016D x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+302,0,0,0,0,TL-SF1024D,TP-Link,Switches,10-100 Switches,,0,,0,0,,0,0,,0,0,,0,0
+303,0,0,0,0,TL-SF1048,TP-Link,Switches,10-100 Switches,,0,,0,0,,0,0,,0,0,,0,0
+293,0,0,0,0,TL-SG1005D,TP-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+289,0,0,0,0,TL-SG1005P,TP-Link,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+31,0,0,0,0,TL-SG1008,TP-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1058,0,0,0,0,TL-SG1008 x 10,TP-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1407,0,0,0,0,TL-SG1008 x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1782,0,0,0,0,TL-SG1008D,TP-Link,Switches,10-100 Switches,Unmanaged,0,,0,0,,0,0,,0,0,,0,0
+294,0,0,0,0,TL-SG1008D,TP-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+285,0,0,0,0,TL-SG1008P,TP-Link,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+284,0,0,0,0,TL-SG1008PE,TP-Link,Switches,Unanaged PoE,,0,,0,0,,0,0,,0,0,,0,0
+295,0,0,0,0,TL-SG1016D,TP-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+277,0,0,0,0,TL-SG1016DE,TP-Link,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+296,0,0,0,0,TL-SG1016PE,TP-Link,Switches,Unanaged PoE,,0,,0,0,,0,0,,0,0,,0,0
+287,0,0,0,0,TL-SG1024D,TP-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+274,0,0,0,0,TL-SG1024DE,TP-Link,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+283,0,0,0,0,TL-SG1048,TP-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1022,0,0,0,0,TL-SG105-M2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+276,0,0,0,0,TL-SG105E,TP-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1305,0,0,0,0,TL-SG105E x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1306,0,0,0,0,TL-SG105E x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1020,0,0,0,0,TL-SG108-M2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+275,0,0,0,0,TL-SG108E,TP-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1029,0,0,0,0,TL-SG108PE,TP-Link,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+32,0,0,0,0,TL-SG116,TP-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1303,0,0,0,0,TL-SG116 x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1304,0,0,0,0,TL-SG116 x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+280,0,0,0,0,TL-SG1210P,TP-Link,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+641,0,0,0,0,TL-SG1218MPE,TP-Link,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+264,0,0,0,0,"TL-SG2008 ",TP-Link,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+1028,0,0,0,0,TL-SG2008P,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1026,0,0,0,0,TL-SG2210MP,TP-Link,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+254,0,0,0,0,TL-SG2210P,TP-Link,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+269,0,0,0,0,TL-SG2216,TP-Link,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+270,0,0,0,0,TL-SG2424,TP-Link,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+271,0,0,0,0,TL-SG2424P,TP-Link,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+1025,0,0,0,0,TL-SG2428P,TP-Link,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+272,0,0,0,0,TL-SG2452,TP-Link,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+252,0,0,0,0,TL-SG3210,TP-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1023,0,0,0,0,TL-SG3210XHP-M2,TP-Link,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+1016,0,0,0,0,TL-SG3216,TP-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+640,0,0,0,0,TL-SG3428,TP-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1024,0,0,0,0,TL-SG3428MP,TP-Link,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+1014,0,0,0,0,TL-SG3428X,TP-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+639,0,0,0,0,TL-SG3428XMP,TP-Link,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+1017,0,0,0,0,TL-SG3452,TP-Link,Switches,Switches,Gigabit Switches,0,,0,0,,0,0,,0,0,,0,0
+1055,0,0,0,0,TL-SG3452P,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+256,0,0,0,0,TL-SG5412F,TP-Link,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+282,0,0,0,0,TL-SL1218MP,TP-Link,Switches,Unanaged PoE,,0,,0,0,,0,0,,0,0,,0,0
+279,0,0,0,0,TL-SL1226P,TP-Link,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+1818,0,0,0,0,TL-SL2210,TP-Link,Switches,10-100 Switches,Unmanaged,0,,0,0,,0,0,,0,0,,0,0
+273,0,0,0,0,TL-SL2428,TP-Link,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+1027,0,0,0,0,TL-SL2428P,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+258,0,0,0,0,TL-SL3428,TP-Link,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+257,0,0,0,0,TL-SL5428E,TP-Link,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+1036,0,0,0,0,TL-SM311LM,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1035,0,0,0,0,TL-SM311LS,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1018,0,0,0,0,TL-SX1008,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1019,0,0,0,0,TL-SX105,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1894,0,0,0,0,TL-WA1201,TP-Link,Routers,AC Router,,0,,0,0,,0,0,,0,0,,0,0
+1879,0,0,0,0,TL-WA501G,TP-Link,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+1571,0,0,0,0,TL-WA501G,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1288,0,0,0,0,TL-WA5210G,TP-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1837,0,0,0,0,TL-WA7210N,TP-Link,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+1567,0,0,0,0,TL-WA730RE,TP-Link,Routers,Range Extender,,0,,0,0,,0,0,,0,0,,0,0
+1282,0,0,0,0,TL-WA7510N,TP-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1537,0,0,0,0,TL-WA801ND,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1780,0,0,0,0,TL-WA820RE,TP-Link,Routers,Range Extender,,0,,0,0,,0,0,,0,0,,0,0
+1536,0,0,0,0,TL-WA830RE,TP-Link,Routers,Range Extender,,0,,0,0,,0,0,,0,0,,0,0
+1233,0,0,0,0,TL-WA850RE,TP-Link,Routers,Range Extender,,0,,0,0,,0,0,,0,0,,0,0
+1821,0,0,0,0,TL-WA860RE,TP-Link,Routers,Range Extender,,0,,0,0,,0,0,,0,0,,0,0
+1533,0,0,0,0,TL-WN721N,TP-Link,Routers,"USB Adapter ",,0,,0,0,,0,0,,0,0,,0,0
+1234,0,0,0,0,TL-WN725N,TP-Link,Routers,"USB Adapter ",,0,,0,0,,0,0,,0,0,,0,0
+1254,0,0,0,0,TL-WN725N x 10,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1253,0,0,0,0,TL-WN725N x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1539,0,0,0,0,TL-WN751N,TP-Link,DC Adapter,,,0,,0,0,,0,0,,0,0,,0,0
+1543,0,0,0,0,TL-WN781ND,TP-Link,DC Adapter,,,0,,0,0,,0,0,,0,0,,0,0
+1783,0,0,0,0,TL-WN821N,TP-Link,Routers,"USB Adapter ",,0,,0,0,,0,0,,0,0,,0,0
+1824,0,0,0,0,TL-WN823N,TP-Link,Routers,"USB Adapter ",,0,,0,0,,0,0,,0,0,,0,0
+1566,0,0,0,0,TL-WR1043ND,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1579,0,0,0,0,TL-WR720N,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+816,0,0,0,0,TL-WR820N,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1256,0,0,0,0,TL-WR820N x 10,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1255,0,0,0,0,TL-WR820N x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+28,0,0,0,0,TL-WR840N,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1061,0,0,0,0,TL-WR840N*50,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+853,0,0,0,0,TL-WR841N,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1064,0,0,0,0,TL-WR841N*50,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+856,0,0,0,0,TL-WR845N,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+29,0,0,0,0,TL-WR850N,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+718,0,0,0,0,TL-WR850N x 10,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+717,0,0,0,0,TL-WR850N x 5,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+559,0,0,0,0,TL-WR940N,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1247,0,0,0,0,TL-WR940N x 10,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+728,0,0,0,0,TL-WR940N x 5,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1826,0,0,0,0,TL-WR941 HP,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+165,0,0,0,0,TOUGHSwitch TS-5POE,Ubiquiti,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+166,482,0,0,0,TOUGHSwitch TS-8PRO,Ubiquiti,Switches,Switches,PoE switches,0,Clearance,1,8500,,0,0,,0,0,,0,0
+411,0,0,0,0,Triple Window Fiber Coupler Tube Type WO/C,DBC,PLC Splitters,Without Connector,,0,,0,0,,0,0,,0,0,,0,0
+1577,0,0,0,0,TX-6610,TP-Link,FTTH,XPON,ONU/ONT,0,,0,0,,0,0,,0,0,,0,0
+998,0,0,0,0,UAP-AC-EDU + AirGateway,Ubiquiti,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1623,483,0,0,0,UAP-AC-HD-5 (Pack of 5),Ubiquiti,Wireless,Access point,,0,Clearance,1,28500,,0,0,,0,0,,0,0
+1868,0,0,0,0,UAP-AC-US,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+1844,0,0,0,0,UAP-IW,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+1637,0,0,0,0,UAP-PRO,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+1242,0,0,0,0,UB 400,TP-Link,Routers,"USB Adapter ",,0,,0,0,,0,0,,0,0,,0,0
+1266,0,0,0,0,UB 400 x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1267,0,0,0,0,UB 400 x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1554,0,0,0,0,UB 500,TP-Link,Routers,"USB Adapter ",,0,,0,0,,0,0,,0,0,,0,0
+1560,0,0,0,0,UB 500 x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1557,0,0,0,0,UE 200,TP-Link,Routers,"USB Adapter ",,0,,0,0,,0,0,,0,0,,0,0
+1563,0,0,0,0,UE 200 x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1895,0,0,0,0,UE300C,TP-Link,Routers,"USB Adapter ",,0,,0,0,,0,0,,0,0,,0,0
+1893,0,0,0,0,UE306,TP-Link,Routers,"USB Adapter ",,0,,0,0,,0,0,,0,0,,0,0
+539,0,0,0,0,UF-GP-C+,Ubiquiti,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+524,487,484,485,486,UF-MM-1G,Ubiquiti,,SFP,1G,0,Clearance,10,600,Offer 1,1,1200,Offer 2,2,900,Offer 3,4,800
+527,490,488,489,0,UF-NANO,Ubiquiti,FTTH,XPON,ONU/ONT,0,Clearance,13,2800,Offer 1,1,5500,Offer 2,2,3900,,0,0
+179,491,0,0,0,"UF-OLT ",Ubiquiti,GPON OLT,,,0,Clearance,1,89000,,0,0,,0,0,,0,0
+995,0,0,0,0,"UF-OLT + CAT-5 2pair ",Ubiquiti,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+767,0,0,0,0,UF-SM-10G-S,Ubiquiti,,SFP,10G,0,,0,0,,0,0,,0,0,,0,0
+1011,0,0,0,0,Under 15k Stock Clearence,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1012,0,0,0,0,Under 20k Stock Clearence,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+360,0,0,0,0,Unifi BaseStation UWB-XG,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+542,0,0,0,0,UniFi LBE-5AC-23,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+358,0,0,0,0,UniFi U6-Lite,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+359,0,0,0,0,UniFi U6-LR,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+139,0,0,0,0,UniFi UAP,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+136,0,0,0,0,Unifi UAP AC S-HD,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+143,0,0,0,0,UniFi UAP-3,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+778,0,0,0,0,UniFi UAP-AC,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+137,493,492,0,0,UniFi UAP-AC-EDU,Ubiquiti,Wireless,Access point,,0,Clearance,2,16500,Offer 1,1,20500,,0,0,,0,0
+961,0,0,0,0,UniFi UAP-AC-EDU.,Ubiquiti,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+141,494,495,496,0,UniFi UAP-AC-IW,Ubiquiti,WISP,,,0,Offer 1,1,7200,Offer 2,2,6800,Offer 3,4,6200,,0,0
+129,0,0,0,0,UniFi UAP-AC-Lite,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+130,0,0,0,0,UniFi UAP-AC-LR,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+133,0,0,0,0,UniFi UAP-AC-M(MESH),Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+134,497,0,0,0,"UniFi UAP-AC-MESH-PRO ",Ubiquiti,Wireless,Access point,,0,Clearance,1,15500,,0,0,,0,0,,0,0
+764,0,0,0,0,UniFi UAP-AC-Outdoor,Ubiquiti,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+131,0,0,0,0,UniFi UAP-AC-PRO,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+132,0,0,0,0,UniFi UAP-AC-PRO-E,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+135,0,0,0,0,UniFi UAP-AC-S-HD,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+362,0,0,0,0,UniFi UAP-BeaconHD,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+356,0,0,0,0,UniFi UAP-FlexHD,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+140,0,0,0,0,UniFi UAP-LR,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+142,0,0,0,0,UniFi UAP-LR-3,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+138,0,0,0,0,UniFi UAP-nanoHD,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+361,0,0,0,0,UniFi UAP-XG,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+180,0,0,0,0,UniFi UC-CK,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+545,0,0,0,0,UniFi UCK-G2-PLUS,Ubiquiti,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+174,0,0,0,0,UniFi US-16-150W,Ubiquiti,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+543,0,0,0,0,UniFi US-16-XG,Ubiquiti,Switches,10G switches,,0,,0,0,,0,0,,0,0,,0,0
+175,0,0,0,0,UniFi US-24-250W,Ubiquiti,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+532,0,0,0,0,UniFi US-24-500W,Ubiquiti,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+176,0,0,0,0,UniFi US-48-500W,Ubiquiti,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+177,0,0,0,0,UniFi US-48-750W,Ubiquiti,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+172,0,0,0,0,UniFi US-8-150W,Ubiquiti,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+173,0,0,0,0,UniFi US-8-60W,Ubiquiti,Switches,Switches,PoE switches,0,,0,0,,0,0,,0,0,,0,0
+181,0,0,0,0,UniFi USG,Ubiquiti,SME,Routing,Cloud Core Routing,0,,0,0,,0,0,,0,0,,0,0
+182,498,0,0,0,UniFi USG-PRO-4,Ubiquiti,SME,Routing,Cloud Core Routing,0,Clearance,1,15500,,0,0,,0,0,,0,0
+1450,0,0,0,0,UPS-100R-BB,OPL,Accessories,Router UPS,,0,,0,0,,0,0,,0,0,,0,0
+1449,0,0,0,0,UPS-1224D,OPL,Accessories,Router UPS,,0,,0,0,,0,0,,0,0,,0,0
+1473,0,0,0,0,UPS-1224D x 2,OPL,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1474,0,0,0,0,UPS-1224D x 5,OPL,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1008,0,0,0,0,Upto 10k Stock Clearence,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1277,0,0,0,0,US-8-60W x 2,Ubiquiti,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1634,0,0,0,0,UVC-DOME,Ubiquiti,Others,Camera,,0,,0,0,,0,0,,0,0,,0,0
+765,0,0,0,0,UVC-G3-LED,Ubiquiti,Others,Camera,"Lens ",0,,0,0,,0,0,,0,0,,0,0
+997,0,0,0,0,UVC-G3-LED,Ubiquiti,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+960,0,0,0,0,UVC-G3-LED.,Ubiquiti,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+523,499,500,0,0,UVP-Executive,Ubiquiti,Others,IP Phone,,0,Clearance,1,18000,Refurbished,1,12000,,0,0,,0,0
+1387,0,0,0,0,V5808 (8 Port OLT with B+ SFP),Dasan,GPON OLT,,,0,,0,0,,0,0,,0,0,,0,0
+1809,0,0,0,0,VIGI C330,TP-Link,CCTV,Bullet,,0,,0,0,,0,0,,0,0,,0,0
+1535,0,0,0,0,W8961ND,TP-Link,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+150,0,0,0,0,"WAP ",Mikrotik,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+387,0,0,0,0,"wAP ac ",Mikrotik,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1237,0,0,0,0,WBS 510,TP-Link,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+1272,0,0,0,0,WBS 510 x 2,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1273,0,0,0,0,WBS 510 x 5,TP-Link,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+921,0,0,0,0,WISP,Mercusys,,SFP,1G,0,,0,0,,0,0,,0,0,,0,0
+1545,0,0,0,0,WN860RE,TP-Link,Routers,Range Extender,,0,,0,0,,0,0,,0,0,,0,0
+1618,0,0,0,0,WS-C2960+24TC-S,Cisco,Switches,10-100 Switches,,0,,0,0,,0,0,,0,0,,0,0
+1565,0,0,0,0,WS319,Mercusys,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1901,0,0,0,0,WS319 30MBPS,Huawei,Routers,300N Router,,0,,0,0,,0,0,,0,0,,0,0
+1617,0,0,0,0,XC220-G3v,TP-Link,FTTH,XPON,ONU/ONT,0,,0,0,,0,0,,0,0,,0,0
+1717,0,0,0,0,XN020-G3,TP-Link,ONT-ONU,Single Band,,0,,0,0,,0,0,,0,0,,0,0
+1727,0,0,0,0,XN020-G3v,TP-Link,ONT-ONU,Single Band,,0,,0,0,,0,0,,0,0,,0,0
+1725,0,0,0,0,XX230v,TP-Link,ONT-ONU,Single Band,,0,,0,0,,0,0,,0,0,,0,0
+1728,0,0,0,0,XZ000-G7,TP-Link,ONT-ONU,ONU,,0,,0,0,,0,0,,0,0,,0,0
+353,0,0,0,0,ZoneFlex H320,Ruckus,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+352,0,0,0,0,Zoneflex R310,Ruckus,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+354,0,0,0,0,ZoneFlex R510,Ruckus,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+355,0,0,0,0,ZoneFlex R610,Ruckus,Wireless,Access point,,0,,0,0,,0,0,,0,0,,0,0
+350,0,0,0,0,ZoneFlex T310,Ruckus,WISP,,,0,,0,0,,0,0,,0,0,,0,0
+351,0,0,0,0,ZoneFlex T710,Ruckus,WISP,,,0,,0,0,,0,0,,0,0,,0,0
