@@ -292,7 +292,8 @@ namespace hfiles
                         {
                             Session["memberRelation"] = "Self";
                         }
-                        if (Session["memberRelation"].ToString() == "Self" || Session["memberRelation"].ToString() == "Son" || Session["memberRelation"].ToString() == "daughter" || Session["memberRelation"].ToString() == "cat" || Session["memberRelation"].ToString() == "Dog" || Session["memberRelation"].ToString() == "GrandFather" || Session["memberRelation"].ToString() == "GrandMother" || Session["memberRelation"].ToString() == "Son" && (age < 17 || age > 70))
+                        // || Session["memberRelation"].ToString() == "Son" || Session["memberRelation"].ToString() == "daughter" || Session["memberRelation"].ToString() == "cat" || Session["memberRelation"].ToString() == "Dog" || Session["memberRelation"].ToString() == "GrandFather" || Session["memberRelation"].ToString() == "GrandMother" || Session["memberRelation"].ToString() == "Son" && (age < 17 || age > 70)
+                        if (Session["memberRelation"].ToString() == "Self")
                         {
 
                             cmd.CommandType = CommandType.StoredProcedure;
