@@ -251,12 +251,12 @@ namespace hfiles
                         if (result == 0)
                         {
                             clear();
-                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Memeber already exists with same email id !');", true);
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Member already exists with same email id !');", true);
                         }
                         else if (result > 0)
                         {
                             clear();
-                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Memeber added successfully');", true);
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Member added successfully');", true);
                             Response.Redirect("~/avatar2.aspx");
                         }
                     }
@@ -288,7 +288,7 @@ namespace hfiles
                             //Use below password for sigining up { membershippasword}
 
                             DAL.SendCareerMail(subject, body, email);
-                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Memeber added successfully');", true);
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Member added successfully');", true);
                             //Response.Write("<script>alert('Memeber added successfully.')</script>");
                             //newly added below code(usign block) for sending requests to created members
                             using (MySqlCommand mySqlCommand1 = new MySqlCommand("usp_existingmember", con))
@@ -308,7 +308,7 @@ namespace hfiles
                         }
                         else if (result == 0)
                         {
-                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Memeber already exists with same email id !');", true);
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Member already exists with same email id !');", true);
                         }
                     }
                 }

@@ -279,8 +279,8 @@ namespace hfiles
             int result = 0;
             try
             {
-                //int age= Convert.ToInt32(Session["MemberAge"].ToString());
-                int age = 0;
+                int age = Convert.ToInt32(Session["age"].ToString());
+                //int age = 0;
 
                 using (MySqlConnection con = new MySqlConnection(cs))
                 {
@@ -301,7 +301,7 @@ namespace hfiles
                             cmd.Parameters.AddWithValue("_reporturl", reporturl);
                             cmd.Parameters.AddWithValue("_reportId", reportId);
                             //cmd.Parameters.AddWithValue("_memberId", memberId);
-                            cmd.Parameters.AddWithValue("_memberId", memberId);
+                            cmd.Parameters.AddWithValue("_memberId", memberIdList); // memberId);
                             cmd.Parameters.AddWithValue("_FileSize", FileSize);
                             cmd.Parameters.AddWithValue("_rId", 0);
                             cmd.Parameters.AddWithValue("_SpType", "C");
@@ -340,7 +340,7 @@ namespace hfiles
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Added Successfully');", true);
                             //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
                         }
-                        else if (user_referenceId > 0)
+                        else if (user_referenceId > 0 && ((IsValidEmail(Session["user_reference_email"]) == true && IsValidEmail(Session["user_email"]) == true) ? Session["user_reference_email"].ToString() == Session["user_email"].ToString() : false))
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("_UserId", UserId);
@@ -352,7 +352,7 @@ namespace hfiles
                             cmd.Parameters.AddWithValue("_FileSize", FileSize);
                             cmd.Parameters.AddWithValue("_rId", 0);
                             cmd.Parameters.AddWithValue("_SpType", "C");
-                            cmd.Parameters.AddWithValue("_UploadType", "dependent"); 
+                            cmd.Parameters.AddWithValue("_UploadType", "dependent");
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                             cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
                             cmd.ExecuteNonQuery();
@@ -399,7 +399,18 @@ namespace hfiles
             getUsedStorage();
             return result;
         }
-
+        protected bool IsValidEmail(object sessionvalue)
+        {
+            string email = sessionvalue as string;
+            if (email == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         protected void bindData(int user_id)
         {
             //usp_commonproductvariation
