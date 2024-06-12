@@ -58,7 +58,6 @@ namespace hfiles
             {
                 AddMember(sender);
 
-
             }
 
 
@@ -207,7 +206,7 @@ namespace hfiles
                 {
                     cmdInsert.CommandType = CommandType.StoredProcedure;
 
-                    string selectedRelation = relation.Value;
+                    string selectedRelation = relation.Value.ToLower();
 
                     int age = CalculateAge(Convert.ToDateTime(dobTextBox1.Value));
                     //if ((selectedRelation == "son" || selectedRelation == "daughter" || selectedRelation == "grandfather" || selectedRelation == "grandmother" || selectedRelation == "cat" || selectedRelation == "dog") && (age < 17 || age > 70)) 

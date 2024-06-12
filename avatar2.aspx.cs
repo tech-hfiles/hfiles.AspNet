@@ -566,7 +566,7 @@ namespace hfiles
                         return basePath + "others/others.png";
                     }
                 default:
-                    return basePath + "default.png";
+                    return basePath + "male/45.png";
             }
             //imgAvatar.ImageUrl = GetImagePath(age, gender);
         }

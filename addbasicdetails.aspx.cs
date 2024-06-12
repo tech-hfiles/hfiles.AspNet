@@ -179,6 +179,7 @@ namespace hfiles
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     // Add parameters to the command
+                    command.Parameters.AddWithValue("_user_id", DAL.validateInt(Session["Userid"]));
                     command.Parameters.AddWithValue("_user_firstname", firstNameTextBox.Value);
                     command.Parameters.AddWithValue("_user_lastname", lastNameTextBox.Value);
                     command.Parameters.AddWithValue("_user_gender", selectgender.Value);

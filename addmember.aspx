@@ -233,7 +233,6 @@
         ::-webkit-input-placeholder, selected { /* Chrome/Opera/Safari */
             color: black !important; /* Change the color */
         }
-
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -260,7 +259,7 @@
                                 </div>
                                 <div class="row input-group">
                                     <div class="col-12 col-md-12 col-lg-5 col-xl-6 col-xxl-6 d-none d-md-block mb-md-5 text-center justify-content-center">
-                                        <img class="avatar-group-img" src="../Add Members/addmember-avatar.png"/>
+                                        <img class="avatar-group-img" src="../Add Members/addmember-avatar.png" />
                                     </div>
                                     <div class="col-12 col-md-12 col-lg-7 col-xl-6 col-xxl-6 d-flex justify-content-center">
                                         <div class="w-100">
@@ -344,9 +343,8 @@
                                                 <div class="btn-div">
                                                     <%--<asp:Button runat="server" Text="Submit" CssClass="btn submit-btn" ID="btnSubmit"></asp:Button>--%>
                                                     <%--<a class="" href="javascript: history.go(-1)" id="back_btn_add_member"float="left">&nbsp Back&nbsp</a>--%>
-                                                    <button runat="server" id="btn_Submit" type="submit" onserverclick="btn_Submit_ServerClick" class="add-member-battans" validationgroup="First">Submit</button>
+                                                    <asp:Button runat="server" ID="btn_Submit" Text="Submit" OnClick="btn_Submit_ServerClick" CssClass="add-member-battans"></asp:Button>
                                                     <%--<asp:Button ID="btnAddNewMember"  ValidationGroup="First" Text="Submit" OnClick="btnAddNewMember_Click" CssClass="add-member-battans" runat="server" />--%>
-
                                                 </div>
                                             </div>
 
@@ -400,11 +398,11 @@
                 relationValue === 'cat' || relationValue === 'dog') && age >= 18 && age <= 75) {
                 // Set email and contact number from session
                 document.getElementById(<%=emailTextBox.ClientID%>).value = "<%= Session["Email"] %>";
-            document.getElementById(<%=phoneTextBox.ClientID%>).value = "<%= Session["ContactNo"] %>";
-        } else {
-            // Clear email and contact number
-            document.getElementById(<%=emailTextBox.ClientID%>).value = "test";
-            document.getElementById(<%=phoneTextBox.ClientID%>).value = "test";
+                document.getElementById(<%=phoneTextBox.ClientID%>).value = "<%= Session["ContactNo"] %>";
+            } else {
+                // Clear email and contact number
+                document.getElementById(<%=emailTextBox.ClientID%>).value = "test";
+                document.getElementById(<%=phoneTextBox.ClientID%>).value = "test";
             }
         }
 

@@ -546,9 +546,9 @@
                                         <span id="storageused" runat="server"></span>
                                     </div>
                                     <div class="AddmemberRightside_Card text-center">
-                                        
+
                                         <span id="storageleft" runat="server"></span>
-                                       
+
                                     </div>
 
                                     <div class="ContactUs text-center">
@@ -579,7 +579,7 @@
 
                     </div>
                     <div class="member-avatar-img">
-                        <%--                            <asp:Image class="avatar-img" ID="Image1" runat="server" />--%>
+                        <%--<asp:Image class="avatar-img" ID="Image1" runat="server" />--%>
                         <img src="../Avatar/male/45.png" id="mobileAvatar" alt="" width="150px" />
                         <h5 class="text-center" runat="server" id="selectedmembername">Member Name</h5>
                     </div>
