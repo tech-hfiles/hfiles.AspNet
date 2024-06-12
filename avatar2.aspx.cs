@@ -24,10 +24,10 @@ namespace hfiles
         {
             //showmembersdiv();
             // mp1.Show();
-            if (imageFileUpload1.HasFile)
-            {
+            //if (imageFileUpload1.HasFile)
+           // {
 
-            }
+           // }
             //if(Session["user_dob"]==null)
             //{
             //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please Fill up Basic Details')", true);
@@ -51,14 +51,14 @@ namespace hfiles
                     selectedmembername.InnerText = lblUserName.Text = lbluser.Text = Session["username"].ToString();
                     if (Session["gender_string"] != null && Session["age"] != null)
                     {
-                        imgAvatar.ImageUrl = GetImagePath(DAL.validateInt(Session["age"].ToString()), Session["gender_string"].ToString());
+                        mobileAvatar.Src = imgAvatar.ImageUrl = GetImagePath(DAL.validateInt(Session["age"].ToString()), Session["gender_string"].ToString());
                         //imgAvatar.ImageUrl = GetImagePath(age, gender);
                     }
                     else
                     {
 
                         //imgAvatar.ImageUrl = "~/Avatar/default.png";
-                        imgAvatar.ImageUrl = "~/Avatar/Asset_50.png";
+                        mobileAvatar.Src = imgAvatar.ImageUrl = "~/Avatar/Asset_50.png";
                         //imgAvatar.ImageUrl = GetImagePath(age, gender);
                     }
                 }
@@ -474,7 +474,7 @@ namespace hfiles
                     {
 
                     }
-                    imgAvatar.ImageUrl = GetImagePath(age, gender);
+                    mobileAvatar.Src = imgAvatar.ImageUrl = GetImagePath(age, gender);
                 }
             }
         }
@@ -612,7 +612,17 @@ namespace hfiles
                 LinkButton linkButton1 = item.FindControl("member1") as LinkButton;
                 linkButton1.Style.Add("font-weight", "450");
             }
+            foreach (RepeaterItem item in Repeater1.Items)
+            {
+                LinkButton linkButton1 = item.FindControl("member2") as LinkButton;
+                linkButton1.Style.Add("font-weight", "450");
+            }
             linkButton.Style.Add("font-weight", "900");
+
+           
+           // linkButton.Style.Add("font-weight", "900");
+
+            //Repeater1
             Session["memberId"] = memberid.ToString();
             Session["memberRelation"] = relation.ToString();
             bindData(Convert.ToInt32(memberid));

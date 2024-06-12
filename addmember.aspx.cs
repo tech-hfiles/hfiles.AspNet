@@ -251,6 +251,7 @@ namespace hfiles
                         {
                             clear();
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Member already exists with same email id !');", true);
+                            //Response.Redirect("~/avatar2.aspx");
                         }
                         else if (result > 0)
                         {

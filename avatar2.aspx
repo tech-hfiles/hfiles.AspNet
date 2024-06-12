@@ -579,8 +579,8 @@
 
                     </div>
                     <div class="member-avatar-img">
-                        <%--<asp:Image class="avatar-img" ID="Image1" runat="server" />--%>
-                        <img src="../Avatar/male/45.png" id="mobileAvatar" alt="" width="150px" />
+                        <%--                            <asp:Image class="avatar-img" ID="Image1" runat="server" />--%>
+                        <img src="../Avatar/male/45.png" id="mobileAvatar" runat="server" alt="" width="150" />
                         <h5 class="text-center" runat="server" id="selectedmembername">Member Name</h5>
                     </div>
                     <div class="add-report-icon add-member-icons_mobile_responsive">
