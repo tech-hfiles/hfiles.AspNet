@@ -288,7 +288,7 @@ namespace hfiles
                     using (MySqlCommand cmd = new MySqlCommand("usp_addreportwithaccess", con))
                     {
                         //if (memberId > 0)
-                        if (Session["memberRelation"] == null)
+                        if (Session["memberRelation"] == null || Session["memberRelation"].ToString() == "")
                         {
                             Session["memberRelation"] = "Self";
                         }

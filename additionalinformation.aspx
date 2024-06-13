@@ -410,7 +410,7 @@
                             </div>
                             <div class="row surgeries-div">
                                 <div class="col-6 col-md-4">
-                                    <input type="text" runat="server" id="txtSurgeries" placeholder="Enter the surgery details" />
+                                    <input type="text" runat="server" id="txtSurgeries" placeholder="Surgery details" />
                                 </div>
 
                                 <div class="col-lg-2 col-6">

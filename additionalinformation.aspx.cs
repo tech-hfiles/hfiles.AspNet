@@ -156,7 +156,7 @@ namespace hfiles
                             {
                                 //alcohol_occasionally.Checked = true;
                             }
-                            txtSurgeries.Value = dr["user_alcohol"].ToString();
+                            //txtSurgeries.Value = dr["user_alcohol"].ToString();
                         }
                     }
                 }

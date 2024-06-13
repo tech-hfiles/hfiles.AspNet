@@ -851,7 +851,7 @@
             </div>--%>
                     <div class="col-12 text-start">
                         <label><strong>File Name : </strong></label>
-                        <asp:TextBox runat="server" ID="txtReportName" AutoComplete="Off" placeHolder="Enter your Name" CssClass="filename-txtbox" required />
+                        <asp:TextBox runat="server" ID="txtReportName" AutoComplete="Off" placeHolder="Enter file name" CssClass="filename-txtbox" required />
                     </div>
                 </div>
 
