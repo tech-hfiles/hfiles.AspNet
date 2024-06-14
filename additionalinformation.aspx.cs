@@ -68,6 +68,7 @@ namespace hfiles
             clear();
             medicalHistoryDiv.Visible = false;
             AllergiesDiv.Visible = true;
+             //Page.ClientScript.RegisterStartupScript(this.GetType(), "allergyfooter", "allergyfooter()", true);
         }
         protected void btnMedicalHistory_Click(object sender, EventArgs e)
         {

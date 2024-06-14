@@ -88,6 +88,8 @@
         .profile-img img {
             width: 200px;
             height: 200px;
+            object-fit:cover;
+            object-position:center;
         }
 
         @media (max-width: 480px) {

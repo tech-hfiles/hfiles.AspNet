@@ -338,12 +338,12 @@ ul {
     }
 
     .Second {
-        left: 30%;
+        left: 25%;
         top: 245px;
     }
 
     .sixth {
-        right: 30%;
+        right: 25%;
         top: 245px;
     }
 
@@ -354,17 +354,18 @@ ul {
 
     .seven {
         top: 495px;
-        right: 30%;
+        right: 27%;
     }
 
     .Eight {
-        right: 25%;
+        right: 22%;
         top: 360px;
         text-align: center;
     }
 
     .forth {
         top: 360px;
+        left: 27%;
     }
 
     .Huz_FirstReportInner span {

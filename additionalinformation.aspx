@@ -111,6 +111,11 @@
                 width: 100%;
             }
         }
+        @media (min-width: 750px) and (max-width: 950px){
+            .SingleCheckbox input[type=checkbox] + label {
+                margin: 0px 40px !important;
+            }
+        }
 
         @media (min-width: 1024px) and (max-height: 600px) {
             .footer {
@@ -167,7 +172,7 @@
             }
         }
 
-        @media(max-width: 768px) {
+        @media(max-width: 749px) {
             .SingleCheckbox input[type=checkbox] + label {
                 margin: 0px 20px !important;
             }
@@ -254,7 +259,11 @@
                 bottom: -5px;
             }
         }
-
+        @media (min-height:1200px) and (max-height:1300px){
+            .footer{
+                position:relative;
+            }
+        }
 
         /*#surgery-row{
                 justify-items:center;
@@ -470,7 +479,7 @@
                                 <%--<asp:Button Text="Back" class="thm-back-button" OnClick="btnMedicalBack_Click" type="Button" ID="Button1" runat="server" />--%>
 
                                 <asp:Button Text="Back" class="thm-back-button" Style="background-color: #FFD101; margin-right: 10px !important;" OnClick="btnAdditionalBack_Click" type="Button" ID="btnMedicalBack" runat="server" />
-                                <asp:Button Text="Next" ID="btnUpdateAdditional" class="thm-blue-buttn mx-lg-3 my-2 my-lg-0" OnClick="btnUpdateAdditional_Click" runat="server" />
+                                <asp:Button Text="Next" ID="btnUpdateAdditional" class="thm-blue-buttn mx-lg-3 my-2 my-lg-0" OnClick="btnUpdateAdditional_Click" OnClientClick="allergyfooter()" runat="server" />
                                 <%--<button onclick="HideAdditionalDiv()" type="submit" class="thm-blue-button">Next</button>--%>
                             </div>
                         </div>
@@ -674,6 +683,30 @@
             }
         }
 
+        function allergyfooter() {
+            setTimeout(function () {
+            var allergyDiv = document.getElementById('<%= AllergiesDiv.ClientID %>');
 
+                if (allergyDiv) {
+                    // If the element is found, make the footer's position relative
+                    var footer = document.querySelectorAll('.footer');
+                    if (footer) {
+                        footers.forEach(function (footer) {
+                            footer.style.setProperty('position', 'relative', 'important');
+                        });
+                    }
+                    alert('LUL');
+                } else {
+                    var footers = document.querySelectorAll('.footer');
+                    footers.forEach(function (footer) {
+                        footer.style.removeProperty('position', 'absolute', 'important');
+                    });
+                    // Change the position to 'fixed' for each footer element
+                    footers.forEach(function (footer) {
+                        footer.style.setProperty('position', 'relative', 'important');
+                    });
+                }
+            }, 2000);
+        }
     </script>
 </asp:Content>

@@ -271,7 +271,7 @@
                                         <div class="w-100">
                                             <div class="row mb-2 justify-item-center">
                                                 <div class="col-6">
-                                                    <label id="addNewMemberTab" class="member-type-tabs active-tab-label" onclick="showTab('abc', 'addNewMemberTab')"><strong>Add New Member</strong></label>
+                                                    <label id="addNewMemberTab" class="member-type-tabs active-tab-label" onclick="showTab('abc', 'addNewMemberTab'), updateFooterPosition()"><strong>Add New Member</strong></label>
                                                 </div>
                                                 <div class="col-6">
                                                     <label id="addExisitingMemberTab" class="member-type-tabs" onclick="showTab('xyz', 'addExisitingMemberTab'), updateFooterPosition()"><strong>Add Existing Member</strong></label>
@@ -457,7 +457,9 @@
                 });
             } else {
                 var footers = document.querySelectorAll('.footer');
-
+                footers.forEach(function (footer) {
+                    footer.style.removeProperty('position', 'fixed', 'important');
+                });
                 // Change the position to 'fixed' for each footer element
                 footers.forEach(function (footer) {
                     footer.style.setProperty('position', 'relative', 'important');
