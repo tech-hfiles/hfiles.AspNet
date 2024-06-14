@@ -215,7 +215,13 @@
             }
         }
 
-        @media (max-width:375px) {
+        @media (max-width:540px) {
+            .footer {
+                position: relative !important;
+            }
+        }
+
+        @media (max-width:850px) {
             .footer {
                 position: relative !important;
             }
@@ -268,7 +274,7 @@
                                                     <label id="addNewMemberTab" class="member-type-tabs active-tab-label" onclick="showTab('abc', 'addNewMemberTab')"><strong>Add New Member</strong></label>
                                                 </div>
                                                 <div class="col-6">
-                                                    <label id="addExisitingMemberTab" class="member-type-tabs" onclick="showTab('xyz', 'addExisitingMemberTab')"><strong>Add Existing Member</strong></label>
+                                                    <label id="addExisitingMemberTab" class="member-type-tabs" onclick="showTab('xyz', 'addExisitingMemberTab'), updateFooterPosition()"><strong>Add Existing Member</strong></label>
                                                 </div>
                                             </div>
                                             <div id="abc" class="tab-content active-tab">
@@ -343,7 +349,7 @@
                                                 <div class="btn-div">
                                                     <%--<asp:Button runat="server" Text="Submit" CssClass="btn submit-btn" ID="btnSubmit"></asp:Button>--%>
                                                     <%--<a class="" href="javascript: history.go(-1)" id="back_btn_add_member"float="left">&nbsp Back&nbsp</a>--%>
-                                                    <asp:Button runat="server" ID="btn_Submit" Text="Submit" OnClick="btn_Submit_ServerClick" CssClass="add-member-battans"></asp:Button>
+                                                    <asp:Button runat="server" ID="btn_Submit" Text="Submit" OnClick="btn_Submit_ServerClick" CssClass="btn add-mem"></asp:Button>
                                                     <%--<asp:Button ID="btnAddNewMember"  ValidationGroup="First" Text="Submit" OnClick="btnAddNewMember_Click" CssClass="add-member-battans" runat="server" />--%>
                                                 </div>
                                             </div>
@@ -419,6 +425,7 @@
         }
 
         function showTab(tabId, tabLabelId) {
+            //updateFooterPosition();
             // Hide all tabs and remove active-tab class from labels
             var tabs = document.getElementsByClassName('tab-content');
             for (var i = 0; i < tabs.length; i++) {
@@ -434,6 +441,33 @@
             document.getElementById(tabId).classList.add('active-tab');
             document.getElementById(tabLabelId).classList.add('active-tab-label');
         }
+        // Function to check the class and change footer position
+        function updateFooterPosition() {
+            // Get the element with ID 'xyz'
+            var label = document.getElementById('addExisitingMemberTab');
+
+            // Check if the element has the class 'active-tab-label'
+            if (label && label.classList.contains('active-tab-label')) {
+                // Get all elements with the class 'footer'
+                var footers = document.querySelectorAll('.footer');
+
+                // Change the position to 'fixed' for each footer element
+                footers.forEach(function (footer) {
+                    footer.style.setProperty('position', 'fixed', 'important');
+                });
+            } else {
+                var footers = document.querySelectorAll('.footer');
+
+                // Change the position to 'fixed' for each footer element
+                footers.forEach(function (footer) {
+                    footer.style.setProperty('position', 'relative', 'important');
+                });
+            }
+        }
+
+        // Run the function when the document is ready
+        //document.addEventListener('DOMContentLoaded', updateFooterPosition);
+
         //let selected = true
         //var relation = ''
 

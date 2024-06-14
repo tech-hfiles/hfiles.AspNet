@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
@@ -31,9 +31,10 @@
             color: black !important;
         }
 
-        .input-div input[type='date']{
+        .input-div input[type='date'] {
             color: #000 !important;
         }
+
         @media (min-width: 992px) {
 
             .footer {
@@ -48,13 +49,22 @@
             }
         }
 
+        .signin-main {
+            /*display:flex;
+            flex-direction:column;
+            flex:1;
+            height:auto;
+            width:100%;
+            position:relative;*/
+        }
+
         @media (max-width: 992px) {
 
             .footer {
                 background: #0331b5;
                 color: #ffffff;
                 text-align: center;
-                position: relative;
+                position: fixed;
                 bottom: 0;
                 left: 0;
                 width: 100%;
@@ -66,7 +76,30 @@
             }
         }
 
-        @media (min-width: 768px) and (max-width: 991px) {
+        @media(max-width:390px) {
+            .footer {
+                position: fixed;
+            }
+
+            .signin-main .vert-cent {
+                height: fit-content;
+            }
+        }
+
+        .input-div input[type='date'] {
+            -webkit-appearance: none; /* Remove default styling */
+            color: #000 !important; /* Apply text color */
+            font-family: inherit; /* Use the same font as the rest of the document */
+        }
+
+            .input-div input[type='date']::-webkit-inner-spin-button,
+            .input-div input[type='date']::-webkit-calendar-picker-indicator {
+                display: none; /* Remove the spin buttons and calendar icon */
+                -webkit-appearance: none; /* Remove default appearance */
+            }
+
+
+        /*@media (min-width: 768px) and (max-width: 991px) {
             .footer {
                 position: absolute;
             }
@@ -80,18 +113,18 @@
 
         @media (max-width: 414px) {
             .footer {
-                position: absolute;
+                position: relative;
             }
         }
 
         @media (max-width: 430px) {
             .footer {
-                position: absolute;
+                position: relative;
             }
 
-            .signin-main .vert-cent {
-                height: 100vh !important;
-            }
+            .signin-main .vert-cent {*/
+        /*height: 100vh !important;*/
+        /*}
         }
 
         @media (min-width: 360px) and (max-height: 640px) {
@@ -99,9 +132,9 @@
                 position: relative;
             }
 
-            .signin-main .vert-cent {
-                height: 110vh !important;
-            }
+            .signin-main .vert-cent {*/
+        /*                height: 110vh !important;
+*/ /*}
         }
 
         @media (min-width: 370px) and (max-height: 667px) {
@@ -114,7 +147,7 @@
             .footer {
                 position: relative;
             }
-        }
+        }*/
     </style>
 
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -160,10 +193,10 @@
 
             <div class="row vert-cent w-100 h-sm-100vh m-0 ">
                 <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image h-lg-100vh d-none d-lg-block px-5" style="background: #fff">
-                    <img src="<%= ResolveUrl("~/assets/signup-samanta.png") %>" alt="" style="width: 100%; height: 90%; object-fit: contain" />
+                    <img src="<%= ResolveUrl("~/assets/signup-samanta.png") %>" alt="" style="width: 100%; height: 100%; object-fit: contain" />
                 </div>
 
-                <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12 px-5 d-flex justify-content-center align-items-center vh-lg-100"
+                <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12 px-5 d-flex justify-content-center align-items-center"
                     style="background-image: url('<%= ResolveUrl("~/Reception Page/002B.png") %>'); background-repeat: no-repeat; background-size: cover;">
                     <div>
                         <div class="text-center signin-heading">
@@ -178,7 +211,7 @@
                             <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
                                 <i class="fa-solid fa-user form-control-feedback"></i>
                                 <!-- <span class="fa fa-user form-control-feedback"></span> -->
-                                <input id="firstnameTextBox" runat="server" required type="text" class="form-control my-2" placeholder="First Name" />
+                                <input id="firstnameTextBox" minlength="3" runat="server" required type="text" class="form-control my-2" placeholder="First Name" />
                             </div>
                             <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
                                 <i class="fa-solid fa-user form-control-feedback"></i>
@@ -187,7 +220,9 @@
 
                             <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
                                 <i class="fa-solid fa-cake-candles form-control-feedback"></i>
-                                <input runat="server" id="dobTextBox1" type="date" class="form-control my-2" placeholder="Date Of Birth" required />
+                                <asp:TextBox runat="server" placeholder="yyyy-mm-dd" ID="txtDate" required  class="form-control my-2"/>
+                                <ajaxToolkit:CalendarExtender  ID="dateajax" runat="server" Format="yyyy-MM-dd" Enabled="true" TargetControlID="txtDate" />
+                                <input runat="server" id="dobTextBox1" style="display: none;visibility:hidden;" type="date" class="form-control my-2" value="2024-01-01" required />
                             </div>
 
                             <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
@@ -253,8 +288,8 @@
             </div>
 
 
-            <img class="plus-top-right" src="<%= ResolveUrl("~/assets/plus-1.png") %>" alt="" />
-            <img class="plus-bottom-left" src="<%= ResolveUrl("~/assets/plus-2.png") %>" alt="" />
+            <%--<img class="plus-top-right" src="<%= ResolveUrl("~/assets/plus-1.png") %>" alt="" />
+            <img class="plus-bottom-left" src="<%= ResolveUrl("~/assets/plus-2.png") %>" alt="" />--%>
             <a href="<%= ResolveUrl("~/login.aspx") %>">
                 <img class="triangle-top-right-cancel" src="<%= ResolveUrl("~/assets/cancel-white.png") %>" alt="" /></a>
 
@@ -341,6 +376,8 @@
         $('#dobTextBox1').on('change', function () {
             document.getElementById('dobTextBox1').style.color = '#0331b5'
         })
+        // $('#dobTextBox1').attr('placeholder', 'value');
+
         function JSalert() {
             swal("An OTP is sent to your email, enter the OTP to proceed.");
         }

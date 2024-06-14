@@ -41,8 +41,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
  <%-- <asp:ScriptManager runat="server" EnableCdn="true" />--%>
   <div class="panel_content">
-    <%--<a class="back-arrow-btn" href="javascript: history.go(-1)">
-      <img src="../assets/back-arrow.png" alt="">Back</a>--%>
+    <a class="back-arrow-btn" href="javascript: history.go(-1)">
+      <%--<img src="../assets/back-arrow.png" alt=""/>--%>Back</a>
     <div class="inner_panel_content">
       <div class="form_area">
         <div class="add_product_form">

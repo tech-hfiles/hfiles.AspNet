@@ -269,17 +269,21 @@ input::-webkit-inner-spin-button {
     color: #0512b9;
 }
 
-.btn-div button {
+.btn-div button,.add-mem{
     padding: 15px 50px;
     border-radius: 50px;
     border: 0;
     outline: 0;
-    background-image: linear-gradient(to right, #0512B9 0%, #081466 100%);
+/*    width:fit-content !important;
+*/    background-image: linear-gradient(to right, #0512B9 0%, #081466 100%);
     color: #ffffff;
     cursor: pointer;
     margin-top: 20px;
     font-family: 'Red Hat Display',sans-serif !important;
     font-weight: 700;
+}
+.add-mem:hover {
+    color: #fdd001 !important;
 }
 
 .btn-div .thm-back-button {

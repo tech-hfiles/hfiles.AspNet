@@ -23,6 +23,7 @@ namespace hfiles
             {
                 divSubmit.Visible = false;
                 divOtp.Visible = true;
+                dateajax.EndDate = DateTime.Now.AddDays(0);
             }
         }
         public static string GenerateOTP(int length)
@@ -139,7 +140,7 @@ namespace hfiles
                                 cmdInsert.Parameters.AddWithValue("_user_reference", 0);
                                 cmdInsert.Parameters.AddWithValue("_user_firstname", firstnameTextBox.Value);
                                 cmdInsert.Parameters.AddWithValue("_user_lastname", lastnameTextBox.Value);
-                                cmdInsert.Parameters.AddWithValue("_user_dob", dobTextBox1.Value);
+                                cmdInsert.Parameters.AddWithValue("_user_dob", txtDate.Text);// dobTextBox1.Value));// ;
                                 cmdInsert.Parameters.AddWithValue("_user_contact", phoneTextBox.Value);
                                 cmdInsert.Parameters.AddWithValue("_user_email", emailTextBox.Value);
                                 cmdInsert.Parameters.AddWithValue("_user_password", cpwdTextBox.Text);

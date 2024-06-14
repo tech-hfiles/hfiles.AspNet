@@ -104,11 +104,15 @@ namespace hfiles
             ddlCountry.Items.Insert(0, new ListItem("Select Country", "0"));
             stateDropDownList.DataSource = null;
             stateDropDownList.DataBind();
+
+            stateDropDownList.Items.Insert(0, new ListItem("No State Found", "0"));
             cityDropDownList.DataSource = null;
             cityDropDownList.DataBind();
+            cityDropDownList.Items.Insert(0, new ListItem("No City Found", "0"));
         }
         private void getstatelist()
         {
+            stateDropDownList.Items.Clear();
             MySqlConnection con = new MySqlConnection(connectionString);
             string com = "Select state from scp group by state";
             MySqlDataAdapter adpt = new MySqlDataAdapter(com, con);
@@ -122,6 +126,7 @@ namespace hfiles
         }
         private void getcitylist(string state)
         {
+            cityDropDownList.Items.Clear();
             MySqlConnection con = new MySqlConnection(connectionString);
             string com = "Select distinct city from scp where state='" + state + "' ";
             MySqlDataAdapter adpt = new MySqlDataAdapter(com, con);

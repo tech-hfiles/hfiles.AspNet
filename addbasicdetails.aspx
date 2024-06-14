@@ -64,7 +64,7 @@
         .Addbasicbtnboth {
             display: flex;
             justify-content: space-around;
-            gap:10px;
+            gap: 10px;
         }
 
             .Addbasicbtnboth .button-change {
@@ -85,6 +85,11 @@
             visibility: hidden;
         }
 
+        .profile-img img {
+            width: 200px;
+            height: 200px;
+        }
+
         @media (max-width: 480px) {
             .Addbasicbtnboth button {
                 padding: 8px 15px;
@@ -93,12 +98,21 @@
         }
 
         @media (max-width: 540px) {
-            .Addbasicbtnboth button {
-                padding: 8px 10px;
-                font-size: 9px;
+            .Addbasicbtnboth {
+                flex-direction: column;
             }
 
-            ./*back-arrow-btn {
+                .Addbasicbtnboth button {
+                    padding: 8px 10px;
+                    font-size: 9px;
+                }
+
+            .profile-img img {
+                width: 200px;
+                height: 200px;
+            }
+
+            . /*back-arrow-btn {
                 top: 10% !important;
             }*/
         }
@@ -118,11 +132,16 @@
             }
 
             .user-info-main .profile-img img {
-                width: 100% !important;
+                width: 200px;
+                height: 200px;
             }
 
             .Addbasicbtnboth button {
                 font-size: 10px;
+            }
+
+            .Addbasicbtnboth {
+                flex-direction: column;
             }
         }
 
@@ -165,6 +184,11 @@
             .user-info-main {
                 height: auto !important;
             }
+
+            .profile-img img {
+                width: 400px;
+                height: 400px;
+            }
         }
     </style>
 </asp:Content>
@@ -187,7 +211,7 @@
                     <div class="row px-5">
                         <div class="col-md-4 col-sm-12 col-lg-4 col-xl-4 d-flex mt-sm-5 mt-lg-0 align-items-center justify-content-center">
                             <div class="text-center profile-img">
-                                <img id="imagePreview" class="w-75" alt="profile_image" runat="server" style="border: 1px solid transparent; border-radius: 50%;" />
+                                <img id="imagePreview" class="" alt="profile_image" runat="server" style="border: 1px solid transparent; border-radius: 50%;" />
                                 <%-- <img id="imagePreview" runat="server" class="w-75" src="../My Data/default-user-profile.png" alt="" />--%>
                                 <br />
                                 <div class="Addbasicbtnboth">

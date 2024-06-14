@@ -42,6 +42,24 @@ namespace hfiles
         protected global::System.Web.UI.HtmlControls.HtmlInputText lastnameTextBox;
 
         /// <summary>
+        /// txtDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDate;
+
+        /// <summary>
+        /// dateajax control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender dateajax;
+
+        /// <summary>
         /// dobTextBox1 control.
         /// </summary>
         /// <remarks>

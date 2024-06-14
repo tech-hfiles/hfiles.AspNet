@@ -1156,7 +1156,11 @@ span {
         z-index: -1;
     }
 
-    .user-info-main .profile-img img {
+    .user-info-main 
+    
+    
+    
+    img {
         width: 50% !important;
         margin-top: 50px;
     }
