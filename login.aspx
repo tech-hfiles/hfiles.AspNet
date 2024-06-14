@@ -105,7 +105,7 @@
             }
 
             .inner-main {
-                height: 90vh;
+                height: 92vh;
             }
 
             .footer {
@@ -138,7 +138,7 @@
                 }
 
                 .inner-main {
-                    height: 90vh;
+                    height: 92vh;
                 }
 
                 .footer {
@@ -152,7 +152,7 @@
 
             @media (max-height: 920px) {
                 .inner-main {
-                    height: 93vh;
+                    height: 92vh;
                 }
 
                 .footer {
@@ -162,7 +162,7 @@
 
             @media (max-width: 430px) {
                 .footer {
-                    position: relative;
+                    position: fixed;
                 }
             }
 

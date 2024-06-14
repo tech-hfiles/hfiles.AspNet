@@ -10,7 +10,7 @@
             padding: 0 0 0 0 !important;
         }
         .footer {
-            position: absolute;
+            position: fixed;
             width: 100%;
             margin:0 0 0 0!important; 
         }
@@ -79,6 +79,12 @@
         @media (min-height: 1364px) and (max-height: 1366px) {
             .footer {
                 position: absolute;
+            }
+        }
+        @media(min-width:750px) and (max-width:950px){
+           
+            .footer{
+                position:absolute;
             }
         }
     </style>

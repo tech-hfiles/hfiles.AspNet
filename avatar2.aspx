@@ -47,6 +47,33 @@
     </style>
 
     <style type="text/css">
+        .footer {
+    background: #0331b5;
+    /* padding: 10px !important; */
+    position: fixed !important;
+    width: 100%;
+    padding: 10px !important;
+    padding-bottom: 54px !important;
+}
+
+        .Huz_Addmemberside ul {
+    min-height: 86vh !important;
+    background: #eec93a14;
+    /* border-radius: 5px; */
+}
+
+        .AddmemberRightside {
+    width: 180px;
+    min-height: 87vh!important;
+    background: #eec93a14;
+    float: right;
+    display: flex;
+    flex-direction: column;
+        justify-content: flex-start !important;
+    align-items: center;
+    row-gap: 40px;
+    /* padding: 70px 0px; */
+}
         .modalBackground {
             background-color: Black;
             filter: alpha(opacity=90);
@@ -196,6 +223,9 @@
         @media (max-width: 2000px) and (min-width: 1000px) {
             .footer {
                 position: relative;
+            }
+            body{
+                overflow-y:hidden;
             }
         }
 
