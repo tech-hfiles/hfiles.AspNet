@@ -20,6 +20,9 @@
 
     <title>H Files | Sign In</title>
     <style>
+        .inner-main{
+            height:100vh;
+        }
         .container {
             max-width: 100%;
             overflow-x: hidden;
@@ -165,7 +168,7 @@
         <p class="m-0"><a class="text-white">Copyright@2024</a></p>
     </div>
 
-    <div class="col-4 p-p d-xl-flex text-center">
+    <div class="col-4 p-p d-xl-flex text-center justify-content-center">
         <p class="m-0">
             <a
                 href="https://wa.me/919930372831"><i class="fa-brands fa-whatsapp"></i>&nbsp; 9978043453</a>
