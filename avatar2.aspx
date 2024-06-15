@@ -53,7 +53,7 @@
     position: fixed !important;
     width: 100%;
     padding: 10px !important;
-    padding-bottom: 54px !important;
+    margin-top: 20px !important;
 }
 
         .Huz_Addmemberside ul {
@@ -156,11 +156,11 @@
         margin-left: 8px;
       }
 
-    @media only screen and (max-width: 414px) {
-      .modalPopup {
-        width: 90%;
-      }
-    }
+        @media only screen and (max-width: 600px) {
+            .modalPopup {
+                width: 90% !important;
+            }
+        }
 
     @media only screen and (max-width: 300px) {
       .modalPopup {
@@ -260,11 +260,14 @@
         min-height: 85vh
       }
 
-      .avatar {
-        background-position-y: 0%;
-        background-position-x: 53%;
-      }
-    }
+            .avatar {
+                background-position-y: 0%;
+                background-position-x: 53%;
+            }
+            .footer{
+                position: relative !important;
+            }
+        }
 
     @media(max-width: 480px) {
       .avatar {
@@ -879,17 +882,17 @@
             <div class="row">
               <%-- <div class="col-5 lbl">
                     </div>--%>
-              <div class="col-12">
-                <label><strong>Select Report Type :</strong></label>
-                <asp:DropDownList CssClass="select-report-dropdown" runat="server" ID="ddlReports">
-                </asp:DropDownList>
-                <asp:RequiredFieldValidator runat="server" ErrorMessage="Please Select Report Type" ControlToValidate="ddlReports" SetFocusOnError="True"></asp:RequiredFieldValidator>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row my-1" style="width: 100%">
-          <%-- <div class="col-5 lbl">
+                            <div class="col-12">
+                                <label style="text-align:left !important"><strong style="text-align:left !important">Select Report Type :</strong></label>
+                                <asp:DropDownList CssClass="select-report-dropdown" runat="server" ID="ddlReports">
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator runat="server" ErrorMessage="Please Select Report Type" ControlToValidate="ddlReports" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-1" style="width: 100%">
+                    <%-- <div class="col-5 lbl">
             </div>--%>
           <div class="col-12 text-start">
             <label><strong>File Name : </strong></label>

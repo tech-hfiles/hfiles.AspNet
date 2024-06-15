@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -36,33 +36,65 @@
                 width: 100%;
             }*/
 
-
+        }
             .footer {
                 background: #0331b5;
                 color: #ffffff;
                 text-align: center;
-                position: absolute;
+                position: fixed;
                 bottom: 0;
+                left: 0;
                 width: 100%;
-                padding: 10px
+                height: auto !important;
             }
-        }
+
+            @media (max-height: 580px) {
+                .footer {
+                    position: fixed;
+                }
+
+                .container-fluid {
+                    padding: 0 0;
+                    overflow-y: visible;
+                    overscroll-behavior-y: none;
+                }
+            }
+
+            @media(max-width:600px) {
+                .container {
+                    padding: 0 0;
+                    overflow-y: hidden;
+                }
+
+                .inner-main {
+                    height: 92vh;
+                }
+
+                .footer {
+                    position: fixed;
+                    height: 5vh;
+                }
+
+                .signin-heading img {
+                    width: 80px;
+                }
+            }
     </style>
 </head>
 <body>
     <div class="signin-main">
-            <div id="google_translate_element" class="language"></div>
+        <div id="google_translate_element" class="language"></div>
         <form class="w-100 h-100" runat="server">
             <asp:HiddenField runat="server" ID="hfId" />
             <asp:ScriptManager ID="scmSignUp" runat="server"></asp:ScriptManager>
 
             <div class="row vert-cent w-100 h-sm-100vh m-0">
                 <div class="col-lg-6 col-xl-6 col-md-6 col-12 samanta-stand-image h-lg-100vh d-none d-md-block">
-                    <img src="<%= ResolveUrl("~/Reception Page/002A.jpg") %>" alt="" width="100%" height="100%" />
+                    <img src="../assets/login-samanta-w-bg.png" alt="" style="width: 100%; height: 80vh; object-fit: contain" />
                 </div>
 
                 <div class="col-lg-6 col-xl-6 col-md-6 col-12 px-5 d-flex justify-content-center align-items-center vh-lg-100"
-                    style="background-image: url('<%= ResolveUrl("~/Reception Page/002B.png") %>'); background-repeat:no-repeat; background-size:cover;">
+                    style="background-image: url('<%= ResolveUrl("~/Reception Page/002B.png") %>'); background-repeat: no-repeat; background-size: cover;">
                     <div>
                         <div class="text-center signin-heading">
                             <img src="<%= ResolveUrl("~/Sign Up Page/Hfiles Logo.png") %>" alt="" width="120px" />
@@ -70,43 +102,43 @@
                             <%-- below line added for google translator --%>
                             <div id="google_element"></div>
 
-                            <h3 class="color-white">SIGN UP</h3>
+                            <h1 class="color-white">Sign Up</h1>
                         </div>
-                          <div class="row signin-form form-group has-search text-center ">
-                        <div class="col-12 px-1 input-div">
-                            <i class="fa-solid fa-user form-control-feedback"></i>
-                            <asp:TextBox ID="emailTextBox" CssClass="form-control my-2" TextMode="SingleLine" placeholder="Email Id / Contact No." runat="server"></asp:TextBox>
-                            <%-- <asp:TextBox runat="server"  id="emailTextBox" class="w-100 login-input" type="Text" placeholder="Username" />--%>
-                        </div>
+                        <div class="row signin-form form-group has-search text-center ">
+                            <div class="col-12 px-1 input-div">
+                                <i class="fa-solid fa-user form-control-feedback"></i>
+                                <asp:TextBox ID="emailTextBox" CssClass="form-control my-2" TextMode="SingleLine" placeholder="Email Id / Contact No." runat="server"></asp:TextBox>
+                                <%-- <asp:TextBox runat="server"  id="emailTextBox" class="w-100 login-input" type="Text" placeholder="Username" />--%>
+                            </div>
 
-                  
-                              <div class="col-12 px-1 password-div input-div">
-                        <div runat="server" id="divOtp">
-                            <i class="fa-solid fa-lock form-control-feedback"></i>
-                            <input runat="server"  id="otpTextBox" autocomplete="off" class="form-control my-2" type="Text" placeholder="Enter OTP" />
-                            <div class="text-end">
-                                <asp:Label Text="" ID="errorLabel" runat="server" Style="color: #fff" />
-                                <span id="timer" style="color: #fff"></span>
-                                <span class="mx-2">
-                                    <asp:LinkButton ID="resendLinkButton" OnClick="resendLinkButton_Click" runat="server">Resend OTP</asp:LinkButton></span>
+
+                            <div class="col-12 px-1 password-div input-div">
+                                <div runat="server" id="divOtp">
+                                    <i class="fa-solid fa-lock form-control-feedback"></i>
+                                    <input runat="server" id="otpTextBox" autocomplete="off" class="form-control my-2" type="Text" placeholder="Enter OTP" />
+                                    <div class="text-end">
+                                        <asp:Label Text="" ID="errorLabel" runat="server" Style="color: #fff" />
+                                        <span id="timer" style="color: #fff"></span>
+                                        <span class="mx-2">
+                                            <asp:LinkButton ID="resendLinkButton" OnClick="resendLinkButton_Click" runat="server">Resend OTP</asp:LinkButton></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                                  </div>
-                              </div>
                         <div class="my-1" id="btnSubmitDiv">
-                            <div class="resend-otp-div">
+                            <div class="resend-otp-div text-center">
                                 <input type="checkbox" required /><span style="color: #fff"> I agree to <a target="_blank" style="color: #fdd001; font-weight: 700" href="tc.aspx">Terms and Conditions</a> </span>
                             </div>
-                         
+
                         </div>
 
                         <div class="text-center my-1" id="otpButtonDiv">
-                       
+
                             <asp:Button ID="otpButton" OnClick="signup_Click" runat="server" Text="GET OTP" class="btn thm-button my-2"></asp:Button>
 
                         </div>
 
-                        
+
                     </div>
                 </div>
 
@@ -116,17 +148,21 @@
             <img class="plus-bottom-left" src="<%= ResolveUrl("~/assets/plus-2.png") %>" alt="" />
             <a href="<%= ResolveUrl("~/login.aspx") %>">
                 <img class="triangle-top-right-cancel" src="<%= ResolveUrl("~/assets/cancel-white.png") %>" alt="" /></a>
-            <div class="row footer justify-content-around align-items-center m-0">
+            <div class="row footer justify-content-around align-items-center m-0 mr-0">
                 <div class="col-4 t-c d-xl-flex justify-content-center text-center">
-                    <p class="m-0"><a class="px-lg-3" href="TermsAndConditions.aspx">Terms & Conditions</a></p>
-                    <p class="m-0"><a href="Policy.aspx">Privacy & Policy</a></p>
+                    <p class="m-0"><a href="TermsAndConditions.aspx">Terms & Conditions</a></p>
+                    <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
+                    <p class="m-0"><a href="privacypolicy.aspx">Privacy & Policy</a></p>
                 </div>
 
-                <div class="col-4 copy-right text-center p-0">
-                    <span>Copyright@2023</span>
+                <div class="col-4 copy-right text-center p-0 d-xl-flex text-center justify-content-center">
+                    <p class="m-0"><a href="/FAQ.aspx" class="text-white">FAQ's</a></p>
+                    <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
+                    <p class="m-0"><a class="text-white">Copyright@2024</a></p>
                 </div>
-                <div class="col-4 p-p d-xl-flex text-center">
-                    <p class="m-0"><a class="px-xl-3" href="https://wa.me/919930372831"><i class="fa-brands fa-whatsapp"></i>&nbsp; +91-9930372831</a></p>
+                <div class="col-4 p-p d-xl-flex text-center justify-content-center">
+                    <p class="m-0"><a href="https://wa.me/919930372831"><i class="fa fa-brands fa-whatsapp"></i>&nbsp; 9978043453</a></p>
+                    <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
                     <p class="m-0"><a class="" href="mailto:contact@hfiles.in"><i class="fa fa-solid fa-envelope"></i>&nbsp; contact@hfiles.in</a></p>
 
                 </div>
@@ -150,7 +186,7 @@
                 includedLanguages: 'en,hi,mr',
             }, 'google_translate_element');
         }
-         
+
         let timerOn = true;
         //$('#resendLinkButton').hide();
         function timer(remaining) {
@@ -193,7 +229,7 @@
 
     </script>
 
-  <%--  <script>
+    <%--  <script>
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en',
@@ -201,6 +237,5 @@
             }, 'google_translate_element');
         }
     </script>--%>
-   
 </body>
 </html>

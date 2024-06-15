@@ -1505,12 +1505,14 @@ ul.dropdown-menu.show {
     }
 
     .journal .journal_main .my_profile img {
-        width: 48px;
+        width: 50px;
     }
 }
 
 @media only screen and (max-width: 430px) {
-
+    .journal .journal_main .my_profile img {
+        width: 45px;
+    }
     .privacy_main .blue_trangle_bottom_left {
         height: 120px;
         bottom: 22%;

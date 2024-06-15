@@ -2178,7 +2178,7 @@ span.img-notselected {
     }
 
     .SingleCheckbox input[type=radio] + label {
-        margin: 0 80px !important
+        margin: 0 85px !important
     }
 
     .SingleCheckbox input[type=checkbox] + label {
@@ -2236,9 +2236,9 @@ span.img-notselected {
         margin: 0 85px;
     }
 
-    .SingleCheckbox input[type=radio] + label {
+    /*.SingleCheckbox input[type=radio] + label {
         margin:0 56px;
-   }
+   }*/
 
     .download-doc-inner .report-page-title {
         font-size: 24px;
