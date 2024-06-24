@@ -220,10 +220,10 @@
         opacity: 1;
       }
 
-        @media (max-width: 2000px) and (min-width: 1000px) {
+        @media (max-width: 2000px) and (min-width: 1100px) {
             .footer {
                 position: fixed;
-                margin-top:15px !important;
+                margin-top:20px !important;
             }
             body{
                 overflow-y:hidden;
