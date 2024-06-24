@@ -33,7 +33,11 @@
                 top: 0%;
             }
         }
-
+         @media (max-width:940px){
+             .footer{
+                 position:fixed;
+             }
+         }
 
         @media (min-width: 1600px) and (max-width: 1920px) {
             .footer {

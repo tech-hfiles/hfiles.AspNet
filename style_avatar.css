@@ -137,6 +137,7 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index:1000;
 }
 
     .Huz_FirstReportInnerImage:hover {
@@ -409,8 +410,13 @@ ul {
         min-height: 90.4vh !important;
     }
 }
+/*@media (orientation: landscape) {
+    .footer {
+        position: relative !important;
+    }
+}*/
 
-@media (min-width: 1022px) and (max-width: 1024px) {
+@media (min-width: 940px) and (max-width: 1024px) {
 
     .AddmemberRightside {
         justify-content: unset;
@@ -432,12 +438,12 @@ ul {
 
     .Huz_AvtarFirst {
         top: 175px;
-        left: 28%;
+        left: 24%;
     }
 
     .Second {
         top: 285px;
-        left: 23%;
+        left: 20%;
     }
 
     .Huz_Avtar_Main_image h3 {
@@ -451,27 +457,27 @@ ul {
 
     .forth {
         top: 475px;
-        left: 27%;
+        left: 24%;
     }
 
     .fifth {
         top: 175px;
-        right: 24%;
+        right: 22%;
     }
 
     .sixth {
         top: 285px;
-        right: 22%;
+        right: 20%;
     }
 
     .seven {
         top: 385px;
-        right: 20%;
+        right: 18%;
     }
 
     .Eight {
         top: 475px;
-        right: 19%;
+        right: 15%;
     }
 
     .Huz_Avtar_main_Content {

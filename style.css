@@ -2634,7 +2634,7 @@ span.img-notselected {
 
 @media only screen and (max-width: 430px) {
     .SingleCheckbox input[type=checkbox] + label, .SingleCheckbox input[type=radio] + label {
-        margin: 0px 18px !important;
+        margin: 0px 25px !important;
     }
 
     .h-sm-100vh {
@@ -3034,3 +3034,4 @@ span.img-notselected {
     .profile-card .btn-reject:hover {
         background-color: #e0a800;
     }
+

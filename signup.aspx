@@ -27,6 +27,9 @@
 
     <title>Sign Up</title>
     <style>
+        .signin-form{
+           /* margin-bottom:50px;*/
+        }
         .signin-form input::placeholder {
             color: black !important;
         }
@@ -76,9 +79,13 @@
             }
         }
 
-        @media(max-width:390px) {
+        @media(max-width:540px) {
             .footer {
+
                 position: fixed;
+            }
+            .div-for-otp{
+                margin-bottom:100px;
             }
 
             .signin-main .vert-cent {
@@ -196,7 +203,7 @@
                     <img src="<%= ResolveUrl("~/assets/signup-samanta.png") %>" alt="" style="width: 100%; height: 100%; object-fit: contain" />
                 </div>
 
-                <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12 px-5 d-flex justify-content-center align-items-center"
+                <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12 px-5 d-flex justify-content-center align-items-center signup-right"
                     style="background-image: url('<%= ResolveUrl("~/Reception Page/002B.png") %>'); background-repeat: no-repeat; background-size: cover;">
                     <div>
                         <div class="text-center signin-heading">
@@ -261,7 +268,7 @@
                             <asp:Button ID="genOTPButton" runat="server" Text="Sign Up" OnClick="signup_Click" OnClientClick="JSalert()" class="btn thm-button"></asp:Button>
                         </div>
                         <div class="row signin-form form-group has-search text-center justify-content-center">
-                            <div class="col-sm-12 col-lg-7 col-xl-7 px-5">
+                            <div class="col-sm-12 col-lg-7 col-xl-7 px-5 div-for-otp">
                                 <div runat="server" id="divSubmit">
                                     <div class="signin-form mt-2">
                                         <div class="w-100">

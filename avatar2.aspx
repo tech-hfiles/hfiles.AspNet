@@ -50,10 +50,10 @@
         .footer {
     background: #0331b5;
     /* padding: 10px !important; */
-    position: fixed !important;
+    position: fixed;
     width: 100%;
     padding: 10px !important;
-    margin-top: 20px !important;
+    margin-top: 20px;
 }
 
         .Huz_Addmemberside ul {
@@ -172,7 +172,7 @@
         border:1px solid #000;
     }*/
     body {
-      overflow-x: hidden;
+
     }
 
     .file-input {
@@ -222,7 +222,8 @@
 
         @media (max-width: 2000px) and (min-width: 1000px) {
             .footer {
-                position: relative;
+                position: fixed;
+                margin-top:15px !important;
             }
             body{
                 overflow-y:hidden;
@@ -244,7 +245,11 @@
         background-position-y: 20%;
       }
     }
-
+        @media(max-width: 820px) {
+            .footer{
+                margin-top:0;
+            }
+        }
     @media(max-width: 700px) {
       .all-member-avatar-img img {
         left: 0;
@@ -414,7 +419,11 @@
     .side_user_profile_img {
       border-radius: 50%;
     }
-
+    @media (max-width:940px) and (orientation: landscape) {
+    .footer {
+        position: relative !important;
+    }
+}
     /*avatar responsive*/
   </style>
 </asp:Content>

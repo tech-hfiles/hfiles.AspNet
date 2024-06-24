@@ -24,7 +24,7 @@
     <img class="blue_trangle_top_right" src="../Terms & Conditions/blue-trangle2.png" alt="">
     <img class="plus_top_left" src="../Terms & Conditions/plus-1.png" alt="">
 
-        <a class="back-arrow-btn" href="javascript: history.go(-1)"><img src="../assets/back-arrow.png" alt="">Back</a>
+        <a class="back-arrow-btn" href="javascript: history.go(-1)"><%--<img src="../assets/back-arrow.png" alt="">--%>Back</a>
 
     <div class="mt-5 mt-lg-0" style="height: 90%;">
         <div class="d-flex justify-content-center align-items-center h-100">

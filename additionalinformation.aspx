@@ -111,8 +111,10 @@
                 width: 100%;
             }
         }
-        @media (min-width: 750px) and (max-width: 950px){
-            .SingleCheckbox input[type=checkbox] + label {
+
+        @media (min-width: 750px) and (max-width: 950px) {
+            .SingleCheckbox input[type=checkbox] + 
+            {
                 margin: 0px 40px !important;
             }
         }
@@ -142,6 +144,10 @@
                 justify-items: center;
                 align-items: center;
             }
+
+            .med-nxt {
+                margin-bottom: 50px !important;
+            }
         }
 
         @media(max-width: 480px) {
@@ -168,13 +174,13 @@
 
         @media(max-width: 460px) {
             .SingleCheckbox input[type=checkbox] + label {
-                margin: 0 13px !important;
+                margin: 0 13px;
             }
         }
 
         @media(max-width: 749px) {
             .SingleCheckbox input[type=checkbox] + label {
-                margin: 0px 20px !important;
+                margin: 0px 20px;
             }
 
             .medical-history-row {
@@ -188,7 +194,7 @@
             }
 
             .SingleCheckbox input[type=radio] + label {
-                margin: 1px 25px !important;
+                margin: 1px 25px;
             }
         }
 
@@ -259,12 +265,22 @@
                 bottom: -5px;
             }
         }
-        @media (min-height:1200px) and (max-height:1300px){
+
+        @media (min-height:1200px) and (max-height:1300px) {
+            .footer {
+                position: relative;
+            }
+        }
+
+        @media (max-width: 1024px) and (orientation: landscape){
+            .SingleCheckbox input[type=checkbox] + label {
+                 margin: 0 55px;
+                
+            }
             .footer{
                 position:relative;
             }
         }
-
         /*#surgery-row{
                 justify-items:center;
                 justify-content:center;
@@ -551,7 +567,7 @@
 
                         </div>
                     </div>
-                    <div class="medic-his-btn mt-3">
+                    <div class="medic-his-btn mt-3 med-nxt">
                         <asp:Button Text="Next" ID="btnMedicalHistory" class="thm-blue-buttn" OnClick="btnMedicalHistory_Click" runat="server" />
                     </div>
                 </div>
@@ -685,7 +701,7 @@
 
         function allergyfooter() {
             setTimeout(function () {
-            var allergyDiv = document.getElementById('<%= AllergiesDiv.ClientID %>');
+                var allergyDiv = document.getElementById('<%= AllergiesDiv.ClientID %>');
 
                 if (allergyDiv) {
                     // If the element is found, make the footer's position relative
