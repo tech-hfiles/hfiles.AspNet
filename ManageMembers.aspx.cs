@@ -128,8 +128,8 @@ namespace hfiles
                     DataTable dataTable = new DataTable();
                     mySqlDataAdapter.Fill(dataTable);
                     Requestcount = dataTable.Rows.Count;
-                    this.rptRequests.DataSource = (object)dataTable;
-                    this.rptRequests.DataBind();
+                    this.rptRequests.DataSource = dataTable;
+                    this.rptRequests.DataBind(); 
                     Label masterPageLabel = Master.FindControl("ReqCount") as Label;
 
                     if (masterPageLabel != null)

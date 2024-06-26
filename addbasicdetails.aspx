@@ -225,7 +225,7 @@
 
                 <asp:UpdatePanel runat="server" UpdateMode="Conditional">
                   <ContentTemplate>
-                    <asp:FileUpload CssClass="form-control hidden" runat="server" ID="Profileupload" />
+                    <asp:FileUpload CssClass="form-control hidden" runat="server" accept=".png,.jpg,.jpeg,.PNG,.JPG,.JPEG"  ID="Profileupload" />
                   </ContentTemplate>
                   <Triggers>
                     <asp:PostBackTrigger ControlID="submitButton" />
@@ -272,7 +272,7 @@
                   <span for="" class="imp-star">*</span>
                   <i class="fa-sharp fa-solid fa-droplet form-control-feedback"></i>
                   <select id="bloodgroup" runat="server" class="form-select form-control mySelect" aria-label="Default select example">
-                    <option selected>Blood Group</option>
+                    <option selected value="0">Blood Group</option>
                     <option value="1">A+</option>
                     <option value="2">A-</option>
                     <option value="3">B+</option>
@@ -334,7 +334,7 @@
                   <span for="" class="imp-star">&nbsp;</span>
                   <%--                                    <i class="fa-solid fa-phone-volume form-control-feedback"></i>--%>
                   <i class="fa-solid fa-user-group form-control-feedback"></i>
-                  <input id="relativecontactTextBox" runat="server" type="tel" class="form-control" placeholder="Relation To Emergency Contact No" />
+                  <input id="relativecontactTextBox" runat="server" type="text" class="form-control" placeholder="Relation To Emergency Contact No" />
                 </div>
 
                 <div class="col-12">

@@ -345,7 +345,7 @@
                           </div>
                         </div>
                         <div class="Dateinputfield">
-                          <asp:TextBox runat="server" placeholder="yyyy-mm-dd" ID="txtDate" Style="padding-right: 10px !important;" class="form-control my-2" />
+                          <asp:TextBox runat="server" onkeypress="return false" AutoComplete="Off" placeholder="yyyy-mm-dd" ID="txtDate" Style="padding-right: 10px !important;" class="form-control my-2" />
                           <ajaxToolkit:CalendarExtender ID="dateajax" runat="server" Format="yyyy-MM-dd" Enabled="true" TargetControlID="txtDate" />
 
                           <input class="date-input" type="date" id="dobTextBox1" runat="server" style="display: none; visibility: hidden; padding-right: 10px !important;" onchange="calculateAge()" /><%--onchange="calculateAge()"--%>

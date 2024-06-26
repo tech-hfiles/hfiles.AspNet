@@ -227,7 +227,7 @@
 
                             <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
                                 <i class="fa-solid fa-cake-candles form-control-feedback"></i>
-                                <asp:TextBox runat="server" placeholder="yyyy-mm-dd" ID="txtDate" required  class="form-control my-2"/>
+                                <asp:TextBox runat="server" placeholder="yyyy-mm-dd" ID="txtDate" required onkeypress="return false" AutoComplete="Off" class="form-control my-2"/>
                                 <ajaxToolkit:CalendarExtender  ID="dateajax" runat="server" Format="yyyy-MM-dd" Enabled="true" TargetControlID="txtDate" />
                                 <input runat="server" id="dobTextBox1" style="display: none;visibility:hidden;" type="date" class="form-control my-2" value="2024-01-01" required />
                             </div>
@@ -312,7 +312,7 @@
                     <p class="m-0"><a class="text-white">Copyright@2024</a></p>
                 </div>
 
-                <div class="col-4 p-p d-xl-flex text-center">
+                <div class="col-4 p-p d-xl-flex text-center justify-content-center">
                     <p class="m-0">
                         <a
                             href="https://wa.me/919978043453"><i class="fa-brands fa-whatsapp"></i>&nbsp; 9978043453</a>
@@ -432,5 +432,19 @@
             }, 'google_translate_element');
         }
     </script>
+   <%-- <script>
+      function disableKeyboardInputForDateField() {
+    const dateInput = document.getElementById('date-input');
+
+    dateInput.addEventListener('keydown', function(event) {
+      event.preventDefault();
+    });
+  }
+
+  // Call the function to disable keyboard input on the date field
+  disableKeyboardInputForDateField();
+</script>--%>
+
+
 </body>
 </html>

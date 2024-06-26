@@ -168,6 +168,10 @@ namespace hfiles
       if (Profileupload.HasFile == true)
       {
         Extension1 = Path.GetExtension(Profileupload.PostedFile.FileName);
+        //if (Extension1 == )
+        //{
+
+        //}
         fileName1 = Path.GetFileName(Profileupload.PostedFile.FileName);
         dt1 = DateTime.Now.ToString("MM_dd_yyyy_hh_mm_ss_fff");
         Profileupload.PostedFile.SaveAs(Server.MapPath("~/upload/") + dt1 + Extension1);
@@ -193,9 +197,9 @@ namespace hfiles
           command.Parameters.AddWithValue("_user_dob", txtDate.Text);
           command.Parameters.AddWithValue("_user_bloodgroup", bloodgroup.Value);
           //command.Parameters.AddWithValue("_user_state", stateTextBox.Value);
-          command.Parameters.AddWithValue("_user_state", stateDropDownList.SelectedItem.Text);
+          command.Parameters.AddWithValue("_user_state", (stateDropDownList.SelectedItem.Text.ToLower() == "no state found" || stateDropDownList.SelectedItem.Text.ToLower() == "select state")== true  ? "": stateDropDownList.SelectedItem.Text);
           //command.Parameters.AddWithValue("_user_city", cityTextBox.Value);
-          command.Parameters.AddWithValue("_user_city", cityDropDownList.SelectedItem.Text);
+          command.Parameters.AddWithValue("_user_city", (cityDropDownList.SelectedItem.Text.ToLower() == "no city found" || cityDropDownList.SelectedItem.Text.ToLower() == "select city") == true ? "" : cityDropDownList.SelectedItem.Text);
           command.Parameters.AddWithValue("_user_country", ddlCountry.SelectedItem.Text);
           //command.Parameters.AddWithValue("_user_country", ddlCountry.SelectedValue);
           command.Parameters.AddWithValue("_user_contact", contactTextBox.Value);
@@ -395,6 +399,7 @@ namespace hfiles
     {
       string imagePath = "../My Data/default-user-profile.png";
       imagePreview.Src = imagePath;
+      Session["ProfileImage"] = imagePath;
     }
   }
 }
