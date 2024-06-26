@@ -1213,7 +1213,7 @@ ul.dropdown-menu.show {
     }
 }
 
-@media only screen and (max-width: 912px) {
+@media only screen and (max-width: 1300px) and (orientation: landscape) {
     .contact .blue_trangle_bottom_right {
         height: 90px;
         top: 20px;
@@ -1280,6 +1280,7 @@ ul.dropdown-menu.show {
 
     .journal .journal_main {
         display: block !important;
+        height:100vh !important;
     }
 
         .journal .journal_main .jur-width-div {
@@ -1287,10 +1288,10 @@ ul.dropdown-menu.show {
         }
 
     .privacy_main {
-        height: 87vh
+        height: 87vh;
     }
 
-      /*  .privacy_main .blue_trangle_bottom_right {
+    /*  .privacy_main .blue_trangle_bottom_right {
             top: 30px
         }*/
 
@@ -1313,8 +1314,15 @@ ul.dropdown-menu.show {
     .journal .journal_main .my_profile img {
         width: 56px;
     }
+    .footer{
+        position:relative !important;
+    }
 }
-
+/*@media(max-width:1024px) and (orientation: landscape){
+    .journal .journal_main {
+        display: block !important;
+    }
+}*/
 @media only screen and (max-width: 769px) {
     .journal .samanta-image {
         width: 65%;
