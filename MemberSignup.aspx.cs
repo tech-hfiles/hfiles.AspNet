@@ -121,7 +121,7 @@ namespace hfiles
                             }
                         }
                         errorLabel.Text = "";
-                        Response.Redirect("~/Samanta.aspx");//Redirect to registration page
+                        Response.Redirect("~/addbasicdetails.aspx");//Redirect to registration page
                     }
                     else
                     {

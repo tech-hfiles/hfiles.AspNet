@@ -335,7 +335,7 @@ namespace hfiles
               string email = emailTextBox.Value.ToString();
               //string subject = "# Verification code";
               string subject = "Welcome to HFiles";
-              string body = $"<p style=\"text-align: justify;\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify;\"> {Session["username"].ToString()} has added you to HFiles Portal,&nbsp;</p>\r\n<p style=\"text-align: justify;\">Please verify your Email Id to complete signup process.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Use below link to verify your Email Id.&nbsp;<br> http://68.178.164.174//membersignup.aspx/?id={uniqueid}</p> <p style=\"text-align: justify;\">&nbsp;</p>";
+              string body = $"<p style=\"text-align: justify;\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify;\"> {Session["username"].ToString()} has added you to HFiles Portal,&nbsp;</p>\r\n<p style=\"text-align: justify;\">Please verify your Email Id to complete signup process.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Use below link to verify your Email Id.&nbsp;<br> http://web.hfiles.in/membersignup.aspx/?id={uniqueid}</p> <p style=\"text-align: justify;\">Use below password for sigining up <br><b>{membershippasword}</b><br> Please change your password after first login.</p>";
               //Use below password for sigining up { membershippasword}
 
               DAL.SendCareerMail(subject, body, email);

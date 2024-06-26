@@ -83,7 +83,7 @@
 </head>
 <body>
     <div class="signin-main">
-        <div id="google_translate_element" class="language"></div>
+       
         <form class="w-100 h-100" runat="server">
             <asp:HiddenField runat="server" ID="hfId" />
             <asp:ScriptManager ID="scmSignUp" runat="server"></asp:ScriptManager>

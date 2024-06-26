@@ -42,7 +42,7 @@ namespace hfiles
         {
             //mp1.Show();
             int RId = DAL.validateInt(Request.QueryString["rid"]);
-
+            
             if (!IsPostBack)
             {
                 if (Session["Userid"] != null)
@@ -55,10 +55,6 @@ namespace hfiles
                 {
                     Response.Redirect("~/login.aspx");
                 }
-                ////getMembersList();
-                ////getReportType(RId);
-                ////getReportMaster();
-                //getMembersList();
                 if (Request.QueryString["rid"] != null)
                 {
                     //int RId = DAL.validateInt(Request.QueryString["rid"]);
@@ -68,7 +64,7 @@ namespace hfiles
                         int UserId = int.Parse(Session["Userid"].ToString());
                         //Reports(UserId, RId);
                         //below condition is added newly for reports access
-                         if (Session["memberId"] != null && Convert.ToInt32(Session["memberId"]) > 0)
+                        if (Session["memberId"] != null && Convert.ToInt32(Session["memberId"]) > 0)
                         {
                             UserReports(Convert.ToInt32(Session["memberId"]), RId);
                         }
@@ -456,6 +452,7 @@ namespace hfiles
                     if (retVal == 1)
                     {
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report deleted successfully');", true);
+                        UserReports(UserId, RId);
                         //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report deleted successfully')", true);
                         //Reports(UserId, RId);
                         //icon = "assets/select.png";
@@ -642,11 +639,21 @@ namespace hfiles
         }
         protected void lbtnEdit_Click(object sender, EventArgs e)
         {
+            int memberId = Convert.ToInt32(Session["memberId"]);
+            int user_referenceId = Convert.ToInt32(Session["user_reference"]);
+            if (user_referenceId > 0 && memberId > 0 && ((IsValidEmail(Session["user_reference_email"]) == true && IsValidEmail(Session["user_email"]) == true) ? Session["user_reference_email"].ToString() == Session["user_email"].ToString() : false))
+            {
+                ddlMembers2.Visible = false;
+            }
+            else
+            {
+                ddlMembers2.Visible = true;
+            }
             lblNoMember.Text = string.Empty;
             LinkButton lnk = sender as LinkButton;
             int reportId = Convert.ToInt16(lnk.CommandArgument);
             Session["ReportUniqueId"] = reportId;
-
+            ddlMembers2.ClearSelection();
             mp1.Show();
 
             RId = DAL.validateInt(Request.QueryString["rid"]);
@@ -1094,7 +1101,7 @@ namespace hfiles
             else
             {
                 return true;
-            }    
+            }
         }
     }
 }
