@@ -1213,7 +1213,7 @@ ul.dropdown-menu.show {
     }
 }
 
-@media only screen and (max-width: 1300px) and (orientation: landscape) {
+@media only screen and (max-width: 912px){
     .contact .blue_trangle_bottom_right {
         height: 90px;
         top: 20px;
@@ -1318,11 +1318,17 @@ ul.dropdown-menu.show {
         position:relative !important;
     }
 }
-/*@media(max-width:1024px) and (orientation: landscape){
+@media(max-width:1280px) and (orientation: landscape){
     .journal .journal_main {
-        display: block !important;
     }
-}*/
+    .journal .samanta-image{
+        margin-top:0;
+        width:30%;
+    }
+    .footer{
+        position:relative !important;
+    }
+}
 @media only screen and (max-width: 769px) {
     .journal .samanta-image {
         width: 65%;

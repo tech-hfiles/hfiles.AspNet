@@ -106,15 +106,14 @@
 
         @media (min-width: 800px) and (max-width: 1024px) {
             .footer {
-                position: absolute;
+                position: fixed;
                 bottom: 0;
                 width: 100%;
             }
         }
 
         @media (min-width: 750px) and (max-width: 950px) {
-            .SingleCheckbox input[type=checkbox] + 
-            {
+            .SingleCheckbox input[type=checkbox] + label {
                 margin: 0px 40px !important;
             }
         }
@@ -249,6 +248,12 @@
             }
         }
 
+        @media (min-width: 320px) and (max-width: 374px) {
+            .SingleCheckbox input[type=checkbox] + label {
+                margin: 0px 19px !important;
+            }
+        }
+
         @media (min-width: 370px) and (max-width: 375px) {
             .SingleCheckbox input[type=checkbox] + label {
                 margin: 0px 19px !important;
@@ -272,13 +277,13 @@
             }
         }
 
-        @media (max-width: 1024px) and (orientation: landscape){
+        @media (max-width: 1024px) and (orientation: landscape) {
             .SingleCheckbox input[type=checkbox] + label {
-                 margin: 0 55px;
-                
+                margin: 0 55px;
             }
-            .footer{
-                position:relative;
+
+            .footer {
+                position: relative;
             }
         }
         /*#surgery-row{

@@ -84,7 +84,7 @@
         @media(min-width:750px) and (max-width:950px){
            
             .footer{
-                position:absolute;
+                position:relative;
             }
         }
     </style>

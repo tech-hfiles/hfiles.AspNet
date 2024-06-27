@@ -31,6 +31,13 @@
     <title>Document</title>
 
     <style>
+        @media(min-width:1700px) {
+            .signin-form input, select {
+                padding: 16px 40px 16px 10px !important;
+                border-radius: 30px !important;
+            }
+        }
+
         .report-page-header {
             display: flex;
             justify-content: space-between;

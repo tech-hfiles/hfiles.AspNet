@@ -245,11 +245,17 @@
         background-position-y: 20%;
       }
     }
-        @media(max-width: 820px) {
+        @media(min-width:770px)(max-width: 840px) {
             .footer{
-                margin-top:0;
+                margin:10px 0px !important;
             }
         }
+
+    @media(max-width:1300px) and (orientation: landscape) {
+        .footer{
+            position:relative;
+        }
+    }
     @media(max-width: 700px) {
       .all-member-avatar-img img {
         left: 0;
@@ -424,6 +430,12 @@
         position: relative !important;
     }
 }
+       
+     .signin-form input, select {
+         padding: 16px 40px 16px 10px !important;
+         border-radius: 30px !important;
+     }
+      
     /*avatar responsive*/
   </style>
 </asp:Content>
