@@ -4,6 +4,25 @@
     <link rel="stylesheet" href="../style2.css" />
     <title>T&C</title>
     <style>
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        h2{
+            color:#0331b5;
+        }
+        p {
+            font-size:16px;
+            margin: 20px 0;
+        }
+        ul {
+            list-style-type: disc;
+            margin: 20px;
+            padding-left: 40px;
+        }
+        ul li {
+            margin: 10px 0;
+        }
         .back-arrow-btn {
             position: absolute;
             left: 10%;
@@ -33,11 +52,12 @@
                 top: 0%;
             }
         }
-         @media (max-width:940px){
-             .footer{
-                 position:fixed;
-             }
-         }
+
+        @media (max-width:940px) {
+            .footer {
+                position: fixed;
+            }
+        }
 
         @media (min-width: 1600px) and (max-width: 1920px) {
             .footer {
@@ -114,389 +134,55 @@
         <img class="blue_trangle_top_right" src="../Terms & Conditions/blue-trangle2.png" alt="">
         <img class="plus_top_left" src="../Terms & Conditions/plus-1.png" alt="">
 
-        <a class="back-arrow-btn" href="javascript: history.go(-1)">
-            Back</a>
+        <a class="back-arrow-btn" href="javascript: history.go(-1)">Back</a>
 
         <div class="mt-5 mt-lg-0" style="height: 90%;">
             <div class="d-flex justify-content-center align-items-center h-100">
                 <div class="inner_div">
                     <div class="heading">
-                        <h1 class="fw-bolder">Terms And Conditions</h1>
+                        <h1 class="fw-bolder">Terms of Services</h1>
                     </div>
                     <div class="desciption">
-                        <div class="desc-heading">
-                            <h4 class="fw-bolder">1 . General Terms of Use</h4>
-                        </div>
-                        <div class="px-2">
-                            <ol>
-                                <li>
-                                    <p>Welcome to Hfiles. This Terms of Use Agreement (the “Agreement”) constitutes a valid and binding contract between you (the “user”) ., through its owner and operator of the site accessible through <a href="http://www.Hfiles.in">www.Hfiles.in</a> , with respect to its utilization.</p>
-                                </li>
+                        <p>The Terms of Services outlined in this document regulate the utilization of the online portal located at <a href="http://hfiles.in/">http://hfiles.in/</a> hereinafter referred to as the 'Site' which is owned developed and operated by HEALTH FILES MEDICO PRIVATE LIMITED. The Content on the Site including data text designs graphics articles blogs user interfaces images trademarks and code is the exclusive property of HEALTH FILES MEDICO PRIVATE LIMITED. By accessing or using the Site you are explicitly agreeing to abide by these Terms which may be revised periodically. It is assumed that you have the necessary authorization to accept these Terms on behalf of yourself a company or any other relevant entity. Failure to agree with any aspect of these Terms prohibits the use of the Site. This Agreement along with associated Terms and referenced documents constitutes the complete agreement between the user and <a href="http://hfiles.in/">http://hfiles.in/</a> and HEALTH FILES MEDICO PRIVATE LIMITED concerning the Site overriding any prior agreements whether written or oral regarding the use of <a href="http://hfiles.in/">http://hfiles.in/</a>.</p>
 
-                                <li>
-                                    <p>In these Terms of Use (hereinafter referred to as “Terms”), ‘we’, ‘us’ or ‘our’ is to be considered as a reference to . and ‘You’ and ‘your’ refers to any person and/or organization accessing or using this Website or the App.</p>
-                                </li>
+                        <h2>Description of Service</h2>
+                        <p>The website <a href="http://hfiles.in/">http://hfiles.in/</a> serves as an online platform designed for the storage and sharing of personal and family medical documents reports and records. Users are provided with a personal cloud space within their account to securely store these medical files medical records. Key functionalities of the website include document storage and accessibility from any location at any time. Access to <a href="http://hfiles.in/">http://hfiles.in/</a> is available to individuals who create an account using their mobile numbers or email addresses.</p>
 
-                                <li>
-                                    <p>The Website or the App and the products and services provided by Hfiles are subject to compliance with the terms of this Agreement.</p>
-                                </li>
+                        <h2>Ownership of Content and Licence</h2>
+                        <p>When user/ subscriber utilizing the website users are required to submit various types of information such as files documents certifications and medical records. By using the platform users authorize the storage of their documents and information in their <a href="http://hfiles.in/">http://hfiles.in/</a> account. Access to these documents is restricted unless explicitly shared with others. Users are granted a limited revocable non-exclusive non-sublicensable and non-transferable license to utilize the services provided by the website subject to compliance with the terms and conditions outlined. Any violation of these terms may lead to the termination of the user's account. Users retain intellectual property rights over the content they upload share or store on the platform. The website does not claim ownership of user content but requires legal permissions known as a license to utilize the content for hosting and backup purposes to enhance the products and services offered. This license ceases to exist once the user's content is removed from the site. Users are accountable for the content they share and the ensuing consequences. While the website does not actively screen content it reserves the right to reject or delete any content or account that is deemed unlawful offensive threatening violent defamatory pornographic or in violation of the website's terms of service privacy policy or the intellectual property rights of other users or parties.</p>
 
-                                <li>
-                                    <p>These Terms and the Privacy Policy, governs access to any part of the Website or the App.</p>
-                                </li>
+                        <h2>Account Security and Consent</h2>
+                        <p>In order to utilize the services provided by <a href="http://hfiles.in/">http://hfiles.in/</a> it is necessary to create an account. Users bear the responsibility of safeguarding the confidentiality of their account information such as passwords and are accountable for any actions conducted under their account due to negligence in maintaining the security of this information. When registering an account on <a href="http://hfiles.in/">http://hfiles.in/</a> individuals are required to provide their mobile number and email address.</p>
 
-                                <li>
-                                    <p>Your access to and/or use of this Website or the App shall be deemed to be an acceptance of these Terms and the Privacy Policy.</p>
-                                </li>
-                                <li>
-                                    <p>
-                                        These Terms may be revised and/or amended at any time, without any intimation/notice to you. Constant use of the Website or the App signifies your acceptance of the Terms in force at the time of its utilization.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Please read the Terms of the Agreement carefully, as by using the Agreement, you consent to the Terms of the Agreement which creates a binding contract between the user and Hfiles Pvt Ltd.
-                                    </p>
-                                </li>
-                                <p>
-                                    <strong>IF YOU DO NOT AGREE TO THE TERMS OF USE, YOU MAY NOT ACCESS OR USE THE SITE. Hfiles upholds the issue of privacy on the Internet very sincerely. Please visit to our Privacy Policy.
-                                    </strong>
-                                </p>
-                            </ol>
-                        </div>
-                        <div class="desc-heading">
-                            <h4 class="fw-bolder">2 . USE OF CONTENTS</h4>
-                        </div>
-                        <div class="px-2">
-                            <ol>
-                                <li>
-                                    <p>You may use the Website or the App for storage of medical data, healthcare consultation needs, gathering the necessary information and data sharing pertaining to medical records.</p>
-                                </li>
+                        <h2>Disclaimer</h2>
+                        <p>The website <a href="http://hfiles.in/">http://hfiles.in/</a> has been developed with a focus on ensuring high availability functionality testing and security auditing conducted by an authorized agency. However it does not guarantee that the Site its content services or features will be free of errors uninterrupted or completely secure. Additionally there is no assurance that any product service information or material obtained through the Site will meet user expectations achieve desired outcomes be compatible with other software or systems unless explicitly stated in the specifications. The Site and its content are provided on an 'as-is' and 'as-available' basis with all information subject to change without prior notice. The website explicitly disclaims all warranties whether express or implied including accuracy non-infringement merchantability and fitness for a specific purpose.</p>
 
-                                <li>
-                                    <p>The information provided on the Website or the App is discreetly in connection with the marketing efforts of Hfiles and is not to be used to seek similar opportunities from competitive suppliers or in competition with Hfiles.</p>
-                                </li>
+                        <h2>Limitation on Liability</h2>
+                        <p>It is explicitly acknowledged and agreed that under no circumstances will <a href="http://hfiles.in/">http://hfiles.in/</a> operated by HEALTH FILES MEDICO PRIVATE LIMITED be held liable for any costs losses or damages including but not limited to indirect consequential exemplary or incidental losses or damages or any expenses losses or damages whatsoever resulting from the utilization or inability to use data arising from or in relation to the use of <a href="http://hfiles.in/">http://hfiles.in/</a>.</p>
 
-                                <li>
-                                    <p>You shall access or use the Website or the App and/or its content only for the required purposes of medical records storage and consultation and shall not access or use the Website or the App and/or its content to provide information to any third party, who is directly or indirectly not related and/or allowed under the purposes of this Website or the App.</p>
-                                </li>
+                        <h2>Indemnity</h2>
+                        <p>In agreeing to the terms outlined by <a href="http://hfiles.in/">http://hfiles.in/</a> you are consenting to assume responsibility for defending indemnifying and absolving <a href="http://hfiles.in/">http://hfiles.in/</a> and its associated entities including its officers directors employees and agents from any claims damages obligations losses liabilities debts and expenses (inclusive of legal fees) that may arise from the following circumstances:</p>
+                        <ul>
+                            <li>Your utilization of and interaction with the Site and its services.</li>
+                            <li>Your breach of any provision within this Agreement.</li>
+                            <li>Your infringement upon any rights held by a third party encompassing but not limited to copyright property or privacy rights.</li>
+                            <li>Any assertions that your User Content has caused harm to a third party.</li>
+                        </ul>
 
-                                <li>
-                                    <p>If the Website or the App content is copied, downloaded and/or printed then all the copyright, trademark and other proprietary rights vests with Hfiles. However, for commercial use of any portion of the content on the Website or the App, you must obtain and secure prior written consent from the appropriate content provider.</p>
-                                </li>
+                        <h2>Limitation on Use</h2>
+                        <p>The platform located at <a href="http://hfiles.in/">http://hfiles.in/</a> is designated for personal use exclusively and should not be utilized for commercial purposes. Users are prohibited from engaging in activities such as decompiling reverse engineering renting leasing selling sublicensing copying modifying reproducing republishing distributing displaying or creating derivative works from the website. Additionally the use of network monitoring or discovery software to analyze the site's architecture or extract information regarding usage individual identities or users is strictly forbidden. Prior written consent is required from <a href="http://hfiles.in/">http://hfiles.in/</a> to employ any robot spider automatic software or device or manual process for monitoring or duplicating content from the website. Unauthorized utilization of <a href="http://hfiles.in/">http://hfiles.in/</a> is not allowed. The use of software tools (e.g. bots scraper tools) or other automatic devices to access monitor or duplicate website pages is prohibited unless explicitly authorized in writing by <a href="http://hfiles.in/">http://hfiles.in/</a>. Users are not permitted to exploit the Site or any Content for unlawful purposes or activities that contravene the Terms of Use or to solicit engagement in illegal activities or actions that violate the rights of <a href="http://hfiles.in/">http://hfiles.in/</a> or others.</p>
 
-                            </ol>
-                        </div>
-                        <div class="desc-heading">
-                            <h4 class="fw-bolder">3 . USE OF WEBSITE</h4>
-                        </div>
-                        <div class="px-2">
-                            <ol>
-                                <p>
-                                    You can use the Website or the App at the sole discretion of Hfiles, which may deny you the use of the Website or the App at any time, for any reason, with or without cause. Your use of the Website or the App and any services availed through this Website or the App does not entitle you to continued use of the Website or the App.
-                                </p>
-                                <p>
-                                    Your use of the Website or the App must always comply with applicable law of the land. In particular, but without limitation, you agree and represent not to use our Website or the App to –
-                                </p>
-                                <li>
-                                    <p>impersonate any person or entity or falsely state or otherwise misrepresent your affiliation with any person or entity;</p>
-                                </li>
+                        <h2>Right to Modify or Terminate</h2>
+                        <p>The website <a href="http://hfiles.in/">http://hfiles.in/</a> retains the authority to alter or cease the Service either temporarily or permanently at any given time with or without prior notification. The website <a href="http://hfiles.in/">http://hfiles.in/</a> also holds the discretion to suspend or end any user account and deny present or future access to the platform for any cause at any time. Consequently such termination could lead to the deactivation or removal of the account resulting in the loss of all content stored within it.</p>
 
-                                <li>
-                                    <p>interfere or attempt to interfere with the services provided on the Website or the App including, but not limited to, deliberate attempt to overload a service, ‘flooding’ of networks, attempt to 'crash' and/or take any action imposing an unreasonable or disproportionately large load on the services provided by us or the associated infrastructure;</p>
-                                </li>
+                        <h2>Translations</h2>
+                        <p>Translations available on the <a href="http://hfiles.in/">http://hfiles.in/</a> website are produced by third-party translators. While efforts have been made to ensure accuracy automated translations are not flawless and are not meant to replace human translation. These translations are offered as a convenience to users of the <a href="http://hfiles.in/">http://hfiles.in/</a> website and are provided on an "as is" basis. It should be noted that certain content such as images videos and Flash files may not be translated accurately. The website <a href="http://hfiles.in/">http://hfiles.in/</a> does not accept liability for any errors omissions or uncertainties in translations from English into other languages on the site. In case of any doubts regarding the accuracy of information in the translated version users are advised to consult the official English version of the website. Users are encouraged to contact the website administrators to report any translation errors or inaccuracies.</p>
 
-                                <li>
-                                    <p>use any kind of program/script/command or the Application, or send messages of any kind, designed to, in any manner interfering with any user’s terminal session;</p>
-                                </li>
+                        <h2>Miscellaneous</h2>
+                        <p>The website <a href="http://hfiles.in/">http://hfiles.in/</a> retains the authority to alter amend supplement or delete sections of the Terms of Use without prior written notification at its own discretion. Any modifications to these Terms will be promptly implemented and communicated by updating the website with the revised Terms and specifying the 'last updated date. Users are advised to regularly review the Terms of Use for any changes. By continuing to use the website after such revisions are posted users are deemed to have accepted the updated Terms.</p>
 
-                                <li>
-                                    <p>circumvent or attempt to circumvent, user authentication or security measures of any Internet or intranet Website or the App or any of the accounts of any other person using this Website or the App, including but not limited to, accessing data and/or information not intended for you, logging into an account where you are not expressly authorized to access or in a manner which is not authorized by us;</p>
-                                </li>
-                                <li>
-                                    <p>
-                                        upload, post, e-mail or otherwise transmit any content that is false, misleading, fabricated, unlawful, harmful, threatening, abusive, harassing, tortuous, defamatory, vulgar, obscene, libellous, invasive of another’s privacy, hateful, or racially, ethnically or otherwise objectionable, shared through the Website or the App;
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        upload, post, e-mail or otherwise transmit any content that infringes any patent, trademark, trade secret, copyright, confidential information or other proprietary rights of any party, shared through the Website or the App; and
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        upload, post, e-mail or otherwise transmit any material that contains software viruses or any other computer code, files or programs designed to interrupt, destroy or limit the functionality of any computer software, network, hardware or telecommunications equipment.
-                                    </p>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="desc-heading">
-                            <h4 class="fw-bolder">4 . USER SUBMISSIONS</h4>
-                        </div>
-                        <div class="px-2">
-                            <ol>
-                                <li>
-                                    <p>
-                                        Any voluntary submissions of the information, communications or content (including pictures and anecdotes) to the Website or the App, will be binding.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        The voluntary submissions of the information and health records by you shall not be subject to any verification by Hfiles and Hfiles will be acting as a storage facilitator only, with regards to which Hfiles will be providing consulting services to the you.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        You also agree that, such submissions become the property of Hfiles and that all rights, titles and interest therein, including all rights of copyright, shall rest with Hfiles, as and when they are submitted and/or posted.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Such submissions are subject to being used, reproduced, modified, published, edited, translated, distributed, performed and displayed in any media or medium, or any form, format or forum now known or hereafter developed, for any purpose, in perpetuity without any notice.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Hfiles does not actively scrutinize the content uploaded by the users on the Website or the App but reserves the right to remove any content uploaded at its sole discretion and without any prior notice.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Hfiles may use the data submitted by you after due anonymization for running Artificial Intelligence (AI) algorithms in order to provide predictive and preventive health analysis or notify the users regarding the same. By agreeing to these Terms herein, you allow and provide consent to Hfiles for using your anonymized data.
-                                    </p>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="desc-heading">
-                            <h4 class="fw-bolder">5 . LINKS TO OTHER WEBSITES</h4>
-                        </div>
-                        <div class="px-2">
-                            <ol>
-                                <li>
-                                    <p>
-                                        Our Website or the App may contain links to third party websites that are not under the control of Hfiles. Please note that Hfiles is not responsible for the accuracy or content of third-party websites which are linked to this Website or the App. Accordingly, Anahat Solutions makes neither any delineation pertaining to the terms of use, privacy policies or content of these Websites.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        In creating hypertext links to another website, Hfiles is not recommending that website or giving any assurances as to its standing. Hfiles is providing such link only as a convenience to you. The inclusion of these links is not intended to reflect their importance, nor is it intended to endorse any views expressed, or products or services offered on these third-party sites, or the organizations sponsoring and/or supporting such sites.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Please note that Hfiles makes no representations or warranties, explicit or implied, regarding the performance of the links, the performance of the third-party sites or the content of the third-party sites. If you decide to access linked third-party websites, you may do so at your own risk.
-                                    </p>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="desc-heading">
-                            <h4 class="fw-bolder">6 . PRIVACY</h4>
-                        </div>
-                        <div class="px-2">
-                            <ol>
-                                <li>
-                                    <p>
-                                        Hfiles considers your use of Hfiles to be private. However, Hfiles may access or disclose information about you, your account and/or any content pertaining to your communications, in order to comply with the law or legal proceedings or protect the rights and safety of Hfiles, Hfiles, their employees, customers or the public. You hereby provide consent to the access and disclosures outlined herein.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        In order to provide the services through Hfiles, we use appropriate available technology to protect the security of communication made through the Website or the App. However, we do not accept liability for the security, authenticity, integrity or confidentiality of any transactions and other communications made through this Website or the App.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Further, Internet communications may be susceptible to interference or interception by third parties. However, despite the best efforts, we make no warranties that the Website or the App is free from infection of any virus or other unauthorized software.
-                                    </p>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="desc-heading">
-                            <h4 class="fw-bolder">7 . DISCLAIMER OF WARRANTIES</h4>
-                        </div>
-                        <div class="px-2">
-                            <ol>
-                                <p>
-                                    <strong>You expressly understand and agree that:</strong>
-                                </p>
-                                <li>
-                                    <p>
-                                        Your use of the Website or the App is at your sole risk. The Website or the App is provided on an “as is” and “as available” basis. Hfiles expressly disclaims “any” and “all” warranties of any kind, whether expressed or implied, including, but not limited to the implied warranties of fitness for a particular purpose, merchantability, non-infringement, quality, performance, non-interference with information, and accuracy of informational content.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Hfiles makes no warranty that your use of the site or the App will be uninterrupted, timely, secure, or error-free, the results that may be obtained from the use of the site or the App will be accurate or reliable or the quality of any services or information, obtained by you through the site or the App will meet your expectations. You understand and acknowledge that it is your responsibility to implement sufficient procedures and virus checks to satisfy your requirements for the accuracy of data.
-
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Any material downloaded or otherwise obtained through the use of the Website or the App is at your own discretion and risk and you will be solely responsible for any and all kinds of damage to your computer system or laptop or phone or tablet or loss of data that may result from the download of any such material.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        No information, whether oral or written, obtained by you from Hfiles or through this Website or the App shall create any warranty unless expressly stated in this agreement.
-                                    </p>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="desc-heading">
-                            <h4 class="fw-bolder">8 . LIMITATION AND EXCLUSION OF LIABILITY</h4>
-                        </div>
-                        <div class="px-2">
-                            <ol>
-                                <p>
-                                    <strong>You expressly understand and agree that:
-                                    </strong>
-                                </p>
-                                <li>
-                                    <p>
-                                        You expressly understand and agree that none of Hfiles and its directors, officers, employees, agents and affiliates shall be liable for any direct, indirect, incidental, special, conse damages, including but not limited to any omissions, interruptions, deletion of files, viruses, errors, defects, or any failure of performance, communications failure, theft, destruction or unauthorized access resulting from –
-                                    </p>
-                                    <ul>
-                                        <li>
-                                            <p>The use of or the inability to use the Website or the App;</p>
-                                        </li>
-                                        <li>
-                                            <p>Unauthorized access to or alteration of your transmissions or data;</p>
-                                        </li>
-                                        <li>
-                                            <p>Statements or conduct of any third party on the Website or the App;</p>
-                                        </li>
-                                        <li>
-                                            <p>Any other matter incidental to the Website or the App.</p>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <li>
-                                    <p>
-                                        If you are discontented with the use of this Website or the App, or any of the information contained thereon, or refuse to abide by this agreement, then the sole and exclusive remedy for you is to discontinue the use of this Website or the App;
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Notwithstanding, the aforesaid conditions, the liability of Hfiles with its directors, officers, employees, agents and affiliates to you shall be limited in all instances to the sum of payments made for medical records storage or consultation services availed through this Websiteor the App.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        You also agree not to join in any lawsuit and/or litigation with another person or serve as a class representative of any class action lawsuit against Hfiles and/or any of its directors, officers, employees, agents and affiliates arising out of the use of this Website or the App.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Further, none of Hfiles and its directors, officers, employees, agents and affiliates should be held liable for any representations or warranties set forth on third party sites in relation to the information provided on this Website or the App.
-                                    </p>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="desc-heading">
-                            <h4 class="fw-bolder">9 .INTELLECTUAL PROPERTY RIGHTS</h4>
-                        </div>
-                        <div class="px-2">
-                            <ol>
-                                <p>
-                                    This Website or the App is protected by copyright, trademark, trade dress and other intellectual property rights.
-                                </p>
-                                <li>
-                                    <p>
-                                        Hfiles grants you a categorical, personal, revocable, non-transferable, non-exclusive, and limited right and license to use the object code of the Website on a single computer/laptop or phone or tablet. Provided that, you do not (and do not allow any third party to) copy, modify, create any derivative work from, reverse engineer, reverse assemble or otherwise attempt to discover any source code, sell, assign, sublicense, grant a security interest in or otherwise transfer any right in the software for the Website or the App.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Further, all logos, trademarks, service marks, labels, product names and service names used on the Website or the App (collectively, the “Marks”) are owned or licensed by Hfiles and/or its affiliates.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Furthermore, you agree not to copy, display or otherwise use any of the Marks without the consent and/or written permission of Hfiles. Notwithstanding the foregoing, the Marks may not be used in any manner likely to cause confusion, disparagement or dilution of the Marks and/or in connection with any product or service that is not authorized or sponsored by Hfiles.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        The entire Website or the App, and all object code and source code, text, graphics, multimedia content, including but not limited to images, illustrations, audio and video clips, HTML and other markup languages, and all scripts within the site or the App associated therewith, are copyrighted by Hfiles.
-                                    </p>
-                                </li>
-                                <p><strong>Hfiles reserves all its rights thereto.</strong></p>
-                            </ol>
-                        </div>
-                        <div class="desc-heading">
-                            <h4 class="fw-bolder">10 .INDEMNIFICATION</h4>
-                        </div>
-                        <div class="px-2">
-                            <ol>
-                                <p>
-                                    <strong>You agree to defend, indemnify and hold harmless Hfiles Pvt Ltd and its directors, officers, employees, agents and affiliates from and against any and all claims, damages, costs, and expenses, (including without limitation reasonable legal and other fees and costs) incurred or suffered by us, in relation to any and/or all claims, actions or demands, arising from or related to your use of the site or the App, the materials it contains, and any sites linked to this Website.
-                                    </strong>
-                                </p>
-                            </ol>
-                        </div>
-                        <div class="desc-heading">
-                            <h4 class="fw-bolder">11 .MODIFICATION</h4>
-                        </div>
-                        <div class="px-2">
-                            <ol>
-                                <p>
-                                    <strong>Hfiles may update, revise, supplement, modify or amend this Agreement at any time and the updates, revisions, supplements, modifications or amendments shall be effective immediately upon posting on the Website or the App.
-                                    </strong>
-                                </p>
-                                <li>
-                                    <p>
-                                        You also agree that you will be bound by this Agreement, however, and whenever it is updated, revised, supplemented, modified, or amended, whether you have actual or constructive notice thereof, and without regard to, whether or not, you have used or continue to use the Website after such updates, revisions, supplements, modifications or amendments.
-                                    </p>
-                                </li>
-
-                            </ol>
-                        </div>
-                        <div class="desc-heading">
-                            <h4 class="fw-bolder">12 .ENTIRE AGREEMENT</h4>
-                        </div>
-                        <div class="px-2">
-                            <ol>
-                                <p>
-                                    <strong>This Agreement constitutes the entire agreement between you and Hfiles with respect to your use of the Website or the App. There are no other representations, warranties, terms, agreements or conditions, either written or oral, with respect to your use of the Website or the App except as set forth in this Agreement.
-                                    </strong>
-                                </p>
-                            </ol>
-                        </div>
-                        <div class="desc-heading">
-                            <h4 class="fw-bolder">13 .SEVERABILITY</h4>
-                        </div>
-                        <div class="px-2">
-                            <ol>
-                                <p>
-                                    <strong>If any provision of this Agreement is deemed unlawful, void, voidable or unenforceable for any reason, then that provision shall be deemed severable from this Agreement and shall not affect the validity or enforceability of any remaining provisions.
-                                    </strong>
-                                </p>
-                            </ol>
-                        </div>
-                        <div class="desc-heading">
-                            <h4 class="fw-bolder">14 .GOVERNING LAW AND JURISDICTION</h4>
-                        </div>
-                        <div class="px-2">
-                            <ol>
-                                <p>
-                                    <strong>All Terms and disputes arising out of or in connection with these Terms shall be governed by the laws of India without regard to any conflict of law provisions. You hereby consent and submit to the non-exclusive jurisdiction of the Courts of Ahmedabad.
-                                    </strong>
-                                </p>
-                            </ol>
-                        </div>
-                        <div class="desc-heading">
-                            <h4 class="fw-bolder">15 .TERMINATION</h4>
-                        </div>
-                        <div class="px-2">
-                            <ol>
-                                <p>
-                                    <strong>We may terminate your right to use this Website or the App, with or without cause at any time in our sole discretion, including, without limitation if you violate terms of this Agreement, fail to provide accurate registration data and lack to use the Website or the App. However, all representations, warranties, indemnifications, and promises made by you shall survive such termination.
-                                    </strong>
-                                </p>
-                            </ol>
-                        </div>
-
+                        <h2>Jurisdiction</h2>
+                        <p>These Terms will be regulated by and interpreted in accordance with Indian law. Any disagreement arising from these Terms will be subject to the exclusive jurisdiction of the courts situated in Mumbai Maharashtra.</p>
                     </div>
                     <%--<div class="agree">
                         <input id="agree" type="checkbox">

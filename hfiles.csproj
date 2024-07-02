@@ -763,6 +763,7 @@
     <Content Include="My Data\Asset 8.png" />
     <Content Include="My Data\Asset 9.png" />
     <Content Include="My Data\default-user-profile.png" />
+    <Content Include="copyright.aspx" />
     <Content Include="Policy.aspx" />
     <Content Include="privacypolicy.aspx" />
     <Content Include="Reception Page\002A.jpg" />
@@ -1035,6 +1036,13 @@
     </Compile>
     <Compile Include="MemberSignup.aspx.designer.cs">
       <DependentUpon>MemberSignup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="copyright.aspx.cs">
+      <DependentUpon>copyright.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="copyright.aspx.designer.cs">
+      <DependentUpon>copyright.aspx</DependentUpon>
     </Compile>
     <Compile Include="Policy.aspx.cs">
       <DependentUpon>Policy.aspx</DependentUpon>

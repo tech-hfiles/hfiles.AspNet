@@ -161,14 +161,14 @@
 
     <div class="row footer justify-content-around align-items-center m-0">
     <div class="col-4 t-c d-xl-flex justify-content-center text-center">
-        <p class="m-0"><a href="TermsAndConditions.aspx">Terms & Conditions</a></p>
+        <p class="m-0"><a href="tc.aspx">Terms & Conditions</a></p>
         <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
         <p class="m-0"><a href="privacypolicy.aspx">Privacy & Policy</a></p>
     </div>
     <div class="col-4 copy-right text-center p-0 d-xl-flex text-center justify-content-center">
         <p class="m-0"><a href="/FAQ.aspx" class="text-white">FAQ's</a></p>
         <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
-        <p class="m-0"><a class="text-white">Copyright@2024</a></p>
+        <p class="m-0"><a class="text-white" href="copyright.aspx">Copyright@2024</a></p>
     </div>
 
     <div class="col-4 p-p d-xl-flex text-center justify-content-center">

@@ -135,7 +135,7 @@ p, a, span, li button {
             }
 
             .privacy_main .inner_div .desciption ol li p {
-                font-weight: 600;
+                font-weight: 500;
             }
 
         .privacy_main .inner_div .heading {
@@ -1797,7 +1797,7 @@ ul.dropdown-menu.show {
     }
 
     .privacy_main .inner_div .desciption ol li p {
-        font-size: 10px;
+        font-size: 16px;
     }
 
     .privacy_main .inner_div .desciption {

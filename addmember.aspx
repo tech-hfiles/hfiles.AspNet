@@ -241,11 +241,12 @@
       text-align:center !important;
 
     }
-    /*::-webkit-keygen-select .form-select{
+    ::-webkit-keygen-select .form-select{
       text-align:center !important;
+        justify-content:center !important;
       
     }
-    keygen::-webkit-keygen-select{*/
+    /*keygen::-webkit-keygen-select{*/
     /* Your styles here }*/
     
   </style>
