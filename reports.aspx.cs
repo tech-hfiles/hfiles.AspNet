@@ -416,7 +416,6 @@ namespace hfiles
         {
             int RId = DAL.validateInt(Request.QueryString["rid"]);
             LinkButton lbtnimg = (LinkButton)(sender);
-
             string commandArgument = lbtnimg.CommandArgument;
             //string[] values = commandArgument.Split('|');
 
@@ -649,11 +648,12 @@ namespace hfiles
             {
                 ddlMembers2.Visible = true;
             }
+            ddlMembers2.ClearSelection();
             lblNoMember.Text = string.Empty;
             LinkButton lnk = sender as LinkButton;
             int reportId = Convert.ToInt16(lnk.CommandArgument);
             Session["ReportUniqueId"] = reportId;
-            ddlMembers2.ClearSelection();
+            
             mp1.Show();
 
             RId = DAL.validateInt(Request.QueryString["rid"]);

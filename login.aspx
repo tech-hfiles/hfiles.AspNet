@@ -24,14 +24,12 @@
         .body {
             margin: 0;
             height: auto;
-            /*            overflow:hidden;
-*/ max-width: 100%;
+            /*overflow:hidden;*/ 
+            max-width: 100%;
         }
-
         .container-fluid {
             
         }
-
         .container {
             margin: 0 !important;
             width: 100%;
@@ -178,6 +176,15 @@
     <style>
         #toast-container > .toast-success {
             background-color: #fdd001;
+            opacity:2;
+            color:#0331b5;
+            font-weight:600;
+        }
+       
+        @media(max-width:640px){
+            #toast-container>.toast-success{
+                font-size:14px;
+            }
         }
         /*.toast-message {
             background-color: #0331b5;
@@ -300,7 +307,7 @@
             positionClass: 'toast-top-right',
             "showDuration": "3000",
             "hideDuration": "1000",
-            "timeOut": "5000",
+            "timeOut": "500000",
             "extendedTimeOut": "1000",
             "showEasing": "swing",
             "hideEasing": "linear",
@@ -308,7 +315,7 @@
             "hideMethod": "fadeOut"
 
         };
-        //toastr.success("MacIds added successfully.");
+     //   toastr.success("MacIds added successfully.");
 
         function isNumberKey(evt) {
             var charCode = (evt.which) ? evt.which : evt.keyCode
