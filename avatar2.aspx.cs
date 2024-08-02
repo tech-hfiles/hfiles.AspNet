@@ -790,6 +790,8 @@ namespace hfiles
                         double TotalAllotStorage = DAL.validateDouble_(ConfigurationManager.AppSettings["StorageLimit"].ToString());
                         storageused.InnerText = (usedStorage).ToString() + " MB Storage Used ";
                         storageleft.InnerText = (Math.Round(TotalAllotStorage - usedStorage, 2)).ToString() + " of " + TotalAllotStorage.ToString() + " MB Left";
+                        storageusedm.InnerText = (usedStorage).ToString() + " MB Storage Used ";
+                        storageleftm.InnerText = (Math.Round(TotalAllotStorage - usedStorage, 2)).ToString() + " of " + TotalAllotStorage.ToString() + " MB Left";
                         if (usedStorage >= TotalAllotStorage)
                         {
                             //btnSubmit.Enabled = false;
