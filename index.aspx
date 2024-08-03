@@ -569,78 +569,13 @@
                     <div class="elementor-widget-wrap elementor-element-populated">
                         <div class="elementor-element elementor-element-809e9bd animated-fast elementor-invisible elementor-widget elementor-widget-text-editor" data-id="809e9bd" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="text-editor.default">
                             <div class="elementor-widget-container">
-                                <style>
-                                    /*! elementor - v3.21.0 - 25-04-2024 */
-                                    .elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap {
-                                        background-color: #69727d;
-                                        color: #fff
-                                    }
-
-                                    .elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap {
-                                        color: #69727d;
-                                        border: 3px solid;
-                                        background-color: transparent
-                                    }
-
-                                    .elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap {
-                                        margin-top: 8px
-                                    }
-
-                                    .elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter {
-                                        width: 1em;
-                                        height: 1em
-                                    }
-
-                                    .elementor-widget-text-editor .elementor-drop-cap {
-                                        float: left;
-                                        text-align: center;
-                                        line-height: 1;
-                                        font-size: 50px
-                                    }
-
-                                    .elementor-widget-text-editor .elementor-drop-cap-letter {
-                                        display: inline-block
-                                    }
-                                </style>
+                               
                                 Create your social health care network					
                             </div>
                         </div>
                         <div class="elementor-element elementor-element-3a624f7b e-transform elementor-widget__width-initial animated-fast elementor-widget-mobile__width-initial elementor-invisible elementor-widget elementor-widget-heading" data-id="3a624f7b" data-element_type="widget" data-settings="{&quot;_transform_scale_effect&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:1.3000000000000000444089209850062616169452667236328125,&quot;sizes&quot;:[]},&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200,&quot;_transform_scale_effect_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;_transform_scale_effect_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="heading.default">
                             <div class="elementor-widget-container">
-                                <style>
-                                    /*! elementor - v3.21.0 - 25-04-2024 */
-                                    .elementor-heading-title {
-                                        padding: 0;
-                                        margin: 0;
-                                        line-height: 1
-                                    }
-
-                                    .elementor-widget-heading .elementor-heading-title[class*=elementor-size-] > a {
-                                        color: inherit;
-                                        font-size: inherit;
-                                        line-height: inherit
-                                    }
-
-                                    .elementor-widget-heading .elementor-heading-title.elementor-size-small {
-                                        font-size: 15px
-                                    }
-
-                                    .elementor-widget-heading .elementor-heading-title.elementor-size-medium {
-                                        font-size: 19px
-                                    }
-
-                                    .elementor-widget-heading .elementor-heading-title.elementor-size-large {
-                                        font-size: 29px
-                                    }
-
-                                    .elementor-widget-heading .elementor-heading-title.elementor-size-xl {
-                                        font-size: 39px
-                                    }
-
-                                    .elementor-widget-heading .elementor-heading-title.elementor-size-xxl {
-                                        font-size: 59px
-                                    }
-                                </style>
+                               
                                 <h1 class="elementor-heading-title elementor-size-default">Get Smart With Your Health</h1>
                             </div>
                         </div>
@@ -720,7 +655,7 @@
                                     <div class="elementor-widget-wrap elementor-element-populated">
                                         <div class="elementor-element elementor-element-7b119aa animated-fast elementor-invisible elementor-widget elementor-widget-image" data-id="7b119aa" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:300}" data-widget_type="image.default">
                                             <div class="elementor-widget-container">
-                                                <img decoding="async" width="108" height="109" src="https://hfiles.in/wp-content/uploads/2023/03/ayushman-icon.svg" class="attachment-full size-full wp-image-744" alt="Ayushman Bharat" />
+                                                <img decoding="async" width="108" height="109" src="~/wp-content/uploads/2023/03/ayushman-icon.svg" class="attachment-full size-full wp-image-744" alt="Ayushman Bharat" />
                                             </div>
                                         </div>
                                     </div>
@@ -729,7 +664,7 @@
                                     <div class="elementor-widget-wrap elementor-element-populated">
                                         <div class="elementor-element elementor-element-75f29ae animated-fast elementor-invisible elementor-widget elementor-widget-image" data-id="75f29ae" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:400}" data-widget_type="image.default">
                                             <div class="elementor-widget-container">
-                                                <img loading="lazy" decoding="async" width="107" height="108" src="https://hfiles.in/wp-content/uploads/2023/03/secure-icon.svg" class="attachment-full size-full wp-image-745" alt="Secure Storage Assured" />
+                                                <img loading="lazy" decoding="async" width="107" height="108" src="~/wp-content/uploads/2023/03/secure-icon.svg" class="attachment-full size-full wp-image-745" alt="Secure Storage Assured" />
                                             </div>
                                         </div>
                                     </div>

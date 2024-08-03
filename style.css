@@ -1182,6 +1182,7 @@ span.img-notselected {
     border-radius: 10px;
     cursor: pointer;
     border: 1px solid #ccc;
+    object-fit:cover;
 }
 
 .journal .blog-div .blog-cards .card-name img {

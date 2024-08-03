@@ -75,13 +75,17 @@
             margin: 0 0 0 0 !important;
         }
 
-        @media (max-width: 1400px) {
-            .member-type-tabs {
-                font-size: smaller;
-            }
+    @media (max-width: 1400px) {
+      .member-type-tabs {
+        font-size: smaller;
+      }
+    }
+      @media (max-width: 780px) {
+        .member-type-tabs{
+            padding:5px 5px;
         }
-
-        @media (max-width: 480px) {
+      }
+    @media (max-width: 480px) {
 
             .phoneTextBox-input svg {
                 right: 5px;
