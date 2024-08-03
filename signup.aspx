@@ -27,12 +27,13 @@
 
     <title>Sign Up</title>
     <style>
-        .signin-form{
-           /* margin-bottom:50px;*/
+        .signin-form {
+            /* margin-bottom:50px;*/
         }
-        .signin-form input::placeholder {
-            color: black !important;
-        }
+
+            .signin-form input::placeholder {
+                color: black !important;
+            }
 
         .input-div input[type='date'] {
             color: #000 !important;
@@ -61,6 +62,17 @@
             position:relative;*/
         }
 
+        @media (min-width: 730px) {
+            html, body {
+                overflow: hidden !important;
+            }
+
+            .signup-right {
+                height: 90vh !important;
+                overflow: hidden !important;
+            }
+        }
+
         @media (max-width: 992px) {
 
             .footer {
@@ -81,11 +93,11 @@
 
         @media(max-width:540px) {
             .footer {
-
                 position: fixed;
             }
-            .div-for-otp{
-                margin-bottom:100px;
+
+            .div-for-otp {
+                margin-bottom: 100px;
             }
 
             .signin-main .vert-cent {
@@ -163,6 +175,15 @@
     <style>
         #toast-container > .toast-success {
             background-color: #fdd001;
+            opacity: 2;
+            color: #0331b5;
+            font-weight: 600;
+        }
+
+        @media(max-width:640px) {
+            #toast-container > .toast-success {
+                font-size: 14px;
+            }
         }
         /*.toast-message {
          background-color: #0331b5;
@@ -227,9 +248,9 @@
 
                             <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
                                 <i class="fa-solid fa-cake-candles form-control-feedback"></i>
-                                <asp:TextBox runat="server" placeholder="yyyy-mm-dd" ID="txtDate" required onkeypress="return false" AutoComplete="Off" class="form-control my-2"/>
-                                <ajaxToolkit:CalendarExtender  ID="dateajax" runat="server" Format="yyyy-MM-dd" Enabled="true" TargetControlID="txtDate" />
-                                <input runat="server" id="dobTextBox1" style="display: none;visibility:hidden;" type="date" class="form-control my-2" value="2024-01-01" required />
+                                <asp:TextBox runat="server" placeholder="yyyy-mm-dd" ID="txtDate" required onkeypress="return false" AutoComplete="Off" class="form-control my-2" />
+                                <ajaxToolkit:CalendarExtender ID="dateajax" runat="server" Format="yyyy-MM-dd" Enabled="true" TargetControlID="txtDate" />
+                                <input runat="server" id="dobTextBox1" style="display: none; visibility: hidden;" type="date" class="form-control my-2" value="2024-01-01" required />
                             </div>
 
                             <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
@@ -432,7 +453,7 @@
             }, 'google_translate_element');
         }
     </script>
-   <%-- <script>
+    <%-- <script>
       function disableKeyboardInputForDateField() {
     const dateInput = document.getElementById('date-input');
 
@@ -444,7 +465,5 @@
   // Call the function to disable keyboard input on the date field
   disableKeyboardInputForDateField();
 </script>--%>
-
-
 </body>
 </html>
