@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Burden of Expectations & Its Impact on Young Minds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -37,18 +43,36 @@
             padding-left: 20px;
         }
 
+        .card-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc; /* Optional: to add a border around the card */
+            border-radius: 10px; /* Optional: to add rounded corners to the card */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: to add a shadow to the card */
+            max-width: 300px; /* Optional: to limit the width of the card */
+            margin: 0 auto; /* Center the card horizontally */
+        }
+
         /* Fake image */
         .fakeimg {
             background-color: #aaa;
-            background-image: url();
+            background-image: none;
             background-repeat: no-repeat;
-            border-radius: 50px;
-            width: 30%;
-            padding: 20px;
+            border-radius: 99%;
+            width: 50%;
+            margin: 0 auto;
+            padding: 0;
+            height: 100%;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
         }
 
         .fakeimg_banner {
-            background-image: url(../journal-page-images/article/dog-nut.jpg);
+            background-image: url(../journal-page-images/article/dog-parent.jpg);
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
@@ -62,8 +86,8 @@
             margin-block-end: 1em;
             margin-inline-start: 0px;
             margin-inline-end: 0px;
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 22px !important;
+            font-family: 'Mukta', Sans serif;
+            font-size: 20px !important;
         }
 
 
@@ -104,185 +128,77 @@
 <body>
 
     <!--<div class="header">
-    <h2>Article - Mental Health</h2>
-  </div>-->
+      <h2>Article - Mental Health</h2>
+    </div>-->
 
     <div class="row">
         <div class="leftcolumn">
             <div class="card">
-                <h1>Supplementing Dogs Diet</h1>
-                <h5>Published on: Aug 8, 2023 | Readtime: 2 min</h5>
+                <h1>Nutrition, grooming and training-quick tips for first time dog parents!</h1>
+                <h5>Published on: Aug 8, 2023 | Readtime: 3 min</h5>
                 <div class="fakeimg_banner" style="height:300px;"></div>
                 <p>
-                    There seems to be such a buzz about Supplements in the pet industry these days. Some are touted to
-                    relieve achy
-                    joints while some promise to make your pooch&apos;s coat shinier. Unfortunately, supplements cannot be
-                    standardised. The key before adding anything to your pet&apos;s diet is to see what is already present in
-                    the diet and
-                    then supplement accordingly.
+                    Through rose-tinted glasses, adopting a puppy seems like a magical experience, filled with cuddles, licks,and wagging tails. However, in reality the work that comes with it can be daunting and overwhelming!
                 </p>
                 <p>
-                    Store-bought commercial pet food often requires no supplementation as it contains a synthetic
-                    vitamin and
-                    mineral mix. However, adding some species appropriate fresh foods to your pet&apos;s bowl like steamed
-                    meat and
-                    fish, eggs, steamed veggie and fruits can up the nutritional quotient of your pet&apos;s food. If you
-                    have chosen to
-                    feed freshly cooked meals to your pet, we recommend that you work with a <a href="#"> certified pet nutritionist</a>
-                    or a vet to
-                    ensure the meals are balanced and in the right proportion for your pet.
+                    Yes, the puppy you saw is cute, but it isn't going to stay that size forever. It's going to probably create a mess for the first few months, eat your favorite pair of shoes, and keep you up at night. This being said, rest assured that this is probably the best decision you will ever make! Dogs are the best stress-busters, love you unconditionally, are loyal till the very end, and will steal your heart.
                 </p>
-                <h3>For a healthy dog, we have listed the following natural essential supplements*:</h3>
-                <ul>
-                    <li>
-                        <a href="#">Bone Meal</a> and <a
-                            href="#">Egg Shell Powder</a> are a natural
-                        source of calcium. Calcium is the most abundant
-                        mineral found in
-                        animals and dogs that are deficient in calcium can develop weak bones. Supplementing a home
-                        cooked diet with
-                        calcium is absolutely necessary. For an adult dog we suggest that you rotate between Bone Meal
-                        and Egg Shell
-                        Powder. For a puppy, only Bone Meal Powder should be incorporated. The recommend dosage is 1 tsp
-                        per 500
-                        grams of food fed.
-                    </li>
-                    <br>
-                    <li>
-                        Kelp and Seaweed, both found in supplements like <a href="#">Plaque Off by ProDen</a> and <a href="#">
-                            Green Glory by Magic
-                            Paws
-                        </a>, are
-                        excellent sources of Iodine. Iodine supports your dog&apos;s metabolism and helps them produce
-                        thyroid hormones. When
-                        iodine levels are too low, weight, energy, and mood imbalances are common. Unless one feeds the
-                        thyroid glands of
-                        prey to their dogs, feeding fresh may fall short of iodine. Please note that excess consumption
-                        of iodine can suppress
-                        the thyroid gland and cause complications, always ensure supplementation is happening in the
-                        correct dose. Ideal
-                        iodine requirements, as per NRC guidelines, are 220 mcg for a dog eating 1000 Kcal a day.
-                    </li>
-                    <br>
-                    <li>
-                        Omega 3 Fatty Acids are essential fatty acids known for its anti-inflammatory benefits. Sources
-                        of Omega 3 can
-                        be plant based, such as <a href="#">
-                            Hemp Hearts by
-                            Happy Puppy Organics
-                        </a> or <a href="#">
-                            Hemp
-                            Seed Oil
-                        </a>. Marine
-                        Animal-based
-                        supplements, such as the <a href="#">
-                            Anchovy Topper
-                            by Nutriwoof
-                        </a> , <a href="#">
-                            Fish Ferky by
-                            Doggie Dabbas
-                        </a>, or Fish Oil,
-                        are also an
-                        incredible source of Omega 3 Fatty Acids. EPA & DHA found in Omega-3 fatty acid, have been found
-                        to aid in the
-                        proper brain and eye development of puppies and also improve cognitive function in older dogs
-                        dealing with canine
-                        cognitive dysfunction. Adding some source of Omega 3 Fatty Acids into your pet&apos;s bowl can do
-                        wonders!
-                    </li>
-                    <br>
-                    <li>
-                        <a href="#">Cold Pressed Coconut Oil</a> is an
-                        excellent source of Medium Chain Tryglicerides. This supplement
-                        is not only
-                        great for the skin and coat, but also has shown to be beneficial with cognitive recognition in
-                        both young and senior
-                        dogs and has helped reduce the incidence of seizures in epileptic dogs. We recommend 1 tsp of
-                        coconut oil per 5 kgs
-                        of body weight. You can start with ¼ of this amount and work up to the recommended dosage. If
-                        your dog gets loose
-                        motions from coconut oil, just cut back the dose.
-                    </li>
-                    <br>
-                    <li>
-                        The <a href="#"> Superfood Supplement</a> and <a href="#">Oil Supplement</a> by Nutriwoof are both
-                        sources of Vitamin E – a
-                        powerful
-                        antioxidant. Adding them to your pet&apos;s meals is an easy way of supplementing your pet&apos;s diet
-                        with small doses of
-                        Vitamin E. This fat-soluble vitamin helps boost immunity, fight against free radical damage and
-                        help prevent ageing and cancer. Natural sources of vitamin E include cold-pressed vegetable
-                        oils, nuts, seeds, green leafy vegetables,
-                        eggs, and most fish and meats like beef, turkey leg and chicken breast.
-                    </li>
-                    <br>
-                    <li>
-                        <a href="#">Nutriwoof&apos;s Superfood Supplement</a> is also a great source of zinc. Zinc is
-                        important for
-                        immunity, wound healing
-                        and skin and coat health. While oysters are a great source of zinc, other sources include beef,
-                        beef liver, lamb, turkey
-                        thigh, and chicken thigh. Zinc can also be supplemented through pumpkin and sunflower seeds.
-                        These are generally
-                        needed in very small amounts daily
-                    </li>
-                    <br>
-                    <li>
-                        <a href="#">Goat Milk Powder by Magic Paws</a> and <a href="#">Green Tripe by Nutriwoof</a>
-                        contain Probiotics and Digestive
-                        Enzymes.
-                        Supplementing your dog&apos;s diet with probiotics helps build good gut bacteria, and reduces the
-                        incidence of digestive
-                        upset and allergies. A healthy gut translates into good immunity for humans and their dogs
-                        alike. Other sources of
-                        the same include curd and kefir. We recommend that you start slow when introducing these
-                        ingredients for the first
-                        time to ensure these are tolerated well by your pet.
-                    </li>
-                </ul>
-                <h3>* Disclaimer:</h3>
                 <p>
-                    Our recommendations are based on general supplementation required through whole food sources for
-                    dogs on a home-cooked diet. Every dog is an individual and recipes may differ. If in doubt do
-                    consult a certified pet
-                    nutritionist or veterinarian to ensure you are dosing everything correctly and to avoid
-                    over-supplementation which in
-                    some cases can have detrimental effects on your pet.
+                    So, let's help you break down the must-knows of puppyhood.
+                </p>
+                <h3>Diet</h3>
+                <p>
+                    Just like humans, each dog is different. Ensure you don't separate the pup from its mother too early – as it is a crucial phase where the pup's immunity gets built up having mothers' milk and also early socialization with littermates and corrections from the mother.
+                </p>
+                <p>
+                    At 8 weeks, once you get your puppy home, you have the choice of either feeding a puppy starter food or fresh food. If choosing to feed fresh we strongly recommend you consult a certified companion animal nutritionist to ensure that the meal is balanced and appropriate for your dog. Contrary to the general belief that puppies need milk, avoid feeding cow's milk as it is a big NO NO, as it leads to stomach distress. Other more suitable alternatives that are more easily digested by puppies include goat's milk.
+                </p>
+                <p>
+                    At A Petter Life, we always encourage a personalized session with our in-house nutritionist, who has created numerous diet plans for our client's puppies, successfully guiding them through each stage of their growth and giving your puppy a chance to thrive!
+                </p>
+                <h3>Grooming</h3>
+                <p>
+                    If your pup is under three months old, it's best to not bathe them with cleansing products. You could instead run a sponge dipped in warm water, over their bodies to clean specific areas. When your puppy is a little older, you could switch to cleansing products, keeping in mind to choose ones which are organic and sustainable, as they do not have harsh chemicals which may harm their skin. It's best to always have a schedule for grooming your puppy, so that they get into the habit of grooming and being handled and it doesn't cause them distress.
+                </p>
+                <p>
+                    For longer haired dogs like shih thus and golden retrievers we recommend investing in a slicker brush. This helps with both detangling and deshedding. For the removal of knots, you can use a comb. For shorter haired dogs like indies beagles and pugs to name a few, we recommend a rubber curry brush.
+                </p>
+                <p>
+                    Nail grooming for your puppy can be tricky. If your dog has light-coloured nails, you can see the soft, pink tissue in the center called the quick. The quick includes a blood vessel and nerve and is easier to see on light dog nails. Hold your dog's paw up to the light. The quick is visible through the nail and looks like a nail-within-a-nail. You must make sure you don't cut it as this can lead to profuse bleeding. We recommend you take the help of a professional groomer for this.
+                </p>
+                <h3>Training</h3>
+                <p>
+                    The best time to start training your little one would be around 7-8 weeks, with the best method being positive reinforcement! Start small with commands such as sit, paw, roll over and each time they do so, give them their favorite treat! As discussed before, we do recommend clean and preservative free products, even for training! Some of our favorite ones are Woof Ministry's Chicken Bites, which are a rich source of protein and iron!
+                </p>
+                <p>
+                    When it comes to toilet training, keep in mind that puppies need to go a lot! It's best to take them out every two hours to a designated spot where they can do their business. Remember to take them out when they wake up from their multiple naps throughout the day. To avoid accidents at home, try training them to go on pee pads, with a treat as positive reinforcement. In case of accidents, don't be too hard on them, just make sure to try harder to get them to go where you would like them to! However, if there is an accident, we recommend using plant-based products which contain no toxins! Our favorite is Nutriwoof's stink no more spray, which eliminates all odors within 10 minutes!
+                </p>
+                <p>
+                    Before we overload you with more information, we will give you time to go through the basics! Stay tuned for more information!
                 </p>
             </div>
-            <!-- <div class="card">
-        <h2>TITLE HEADING</h2>
-        <h5>Title description, Sep 2, 2017</h5>
-        <div class="fakeimg" style="height:200px;">Image</div>
-        <p>Some text..</p>
-        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-      </div> -->
         </div>
         <div class="rightcolumn">
-            <div class="card">
+            <div class="card-author text-center align-items-center d-flex justify-content-center">
                 <h2>About Author</h2>
-                <div class="fakeimg" style="height:100px;"></div>
-                <h4>Anjali </h4>
-                <p><i>Psychologist, Psychotherapist</i></p>
+                <img class="fakeimg" src="journal-page-images/article/Anjali-kalachand.png" />
+                <h4>ANJALI KALACHAND</h4>
+                <p><i>Certified Companion Animal Nutritionist from the University of Illinois.</i></p>
+
             </div>
-            <!-- <div class="card">
-        <h3>Popular Post</h3>
-        <div class="fakeimg1">Image</div><br>
-        <div class="fakeimg2">Image</div><br>
-        <div class="fakeimg3">Image</div>
-      </div> -->
-            <div class="card">
+            <div class="card-author">
                 <h3>Contact Details</h3>
-                <p> (add email here) | 9049485444</p>
+                <p>support@apetterlife.in | +91 91373 50937</p>
+                <p>Mumbai, Maharashtra, India</p>
             </div>
         </div>
     </div>
 
     <!--<div class="footer">
-    <h3>
-      
-    </h3>
-  </div>-->
+      <h3>
+
+      </h3>
+    </div>-->
 
 </body>
 

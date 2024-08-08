@@ -36,7 +36,7 @@
 
         @media(min-width: 1800px) {
             .footer {
-                position: absolute;
+                position: fixed;
                 bottom: 0;
                 width: 100%;
             }
@@ -49,7 +49,7 @@
 
         @media (min-width: 1024px) and (min-height: 600px) {
             .footer {
-                position: relative;
+                position: fixed;
                 bottom: 0;
                 width: 100%;
             }
@@ -57,16 +57,22 @@
 
         @media (min-width: 1024px) and (min-height: 1366px) {
             .footer {
-                position: absolute;
+                position: fixed;
                 bottom: 0;
                 width: 100%;
             }
+        }
+
+        .journal-card {
+            background-color: #ecedff;
+            border-radius: 10px;
+            padding: 0;
         }
     </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  <%--  <a class="back-arrow-btn d-none d-md-block" href="javascript: history.go(-1)">
+    <%--  <a class="back-arrow-btn d-none d-md-block" href="javascript: history.go(-1)">
         <img src="../assets/back-arrow.png" alt="" />Back</a>
     <a class="back-arrow-btn-small-dev d-block d-md-none" href="javascript: history.go(-1)">
         <img src="../assets/back-arrow.png" alt="" />Back</a>--%>
@@ -190,7 +196,7 @@
                                 <asp:Repeater ID="RepeaterVideo" runat="server">
                                     <ItemTemplate>
 
-                                        <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
+                                        <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 pb-2 journal-card">
                                             <div class="blog-cards">
                                                 <div class="card-image">
                                                     <video width="100%" height="250" controls poster="<%#Eval("AnchorImage") %>">
@@ -198,16 +204,18 @@
                                                         </object>
                                                     </video>
                                                 </div>
-                                                <div class="card-name d-flex align-items-center my-2 px-3">
-                                                    <asp:ImageButton ID="btnsave" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl='<%#ResolveUrl(Eval("ImgUrl", "~/{0}")) %>' Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" CommandArgument='<%#Eval("Blog_ID")+"|"+ Eval("CategoryId") %>' />
-                                                    <asp:ImageButton ID="btnShareWhatsApp" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/whatsapp.jpg" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareWhatsApp_Command" />
-                                                    <asp:ImageButton ID="btnShareEmail" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/gmail.png" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareEmail_Command" />&nbsp;
-                                               <%-- <img class="mx-2" src="../Add Members/share-active.png" width="20px" alt="">--%>
+                                                <div class=" row d-flex flex-row card-name d-flex align-items-center my-2 px-3">
+                                                    <div class="col-4">
+                                                        <asp:ImageButton ID="btnsave" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl='<%#ResolveUrl(Eval("ImgUrl", "~/{0}")) %>' Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" CommandArgument='<%#Eval("Blog_ID")+"|"+ Eval("CategoryId") %>' />
+                                                        <asp:ImageButton ID="btnShareWhatsApp" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/whatsapp.jpg" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareWhatsApp_Command" />
+                                                        <asp:ImageButton ID="btnShareEmail" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/gmail.png" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareEmail_Command" />&nbsp;
+                                                    </div>
+                                                    <%-- <img class="mx-2" src="../Add Members/share-active.png" width="20px" alt="">--%>
                                                     <%--<img class="mx-1 d-none" src="../Add Members/save-not-active.png" width="20px" alt="">
                         <img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">
                         <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
                         <img class="mx-2 d-none" src="../Add Members/share-active.png" width="20px" alt="">--%>
-                                                    <p class="m-0"><strong>Shobhika Jaju</strong></p>
+                                                    <p class="m-0 col-8 text-left"><strong>Shobhika Jaju</strong></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -219,10 +227,10 @@
 
                         <div id="articleDiv" class="article-div container blog-div my-5">
 
-                            <div class="row w-100 m-0">
+                            <div class="row w-100 m-0 d-flex justify-space-between gap-1 col-12">
                                 <asp:Repeater ID="RepeaterArticle" runat="server">
                                     <ItemTemplate>
-                                        <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
+                                        <div class="col-4 pb-2 journal-card">
                                             <div class="blog-cards ">
                                                 <div class="card-image">
 
@@ -258,34 +266,7 @@
                                         </div>
                                     </ItemTemplate>
                                 </asp:Repeater>
-                                <!-- <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
-                    <div class="blog-cards ">
-                        <div class="card-image">
-                            <a href="../journal-page-images/hfiles article 2- Dr. Shubhangini Sharma.pdf"
-                                target="_blank"><img src="../journal-page-images/Article.jpg" alt="" width="100%"
-                                    height="250px"></a>
-                        </div>
-                        <div class="card-name d-flex align-items-center my-2 px-3">
-                            <img class="mx-1" src="../Add Members/save-not-active.png" width="20px" alt="">
-                            <img class="mx-2" src="../Add Members/share-active.png" width="20px" alt="">
-                            <p class="m-0"><strong>Article 2</strong></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 py-2">
-                    <div class="blog-cards ">
-                        <div class="card-image">
-                            <a href="../journal-page-images/hfiles article 2- Dr. Shubhangini Sharma.pdf"
-                                target="_blank"><img src="../journal-page-images/Article.jpg" alt="" width="100%"
-                                    height="250px"></a>
-                        </div>
-                        <div class="card-name d-flex align-items-center my-2 px-3">
-                            <img class="mx-1" src="../Add Members/save-not-active.png" width="20px" alt="">
-                            <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
-                            <p class="m-0"><strong>Article 3</strong></p>
-                        </div>
-                    </div>
-                </div> -->
+
                             </div>
                         </div>
 

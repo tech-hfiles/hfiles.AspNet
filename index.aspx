@@ -455,6 +455,14 @@
     <link rel="icon" href="https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon-192x192.png" sizes="192x192" />
     <link rel="apple-touch-icon" href="https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon-180x180.png" />
     <meta name="msapplication-TileImage" content="https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon-270x270.png" />
+    <style>
+        @media (min-width: 850px) {
+            #menu-item-649 {
+                display: none !important;
+                visibility: hidden !important;
+            }
+        }
+    </style>
 </head>
 <body class="home page-template page-template-elementor_header_footer page page-id-26 elementor-default elementor-template-full-width elementor-kit-89 elementor-page elementor-page-26">
     <div class="ekit-template-content-markup ekit-template-content-header ekit-template-content-theme-support">
@@ -467,9 +475,10 @@
                                 <div class="elementor-widget-container">
                                     <style>
                                         /*! elementor - v3.21.0 - 25-04-2024 */
-                                        .text-white{
-                                            color:#FFFFFF !important;
+                                        .text-white {
+                                            color: #FFFFFF !important;
                                         }
+
                                         .elementor-widget-image {
                                             text-align: center
                                         }
@@ -487,7 +496,7 @@
                                                 display: inline-block
                                             }
                                     </style>
-                                    <img width="207" height="80" src="https://hfiles.in/wp-content/uploads/2022/11/hfiles.png" class="attachment-full size-full wp-image-361" alt="hfiles logo" />
+<img width="207" height="80" src="https://hfiles.in/wp-content/uploads/2022/11/hfiles.png" class="attachment-full size-full wp-image-361" alt="hfiles logo" />
                                 </div>
                             </div>
                         </div>
@@ -502,8 +511,10 @@
                                         </button>
                                         <div id="ekit-megamenu-primary-menu" class="elementskit-menu-container elementskit-menu-offcanvas-elements elementskit-navbar-nav-default ekit-nav-menu-one-page-no ekit-nav-dropdown-hover">
                                             <ul id="menu-primary-menu" class="elementskit-navbar-nav elementskit-menu-po-right submenu-click-on-icon">
-                                                <li id="menu-item-649" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px"><a href="#why" class="ekit-menu-nav-link">Why hfiles?</a></li>
-                                                <li id="menu-item-650" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-650 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px"><a href="#ABHA" class="ekit-menu-nav-link">ABHA</a></li>
+                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
+                                                    <a href="#why" class="ekit-menu-nav-link">Why hfiles?</a></li>
+                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-650 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
+                                                    <a href="#ABHA" class="ekit-menu-nav-link">ABHA</a></li>
                                             </ul>
                                             <div class="elementskit-nav-identity-panel">
                                                 <div class="elementskit-site-title">

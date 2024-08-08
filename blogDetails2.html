@@ -3,6 +3,14 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLENCHING & GRINDING</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
+
     <style>
         * {
             box-sizing: border-box;
@@ -10,7 +18,7 @@
 
         /* Add a gray background color with some padding */
         body {
-            font-family: Arial;
+            font-family: 'Mukta', sans-serif;
             padding: 20px;
             background: #f1f1f1;
         }
@@ -31,6 +39,19 @@
         }
 
         /* Right column */
+        .card-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc; /* Optional: to add a border around the card */
+            border-radius: 10px; /* Optional: to add rounded corners to the card */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: to add a shadow to the card */
+            max-width: 300px; /* Optional: to limit the width of the card */
+            margin: 0 auto; /* Center the card horizontally */
+        }
+
         .rightcolumn {
             float: left;
             width: 25%;
@@ -40,15 +61,20 @@
         /* Fake image */
         .fakeimg {
             background-color: #aaa;
-            background-image: url();
+            background-image: none;
             background-repeat: no-repeat;
-            border-radius: 50px;
-            width: 30%;
-            padding: 20px;
+            border-radius: 99%;
+            width: 50%;
+            margin: 0 auto;
+            padding: 0;
+            height: 100%;
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
         }
 
         .fakeimg_banner {
-            background-image: url(../journal-page-images/article/motivation.jpg);
+            background-image: url(../journal-page-images/article/back-pain.jpg);
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
@@ -62,16 +88,20 @@
             margin-block-end: 1em;
             margin-inline-start: 0px;
             margin-inline-end: 0px;
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 22px !important;
+            font-family: 'Mukta', sans-serif;
+            font-size: 20px !important;
         }
 
+        li {
+            font-size: 20px;
+        }
 
         /* Add a card effect for articles */
         .card {
             background-color: white;
             padding: 20px;
             margin-top: 20px;
+            font-family: 'Mukta', sans-serif;
         }
 
         /* Clear floats after the columns */
@@ -100,7 +130,6 @@
         }
     </style>
 </head>
-
 <body>
 
     <!--<div class="header">
@@ -110,98 +139,45 @@
     <div class="row">
         <div class="leftcolumn">
             <div class="card">
-                <h1>Motivation</h1>
-                <h5>Published on: Aug 8, 2023 | Readtime: 2 min</h5>
+                <h1>How to Avoid Back-Pain</h1>
+                <h5>Published on: 07-08-2024 | Readtime: 3 min</h5>
                 <div class="fakeimg_banner" style="height:300px;"></div>
                 <p>
-                    People, as driven beings, find themselves motivated in two distinct directions: we tend to move
-                    towards things we
-                    want, and away from things we don&apos;t want. This is a jolly good idea, especially for things happening
-                    in the outside
-                    world. However, can we use it for the world inside us?
+                    As many as 80% of adults will experience back pain at some point in their lives, making it a painfully common problem. It can cause serious limitations to everyday tasks and vary in intensity from a dull ache to a crippling acute pain. Although many underlying medical issues can cause back pain, the majority of them can be avoided with lifestyle changes and an emphasis on spinal health.
                 </p>
-                <p>
-                    Being clever, we extend the same principle, to categorize challenging feelings like anxiety,
-                    sadness, and uncertainty
-                    as things to move away from, and positive emotions such as happiness, excitement, and relief as
-                    things to move
-                    towards. This concept appears intuitively sound, but applying it to the internal world causes all
-                    sorts of problems.
-                </p>
-                <p>
-                    Reflect on a personal achievement you're genuinely proud of, such as completing a marathon or
-                    passing an
-                    important exam. Now, think back to the initial stages or moments when you were actively working
-                    towards this
-                    accomplishment. What were your thoughts and feelings then? Notice how the pursuit of something of
-                    great value
-                    typically triggers negative thoughts and uncomfortable emotions in the short term. So, our mind
-                    tells us to move
-                    away, like how one might react upon encountering a bear or an approaching bus. Then, if we do move
-                    away, the first
-                    emotion that shows up is relief
-                </p>
-                <p>
-                    We develop a habit of moving away from bad or difficult thoughts and feelings and moving towards
-                    good ones. But
-                    this is a trap because it can mean we move away from what matters most in life.
-                </p>
-                <p>
-                    So, what do we do about this? To overcome this urge to move away from difficult internal
-                    experiences, we must first
-                    understand what we really want from life – what are the things we truly value? What is most
-                    meaningful and
-                    important for us? It could be things like being a loving family member, being responsible at work,
-                    being honest and
-                    virtuous. Then, we need to build the willingness to experience these difficult internal experiences
-                    in order to keep
-                    moving towards our values. We can&apos;t experience love without the fear of rejection, achieve greatness
-                    without
-                    grappling with the fear of failure, or changing our lives for the better without worrying that we
-                    may
-                    change for the worse.
-                </p>
-                <p>
-                    So, what do we do about this? To overcome this urge to move away from difficult internal
-                    experiences, we must first
-                    understand what we really want from life – what are the things we truly value? What is most
-                    meaningful and
-                    important for us? It could be things like being a loving family member, being responsible at work,
-                    being honest and
-                    virtuous. Then, we need to build the willingness to experience these difficult internal experiences
-                    in order to keep
-                    moving towards our values. We can&apos;t experience love without the fear of rejection, achieve greatness
-                    without
-                    grappling with the fear of failure, or changing our lives for the better without worrying that we
-                    may
-                    change for the worse.
+                <p>Today, we explore important methods for avoiding back discomfort and preserving the integrity of your spine:</p>
 
-                </p>
+                <h2>1. Building a Strong Core:</h2>
+                <p>Your lower back muscles, obliques, and abdominals make up your core muscles, which are a crucial foundation for your spine. The power of your core to support your spine and avoid injuries can be greatly improved by performing core-strengthening exercises regularly.</p>
+
+                <h2>2. Preserving Proper Posture:</h2>
+                <p>Maintaining good posture is crucial for spinal health. Your spine experiences less strain when you stand tall, with your shoulders back and your core strong. On the other hand, slouching overloads the muscles and ligaments in your back, which may cause pain and discomfort.</p>
+
+                <h2>3. Regular Exercise:</h2>
+                <p>One of the most important tips for preventing back discomfort is regular physical activity. Exercise promotes a healthy weight, increases flexibility, and develops muscles—all of which are important for a healthy spine. Walking, yoga, and swimming are all great low-impact exercise options for maintaining good back health.</p>
+
+                <h2>4. Keeping a Healthy Weight:</h2>
+                <p>Carrying too much weight puts an additional strain on your back, increasing the possibility of pain and injury. This stress can be greatly reduced by maintaining a healthy weight with a balanced diet and regular exercise.</p>
+
+                <h2>5. Pay Attention to Your Body</h2>
+                <p>Observe the signals your body is sending you. Take a break from physically taxing tasks if you have back discomfort. If the pain continues or gets worse, see a doctor for a correct diagnosis and course of treatment.</p>
+
+                <h2>Conclusion</h2>
+                <p>Although back pain might be a major obstacle, it doesn't need to linger around all the time. You may greatly lower your risk of developing back pain and keep your spine in good condition for many years by adopting these preventive steps into your everyday routine. Remember that consistency is essential! Implement these routines into your life to experience the freedom of a pain-free back.</p>
             </div>
-            <!-- <div class="card">
-        <h2>TITLE HEADING</h2>
-        <h5>Title description, Sep 2, 2017</h5>
-        <div class="fakeimg" style="height:200px;">Image</div>
-        <p>Some text..</p>
-        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-      </div> -->
         </div>
         <div class="rightcolumn">
-            <div class="card">
+            <div class="card-author text-center align-items-center d-flex justify-content-center">
                 <h2>About Author</h2>
-                <div class="fakeimg" style="height:100px;"></div>
-                <h4>Binoy Shah</h4>
-                <p><i>Psychologist, Psychotherapist</i></p>
+                <img class="fakeimg" src="journal-page-images/article/Abhay.png" />
+                <h4>Dr. Abhay Nene</h4>
+                <p><i>MS in orthopedic surgery</i></p>
+                <p><i>Specialized training and fellowships in spine surgery from Europe, the USA, Argentina, the UK, and Singapore</i></p>
             </div>
-            <!-- <div class="card">
-        <h3>Popular Post</h3>
-        <div class="fakeimg1">Image</div><br>
-        <div class="fakeimg2">Image</div><br>
-        <div class="fakeimg3">Image</div>
-      </div> -->
-            <div class="card">
+            <div class="card-author">
                 <h3>Contact Details</h3>
-                <p> (add email here) | 9049485444</p>
+                <p>wearespinemumbai@gmail.com | +91 98921 01234</p>
+                <p>Mumbai, India</p>
             </div>
         </div>
     </div>
