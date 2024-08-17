@@ -225,50 +225,31 @@
                             </div>
                         </div>
 
-                        <div id="articleDiv" class="article-div container blog-div my-5">
-
-                            <div class="row w-100 m-0 d-flex justify-space-between gap-1 col-12">
+                        <div id="articleDiv" class="article-div blog-div my-5">
+                            <div class="row w-100 m-0 d-flex justify-content-center gap-3 p-2">
                                 <asp:Repeater ID="RepeaterArticle" runat="server">
                                     <ItemTemplate>
-                                        <div class="col-4 pb-2 journal-card">
-                                            <div class="blog-cards ">
+                                        <!-- Adjusting column sizes based on screen size -->
+                                        <div class="col-lg-3 col-md-3 col-sm-6 pb-2 journal-card">
+                                            <div class="blog-cards">
                                                 <div class="card-image">
-
-                                                    <%--  <a href="blogid=<%#Eval("Blog_ID") %>"
-                          target="_blank">
-                          <img src="<%#Eval("AnchorImage") %>" alt="" width="100%"
-                            height="250px"></a>--%>
-
-                                                    <asp:LinkButton ID="lbtnblog"
-                                                        OnClick="lbtnblog_Click" runat="server" CommandArgument='<%#Eval("Blog_ID") %>'>
-   <img src="<%#Eval("AnchorImage") %>" alt="" width="100%"
-     height="250px"></asp:LinkButton>
+                                                    <asp:LinkButton ID="lbtnblog" OnClick="lbtnblog_Click" runat="server" CommandArgument='<%#Eval("Blog_ID") %>'>
+                                <img src="<%#Eval("AnchorImage") %>" alt="" width="100%" height="250px">
+                                                    </asp:LinkButton>
                                                 </div>
                                                 <div class="card-name d-flex align-items-center my-2 px-3">
-
-                                                    <%-- <asp:LinkButton OnCommand="lbRemove_Command" ViewStateMode="Enabled" CommandArgument='<%# Eval("Blog_ID")%>'
-                            CommandName="Remove"  runat="server"  >
-                        <asp:Image ImageUrl="../Add Members/save-active-icon.png" runat="server" />
-                    </asp:LinkButton>--%>
-                                                    <%-- <asp:ImageButton ID="ImageButton1" OnClick="btnBookmark_Click" runat="server" />--%>
-                                                    <%--<asp:ImageButton ID="btnBookmark" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../Add Members/save-active-icon.png" Width="20px" alt="" OnCommand="btnsave_Command" CommandArgument='<%#Eval("Blog_ID") %>' />
-                                                    --%>
                                                     <asp:ImageButton ID="btnsave" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl='<%#ResolveUrl(Eval("ImgUrl", "~/{0}")) %>' Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" CommandArgument='<%#Eval("Blog_ID")+"|"+ Eval("CategoryId")%>' />
                                                     <asp:ImageButton ID="btnShareWhatsApp" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/whatsapp.jpg" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareWhatsApp_Command" />
                                                     <asp:ImageButton ID="btnShareEmail" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/gmail.png" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareEmail_Command" />&nbsp;
-                          <%--<img class="mx-2" src="../Add Members/share-active.png" width="20px" alt="">--%>
-                                                    <%--<asp:ImageButton ID="btnremove" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../Add Members/bookmark.png" Width="20px" alt="" OnClick="btnremove_Click1" CommandName="ToggleBookmark" OnCommand="btnremove_Command1" CommandArgument='<%#Eval("Blog_ID") %>' />--%>
-                                                    <%--<img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">--%>
-                                                    <%-- <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">--%>
-                                                    <p class="m-0"><strong><%#Eval("Title") %></strong></p>
+                            <p class="m-0"><strong><%#Eval("Title") %></strong></p>
                                                 </div>
                                             </div>
                                         </div>
                                     </ItemTemplate>
                                 </asp:Repeater>
-
                             </div>
                         </div>
+
 
                         <div id="audioDiv" class="audio-div container blog-div my-5">
                             <div class="row w-100 m-0">
