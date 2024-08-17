@@ -68,6 +68,7 @@
             border-radius: 10px;
             padding: 0;
         }
+        
     </style>
 </asp:Content>
 
@@ -215,7 +216,7 @@
                         <img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">
                         <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
                         <img class="mx-2 d-none" src="../Add Members/share-active.png" width="20px" alt="">--%>
-                                                    <p class="m-0 col-8 text-left"><strong>Shobhika Jaju</strong></p>
+                                                    <p class="m-0 col-8 text-left"><strong>Hena Kanakia Gangar</strong></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -234,14 +235,19 @@
                                             <div class="blog-cards">
                                                 <div class="card-image">
                                                     <asp:LinkButton ID="lbtnblog" OnClick="lbtnblog_Click" runat="server" CommandArgument='<%#Eval("Blog_ID") %>'>
-                                <img src="<%#Eval("AnchorImage") %>" alt="" width="100%" height="250px">
+                                                        <img src="<%#Eval("AnchorImage") %>" alt="" width="100%" height="250px">
                                                     </asp:LinkButton>
                                                 </div>
-                                                <div class="card-name d-flex align-items-center my-2 px-3">
-                                                    <asp:ImageButton ID="btnsave" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl='<%#ResolveUrl(Eval("ImgUrl", "~/{0}")) %>' Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" CommandArgument='<%#Eval("Blog_ID")+"|"+ Eval("CategoryId")%>' />
-                                                    <asp:ImageButton ID="btnShareWhatsApp" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/whatsapp.jpg" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareWhatsApp_Command" />
-                                                    <asp:ImageButton ID="btnShareEmail" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/gmail.png" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareEmail_Command" />&nbsp;
-                            <p class="m-0"><strong><%#Eval("Title") %></strong></p>
+                                                <div class="card-name d-flex flex-column align-items-left my-2 px-3 gap-1">
+                                                    <p class="m-0 text-wrap"><strong><%#Eval("Title") %></strong></p>
+
+                                                    <div class="text-left align-items-left">
+                                                        <asp:ImageButton ID="btnsave" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl='<%#ResolveUrl(Eval("ImgUrl", "~/{0}")) %>' Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" CommandArgument='<%#Eval("Blog_ID")+"|"+ Eval("CategoryId")%>' />
+                                                        <asp:ImageButton ID="btnShareWhatsApp" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/whatsapp.jpg" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareWhatsApp_Command" />
+                                                        <asp:ImageButton ID="btnShareEmail" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/gmail.png" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareEmail_Command" />&nbsp;
+                                                    
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -343,4 +349,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
             integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </div>
 </asp:Content>
