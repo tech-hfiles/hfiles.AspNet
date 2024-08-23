@@ -68,7 +68,14 @@
             border-radius: 10px;
             padding: 0;
         }
-        
+
+        .card-fun img {
+            mix-blend-mode: multiply; /* or screen, overlay, etc. */
+        }
+
+        .text-black {
+            color: #303030 !important;
+        }
     </style>
 </asp:Content>
 
@@ -231,26 +238,26 @@
                                 <asp:Repeater ID="RepeaterArticle" runat="server">
                                     <ItemTemplate>
                                         <!-- Adjusting column sizes based on screen size -->
-                                        <div class="col-lg-3 col-md-3 col-sm-6 pb-2 journal-card">
+                                        <div class="col-lg-3 col-md-4 col-sm-6 col-12 pb-2 journal-card">
                                             <div class="blog-cards">
                                                 <div class="card-image">
                                                     <asp:LinkButton ID="lbtnblog" OnClick="lbtnblog_Click" runat="server" CommandArgument='<%#Eval("Blog_ID") %>'>
-                                                        <img src="<%#Eval("AnchorImage") %>" alt="" width="100%" height="250px">
+                <img src="<%#Eval("AnchorImage") %>" alt="" width="100%" height="250px">
                                                     </asp:LinkButton>
                                                 </div>
                                                 <div class="card-name d-flex flex-column align-items-left my-2 px-3 gap-1">
-                                                    <p class="m-0 text-wrap"><strong><%#Eval("Title") %></strong></p>
-
-                                                    <div class="text-left align-items-left">
+                                                    <asp:LinkButton ID="LinkButton1" OnClick="lbtnblog_Click" runat="server" CssClass="text-black" CommandArgument='<%#Eval("Blog_ID") %>'>
+                <p class="m-0 text-wrap"><strong><%#Eval("Title") %></strong></p>
+                                                    </asp:LinkButton>
+                                                    <div class="text-left align-items-left card-fun">
                                                         <asp:ImageButton ID="btnsave" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl='<%#ResolveUrl(Eval("ImgUrl", "~/{0}")) %>' Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" CommandArgument='<%#Eval("Blog_ID")+"|"+ Eval("CategoryId")%>' />
                                                         <asp:ImageButton ID="btnShareWhatsApp" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/whatsapp.jpg" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareWhatsApp_Command" />
                                                         <asp:ImageButton ID="btnShareEmail" runat="server" ViewStateMode="Enabled" class="mx-1" ImageUrl="../assets/gmail.png" Width="20px" alt="" OnClick="btnsave_Click" CommandName="ToggleBookmark" OnCommand="btnShareEmail_Command" />&nbsp;
-                                                    
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>
+
                                     </ItemTemplate>
                                 </asp:Repeater>
                             </div>

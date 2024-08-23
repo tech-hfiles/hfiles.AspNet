@@ -1150,9 +1150,11 @@ span.img-notselected {
     }
 
 .journal .blog-div .blog-cards .card-image img {
-    border-radius: 10px;
     cursor: pointer;
     object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
 }
 
 .journal .audio-div .blog-cards .card-image img {

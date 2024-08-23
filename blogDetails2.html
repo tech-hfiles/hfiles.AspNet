@@ -18,46 +18,97 @@
 
         /* Add a gray background color with some padding */
         body {
-            font-family: 'Mukta', sans-serif;
+            font-family: 'Red Hat Display', sans-serif !important;
             padding: 20px;
             background: #f1f1f1;
         }
 
         /* Header/Blog Title */
-        .header {
+        .header, h3 {
             padding: 5px;
-            font-size: 36px;
-            text-align: center;
+            font-size: 1.8rem;
+            text-align: left;
             background: white;
         }
 
+        h3 {
+            color: #000000;
+        }
         /* Create two unequal columns that floats next to each other */
         /* Left column */
         .leftcolumn {
             float: left;
-            width: 75%;
+            width: 80%;
         }
 
         /* Right column */
+        .rightcolumn {
+            float: left;
+            width: 20%;
+            max-width: 100%;
+        }
+
         .card-author {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             padding: 20px;
-            border: 1px solid #ccc; /* Optional: to add a border around the card */
-            border-radius: 10px; /* Optional: to add rounded corners to the card */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: to add a shadow to the card */
-            max-width: 300px; /* Optional: to limit the width of the card */
-            margin: 0 auto; /* Center the card horizontally */
+            border: 0px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0px auto;
+            margin-bottom: 20px;
+            background-color: #ffffff;
         }
 
-        .rightcolumn {
-            float: left;
-            width: 25%;
-            padding-left: 20px;
+        .contact-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            max-width: 400px;
+            margin: 0 auto;
         }
 
+        .contact-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 16px;
+        }
+
+        .contact-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-item {
+            margin-bottom: 16px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+            .contact-link:hover {
+                color: #007bff;
+            }
+
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+        }
+
+        .contact-text {
+            font-size: 16px;
+        }
         /* Fake image */
         .fakeimg {
             background-color: #aaa;
@@ -68,13 +119,14 @@
             margin: 0 auto;
             padding: 0;
             height: 100%;
-            width: 250px;
-            height: 250px;
+            width: 200px;
+            height: 200px;
             object-fit: cover;
+            object-position: top;
         }
 
         .fakeimg_banner {
-            background-image: url(../journal-page-images/article/back-pain.jpg);
+            background-image: url(../journal-page-images/article/peel.jpg);
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
@@ -88,20 +140,17 @@
             margin-block-end: 1em;
             margin-inline-start: 0px;
             margin-inline-end: 0px;
-            font-family: 'Mukta', sans-serif;
+            font-family: 'Red Hat Display', sans-serif !important;
             font-size: 20px !important;
         }
 
-        li {
-            font-size: 20px;
-        }
 
         /* Add a card effect for articles */
         .card {
             background-color: white;
             padding: 20px;
-            margin-top: 20px;
-            font-family: 'Mukta', sans-serif;
+            margin-top: 0px;
+            gap: 10px;
         }
 
         /* Clear floats after the columns */
@@ -120,12 +169,32 @@
         }
 
         /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 950px) {
 
             .leftcolumn,
             .rightcolumn {
                 width: 100%;
                 padding: 0;
+            }
+
+            .rightcolumn {
+                margin-top: 10px;
+                display: flex;
+                flex-direction: row;
+            }
+
+            .contact-card {
+                height: fit-content;
+            }
+        }
+
+        @media screen and (max-width: 550px) {
+            .rightcolumn {
+                flex-direction: column;
+            }
+
+            .contact-card {
+                width: 100%;
             }
         }
     </style>
@@ -133,60 +202,95 @@
 <body>
 
     <!--<div class="header">
-    <h2>Article - Mental Health</h2>
-  </div>-->
+      <h2>Article - Mental Health</h2>
+    </div>-->
 
     <div class="row">
         <div class="leftcolumn">
             <div class="card">
-                <h1>How to Avoid Back-Pain</h1>
-                <h5>Published on: 07-08-2024 | Readtime: 3 min</h5>
+                <h1>Addressing Concerns About Chemical Peels</h1>
+                <p class="mt-0">Published on: 07-08-2024 | Readtime: 5 min</p>
                 <div class="fakeimg_banner" style="height:300px;"></div>
                 <p>
-                    As many as 80% of adults will experience back pain at some point in their lives, making it a painfully common problem. It can cause serious limitations to everyday tasks and vary in intensity from a dull ache to a crippling acute pain. Although many underlying medical issues can cause back pain, the majority of them can be avoided with lifestyle changes and an emphasis on spinal health.
+                    In our practice, I see a lot of patients who get scared of getting a chemical peel done when suggested in the treatment plan. Gradually, on asking what scares them about the procedure, I found out that the general questions which are there in everyone’s minds. Today, I answer those worrisome questions.
                 </p>
-                <p>Today, we explore important methods for avoiding back discomfort and preserving the integrity of your spine:</p>
 
-                <h2>1. Building a Strong Core:</h2>
-                <p>Your lower back muscles, obliques, and abdominals make up your core muscles, which are a crucial foundation for your spine. The power of your core to support your spine and avoid injuries can be greatly improved by performing core-strengthening exercises regularly.</p>
+                <h4>1. Will our skin actually “PEEL” off after the procedure?</h4>
+                <p>When we say chemical peel, it means chemo-exfoliation, yes, but will you be pulling off your skin from your face like the YouTube videos? No! There will be some amount of superficial peeling which you will face.</p>
 
-                <h2>2. Preserving Proper Posture:</h2>
-                <p>Maintaining good posture is crucial for spinal health. Your spine experiences less strain when you stand tall, with your shoulders back and your core strong. On the other hand, slouching overloads the muscles and ligaments in your back, which may cause pain and discomfort.</p>
+                <h4>2. Different Peels Have Different Depths of Action</h4>
+                <p>Depending on what your doctor is recommending the procedure for. In Indian skin tone, we usually would not go for anything that would be too deep.</p>
 
-                <h2>3. Regular Exercise:</h2>
-                <p>One of the most important tips for preventing back discomfort is regular physical activity. Exercise promotes a healthy weight, increases flexibility, and develops muscles—all of which are important for a healthy spine. Walking, yoga, and swimming are all great low-impact exercise options for maintaining good back health.</p>
+                <h4>3. How Many Indications Are There for a Peel?</h4>
+                <p>There are a variety of peels available for use, consisting of Alpha hydroxy acids or Beta hydroxy acids or certain antioxidants as well. Sometimes there are combination peels consisting of these ingredients in fixed concentrations.</p>
 
-                <h2>4. Keeping a Healthy Weight:</h2>
-                <p>Carrying too much weight puts an additional strain on your back, increasing the possibility of pain and injury. This stress can be greatly reduced by maintaining a healthy weight with a balanced diet and regular exercise.</p>
+                <h4>4. Specific Peels for Specific Conditions</h4>
+                <p>If you have acne (pimples) or scars, your dermatologist might advise you peels with Salicylic Acid or retinols. If you have pigmentation issues, you might be advised a peel consisting of Glycolic acid, Kojic acid, Arginine, or Vitamin C, amongst many others.</p>
 
-                <h2>5. Pay Attention to Your Body</h2>
-                <p>Observe the signals your body is sending you. Take a break from physically taxing tasks if you have back discomfort. If the pain continues or gets worse, see a doctor for a correct diagnosis and course of treatment.</p>
+                <h4>5. Does Your Skin Start Thinning After Multiple Sittings?</h4>
+                <p>No, your skin does not start thinning. Peels exfoliate your skin in a controlled manner and stimulate regeneration, giving you an even skin tone and the glow that you desire.</p>
 
-                <h2>Conclusion</h2>
-                <p>Although back pain might be a major obstacle, it doesn't need to linger around all the time. You may greatly lower your risk of developing back pain and keep your spine in good condition for many years by adopting these preventive steps into your everyday routine. Remember that consistency is essential! Implement these routines into your life to experience the freedom of a pain-free back.</p>
+                <p>For acne or pigmentary conditions, we advise 3-5 sessions, and the effect can be maintained with certain creams or gels. As aging is a non-stop process, regular sessions are hence advised in such cases.</p>
+
+                <h4>6. Any Side Effects?</h4>
+                <p>If done by a qualified dermatologist, no side effects are faced. After any procedure, your dermatologist will advise you on strict sun protection, which applies to chemical peels as well.</p>
+
+                <h4>7. How Long Does One Procedure Take?</h4>
+                <p>It is an office procedure and usually will not take more than 15-30 minutes.</p>
+
+                <h4>8. Contraindications</h4>
+                <p>Any active infection (bacterial, viral, or fungal), keloidal tendency, facial dermatitis, photosensitizing drugs, pregnancy, and unrealistic expectations (any procedure takes time to give the desired results depending on your skin type and condition) are contraindications.</p>
             </div>
         </div>
+
         <div class="rightcolumn">
-            <div class="card-author text-center align-items-center d-flex justify-content-center">
+            <div class="card-author text-center d-flex flex-column align-items-center justify-content-center">
                 <h2>About Author</h2>
-                <img class="fakeimg" src="journal-page-images/article/Abhay.png" />
-                <h4>Dr. Abhay Nene</h4>
-                <p><i>MS in orthopedic surgery</i></p>
-                <p><i>Specialized training and fellowships in spine surgery from Europe, the USA, Argentina, the UK, and Singapore</i></p>
+                <div class="card">
+                    <img class="fakeimg card-body mb-3" src="journal-page-images/article/shubhangini.jpg" alt="Dr. Shubhangini Sharma" />
+                    <h4 class="card-footer bg-white">Dr. Shubhangini Sharma</h4>
+                </div>
+                <p><i>M.B.B.S; M.D. Skin & V.D</i></p>
             </div>
-            <div class="card-author">
-                <h3>Contact Details</h3>
-                <p>wearespinemumbai@gmail.com | +91 98921 01234</p>
-                <p>Mumbai, India</p>
+
+            <div class="contact-card">
+                <h3 class="contact-title">Contact Details</h3>
+                <ul class="contact-list">
+                    <li class="contact-item">
+                        <a href="mailto:info@kmchospitals.in" class="contact-link">
+                            <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <span class="contact-text">info@kmchospitals.in</span>
+                        </a>
+                    </li>
+                    <li class="contact-item">
+                        <a href="tel:+919869554499" class="contact-link">
+                            <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            <span class="contact-text">+91 98695 54499 – WhatsApp</span>
+                        </a>
+                    </li>
+                    <li class="contact-item">
+                        <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span class="contact-text">Navi Mumbai, Maharashtra, India</span>
+                    </li>
+                </ul>
             </div>
         </div>
+
     </div>
 
     <!--<div class="footer">
-    <h3>
-      
-    </h3>
-  </div>-->
+      <h3>
+
+      </h3>
+    </div>-->
 
 </body>
 
