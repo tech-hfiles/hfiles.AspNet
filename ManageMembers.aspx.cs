@@ -61,14 +61,40 @@ namespace hfiles
         protected void lbtnRemove_Click(object sender, EventArgs e)
         {
             LinkButton lnk = sender as LinkButton;
-            int value = Convert.ToInt16(lnk.CommandArgument);
-            RemoveMember(value);
+            //int value = Convert.ToInt16(lnk.CommandArgument);
+
+            string commandArgument = lnk.CommandArgument;
+            string[] values = commandArgument.Split('|');
+
+            //var memberid = linkButton.CommandArgument.ToString();
+            string memberid = "";
+            string relation = "";
+            string DependentUserId = "";
+            string Dependent_User_Reference = "";
+            string IdName = lnk.CommandArgument;
+
+            string[] IdNamevalues = IdName.Split('|');
+            if (IdNamevalues.Length == 4)
+            {
+                memberid = values[0];
+                relation = values[1];
+                DependentUserId = values[2];
+                Dependent_User_Reference = values[3];
+            }
+
+            RemoveMember(DAL.validateInt(memberid), DAL.validateInt(Dependent_User_Reference), DAL.validateInt(DependentUserId));
+
+
 
             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Member Removed Successfully');", true);
         }
 
-        protected void RemoveMember(int MemberId)
+        protected void RemoveMember(int MemberId, int Dependent_User_Reference, int DependentUserId)
         {
+            if (DependentUserId> 0)
+            {
+                MemberId = Dependent_User_Reference;
+            }
             using (MySqlConnection con = new MySqlConnection(cs))
             {
                 con.Open();
@@ -77,6 +103,7 @@ namespace hfiles
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(MemberId)); //Session["Userid"];
                     cmd.Parameters.AddWithValue("_UserRedId", DAL.validateInt(Session["Userid"])); //Session["Userid"];
+                    cmd.Parameters.AddWithValue("_DependentUserId", DependentUserId); //Session["Userid"];
                     cmd.ExecuteNonQuery();
                     //icon = "assets/select.png";
                     //message = "Member Removed Successfully!";
@@ -129,7 +156,7 @@ namespace hfiles
                     mySqlDataAdapter.Fill(dataTable);
                     Requestcount = dataTable.Rows.Count;
                     this.rptRequests.DataSource = dataTable;
-                    this.rptRequests.DataBind(); 
+                    this.rptRequests.DataBind();
                     Label masterPageLabel = Master.FindControl("ReqCount") as Label;
 
                     if (masterPageLabel != null)
@@ -144,7 +171,12 @@ namespace hfiles
         }
         protected void acceptBtn_Click(object sender, EventArgs e)
         {
+            LinkButton lbtn = sender as LinkButton;
             int int16 = (int)Convert.ToInt16((sender as LinkButton).CommandArgument);
+            RepeaterItem rv = lbtn.NamingContainer as RepeaterItem;
+
+            HiddenField hfDependentUserId = rv.FindControl("hfDependentUserId") as HiddenField;
+
             using (MySqlConnection connection = new MySqlConnection(this.cs))
             {
                 connection.Open();
@@ -155,6 +187,7 @@ namespace hfiles
                     mySqlCommand.Parameters.AddWithValue("_requestedid", (object)int16);
                     mySqlCommand.Parameters.AddWithValue("_accepted", (object)1);
                     mySqlCommand.Parameters.AddWithValue("_rejected", (object)0);
+                    mySqlCommand.Parameters.AddWithValue("_dependentUserId", DAL.validateInt(hfDependentUserId.Value)); 
                     mySqlCommand.ExecuteNonQuery();
                     connection.Close();
                     //icon = "assets/select.png";

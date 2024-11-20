@@ -186,7 +186,7 @@ namespace hfiles
 
                         //FormsAuthentication.RedirectFromLoginPage(emailTextBox.Text + " " + txtPassword.Text, false);
                         //FormsAuthentication.RedirectFromLoginPage(dr["user_firstname"].ToString() + " " + dr["user_lastname"].ToString(), false);
-                        Response.Redirect("samanta.aspx");
+                        Response.Redirect("Dashboard.aspx");
                         //if (Session["cartprevPath"] != null)
                         //{
                         //    Response.Redirect("~/" + Session["cartprevPath"].ToString());

@@ -38,7 +38,7 @@ namespace hfiles
                 if (Session["Userid"] is null)
                 {
                     //commented below line to exclude journal page from login  
-                    //Response.Redirect("~/samanta.aspx");
+                    //Response.Redirect("~/Dashboard.aspx");
                     GetBlogsById(1);
                     Session["JournalPath"] = Request.Url.AbsolutePath;
                 }
@@ -114,7 +114,11 @@ namespace hfiles
         private void Blogs(int blogid)
         {
             int id = Convert.ToInt32(Request.QueryString["blogid"]);
-            if (id == 46)
+            if (id == 47)
+            {
+                Response.Redirect("blogDetails6.html");
+            }
+            else if (id == 46)
             {
                 Response.Redirect("blogDetails5.html");
             }
@@ -232,7 +236,7 @@ namespace hfiles
 
         protected void lbRemove_Command(object sender, CommandEventArgs e)
         {
-            Response.Redirect("samanta.aspx");
+            Response.Redirect("Dashboard.aspx");
 
         }
         protected void btnsave_Click(object sender, ImageClickEventArgs e)
@@ -311,7 +315,12 @@ namespace hfiles
         protected void bloglink_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(Request.QueryString["blogid"]);
-            if (id == 46)
+
+            if (id == 47)
+            {
+                Response.Redirect("blogDetails6.html");
+            }
+            else if (id == 46)
             {
                 Response.Redirect("blogDetails5.html");
             }
@@ -344,7 +353,11 @@ namespace hfiles
             int id = Convert.ToInt16(lnk.CommandArgument);
 
             //int id = Convert.ToInt32(Request.QueryString["blogid"]);
-            if (id == 46)
+            if (id == 47)
+            {
+                Response.Redirect("blogDetails6.html");
+            }
+            else  if (id == 46)
             {
                 Response.Redirect("blogDetails5.html");
             }

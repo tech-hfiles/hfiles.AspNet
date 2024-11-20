@@ -38,11 +38,13 @@ namespace hfiles
         string memberRelation, message, icon;
         int RId;
         DataTable dtMemberList = new DataTable();
+        private string fileName;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //mp1.Show();
             int RId = DAL.validateInt(Request.QueryString["rid"]);
-            
+
             if (!IsPostBack)
             {
                 if (Session["Userid"] != null)
@@ -158,6 +160,9 @@ namespace hfiles
             try
             {
                 int memberId = Convert.ToInt32(Session["memberId"]);
+
+                int DependentUserIdMember = DAL.validateInt(Session["DependentUserIdMember"]);
+                int Dependent_User_Reference = DAL.validateInt(Session["Dependent_User_Reference"]);
                 int user_referenceId = Convert.ToInt32(Session["user_reference"]);
 
                 if (Session["memberRelation"] == null || Session["memberRelation"] == "")
@@ -185,7 +190,56 @@ namespace hfiles
                             cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(ReportId));
                             cmd.Parameters.AddWithValue("_memberId", user_referenceId);// DAL.validateInt(Session["Userid"].ToString()));/*UserId*/
                             cmd.Parameters.AddWithValue("_reportname", "");
-                            cmd.Parameters.AddWithValue("_rId", 0);
+                            cmd.Parameters.AddWithValue("_rId", memberId);
+                            cmd.Parameters.AddWithValue("_reporturl", "");
+                            cmd.Parameters.AddWithValue("_FileSize", 0);
+                            cmd.Parameters.AddWithValue("_SpType", "LR");
+                            cmd.Parameters.AddWithValue("_UploadType", "dependent");
+                            cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
+                            cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
+                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            if (dt != null && dt.Rows.Count > 0)
+                            {
+                                //if (memberId != Convert.ToInt32(Session["Userid"].ToString()))
+                                //{
+
+                                //}
+                                //tcount.InnerHtml = dt.Rows.Count.ToString();
+                                rptReports.DataSource = dt;
+                                rptReports.DataBind();
+                                divUpload_Doc.Visible = false;
+                                MySqlDataReader sdr = cmd.ExecuteReader();
+                                while (sdr.Read())
+                                {
+                                    reporturl = sdr["ReportUrl"].ToString();
+                                    Session["reporturl"] = reporturl;
+                                }
+                            }
+                            else
+                            {
+                                divUpload_Doc.Visible = true;
+                                rptReports.DataSource = null;
+                                rptReports.DataBind();
+
+                            }
+                        }
+                    }
+                }
+                else if (memberId > 0 && memberId == DependentUserIdMember)
+                {
+                    using (MySqlConnection con = new MySqlConnection(cs))
+                    {
+                        con.Open();
+                        using (MySqlCommand cmd = new MySqlCommand("usp_addreportwithaccess", con))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(Session["Userid"].ToString()));// memberId);/* DAL.validateInt(Session["Userid"].ToString())*/
+                            cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(ReportId));
+                            cmd.Parameters.AddWithValue("_memberId", user_referenceId);// memberId);// DAL.validateInt(Session["Userid"].ToString()));/*UserId*/
+                            cmd.Parameters.AddWithValue("_reportname", "");
+                            cmd.Parameters.AddWithValue("_rId", memberId);
                             cmd.Parameters.AddWithValue("_reporturl", "");
                             cmd.Parameters.AddWithValue("_FileSize", 0);
                             cmd.Parameters.AddWithValue("_SpType", "LR");
@@ -640,20 +694,20 @@ namespace hfiles
         {
             int memberId = Convert.ToInt32(Session["memberId"]);
             int user_referenceId = Convert.ToInt32(Session["user_reference"]);
-            if (user_referenceId > 0 && memberId > 0 && ((IsValidEmail(Session["user_reference_email"]) == true && IsValidEmail(Session["user_email"]) == true) ? Session["user_reference_email"].ToString() == Session["user_email"].ToString() : false))
-            {
-                ddlMembers2.Visible = false;
-            }
-            else
-            {
-                ddlMembers2.Visible = true;
-            }
+            //if (user_referenceId > 0 && memberId > 0 && ((IsValidEmail(Session["user_reference_email"]) == true && IsValidEmail(Session["user_email"]) == true) ? Session["user_reference_email"].ToString() == Session["user_email"].ToString() : false))
+            //{
+            //    ddlMembers2.Visible = false;
+            //}
+            //else
+            //{
+            //    ddlMembers2.Visible = true;
+            //}
             ddlMembers2.ClearSelection();
             lblNoMember.Text = string.Empty;
             LinkButton lnk = sender as LinkButton;
             int reportId = Convert.ToInt16(lnk.CommandArgument);
             Session["ReportUniqueId"] = reportId;
-            
+
             mp1.Show();
 
             RId = DAL.validateInt(Request.QueryString["rid"]);
@@ -746,46 +800,36 @@ namespace hfiles
                 }
             }
 
-            // Merge rows from both DataTables
+            // Create a HashSet to track added userids
+            HashSet<string> userIdSet = new HashSet<string>();
+
+            // Merge rows from dt1
             foreach (DataRow row1 in dt1.Rows)
             {
-                DataRow newRow = mergedTable.Rows.Add();
-                foreach (DataColumn column in dt1.Columns)
+                string userId = row1["user_id"].ToString();
+                if (!userIdSet.Contains(userId))
                 {
-                    newRow[column.ColumnName] = row1[column.ColumnName];
+                    DataRow newRow = mergedTable.Rows.Add();
+                    foreach (DataColumn column in dt1.Columns)
+                    {
+                        newRow[column.ColumnName] = row1[column.ColumnName];
+                    }
+                    userIdSet.Add(userId);
                 }
             }
 
+            // Merge rows from dt2
             foreach (DataRow row2 in dt2.Rows)
             {
-                // Check if the same record already exists in mergedTable
-                bool exists = false;
-                foreach (DataRow mergedRow in mergedTable.Rows)
-                {
-                    bool allColumnsMatch = true;
-                    foreach (DataColumn column in dt2.Columns)
-                    {
-                        if (!Equals(row2[column.ColumnName], mergedRow[column.ColumnName]))
-                        {
-                            allColumnsMatch = false;
-                            break;
-                        }
-                    }
-                    if (allColumnsMatch)
-                    {
-                        exists = true;
-                        break;
-                    }
-                }
-
-                // Add the row from dt2 to mergedTable only if it doesn't already exist
-                if (!exists)
+                string userId = row2["user_id"].ToString();
+                if (!userIdSet.Contains(userId))
                 {
                     DataRow newRow = mergedTable.Rows.Add();
                     foreach (DataColumn column in dt2.Columns)
                     {
                         newRow[column.ColumnName] = row2[column.ColumnName];
                     }
+                    userIdSet.Add(userId);
                 }
             }
 
@@ -848,6 +892,8 @@ namespace hfiles
         }
         protected void lbtnSave_Click(object sender, EventArgs e)
         {
+            //string reportname = txtReportName.Text;
+
             int RId = DAL.validateInt(Request.QueryString["rid"]);
             int memberId = Convert.ToInt32(Session["memberId"]);
             List<int> selectedIds = new List<int>();
@@ -877,6 +923,9 @@ namespace hfiles
                         {
                             Session["memberRelation"] = "Self";
                         }
+
+
+
                         if (Session["memberRelation"].ToString() == "Self" || Session["memberRelation"].ToString() == "Son" || Session["memberRelation"].ToString() == "daughter" || Session["memberRelation"].ToString() == "cat" || Session["memberRelation"].ToString() == "Dog" || Session["memberRelation"].ToString() == "GrandFather" || Session["memberRelation"].ToString() == "GrandMother" || Session["memberRelation"].ToString() == "Uncle" || Session["memberRelation"].ToString() == "Aunt" || Session["memberRelation"].ToString() == "Son" && age < 17 || age > 70)
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
@@ -961,6 +1010,109 @@ namespace hfiles
             //return result;
         }
 
+
+        //protected void lbtnSave_Click(object sender, EventArgs e)
+        //{
+        //    // Retrieve the edited ReportName from the TextBox
+        //    string reportName = txtReportName.Text;
+
+        //    int RId = DAL.validateInt(Request.QueryString["rid"]);
+        //    int memberId = Convert.ToInt32(Session["memberId"]);
+        //    List<int> selectedIds = new List<int>();
+
+        //    foreach (ListItem item in ddlMembers2.Items)
+        //    {
+        //        if (item.Selected)
+        //        {
+        //            selectedIds.Add(Convert.ToInt32(item.Value));
+        //        }
+        //    }
+        //    string memberIdList = string.Join(",", selectedIds);
+        //    int result = 0;
+
+        //    try
+        //    {
+        //        int age = 0;
+
+        //        using (MySqlConnection con = new MySqlConnection(cs))
+        //        {
+        //            con.Open();
+        //            using (MySqlCommand cmd = new MySqlCommand("usp_addreportwithaccess", con))
+        //            {
+        //                if (Session["memberRelation"] == null)
+        //                {
+        //                    Session["memberRelation"] = "Self";
+        //                }
+
+        //                if (Session["memberRelation"].ToString() == "Self" || Session["memberRelation"].ToString() == "Son" || Session["memberRelation"].ToString() == "daughter" || Session["memberRelation"].ToString() == "cat" || Session["memberRelation"].ToString() == "Dog" || Session["memberRelation"].ToString() == "GrandFather" || Session["memberRelation"].ToString() == "GrandMother" || Session["memberRelation"].ToString() == "Uncle" || Session["memberRelation"].ToString() == "Aunt" || (Session["memberRelation"].ToString() == "Son" && age < 17) || age > 70)
+        //                {
+        //                    cmd.CommandType = CommandType.StoredProcedure;
+        //                    cmd.Parameters.AddWithValue("_UserId", int.Parse(Session["Userid"].ToString()));
+        //                    cmd.Parameters.AddWithValue("_reportname", reportName); // Pass the ReportName here
+        //                    cmd.Parameters.AddWithValue("_reporturl", "");
+        //                    cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(RId));
+        //                    cmd.Parameters.AddWithValue("_memberId", memberIdList);
+        //                    cmd.Parameters.AddWithValue("_rId", Convert.ToInt32(Session["ReportUniqueId"].ToString()));
+        //                    cmd.Parameters.AddWithValue("_SpType", "U");
+        //                    cmd.Parameters.AddWithValue("_UploadType", "");
+        //                    cmd.Parameters.AddWithValue("_FileSize", 0);
+        //                    cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
+        //                    cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
+        //                    cmd.ExecuteNonQuery();
+        //                    int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
+        //                    result = DAL.validateInt(retVal);
+        //                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');", true);
+        //                    Session["memberId"] = 0;
+        //                }
+        //                else if (memberId == int.Parse(Session["Userid"].ToString()))
+        //                {
+        //                    cmd.CommandType = CommandType.StoredProcedure;
+        //                    cmd.Parameters.AddWithValue("_UserId", int.Parse(Session["Userid"].ToString()));
+        //                    cmd.Parameters.AddWithValue("_reportname", reportName); // Pass the ReportName here
+        //                    cmd.Parameters.AddWithValue("_reporturl", "");
+        //                    cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(RId));
+        //                    cmd.Parameters.AddWithValue("_memberId", memberIdList);
+        //                    cmd.Parameters.AddWithValue("_rId", Convert.ToInt32(Session["ReportUniqueId"].ToString()));
+        //                    cmd.Parameters.AddWithValue("_SpType", "U");
+        //                    cmd.Parameters.AddWithValue("_UploadType", "");
+        //                    cmd.Parameters.AddWithValue("_FileSize", 0);
+        //                    cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
+        //                    cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
+        //                    cmd.ExecuteNonQuery();
+        //                    int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
+        //                    result = DAL.validateInt(retVal);
+        //                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');", true);
+        //                }
+        //                else
+        //                {
+        //                    cmd.CommandType = CommandType.StoredProcedure;
+        //                    cmd.Parameters.AddWithValue("_UserId", int.Parse(Session["Userid"].ToString()));
+        //                    cmd.Parameters.AddWithValue("_reportname", reportName); // Pass the ReportName here
+        //                    cmd.Parameters.AddWithValue("_reporturl", "");
+        //                    cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(RId));
+        //                    cmd.Parameters.AddWithValue("_memberId", memberIdList);
+        //                    cmd.Parameters.AddWithValue("_rId", Convert.ToInt32(Session["ReportUniqueId"].ToString()));
+        //                    cmd.Parameters.AddWithValue("_SpType", "U");
+        //                    cmd.Parameters.AddWithValue("_UploadType", "");
+        //                    cmd.Parameters.AddWithValue("_FileSize", 0);
+        //                    cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
+        //                    cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
+        //                    cmd.ExecuteNonQuery();
+        //                    int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
+        //                    result = DAL.validateInt(retVal);
+        //                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');", true);
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception Ex)
+        //    {
+        //        result = 0;
+        //        // Handle or log exception if needed
+        //    }
+        //}
+
+
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
 
@@ -976,19 +1128,41 @@ namespace hfiles
             Repeater reportRepeater = e.Item.FindControl("rptReports") as Repeater;
         }
 
+       
+
         protected void whatsappLinkButton_Click(object sender, EventArgs e)
         {
+            //LinkButton lnk = sender as LinkButton;
+            //string fileUrl = "/upload/report/" + lnk;//lnk.CommandArgument;
+
+            //string whatsappUrl = GenerateWhatsAppUrl(fileUrl);
+            //Response.Redirect(whatsappUrl);
+
+
+
             LinkButton lnk = sender as LinkButton;
-            string fileUrl = "https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf";//lnk.CommandArgument;
+            string fileUrl = "https://hfiles.in" + lnk.CommandArgument;
             string whatsappUrl = GenerateWhatsAppUrl(fileUrl);
             Response.Redirect(whatsappUrl);
+
+
         }
         private string GenerateWhatsAppUrl(string fileUrl)
         {
-            string message = "Here is your PDF: " + fileUrl;
-            string encodedMessage = HttpUtility.UrlEncode(message);
-            return "https://wa.me/?text=" + encodedMessage;
+            //string message = "Here is your PDF: " + fileUrl;
+            string message = fileUrl;
+            //string encodedMessage = HttpUtility.UrlEncode(message);
+            //return "https://wa.me/?text=" + encodedMessage;
+
+
+            string encodedUrl = HttpUtility.UrlEncode(fileUrl);
+            return "https://wa.me/?text=" + encodedUrl;
+
+
+
         }
+
+
         //public static void SendMail(string Subject, string messageBody, string ToEmail, string attachmentFilePath)
         //{
         //    string fromMail = ConfigurationManager.AppSettings["careermailUserId"].ToString();

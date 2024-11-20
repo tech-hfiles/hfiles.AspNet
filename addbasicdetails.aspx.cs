@@ -98,9 +98,11 @@ namespace hfiles
             MySqlDataAdapter adpt = new MySqlDataAdapter(com, con);
             DataTable dt = new DataTable();
             adpt.Fill(dt);
+
+            ViewState["CountryCodeList"] = dt;
             ddlCountry.DataSource = dt;
             ddlCountry.DataTextField = "countryname";
-            ddlCountry.DataValueField = "dialingcode";
+            ddlCountry.DataValueField = "id";
             ddlCountry.DataBind();
             ddlCountry.Items.Insert(0, new ListItem("Select Country", "0"));
             stateDropDownList.DataSource = null;
@@ -197,7 +199,7 @@ namespace hfiles
                     command.Parameters.AddWithValue("_user_dob", txtDate.Text);
                     command.Parameters.AddWithValue("_user_bloodgroup", bloodgroup.Value);
                     //command.Parameters.AddWithValue("_user_state", stateTextBox.Value);
-                    command.Parameters.AddWithValue("_user_state", ddlCountry.SelectedItem.Text.ToLower() == "india" ? (stateDropDownList.SelectedItem.Text.ToLower() == "no state found" || stateDropDownList.SelectedItem.Text.ToLower() == "select state") == true ? "" : stateDropDownList.SelectedItem.Text : stateTextBox.Value) ;
+                    command.Parameters.AddWithValue("_user_state", ddlCountry.SelectedItem.Text.ToLower() == "india" ? (stateDropDownList.SelectedItem.Text.ToLower() == "no state found" || stateDropDownList.SelectedItem.Text.ToLower() == "select state") == true ? "" : stateDropDownList.SelectedItem.Text : stateTextBox.Value);
                     //command.Parameters.AddWithValue("_user_city", cityTextBox.Value);
                     command.Parameters.AddWithValue("_user_city", ddlCountry.SelectedItem.Text.ToLower() == "india" ? (cityDropDownList.SelectedItem.Text.ToLower() == "no city found" || cityDropDownList.SelectedItem.Text.ToLower() == "select city") == true ? "" : cityDropDownList.SelectedItem.Text : cityTextBox.Value);
                     command.Parameters.AddWithValue("_user_country", ddlCountry.SelectedItem.Text);
@@ -222,7 +224,7 @@ namespace hfiles
 
                     if (Bind() > 0)
                     {
-                        Response.Redirect("~/samanta.aspx");
+                        Response.Redirect("~/Dashboard.aspx");
                     }
                     else
                     {
@@ -283,7 +285,7 @@ namespace hfiles
                                     {
                                         stateTextBox.Value = reader["user_state"].ToString();
                                         //getcitylist(stateDropDownList.SelectedItem.Text);
-                                        
+
                                     }
                                     if (reader["user_city"].ToString() != string.Empty)
                                     {
@@ -379,7 +381,25 @@ namespace hfiles
 
         protected void ddlCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dialcode.Text = ddlCountry.SelectedValue.ToString();
+
+            if (ViewState["CountryCodeList"] != null)
+            {
+                DataTable dt = (DataTable)ViewState["CountryCodeList"];
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    int countryId = DAL.validateInt(ddlCountry.SelectedValue.ToString());
+
+                    if (dt.AsEnumerable().Where(p => p["id"].ToString() == ddlCountry.SelectedValue.ToString()).AsDataView().Count > 0)
+                    {
+                        dialcode.Text = dt.AsEnumerable().Where(p => p["id"].ToString() == ddlCountry.SelectedValue.ToString()).Select(p => p.Field<string>("dialingcode")).FirstOrDefault();
+                    }
+
+                }
+            }
+            else
+            {
+
+            }
             if (ddlCountry.SelectedItem.Text == "India")
             {
                 getstatelist();
@@ -387,6 +407,9 @@ namespace hfiles
                 cityTextBox.Visible = false;
                 stateDropDownList.Visible = true;
                 cityDropDownList.Visible = true;
+                rfvstateDropDownList.Enabled = true;
+                rfvstateTextbox.Enabled = false;
+                rfvcityTextBox.Enabled = false;
             }
             else
             {
@@ -398,6 +421,9 @@ namespace hfiles
                 cityTextBox.Visible = true;
                 stateDropDownList.Visible = false;
                 cityDropDownList.Visible = false;
+                rfvstateDropDownList.Enabled = false;
+                rfvstateTextbox.Enabled = true;
+                rfvcityTextBox.Enabled = true;
             }
         }
         protected void stateDropDownList_SelectedIndexChanged(object sender, EventArgs e)

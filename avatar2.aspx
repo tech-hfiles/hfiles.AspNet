@@ -472,7 +472,7 @@
                                                                 <img src='<%# Eval("user_image") != string.Empty ? "upload/" + Eval("user_image").ToString() : "Avatar2/default-user-profile.png" %>' alt="" class="side_user_profile_img" />
                                                             </a>
                                                             <div class="Huz_AddmembersideotherLidiv_name">
-                                                                <asp:LinkButton ID="member1" runat="server" Text='<%#Eval("user_FirstName") %>' OnClick="member1_Click" CommandArgument='<%#Eval("user_Id")+"|"+Eval("user_relation") %>'></asp:LinkButton>
+                                                                <asp:LinkButton ID="member1" runat="server" Text='<%#Eval("user_FirstName") %>' OnClick="member1_Click" CommandArgument='<%#Eval("user_Id")+"|"+Eval("user_relation") +"|"+ Eval("DependentUserId") +"|"+ Eval("User_Reference")  %>'></asp:LinkButton>
                                                                 <asp:HiddenField ID="hfmemberid" runat="server" Value='<%#Eval("user_Id") %>' />
                                                             </div>
                                                         </div>
@@ -694,7 +694,7 @@
                                                                     <div class="Mobile_members-details py-2">
                                                                         <%--<h4>Kuldeep</h4>--%>
                                                                         <span>
-                                                                            <asp:LinkButton ID="member2" ForeColor="Black" runat="server" Text='<%#Eval("user_FirstName") %>' OnClick="member1_Click" CommandArgument='<%#Eval("user_Id")+"|"+Eval("user_relation") %>'></asp:LinkButton></span>
+                                                                            <asp:LinkButton ID="member2" ForeColor="Black" runat="server" Text='<%#Eval("user_FirstName") %>' OnClick="member1_Click" CommandArgument='<%#Eval("user_Id")+"|"+Eval("user_relation") +"|"+ Eval("DependentUserId") +"|"+ Eval("User_Reference")  %>'></asp:LinkButton></span>
                                                                         <asp:HiddenField ID="hfmemberid2" runat="server" Value='<%#Eval("user_Id") %>' />
                                                                     </div>
                                                                 </div>
@@ -947,7 +947,7 @@
                                 <label style="text-align: left !important"><strong style="text-align: left !important">Select Report Type :</strong></label>
                                 <asp:DropDownList CssClass="select-report-dropdown" runat="server" ID="ddlReports">
                                 </asp:DropDownList>
-                                <asp:RequiredFieldValidator runat="server" ErrorMessage="Please Select Report Type" ControlToValidate="ddlReports" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator runat="server" ErrorMessage="Please Select Report Type" InitialValue="0" Display="Dynamic"  ValidationGroup="abRe" ControlToValidate="ddlReports"  SetFocusOnError="True"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                     </div>
@@ -1009,7 +1009,7 @@
 
                 <br />
                 <br />
-                <asp:Button Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click" runat="server" CssClass="submit-btn" />
+                <asp:Button Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click" ValidationGroup="abRe" runat="server" CssClass="submit-btn" />
                 <%--<asp:Label Text="" ID="lblMsg" runat="server" />--%>
                 <asp:Button ID="btnClose" runat="server" OnClick="okLinkButton_Click" Text="Close" CssClass="close-btn" />
             </asp:Panel>

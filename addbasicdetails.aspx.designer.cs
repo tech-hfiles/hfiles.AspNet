@@ -141,6 +141,24 @@ namespace hfiles
         protected global::System.Web.UI.HtmlControls.HtmlInputText stateTextBox;
 
         /// <summary>
+        /// rfvstateDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvstateDropDownList;
+
+        /// <summary>
+        /// rfvstateTextbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvstateTextbox;
+
+        /// <summary>
         /// cityDropDownList control.
         /// </summary>
         /// <remarks>
@@ -157,6 +175,24 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText cityTextBox;
+
+        /// <summary>
+        /// rfvcityDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvcityDropDownList;
+
+        /// <summary>
+        /// rfvcityTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvcityTextBox;
 
         /// <summary>
         /// dialcode control.

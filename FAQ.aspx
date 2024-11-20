@@ -113,7 +113,7 @@
                             </h2>
                             <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <strong>Email us at <a href="mailto:hfiles.in@gmail.com">hfiles.in@gmail.com</a></strong>
+                                    <strong>Email us at <a href="mailto:contact@hfiles.in">contact@hfiles.in</a></strong>
                                 </div>
                             </div>
                         </div>

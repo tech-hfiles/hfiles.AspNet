@@ -1,0 +1,36 @@
+1. Inventory upload- file name and loader ---------------------------------------------- Done (local)
+2. Discount - Mandatory field based on type selection. --------------------------------- Done
+3. Discount - Show category brand or product name and type of coupon. ------------------ Done
+4. Franchise gst number blank check not working ---------------------------------------- Done
+5. Edit product most important. -------------------------------------------------------- Done
+6. Franchise pop up not working on confirm order. -------------------------------------- Done
+7. Confirm Order - Franchise remove selection form the table --------------------------- Done
+8. Confirm Order - Change text of Confirm order to Accept order ------------------------ Done
+9. Confirm Order - Back to order is not working. --------------------------------------- Done
+10. Process order - Mack id auto refresh to show --------------------------------------- Done
+11. Franchise - Auto close message(3 second) on order update. -------------------------- Done
+12. JQuery search and sort option on every table(remove other filters) ----------------- Most of completed
+13. franchise - orderdetails - Show units with qunatity -------------------------------- Done
+14. Rockectbox -  Use sample box sizes provided by rockectbox. ------------------------- (Added Sample box 1*1*1 and 2*2*2 Box), Tested with nearest                                                                                           location but same amount issue
+15. Common image based on order process.------------------------------------------------ Sent to client for approval
+16. Admin -RMA - make the fields readonly ---------------------------------------------- Done
+17. Display Order - hide in brand ------------------------------------------------------ Done
+18. Add coupon type as company --------------------------------------------------------- Done
+19. Product Filter on product page ----------------------------------------------------- Done
+20. Hide sunburst - Improved speed ----------------------------------------------------- Done
+21. Remove Last enetered Macid - Add macids -------------------------------------------- Done
+22. All Product on category click app	------------------------------------------------ WIP - Taha
+23. Payment status (failure)
+24. Discount coupon(Independent) funtionality. ----------------------------------------- Done.
+25. Multi notification ----------------------------------------------------------------- Done
+26. MacId count ------------------------------------------------------------------------ Done
+27. Ship Rocket ------------------------------------------------------------------------ 
+28. Reels ------------------------------------------------------------------------------
+29. Pop-up ----------------------------------------------------------------------------- Done
+30. Emailers
+    i.  Marketing
+    ii. Transactional
+31. Whatsapp - Integration
+32. Salesuser -------------------------------------------------------------------------- Done
+33. Whatsapp - Marketing
+34. Order Details(Admin) --------------------------------------------------------------- WIP

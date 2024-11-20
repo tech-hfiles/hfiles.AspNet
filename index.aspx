@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hfiles | Create and Manage Your E-health Record(EHR) With Us</title>
-    <meta name='robots' content='noindex, nofollow' />
+    <%--<meta name='robots' content='noindex, nofollow' />--%>
     <link rel="alternate" type="application/rss+xml" title="Hfiles | Create and Manage Your E-health Record(EHR) With Us &raquo; Feed" href="https://hfiles.in/feed/" />
     <link rel="alternate" type="application/rss+xml" title="Hfiles | Create and Manage Your E-health Record(EHR) With Us &raquo; Comments Feed" href="https://hfiles.in/comments/feed/" />
     <script>
@@ -1839,7 +1839,23 @@ Update your bond with health by signing up with us today!
         var ekit_config = { "ajaxurl": "https:\/\/hfiles.in\/wp-admin\/admin-ajax.php", "nonce": "cc30e7ab9f" };
     </script>
     <script src="https://hfiles.in/wp-content/plugins/elementskit-lite/widgets/init/assets/js/elementor.js?ver=3.1.3" id="elementskit-elementor-js"></script>
-
+    <script>
+        (function (w, d, s, c, r, a, m) {
+            w['KiwiObject'] = r;
+            w[r] = w[r] || function () {
+                (w[r].q = w[r].q || []).push(arguments)
+            };
+            w[r].l = 1 * new Date();
+            a = d.createElement(s);
+            m = d.getElementsByTagName(s)[0];
+            a.async = 1;
+            a.src = c;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', "https://app.interakt.ai/kiwi-sdk/kiwi-sdk-17-prod-min.js?v=" + new Date().getTime(), 'kiwi');
+        window.addEventListener("load", function () {
+            kiwi.init('', 'eZeKxJeYB2RnyKisaXf6Au61e1svbuZN', {});
+        });
+    </script>
 </body>
 </html>
 

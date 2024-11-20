@@ -8,6 +8,10 @@ using System.Web;
 using MySql.Data.MySqlClient;
 using MimeKit;
 using System.IO;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace hfiles
 {
@@ -42,10 +46,17 @@ namespace hfiles
             email.From.Add(new MailboxAddress("H-Files", fromMail));
             email.To.Add(new MailboxAddress("H-FIles-User", ToEmail));
             email.Subject = Subject;
-            email.Body = new TextPart("html")
-            {
-                Text = Message
-            };
+            //email.Body = new TextPart("html")
+            //{
+            //    Text = Message
+            //};
+
+            var bodyBuilder = new BodyBuilder();
+
+            bodyBuilder.HtmlBody = Message;
+            //bodyBuilder.Attachments.Add("");
+            email.Body = bodyBuilder.ToMessageBody();
+
             using (var smtp = new MailKit.Net.Smtp.SmtpClient())
             {
                 smtp.Connect(mailServer, mailPort, true);
@@ -77,6 +88,59 @@ namespace hfiles
                 smtp.Authenticate(fromMail, mailPassword);
                 smtp.Send(email);
                 smtp.Disconnect(true);
+            }
+        }
+        public static void SendOTPApiRequest(string OTP, string MobileNo)
+        {
+            string url = ConfigurationManager.AppSettings["interaktApiurl"].ToString();
+            string apiKey = ConfigurationManager.AppSettings["interaktApiKey"].ToString();
+
+            var requestBody = new
+            {
+                countryCode = "+91",
+                phoneNumber = MobileNo,
+                type = "Template",
+                callbackData = "some_callback_data",
+                template = new
+                {
+                    name = "otp_template",
+                    languageCode = "en",
+                    headerValues = new[] { "Alert" },
+                    bodyValues = new[] { OTP },
+                    buttonValues = new
+                    {
+                        _0 = new[] { OTP }
+                    }
+                }
+            };
+
+            string jsonContent = JsonConvert.SerializeObject(requestBody);
+            string newjsonContent = jsonContent.ToString().Replace("_0", "0");
+            var content = new StringContent(newjsonContent, Encoding.UTF8, "application/json");
+
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Add("Authorization", $"Basic {apiKey}");
+
+                try
+                {
+                    HttpResponseMessage response = client.PostAsync(url, content).Result;
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string responseBody =  response.Content.ReadAsStringAsync().Result;
+                        //lblResponse.Text = "Response received: " + responseBody;
+                    }
+                    else
+                    {
+                        string errorResponse =  response.Content.ReadAsStringAsync().Result;
+                        //lblResponse.Text = $"Error: {response.StatusCode}, Details: {errorResponse}";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //lblResponse.Text = $"Exception: {ex.Message}";
+                }
             }
         }
         public static DataTable validateDataTable(DataTable dt)
@@ -136,6 +200,28 @@ namespace hfiles
             return amount;
         }
 
+    }
+    public class RequestBody
+    {
+        public string countryCode { get; set; }
+        public string phoneNumber { get; set; }
+        public string type { get; set; }
+        public string callbackData { get; set; }
+        public Template template { get; set; }
+    }
+
+    public class Template
+    {
+        public string name { get; set; }
+        public string languageCode { get; set; }
+        public string[] headerValues { get; set; }
+        public string[] bodyValues { get; set; }
+        public ButtonValues buttonValues { get; set; }
+    }
+
+    public class ButtonValues
+    {
+        public string[] _0 { get; set; }
     }
 
 

@@ -214,11 +214,11 @@ namespace hfiles
                     int age = CalculateAge(Convert.ToDateTime(txtDate.Text));
                     //if ((selectedRelation == "son" || selectedRelation == "daughter" || selectedRelation == "grandfather" || selectedRelation == "grandmother" || selectedRelation == "cat" || selectedRelation == "dog") && (age < 17 || age > 70)) 
                     int gender = 0;
-                    if (selectedRelation == "son" || selectedRelation == "grandfather" || selectedRelation == "uncle")
+                    if (selectedRelation == "son" || selectedRelation == "father" || selectedRelation == "grandfather" || selectedRelation == "uncle"  || selectedRelation == "brother" || selectedRelation == "husband")
                     {
                         gender = 1;
                     }
-                    else if (selectedRelation == "daughter" || selectedRelation == "grandmother" || selectedRelation == "aunt")
+                    else if (selectedRelation == "daughter" || selectedRelation == "grandmother" || selectedRelation == "aunt" || selectedRelation == "mother" || selectedRelation == "sister" || selectedRelation == "wife")
                     {
                         gender = 2;
                     }

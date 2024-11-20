@@ -177,15 +177,31 @@ namespace hfiles
         protected void lbtnAddReport_Click(object sender, EventArgs e)
         {
             int memberId = Convert.ToInt32(Session["memberId"]);
+
+            int DependentUserIdMember = DAL.validateInt(Session["DependentUserIdMember"]);
+            int Dependent_User_Reference = DAL.validateInt(Session["Dependent_User_Reference"]);
             int user_referenceId = Convert.ToInt32(Session["user_reference"]);
-            if (user_referenceId > 0 && memberId > 0 && ((IsValidEmail(Session["user_reference_email"]) == true && IsValidEmail(Session["user_email"]) == true) ? Session["user_reference_email"].ToString() == Session["user_email"].ToString() : false))
-            {
-                ddlMembers2.Visible = false;
-            }
-            else
-            {
-                ddlMembers2.Visible = true;
-            }
+
+            //if (user_referenceId > 0 && memberId > 0 && ((IsValidEmail(Session["user_reference_email"]) == true && IsValidEmail(Session["user_email"]) == true) ? Session["user_reference_email"].ToString() == Session["user_email"].ToString() : false))
+            //{
+            //    ddlMembers2.Visible = false;
+            //}
+            //else
+            //{
+            //    ddlMembers2.Visible = true;
+            //}
+
+            //if (memberId > 0 && memberId == DependentUserIdMember)
+            //{
+
+            //    foreach (ListItem item in ddlMembers2.Items)
+            //    {
+            //        if (DependentUserIdMember == DAL.validateInt(item.Value))
+            //        {
+            //            ddlMembers2.Items.Remove(item);
+            //        }
+            //    }
+            //}
             showmembersdiv(sender);
             mp1.Show();
         }
@@ -358,13 +374,14 @@ namespace hfiles
                         }
                         else if (user_referenceId > 0 && ((IsValidEmail(Session["user_reference_email"]) == true && IsValidEmail(Session["user_email"]) == true) ? Session["user_reference_email"].ToString() == Session["user_email"].ToString() : false))
                         {
+                            memberIdList = memberIdList + "," + memberId;
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("_UserId", UserId);
                             cmd.Parameters.AddWithValue("_reportname", reportname);
                             cmd.Parameters.AddWithValue("_reporturl", reporturl);
                             cmd.Parameters.AddWithValue("_reportId", reportId);
                             // cmd.Parameters.AddWithValue("_memberId", memberId);
-                            cmd.Parameters.AddWithValue("_memberId", memberId);
+                            cmd.Parameters.AddWithValue("_memberId", memberIdList);
                             cmd.Parameters.AddWithValue("_FileSize", FileSize);
                             cmd.Parameters.AddWithValue("_rId", 0);
                             cmd.Parameters.AddWithValue("_SpType", "C");
@@ -621,14 +638,18 @@ namespace hfiles
             //var memberid = linkButton.CommandArgument.ToString();
             string memberid = "";
             string relation = "";
+            string DependentUserId = "";
+            string Dependent_User_Reference = "";
             string IdName = linkButton.CommandArgument;
             string[] IdNamevalue = commandArgument.Split('|');
 
             string[] IdNamevalues = IdName.Split('|');
-            if (IdNamevalues.Length == 2)
+            if (IdNamevalues.Length == 4)
             {
                 memberid = values[0];
                 relation = values[1];
+                DependentUserId = values[2];
+                Dependent_User_Reference = values[3];
             }
             foreach (RepeaterItem item in rptMember.Items)
             {
@@ -649,6 +670,7 @@ namespace hfiles
             //Repeater1
             Session["memberId"] = memberid.ToString();
             Session["memberRelation"] = relation.ToString();
+            Session["DependentUserIdMember"] = DependentUserId.ToString();
             bindData(Convert.ToInt32(memberid));
         }
 

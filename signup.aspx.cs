@@ -46,9 +46,22 @@ namespace hfiles
             }
             else
             {
-                string otp = GenerateOTP(6); // Generate a 6-digit OTP
-                string subject = "Welcome to Hfiles";
-                string body = $"<p style=\"text-align: justify\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify\">Thank you for signing up for Hfiles! We&apos;re excited to have you on board as a valued member of our community.&nbsp;</p>\r\n<p style=\"text-align: justify\">To complete your registration, please use the following One-Time Password</p>\r\n<p style=\"text-align: justify\"><strong style=\"font-size: 130%\">{otp}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Email footer/ Privacy Agreement: Please keep this OTP secure, as you will need it to verify your account and access our services.&nbsp;</p>\r\n<p style=\"text-align: justify\">At Hfiles, we take your privacy and data security seriously. We are committed to safeguarding your personal information and ensuring it is used in accordance with our Privacy Agreement.</p>";
+                string otp = GenerateOTP(6);
+                DAL.SendOTPApiRequest(otp, phoneTextBox.Value);
+                // Generate a 6-digit OTP
+                //string subject = "Welcome to Hfiles";
+                //string body = $"<p style=\"text-align: justify\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify\">Thank you for signing up for Hfiles! We&apos;re excited to have you on board as a valued member of our community.&nbsp;</p>\r\n<p style=\"text-align: justify\">To complete your registration, please use the following One-Time Password</p>\r\n<p style=\"text-align: justify\"><strong style=\"font-size: 130%\">{otp}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Email footer/ Privacy Agreement: Please keep this OTP secure, as you will need it to verify your account and access our services.&nbsp;</p>\r\n<p style=\"text-align: justify\">At Hfiles, we take your privacy and data security seriously. We are committed to safeguarding your personal information and ensuring it is used in accordance with our Privacy Agreement.</p>";
+                string subject = "Complete Your Hfiles Registration";
+                string body = $@"
+                            <p>Hello {firstnameTextBox.Value},</p>
+                            <p>Welcome to Hfiles!</p>
+                            <p>To complete your registration, please use the following One-Time Password (OTP):</p>
+                            <p style=""font-weight: bold; font-size: 1.2em;"">{otp}</p>
+                            <p>Please keep this OTP secure and use it to finalize your registration process.</p>
+                            <p>If you have any questions or need assistance, feel free to reach out to our support team at contact@hfiles.in.</p>
+                            <p>Thank you for joining us!</p>
+                            <p>Best regards,<br/>The Hfiles Team</p>
+                            <p><small>If you did not sign up for Hfiles, please disregard this email.</small></p>";
 
                 // SendEmail(email, subject, body);
 
@@ -77,7 +90,7 @@ namespace hfiles
                     DAL.SendCareerMail(subject, body, email);
                     divSubmit.Visible = true;
                     divOtp.Visible = false;
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on "+ emailTextBox.Value + ".');", true);
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on " + emailTextBox.Value + " and "+ phoneTextBox.Value + ".');", true);
                 }
 
             }
@@ -165,9 +178,9 @@ namespace hfiles
                                     string email = emailTextBox.Value.ToString();
                                     //string subject = "# Verification code";
                                     string subject = "Welcome to HFiles - Start Managing Your Medical Data";
-                                    string body = $"<p style=\"text-align: justify;\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify;\">Thank you for signing up for Hfiles! We&apos;re delighted to have you as a member of our community, and we appreciate your trust in our platform.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Now that you&apos;re officially part of Hfiles, you can take the first step in managing your medical data. Simply log into your account by visiting [Login Page] and use your registered credentials to access your personalized dashboard.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Once you&apos;re logged in, you&apos;ll be able to:&nbsp;</p>\r\n<ol>\r\n    <li style=\"text-align: justify;\">Fill Medical Records: Easily input and update your medical history, prescriptions, and other vital information.</li>\r\n    <li style=\"text-align: justify;\">Upload Documents: Safely upload and store important medical documents, test results, and reports</li>\r\n</ol>\r\n<p style=\"text-align: justify;\">Our user-friendly interface and secure storage ensure that your medical data is organized and readily accessible when you need it most.</p>\r\n<p style=\"text-align: justify;\">If you have any questions or need assistance, our support team is here to help. Simply reach out to us at [Support Email], and we&apos;ll be happy to assist you.</p>\r\n<p style=\"text-align: justify;\">Thank you for choosing Hfiles to manage your medical information. We&apos;re committed to providing you with a secure and convenient platform for all your healthcare needs.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Email footer/ Privacy Agreement: Thank you for choosing Hfiles to manage your medical information. We&apos;re committed to providing you with a secure and convenient platform for all your healthcare needs. Your medical data is treated with the utmost confidentiality and is stored securely using the latest encryption protocols. We strictly adhere to all relevant data protection laws and regulations to ensure that your information remains private and protected. Your data will not be shared with any third parties without your explicit consent</p>";
+                                    string body = $"<p style=\"text-align: justify;\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify;\">Thank you for signing up for Hfiles! We&apos;re delighted to have you as a member of our community, and we appreciate your trust in our platform.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Now that you&apos;re officially part of Hfiles, you can take the first step in managing your medical data. Simply log into your account by visiting https://hfiles.in/login.aspx and use your registered credentials to access your personalized dashboard.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Once you&apos;re logged in, you&apos;ll be able to:&nbsp;</p>\r\n<ol>\r\n    <li style=\"text-align: justify;\">Fill Medical Records: Easily input and update your medical history, prescriptions, and other vital information.</li>\r\n    <li style=\"text-align: justify;\">Upload Documents: Safely upload and store important medical documents, test results, and reports</li>\r\n</ol>\r\n<p style=\"text-align: justify;\">Our user-friendly interface and secure storage ensure that your medical data is organized and readily accessible when you need it most.</p>\r\n<p style=\"text-align: justify;\">If you have any questions or need assistance, our support team is here to help. Simply reach out to us at contact@hfiles.in, and we&apos;ll be happy to assist you.</p>\r\n<p style=\"text-align: justify;\">Thank you for choosing Hfiles to manage your medical information. We&apos;re committed to providing you with a secure and convenient platform for all your healthcare needs.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Email footer/ Privacy Agreement: Thank you for choosing Hfiles to manage your medical information. We&apos;re committed to providing you with a secure and convenient platform for all your healthcare needs. Your medical data is treated with the utmost confidentiality and is stored securely using the latest encryption protocols. We strictly adhere to all relevant data protection laws and regulations to ensure that your information remains private and protected. Your data will not be shared with any third parties without your explicit consent</p>";
                                     DAL.SendCareerMail(subject, body, email);
-                                    //Response.Redirect("~/samanta.aspx");
+                                    //Response.Redirect("~/Dashboard.aspx");
                                     if (Bind() > 0)
                                     {
                                         Response.Redirect("~/addbasicdetails.aspx");
@@ -228,6 +241,7 @@ namespace hfiles
         {
             string email = emailTextBox.Value.ToString();
             string otp = GenerateOTP(6); // Generate a 6-digit OTP
+            DAL.SendOTPApiRequest(otp, phoneTextBox.Value);
             string subject = "Welcome to Hfiles";
             string body = $"<p style=\"text-align: justify\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify\">Thank you for signing up for Hfiles! We&apos;re excited to have you on board as a valued member of our community.&nbsp;</p>\r\n<p style=\"text-align: justify\">To complete your registration, please use the following One-Time Password</p>\r\n<p style=\"text-align: justify\"><strong style=\"font-size: 130%\">{otp}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Email footer/ Privacy Agreement: Please keep this OTP secure, as you will need it to verify your account and access our services.&nbsp;</p>\r\n<p style=\"text-align: justify\">At Hfiles, we take your privacy and data security seriously. We are committed to safeguarding your personal information and ensuring it is used in accordance with our Privacy Agreement.</p>";
 

@@ -351,8 +351,8 @@
                                                             <asp:ListItem Value="daughter" Text="Daughter" />
                                                             <asp:ListItem Value="wife" Text="Wife" />
                                                             <asp:ListItem Value="husband" Text="Husband" />
-                                                            <asp:ListItem Value="grandMother" Text="Grand Mother" />
-                                                            <asp:ListItem Value="grandFather" Text="Grand Father" />
+                                                            <asp:ListItem Value="grandmother" Text="Grand Mother" />
+                                                            <asp:ListItem Value="grandfather" Text="Grand Father" />
                                                             <asp:ListItem Value="uncle" Text="Uncle" />
                                                             <asp:ListItem Value="aunt" Text="Aunt" />
                                                             <asp:ListItem Value="staffmale" Text="Male Staff" />
@@ -434,7 +434,8 @@
                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorExistingMember" ControlToValidate="hfnumber" runat="server" Display="Dynamic" ValidationGroup="Second"></asp:RequiredFieldValidator>
                                                 </div>
                                                 <div class="btn-div">
-                                                    <button runat="server" id="request" onserverclick="request_Click" class="btn submit-btn" validationgroup="Second">Send Request</button><%--btn submit-btn request-btn--%>
+                                                     <%--<asp:Button runat="server" ID="btnSendRequst" Text="Send Request" OnClick="request_Click" ValidationGroup="Second" CssClass="btn submit-btn"></asp:Button>--%>
+                                                    <button runat="server" id="request" onserverclick="request_Click" type="submit" class="btn submit-btn" validationgroup="Second">Send Request</button><%--btn submit-btn request-btn--%>
                                                 </div>
                                             </div>
 

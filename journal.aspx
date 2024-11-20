@@ -66,7 +66,7 @@
         .journal-card {
             background-color: #ecedff;
             border-radius: 10px;
-            padding: 0;
+            padding: 10px;
         }
 
         .card-fun img {
@@ -223,10 +223,14 @@
                         <img class="mx-1" src="../Add Members/save-active-icon.png" width="20px" alt="">
                         <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
                         <img class="mx-2 d-none" src="../Add Members/share-active.png" width="20px" alt="">--%>
-                                                    <p class="m-0 col-8 text-left"><strong>Hena Kanakia Gangar</strong></p>
+                                                    <%--<p class="m-0 col-8 text-left"><strong>Hena Kanakia Gangar</strong></p>--%>
+                                                     <p class="m-0 col-8 text-left"><strong><%# Eval("Title") %></strong></p>
                                                 </div>
                                             </div>
+                                           
                                         </div>
+
+                                                     
                                     </ItemTemplate>
                                 </asp:Repeater>
 
