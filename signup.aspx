@@ -771,7 +771,7 @@
                                                     <div class="elementor-button-wrapper">
                                                         <a class="elementor-button elementor-button-link elementor-size-sm" href="login.aspx">
                                                             <span class="elementor-button-content-wrapper">
-                                                                <span class="elementor-button-text">User Login</span>
+                                                                <span class="elementor-button-text" style="color:white;">User Login</span>
                                                             </span>
                                                         </a>
                                                     </div>
@@ -784,9 +784,9 @@
                                             <div class="elementor-element elementor-element-43a819f elementor-align-center elementor-tablet-align-right elementor-widget elementor-widget-button" data-id="43a819f" data-element_type="widget" data-widget_type="button.default">
                                                 <div class="elementor-widget-container">
                                                     <div class="elementor-button-wrapper">
-                                                        <a class="elementor-button elementor-button-link elementor-size-sm" href="signup.aspx">
+                                                        <a class="elementor-button elementor-button-link elementor-size-sm" style="background-color:#fdd001" href="signup.aspx">
                                                             <span class="elementor-button-content-wrapper">
-                                                                <span class="elementor-button-text">Sign up</span>
+                                                                <span class="elementor-button-text" style="color:black;">Sign up</span>
                                                             </span>
                                                         </a>
                                                     </div>
