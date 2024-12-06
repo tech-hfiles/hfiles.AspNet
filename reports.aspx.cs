@@ -29,6 +29,7 @@ using System.Diagnostics;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices.ComTypes;
 using Org.BouncyCastle.Asn1.Cmp;
+using System.Text;
 
 namespace hfiles
 {
@@ -48,6 +49,8 @@ namespace hfiles
         private LinkButton sender;
         private object dr;
         private object Id;
+        private object token;
+        private string baseUrl;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -762,6 +765,28 @@ namespace hfiles
                             //for merging 2 datatables
                             DataTable mergedTable = MergeDataTables(Session["dtMemberList"] as DataTable, dt);
 
+                                                        var filteredRows = mergedTable.AsEnumerable()
+                                 .Where(row =>
+                                 {
+                                     var isDependentValue = row["IsDependent"];
+
+                                     // Ensure value is not null and is convertible to an integer
+                                     if (isDependentValue != DBNull.Value && int.TryParse(isDependentValue.ToString(), out int isDependent))
+                                     {
+                                         return isDependent == 0; // Only independent members
+                                     }
+                                     return false; // Exclude if null or not valid
+                                 });
+
+                            if (filteredRows.Any())
+                            {
+                                mergedTable = filteredRows.CopyToDataTable();
+                            }
+                            else
+                            {
+                                mergedTable = mergedTable.Clone(); // Empty table with same structure
+                            }
+
                             //ddlMembers2.DataSource = dt;
 
                             ddlMembers2.DataSource = mergedTable;
@@ -1230,26 +1255,81 @@ namespace hfiles
 
 
             LinkButton lnk = sender as LinkButton;
-            string fileUrl = "https://hfiles.in" + lnk.CommandArgument;
+            string fileUrl = "https://localhost:44335/ContentDeliver.aspx" + lnk.CommandArgument;
             string whatsappUrl = GenerateWhatsAppUrl(fileUrl);
             Response.Redirect(whatsappUrl);
 
-
         }
-        private string GenerateWhatsAppUrl(string fileUrl)
+
+
+        private string GenerateWhatsAppUrl(string filePath)
         {
-            //string message = "Here is your PDF: " + fileUrl;
-            string message = fileUrl;
-            //string encodedMessage = HttpUtility.UrlEncode(message);
-            //return "https://wa.me/?text=" + encodedMessage;
+            // Ensure filePath is properly encoded
+            string encodedFilePath = HttpUtility.UrlPathEncode(filePath);
 
+            // Set expiration time (e.g., 10 minutes from now)
+            // Set expiry time to 1 hour from now
+            DateTime expiryTime = DateTime.UtcNow.AddHours(1);  // Set to 1 hour
+            long expiryTimestamp = ((DateTimeOffset)expiryTime).ToUnixTimeSeconds();  // Convert to Unix timestamp
 
-            string encodedUrl = HttpUtility.UrlEncode(fileUrl);
-            return "https://wa.me/?text=" + encodedUrl;
+            // Generate a secure token
+            string secretKey = "zxcvbnm"; // Use a strong secret key
+            string token = GenerateToken($"https://localhost:44335{filePath}", expiryTimestamp, secretKey);
 
+            // Build the signed URL
+            string signedUrl = $"https://localhost:44335/ContentDeliver.aspx?file={encodedFilePath}&expires={expiryTimestamp}&token={token}";
 
-
+            // Return the WhatsApp-ready link
+            return "https://wa.me/?text=" + HttpUtility.UrlEncode(signedUrl);
         }
+
+
+
+        private string GenerateToken(string fileUrl, long expiryTimestamp, string secretKey)
+        {
+            string dataToHash = $"{fileUrl}|{expiryTimestamp}";
+
+            using (var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(secretKey)))
+            {
+                byte[] hashBytes = hmac.ComputeHash(Encoding.UTF8.GetBytes(dataToHash));
+                return Convert.ToBase64String(hashBytes).TrimEnd('=').Replace('+', '-').Replace('/', '_');
+            }
+        }
+
+
+
+
+
+
+        //private string GenerateWhatsAppUrl(string filePath)
+        //{
+        //    DateTime expiryTime = DateTime.UtcNow.AddMinutes(10); // Set expiration time (10 minutes)
+        //    long expiryTimestamp = ((DateTimeOffset)expiryTime).ToUnixTimeSeconds();
+
+        //    // Generate a secure token
+        //    string secretKey = "your-secret-key"; // Use a secure key
+        //    string token = GenerateToken(filePath, expiryTimestamp, secretKey);
+
+        //    // Create the signed URL
+        //    string signedUrl = $"https://hfiles.in/ContentDeliver/?={filePath}&expires={expiryTimestamp}&token={token}";
+
+        //    // Encode the signed URL for WhatsApp
+        //    string encodedUrl = HttpUtility.UrlEncode(signedUrl);
+        //    return "https://wa.me/?text=" + encodedUrl;
+        //}
+
+        //private string GenerateToken(string fileUrl, long expiryTimestamp, string secretKey)
+        //{
+        //    // 1. Combine file URL and expiry timestamp into a single string
+        //    string dataToHash = $"{fileUrl}|{expiryTimestamp}";
+
+        //    // 2. Generate a hash using HMACSHA256 with the secret key
+        //    using (var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(secretKey)))
+        //    {
+        //        byte[] hashBytes = hmac.ComputeHash(Encoding.UTF8.GetBytes(dataToHash));
+        //        return Convert.ToBase64String(hashBytes).TrimEnd('=').Replace('+', '-').Replace('/', '_');
+        //    }
+        //}
 
 
         //public static void SendMail(string Subject, string messageBody, string ToEmail, string attachmentFilePath)

@@ -598,17 +598,22 @@
                             </div>
                             <div class="col-lg-2 col-md-2 p-0">
                                 <div class="AddmemberRightside pt-5" style="">
+                                  <%--  <div class="Huz_AvatarAddReportbtn text-center">
+                                        <asp:LinkButton runat="server" ID="LinkButton4"  OnClick="lbtnAllReports_Click"><span style="font-size:20px;">ALL  Reports<br/>
+                                            <img src="avatar2/add-report-old.png" alt="file-img"></span>
+                                        </asp:LinkButton>
+                                    </div>--%>
                                     <div class="Huz_AvatarAddReportbtn text-center">
                                         <asp:LinkButton runat="server" ID="LinkButton1" OnClick="lbtnAddReport_Click"><span style="font-size:20px;">Add Reports<br/>
                                             <img src="Avatar2/add-report-old.png" alt="file-img"></span>
                                         </asp:LinkButton>
                                     </div>
                                     <div class="AddmemberRightside_Card text-center">
-                                        <span id="storageused" runat="server"></span>
+                                        <span id="Totalfiles" runat="server"></span>
                                     </div>
                                     <div class="AddmemberRightside_Card text-center">
 
-                                        <span id="storageleft" runat="server"></span>
+                                        <span id="filesleft" runat="server"></span>
 
                                     </div>
 

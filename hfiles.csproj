@@ -280,7 +280,10 @@
     <Content Include="Add Members\shorting-icon-blue.png" />
     <Content Include="Add Members\shorting-icon.png" />
     <Content Include="addbasicdetails.aspx" />
+    <Content Include="AllReports.aspx" />
     <Content Include="assets\Full Logo Rectangle.png" />
+    <Content Include="captchacode.aspx" />
+    <Content Include="ContentDeliver.aspx" />
     <Content Include="MedicalHistory.aspx" />
     <Content Include="addmember.aspx" />
     <Content Include="Admin\AddBlog.aspx" />
@@ -993,6 +996,27 @@
     </Compile>
     <Compile Include="addbasicdetails.aspx.designer.cs">
       <DependentUpon>addbasicdetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AllReports.aspx.cs">
+      <DependentUpon>AllReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AllReports.aspx.designer.cs">
+      <DependentUpon>AllReports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="captchacode.aspx.cs">
+      <DependentUpon>captchacode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="captchacode.aspx.designer.cs">
+      <DependentUpon>captchacode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDeliver.aspx.cs">
+      <DependentUpon>ContentDeliver.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContentDeliver.aspx.designer.cs">
+      <DependentUpon>ContentDeliver.aspx</DependentUpon>
     </Compile>
     <Compile Include="MedicalHistory.aspx.cs">
       <DependentUpon>MedicalHistory.aspx</DependentUpon>

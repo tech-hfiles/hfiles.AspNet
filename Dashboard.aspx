@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/user.Master" CodeBehind="Dashboard.aspx.cs" Inherits="hfiles.Dashboard" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Samanta</title>
+    <title>Dashboard</title>
 
     <link rel="stylesheet" href="./style2.css" />
     <style>

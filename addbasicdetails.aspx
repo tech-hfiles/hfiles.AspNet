@@ -62,7 +62,7 @@
         }
 
         .Addbasicbtnboth {
-            display: flex;
+            /*display: flex;*/
             justify-content: space-around;
             gap: 10px;
         }
@@ -218,7 +218,8 @@
                                 <br />
                                 <div class="Addbasicbtnboth">
                                     <asp:Button ID="showInputButton" CssClass="button-change" runat="server" Text="Change Profile Image" OnClientClick="showFileUpload(); return false;" />
-
+                                      <%--  <li><a href="changepassword.aspx" class="color-thm-blue"><i class="fa fa-solid fa-circle-info"></i>Change Password</a></li>--%>
+                                     <asp:Button ID="btnpasswdchange" CssClass="button-change" runat="server" Text="Change Password"  OnClick="btnpasswdchange_Click" />
                                     <asp:Button ID="removeProfileButton" CssClass="button-change" runat="server" OnClick="removeProfileButton_Click" Text="Remove Profile Image"></asp:Button>
                                 </div>
                                 <br />
@@ -269,7 +270,7 @@
                                     <input runat="server" id="dobTextBox1" onclick="setMaxDate()" style="display: none; visibility: hidden; padding-right: 10px !important;" type="date" class="form-control" placeholder="" max="" />
                                 </div>
                                 <div class="col-12">
-                                    <span for="" class="imp-star">*</span>
+                                    <span for="" class="imp-star"></span>
                                     <i class="fa-sharp fa-solid fa-droplet form-control-feedback"></i>
                                     <select id="bloodgroup" runat="server" class="form-select form-control mySelect" aria-label="Default select example">
                                         <option selected value="0">Blood Group</option>

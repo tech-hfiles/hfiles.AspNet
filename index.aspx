@@ -540,7 +540,7 @@
                                             <div class="elementor-element elementor-element-0fd294a elementor-align-center elementor-tablet-align-right elementor-widget elementor-widget-button" data-id="0fd294a" data-element_type="widget" data-widget_type="button.default">
                                                 <div class="elementor-widget-container">
                                                     <div class="elementor-button-wrapper">
-                                                        <a class="elementor-button elementor-button-link elementor-size-sm" href="http://web.hfiles.in/login.aspx">
+                                                        <a class="elementor-button elementor-button-link elementor-size-sm" href="/login.aspx">
                                                             <span class="elementor-button-content-wrapper">
                                                                 <span class="elementor-button-text">User Login</span>
                                                             </span>
@@ -555,7 +555,7 @@
                                             <div class="elementor-element elementor-element-43a819f elementor-align-center elementor-tablet-align-right elementor-widget elementor-widget-button" data-id="43a819f" data-element_type="widget" data-widget_type="button.default">
                                                 <div class="elementor-widget-container">
                                                     <div class="elementor-button-wrapper">
-                                                        <a class="elementor-button elementor-button-link elementor-size-sm" href="http://web.hfiles.in/signup.aspx">
+                                                        <a class="elementor-button elementor-button-link elementor-size-sm" href="/signup.aspx">
                                                             <span class="elementor-button-content-wrapper">
                                                                 <span class="elementor-button-text">Sign up</span>
                                                             </span>
@@ -598,7 +598,7 @@
                         <div class="elementor-element elementor-element-827d02e elementor-mobile-align-center elementor-invisible elementor-widget elementor-widget-button" data-id="827d02e" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="button.default">
                             <div class="elementor-widget-container">
                                 <div class="elementor-button-wrapper">
-                                    <a class="elementor-button elementor-button-link elementor-size-sm" href="http://web.hfiles.in/login.aspx">
+                                    <a class="elementor-button elementor-button-link elementor-size-sm" href="/login.aspx">
                                         <span class="elementor-button-content-wrapper">
                                             <span class="elementor-button-text">Create your health file</span>
                                         </span>

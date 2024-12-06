@@ -679,6 +679,9 @@
      }*/
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
     <script>
         toastr.options = {
             closeButton: true,
@@ -886,6 +889,19 @@
                             <asp:CompareValidator ControlToValidate="cpwdTextBox" Display="Dynamic" ControlToCompare="pwdTextBox" ErrorMessage="Password and Confirm Password should be same" runat="server" ForeColor="White"></asp:CompareValidator>
 
                         </div>
+
+
+                        <div style="text-align: center !important;">
+                            <asp:Image ID="captchaimage" runat="server"   Height="40px" Width="150px" ImageUrl="~/captchacode.aspx"/>
+                            <asp:Label ID="Lblcaptcha" runat="server" ForeColor="Red"></asp:Label>
+                            <br />
+                            <br />
+                            <asp:TextBox ID="txtcaptcha" runat="server"  Height="40px" Width="250px" placeholder="Enter captcha code"></asp:TextBox>
+                        </div>
+
+
+
+
                         <div class="text-center my-3 text-white">
                             <input type="checkbox" id="termsCheckbox" required />
                             <label for="termsCheckbox">I accept the <a href="tc.aspx" target="_blank">Terms & Conditions</a></label>
@@ -985,7 +1001,7 @@
                         <div class="elementor-element elementor-element-827d02e elementor-mobile-align-center elementor-invisible elementor-widget elementor-widget-button" data-id="827d02e" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="button.default">
                             <div class="elementor-widget-container">
                                 <div class="elementor-button-wrapper">
-                                    <a class="elementor-button elementor-button-link elementor-size-sm" href="http://web.hfiles.in/login.aspx">
+                                    <a class="elementor-button elementor-button-link elementor-size-sm" href="/login.aspx">
                                         <span class="elementor-button-content-wrapper">
                                             <span class="elementor-button-text">Create your health file</span>
                                         </span>

@@ -96,22 +96,22 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
 
         /// <summary>
-        /// storageused control.
+        /// Totalfiles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl storageused;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Totalfiles;
 
         /// <summary>
-        /// storageleft control.
+        /// filesleft control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl storageleft;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl filesleft;
 
         /// <summary>
         /// mobileAvatar control.
