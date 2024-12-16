@@ -2329,7 +2329,7 @@ Update your bond with health by signing up with us today!
     var ekit_config = { "ajaxurl": "https:\/\/hfiles.in\/wp-admin\/admin-ajax.php", "nonce": "cc30e7ab9f" };
 </script>
 <script src="https://hfiles.in/wp-content/plugins/elementskit-lite/widgets/init/assets/js/elementor.js?ver=3.1.3" id="elementskit-elementor-js"></script>
-<script>
+<%--<script>
     (function (w, d, s, c, r, a, m) {
         w['KiwiObject'] = r;
         w[r] = w[r] || function () {
@@ -2345,7 +2345,7 @@ Update your bond with health by signing up with us today!
     window.addEventListener("load", function () {
         kiwi.init('', 'eZeKxJeYB2RnyKisaXf6Au61e1svbuZN', {});
     });
-</script>
+</script>--%>
 
 
 

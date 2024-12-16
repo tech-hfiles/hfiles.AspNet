@@ -435,6 +435,8 @@ namespace hfiles
        
 
         protected void SearchInput_TextChanged(object sender, EventArgs e)
+        
+        
         {
             int RId = DAL.validateInt(Request.QueryString["rid"]);
             DataTable dt;
@@ -760,7 +762,7 @@ namespace hfiles
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         da.Fill(dt);
-                        if (dt != null && dt.Rows.Count > 0)
+                        if (dt != null && dt.Rows.Count > 1)
                         {
                             //for merging 2 datatables
                             DataTable mergedTable = MergeDataTables(Session["dtMemberList"] as DataTable, dt);
