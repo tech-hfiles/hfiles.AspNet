@@ -756,7 +756,7 @@ namespace hfiles
 
         protected void lbtnAllReports_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AllReports.aspx");
+            Response.Redirect("AllReports123.aspx");
         }
 
         protected void getMembers()
@@ -812,26 +812,14 @@ namespace hfiles
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("_UserId", UserId);
                         string usedStorage1 = "0";//cmd.ExecuteScalar().ToString();
-                        double usedStorageMB = DAL.validateDouble_(cmd.ExecuteScalar());
-                        Session["CurrentusedStorage"] = usedStorageMB;
-
-                        // Get the total allotted storage in MB
-                        double totalAllottedMB = DAL.validateDouble_(ConfigurationManager.AppSettings["StorageLimit"].ToString());
-
-                        // Conversion factor: 1 File = 1 MB (adjust if needed)
-                        double conversionFactor = 1; // Set to your desired MB per file ratio
-
-                        // Calculate file counts
-                        double usedFiles = Math.Floor(usedStorageMB / conversionFactor);
-                        double totalFilesAllowed = Math.Floor(totalAllottedMB / conversionFactor);
-                        double filesLeft = totalFilesAllowed - usedFiles;
-
-                        // Update UI elements
-                        Totalfiles.InnerText = usedFiles + " Files Used ";
-                        filesleft.InnerText = filesLeft + " of " + totalFilesAllowed + " Files Left";
-                        storageusedm.InnerText = usedFiles + " Files Used ";
-                        storageleftm.InnerText = filesLeft + " of " + totalFilesAllowed + " Files Left";
-                        if (usedStorageMB >= totalAllottedMB)
+                        double usedStorage = DAL.validateDouble_(cmd.ExecuteScalar());
+                        Session["CurrentusedStorage"] = usedStorage;
+                        double TotalAllotStorage = DAL.validateDouble_(ConfigurationManager.AppSettings["StorageLimit"].ToString());
+                        storageused.InnerText = (usedStorage).ToString() + " MB Storage Used ";
+                        storageleft.InnerText = (Math.Round(TotalAllotStorage - usedStorage, 2)).ToString() + " of " + TotalAllotStorage.ToString() + " MB Left";
+                        storageusedm.InnerText = (usedStorage).ToString() + " MB Storage Used ";
+                        storageleftm.InnerText = (Math.Round(TotalAllotStorage - usedStorage, 2)).ToString() + " of " + TotalAllotStorage.ToString() + " MB Left";
+                        if (usedStorage >= TotalAllotStorage)
                         {
                             //btnSubmit.Enabled = false;
                             //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Logged in successfully');", true);
@@ -849,6 +837,8 @@ namespace hfiles
 
             }
         }
+
+
 
     }
 }

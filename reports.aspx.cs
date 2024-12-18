@@ -30,6 +30,8 @@ using System.Data.SqlClient;
 using System.Runtime.InteropServices.ComTypes;
 using Org.BouncyCastle.Asn1.Cmp;
 using System.Text;
+using System.IO.Compression;
+using System.Web.Caching;
 
 namespace hfiles
 {
@@ -435,6 +437,8 @@ namespace hfiles
        
 
         protected void SearchInput_TextChanged(object sender, EventArgs e)
+        
+        
         {
             int RId = DAL.validateInt(Request.QueryString["rid"]);
             DataTable dt;
@@ -760,8 +764,17 @@ namespace hfiles
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         da.Fill(dt);
+
+                        Console.WriteLine($"DataTable Rows: {dt.Rows.Count}");
+
                         if (dt != null && dt.Rows.Count > 0)
                         {
+
+                            DataTable sessionTable = Session["dtMemberList"] as DataTable;
+                            if (sessionTable == null)
+                            {
+                                Console.WriteLine("Session['dtMemberList'] is null");
+                            }
                             //for merging 2 datatables
                             DataTable mergedTable = MergeDataTables(Session["dtMemberList"] as DataTable, dt);
 
@@ -773,7 +786,7 @@ namespace hfiles
                                      // Ensure value is not null and is convertible to an integer
                                      if (isDependentValue != DBNull.Value && int.TryParse(isDependentValue.ToString(), out int isDependent))
                                      {
-                                         return isDependent == 0; // Only independent members
+                                         return isDependent == 1; // Only independent members
                                      }
                                      return false; // Exclude if null or not valid
                                  });
@@ -1255,7 +1268,7 @@ namespace hfiles
 
 
             LinkButton lnk = sender as LinkButton;
-            string fileUrl = "https://localhost:44335/ContentDeliver.aspx" + lnk.CommandArgument;
+            string fileUrl = "https://localhost:44335" + lnk.CommandArgument;
             string whatsappUrl = GenerateWhatsAppUrl(fileUrl);
             Response.Redirect(whatsappUrl);
 
@@ -1264,111 +1277,51 @@ namespace hfiles
 
         private string GenerateWhatsAppUrl(string filePath)
         {
-            // Ensure filePath is properly encoded
-            string encodedFilePath = HttpUtility.UrlPathEncode(filePath);
+           
 
-            // Set expiration time (e.g., 10 minutes from now)
-            // Set expiry time to 1 hour from now
-            DateTime expiryTime = DateTime.UtcNow.AddHours(1);  // Set to 1 hour
-            long expiryTimestamp = ((DateTimeOffset)expiryTime).ToUnixTimeSeconds();  // Convert to Unix timestamp
+            DateTime utcNow = DateTime.UtcNow;
 
-            // Generate a secure token
-            string secretKey = "zxcvbnm"; // Use a strong secret key
-            string token = GenerateToken($"https://localhost:44335{filePath}", expiryTimestamp, secretKey);
+            // Define the IST timezone
+            TimeZoneInfo istTimeZone = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
 
-            // Build the signed URL
-            string signedUrl = $"https://localhost:44335/ContentDeliver.aspx?file={encodedFilePath}&expires={expiryTimestamp}&token={token}";
+            // Convert UTC to IST
+            DateTime indiaTime = TimeZoneInfo.ConvertTimeFromUtc(utcNow, istTimeZone).AddMinutes(60);
+           
+
+
+            Guid tokenId = Guid.NewGuid();
+
+            var tokenData = new { FilePath = filePath, Expiry = indiaTime };
+
+            // Storing data in Cache using tokenId as key
+            HttpContext.Current.Cache.Insert(
+                tokenId.ToString(),      // Key
+                tokenData,               // Value
+                null,                    // Dependencies (none in this case)
+                indiaTime.AddMinutes(30), // Absolute Expiry Time
+                Cache.NoSlidingExpiration, // No sliding expiration
+                CacheItemPriority.Normal, // Cache item priority
+                null);
+            string signedUrl = $"https://localhost:44335/ContentDeliver.aspx?token={tokenId}";
+            // Callback (if needed)
+            // Store token data using tokenId as key (e.g., in MemoryCache, Database, etc.)
+
+
 
             // Return the WhatsApp-ready link
             return "https://wa.me/?text=" + HttpUtility.UrlEncode(signedUrl);
         }
 
 
-
-        private string GenerateToken(string fileUrl, long expiryTimestamp, string secretKey)
-        {
-            string dataToHash = $"{fileUrl}|{expiryTimestamp}";
-
-            using (var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(secretKey)))
-            {
-                byte[] hashBytes = hmac.ComputeHash(Encoding.UTF8.GetBytes(dataToHash));
-                return Convert.ToBase64String(hashBytes).TrimEnd('=').Replace('+', '-').Replace('/', '_');
-            }
-        }
+        
+       
 
 
 
 
 
 
-        //private string GenerateWhatsAppUrl(string filePath)
-        //{
-        //    DateTime expiryTime = DateTime.UtcNow.AddMinutes(10); // Set expiration time (10 minutes)
-        //    long expiryTimestamp = ((DateTimeOffset)expiryTime).ToUnixTimeSeconds();
-
-        //    // Generate a secure token
-        //    string secretKey = "your-secret-key"; // Use a secure key
-        //    string token = GenerateToken(filePath, expiryTimestamp, secretKey);
-
-        //    // Create the signed URL
-        //    string signedUrl = $"https://hfiles.in/ContentDeliver/?={filePath}&expires={expiryTimestamp}&token={token}";
-
-        //    // Encode the signed URL for WhatsApp
-        //    string encodedUrl = HttpUtility.UrlEncode(signedUrl);
-        //    return "https://wa.me/?text=" + encodedUrl;
-        //}
-
-        //private string GenerateToken(string fileUrl, long expiryTimestamp, string secretKey)
-        //{
-        //    // 1. Combine file URL and expiry timestamp into a single string
-        //    string dataToHash = $"{fileUrl}|{expiryTimestamp}";
-
-        //    // 2. Generate a hash using HMACSHA256 with the secret key
-        //    using (var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(secretKey)))
-        //    {
-        //        byte[] hashBytes = hmac.ComputeHash(Encoding.UTF8.GetBytes(dataToHash));
-        //        return Convert.ToBase64String(hashBytes).TrimEnd('=').Replace('+', '-').Replace('/', '_');
-        //    }
-        //}
-
-
-        //public static void SendMail(string Subject, string messageBody, string ToEmail, string attachmentFilePath)
-        //{
-        //    string fromMail = ConfigurationManager.AppSettings["careermailUserId"].ToString();
-        //    string mailPassword = ConfigurationManager.AppSettings["careermailPassword"].ToString();
-        //    int mailPort = Convert.ToInt32(ConfigurationManager.AppSettings["mailPort"]);
-        //    string mailServer = ConfigurationManager.AppSettings["mailServer"].ToString();
-        //    var email = new MimeMessage();
-        //    email.From.Add(new MailboxAddress("H-Files", fromMail));
-        //    email.To.Add(new MailboxAddress("H-FIles-User", ToEmail));
-        //    email.Subject = Subject;
-        //    var body = new TextPart("html")
-        //    {
-        //        Text = messageBody
-        //    };
-        //    var multipart = new Multipart("mixed");
-        //    multipart.Add(body);
-
-        //    var attachment = new MimeKit.MimePart("application", "pdf")
-        //    {
-        //        Content = new MimeContent(System.IO.File.OpenRead(attachmentFilePath), ContentEncoding.Default),
-        //        ContentDisposition = new MimeKit.ContentDisposition(MimeKit.ContentDisposition.Attachment),
-        //        ContentTransferEncoding = ContentEncoding.Base64,
-        //        //FileName = Path.GetFileName(attachmentFilePath)
-        //        FileName = attachmentFilePath
-        //    };
-        //    multipart.Add(attachment);
-        //    email.Body = multipart;
-        //    using (var smtp = new MailKit.Net.Smtp.SmtpClient())
-        //    {
-        //        smtp.Connect(mailServer, mailPort, true);
-        //        smtp.Authenticate(fromMail, mailPassword);
-        //        smtp.Send(email);
-        //        smtp.Disconnect(true);
-        //    }
-        //}
-
-        //new code form kuldeep
+       
         protected void btnShareEmail_Command(object sender, CommandEventArgs e)
         {
             try

@@ -79,6 +79,8 @@
                 font-weight: 700;
                 font-size: 13px;
                 background-color: #fdd001;
+                width: 200px; /* Set a fixed width for consistent size */
+   
             }
 
         .hidden {

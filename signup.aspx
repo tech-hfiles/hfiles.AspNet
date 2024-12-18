@@ -772,7 +772,7 @@
                                             <div class="elementor-element elementor-element-0fd294a elementor-align-center elementor-tablet-align-right elementor-widget elementor-widget-button" data-id="0fd294a" data-element_type="widget" data-widget_type="button.default">
                                                 <div class="elementor-widget-container">
                                                     <div class="elementor-button-wrapper">
-                                                        <a class="elementor-button elementor-button-link elementor-size-sm" href="login.aspx">
+                                                        <a class="elementor-button elementor-button-link elementor-size-sm" href="/login.aspx">
                                                             <span class="elementor-button-content-wrapper">
                                                                 <span class="elementor-button-text" style="color:white;">User Login</span>
                                                             </span>
@@ -787,7 +787,7 @@
                                             <div class="elementor-element elementor-element-43a819f elementor-align-center elementor-tablet-align-right elementor-widget elementor-widget-button" data-id="43a819f" data-element_type="widget" data-widget_type="button.default">
                                                 <div class="elementor-widget-container">
                                                     <div class="elementor-button-wrapper">
-                                                        <a class="elementor-button elementor-button-link elementor-size-sm" style="background-color:#fdd001" href="signup.aspx">
+                                                        <a class="elementor-button elementor-button-link elementor-size-sm" style="background-color:#fdd001" href="/signup.aspx">
                                                             <span class="elementor-button-content-wrapper">
                                                                 <span class="elementor-button-text" style="color:black;">Sign up</span>
                                                             </span>
@@ -2378,7 +2378,7 @@ Update your bond with health by signing up with us today!
     var ekit_config = { "ajaxurl": "https:\/\/hfiles.in\/wp-admin\/admin-ajax.php", "nonce": "cc30e7ab9f" };
 </script>
 <script src="https://hfiles.in/wp-content/plugins/elementskit-lite/widgets/init/assets/js/elementor.js?ver=3.1.3" id="elementskit-elementor-js"></script>
-<script>
+<%--<script>
     (function (w, d, s, c, r, a, m) {
         w['KiwiObject'] = r;
         w[r] = w[r] || function () {
@@ -2394,7 +2394,7 @@ Update your bond with health by signing up with us today!
     window.addEventListener("load", function () {
         kiwi.init('', 'eZeKxJeYB2RnyKisaXf6Au61e1svbuZN', {});
     });
-</script>
+</script>--%>
 
 
 
