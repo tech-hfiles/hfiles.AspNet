@@ -34,6 +34,7 @@ using System.Text;
 using MailMessage = System.Net.Mail.MailMessage;
 using Attachment = System.Net.Mail.Attachment;
 using Newtonsoft.Json.Linq;
+using System.Web.Caching;
 
 
 
@@ -57,6 +58,7 @@ namespace hfiles
         private int reportId;
         private string subject;
         private string body;
+        private object lnk;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -556,21 +558,23 @@ namespace hfiles
         {
             string fileUrl = string.Empty;
 
-            // Iterate through the GridView rows to find selected CheckBox
-            foreach (GridViewRow row in GridView1.Rows)
-            {
-                CheckBox chkSelect = (CheckBox)row.FindControl("chkSelect");
-                if (chkSelect != null && chkSelect.Checked)
+            // Check if the sender is a LinkButton
+           
+                // Iterate through the GridView rows to find selected CheckBox
+                foreach (GridViewRow row in GridView1.Rows)
                 {
-                    HiddenField hfReportId = (HiddenField)row.FindControl("hfReportUrl");
-                    if (hfReportId != null && int.TryParse(hfReportId.Value, out int reportId))
+                    CheckBox chkSelect = (CheckBox)row.FindControl("chkSelect");
+                    if (chkSelect != null && chkSelect.Checked)
                     {
-                        // Retrieve the file path from the database using the stored procedure
-                        fileUrl = GetReportUrlFromDatabase(reportId);
-                        if (!string.IsNullOrEmpty(fileUrl))
+                        HiddenField hfReportId = (HiddenField)row.FindControl("hfReportUrl");
+                        if (hfReportId != null && int.TryParse(hfReportId.Value, out int reportId))
                         {
-                            break; // Stop after finding the first selected row with a valid report link
-                        }
+                            // Retrieve the file path from the database
+                            fileUrl = GetReportUrlFromDatabase(reportId);
+                            if (!string.IsNullOrEmpty(fileUrl))
+                            {
+                                break; // Stop after finding the first valid report link
+                            }
                         else
                         {
                             // Log an error message if no valid file path is found
@@ -579,6 +583,9 @@ namespace hfiles
                     }
                 }
             }
+            
+
+            Debug.WriteLine($"File URL: {fileUrl}");
 
             // If no file link is found, show an alert
             if (string.IsNullOrEmpty(fileUrl))
@@ -593,6 +600,9 @@ namespace hfiles
 
             // Redirect to WhatsApp
             Response.Redirect(whatsappUrl);
+
+
+
 
 
 
@@ -633,22 +643,59 @@ namespace hfiles
                 Console.WriteLine($"Error: {ex.Message}");
             }
 
-            return string.IsNullOrEmpty(filePath) ? string.Empty : "https://hfiles.in" + filePath;
+            return string.IsNullOrEmpty(filePath) ? string.Empty : "https://localhost:44335" + filePath;
         }
-        private string GenerateWhatsAppUrl(string fileUrl)
+
+        private string GenerateWhatsAppUrl(string filePath)
         {
-            try
-            {
-                string encodedUrl = HttpUtility.UrlEncode(fileUrl);
-                return $"https://wa.me/?text={encodedUrl}";
-            }
-            catch (Exception ex)
-            {
-                // Log any encoding errors for debugging
-                Console.WriteLine($"Error encoding URL: {ex.Message}");
-                return string.Empty;
-            }
+
+
+            DateTime utcNow = DateTime.UtcNow;
+
+            // Define the IST timezone
+            TimeZoneInfo istTimeZone = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+
+            // Convert UTC to IST
+            DateTime indiaTime = TimeZoneInfo.ConvertTimeFromUtc(utcNow, istTimeZone).AddMinutes(1);
+
+
+
+            Guid tokenId = Guid.NewGuid();
+
+            var tokenData = new { FilePath = filePath, Expiry = indiaTime };
+
+            // Storing data in Cache using tokenId as key
+            HttpContext.Current.Cache.Insert(
+                tokenId.ToString(),      // Key
+                tokenData,               // Value
+                null,                    // Dependencies (none in this case)
+                indiaTime.AddMinutes(30), // Absolute Expiry Time
+                Cache.NoSlidingExpiration, // No sliding expiration
+                CacheItemPriority.Normal, // Cache item priority
+                null);
+            string signedUrl = $"https://localhost:44335/ContentDeliver.aspx?token={tokenId}";
+            // Callback (if needed)
+            // Store token data using tokenId as key (e.g., in MemoryCache, Database, etc.)
+
+
+
+            // Return the WhatsApp-ready link
+            return "https://wa.me/?text=" + HttpUtility.UrlEncode(signedUrl);
         }
+        //private string GenerateWhatsAppUrl(string fileUrl)
+        //{
+        //    try
+        //    {
+        //        string encodedUrl = HttpUtility.UrlEncode(fileUrl);
+        //        return $"https://wa.me/?text={encodedUrl}";
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Log any encoding errors for debugging
+        //        Console.WriteLine($"Error encoding URL: {ex.Message}");
+        //        return string.Empty;
+        //    }
+        //}
 
         protected void lnkViewFile_Click(object sender, EventArgs e)
         {
@@ -745,36 +792,53 @@ namespace hfiles
                 return;
             }
 
-            try
-            {
+           
                 // Set up email
-                MailMessage mail = new MailMessage();
-                mail.From = new MailAddress("Hfiles.in@gmail.com"); // Replace with your email
-               // mail.To.Add("kamleshram562@gmail.com"); // Replace with recipient's email
-                mail.Subject = "Report Link";
-                mail.Body =  fileUrl;
-                mail.IsBodyHtml = false;
+                // MailMessage mail = new MailMessage();
+                // mail.From = new MailAddress("Hfiles.in@gmail.com"); 
+                //// mail.To.Add("kamleshram562@gmail.com"); 
+                // mail.Subject = "Report Link";
+                // mail.Body =  fileUrl;
+                // mail.IsBodyHtml = false;
 
-                
                 // Configure SMTP client
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com"); // Replace with your SMTP server
                 smtpClient.Port = 587; // Use appropriate port
                 smtpClient.Credentials = new NetworkCredential("Hfiles.in@gmail.com", "qpjdigykglmnuxlt");
                 smtpClient.EnableSsl = true;
 
-                // Send email
-                smtpClient.Send(mail);
+                // // Configure SMTP client
+                // SmtpClient smtpClient = new SmtpClient("smtp.gmail.com"); // Replace with your SMTP server
+                // smtpClient.Port = 587; // Use appropriate port
+                // smtpClient.Credentials = new NetworkCredential("Hfiles.in@gmail.com", "qpjdigykglmnuxlt");
+                // smtpClient.EnableSsl = true;
+
+                // // Send email
+                // smtpClient.Send(mail);
+
+                string subject = "Report Link";
+                string body = fileUrl;
+
+            // Generate a mailto URL
+            string gmailUrl = $"https://mail.google.com/mail/?view=cm&fs=1&to=&su={Uri.EscapeDataString(subject)}&body={Uri.EscapeDataString(body)}";
+
+            // Use a script to open the user's default email client
+            string script = $"window.open('{gmailUrl}', '_blank');";
+            ScriptManager.RegisterStartupScript(this, GetType(), "openGmail", script, true);
+
+
+            //string mailtoUrl = $"mailto:?subject={Uri.EscapeDataString(subject)}&body={Uri.EscapeDataString(body)}";
+
+            //// Use a script to open the user's default email client
+            //string script = $"window.open('{mailtoUrl}', '_blank');";
+            //ScriptManager.RegisterStartupScript(this, GetType(), "openEmailClient", script, true);
+
+            // Trigger the script to open Gmail
+            //ScriptManager.RegisterStartupScript(this, GetType(), "openGmail", script, true);
 
 
 
-
-                string gmailUrl = "mailto:?subject=" + Uri.EscapeDataString(subject) + "&body=" + Uri.EscapeDataString(body);
-                string script = $"window.open('{gmailUrl}', '_blank');";
-
-                // Trigger the script to open Gmail
-                //ScriptManager.RegisterStartupScript(this, GetType(), "openGmail", script, true);
-
-            }
+        }
             catch (Exception ex)
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "alert", $"alert('Error sending email: {ex.Message}');", true);

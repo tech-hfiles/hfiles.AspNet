@@ -24,13 +24,13 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.LinkButton whatsappLinkButton;
 
         /// <summary>
-        /// shareEmail control.
+        /// lbtnshareEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button shareEmail;
+        protected global::System.Web.UI.WebControls.LinkButton lbtnshareEmail;
 
         /// <summary>
         /// GridView1 control.

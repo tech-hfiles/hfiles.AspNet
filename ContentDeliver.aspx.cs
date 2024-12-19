@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -13,96 +14,75 @@ namespace hfiles
     public partial class ContentDeliver : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
+        
         {
-            string filePath = Request.QueryString["file"];
-            string expires = Request.QueryString["expires"];
-            string token = Request.QueryString["token"];
+           
 
-            // Validate the URL
-            if (!ValidateFileLink(filePath, expires, token))
+           
+
+
+            
+            string tokenIdStr = Request.QueryString["token"];
+            if (!string.IsNullOrEmpty(tokenIdStr) && Guid.TryParse(tokenIdStr, out Guid tokenId))
             {
-                // Invalid or expired link
-                Response.StatusCode = 403; // Forbidden
-                Response.Write("This link has expired or is invalid.");
-                return;
-                // Optionally you could redirect to an error page here:
-                 //Response.Redirect("/ContentDeliver.aspx");
-            }
+                // Try to fetch the token data from cache using tokenId as the key
+                var tokenData = HttpContext.Current.Cache[tokenId.ToString()] as dynamic;
 
+                if (tokenData != null)
+                {
+                    DateTime utcNow = DateTime.UtcNow;
+
+                    // Define the IST timezone
+                    TimeZoneInfo istTimeZone = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+
+                    // Convert UTC to IST
+                    DateTime indiaTime = TimeZoneInfo.ConvertTimeFromUtc(utcNow, istTimeZone);
+                    // Check if the token has expired
+                    if (tokenData.Expiry >indiaTime)
+                    {
+                        // Valid token; proceed
+                        string filePath = tokenData.FilePath;
+                        //Response.Redirect(filePath);
+                        /*string fileUrl = "https://example.com/path/to/your/file.pdf";*/ // Replace with your actual file URL
+                        string fileExtension = System.IO.Path.GetExtension(filePath).ToLower();
+
+                        EmbedFile(fileExtension, filePath);
+                        //Response.Write($"Token is valid. File Path: {filePath}");
+                    }
+                    else
+                    {
+                        // Token has expired
+                        Response.Write("link has expired.");
+                    }
+                }
+                else
+                {
+                    // Invalid or missing token
+                    Response.Write("Invalid token.");
+                }
+            }
             else
             {
-                // Debugging: Output the file path to check its value
-                Response.Write($"File Path: {filePath} <br>");
-
-                // Ensure the base URL is correct and combine with the file path
-                string fileUrl = "https://localhost:44335" + filePath; // Correct URL formation
-
-                // Debugging: Output the full file URL before redirecting
-                Response.Write($"Full File URL: {fileUrl} <br>");
-
-                // Now, redirect to the full file URL
-                Response.Redirect(fileUrl);
+                // Invalid token format
+                Response.Write("Invalid token format.");
             }
 
-
-
-
-
-            //else
-            //{
-            //    // The link is valid, so redirect to the file
-            //    string fileUrl = "https://localhost:44335" + filePath; // Correct URL formation
-            //    Response.Redirect(fileUrl);
-            //}
         }
-        private bool ValidateFileLink(string filePath, string expires, string token)
+        private void EmbedFile(string fileExtension, string fileUrl)
         {
-            try
+            if (fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension == ".png" || fileExtension == ".gif")
             {
-                // Ensure the filePath is decoded properly
-                filePath = HttpUtility.UrlDecode(filePath);
-
-                // Validate the `expires` parameter
-                if (!long.TryParse(expires, out long expiryTimestamp))
-                {
-                    return false; // Invalid expiration timestamp
-                }
-
-                // Check if the link has expired
-                DateTime expiryTime = DateTimeOffset.FromUnixTimeSeconds(expiryTimestamp).UtcDateTime;
-                if (DateTime.UtcNow > expiryTime)
-                {
-                    return false; // Link has expired
-                }
-
-                // Validate the token
-                string secretKey = "zxcvbnm"; // Use the same secret key as in GenerateWhatsAppUrl
-                string baseUrl = "https://localhost:44335/ContentDeliver.aspx/" + filePath; // Correct base URL construction
-                string expectedToken = GenerateToken(baseUrl, expiryTimestamp, secretKey);
-
-                // Compare the provided token with the expected token
-                return token == expectedToken;
+                // Embed an image
+                Response.Write($"<img src='{fileUrl}' alt='Image Preview' style='width: 100%; height: auto;' />");
             }
-            catch
+            else if (fileExtension == ".pdf")
             {
-                return false; // Invalid link due to errors in the validation process
+                // Embed a PDF
+                Response.Write($"<embed src='{fileUrl}' style='width: 100%; height: 400px;' />");
             }
         }
 
-        
+           
 
-        private string GenerateToken(string fileUrl, long expiryTimestamp, string secretKey)
-        {
-            // Combine the file URL and expiry timestamp
-            string dataToHash = $"{fileUrl}|{expiryTimestamp}";
-
-            // Generate the hash using HMACSHA256
-            using (var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(secretKey)))
-            {
-                byte[] hashBytes = hmac.ComputeHash(Encoding.UTF8.GetBytes(dataToHash));
-                return Convert.ToBase64String(hashBytes).TrimEnd('=').Replace('+', '-').Replace('/', '_');
-            }
         }
-
-    }
 }
