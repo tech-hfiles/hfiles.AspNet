@@ -575,14 +575,9 @@ namespace hfiles
                             {
                                 break; // Stop after finding the first valid report link
                             }
-                        else
-                        {
-                            // Log an error message if no valid file path is found
-                            ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('No valid report found.');", true);
                         }
                     }
                 }
-            }
             
 
             Debug.WriteLine($"File URL: {fileUrl}");
@@ -801,11 +796,6 @@ namespace hfiles
                 // mail.Body =  fileUrl;
                 // mail.IsBodyHtml = false;
 
-                // Configure SMTP client
-                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com"); // Replace with your SMTP server
-                smtpClient.Port = 587; // Use appropriate port
-                smtpClient.Credentials = new NetworkCredential("Hfiles.in@gmail.com", "qpjdigykglmnuxlt");
-                smtpClient.EnableSsl = true;
 
                 // // Configure SMTP client
                 // SmtpClient smtpClient = new SmtpClient("smtp.gmail.com"); // Replace with your SMTP server
@@ -838,11 +828,6 @@ namespace hfiles
 
 
 
-        }
-            catch (Exception ex)
-            {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alert", $"alert('Error sending email: {ex.Message}');", true);
-            }
         }
 
             private string GetReportUrlFromDatabaseEmail(int reportId)
