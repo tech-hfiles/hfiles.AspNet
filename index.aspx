@@ -513,6 +513,10 @@
                                             <ul id="menu-primary-menu" class="elementskit-navbar-nav elementskit-menu-po-right submenu-click-on-icon">
                                                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
                                                     <a href="#why" class="ekit-menu-nav-link">Why hfiles?</a></li>
+                                                <li class="menu-item menu-item-type-custom elementor-hidden-desktop elementor-hidden-tablet menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
+    <a href="/login.aspx" class="ekit-menu-nav-link">Login</a></li>
+                                                <li class="menu-item menu-item-type-custom elementor-hidden-desktop elementor-hidden-tablet menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
+    <a href="/signup.aspx" class="ekit-menu-nav-link">Sign up</a></li>
                                                <%-- <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-650 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
                                                     <a href="#ABHA" class="ekit-menu-nav-link">ABHA</a></li>--%>
                                             </ul>

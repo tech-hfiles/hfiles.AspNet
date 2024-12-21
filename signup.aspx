@@ -745,8 +745,14 @@
                                             <ul id="menu-primary-menu" class="elementskit-navbar-nav elementskit-menu-po-right submenu-click-on-icon">
                                                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
                                                     <a href="#why" class="ekit-menu-nav-link">Why hfiles?</a></li>
-                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-650 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
-                                                   <%-- <a href="#ABHA" class="ekit-menu-nav-link">ABHA</a></li>--%>
+                                                
+                                                <li class="menu-item menu-item-type-custom elementor-hidden-desktop elementor-hidden-tablet menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
+                                                <a href="/login.aspx" class="ekit-menu-nav-link">Login</a></li>
+                                                                                            <li class="menu-item menu-item-type-custom elementor-hidden-desktop elementor-hidden-tablet menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
+                                                <a href="/signup.aspx" class="ekit-menu-nav-link">Sign up</a></li>
+
+                                                <!-- <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-650 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
+                                                    <a href="#ABHA" class="ekit-menu-nav-link">ABHA</a></li> -->
                                             </ul>
                                             <div class="elementskit-nav-identity-panel">
                                                 <div class="elementskit-site-title">
@@ -828,7 +834,7 @@
             <%--<div id="google_translate_element" class="language"></div>--%>
             <asp:ScriptManager ID="scmSignUp" runat="server"></asp:ScriptManager>
 
-            <div class="row vert-cent w-100 h-sm-100vh m-0 ">
+            <div class="row vert-cent w-100 m-0 ">
                 <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image h-lg-100vh d-none d-lg-block px-5" style="background: #fff">
                     <img src="<%= ResolveUrl("~/assets/signup-samanta.png") %>" alt="" style="width: 100%; height: 100%; object-fit: contain" />
                 </div>
