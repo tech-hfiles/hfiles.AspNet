@@ -8,6 +8,8 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace hfiles
 {
@@ -18,26 +20,76 @@ namespace hfiles
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            
+
+            try
             {
-                GridBind();
+                using (MySqlConnection con = new MySqlConnection(cs))
+                {
+                    con.Open();
+
+                    // Step 1: Fetch all user IDs and plain-text passwords
+                    string fetchQuery = "SELECT user_id, user_password FROM user_details";
+                    MySqlCommand fetchCmd = new MySqlCommand(fetchQuery, con);
+
+                    using (MySqlDataReader dr = fetchCmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            string userId = dr["user_id"].ToString();
+                            string plainPassword = dr["user_password"].ToString();
+
+                            // Step 2: Hash the password
+                            string hashedPassword = HashPassword(plainPassword);
+
+                            // Step 3: Update the password in the database
+                            UpdatePasswordInDatabase(userId, hashedPassword);
+                        }
+                    }
+                }
+
+                // Notify success
+                ScriptManager.RegisterClientScriptBlock(this, GetType(), "alert", "alert('Passwords hashed successfully!');", true);
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions and notify user
+                ScriptManager.RegisterClientScriptBlock(this, GetType(), "alert", $"alert('Error: {ex.Message}');", true);
             }
         }
-        public void GridBind()
+
+        // Hash password using SHA256
+        public string HashPassword(string password)
         {
-            int UserId = DAL.validateInt(Session["Userid"].ToString());
-
-            MySqlConnection connection = new MySqlConnection(cs);
-            connection.Open();
-            MySqlCommand cmd = new MySqlCommand("USP_GetAllReports", connection);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("p_UserId", UserId);
-
-            MySqlDataReader reader = cmd.ExecuteReader();
-            GridView1.DataSource = reader;
-            GridView1.DataBind();
-            connection.Close();
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+            }
         }
 
+        // Update password in the database
+        private void UpdatePasswordInDatabase(string userId, string hashedPassword)
+        {
+          // Replace with your actual connection string
+
+            using (MySqlConnection con = new MySqlConnection(cs))
+            {
+                con.Open();
+
+                string updateQuery = "UPDATE user_details SET user_password = @hashedPassword WHERE user_id = @userId";
+                MySqlCommand updateCmd = new MySqlCommand(updateQuery, con);
+                updateCmd.Parameters.AddWithValue("@hashedPassword", hashedPassword);
+                updateCmd.Parameters.AddWithValue("@userId", userId);
+
+                updateCmd.ExecuteNonQuery();
+            }
+        }
     }
+    
 }

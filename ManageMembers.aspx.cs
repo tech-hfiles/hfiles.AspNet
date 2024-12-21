@@ -17,6 +17,9 @@ namespace hfiles
         string cs = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
         string message, icon = "";
         int Requestcount = 0;
+        private object Id;
+        private object newIsActive;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             user_members();
@@ -71,6 +74,7 @@ namespace hfiles
             string relation = "";
             string DependentUserId = "";
             string Dependent_User_Reference = "";
+            
             string IdName = lnk.CommandArgument;
 
             string[] IdNamevalues = IdName.Split('|');
@@ -80,6 +84,7 @@ namespace hfiles
                 relation = values[1];
                 DependentUserId = values[2];
                 Dependent_User_Reference = values[3];
+               
             }
 
             RemoveMember(DAL.validateInt(memberid), DAL.validateInt(Dependent_User_Reference), DAL.validateInt(DependentUserId));
@@ -104,6 +109,7 @@ namespace hfiles
                     cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(MemberId)); //Session["Userid"];
                     cmd.Parameters.AddWithValue("_UserRedId", DAL.validateInt(Session["Userid"])); //Session["Userid"];
                     cmd.Parameters.AddWithValue("_DependentUserId", DependentUserId); //Session["Userid"];
+                 
                     cmd.ExecuteNonQuery();
                     //icon = "assets/select.png";
                     //message = "Member Removed Successfully!";
