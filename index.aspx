@@ -513,8 +513,8 @@
                                             <ul id="menu-primary-menu" class="elementskit-navbar-nav elementskit-menu-po-right submenu-click-on-icon">
                                                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
                                                     <a href="#why" class="ekit-menu-nav-link">Why hfiles?</a></li>
-                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-650 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
-                                                    <a href="#ABHA" class="ekit-menu-nav-link">ABHA</a></li>
+                                               <%-- <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-650 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
+                                                    <a href="#ABHA" class="ekit-menu-nav-link">ABHA</a></li>--%>
                                             </ul>
                                            <%-- <div class="elementskit-nav-identity-panel">
                                                 <div class="elementskit-site-title">
@@ -666,7 +666,7 @@
                                     <div class="elementor-widget-wrap elementor-element-populated">
                                         <div class="elementor-element elementor-element-7b119aa animated-fast elementor-invisible elementor-widget elementor-widget-image" data-id="7b119aa" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:300}" data-widget_type="image.default">
                                             <div class="elementor-widget-container">
-                                                <img decoding="async" width="108" height="109" src="~/wp-content/uploads/2023/03/ayushman-icon.svg" class="attachment-full size-full wp-image-744" alt="Ayushman Bharat" />
+                                                <img decoding="async" width="108" height="109" src="/wp-content/uploads/2023/03/ayushman-icon.svg" class="attachment-full size-full wp-image-744" alt="Ayushman Bharat" />
                                             </div>
                                         </div>
                                     </div>
@@ -675,7 +675,7 @@
                                     <div class="elementor-widget-wrap elementor-element-populated">
                                         <div class="elementor-element elementor-element-75f29ae animated-fast elementor-invisible elementor-widget elementor-widget-image" data-id="75f29ae" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:400}" data-widget_type="image.default">
                                             <div class="elementor-widget-container">
-                                                <img loading="lazy" decoding="async" width="107" height="108" src="~/wp-content/uploads/2023/03/secure-icon.svg" class="attachment-full size-full wp-image-745" alt="Secure Storage Assured" />
+                                                <img loading="lazy" decoding="async" width="107" height="108" src="/wp-content/uploads/2023/03/secure-icon.svg" class="attachment-full size-full wp-image-745" alt="Secure Storage Assured" />
                                             </div>
                                         </div>
                                     </div>
