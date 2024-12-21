@@ -1774,11 +1774,11 @@ Update your bond with health by signing up with us today!
                                                                     <span class="elementor-icon-list-text"><a class="text-white" href="tel:+919978043453"/>9978043453</span>
                                                          </li>
 
-                                                       <!-- <li class="elementor-icon-list-item">
+                                                        <li class="elementor-icon-list-item">
                                                             <span class="elementor-icon-list-icon">
                                                                 <i aria-hidden="true" class="icon icon-envelope1"></i></span>
-                                                            <span class="elementor-icon-list-text" ><a href="https://hfiles.in/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="066e606f6a6375286f6846616b676f6a2865696b">[email&#160;protected]</a></span>
-                                                        </li> -->
+                                                            <span class="elementor-icon-list-text" ><a href="mailto:contact@hfiles.in" class="__cf_email__ text-white" data-cfemail="066e606f6a6375286f6846616b676f6a2865696b">contact@hfiles.in</a></span>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
