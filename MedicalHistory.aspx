@@ -315,7 +315,7 @@
                 <img class="blue-trangle-right" src="../Terms & Conditions/blue-trangle3.png" alt="">
                 <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
                 <img class="plus-top-left" src="../assets/plus-icon-3.png" alt="">
-                <div class="additionl-main-div container pt-5 px-5 h-90">
+                <div class="additionl-main-div container pt-5 px-5 h-90"  style="overflow:auto;max-height:90vh">
                     <%-- <a class="back-arrow-btn" href="javascript: history.go(-1)">
 <%--                        <img src="../assets/back-arrow.png" alt="">--%>
                     <%-- Back</a>--%>
@@ -589,7 +589,7 @@
                 <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
                 <img class="plus-top-left" src="../assets/plus-1.png" alt="">--%>
 
-                <div id="AllergiesDiv" runat="server" class="medical-main-div container <%--pt-5 px-5--%> h-90 ">
+                <div id="AllergiesDiv" runat="server" class="medical-main-div container <%--pt-5 px-5--%> h-90 "   style="overflow:auto;max-height:90vh">
                     <div class="row mt-5">
                         <div class="col-12">
                             <h1 class="heading mb-4">Do You Have Any of These Allergies?</h1>
