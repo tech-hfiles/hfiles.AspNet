@@ -110,7 +110,7 @@
                                 </div>
                             </div>--%>
 
-                        <a class="support-group my-5" href="MedicalHistory.aspx">
+                        <a class="support-group my-5" href="MedicalHistory">
                             <div class="my_profile">
                                 <div class="row align-items-center">
                                     <div class="col-3 tab-icon-div" style="margin-left:-15px;">

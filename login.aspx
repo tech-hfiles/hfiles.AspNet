@@ -438,9 +438,6 @@
  <link rel='stylesheet' id='elementor-icons-css' href='https://hfiles.in/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.29.0' media='all' />
  <link rel='stylesheet' id='swiper-css' href='https://hfiles.in/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=8.4.5' media='all' />
  <link rel='stylesheet' id='font-awesome-5-all-css' href='https://hfiles.in/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=3.21.3' media='all' />
-
-
-
  <link rel='stylesheet' id='font-awesome-4-shim-css' href='https://hfiles.in/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=3.21.3' media='all' />
  <link rel='stylesheet' id='she-header-style-css' href='https://hfiles.in/wp-content/plugins/sticky-header-effects-for-elementor/assets/css/she-header-style.css?ver=1.6.10' media='all' />
  <link rel='stylesheet' id='elementor-post-26-css' href='https://hfiles.in/wp-content/uploads/elementor/css/post-26.css?ver=1714111713' media='all' />
@@ -478,16 +475,6 @@
      }
  </style>
 
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-     crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-        <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet' />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
@@ -583,7 +570,7 @@
                 right: 10px;
                 top: 22px;
                 cursor: pointer;
-                font-size: 15px;
+                font-size: 25px;
             }
 
         @media(max-width:600px) {
@@ -771,7 +758,7 @@
                                                     <div class="elementor-button-wrapper">
                                                         <a class="elementor-button elementor-button-link elementor-size-sm" href="login.aspx">
                                                             <span class="elementor-button-content-wrapper">
-                                                                <span class="elementor-button-text" style="color:white;"> User Login</span>
+                                                                <span class="elementor-button-text">User Login</span>
                                                             </span>
                                                         </a>
                                                     </div>
@@ -784,9 +771,9 @@
                                             <div class="elementor-element elementor-element-43a819f elementor-align-center elementor-tablet-align-right elementor-widget elementor-widget-button" data-id="43a819f" data-element_type="widget" data-widget_type="button.default">
                                                 <div class="elementor-widget-container">
                                                     <div class="elementor-button-wrapper">
-                                                        <a class="elementor-button elementor-button-link elementor-size-sm" style="background-color:#fdd001" href="signup.aspx">
+                                                        <a class="elementor-button elementor-button-link elementor-size-sm" href="signup.aspx">
                                                             <span class="elementor-button-content-wrapper">
-                                                                <span class="elementor-button-text" style="color:black;">Sign up</span>
+                                                                <span class="elementor-button-text">Sign up</span>
                                                             </span>
                                                         </a>
                                                     </div>
@@ -831,8 +818,7 @@
                         <div class="password-div" id="divpassword" runat="server">
                             <asp:HiddenField runat="server" ID="hfIsPasswordDivActive" />
                             <asp:TextBox runat="server" ID="txtPassword" class="w-95 login-input" type="password" placeholder="Password" Style="border-radius: 30px" />
-                            <%--<i id="passwordView1" class="fa fa-solid fa-eye-slash hide-password-toggal  color-theme-yellow"></i>--%>
-                            <i id="passwordView2" class="fa-solid fa-eye-slash hide-password-toggal"></i>
+                            <i id="passwordView1" class="fa fa-solid fa-eye-slash hide-password-toggal  color-theme-yellow"></i>
                             <div class="text-end">
                                 <span style="color: #fff"><a id="forgotlink" style="color: #fdd001; font-weight: 700" href="ForgotPassword.aspx">Forgot Password ? </a></span>
                             </div>
