@@ -707,6 +707,11 @@ namespace hfiles
                         da.Fill(dt);
                         if (dt != null && dt.Rows.Count > 0)
                         {
+
+
+                            DataView dv = new DataView(dt);
+                            dv.RowFilter = "IsDependent = true";
+
                             //ddlMembers.DataSource = dt;
                             //ddlMembers.DataTextField = "user_FirstName";
                             //ddlMembers.DataValueField = "user_Id";
@@ -720,7 +725,7 @@ namespace hfiles
 
                             //ddlMembers1.Items.Insert(0, new ListItem("Select Member", "0"));
 
-                            ddlMembers2.DataSource = dt;
+                            ddlMembers2.DataSource = dv;
                             ddlMembers2.DataTextField = "user_FirstName";
                             ddlMembers2.DataValueField = "user_Id";
                             ddlMembers2.DataBind();
