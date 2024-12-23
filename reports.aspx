@@ -195,7 +195,7 @@
     <asp:UpdatePanel runat="server" UpdateMode="Conditional">
         <ContentTemplate>
             <%--   <asp:ScriptManager runat="server" />--%>
-            <div class="container-fluid download-doc-inner my-3">
+            <div class="container-fluid download-doc-inner my-3" style="overflow:auto;max-height:90vh">
                 <div class="heading-title Report_heading-title mb-3 px-3">
                     <div class="row report-page-header">
                         <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">

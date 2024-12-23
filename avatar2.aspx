@@ -447,7 +447,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:UpdatePanel runat="server" ID="uplavatar">
+    <asp:UpdatePanel runat="server" ID="uplavatar" style="overflow:auto;max-height:90vh">
         <ContentTemplate>
             <div class="Huz_Avatar_section avatar position-relative d-lg-block d-md-block d-none d-xl=block d-xxl-block">
                 <div class="Huz_Avtar_main_Content">

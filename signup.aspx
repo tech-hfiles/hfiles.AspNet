@@ -828,7 +828,8 @@
             <%--<div id="google_translate_element" class="language"></div>--%>
             <asp:ScriptManager ID="scmSignUp" runat="server"></asp:ScriptManager>
 
-            <div class="row vert-cent w-100 h-sm-90vh m-0 " style="overflow-y:auto;max-height:95vh">
+            <%--<div class="row vert-cent w-100 h-sm-100vh m-0 ">--%>
+                <div class="row vert-cent w-100 h-sm-90vh m-0 " style="overflow-y:auto;max-height:95vh">
                 <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image h-lg-100vh d-none d-lg-block px-5" style="background: #fff">
                     <img src="<%= ResolveUrl("~/assets/signup-samanta.png") %>" alt="" style="width: 100%; height: 100%; object-fit: contain" />
                 </div>
@@ -943,6 +944,7 @@
             <%--<a href="<%= ResolveUrl("~/login.aspx") %>">
                 <img class="triangle-top-right-cancel" src="<%= ResolveUrl("~/assets/cancel-white.png") %>" alt="" /></a>--%>
 
+            <%--<div class="row footer justify-content-around align-items-center m-0">--%>
             <div class="row footer justify-content-around align-items-center m-0" style="z-index:1000000">
                 <div class="col-4 t-c d-xl-flex justify-content-center text-center">
                     <p class="m-0"><a href="TermsAndConditions.aspx">Terms & Conditions</a></p>
