@@ -164,7 +164,7 @@
       </div>--%>
         </div>
 
-        <div class="journal-main-div mt-4 mb-5">
+        <div class="journal-main-div mt-4 mb-5"  style="overflow:auto;max-height:90vh">
 
             <div class="tab-div container px-5 d-flex justify-content-center my-3">
                 <div class="tab-div container px-5 d-flex justify-content-center mt-5">

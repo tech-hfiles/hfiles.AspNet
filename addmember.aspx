@@ -295,7 +295,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
-            <div class="container-fluid h-100">
+            <div class="container-fluid h-100" style="overflow:auto;max-height:90vh">
                 <div class="add-member">
                     <%--<img class="blue-t-top-left" src="../Avatar/blue-trangle-1.png" alt="">--%>
                     <img class="blue-t-top-right" src="../Avatar/blue-trangle-2.png" alt="">

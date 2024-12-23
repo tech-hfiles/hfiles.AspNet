@@ -762,21 +762,23 @@ namespace hfiles
                         cmd.Parameters.AddWithValue("_RId", reportId);
                         cmd.ExecuteNonQuery();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
+                        DataTable dt1 = Session["dtMemberList"] as DataTable;
+                       // DataTable dt1 = new DataTable();
+                       
+                        da.Fill(dt1);
 
-                        Console.WriteLine($"DataTable Rows: {dt.Rows.Count}");
+                        Console.WriteLine($"DataTable Rows: {dt1.Rows.Count}");
 
-                        if (dt != null && dt.Rows.Count > 0)
+                        if (dt1 != null && dt1.Rows.Count > 0)
                         {
 
-                            DataTable sessionTable = Session["dtMemberList"] as DataTable;
-                            if (sessionTable == null)
-                            {
-                                Console.WriteLine("Session['dtMemberList'] is null");
-                            }
+                            //DataTable sessionTable = Session["dtMemberList"] as DataTable;
+                            //if (sessionTable == null)
+                            //{
+                            //    Console.WriteLine("Session['dtMemberList'] is null");
+                            //}
                             //for merging 2 datatables
-                            DataTable mergedTable = MergeDataTables(Session["dtMemberList"] as DataTable, dt);
+                            DataTable mergedTable = MergeDataTables(Session["dtMemberList"] as DataTable, dt1);
 
                                                         var filteredRows = mergedTable.AsEnumerable()
                                  .Where(row =>
@@ -810,7 +812,7 @@ namespace hfiles
 
                             // Get selected members based on report ID
                             List<string> selectedMembers = new List<string>();
-                            foreach (DataRow row in dt.Rows)
+                            foreach (DataRow row in dt1.Rows)
                             {
                                 selectedMembers.Add(row["user_Id"].ToString());
                             }
