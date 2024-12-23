@@ -557,7 +557,7 @@
             }
 
             .signup-right {
-                height: 90vh !important;
+                height: 95vh !important;
                 overflow: hidden !important;
             }
         }
