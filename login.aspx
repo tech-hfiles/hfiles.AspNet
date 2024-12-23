@@ -815,11 +815,11 @@
         <form class="row h-100 align-ceter" runat="server">
             <%--<div id="google_translate_element" class="language"></div>--%>
             <asp:HiddenField runat="server" ID="hfId" />
-            <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-block px-5 justify-content-center align-items-center">
+            <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-block px-5 justify-content-center align-items-center" style="overflow:auto">
                 <img src="../assets/login-samanta-w-bg.png" alt="" style="width: 100%; height: 80vh; object-fit: contain" />
             </div>
        
-            <div class="col-sm-12 col-lg-6 inner-main" id="right-side-bar">
+            <div class="col-sm-12 col-lg-6 inner-main" id="right-side-bar" style="overflow:auto;max-height:90vh">
                 <div class="d-flex align-items-center justify-content-center h-100 inner-body">
                     <div class="text-center">
                         <div class="text-center signin-heading">
@@ -883,7 +883,7 @@
                 </div>
             </div>
             <div class="container">
-                <div class="row footer justify-content-around align-items-center m-0 mr-0">
+                <div class="row footer justify-content-around align-items-center m-0 mr-0" style="z-index:1000000">
                     <div class="col-4 t-c d-xl-flex justify-content-center text-center">
                         <p class="m-0"><a href="tc.aspx">Terms & Conditions</a></p>
                         <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
