@@ -96,10 +96,10 @@ namespace hfiles
         public void showmembersdiv(object sender)
         {
             listmembers.Controls.Clear();
-            int remainingCount = 7 - rptMember.Items.Count;
+            int remainingCount = 5 - rptMember.Items.Count;
             //int remainingCount1 = 7 - Repeater1.Items.Count;
 
-            if (remainingCount == 7)
+            if (remainingCount == 5)
             {
                 repeaterdiv.Visible = false;
                 //repeaterdiv1.Visible = false;
@@ -707,6 +707,11 @@ namespace hfiles
                         da.Fill(dt);
                         if (dt != null && dt.Rows.Count > 0)
                         {
+
+
+                            DataView dv = new DataView(dt);
+                            dv.RowFilter = "IsDependent = true";
+
                             //ddlMembers.DataSource = dt;
                             //ddlMembers.DataTextField = "user_FirstName";
                             //ddlMembers.DataValueField = "user_Id";
@@ -720,7 +725,7 @@ namespace hfiles
 
                             //ddlMembers1.Items.Insert(0, new ListItem("Select Member", "0"));
 
-                            ddlMembers2.DataSource = dt;
+                            ddlMembers2.DataSource = dv;
                             ddlMembers2.DataTextField = "user_FirstName";
                             ddlMembers2.DataValueField = "user_Id";
                             ddlMembers2.DataBind();
@@ -752,6 +757,11 @@ namespace hfiles
             }
             LinkButton3.Style.Add("font-weight", "900");
             showmembersdiv(sender);
+        }
+
+        protected void lbtnAllReports_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AllReports123.aspx");
         }
 
         protected void getMembers()
@@ -832,6 +842,8 @@ namespace hfiles
 
             }
         }
+
+
 
     }
 }

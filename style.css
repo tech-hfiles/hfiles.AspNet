@@ -675,7 +675,7 @@ input:-webkit-autofill {
 
 .inner-body-right h1,
 span {
-    color: white;
+    color: blue;
 }
 
 .inner-body-right span {
@@ -3041,3 +3041,4 @@ span.img-notselected {
         background-color: #e0a800;
     }
 
+  

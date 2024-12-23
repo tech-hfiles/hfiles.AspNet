@@ -15,6 +15,8 @@ using System.Resources;
 using System.Globalization;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace hfiles
 {
@@ -278,6 +280,19 @@ namespace hfiles
             }
         }
 
+
+
+
+        public string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return BitConverter.ToString(hashBytes).Replace("-", "").ToLower(); // 64-character hash
+            }
+        }
+
+
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             using (MySqlConnection con = new MySqlConnection(cs))
@@ -286,51 +301,74 @@ namespace hfiles
                 using (MySqlCommand cmd = new MySqlCommand("usp_login", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("_username", emailTextBox.Text);
-                    cmd.Parameters.AddWithValue("_Password", txtPassword.Text);
-                    MySqlDataReader dr = cmd.ExecuteReader();
-                    if (dr.Read())
-                    {
-                        Session["IsCustomer"] = true;
-                        Session["UserId"] = dr["user_id"].ToString();
-                        //Session["role"] = dr["RoleType"].ToString();
-                        Session["user_email"] = dr["user_email"].ToString();
 
-                        FormsAuthentication.RedirectFromLoginPage(emailTextBox.Text + " " + txtPassword.Text, false);
-                        //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Logged in successfully');", true);
-                        //FormsAuthentication.RedirectFromLoginPage(dr["user_firstname"].ToString() + " " + dr["user_lastname"].ToString(), false);
-                        Response.Redirect("Dashboard.aspx");
-                        divpassword.Visible = true;
-                        ScriptManager.RegisterStartupScript((sender as Control), this.GetType(), Guid.NewGuid().ToString(), "changemodevalue();", true);
-                        ScriptManager.RegisterStartupScript((sender as Control), this.GetType(), Guid.NewGuid().ToString(), "handleLogin();", true);
-                        //if (Session["cartprevPath"] != null)
-                        //{
-                        //    Response.Redirect("~/" + Session["cartprevPath"].ToString());
-                        //}
-                        //else if (Session["prevPath"] != null)
-                        //{
-                        //    Response.Redirect(Session["prevPath"].ToString());
-                        //}
-                        //else if (Session["wishprevPath"] != null)
-                        //{
-                        //    Response.Redirect(Session["wishprevPath"].ToString());
-                        //}
-                        //else
-                        //{
-                        //    Response.Redirect("~/user/");
-                        //}
-                    }
-                    else
+                    string hashedPassword = HashPassword(txtPassword.Text);
+
+                    cmd.Parameters.AddWithValue("_username", emailTextBox.Text);
+                    cmd.Parameters.AddWithValue("_Password", hashedPassword);
+                    using (MySqlDataReader dr = cmd.ExecuteReader())
                     {
-                        divOtp.Visible = false;
-                        divpassword.Visible = true;
-                        ScriptManager.RegisterStartupScript((sender as Control), this.GetType(), Guid.NewGuid().ToString(), "changemodevalue();", true);
-                        ScriptManager.RegisterStartupScript((sender as Control), this.GetType(), Guid.NewGuid().ToString(), "handleLogin();", true);
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('invalid username or password');", true);
-                        //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", "alert('invalid username or password')", true);
+                        
+                        if (dr.Read())
+                        {
+                           string storedPassword = dr["user_password"].ToString();
+
+                            if (hashedPassword == storedPassword)
+                            {
+
+                                Session["IsCustomer"] = true;
+                                Session["UserId"] = dr["user_id"].ToString();
+                                //Session["role"] = dr["RoleType"].ToString();
+                                Session["user_email"] = dr["user_email"].ToString();
+
+                                //FormsAuthentication.RedirectFromLoginPage(emailTextBox.Text, false);
+                                //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Logged in successfully');", true);
+                                //FormsAuthentication.RedirectFromLoginPage(dr["user_firstname"].ToString() + " " + dr["user_lastname"].ToString(), false);
+                                Response.Redirect("Dashboard.aspx");
+                                divpassword.Visible = true;
+                                ScriptManager.RegisterStartupScript((sender as Control), this.GetType(), Guid.NewGuid().ToString(), "changemodevalue();", true);
+                                ScriptManager.RegisterStartupScript((sender as Control), this.GetType(), Guid.NewGuid().ToString(), "handleLogin();", true);
+                                //if (Session["cartprevPath"] != null)
+                                //{
+                                //    Response.Redirect("~/" + Session["cartprevPath"].ToString());
+                                //}
+                                //else if (Session["prevPath"] != null)
+                                //{
+                                //    Response.Redirect(Session["prevPath"].ToString());
+                                //}
+                                //else if (Session["wishprevPath"] != null)
+                                //{
+                                //    Response.Redirect(Session["wishprevPath"].ToString());
+                                //}
+                                //else
+                                //{
+                                //    Response.Redirect("~/user/");
+
+                                //}
+
+                            }
+                            else
+                            {
+                                divOtp.Visible = false;
+                                divpassword.Visible = true;
+                                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('invalid username or password');", true);
+                            }
+                        }
+                        else
+                        {
+                            divOtp.Visible = false;
+                            divpassword.Visible = true;
+                            ScriptManager.RegisterStartupScript((sender as Control), this.GetType(), Guid.NewGuid().ToString(), "changemodevalue();", true);
+                            ScriptManager.RegisterStartupScript((sender as Control), this.GetType(), Guid.NewGuid().ToString(), "handleLogin();", true);
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('invalid username or password');", true);
+                            //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", "alert('invalid username or password')", true);
+                        }
                     }
                 }
             }
+
         }
+
+
     }
 }

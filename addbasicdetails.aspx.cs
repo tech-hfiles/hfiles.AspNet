@@ -442,5 +442,10 @@ namespace hfiles
             imagePreview.Src = imagePath;
             Session["ProfileImage"] = imagePath;
         }
+
+        protected void btnpasswdchange_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("changepassword.aspx");
+        }
     }
 }

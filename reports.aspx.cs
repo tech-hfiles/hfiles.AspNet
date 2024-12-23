@@ -26,6 +26,12 @@ using MySqlX.XDevAPI;
 using System.Web.SessionState;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
+using System.Data.SqlClient;
+using System.Runtime.InteropServices.ComTypes;
+using Org.BouncyCastle.Asn1.Cmp;
+using System.Text;
+using System.IO.Compression;
+using System.Web.Caching;
 
 namespace hfiles
 {
@@ -39,19 +45,38 @@ namespace hfiles
         int RId;
         DataTable dtMemberList = new DataTable();
         private string fileName;
+        private SqlConnection con;
+        private object ReportId;
+        private object UserId;
+        private LinkButton sender;
+        private object dr;
+        private object Id;
+        private object token;
+        private string baseUrl;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //if (!IsPostBack)
+            //{
+            //    FetchData(21);
+            //}
+
             //mp1.Show();
             int RId = DAL.validateInt(Request.QueryString["rid"]);
 
             if (!IsPostBack)
             {
+                
+
                 if (Session["Userid"] != null)
                 {
                     getMembersList();
                     getReportType(RId);
                     getReportMaster();
+
+                   
+
+
                 }
                 else
                 {
@@ -407,7 +432,13 @@ namespace hfiles
             }
         }
 
+
+
+       
+
         protected void SearchInput_TextChanged(object sender, EventArgs e)
+        
+        
         {
             int RId = DAL.validateInt(Request.QueryString["rid"]);
             DataTable dt;
@@ -692,6 +723,8 @@ namespace hfiles
         }
         protected void lbtnEdit_Click(object sender, EventArgs e)
         {
+            
+
             int memberId = Convert.ToInt32(Session["memberId"]);
             int user_referenceId = Convert.ToInt32(Session["user_reference"]);
             //if (user_referenceId > 0 && memberId > 0 && ((IsValidEmail(Session["user_reference_email"]) == true && IsValidEmail(Session["user_email"]) == true) ? Session["user_reference_email"].ToString() == Session["user_email"].ToString() : false))
@@ -709,6 +742,7 @@ namespace hfiles
             Session["ReportUniqueId"] = reportId;
 
             mp1.Show();
+            int Id = DAL.validateInt(lnk.CommandArgument.ToString());
 
             RId = DAL.validateInt(Request.QueryString["rid"]);
             int UserId = DAL.validateInt(Session["Userid"].ToString());
@@ -730,10 +764,41 @@ namespace hfiles
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         da.Fill(dt);
+
+                        Console.WriteLine($"DataTable Rows: {dt.Rows.Count}");
+
                         if (dt != null && dt.Rows.Count > 0)
                         {
+
+                            DataTable sessionTable = Session["dtMemberList"] as DataTable;
+                            if (sessionTable == null)
+                            {
+                                Console.WriteLine("Session['dtMemberList'] is null");
+                            }
                             //for merging 2 datatables
                             DataTable mergedTable = MergeDataTables(Session["dtMemberList"] as DataTable, dt);
+
+                                                        var filteredRows = mergedTable.AsEnumerable()
+                                 .Where(row =>
+                                 {
+                                     var isDependentValue = row["IsDependent"];
+
+                                     // Ensure value is not null and is convertible to an integer
+                                     if (isDependentValue != DBNull.Value && int.TryParse(isDependentValue.ToString(), out int isDependent))
+                                     {
+                                         return isDependent == 1; // Only independent members
+                                     }
+                                     return false; // Exclude if null or not valid
+                                 });
+
+                            if (filteredRows.Any())
+                            {
+                                mergedTable = filteredRows.CopyToDataTable();
+                            }
+                            else
+                            {
+                                mergedTable = mergedTable.Clone(); // Empty table with same structure
+                            }
 
                             //ddlMembers2.DataSource = dt;
 
@@ -776,7 +841,91 @@ namespace hfiles
 
             }
             //mp1.Show();
+
+            getReportName(Id);
+
+
         }
+
+        protected void getReportName(int Id)
+        {
+
+
+            // string reportname = txtReportName.Text;
+            txtReportName.Text = "";
+            lbtnSave.CommandArgument = "";
+
+
+            MySqlConnection con = new MySqlConnection(cs);
+
+
+               
+
+                    con.Open();
+
+
+                    string query = "SELECT ReportId, Id, ReportName FROM user_reports where Id ="+Id;
+
+                 
+
+                    MySqlCommand cmd = new MySqlCommand(query, con);
+            //         cmd.Parameters.AddWithValue("@Id", Id);
+
+
+                    MySqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        txtReportName.Text = dr["ReportName"].ToString();
+                        lbtnSave.CommandArgument = Convert.ToString(Id);
+                    }
+
+
+                    con.Close();
+                    
+                
+               
+            
+
+        }
+
+        //public dynamic GetReportById(int id)
+        //{
+        //    using (MySqlConnection conn = new MySqlConnection(cs))
+        //    {
+        //        string query = "SELECT Id, ReportName FROM Reports WHERE Id = @Id";
+        //        MySqlCommand cmd = new MySqlCommand(query, conn);
+        //        cmd.Parameters.AddWithValue("@Id", id);
+
+        //        conn.Open();
+        //        MySqlDataReader reader = cmd.ExecuteReader();
+        //        if (reader.Read())
+        //        {
+        //            // Debugging: Output the values fetched from the database
+        //            string reportName = reader.GetString(reader.GetOrdinal("ReportName"));
+        //            int reportId = reader.GetInt32(reader.GetOrdinal("Id"));
+        //            Response.Write($"<script>alert('Report found: {reportName}, {reportId}');</script>");
+
+        //            return new
+        //            {
+        //                Id = reportId,
+        //                ReportName = reportName
+        //            };
+        //        }
+        //        else
+        //        {
+        //            return null; // Return null if no report is found
+        //        }
+        //    }
+        //}
+
+       
+
+
+
+
+        
+       
 
 
         // Method to merge two DataTables
@@ -892,8 +1041,9 @@ namespace hfiles
         }
         protected void lbtnSave_Click(object sender, EventArgs e)
         {
-            //string reportname = txtReportName.Text;
-
+            //LinkButton lnk = sender as LinkButton;
+            //int Id = Convert.ToInt32(lnk.CommandArgument);
+            //string ReportName = Convert.ToString(txtReportName.Text);
             int RId = DAL.validateInt(Request.QueryString["rid"]);
             int memberId = Convert.ToInt32(Session["memberId"]);
             List<int> selectedIds = new List<int>();
@@ -993,7 +1143,7 @@ namespace hfiles
                             cmd.ExecuteNonQuery();
                             int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
                             result = DAL.validateInt(retVal);
-                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');", true);
+                           // ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');", true);
                             //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Updated Successfully')", true);
                             //else
                             //{
@@ -1008,112 +1158,89 @@ namespace hfiles
                 result = 0;
             }
             //return result;
+            //getReportNameupdate();
+
+
+            try
+            {
+
+
+                LinkButton lbtnimg = (LinkButton)sender;
+                string commandArgument = lbtnimg.CommandArgument;
+
+                //int Id = DAL.validateInt(lbtnimg.CommandArgument.ToString());
+                Console.WriteLine($"CommandArgument: {commandArgument}");
+
+                int _Id = DAL.validateInt(commandArgument);
+
+                //int reportId = 340;
+
+                // Call the method
+                int updatedId = GetReportNameUpdate(sender, _Id);
+
+                // Optionally, handle the returned ID or display a success message
+                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Name Updated');", true);
+                
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.fail('ReportName Updated fail');", true);
+                
+            }
+
+
+        }
+
+        public int GetReportNameUpdate(object sender, int Id)
+        {
+            try
+            {
+                LinkButton lbtnimg = (LinkButton)(sender);
+                string commandArgument = lbtnimg.CommandArgument;
+
+                Console.WriteLine($"CommandArgument: {commandArgument}");
+
+                //int _Id = DAL.validateInt(lbtnimg.CommandArgument.ToString());
+
+
+
+
+                //LinkButton lbtn = (LinkButton)sender;
+                //string commandArgument = lbtn.CommandArgument;
+
+                int id = Id;
+                string reportName = txtReportName.Text;
+
+                using (MySqlConnection con = new MySqlConnection(cs))
+                {
+                    
+
+                    using (MySqlCommand cmd = new MySqlCommand("GetReportNameByUserId", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@p_ID", id);
+                        cmd.Parameters.AddWithValue("@p_ReportName", reportName);
+                        cmd.Parameters["@p_ReportName"].MySqlDbType = MySqlDbType.VarChar;
+                        cmd.Parameters["@p_ReportName"].Size = 255;
+
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                    }
+                }
+                return Id;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return Id;
+            }
+
         }
 
 
-        //protected void lbtnSave_Click(object sender, EventArgs e)
-        //{
-        //    // Retrieve the edited ReportName from the TextBox
-        //    string reportName = txtReportName.Text;
 
-        //    int RId = DAL.validateInt(Request.QueryString["rid"]);
-        //    int memberId = Convert.ToInt32(Session["memberId"]);
-        //    List<int> selectedIds = new List<int>();
-
-        //    foreach (ListItem item in ddlMembers2.Items)
-        //    {
-        //        if (item.Selected)
-        //        {
-        //            selectedIds.Add(Convert.ToInt32(item.Value));
-        //        }
-        //    }
-        //    string memberIdList = string.Join(",", selectedIds);
-        //    int result = 0;
-
-        //    try
-        //    {
-        //        int age = 0;
-
-        //        using (MySqlConnection con = new MySqlConnection(cs))
-        //        {
-        //            con.Open();
-        //            using (MySqlCommand cmd = new MySqlCommand("usp_addreportwithaccess", con))
-        //            {
-        //                if (Session["memberRelation"] == null)
-        //                {
-        //                    Session["memberRelation"] = "Self";
-        //                }
-
-        //                if (Session["memberRelation"].ToString() == "Self" || Session["memberRelation"].ToString() == "Son" || Session["memberRelation"].ToString() == "daughter" || Session["memberRelation"].ToString() == "cat" || Session["memberRelation"].ToString() == "Dog" || Session["memberRelation"].ToString() == "GrandFather" || Session["memberRelation"].ToString() == "GrandMother" || Session["memberRelation"].ToString() == "Uncle" || Session["memberRelation"].ToString() == "Aunt" || (Session["memberRelation"].ToString() == "Son" && age < 17) || age > 70)
-        //                {
-        //                    cmd.CommandType = CommandType.StoredProcedure;
-        //                    cmd.Parameters.AddWithValue("_UserId", int.Parse(Session["Userid"].ToString()));
-        //                    cmd.Parameters.AddWithValue("_reportname", reportName); // Pass the ReportName here
-        //                    cmd.Parameters.AddWithValue("_reporturl", "");
-        //                    cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(RId));
-        //                    cmd.Parameters.AddWithValue("_memberId", memberIdList);
-        //                    cmd.Parameters.AddWithValue("_rId", Convert.ToInt32(Session["ReportUniqueId"].ToString()));
-        //                    cmd.Parameters.AddWithValue("_SpType", "U");
-        //                    cmd.Parameters.AddWithValue("_UploadType", "");
-        //                    cmd.Parameters.AddWithValue("_FileSize", 0);
-        //                    cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
-        //                    cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
-        //                    cmd.ExecuteNonQuery();
-        //                    int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
-        //                    result = DAL.validateInt(retVal);
-        //                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');", true);
-        //                    Session["memberId"] = 0;
-        //                }
-        //                else if (memberId == int.Parse(Session["Userid"].ToString()))
-        //                {
-        //                    cmd.CommandType = CommandType.StoredProcedure;
-        //                    cmd.Parameters.AddWithValue("_UserId", int.Parse(Session["Userid"].ToString()));
-        //                    cmd.Parameters.AddWithValue("_reportname", reportName); // Pass the ReportName here
-        //                    cmd.Parameters.AddWithValue("_reporturl", "");
-        //                    cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(RId));
-        //                    cmd.Parameters.AddWithValue("_memberId", memberIdList);
-        //                    cmd.Parameters.AddWithValue("_rId", Convert.ToInt32(Session["ReportUniqueId"].ToString()));
-        //                    cmd.Parameters.AddWithValue("_SpType", "U");
-        //                    cmd.Parameters.AddWithValue("_UploadType", "");
-        //                    cmd.Parameters.AddWithValue("_FileSize", 0);
-        //                    cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
-        //                    cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
-        //                    cmd.ExecuteNonQuery();
-        //                    int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
-        //                    result = DAL.validateInt(retVal);
-        //                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');", true);
-        //                }
-        //                else
-        //                {
-        //                    cmd.CommandType = CommandType.StoredProcedure;
-        //                    cmd.Parameters.AddWithValue("_UserId", int.Parse(Session["Userid"].ToString()));
-        //                    cmd.Parameters.AddWithValue("_reportname", reportName); // Pass the ReportName here
-        //                    cmd.Parameters.AddWithValue("_reporturl", "");
-        //                    cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(RId));
-        //                    cmd.Parameters.AddWithValue("_memberId", memberIdList);
-        //                    cmd.Parameters.AddWithValue("_rId", Convert.ToInt32(Session["ReportUniqueId"].ToString()));
-        //                    cmd.Parameters.AddWithValue("_SpType", "U");
-        //                    cmd.Parameters.AddWithValue("_UploadType", "");
-        //                    cmd.Parameters.AddWithValue("_FileSize", 0);
-        //                    cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
-        //                    cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
-        //                    cmd.ExecuteNonQuery();
-        //                    int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
-        //                    result = DAL.validateInt(retVal);
-        //                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');", true);
-        //                }
-        //            }
-        //        }
-        //    }
-        //    catch (Exception Ex)
-        //    {
-        //        result = 0;
-        //        // Handle or log exception if needed
-        //    }
-        //}
-
-
-        protected void btnSubmit_Click(object sender, EventArgs e)
+            protected void btnSubmit_Click(object sender, EventArgs e)
         {
 
         }
@@ -1145,61 +1272,56 @@ namespace hfiles
             string whatsappUrl = GenerateWhatsAppUrl(fileUrl);
             Response.Redirect(whatsappUrl);
 
-
         }
-        private string GenerateWhatsAppUrl(string fileUrl)
+
+
+        private string GenerateWhatsAppUrl(string filePath)
         {
-            //string message = "Here is your PDF: " + fileUrl;
-            string message = fileUrl;
-            //string encodedMessage = HttpUtility.UrlEncode(message);
-            //return "https://wa.me/?text=" + encodedMessage;
+           
+
+            DateTime utcNow = DateTime.UtcNow;
+
+            // Define the IST timezone
+            TimeZoneInfo istTimeZone = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+
+            // Convert UTC to IST
+            DateTime indiaTime = TimeZoneInfo.ConvertTimeFromUtc(utcNow, istTimeZone).AddMinutes(60);
+           
 
 
-            string encodedUrl = HttpUtility.UrlEncode(fileUrl);
-            return "https://wa.me/?text=" + encodedUrl;
+            Guid tokenId = Guid.NewGuid();
+
+            var tokenData = new { FilePath = filePath, Expiry = indiaTime };
+
+            // Storing data in Cache using tokenId as key
+            HttpContext.Current.Cache.Insert(
+                tokenId.ToString(),      // Key
+                tokenData,               // Value
+                null,                    // Dependencies (none in this case)
+                indiaTime.AddMinutes(30), // Absolute Expiry Time
+                Cache.NoSlidingExpiration, // No sliding expiration
+                CacheItemPriority.Normal, // Cache item priority
+                null);
+            string signedUrl = $"https://hfiles.in/ContentDeliver.aspx?token={tokenId}";
+            // Callback (if needed)
+            // Store token data using tokenId as key (e.g., in MemoryCache, Database, etc.)
 
 
 
+            // Return the WhatsApp-ready link
+            return "https://wa.me/?text=" + HttpUtility.UrlEncode(signedUrl);
         }
 
 
-        //public static void SendMail(string Subject, string messageBody, string ToEmail, string attachmentFilePath)
-        //{
-        //    string fromMail = ConfigurationManager.AppSettings["careermailUserId"].ToString();
-        //    string mailPassword = ConfigurationManager.AppSettings["careermailPassword"].ToString();
-        //    int mailPort = Convert.ToInt32(ConfigurationManager.AppSettings["mailPort"]);
-        //    string mailServer = ConfigurationManager.AppSettings["mailServer"].ToString();
-        //    var email = new MimeMessage();
-        //    email.From.Add(new MailboxAddress("H-Files", fromMail));
-        //    email.To.Add(new MailboxAddress("H-FIles-User", ToEmail));
-        //    email.Subject = Subject;
-        //    var body = new TextPart("html")
-        //    {
-        //        Text = messageBody
-        //    };
-        //    var multipart = new Multipart("mixed");
-        //    multipart.Add(body);
+        
+       
 
-        //    var attachment = new MimeKit.MimePart("application", "pdf")
-        //    {
-        //        Content = new MimeContent(System.IO.File.OpenRead(attachmentFilePath), ContentEncoding.Default),
-        //        ContentDisposition = new MimeKit.ContentDisposition(MimeKit.ContentDisposition.Attachment),
-        //        ContentTransferEncoding = ContentEncoding.Base64,
-        //        //FileName = Path.GetFileName(attachmentFilePath)
-        //        FileName = attachmentFilePath
-        //    };
-        //    multipart.Add(attachment);
-        //    email.Body = multipart;
-        //    using (var smtp = new MailKit.Net.Smtp.SmtpClient())
-        //    {
-        //        smtp.Connect(mailServer, mailPort, true);
-        //        smtp.Authenticate(fromMail, mailPassword);
-        //        smtp.Send(email);
-        //        smtp.Disconnect(true);
-        //    }
-        //}
 
-        //new code form kuldeep
+
+
+
+
+       
         protected void btnShareEmail_Command(object sender, CommandEventArgs e)
         {
             try
@@ -1245,6 +1367,8 @@ namespace hfiles
                 Response.Write("An error occurred: " + ex.Message);
             }
         }
+
+       
 
         protected void lbtnShareMail_Click1(object sender, EventArgs e)
         {

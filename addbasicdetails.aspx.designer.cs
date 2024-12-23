@@ -33,6 +33,15 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.Button showInputButton;
 
         /// <summary>
+        /// btnpasswdchange control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnpasswdchange;
+
+        /// <summary>
         /// removeProfileButton control.
         /// </summary>
         /// <remarks>

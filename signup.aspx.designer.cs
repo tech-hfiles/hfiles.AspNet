@@ -105,6 +105,33 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.TextBox cpwdTextBox;
 
         /// <summary>
+        /// captchaimage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image captchaimage;
+
+        /// <summary>
+        /// Lblcaptcha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lblcaptcha;
+
+        /// <summary>
+        /// txtcaptcha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtcaptcha;
+
+        /// <summary>
         /// divOtp control.
         /// </summary>
         /// <remarks>

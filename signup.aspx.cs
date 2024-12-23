@@ -11,6 +11,10 @@ using System.Configuration;
 using System.Data;
 using static System.Net.WebRequestMethods;
 using MySqlX.XDevAPI.Common;
+using System.Security.Cryptography;
+using System.Text;
+using System.IO;
+using System.Web.Script.Serialization;
 
 namespace hfiles
 {
@@ -38,21 +42,26 @@ namespace hfiles
 
         protected void signup_Click(object sender, EventArgs e)
         {
-            // Usage:
-            string email = emailTextBox.Value.ToString();
-            if (Bind() > 0)
+            string userInput = txtcaptcha.Text;
+            string actualCaptcha = Session["Captcha"]?.ToString();
+
+            if (userInput == actualCaptcha)
             {
-                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('EmailID Or the Contact Number is already registered please login.');", true);
-            }
-            else
-            {
-                string otp = GenerateOTP(6);
-                DAL.SendOTPApiRequest(otp, phoneTextBox.Value);
-                // Generate a 6-digit OTP
-                //string subject = "Welcome to Hfiles";
-                //string body = $"<p style=\"text-align: justify\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify\">Thank you for signing up for Hfiles! We&apos;re excited to have you on board as a valued member of our community.&nbsp;</p>\r\n<p style=\"text-align: justify\">To complete your registration, please use the following One-Time Password</p>\r\n<p style=\"text-align: justify\"><strong style=\"font-size: 130%\">{otp}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Email footer/ Privacy Agreement: Please keep this OTP secure, as you will need it to verify your account and access our services.&nbsp;</p>\r\n<p style=\"text-align: justify\">At Hfiles, we take your privacy and data security seriously. We are committed to safeguarding your personal information and ensuring it is used in accordance with our Privacy Agreement.</p>";
-                string subject = "Complete Your Hfiles Registration";
-                string body = $@"
+                // Usage:
+                string email = emailTextBox.Value.ToString();
+                if (Bind() > 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('EmailID Or the Contact Number is already registered please login.');", true);
+                }
+                else
+                {
+                    string otp = GenerateOTP(6);
+                    DAL.SendOTPApiRequest(otp, phoneTextBox.Value);
+                    // Generate a 6-digit OTP
+                    //string subject = "Welcome to Hfiles";
+                    //string body = $"<p style=\"text-align: justify\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify\">Thank you for signing up for Hfiles! We&apos;re excited to have you on board as a valued member of our community.&nbsp;</p>\r\n<p style=\"text-align: justify\">To complete your registration, please use the following One-Time Password</p>\r\n<p style=\"text-align: justify\"><strong style=\"font-size: 130%\">{otp}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Email footer/ Privacy Agreement: Please keep this OTP secure, as you will need it to verify your account and access our services.&nbsp;</p>\r\n<p style=\"text-align: justify\">At Hfiles, we take your privacy and data security seriously. We are committed to safeguarding your personal information and ensuring it is used in accordance with our Privacy Agreement.</p>";
+                    string subject = "Complete Your Hfiles Registration";
+                    string body = $@"
                             <p>Hello {firstnameTextBox.Value},</p>
                             <p>Welcome to Hfiles!</p>
                             <p>To complete your registration, please use the following One-Time Password (OTP):</p>
@@ -63,39 +72,65 @@ namespace hfiles
                             <p>Best regards,<br/>The Hfiles Team</p>
                             <p><small>If you did not sign up for Hfiles, please disregard this email.</small></p>";
 
-                // SendEmail(email, subject, body);
+                    // SendEmail(email, subject, body);
 
 
-                // Create a new MySqlConnection using the connection string
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
-                {
-                    // Open the database connection
-                    connection.Open();
-
-                    // Prepare the SQL query to insert the OTP information into the database
-                    string query = "INSERT INTO otp (user_id, otp_code, created_at) VALUES (@userId, @otpCode, NOW())";
-
-                    // Create a new MySqlCommand object
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    // Create a new MySqlConnection using the connection string
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
-                        // Set the parameter values
-                        command.Parameters.AddWithValue("@userId", emailTextBox.Value);
-                        command.Parameters.AddWithValue("@otpCode", otp);
 
-                        // Execute the SQL command
-                        command.ExecuteNonQuery();
+
+                        // Open the database connection
+                        connection.Open();
+
+                        // Prepare the SQL query to insert the OTP information into the database
+                        string query = "INSERT INTO otp (user_id, otp_code, created_at) VALUES (@userId, @otpCode, NOW())";
+
+                        // Create a new MySqlCommand object
+                        using (MySqlCommand command = new MySqlCommand(query, connection))
+                        {
+
+                            // Set the parameter values
+                            command.Parameters.AddWithValue("@userId", emailTextBox.Value);
+                            command.Parameters.AddWithValue("@otpCode", otp);
+
+                            // Execute the SQL command
+                            command.ExecuteNonQuery();
+                        }
+                        // Close the database connection
+                        connection.Close();
+                        DAL.SendCareerMail(subject, body, email);
+                        divSubmit.Visible = true;
+                        divOtp.Visible = false;
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on " + emailTextBox.Value + " and " + phoneTextBox.Value + ".');", true);
                     }
-                    // Close the database connection
-                    connection.Close();
-                    DAL.SendCareerMail(subject, body, email);
-                    divSubmit.Visible = true;
-                    divOtp.Visible = false;
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on " + emailTextBox.Value + " and "+ phoneTextBox.Value + ".');", true);
+                   
                 }
 
             }
+            else
+            {
+                Lblcaptcha.Text = "CAPTCHA Verification Failed!";
+            }
+
 
         }
+
+        private bool ValidateCaptcha(string captchaResponse)
+        {
+            string secretKey = "YOUR_SECRET_KEY"; // Replace with your new secret key
+            string apiUrl = $"https://www.google.com/recaptcha/api/siteverify?secret={secretKey}&response={captchaResponse}";
+
+            using (var client = new WebClient())
+            {
+                string result = client.DownloadString(apiUrl);
+                var jsonResult = new JavaScriptSerializer().Deserialize<Dictionary<string, object>>(result);
+                return Convert.ToBoolean(jsonResult["success"]);
+            }
+        }
+
+
+
         protected void submitButton_Click(object sender, EventArgs e)
         {
             int userexist = 0;
@@ -103,7 +138,7 @@ namespace hfiles
             Random random = new Random();
             int randomNumber = random.Next(1000, 9999);
 
-            // Format the date of birth in MMDDYYYY format
+            // Format the date of birth in MMDDYYYY formatsignup_Click
             string formattedDateOfBirth = Convert.ToDateTime(dobTextBox1.Value).ToString("MMddyy");
 
             // Take a portion of the last name (first three characters)
@@ -114,6 +149,9 @@ namespace hfiles
 
             #region variable
             string member = membershipNumber;
+
+
+
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -144,7 +182,7 @@ namespace hfiles
                         errorLabel.Text = "";
                         //Details to be saved in user details table
                         //Response.Redirect("addbasicdetails.aspx");
-
+                        string hashedPassword = HashPassword(cpwdTextBox.Text);
 
                         //newly added to change registration processflow
                         //using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -159,7 +197,7 @@ namespace hfiles
                                 cmdInsert.Parameters.AddWithValue("_user_dob", txtDate.Text);// dobTextBox1.Value));// ;
                                 cmdInsert.Parameters.AddWithValue("_user_contact", phoneTextBox.Value);
                                 cmdInsert.Parameters.AddWithValue("_user_email", emailTextBox.Value);
-                                cmdInsert.Parameters.AddWithValue("_user_password", cpwdTextBox.Text);
+                                cmdInsert.Parameters.AddWithValue("_user_password", hashedPassword);
                                 cmdInsert.Parameters.AddWithValue("_user_gender", "");
                                 cmdInsert.Parameters.AddWithValue("_user_relation", "");
                                 cmdInsert.Parameters.AddWithValue("_chkmail", 1);
@@ -208,6 +246,24 @@ namespace hfiles
                 connection.Close();
             }
         }
+
+       
+        public string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return BitConverter.ToString(hashBytes).Replace("-", "").ToLower(); // 64-character hash
+            }
+        }
+        
+
+
+
+
+
+
+
 
         protected int Bind()
         {

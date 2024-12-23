@@ -514,16 +514,16 @@
                                                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
                                                     <a href="#why" class="ekit-menu-nav-link">Why hfiles?</a></li>
                                                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-650 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
-                                                    <a href="#ABHA" class="ekit-menu-nav-link">ABHA</a></li>
+                                                   <%-- <a href="#ABHA" class="ekit-menu-nav-link">ABHA</a></li>--%>
                                             </ul>
-                                            <div class="elementskit-nav-identity-panel">
+                                           <%-- <div class="elementskit-nav-identity-panel">
                                                 <div class="elementskit-site-title">
                                                     <a class="elementskit-nav-logo" href="https://hfiles.in/" target="_self" rel="">
                                                         <img fetchpriority="high" width="512" height="512" src="https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon.png" class="attachment-full size-full" alt="" decoding="async" srcset="https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon.png 512w, https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon-300x300.png 300w, https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon-150x150.png 150w, https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon-270x270.png 270w, https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon-192x192.png 192w, https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon-180x180.png 180w, https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon-32x32.png 32w" sizes="(max-width: 512px) 100vw, 512px" />
                                                     </a>
                                                 </div>
                                                 <button class="elementskit-menu-close elementskit-menu-toggler" type="button">X</button>
-                                            </div>
+                                            </div>--%>
                                         </div>
                                         <div class="elementskit-menu-overlay elementskit-menu-offcanvas-elements elementskit-menu-toggler ekit-nav-menu--overlay"></div>
                                     </div>
@@ -540,7 +540,7 @@
                                             <div class="elementor-element elementor-element-0fd294a elementor-align-center elementor-tablet-align-right elementor-widget elementor-widget-button" data-id="0fd294a" data-element_type="widget" data-widget_type="button.default">
                                                 <div class="elementor-widget-container">
                                                     <div class="elementor-button-wrapper">
-                                                        <a class="elementor-button elementor-button-link elementor-size-sm" href="http://web.hfiles.in/login.aspx">
+                                                        <a class="elementor-button elementor-button-link elementor-size-sm" href="http://testhfiles.in/login.aspx">
                                                             <span class="elementor-button-content-wrapper">
                                                                 <span class="elementor-button-text">User Login</span>
                                                             </span>
@@ -555,7 +555,7 @@
                                             <div class="elementor-element elementor-element-43a819f elementor-align-center elementor-tablet-align-right elementor-widget elementor-widget-button" data-id="43a819f" data-element_type="widget" data-widget_type="button.default">
                                                 <div class="elementor-widget-container">
                                                     <div class="elementor-button-wrapper">
-                                                        <a class="elementor-button elementor-button-link elementor-size-sm" href="http://web.hfiles.in/signup.aspx">
+                                                        <a class="elementor-button elementor-button-link elementor-size-sm" href="http://testhfiles.in/signup.aspx">
                                                             <span class="elementor-button-content-wrapper">
                                                                 <span class="elementor-button-text">Sign up</span>
                                                             </span>
@@ -598,7 +598,7 @@
                         <div class="elementor-element elementor-element-827d02e elementor-mobile-align-center elementor-invisible elementor-widget elementor-widget-button" data-id="827d02e" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="button.default">
                             <div class="elementor-widget-container">
                                 <div class="elementor-button-wrapper">
-                                    <a class="elementor-button elementor-button-link elementor-size-sm" href="http://web.hfiles.in/login.aspx">
+                                    <a class="elementor-button elementor-button-link elementor-size-sm" href="http://testhfiles.in/login.aspx">
                                         <span class="elementor-button-content-wrapper">
                                             <span class="elementor-button-text">Create your health file</span>
                                         </span>
@@ -1031,7 +1031,8 @@ Update your bond with health by signing up with us today!
                                         <div class="elementor-element elementor-element-6108052 elementor-invisible elementor-widget elementor-widget-button" data-id="6108052" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="button.default">
                                             <div class="elementor-widget-container">
                                                 <div class="elementor-button-wrapper">
-                                                    <a class="elementor-button elementor-button-link elementor-size-sm" href="#leadForm">
+                                                    <a class="elementor-button elementor-button-link elementor-size-sm" href="http://testhfiles.in/signup.aspx">
+                                                         
                                                         <span class="elementor-button-content-wrapper">
                                                             <span class="elementor-button-text">Create your health file</span>
                                                         </span>
@@ -1316,7 +1317,7 @@ Update your bond with health by signing up with us today!
                                 <h2 class="elementor-heading-title elementor-size-default">About Us</h2>
                             </div>
                         </div>
-                        <div class="elementor-element elementor-element-c4543a5 elementor-widget elementor-widget-elementskit-heading" data-id="c4543a5" data-element_type="widget" data-widget_type="elementskit-heading.default">
+                      <%--  <div class="elementor-element elementor-element-c4543a5 elementor-widget elementor-widget-elementskit-heading" data-id="c4543a5" data-element_type="widget" data-widget_type="elementskit-heading.default">
                             <div class="elementor-widget-container">
                                 <div class="ekit-wid-con">
                                     <div class="ekit-heading elementskit-section-title-wraper text_left   ekit_heading_tablet-   ekit_heading_mobile-">
@@ -1326,7 +1327,7 @@ Update your bond with health by signing up with us today!
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>--%>
                         <div class="elementor-element elementor-element-d09d4b3 elementor-invisible elementor-widget elementor-widget-text-editor" data-id="d09d4b3" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="text-editor.default">
                             <div class="elementor-widget-container">
                                 <p>Welcome to Hfiles, where we aim to simplify and manage the healthcare system for your entire family, from birth to adulthood. We believe that organization is the key to leading a successful life, and our mission is to help you organize your medical life into one neat file.</p>

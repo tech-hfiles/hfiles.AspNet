@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/user.Master" CodeBehind="Dashboard.aspx.cs" Inherits="hfiles.Dashboard" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Samanta</title>
+    <title>Dashboard</title>
 
     <link rel="stylesheet" href="./style2.css" />
     <style>
@@ -110,7 +110,7 @@
                                 </div>
                             </div>--%>
 
-                        <a class="support-group my-5" href="MedicalHistory">
+                        <a class="support-group my-5" href="MedicalHistory.aspx">
                             <div class="my_profile">
                                 <div class="row align-items-center">
                                     <div class="col-3 tab-icon-div" style="margin-left:-15px;">
