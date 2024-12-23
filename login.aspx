@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
    <%-- <link rel='stylesheet' id='elementor-frontend-css' href='https://hfiles.in/wp-content/plugins/elementor/assets/css/frontend-lite.min.css?ver=3.21.3' media='all' />
 <link rel='stylesheet' id='elementor-post-22-css' href='https://hfiles.in/wp-content/uploads/elementor/css/post-22.css?ver=1714086109' media='all' />
@@ -811,8 +811,8 @@
 
 
 
-   <div class="container-fluid "  style="overflow:auto;max-height:90vh">
-        <form class="row h-100 align-ceter" runat="server">
+   <div class="container-fluid "  style="height: 90vh; overflow-y: auto;">
+        <form class="row h-100 align-ceter" runat="server" style="display: flex; flex-wrap: wrap;">
             <%--<div id="google_translate_element" class="language"></div>--%>
             <asp:HiddenField runat="server" ID="hfId" />
            <%-- <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-block px-5 justify-content-center align-items-center">--%>
@@ -821,7 +821,7 @@
             </div>
        
            <%-- <div class="col-sm-12 col-lg-6 inner-main" id="right-side-bar">--%>
-             <div class="col-sm-12 col-lg-6 inner-main" id="right-side-bar" style="overflow:auto">
+             <div class="col-sm-12 col-lg-6 inner-main" id="right-side-bar" style="overflow-y: auto; max-height: 100vh; padding: 20px;">
                 <div class="d-flex align-items-center justify-content-center h-100 inner-body">
                     <div class="text-center">
                         <div class="text-center signin-heading">

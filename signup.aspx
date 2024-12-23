@@ -6,6 +6,8 @@
 <head runat="server">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+
 
 
 
@@ -682,6 +684,7 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 
+
     <script>
         toastr.options = {
             closeButton: true,
@@ -822,20 +825,20 @@
     </details>
     </div>--%>
 
-    <div class="signin-main" style="overflow:auto;max-height:90vh">
+    <div class="signin-main" style="overflow-y: auto; height: 90vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
         <form class="w-100 h-100" runat="server">
 
             <%--<div id="google_translate_element" class="language"></div>--%>
             <asp:ScriptManager ID="scmSignUp" runat="server"></asp:ScriptManager>
 
             <%--<div class="row vert-cent w-100 h-sm-100vh m-0 ">--%>
-                <div class="row vert-cent w-100 h-sm-90vh m-0 " style="overflow-y:auto;max-height:95vh">
+                <div class="row vert-cent w-100 h-sm-90vh m-0 ">
                 <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image h-lg-100vh d-none d-lg-block px-5" style="background: #fff">
                     <img src="<%= ResolveUrl("~/assets/signup-samanta.png") %>" alt="" style="width: 100%; height: 100%; object-fit: contain" />
                 </div>
 
                 <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12 px-5 d-flex justify-content-center align-items-center signup-right"
-                    style="background-image: url('<%= ResolveUrl("~/Reception Page/002B.png") %>'); background-repeat: no-repeat; background-size: cover;">
+                    style="background-image: url('<%= ResolveUrl("~/Reception Page/002B.png") %>'); background-repeat: no-repeat; background-size: cover;flex-direction:column;">
                     <div>
                         <div class="text-center signin-heading">
                             <img src="<%= ResolveUrl("~/Sign Up Page/Hfiles Logo.png") %>" alt="" width="120px" />
@@ -896,7 +899,7 @@
                             <asp:Image ID="captchaimage" runat="server"   Height="40px" Width="150px" ImageUrl="~/captchacode.aspx"/>
                             <asp:Label ID="Lblcaptcha" runat="server" ForeColor="Red"></asp:Label>
                             <br />
-                            <br />
+                            
                             <asp:TextBox ID="txtcaptcha" runat="server"  Height="40px" Width="250px" placeholder="Enter captcha code"></asp:TextBox>
                         </div>
 
