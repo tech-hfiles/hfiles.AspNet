@@ -921,6 +921,7 @@
     <Content Include="Sign Up Page\Samanta.png" />
     <Content Include="Sign Up Page\Samanta_old.png" />
     <Content Include="signup.aspx" />
+    <Content Include="signup_old.aspx" />
     <Content Include="style.css" />
     <Content Include="style2.css" />
     <Content Include="style3.css" />
@@ -1196,12 +1197,12 @@
     <Compile Include="Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="signup.aspx.cs">
-      <DependentUpon>signup.aspx</DependentUpon>
+    <Compile Include="signup_old.aspx.cs">
+      <DependentUpon>signup_old.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="signup.aspx.designer.cs">
-      <DependentUpon>signup.aspx</DependentUpon>
+    <Compile Include="signup_old.aspx.designer.cs">
+      <DependentUpon>signup_old.aspx</DependentUpon>
     </Compile>
     <Compile Include="supportgroup.aspx.cs">
       <DependentUpon>supportgroup.aspx</DependentUpon>
