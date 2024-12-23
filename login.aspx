@@ -811,7 +811,7 @@
 
 
 
-   <div class="container-fluid ">
+   <div class="container-fluid "  style="overflow:auto;max-height:90vh">
         <form class="row h-100 align-ceter" runat="server">
             <%--<div id="google_translate_element" class="language"></div>--%>
             <asp:HiddenField runat="server" ID="hfId" />
@@ -821,7 +821,7 @@
             </div>
        
            <%-- <div class="col-sm-12 col-lg-6 inner-main" id="right-side-bar">--%>
-             <div class="col-sm-12 col-lg-6 inner-main" id="right-side-bar" style="overflow:auto;max-height:90vh">
+             <div class="col-sm-12 col-lg-6 inner-main" id="right-side-bar" style="overflow:auto">
                 <div class="d-flex align-items-center justify-content-center h-100 inner-body">
                     <div class="text-center">
                         <div class="text-center signin-heading">
@@ -879,7 +879,7 @@
                         </div>
 
                         <div class="text-center resend-otp-div mt-lg-3">
-                            <span style="color: #fff">New User? Click <a style="color: #fdd001; font-weight: 700" href="signup.aspx">here</a> to Sign Up</span>
+                            <span style="color: #fff">New User? Click <a style="color: #fdd001; font-weight: 700" href="signup.aspx" >here</a> to Sign Up</span>
                         </div>
                     </div>
                 </div>

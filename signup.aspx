@@ -822,7 +822,7 @@
     </details>
     </div>--%>
 
-    <div class="signin-main">
+    <div class="signin-main" style="overflow:auto;max-height:90vh">
         <form class="w-100 h-100" runat="server">
 
             <%--<div id="google_translate_element" class="language"></div>--%>
