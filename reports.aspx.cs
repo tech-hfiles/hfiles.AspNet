@@ -1268,7 +1268,7 @@ namespace hfiles
 
 
             LinkButton lnk = sender as LinkButton;
-            string fileUrl = "https://localhost:44335" + lnk.CommandArgument;
+            string fileUrl = "https://hfiles.in" + lnk.CommandArgument;
             string whatsappUrl = GenerateWhatsAppUrl(fileUrl);
             Response.Redirect(whatsappUrl);
 
@@ -1302,7 +1302,7 @@ namespace hfiles
                 Cache.NoSlidingExpiration, // No sliding expiration
                 CacheItemPriority.Normal, // Cache item priority
                 null);
-            string signedUrl = $"https://localhost:44335/ContentDeliver.aspx?token={tokenId}";
+            string signedUrl = $"https://hfiles.in/ContentDeliver.aspx?token={tokenId}";
             // Callback (if needed)
             // Store token data using tokenId as key (e.g., in MemoryCache, Database, etc.)
 
