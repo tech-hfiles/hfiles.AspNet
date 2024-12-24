@@ -905,7 +905,7 @@
                             <asp:Image ID="captchaimage" runat="server"   Height="40px" Width="150px" ImageUrl="~/captchacode.aspx"/>
                             <asp:Label ID="Lblcaptcha" runat="server" ForeColor="Red"></asp:Label>
                             <br />
-                            
+                            <br />
                             <asp:TextBox ID="txtcaptcha" runat="server"  Height="40px" Width="250px" placeholder="Enter captcha code"></asp:TextBox>
                         </div>
 
