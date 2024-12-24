@@ -937,7 +937,7 @@
             <cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panel1" TargetControlID="btnShow"
                 CancelControlID="btnClose" BackgroundCssClass="modalBackground">
             </cc1:ModalPopupExtender>
-            <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center" Style="display: none">
+            <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center" Style="display: none;overflow-x:hidden;overflow-y:auto;max-height:95vh">
                 <div class="row my-2">
                     <div class="col-12">
                         <h2>Upload Report</h2>
