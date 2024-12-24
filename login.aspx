@@ -511,7 +511,7 @@
             
             max-width: 100%;
 
-                overflow: hidden;
+                /*overflow: hidden;*/
         }
         .container-fluid {
             
@@ -520,8 +520,8 @@
             margin: 0 !important;
             width: 100%;
             padding: 0 0;
-            overflow-x: hidden;
-            overflow-y: hidden;
+            /*overflow-x: hidden;
+            overflow-y: hidden;*/
             background-color: #0331b5;
         }
 
@@ -589,7 +589,7 @@
         @media(max-width:600px) {
             .container {
                 padding: 0 0;
-                overflow-y: hidden;
+                /*overflow-y: hidden;*/
             }
 
             .inner-main {
@@ -621,7 +621,7 @@
 
                 .container-fluid {
                     padding: 0 0;
-                    overflow-y: visible;
+                    /*overflow-y: visible;*/
                     overscroll-behavior-y: none;
                 }
 
@@ -811,17 +811,17 @@
 
 
 
-   <div class="container-fluid "  style="height: 90vh; overflow-y: auto;">
+   <div class="container-fluid "  <%--style="height: 90vh; overflow-y: auto;"--%>>
         <form class="row h-100 align-ceter" runat="server" style="display: flex; flex-wrap: wrap;">
             <%--<div id="google_translate_element" class="language"></div>--%>
             <asp:HiddenField runat="server" ID="hfId" />
            <%-- <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-block px-5 justify-content-center align-items-center">--%>
-            <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-block px-5 justify-content-center align-items-center" style="overflow:auto">
+            <div class="col-sm-12 col-lg-6 <%--h-100 h-70--%> d-none d-lg-block px-5 justify-content-center align-items-center" <%--style="overflow:auto"--%>>
                 <img src="../assets/login-samanta-w-bg.png" alt="" style="width: 100%; height: 80vh; object-fit: contain" />
             </div>
        
            <%-- <div class="col-sm-12 col-lg-6 inner-main" id="right-side-bar">--%>
-             <div class="col-sm-12 col-lg-6 inner-main" id="right-side-bar" style="overflow-y: auto; max-height: 100vh; padding: 20px;">
+             <div class="col-sm-12 col-lg-6 inner-main" id="right-side-bar" style="/*overflow-y: auto; max-height: 100vh;*/ padding: 20px;">
                 <div class="d-flex align-items-center justify-content-center h-100 inner-body">
                     <div class="text-center">
                         <div class="text-center signin-heading">

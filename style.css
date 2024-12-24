@@ -5,9 +5,9 @@ body {
     /* height: 100vh; */
     background-color: #ffffff;
     font-family: 'Red Hat Display', sans-serif !important;
-    overflow: hidden;
+    /*overflow: hidden;
     overflow-x:hidden;
-    overflow-y:hidden;
+    overflow-y:hidden;*/
 }
 
 .container-fluid {
