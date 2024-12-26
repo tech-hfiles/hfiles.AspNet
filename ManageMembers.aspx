@@ -113,7 +113,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%--    <asp:ScriptManager ID="scm1" runat="server"></asp:ScriptManager>--%>
-    <div class="container-search mt-3 w-100">
+    <div class="container-search mt-3 w-100" >
         <div class="row d-flex align-items-center w-100">
             <div class="col-12 col-md-4 col-xl-6">
                 <a class="back-arrow-btn-managem" href="javascript: history.go(-1)">Back

@@ -762,14 +762,12 @@ namespace hfiles
                         cmd.Parameters.AddWithValue("_RId", reportId);
                         cmd.ExecuteNonQuery();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataTable dt1 = Session["dtMemberList"] as DataTable;
-                       // DataTable dt1 = new DataTable();
-                       
-                        da.Fill(dt1);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
 
-                        Console.WriteLine($"DataTable Rows: {dt1.Rows.Count}");
+                        Console.WriteLine($"DataTable Rows: {dt.Rows.Count}");
 
-                        if (dt1 != null && dt1.Rows.Count > 0)
+                        if (dt != null && dt.Rows.Count > 0)
                         {
 
                             //DataTable sessionTable = Session["dtMemberList"] as DataTable;
@@ -778,7 +776,7 @@ namespace hfiles
                             //    Console.WriteLine("Session['dtMemberList'] is null");
                             //}
                             //for merging 2 datatables
-                            DataTable mergedTable = MergeDataTables(Session["dtMemberList"] as DataTable, dt1);
+                            DataTable mergedTable = MergeDataTables(Session["dtMemberList"] as DataTable, dt);
 
                                                         var filteredRows = mergedTable.AsEnumerable()
                                  .Where(row =>
@@ -788,7 +786,7 @@ namespace hfiles
                                      // Ensure value is not null and is convertible to an integer
                                      if (isDependentValue != DBNull.Value && int.TryParse(isDependentValue.ToString(), out int isDependent))
                                      {
-                                         return isDependent == 1; // Only independent members
+                                         return isDependent == 0; // Only independent members
                                      }
                                      return false; // Exclude if null or not valid
                                  });
@@ -812,7 +810,7 @@ namespace hfiles
 
                             // Get selected members based on report ID
                             List<string> selectedMembers = new List<string>();
-                            foreach (DataRow row in dt1.Rows)
+                            foreach (DataRow row in dt.Rows)
                             {
                                 selectedMembers.Add(row["user_Id"].ToString());
                             }
@@ -1096,7 +1094,7 @@ namespace hfiles
                             cmd.ExecuteNonQuery();
                             int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
                             result = DAL.validateInt(retVal);
-                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');", true);
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');location.reload();", true);
                             //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Updated Successfully')", true);
                             //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
                             Session["memberId"] = 0;
@@ -1121,7 +1119,7 @@ namespace hfiles
                             cmd.ExecuteNonQuery();
                             int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
                             result = DAL.validateInt(retVal);
-                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');", true);
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');location.reload();", true);
                             //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Updated Successfully')", true);
                             //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
                         }
