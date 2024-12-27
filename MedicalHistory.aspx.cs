@@ -25,11 +25,13 @@ namespace hfiles
                 if (!IsPostBack)
                 {
                     medicalHistoryDiv.Visible = true;
-                    AdditionalDiv.Visible = false;
-                    AllergiesDiv.Visible = false;
+                    AdditionalDiv.Visible = true;
+                    AllergiesDiv.Visible = true;
                     disease_master();
                     get_disease();
-                  
+                    user_surgery();
+                    allergy_master();
+                    get_user_allergy();
                     int currentYear = DateTime.Now.Year;
                     for (int i = currentYear; i >= currentYear - 70; i--)
                     {
@@ -171,6 +173,16 @@ namespace hfiles
         }
         protected void btnSaveAllergy_Click(object sender, EventArgs e)
         {
+            
+
+            addUpdateAllergy();
+            Response.Redirect("Dashboard.aspx");
+        }
+        protected void btnSaveAllInfo_Click(object sender, EventArgs e)
+        {
+            addUpdateDisease();
+            updateUserDetails("E");
+            updateUserDetails("U");
             addUpdateAllergy();
             Response.Redirect("Dashboard.aspx");
         }

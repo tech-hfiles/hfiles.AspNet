@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
-        crossorigin="anonymous"></script>
+    
     <title>Additional Information</title>
     <style>
         .thm-blue-buttn {
@@ -306,22 +304,117 @@
             }*/
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
     <%--  <asp:ScriptManager runat="server" />--%>
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
+            
+            <div style="margin:auto;display:table">
+
+               <div style="padding-top:10vh;padding-bottom:10px;display:flex;justify-content:space-evenly;">
+                   <h1 style="color: #0331b5;">Medical History</h1>
+               </div>
+            <div class="accordion accordion-flush" id="accordionFlushExample" >
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button collapsed text-center" style="display:flow-root;background-color: #0331b5;color: #ffd101;border-radius: 9px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        My Medical History
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+                         <div runat="server" id="medicalHistoryDiv" class="medical-history common-design">
+
+
+    <%--<img class="blue-trangle-right" src="../Terms & Conditions/blue-trangle3.png" alt="">
+    <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
+    <img class="plus-top-left" src="../assets/plus-1.png" alt="">--%>
+
+    <div class="medical-main-div container <%--pt-5 px-5--%> h-90vh h-ssm-100vh mb-5 mb-lg-0"  style="overflow:auto;max-height:90vh">
+        <div class="row mt-5 m-0">
+            
+            <div class="row border-bottom p-1">
+                <div class="col-lg-6 col-md-6 col-4 pl-4">
+                    <p id="type">Type</p>
+                </div>
+                <div class="col-md-2 col-2 text-center">
+                    <p>Myself</p>
+                </div>
+                <div class="col-md-2 col-3 text-center">
+                    <p>Mother Side's</p>
+                </div>
+                <div class="col-md-2 col-3 text-center">
+                    <p>Father Side's</p>
+                </div>
+            </div>
+            
+            <div class="row inner-main-div">
+                <asp:Repeater runat="server" ID="rptDisease">
+                    <ItemTemplate>
+                        <div class="row py-4 border-bottom medical-history-row">
+                            <div class="col-md-6 col-4">
+                                <p><%# Eval("disease_name") %></p>
+                                <asp:HiddenField runat="server" ID="hfdisease_id" Value='<%# Eval("disease_id") %>' />
+
+
+
+                            </div>
+                            <%--                                    --%>
+                            <div class="col-md-6 col-5 SingleCheckbox justify-content-center align-items-center">
+                                <asp:CheckBoxList runat="server" ID="cbl" Style="padding: 20px;" RepeatDirection="Horizontal">
+                                    <asp:ListItem Value="1" Text=" " class="CheckBoxLabel" />
+                                    <asp:ListItem Value="2" Text=" " />
+                                    <asp:ListItem Value="3" Text=" " />
+                                </asp:CheckBoxList>
+                            </div>
+                            <%--  <div class="col-2 text-center">
+                            <img id="yes-selected-smoke" src="../assets/select.png" alt="" srcset="">
+                        </div>
+                        <div class="col-2 text-center">
+                            <img id="yes-selected-smoke" src="../assets/not-select.png" alt="" srcset="">
+                        </div>
+                        <div class="col-2 text-center">
+                            <img id="yes-selected-smoke" src="../assets/not-select.png" alt="" srcset="">
+                        </div>--%>
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
+
+            </div>
+        </div>
+        <div class="medic-his-btn mt-3 med-nxt" style="display:none">
+            <asp:Button Text="Next" ID="btnMedicalHistory" class="thm-blue-buttn" OnClick="btnMedicalHistory_Click" runat="server" />
+        </div>
+    </div>
+    <%--<img class="blue-trangle-bottom" src="../Add Members/blue-trangle-5.png" alt=""> --%>
+
+    <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
+</div>
+          
+
+
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button class="accordion-button collapsed text-blue" style="display:flow-root;background-color: #0331b5;color: #ffd101;text-align-last: center;border-radius: 9px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+        Additional Information
+      </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+          
             <div class="additional-information common-design" runat="server" id="AdditionalDiv">
 
-                <img class="blue-trangle-right" src="../Terms & Conditions/blue-trangle3.png" alt="">
+                <%--<img class="blue-trangle-right" src="../Terms & Conditions/blue-trangle3.png" alt="">
                 <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
-                <img class="plus-top-left" src="../assets/plus-icon-3.png" alt="">
+                <img class="plus-top-left" src="../assets/plus-icon-3.png" alt="">--%>
                 <div class="additionl-main-div container pt-5 px-5 h-90"  style="overflow:auto;max-height:90vh">
-                    <%-- <a class="back-arrow-btn" href="javascript: history.go(-1)">
-<%--                        <img src="../assets/back-arrow.png" alt="">--%>
-                    <%-- Back</a>--%>
-                    <div class="row <%--pt-5 px-5--%> pb-1">
+               
+                    <div class="row ">
                         <div class="col-12" style="font-family: 'Red Hat Display', sans-serif !important;">
-                            <h1 class="heading text-blue">Additional Information</h1>
+                            <%--<h1 class="heading text-blue">Additional Information</h1>--%>
                             <div class="row py-2">
                                 <div class="col-lg-1 col-xl-1 col-md-2 col-3">
                                     <p class="sub-heading">Height</p>
@@ -496,7 +589,7 @@
                                     </table>--%>
                                 </div>
                             </div>
-                            <div class="mt-2 mt-lg-5 d-lg-flex d-flex buttons-container">
+                            <div class="mt-2 mt-lg-5 d-lg-flex d-flex buttons-container" style="display:none">
                                 <%--<asp:Button Text="Back" class="thm-back-button" OnClick="btnMedicalBack_Click" type="Button" ID="Button1" runat="server" />--%>
 
                                 <asp:Button Text="Back" class="thm-back-button" Style="background-color: #FFD101; margin-right: 10px !important;" OnClick="btnAdditionalBack_Click" type="Button" ID="btnMedicalBack" runat="server" />
@@ -511,134 +604,84 @@
                 <%--<img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
                 <%-- <img class="plus-bottom-right" src="<%= ResolveUrl("~/assets/plus-2.png") %>" alt="">--%>
             </div>
-            <div runat="server" id="medicalHistoryDiv" class="medical-history common-design">
 
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree">
+      <button class="accordion-button collapsed text-center" style="display:flow-root;background-color: #0331b5;color: #ffd101;border-radius: 9px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+        Allergies
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+                      <div class="allergy">
+   
 
-                <img class="blue-trangle-right" src="../Terms & Conditions/blue-trangle3.png" alt="">
-                <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
-                <img class="plus-top-left" src="../assets/plus-1.png" alt="">
-
-                <div class="medical-main-div container <%--pt-5 px-5--%> h-90vh h-ssm-100vh mb-5 mb-lg-0"  style="overflow:auto;max-height:90vh">
-                    <div class="row mt-5 m-0">
-                        <div class="col-12">
-                            <h1 class="heading mb-4 text-center">Medical History</h1>
-                        </div>
-                        <div class="row border-bottom p-1">
-                            <div class="col-lg-6 col-md-6 col-4 pl-4">
-                                <p id="type">Type</p>
-                            </div>
-                            <div class="col-md-2 col-2 text-center">
-                                <p>Myself</p>
-                            </div>
-                            <div class="col-md-2 col-3 text-center">
-                                <p>Mother Side's</p>
-                            </div>
-                            <div class="col-md-2 col-3 text-center">
-                                <p>Father Side's</p>
-                            </div>
-                        </div>
-                        <!-- add repeater -->
-                        <div class="row inner-main-div">
-                            <asp:Repeater runat="server" ID="rptDisease">
-                                <ItemTemplate>
-                                    <div class="row py-4 border-bottom medical-history-row">
-                                        <div class="col-md-6 col-4">
-                                            <p><%# Eval("disease_name") %></p>
-                                            <asp:HiddenField runat="server" ID="hfdisease_id" Value='<%# Eval("disease_id") %>' />
-
-
-
-                                        </div>
-                                        <%--                                    --%>
-                                        <div class="col-md-6 col-5 SingleCheckbox justify-content-center align-items-center">
-                                            <asp:CheckBoxList runat="server" ID="cbl" Style="padding: 20px;" RepeatDirection="Horizontal">
-                                                <asp:ListItem Value="1" Text=" " class="CheckBoxLabel" />
-                                                <asp:ListItem Value="2" Text=" " />
-                                                <asp:ListItem Value="3" Text=" " />
-                                            </asp:CheckBoxList>
-                                        </div>
-                                        <%--  <div class="col-2 text-center">
-                                        <img id="yes-selected-smoke" src="../assets/select.png" alt="" srcset="">
-                                    </div>
-                                    <div class="col-2 text-center">
-                                        <img id="yes-selected-smoke" src="../assets/not-select.png" alt="" srcset="">
-                                    </div>
-                                    <div class="col-2 text-center">
-                                        <img id="yes-selected-smoke" src="../assets/not-select.png" alt="" srcset="">
-                                    </div>--%>
-                                    </div>
-                                </ItemTemplate>
-                            </asp:Repeater>
-
-                        </div>
-                    </div>
-                    <div class="medic-his-btn mt-3 med-nxt">
-                        <asp:Button Text="Next" ID="btnMedicalHistory" class="thm-blue-buttn" OnClick="btnMedicalHistory_Click" runat="server" />
-                    </div>
-                </div>
-                <%--<img class="blue-trangle-bottom" src="../Add Members/blue-trangle-5.png" alt=""> --%>
-
-                <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
+    <div id="AllergiesDiv" runat="server" class="medical-main-div container <%--pt-5 px-5--%> h-90 "   style="overflow:auto;max-height:90vh">
+        <div class="row mt-5">
+            <div class="col-12">
+                <h1 class="heading mb-4">Do You Have Any of These Allergies?</h1>
             </div>
-            <div class="allergy">
-                <%--   <a class="back-arrow-btn" href="javascript: history.go(-1)">
-                    <img src="../assets/back-arrow.png" alt="">Back</a>--%>
-                <%--<img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
-                <img class="blue-trangle-top-right" src="../Terms & Conditions/blue-trangle6.png" alt="">
-                <img class="blue-trangle-right" src="../Terms & Conditions/blue-trangle3.png" alt="">
-                <img class="blue-trangle-left" src="../Terms & Conditions/blue-trangle5.png" alt="">
-                <img class="plus-top-left" src="../assets/plus-1.png" alt="">--%>
-
-                <div id="AllergiesDiv" runat="server" class="medical-main-div container <%--pt-5 px-5--%> h-90 "   style="overflow:auto;max-height:90vh">
-                    <div class="row mt-5">
-                        <div class="col-12">
-                            <h1 class="heading mb-4">Do You Have Any of These Allergies?</h1>
-                        </div>
-                        <div class="row border-bottom">
-                            <div class="col-md-6 col-4 m-0">
-                                <p>Type</p>
-                            </div>
-                            <div class="col-md-2 col-3 text-center">
-                                <p>Yes</p>
-                            </div>
-                            <div class="col-md-2 col-3 text-center">
-                                <p>No</p>
-                            </div>
-
-                        </div>
-                        <div class="row inner-main-div">
-                            <div class="col-12">
-                                <asp:Repeater runat="server" ID="rptAllergy">
-                                    <ItemTemplate>
-                                        <div class="row py-4 border-bottom allergy-row">
-                                            <div class="col-md-6 col-4 d-flex align-items-center">
-                                                <p class="m-0"><%# Eval("allergy_name") %></p>
-                                                <asp:HiddenField runat="server" ID="hfallergy_id" Value='<%# Eval("allergy_id") %>' />
-                                            </div>
-
-                                            <div class="col-4 text-center align-items-center SingleCheckbox">
-                                                <asp:RadioButtonList runat="server" ID="rblAllergy" class="col-6" CssClass="" RepeatDirection="Horizontal">
-                                                    <asp:ListItem Value="1" Text=" " class="CheckBoxLabel" />
-                                                    <asp:ListItem Value="0" Text=" " class="CheckBoxLabel" />
-                                                </asp:RadioButtonList>
-
-                                            </div>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:Repeater>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="medic-his-btn mt-3 buttons-container">
-                        <asp:Button Text="Back" CssClass="thm-back-button my-2" ID="btnAllergyBack" Style="background-color: #FFD101;" OnClick="btnAllergyBack_Click" runat="server" />
-                        <asp:Button Text="Save" CssClass="thm-blue-buttn" ID="btnSaveAllergy" OnClick="btnSaveAllergy_Click" runat="server" />
-                    </div>
+            <div class="row border-bottom">
+                <div class="col-md-6 col-4 m-0">
+                    <p>Type</p>
+                </div>
+                <div class="col-md-2 col-3 text-center">
+                    <p>Yes</p>
+                </div>
+                <div class="col-md-2 col-3 text-center">
+                    <p>No</p>
                 </div>
 
+            </div>
+            <div class="row inner-main-div">
+                <div class="col-12">
+                    <asp:Repeater runat="server" ID="rptAllergy">
+                        <ItemTemplate>
+                            <div class="row py-4 border-bottom allergy-row">
+                                <div class="col-md-6 col-4 d-flex align-items-center">
+                                    <p class="m-0"><%# Eval("allergy_name") %></p>
+                                    <asp:HiddenField runat="server" ID="hfallergy_id" Value='<%# Eval("allergy_id") %>' />
+                                </div>
+
+                                <div class="col-4 text-center align-items-center SingleCheckbox">
+                                    <asp:RadioButtonList runat="server" ID="rblAllergy" class="col-6" CssClass="" RepeatDirection="Horizontal">
+                                        <asp:ListItem Value="1" Text=" " class="CheckBoxLabel" />
+                                        <asp:ListItem Value="0" Text=" " class="CheckBoxLabel" />
+                                    </asp:RadioButtonList>
+
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+
+                </div>
+            </div>
+        </div>
+        <div class="medic-his-btn mt-3 buttons-container" style="display:none">
+            <asp:Button Text="Back" CssClass="thm-back-button my-2" ID="btnAllergyBack" Style="background-color: #FFD101;" OnClick="btnAllergyBack_Click" runat="server" />
+            <asp:Button Text="Save" CssClass="thm-blue-buttn" ID="btnSaveAllergy" OnClick="btnSaveAllergy_Click" runat="server" />
+        </div>
+    </div>
+
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+           
+ <div class="medic-his-btn mt-3 buttons-container" style="display:flex;justify-content:space-evenly">
+    <asp:Button Text="Save" CssClass="thm-blue-buttn" ID="Button9" OnClick="btnSaveAllInfo_Click" runat="server" />
+</div>
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"></script>
+   
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>

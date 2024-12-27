@@ -2068,15 +2068,15 @@ span.img-notselected {
 
 .accordion-button:focus {
     /*    border-color: #ffd101;
-*/ box-shadow: none;
+*/ /*box-shadow: none;*/
 }
 
 .accordion-button {
-    border-top: 1px solid #ccc;
+    /*border-top: 1px solid #ccc;*/
 }
 
 .accordion-item {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 @media (min-width: 3000px) {

@@ -15,6 +15,33 @@ namespace hfiles
     {
 
         /// <summary>
+        /// medicalHistoryDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl medicalHistoryDiv;
+
+        /// <summary>
+        /// rptDisease control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptDisease;
+
+        /// <summary>
+        /// btnMedicalHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMedicalHistory;
+
+        /// <summary>
         /// AdditionalDiv control.
         /// </summary>
         /// <remarks>
@@ -159,33 +186,6 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.Button btnUpdateAdditional;
 
         /// <summary>
-        /// medicalHistoryDiv control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl medicalHistoryDiv;
-
-        /// <summary>
-        /// rptDisease control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptDisease;
-
-        /// <summary>
-        /// btnMedicalHistory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnMedicalHistory;
-
-        /// <summary>
         /// AllergiesDiv control.
         /// </summary>
         /// <remarks>
@@ -220,5 +220,14 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSaveAllergy;
+
+        /// <summary>
+        /// Button9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button9;
     }
 }
