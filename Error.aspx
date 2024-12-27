@@ -747,12 +747,12 @@
                                 <div class="elementor-widget-container">
                                     <div class="ekit-wid-con ekit_menu_responsive_tablet" data-hamburger-icon="icon icon-menu-5" data-hamburger-icon-type="icon" data-responsive-breakpoint="1024">
                                         <button class="elementskit-menu-hamburger elementskit-menu-toggler" type="button" aria-label="hamburger-icon">
-                                            <i aria-hidden="true" class="ekit-menu-icon icon icon-menu-5"></i>
+                                            <i aria-hidden="true" class="ekit-menu-icon icon icon-menu-5" style="color:white"></i>
                                         </button>
                                         <div id="ekit-megamenu-primary-menu" class="elementskit-menu-container elementskit-menu-offcanvas-elements elementskit-navbar-nav-default ekit-nav-menu-one-page-no ekit-nav-dropdown-hover">
                                             <ul id="menu-primary-menu" class="elementskit-navbar-nav elementskit-menu-po-right submenu-click-on-icon">
                                                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
-                                                    <a href="#why" class="ekit-menu-nav-link">Why hfiles?</a></li>
+                                                    <a href="/index.aspx#why" class="ekit-menu-nav-link">Why hfiles?</a></li>
                                                 <li class="menu-item menu-item-type-custom elementor-hidden-desktop elementor-hidden-tablet menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
                                                 <a href="/login.aspx" class="ekit-menu-nav-link">Login</a></li>
                                                                                             <li class="menu-item menu-item-type-custom elementor-hidden-desktop elementor-hidden-tablet menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
@@ -762,9 +762,9 @@
                                             </ul>
                                             <div class="elementskit-nav-identity-panel">
                                                 <div class="elementskit-site-title">
-                                                    <a class="elementskit-nav-logo" href="https://hfiles.in/" target="_self" rel="">
+                                                    <%--<a class="elementskit-nav-logo" href="https://hfiles.in/" target="_self" rel="">
                                                         <img fetchpriority="high" width="512" height="512" src="https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon.png" class="attachment-full size-full" alt="" decoding="async" srcset="https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon.png 512w, https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon-300x300.png 300w, https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon-150x150.png 150w, https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon-270x270.png 270w, https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon-192x192.png 192w, https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon-180x180.png 180w, https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon-32x32.png 32w" sizes="(max-width: 512px) 100vw, 512px" />
-                                                    </a>
+                                                    </a>--%>
                                                 </div>
                                                 <button class="elementskit-menu-close elementskit-menu-toggler" type="button">X</button>
                                             </div>

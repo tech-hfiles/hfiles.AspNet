@@ -507,12 +507,12 @@
                                 <div class="elementor-widget-container">
                                     <div class="ekit-wid-con ekit_menu_responsive_tablet" data-hamburger-icon="icon icon-menu-5" data-hamburger-icon-type="icon" data-responsive-breakpoint="1024">
                                         <button class="elementskit-menu-hamburger elementskit-menu-toggler" type="button" aria-label="hamburger-icon">
-                                            <i aria-hidden="true" class="ekit-menu-icon icon icon-menu-5"></i>
+                                            <i aria-hidden="true" class="ekit-menu-icon icon icon-menu-5" style="color:white"></i>
                                         </button>
                                         <div id="ekit-megamenu-primary-menu" class="elementskit-menu-container elementskit-menu-offcanvas-elements elementskit-navbar-nav-default ekit-nav-menu-one-page-no ekit-nav-dropdown-hover">
                                             <ul id="menu-primary-menu" class="elementskit-navbar-nav elementskit-menu-po-right submenu-click-on-icon">
                                                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
-                                                    <a href="#why" class="ekit-menu-nav-link">Why hfiles?</a></li>
+                                                    <a href="/index.aspx#why" class="ekit-menu-nav-link">Why hfiles?</a></li>
                                                 <li class="menu-item menu-item-type-custom elementor-hidden-desktop elementor-hidden-tablet menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
     <a href="/login.aspx" class="ekit-menu-nav-link">Login</a></li>
                                                 <li class="menu-item menu-item-type-custom elementor-hidden-desktop elementor-hidden-tablet menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
