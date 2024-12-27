@@ -831,21 +831,21 @@
     </details>
     </div>--%>
 
-    <div class="signin-main" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start;margin-top:9vh">
+    <div class="signin-main" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
         <form class="w-100 h-100" runat="server">
 
             <%--<div id="google_translate_element" class="language"></div>--%>
             <asp:ScriptManager ID="scmSignUp" runat="server"></asp:ScriptManager>
 
             <%--<div class="row vert-cent w-100 h-sm-100vh m-0 ">--%>
-                <div class="row vert-cent w-100 h-sm-90vh m-0 ">
+                <div class="row vert-cent w-100 h-100 m-0 ">
                 <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image h-lg-100vh d-none d-lg-block px-5" style="background: #fff">
                     <img src="<%= ResolveUrl("~/assets/signup-samanta.png") %>" alt="" style="width: 100%; height: 100%; object-fit: contain" />
                 </div>
 
-                <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12 px-5 d-flex justify-content-center align-items-center signup-right"
+                <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12 px-5 d-flex justify-content-center align-items-center"
                     style="background-image: url('<%= ResolveUrl("~/Reception Page/002B.png") %>'); background-repeat: no-repeat; background-size: cover;flex-direction:column;">
-                    <div>
+                    <div style="padding-top:105px">
                         <div class="text-center signin-heading">
                             <img src="<%= ResolveUrl("~/Sign Up Page/Hfiles Logo.png") %>" alt="" width="120px" />
                             <br />
@@ -917,7 +917,7 @@
                             <label for="termsCheckbox">I accept the <a href="tc.aspx" target="_blank">Terms & Conditions</a></label>
                         </div>
 
-                        <div class="text-center my-3" runat="server" id="divOtp">
+                        <div class="text-center my-3" runat="server" id="divOtp" style="padding-bottom:150px">
                             <asp:Button ID="genOTPButton" runat="server" Text="Sign Up" OnClick="signup_Click" class="btn thm-button"></asp:Button>
                         </div>
                         <div class="row signin-form form-group has-search text-center justify-content-center">

@@ -820,17 +820,17 @@
 
 
 
-   <div class="container-fluid "  style="margin-top:6vh !important">
+   <div class="container-fluid">
         <form class="row h-100 align-ceter" runat="server" style="display: flex; flex-wrap: wrap;">
             <%--<div id="google_translate_element" class="language"></div>--%>
             <asp:HiddenField runat="server" ID="hfId" />
            <%-- <div class="col-sm-12 col-lg-6 h-100 h-70 d-none d-lg-block px-5 justify-content-center align-items-center">--%>
-            <div class="col-sm-12 col-lg-6 <%--h-100 h-70--%> d-none d-lg-block px-5 justify-content-center align-items-center" <%--style="overflow:auto"--%>>
+            <div class="col-sm-12 col-lg-6 <%--h-100 h-70--%> d-none d-lg-block px-5 justify-content-center align-items-center" style="padding-top:100px">
                 <img src="../assets/login-samanta-w-bg.png" alt="" style="width: 100%; height: 80vh; object-fit: contain" />
             </div>
        
            <%-- <div class="col-sm-12 col-lg-6 inner-main" id="right-side-bar">--%>
-             <div class="col-sm-12 col-lg-6 inner-main" id="right-side-bar" style="/*overflow-y: auto; max-height: 100vh;*/ padding: 20px;">
+             <div class="col-sm-12 col-lg-6 inner-main" id="right-side-bar" style="/*overflow-y: auto;*/ height: 100vh !important; /*padding: 20px;*/">
                 <div class="d-flex align-items-center justify-content-center h-100 inner-body">
                     <div class="text-center">
                         <div class="text-center signin-heading">
