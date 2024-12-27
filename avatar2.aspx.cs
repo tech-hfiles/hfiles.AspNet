@@ -710,7 +710,7 @@ namespace hfiles
 
 
                             DataView dv = new DataView(dt);
-                            dv.RowFilter = "IsDependent = true";
+                            dv.RowFilter = "IsDependent = false";
 
                             //ddlMembers.DataSource = dt;
                             //ddlMembers.DataTextField = "user_FirstName";

@@ -34,6 +34,8 @@ using System.Text;
 using MailMessage = System.Net.Mail.MailMessage;
 using Attachment = System.Net.Mail.Attachment;
 using Newtonsoft.Json.Linq;
+
+
 using System.Web.Caching;
 
 
@@ -75,18 +77,36 @@ namespace hfiles
         }
         public void GridBind()
         {
-            int UserId = DAL.validateInt(Session["Userid"].ToString());
+            if (Session["UserID"] != null)
+            {
+                // Retrieve the UserID from the session
+                int UserId = DAL.validateInt(Session["UserID"].ToString());
 
-            MySqlConnection connection = new MySqlConnection(cs);
-            connection.Open();
-            MySqlCommand cmd = new MySqlCommand("USP_GetAllReports", connection);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("p_UserId", UserId);
+                // Set up the database connection
+                using (MySqlConnection connection = new MySqlConnection(cs))
+                {
+                    connection.Open();
 
-            MySqlDataReader reader = cmd.ExecuteReader();
-            GridView1.DataSource = reader;
-            GridView1.DataBind();
-            connection.Close();
+                    // Prepare the stored procedure command
+                    using (MySqlCommand cmd = new MySqlCommand("USP_GetAllReports", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_UserId", UserId);
+
+                        // Execute the command and bind data to the GridView
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            GridView1.DataSource = reader;
+                            GridView1.DataBind();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                // Redirect to the login page if the session variable is null
+                Response.Redirect("Login.aspx");
+            }
         }
 
 

@@ -702,7 +702,7 @@
 
     </script>
 </head>
-<body>
+<body style="overflow:auto;max-height:90vh">
 
 
     <header class="fixed-div" style="width:100%;z-index:100000;">
@@ -918,7 +918,7 @@
                         </div>
 
                         <div class="text-center my-3" runat="server" id="divOtp">
-                            <asp:Button ID="genOTPButton" runat="server" Text="Sign Up" OnClick="signup_Click" OnClientClick="JSalert()" class="btn thm-button"></asp:Button>
+                            <asp:Button ID="genOTPButton" runat="server" Text="Sign Up" OnClick="signup_Click" class="btn thm-button"></asp:Button>
                         </div>
                         <div class="row signin-form form-group has-search text-center justify-content-center">
                             <div class="col-sm-12 col-lg-7 col-xl-7 px-5 div-for-otp">
@@ -986,6 +986,8 @@
 
 
   
+
+
 
 
 

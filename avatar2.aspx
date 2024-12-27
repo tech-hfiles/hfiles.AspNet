@@ -889,6 +889,18 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                         <div class="col-4">
+                                                         <div class="Mobile_menu-circle_outer">
+                                                             <div class="Mobile_menu-circle">
+                                                                 <a href="AllReports123.aspx">
+                                                                     <img src="../Avatar/all-reports.jpeg" alt="" />
+                                                                 </a>
+                                                             </div>
+                                                             <div class="Mobile_menu-circle_name py-2">
+                                                                 <span>All Reports</span>
+                                                             </div>
+                                                         </div>
+                                                     </div>
                                                     </div>
                                                 </div>
                                             </div>
