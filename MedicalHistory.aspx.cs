@@ -24,9 +24,9 @@ namespace hfiles
             {
                 if (!IsPostBack)
                 {
-                    medicalHistoryDiv.Visible = true;
-                    AdditionalDiv.Visible = true;
-                    AllergiesDiv.Visible = true;
+                    //medicalHistoryDiv.Visible = true;
+                    //AdditionalDiv.Visible = true;
+                    //AllergiesDiv.Visible = true;
                     disease_master();
                     get_disease();
                     user_surgery();
@@ -62,14 +62,14 @@ namespace hfiles
         }
         protected void btnUpdateAdditional_Click(object sender, EventArgs e)// for updating height weight
         {
-            AdditionalDiv.Visible = false;
+            //AdditionalDiv.Visible = false;
             allergy_master();
             get_user_allergy();
             updateUserDetails("U");
             //addSurgery("C");
             clear();
-            medicalHistoryDiv.Visible = false;
-            AllergiesDiv.Visible = true;
+            //medicalHistoryDiv.Visible = false;
+            //AllergiesDiv.Visible = true;
              //Page.ClientScript.RegisterStartupScript(this.GetType(), "allergyfooter", "allergyfooter()", true);
         }
         protected void btnMedicalHistory_Click(object sender, EventArgs e)
@@ -77,23 +77,23 @@ namespace hfiles
             addUpdateDisease(); 
             updateUserDetails("E");
             user_surgery();
-            AdditionalDiv.Visible = true;
-            medicalHistoryDiv.Visible = false;
-            AllergiesDiv.Visible = false;
+            //AdditionalDiv.Visible = true;
+            //medicalHistoryDiv.Visible = false;
+            //AllergiesDiv.Visible = false;
         }
         protected void btnMedicalBack_Click(object sender, EventArgs e)
         {
             updateUserDetails("E");
-            AdditionalDiv.Visible = true;
-            medicalHistoryDiv.Visible = false;
-            AllergiesDiv.Visible = false;
+            //AdditionalDiv.Visible = true;
+            //medicalHistoryDiv.Visible = false;
+            //AllergiesDiv.Visible = false;
         }
         protected void btnAdditionalBack_Click(object sender, EventArgs e)
         {
             updateUserDetails("E");
-            AdditionalDiv.Visible = false;
-            medicalHistoryDiv.Visible = true;
-            AllergiesDiv.Visible = false;
+            //AdditionalDiv.Visible = false;
+            //medicalHistoryDiv.Visible = true;
+            //AllergiesDiv.Visible = false;
         }
         private void updateUserDetails(string sptype)
         {
@@ -167,9 +167,9 @@ namespace hfiles
         }
         protected void btnAllergyBack_Click(object sender, EventArgs e)
         {
-            AdditionalDiv.Visible = true;
-            medicalHistoryDiv.Visible = false;
-            AllergiesDiv.Visible = false;
+            //AdditionalDiv.Visible = true;
+            //medicalHistoryDiv.Visible = false;
+            //AllergiesDiv.Visible = false;
         }
         protected void btnSaveAllergy_Click(object sender, EventArgs e)
         {
