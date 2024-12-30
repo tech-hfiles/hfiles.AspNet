@@ -767,7 +767,7 @@ namespace hfiles
 
                         Console.WriteLine($"DataTable Rows: {dt.Rows.Count}");
 
-                        if (dt != null && dt.Rows.Count > 0)
+                        if (dt != null || dt.Rows.Count == 0)
                         {
 
                             //DataTable sessionTable = Session["dtMemberList"] as DataTable;
@@ -786,7 +786,7 @@ namespace hfiles
                                      // Ensure value is not null and is convertible to an integer
                                      if (isDependentValue != DBNull.Value && int.TryParse(isDependentValue.ToString(), out int isDependent))
                                      {
-                                         return isDependent == 0; // Only independent members
+                                         return isDependent == 1; // Only independent members
                                      }
                                      return false; // Exclude if null or not valid
                                  });
