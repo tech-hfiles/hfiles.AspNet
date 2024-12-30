@@ -302,6 +302,24 @@
             .thm-back-button:hover{
               background-color:white;
             }*/
+        #SaveAllInfor {
+    width: 100%; /* Default width */
+    /*margin: auto;*/ /* Center the element */
+    display: table;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+        @media (min-width: 768px) { /* Bootstrap 'md' breakpoint */
+    #SaveAllInfor {
+        width: 90%;
+    }
+}
+@media (min-width: 992px) { /* Bootstrap 'lg' breakpoint */
+    #SaveAllInfor {
+        width: 80%;
+    }
+}
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
@@ -309,12 +327,12 @@
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
             
-            <div id="SaveAllInfor" style="margin:auto;display:table">
+            <div id="SaveAllInfor">
 
                <div style="padding-top:4vh;padding-bottom:10px;display:flex;justify-content:space-evenly;">
                    <h1 style="color: #0331b5;">Medical History</h1>
                </div>
-            <div class="accordion accordion-flush" id="accordionFlushExample" >
+            <div class="accordion accordion-flush" id="accordionFlushExample" style="width:100%" >
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingOne">
       <button class="accordion-button collapsed text-center" style="display:flow-root;background-color: #0331b5;color: #ffd101;border-radius: 9px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
