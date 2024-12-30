@@ -258,6 +258,7 @@ namespace hfiles
                             cmdInsert.Parameters.AddWithValue("_chkmail", 0);
                             cmdInsert.Parameters.Add("_Result", MySqlDbType.Int32);
                             cmdInsert.Parameters["_Result"].Direction = ParameterDirection.Output;
+                            cmdInsert.Parameters.AddWithValue("_user_id", (object)Convert.ToInt32(this.Session["Userid"].ToString()));
                             cmdInsert.ExecuteNonQuery();
                             int result = DAL.validateInt(cmdInsert.Parameters["_Result"].Value.ToString());
                             if (result == 0)
@@ -296,6 +297,7 @@ namespace hfiles
                         cmdInsert.Parameters.AddWithValue("_chkmail", 0);
                         cmdInsert.Parameters.Add("_Result", MySqlDbType.Int32);
                         cmdInsert.Parameters["_Result"].Direction = ParameterDirection.Output;
+                        cmdInsert.Parameters.AddWithValue("_user_id", (object)Convert.ToInt32(this.Session["Userid"].ToString()));
                         cmdInsert.ExecuteNonQuery();
                         int result = DAL.validateInt(cmdInsert.Parameters["_Result"].Value.ToString());
                         if (result == 0)
@@ -328,6 +330,7 @@ namespace hfiles
                         cmdInsert.Parameters.AddWithValue("_chkmail", 1);
                         cmdInsert.Parameters.Add("_Result", MySqlDbType.Int32);
                         cmdInsert.Parameters["_Result"].Direction = ParameterDirection.Output;
+                        cmdInsert.Parameters.AddWithValue("_user_id", (object)Convert.ToInt32(this.Session["Userid"].ToString()));
                         cmdInsert.ExecuteNonQuery();
                         int result = DAL.validateInt(cmdInsert.Parameters["_Result"].Value.ToString());
                         if (result > 0)

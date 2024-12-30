@@ -208,6 +208,7 @@ namespace hfiles
 
                                 cmdInsert.Parameters.Add("_Result", MySqlDbType.Int32);
                                 cmdInsert.Parameters["_Result"].Direction = ParameterDirection.Output;
+                                cmdInsert.Parameters.AddWithValue("_user_id", (object)Convert.ToInt32(this.Session["Userid"].ToString()));
                                 cmdInsert.ExecuteNonQuery();
                                 userexist = Convert.ToInt32(cmdInsert.Parameters["_Result"].Value.ToString());
                                 if (userexist > 0)
