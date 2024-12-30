@@ -64,14 +64,15 @@ namespace hfiles
         protected void btnUpdateAdditional_Click(object sender, EventArgs e)// for updating height weight
         {
             //AdditionalDiv.Visible = false;
-            allergy_master();
-            get_user_allergy();
+            //allergy_master();
+            //get_user_allergy();
             updateUserDetails("U");
             //addSurgery("C");
-            clear();
+            //clear();
             //medicalHistoryDiv.Visible = false;
             //AllergiesDiv.Visible = true;
-             //Page.ClientScript.RegisterStartupScript(this.GetType(), "allergyfooter", "allergyfooter()", true);
+            //Page.ClientScript.RegisterStartupScript(this.GetType(), "allergyfooter", "allergyfooter()", true);
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Additional Details Updated Successfully')", true);
         }
         protected void btnMedicalHistory_Click(object sender, EventArgs e)
         {
@@ -79,11 +80,12 @@ namespace hfiles
             addUpdateDisease();
 
             //Fetch User Details for Edit and Display
-            updateUserDetails("E");
-            user_surgery();
+            //updateUserDetails("E");
+            //user_surgery();
             //AdditionalDiv.Visible = true;
             //medicalHistoryDiv.Visible = false;
             //AllergiesDiv.Visible = false;
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Medical Details Updated Successfully')", true);
         }
         protected void btnMedicalBack_Click(object sender, EventArgs e)
         {
@@ -180,7 +182,7 @@ namespace hfiles
             
 
             addUpdateAllergy();
-            Response.Redirect("Dashboard.aspx");
+            //Response.Redirect("Dashboard.aspx");
         }
         protected void btnSaveAllInfo_Click(object sender, EventArgs e)
         {
@@ -519,7 +521,7 @@ namespace hfiles
                         cmd.Parameters.AddWithValue("_allergy_id", DAL.validateInt(hfallergy_id.Value));
                         cmd.Parameters.AddWithValue("_yesNo", DAL.validateInt(value_));
                         cmd.ExecuteNonQuery();
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Allergy Details Updated Successfully')", true);
                     }
                 }
 

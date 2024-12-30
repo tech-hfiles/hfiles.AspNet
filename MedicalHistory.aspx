@@ -309,7 +309,7 @@
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
             
-            <div id="SaveAllInfor" runat="server" style="margin:auto;display:table">
+            <div id="SaveAllInfor" style="margin:auto;display:table">
 
                <div style="padding-top:4vh;padding-bottom:10px;display:flex;justify-content:space-evenly;">
                    <h1 style="color: #0331b5;">Medical History</h1>
@@ -369,8 +369,8 @@
 
             </div>
         </div>
-        <div class="medic-his-btn mt-3 med-nxt" style="display:none !important">
-            <asp:Button Text="Next" ID="btnMedicalHistory" class="thm-blue-buttn" OnClick="btnMedicalHistory_Click" runat="server" />
+        <div style="display:flex;justify-content:space-evenly">
+            <asp:Button Text="Save" ID="btnMedicalHistory" class="thm-blue-buttn" OnClick="btnMedicalHistory_Click" runat="server" />
         </div>
     </div>
 
@@ -572,15 +572,16 @@
                                     </table>--%>
                                 </div>
                             </div>
-                            <div class="mt-2 mt-lg-5 d-lg-flex d-flex buttons-container" style="display:none !important">
-                                <%--<asp:Button Text="Back" class="thm-back-button" OnClick="btnMedicalBack_Click" type="Button" ID="Button1" runat="server" />--%>
-
-                                <asp:Button Text="Back" class="thm-back-button" Style="background-color: #FFD101; margin-right: 10px !important;" OnClick="btnAdditionalBack_Click" type="Button" ID="btnMedicalBack" runat="server" />
-                                <asp:Button Text="Next" ID="btnUpdateAdditional" class="thm-blue-buttn mx-lg-3 my-2 my-lg-0" OnClick="btnUpdateAdditional_Click" OnClientClick="allergyfooter()" runat="server" />
-                                <%--<button onclick="HideAdditionalDiv()" type="submit" class="thm-blue-button">Next</button>--%>
-                            </div>
+                            
                         </div>
                     </div>
+                    <div style="display:flex;justify-content:space-evenly">
+    <%--<asp:Button Text="Back" class="thm-back-button" OnClick="btnMedicalBack_Click" type="Button" ID="Button1" runat="server" />--%>
+
+    <%--<asp:Button Text="Back" class="thm-back-button" Style="background-color: #FFD101; margin-right: 10px !important;" OnClick="btnAdditionalBack_Click" type="Button" ID="btnMedicalBack" runat="server" />--%>
+    <asp:Button Text="Save" ID="btnUpdateAdditional" class="thm-blue-buttn mx-lg-3 my-2 my-lg-0" OnClick="btnUpdateAdditional_Click" OnClientClick="allergyfooter()" runat="server" />
+    <%--<button onclick="HideAdditionalDiv()" type="submit" class="thm-blue-button">Next</button>--%>
+</div>
                     <%-- <img class="blue-trangle-bottom" src="<%= ResolveUrl("~/Add Members/blue-trangle-5.png") %>" alt="">--%>
                     <%--<img class="blue-trangle-bottom" src="../Add Members/blue-trangle-5.png" alt="">--%>
                 </div>
@@ -643,8 +644,8 @@
                 </div>
             </div>
         </div>
-        <div class="medic-his-btn mt-3 buttons-container" style="display:none">
-            <asp:Button Text="Back" CssClass="thm-back-button my-2" ID="btnAllergyBack" Style="background-color: #FFD101;" OnClick="btnAllergyBack_Click" runat="server" />
+        <div style="display:flex;justify-content:space-evenly">
+            <%--<asp:Button Text="Back" CssClass="thm-back-button my-2" ID="btnAllergyBack" Style="background-color: #FFD101;" OnClick="btnAllergyBack_Click" runat="server" />--%>
             <asp:Button Text="Save" CssClass="thm-blue-buttn" ID="btnSaveAllergy" OnClick="btnSaveAllergy_Click" runat="server" />
         </div>
     </div>
@@ -656,7 +657,7 @@
 </div>
            
  <div class="medic-his-btn mt-3 buttons-container" style="display:flex;justify-content:space-evenly">
-    <asp:Button Text="Save" CssClass="thm-blue-buttn" ID="Button9" OnClick="btnSaveAllInfo_Click" runat="server" />
+    <%--<asp:Button Text="Save" CssClass="thm-blue-buttn" ID="Button9" OnClick="btnSaveAllInfo_Click" runat="server" />--%>
 </div>
             </div>
         </ContentTemplate>
