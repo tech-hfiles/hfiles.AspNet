@@ -323,56 +323,58 @@
     </h2>
     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
-                         <div class="row mt-5 m-0">
-    
-    <div class="row border-bottom p-1">
-        <div class="col-lg-6 col-md-6 col-4 pl-4">
-            <p id="type">Type</p>
+                         <div runat="server" id="medicalHistoryDiv" class="medical-history common-design">
+
+
+    <div class="medical-main-div container <%--pt-5 px-5--%> h-90vh h-ssm-100vh mb-5 mb-lg-0">
+        <div class="row mt-5 m-0">
+            
+            <div class="row border-bottom p-1">
+                <div class="col-lg-6 col-md-6 col-4 pl-4">
+                    <p id="type">Type</p>
+                </div>
+                <div class="col-md-2 col-2 text-center">
+                    <p>Myself</p>
+                </div>
+                <div class="col-md-2 col-3 text-center">
+                    <p>Mother Side's</p>
+                </div>
+                <div class="col-md-2 col-3 text-center">
+                    <p>Father Side's</p>
+                </div>
+            </div>
+            
+            <div class="row inner-main-div" style="overflow-y:auto;max-height:30vh">
+                <asp:Repeater runat="server" ID="rptDisease">
+                    <ItemTemplate>
+                        <div class="row py-4 border-bottom medical-history-row">
+                            <div class="col-md-6 col-4">
+                                <p><%# Eval("disease_name") %></p>
+                                <asp:HiddenField runat="server" ID="hfdisease_id" Value='<%# Eval("disease_id") %>' />
+
+
+
+                            </div>
+                            <div class="col-md-6 col-5 SingleCheckbox justify-content-center align-items-center">
+                                <asp:CheckBoxList runat="server" ID="cbl" Style="padding: 20px;" RepeatDirection="Horizontal">
+                                    <asp:ListItem Value="1" Text=" " class="CheckBoxLabel" />
+                                    <asp:ListItem Value="2" Text=" " />
+                                    <asp:ListItem Value="3" Text=" " />
+                                </asp:CheckBoxList>
+                            </div>
+                            
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
+
+            </div>
         </div>
-        <div class="col-md-2 col-2 text-center">
-            <p>Myself</p>
-        </div>
-        <div class="col-md-2 col-3 text-center">
-            <p>Mother Side's</p>
-        </div>
-        <div class="col-md-2 col-3 text-center">
-            <p>Father Side's</p>
+        <div class="medic-his-btn mt-3 med-nxt" style="display:none !important">
+            <asp:Button Text="Next" ID="btnMedicalHistory" class="thm-blue-buttn" OnClick="btnMedicalHistory_Click" runat="server" />
         </div>
     </div>
-    
-    <div class="row inner-main-div" style="overflow-y:auto;max-height:30vh">
-        <asp:Repeater runat="server" ID="rptDisease">
-            <ItemTemplate>
-                <div class="row py-4 border-bottom medical-history-row">
-                    <div class="col-4">
-                        <p><%# Eval("disease_name") %></p>
-                        <asp:HiddenField runat="server" ID="hfdisease_id" Value='<%# Eval("disease_id") %>' />
 
-
-
-                    </div>
-                    <%--                                    --%>
-                    <div class="col-5 SingleCheckbox justify-content-center align-items-center">
-                        <asp:CheckBoxList runat="server" ID="cbl" RepeatDirection="Horizontal">
-                            <asp:ListItem Value="1" Text=" " class="CheckBoxLabel" />
-                            <asp:ListItem Value="2" Text=" " />
-                            <asp:ListItem Value="3" Text=" " />
-                        </asp:CheckBoxList>
-                    </div>
-                    <%--  <div class="col-2 text-center">
-                    <img id="yes-selected-smoke" src="../assets/select.png" alt="" srcset="">
-                </div>
-                <div class="col-2 text-center">
-                    <img id="yes-selected-smoke" src="../assets/not-select.png" alt="" srcset="">
-                </div>
-                <div class="col-2 text-center">
-                    <img id="yes-selected-smoke" src="../assets/not-select.png" alt="" srcset="">
-                </div>--%>
-                </div>
-            </ItemTemplate>
-        </asp:Repeater>
-
-    </div>
+    <img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
 </div>
           
 
@@ -389,192 +391,202 @@
     <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
           
-            <div class="row "  style="overflow-y:auto;max-height:40vh">
-    <div class="col-12" style="font-family: 'Red Hat Display', sans-serif !important;">
-        <%--<h1 class="heading text-blue">Additional Information</h1>--%>
-        <div class="row py-2">
-            <div class="col-lg-1 col-xl-1 col-md-2 col-3">
-                <p class="sub-heading">Height</p>
-            </div>
-            <div class="col-lg-2 col-xl-2 col-md-3 col-4">
-                <div>
-                    <input runat="server" id="heightfeetTextBox" onkeypress="return isNumberKey(event,this)" required class="hight-input" type="number" /><span>ft</span>
-                </div>
-            </div>
-            <div class="col-lg-2 col-xl-2 col-md-3 col-5">
-                <div>
-                    <input runat="server" id="heightinchTextBox" onkeypress="return isNumberKey(event,this)" required class="hight-input" type="number" /><span>inch</span>
-                </div>
-            </div>
-        </div>
-        <div class="row py-2">
-            <div class="col-lg-1 col-xl-1 col-md-2 col-3">
-                <p class="sub-heading">Weight</p>
-            </div>
-            <div class="col-lg-2 col-xl-2 col-md-3 col-5">
-                <div>
-                    <input runat="server" id="weightTextBox" onkeypress="return isNumberKey(event,this)" required class="hight-input" type="number" /><span>kg</span>
-                </div>
-            </div>
-        </div>
-        <div class="row border-bottom">
-            <div class="col-4">
-            </div>
-            <div class="col-2 text-center">
-                <p class="fw-bold">Yes</p>
-            </div>
-            <div class="col-2 text-center">
-                <p class="fw-bold">No</p>
-            </div>
-            <%--<div class="col-2 text-center">
-                <p class="fw-bold">Occasionally </p>
-            </div>--%>
-        </div>
-        <div class="row border-bottom pt-5 pb-4">
-            <div class="col-4">
-                <p class="sub-heading">Do You Smoke?</p>
-                <asp:HiddenField ID="hfDoyouSmoke" runat="server" />
-            </div>
-            <div class="col-2 text-center">
-                <div class="radio-container">
+            <div class="additional-information common-design" runat="server" id="AdditionalDiv">
 
-                    <input type="radio" runat="server" id="smoke_yes" onclick="handleSelectSmoke(1)" name="SmokeGroup" class="hidden-radio" />
-                    <label for="ContentPlaceHolder1_smoke_yes" class="radio-label">
-                        <div class="checkbox-circle">
-                            <div class="checkmark"></div>
-                        </div>
-                    </label>
-                </div>
-            </div>
-            <div class="col-2 text-center">
-                <div class="radio-container">
-                    <input type="radio" runat="server" id="smoke_no" onclick="handleSelectSmoke(0)" name="SmokeGroup" class="hidden-radio" />
-                    <label for="ContentPlaceHolder1_smoke_no" class="radio-label">
-                        <div class="checkbox-circle">
-                            <div class="checkmark"></div>
-                        </div>
-                    </label>
-                </div>
-            </div>
-            <%--<div class="col-2 text-center">
-                <div class="radio-container">
-                    <input type="radio" id="smoke_occasionally" runat="server"  onclick="handleSelectSmoke(2)"  name="SmokeGroup" class="hidden-radio" />
-                    <label for="ContentPlaceHolder1_smoke_occasionally" class="radio-label">
-                        <div class="checkbox-circle">
-                            <div class="checkmark"></div>
-                        </div>
-                    </label>
-                </div>
-            </div>--%>
-        </div>
-        <div class="row border-bottom pt-5 pb-4">
-            <div class="col-4">
-                <p class="sub-heading">Do You Consume Alcohol?</p>
-                <asp:HiddenField ID="hfDoyouConsumeAlcohol" runat="server" />
-            </div>
-            <div class="col-2 text-center">
-                <div class="radio-container">
-                    <input type="radio" runat="server" id="alcohol_yes" onclick="handleSelectAlcohol(1)" value="1" name="AlcoholGroup" class="hidden-radio" />
-                    <label for="ContentPlaceHolder1_alcohol_yes" class="radio-label">
-                        <div class="checkbox-circle">
-                            <div class="checkmark"></div>
-                        </div>
-                    </label>
-                </div>
-            </div>
-            <div class="col-2 text-center">
-                <div class="radio-container">
-                    <input type="radio" runat="server" id="alcohol_no" onclick='handleSelectAlcohol(0)' name="AlcoholGroup" class="hidden-radio" />
-                    <label for="ContentPlaceHolder1_alcohol_no" class="radio-label">
-                        <div class="checkbox-circle">
-                            <div class="checkmark"></div>
-                        </div>
-                    </label>
-                </div>
-            </div>
-            <%--<div class="col-2 text-center">
-                <div class="radio-container">
-                    <input type="radio" runat="server"  id="alcohol_occasionally" onclick="handleSelectAlcohol(2)" name="AlcoholGroup" class="hidden-radio" />
-                    <label for="ContentPlaceHolder1_alcohol_occasionally" class="radio-label">
-                        <div class="checkbox-circle">
-                            <div class="checkmark"></div>
-                        </div>
-                    </label>
-                </div>
-            </div>--%>
-        </div>
-        <div class="row pt-4">
-            <div class="col-10">
-                <p class="sub-heading">Have you had any surgeries? if yes. please specify:</p>
-            </div>
-        </div>
-        <div class="row surgeries-div">
-            <div class="col-6 col-md-4">
-                <input type="text" runat="server" id="txtSurgeries" placeholder="Surgery details" />
-            </div>
-
-            <div class="col-lg-2 col-6">
-                <div class="select-years">
-                    <asp:DropDownList runat="server" ID="yearpicker" name="yearpicker">
-                    </asp:DropDownList>
-                </div>
-            </div>
-            <div class="col-lg-1 col-12 mt-3 mt-lg-0">
-                <div class="">
-                    <asp:Button Text="Add" ID="addsurgeryButton" class="thm-blue-button" OnClick="addsurgeryButton_Click" runat="server" />
-                </div>
-            </div>
-            <div class="col-lg-5 col-12 mt-lg-0 mt-5 outertablepadd">
-                <div class="medical-surgery-table" style="overflow: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-                    <asp:GridView ID="surgeryGridView" AutoGenerateColumns="false" CssClass="surgeries-table w-100 text-center table table-striped table-hover" runat="server">
-                        <Columns>
-                            <asp:BoundField DataField="user_surgery_details" HeaderText="Surgery Details" SortExpression="user_surgery_details" />
-                            <asp:TemplateField>
-                                <HeaderTemplate>Surgery Date</HeaderTemplate>
-                                <ItemTemplate>
-                                    <div class="d-flex align-items-center justify-content-center">
-                                        <asp:Label ID="lblSurgeryYear" runat="server" CssClass="surgery-year-label" Text='<%#Eval("user_surgery_year") %>'></asp:Label>
+                
+                <div class="additionl-main-div container h-90">
+               
+                    <div class="row" style="overflow:auto;max-height:40vh">
+                        <div class="col-12" style="font-family: 'Red Hat Display', sans-serif !important;">
+                            <div class="row py-2">
+                                <div class="col-lg-3 col-xl-3 col-md-3 col-3">
+                                    <p class="sub-heading">Height</p>
+                                </div>
+                                <div class="col-lg-3 col-xl-3 col-md-3 col-4">
+                                    <div style="display:flex;justify-content:space-evenly">
+                                        <input runat="server" id="heightfeetTextBox" onkeypress="return isNumberKey(event,this)" required class="hight-input" type="number" /><span>ft</span>
                                     </div>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField>
-                                <HeaderTemplate>Delete Item</HeaderTemplate>
-                                <ItemTemplate>
-                                    <div class="d-flex align-items-center justify-content-center">
-                                        <asp:ImageButton CssClass="delete-report-btn" ID="lRemoveBtn" runat="server" OnClick="lRemoveBtn_Click1" CommandArgument='<%#Eval("user_surgery_id") %>' ImageUrl="../Suppor Group (BG  & Icons)/delete-icon.png"></asp:ImageButton>
+                                </div>
+                                <div class="col-lg-3 col-xl-3 col-md-3 col-5">
+                                    <div style="display:flex;justify-content:space-evenly">
+                                        <input runat="server" id="heightinchTextBox" onkeypress="return isNumberKey(event,this)" required class="hight-input" type="number" /><span>inch</span>
                                     </div>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                        </Columns>
-                    </asp:GridView>
-                </div>
-                <%--<table class="surgeries-table w-100">
-                    <thead>
-                        <tr>
-                            <td>Surgeries Name</td>
-                            <td>Date</td>
-                            <td>Action</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr id="surgery-row">
-                            <td></td>
-                            <td>1997</td>
-                            <td><i class="fa fa-sharp fa-solid fa-trash color-primary"></i></td>
-                        </tr>
-                    </tbody>
-                </table>--%>
-            </div>
-        </div>
-        <div class="mt-2 mt-lg-5 d-lg-flex d-flex buttons-container" style="display:none !important">
-            <%--<asp:Button Text="Back" class="thm-back-button" OnClick="btnMedicalBack_Click" type="Button" ID="Button1" runat="server" />--%>
+                                </div>
+                            </div>
+                            <div class="row py-2">
+                                <div class="col-lg-3 col-xl-3 col-md-3 col-3">
+                                    <p class="sub-heading">Weight</p>
+                                </div>
+                                <div class="col-lg-3 col-xl-3 col-md-3 col-4">
+                                    <div style="display:flex;justify-content:space-evenly">
+                                        <input runat="server" id="weightTextBox" onkeypress="return isNumberKey(event,this)" required class="hight-input" type="number" /><span>kg</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row border-bottom">
+                                <div class="col-4">
+                                </div>
+                                <div class="col-2 text-center">
+                                    <p class="fw-bold">Yes</p>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <p class="fw-bold">No</p>
+                                </div>
+                                <%--<div class="col-2 text-center">
+                                    <p class="fw-bold">Occasionally </p>
+                                </div>--%>
+                            </div>
+                            <div class="row border-bottom">
+                                <div class="col-4 pt-2">
+                                    <p class="sub-heading">Do You Smoke?</p>
+                                    <asp:HiddenField ID="hfDoyouSmoke" runat="server" />
+                                </div>
+                                <div class="col-2 text-center">
+                                    <div class="radio-container">
 
-            <asp:Button Text="Back" class="thm-back-button" Style="background-color: #FFD101; margin-right: 10px !important;" OnClick="btnAdditionalBack_Click" type="Button" ID="btnMedicalBack" runat="server" />
-            <asp:Button Text="Next" ID="btnUpdateAdditional" class="thm-blue-buttn mx-lg-3 my-2 my-lg-0" OnClick="btnUpdateAdditional_Click" OnClientClick="allergyfooter()" runat="server" />
-            <%--<button onclick="HideAdditionalDiv()" type="submit" class="thm-blue-button">Next</button>--%>
-        </div>
-    </div>
-</div>
+                                        <input type="radio" runat="server" id="smoke_yes" onclick="handleSelectSmoke(1)" name="SmokeGroup" class="hidden-radio" />
+                                        <label for="ContentPlaceHolder1_smoke_yes" class="radio-label">
+                                            <div class="checkbox-circle">
+                                                <div class="checkmark"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <div class="radio-container">
+                                        <input type="radio" runat="server" id="smoke_no" onclick="handleSelectSmoke(0)" name="SmokeGroup" class="hidden-radio" />
+                                        <label for="ContentPlaceHolder1_smoke_no" class="radio-label">
+                                            <div class="checkbox-circle">
+                                                <div class="checkmark"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <%--<div class="col-2 text-center">
+                                    <div class="radio-container">
+                                        <input type="radio" id="smoke_occasionally" runat="server"  onclick="handleSelectSmoke(2)"  name="SmokeGroup" class="hidden-radio" />
+                                        <label for="ContentPlaceHolder1_smoke_occasionally" class="radio-label">
+                                            <div class="checkbox-circle">
+                                                <div class="checkmark"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>--%>
+                            </div>
+                            <div class="row border-bottom">
+                                <div class="col-4 pt-2">
+                                    <p class="sub-heading">Do You Consume Alcohol?</p>
+                                    <asp:HiddenField ID="hfDoyouConsumeAlcohol" runat="server" />
+                                </div>
+                                <div class="col-2 text-center">
+                                    <div class="radio-container">
+                                        <input type="radio" runat="server" id="alcohol_yes" onclick="handleSelectAlcohol(1)" value="1" name="AlcoholGroup" class="hidden-radio" />
+                                        <label for="ContentPlaceHolder1_alcohol_yes" class="radio-label">
+                                            <div class="checkbox-circle">
+                                                <div class="checkmark"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <div class="radio-container">
+                                        <input type="radio" runat="server" id="alcohol_no" onclick='handleSelectAlcohol(0)' name="AlcoholGroup" class="hidden-radio" />
+                                        <label for="ContentPlaceHolder1_alcohol_no" class="radio-label">
+                                            <div class="checkbox-circle">
+                                                <div class="checkmark"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <%--<div class="col-2 text-center">
+                                    <div class="radio-container">
+                                        <input type="radio" runat="server"  id="alcohol_occasionally" onclick="handleSelectAlcohol(2)" name="AlcoholGroup" class="hidden-radio" />
+                                        <label for="ContentPlaceHolder1_alcohol_occasionally" class="radio-label">
+                                            <div class="checkbox-circle">
+                                                <div class="checkmark"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>--%>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 pt-2">
+                                    <p class="sub-heading">Have you had any surgeries? if yes. please specify:</p>
+                                </div>
+                            </div>
+                            <div class="row surgeries-div">
+                                <div class="col-lg-6 col-8 col-md-6">
+                                    <input type="text" runat="server" id="txtSurgeries" placeholder="Surgery details" />
+                                </div>
+
+                                <div class="col-lg-4 col-4 col-md-4 mt-1">
+                                    <div class="select-years">
+                                        <asp:DropDownList runat="server" ID="yearpicker" name="yearpicker">
+                                        </asp:DropDownList>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-2 col-md-2 mt-1 mt-lg-0 mt-md-0">
+                                    <div class="">
+                                        <asp:Button Text="Add" ID="addsurgeryButton" class="thm-blue-button" OnClick="addsurgeryButton_Click" runat="server" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 col-12 mt-lg-0 mt-5 outertablepadd">
+                                    <div class="medical-surgery-table" style="overflow: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+                                        <asp:GridView ID="surgeryGridView" AutoGenerateColumns="false" CssClass="surgeries-table w-100 text-center table table-striped table-hover" runat="server">
+                                            <Columns>
+                                                <asp:BoundField DataField="user_surgery_details" HeaderText="Surgery Details" SortExpression="user_surgery_details" />
+                                                <asp:TemplateField>
+                                                    <HeaderTemplate>Surgery Date</HeaderTemplate>
+                                                    <ItemTemplate>
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <asp:Label ID="lblSurgeryYear" runat="server" CssClass="surgery-year-label" Text='<%#Eval("user_surgery_year") %>'></asp:Label>
+                                                        </div>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField>
+                                                    <HeaderTemplate>Delete Item</HeaderTemplate>
+                                                    <ItemTemplate>
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <asp:ImageButton CssClass="delete-report-btn" ID="lRemoveBtn" runat="server" OnClick="lRemoveBtn_Click1" CommandArgument='<%#Eval("user_surgery_id") %>' ImageUrl="../Suppor Group (BG  & Icons)/delete-icon.png"></asp:ImageButton>
+                                                        </div>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                            </Columns>
+                                        </asp:GridView>
+                                    </div>
+                                    <%--<table class="surgeries-table w-100">
+                                        <thead>
+                                            <tr>
+                                                <td>Surgeries Name</td>
+                                                <td>Date</td>
+                                                <td>Action</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr id="surgery-row">
+                                                <td></td>
+                                                <td>1997</td>
+                                                <td><i class="fa fa-sharp fa-solid fa-trash color-primary"></i></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>--%>
+                                </div>
+                            </div>
+                            <div class="mt-2 mt-lg-5 d-lg-flex d-flex buttons-container" style="display:none !important">
+                                <%--<asp:Button Text="Back" class="thm-back-button" OnClick="btnMedicalBack_Click" type="Button" ID="Button1" runat="server" />--%>
+
+                                <asp:Button Text="Back" class="thm-back-button" Style="background-color: #FFD101; margin-right: 10px !important;" OnClick="btnAdditionalBack_Click" type="Button" ID="btnMedicalBack" runat="server" />
+                                <asp:Button Text="Next" ID="btnUpdateAdditional" class="thm-blue-buttn mx-lg-3 my-2 my-lg-0" OnClick="btnUpdateAdditional_Click" OnClientClick="allergyfooter()" runat="server" />
+                                <%--<button onclick="HideAdditionalDiv()" type="submit" class="thm-blue-button">Next</button>--%>
+                            </div>
+                        </div>
+                    </div>
+                    <%-- <img class="blue-trangle-bottom" src="<%= ResolveUrl("~/Add Members/blue-trangle-5.png") %>" alt="">--%>
+                    <%--<img class="blue-trangle-bottom" src="../Add Members/blue-trangle-5.png" alt="">--%>
+                </div>
+                <%--<img class="plus-bottom-right" src="../assets/plus-2.png" alt="">
+                <%-- <img class="plus-bottom-right" src="<%= ResolveUrl("~/assets/plus-2.png") %>" alt="">--%>
+            </div>
 
       </div>
     </div>
@@ -587,45 +599,56 @@
     </h2>
     <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
-                      <div class="row mt-5" >
-    <div class="col-12">
-        <h1 class="heading mb-4">Do You Have Any of These Allergies?</h1>
+                      <div class="allergy">
+   
+
+    <div id="AllergiesDiv" runat="server" class="medical-main-div container <%--pt-5 px-5--%> h-90 "   >
+        <div class="row mt-5">
+            <div class="col-12">
+                <h1 class="heading mb-4">Do You Have Any of These Allergies?</h1>
+            </div>
+            <div class="row border-bottom">
+                <div class="col-md-6 col-4 m-0">
+                    <p>Type</p>
+                </div>
+                <div class="col-md-2 col-3 text-center">
+                    <p>Yes</p>
+                </div>
+                <div class="col-md-2 col-3 text-center">
+                    <p>No</p>
+                </div>
+
+            </div>
+            <div class="row inner-main-div" style="overflow:auto;max-height:30vh">
+                <div class="col-12">
+                    <asp:Repeater runat="server" ID="rptAllergy">
+                        <ItemTemplate>
+                            <div class="row py-4 border-bottom allergy-row">
+                                <div class="col-md-6 col-4 d-flex align-items-center">
+                                    <p class="m-0"><%# Eval("allergy_name") %></p>
+                                    <asp:HiddenField runat="server" ID="hfallergy_id" Value='<%# Eval("allergy_id") %>' />
+                                </div>
+
+                                <div class="col-4 text-center align-items-center SingleCheckbox">
+                                    <asp:RadioButtonList runat="server" ID="rblAllergy" class="col-6" CssClass="" RepeatDirection="Horizontal">
+                                        <asp:ListItem Value="1" Text=" " class="CheckBoxLabel" />
+                                        <asp:ListItem Value="0" Text=" " class="CheckBoxLabel" />
+                                    </asp:RadioButtonList>
+
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+
+                </div>
+            </div>
+        </div>
+        <div class="medic-his-btn mt-3 buttons-container" style="display:none">
+            <asp:Button Text="Back" CssClass="thm-back-button my-2" ID="btnAllergyBack" Style="background-color: #FFD101;" OnClick="btnAllergyBack_Click" runat="server" />
+            <asp:Button Text="Save" CssClass="thm-blue-buttn" ID="btnSaveAllergy" OnClick="btnSaveAllergy_Click" runat="server" />
+        </div>
     </div>
-    <div class="row border-bottom">
-        <div class="col-md-6 col-4 m-0">
-            <p>Type</p>
-        </div>
-        <div class="col-md-2 col-3 text-center">
-            <p>Yes</p>
-        </div>
-        <div class="col-md-2 col-3 text-center">
-            <p>No</p>
-        </div>
 
-    </div>
-    <div class="row inner-main-div" style="overflow-y:auto;max-height:30vh">
-        <div class="col-12">
-            <asp:Repeater runat="server" ID="rptAllergy">
-                <ItemTemplate>
-                    <div class="row py-4 border-bottom allergy-row">
-                        <div class="col-md-6 col-4 d-flex align-items-center">
-                            <p class="m-0"><%# Eval("allergy_name") %></p>
-                            <asp:HiddenField runat="server" ID="hfallergy_id" Value='<%# Eval("allergy_id") %>' />
-                        </div>
-
-                        <div class="col-4 text-center align-items-center SingleCheckbox">
-                            <asp:RadioButtonList runat="server" ID="rblAllergy" class="col-6" CssClass="" RepeatDirection="Horizontal">
-                                <asp:ListItem Value="1" Text=" " class="CheckBoxLabel" />
-                                <asp:ListItem Value="0" Text=" " class="CheckBoxLabel" />
-                            </asp:RadioButtonList>
-
-                        </div>
-                    </div>
-                </ItemTemplate>
-            </asp:Repeater>
-
-        </div>
-    </div>
 </div>
       </div>
     </div>
@@ -707,7 +730,7 @@
             }
         }
 
-        <%--function allergyfooter() {
+        function allergyfooter() {
             setTimeout(function () {
                 var allergyDiv = document.getElementById('<%= AllergiesDiv.ClientID %>');
 
@@ -731,6 +754,6 @@
                     });
                 }
             }, 2000);
-        }--%>
+        }
     </script>
 </asp:Content>

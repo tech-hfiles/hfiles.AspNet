@@ -567,7 +567,7 @@ input[type="date"]:before {
 .additionl-main-div .sub-heading {
     color: #0512b9;
     font-weight: 700;
-    font-size: 22px;
+    font-size: 15px;
 }
 
 .additionl-main-div p {
@@ -1276,7 +1276,7 @@ span {
     }
 
     .additionl-main-div .sub-heading {
-        font-size: 18px !important;
+        font-size: 15px !important;
     }
 
     .allergy .others-div {
