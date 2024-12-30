@@ -29,6 +29,7 @@ namespace hfiles
                     //AllergiesDiv.Visible = true;
                     disease_master();
                     get_disease();
+                    updateUserDetails("E");
                     user_surgery();
                     allergy_master();
                     get_user_allergy();
@@ -74,7 +75,10 @@ namespace hfiles
         }
         protected void btnMedicalHistory_Click(object sender, EventArgs e)
         {
-            addUpdateDisease(); 
+            //Update User Details
+            addUpdateDisease();
+
+            //Fetch User Details for Edit and Display
             updateUserDetails("E");
             user_surgery();
             //AdditionalDiv.Visible = true;
@@ -181,7 +185,6 @@ namespace hfiles
         protected void btnSaveAllInfo_Click(object sender, EventArgs e)
         {
             addUpdateDisease();
-            updateUserDetails("E");
             updateUserDetails("U");
             addUpdateAllergy();
             Response.Redirect("Dashboard.aspx");

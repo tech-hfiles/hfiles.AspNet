@@ -309,7 +309,7 @@
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
             
-            <div style="margin:auto;display:table">
+            <div id="SaveAllInfor" runat="server" style="margin:auto;display:table">
 
                <div style="padding-top:4vh;padding-bottom:10px;display:flex;justify-content:space-evenly;">
                    <h1 style="color: #0331b5;">Medical History</h1>
@@ -326,8 +326,8 @@
                          <div runat="server" id="medicalHistoryDiv" class="medical-history common-design">
 
 
-    <div class="medical-main-div container <%--pt-5 px-5--%> h-90vh h-ssm-100vh mb-5 mb-lg-0">
-        <div class="row mt-5 m-0">
+    <div class="medical-main-div container">
+        <div class="row">
             
             <div class="row border-bottom p-1">
                 <div class="col-lg-6 col-md-6 col-4 pl-4">
@@ -344,18 +344,18 @@
                 </div>
             </div>
             
-            <div class="row inner-main-div" style="overflow-y:auto;max-height:30vh">
+            <div class="row inner-main-div" style="overflow-y:auto;max-height:30vh;overflow-x:hidden">
                 <asp:Repeater runat="server" ID="rptDisease">
                     <ItemTemplate>
-                        <div class="row py-4 border-bottom medical-history-row">
-                            <div class="col-md-6 col-4">
+                        <div class="row border-bottom mt-1">
+                            <div class="col-md-6 col-4 pt-2">
                                 <p><%# Eval("disease_name") %></p>
                                 <asp:HiddenField runat="server" ID="hfdisease_id" Value='<%# Eval("disease_id") %>' />
 
 
 
                             </div>
-                            <div class="col-md-6 col-5 SingleCheckbox justify-content-center align-items-center">
+                            <div class="col-md-6 col-5 pt-1 SingleCheckbox justify-content-center align-items-center">
                                 <asp:CheckBoxList runat="server" ID="cbl" Style="padding: 20px;" RepeatDirection="Horizontal">
                                     <asp:ListItem Value="1" Text=" " class="CheckBoxLabel" />
                                     <asp:ListItem Value="2" Text=" " />
@@ -424,12 +424,12 @@
                                 </div>
                             </div>
                             <div class="row border-bottom">
-                                <div class="col-4">
+                                <div class="col-lg-4 col-6">
                                 </div>
-                                <div class="col-2 text-center">
+                                <div class="col-lg-2 col-3 text-center">
                                     <p class="fw-bold">Yes</p>
                                 </div>
-                                <div class="col-2 text-center">
+                                <div class="col-lg-2 col-3 text-center">
                                     <p class="fw-bold">No</p>
                                 </div>
                                 <%--<div class="col-2 text-center">
@@ -437,11 +437,11 @@
                                 </div>--%>
                             </div>
                             <div class="row border-bottom">
-                                <div class="col-4 pt-2">
+                                <div class="col-lg-4 col-6 pt-2">
                                     <p class="sub-heading">Do You Smoke?</p>
                                     <asp:HiddenField ID="hfDoyouSmoke" runat="server" />
                                 </div>
-                                <div class="col-2 text-center">
+                                <div class="col-lg-2 col-3 text-center">
                                     <div class="radio-container">
 
                                         <input type="radio" runat="server" id="smoke_yes" onclick="handleSelectSmoke(1)" name="SmokeGroup" class="hidden-radio" />
@@ -452,7 +452,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-2 text-center">
+                                <div class="col-lg-2 col-3 text-center">
                                     <div class="radio-container">
                                         <input type="radio" runat="server" id="smoke_no" onclick="handleSelectSmoke(0)" name="SmokeGroup" class="hidden-radio" />
                                         <label for="ContentPlaceHolder1_smoke_no" class="radio-label">
@@ -474,11 +474,11 @@
                                 </div>--%>
                             </div>
                             <div class="row border-bottom">
-                                <div class="col-4 pt-2">
+                                <div class="col-lg-4 col-6 pt-2">
                                     <p class="sub-heading">Do You Consume Alcohol?</p>
                                     <asp:HiddenField ID="hfDoyouConsumeAlcohol" runat="server" />
                                 </div>
-                                <div class="col-2 text-center">
+                                <div class="col-lg-2 col-3 text-center">
                                     <div class="radio-container">
                                         <input type="radio" runat="server" id="alcohol_yes" onclick="handleSelectAlcohol(1)" value="1" name="AlcoholGroup" class="hidden-radio" />
                                         <label for="ContentPlaceHolder1_alcohol_yes" class="radio-label">
@@ -488,7 +488,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-2 text-center">
+                                <div class="col-lg-2 col-3 text-center">
                                     <div class="radio-container">
                                         <input type="radio" runat="server" id="alcohol_no" onclick='handleSelectAlcohol(0)' name="AlcoholGroup" class="hidden-radio" />
                                         <label for="ContentPlaceHolder1_alcohol_no" class="radio-label">
@@ -525,12 +525,12 @@
                                         </asp:DropDownList>
                                     </div>
                                 </div>
-                                <div class="col-lg-2 col-2 col-md-2 mt-1 mt-lg-0 mt-md-0">
+                                <div class="col-lg-2 col-3 col-md-2 mt-1 mt-lg-0 mt-md-0">
                                     <div class="">
                                         <asp:Button Text="Add" ID="addsurgeryButton" class="thm-blue-button" OnClick="addsurgeryButton_Click" runat="server" />
                                     </div>
                                 </div>
-                                <div class="col-lg-5 col-12 mt-lg-0 mt-5 outertablepadd">
+                                <div class="col-lg-6 col-12 mt-3 outertablepadd">
                                     <div class="medical-surgery-table" style="overflow: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
                                         <asp:GridView ID="surgeryGridView" AutoGenerateColumns="false" CssClass="surgeries-table w-100 text-center table table-striped table-hover" runat="server">
                                             <Columns>
@@ -603,9 +603,9 @@
    
 
     <div id="AllergiesDiv" runat="server" class="medical-main-div container <%--pt-5 px-5--%> h-90 "   >
-        <div class="row mt-5">
+        <div class="row">
             <div class="col-12">
-                <h1 class="heading mb-4">Do You Have Any of These Allergies?</h1>
+                <h4 class="heading mb-2">Do You Have Any of These Allergies?</h4>
             </div>
             <div class="row border-bottom">
                 <div class="col-md-6 col-4 m-0">
@@ -623,7 +623,7 @@
                 <div class="col-12">
                     <asp:Repeater runat="server" ID="rptAllergy">
                         <ItemTemplate>
-                            <div class="row py-4 border-bottom allergy-row">
+                            <div class="row py-1 border-bottom allergy-row">
                                 <div class="col-md-6 col-4 d-flex align-items-center">
                                     <p class="m-0"><%# Eval("allergy_name") %></p>
                                     <asp:HiddenField runat="server" ID="hfallergy_id" Value='<%# Eval("allergy_id") %>' />
