@@ -3,6 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Drawing.Imaging;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -69,10 +72,50 @@ namespace hfiles
                     {
                         profile.ImageUrl = "../My Data/default-user-profile.png";
                     }
-
+                    LoadMembershipCard();
                 }
             }
         }
+
+        public void LoadMembershipCard()
+        {
+            string imagePath = Server.MapPath("~/path-to-your-image.png");
+            Bitmap bitmap = new Bitmap(imagePath);
+
+            // Create graphics object
+            Graphics graphics = Graphics.FromImage(bitmap);
+
+            // Define the font and text format
+            Font font = new Font("Arial", 24, FontStyle.Bold);
+            Brush brush = new SolidBrush(Color.White); // Text color
+
+            // Calculate the position to center the text
+            string text = "Your Text Here";
+            SizeF textSize = graphics.MeasureString(text, font);
+            PointF position = new PointF((bitmap.Width - textSize.Width) / 2, (bitmap.Height - textSize.Height) / 2);
+
+            // Add the text to the image
+            graphics.DrawString(text, font, brush, position);
+
+            // Clean up resources
+            graphics.Dispose();
+
+            // Save the image to a memory stream
+            MemoryStream memoryStream = new MemoryStream();
+            bitmap.Save(memoryStream, ImageFormat.Png);
+            memoryStream.Seek(0, SeekOrigin.Begin);
+
+            // Set the Image control's ImageUrl to the memory stream
+            imgWithText.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(memoryStream.ToArray());
+
+            // Dispose the bitmap as we don't need it anymore
+            bitmap.Dispose();
+        }
+
+
+
+
+
         protected bool HasRequests()
         {
             requestCount = GetRequestsCount();
@@ -121,6 +164,11 @@ namespace hfiles
                 }
             }
         }
+
+        
+
+
+
         protected void logout_Click(object sender, ImageClickEventArgs e)
         {
             Session.Clear();
