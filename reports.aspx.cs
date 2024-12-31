@@ -767,7 +767,7 @@ namespace hfiles
 
                         Console.WriteLine($"DataTable Rows: {dt.Rows.Count}");
 
-                        if (dt != null || dt.Rows.Count == 0)
+                        if (dt != null)
                         {
 
                             //DataTable sessionTable = Session["dtMemberList"] as DataTable;
