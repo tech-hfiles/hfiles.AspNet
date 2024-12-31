@@ -786,7 +786,7 @@ namespace hfiles
                                      // Ensure value is not null and is convertible to an integer
                                      if (isDependentValue != DBNull.Value && int.TryParse(isDependentValue.ToString(), out int isDependent))
                                      {
-                                         return isDependent == 1; // Only independent members
+                                         return isDependent == 0; // Only independent members
                                      }
                                      return false; // Exclude if null or not valid
                                  });

@@ -414,7 +414,7 @@
                 
                 <div class="additionl-main-div container h-90">
                
-                    <div class="row" style="overflow:auto;max-height:40vh">
+                    <div class="row" style="overflow:auto;max-height:35vh">
                         <div class="col-12" style="font-family: 'Red Hat Display', sans-serif !important;">
                             <div class="row py-2">
                                 <div class="col-lg-3 col-xl-3 col-md-3 col-3">

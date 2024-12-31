@@ -302,6 +302,7 @@
                                 <li><a><i class="fa fa-regular fa-id-badge color-thm-blue"></i>
                                     <asp:Label ID="memberId" Style="font-weight: 600; font-family: 'Red Hat Display', sans-serif;" runat="server" Text="" CssClass="color-thm-blue"></asp:Label></a></li>
                                 <li><a href="addbasicdetails.aspx" class="color-thm-blue"><i class="fa fa-solid fa-circle-info"></i>My Profile</a></li>
+                                <li><a href="FeedBack.aspx" class="color-thm-blue"><i class="fa fa-comments-o"></i>Feedback Form</a></li>
                                 <asp:UpdatePanel ID="RequestCount" runat="server">
                                     <ContentTemplate>
                                         <li><a href="managemembers.aspx" class="color-thm-blue"><i class="fa fa-solid fa-user"></i>My Members
