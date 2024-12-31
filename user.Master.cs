@@ -79,20 +79,20 @@ namespace hfiles
 
         public void LoadMembershipCard()
         {
-            string imagePath = Server.MapPath("~/path-to-your-image.png");
+            string imagePath = Server.MapPath("~/assets/membershipcard/2.png");
             Bitmap bitmap = new Bitmap(imagePath);
 
             // Create graphics object
             Graphics graphics = Graphics.FromImage(bitmap);
 
             // Define the font and text format
-            Font font = new Font("Arial", 24, FontStyle.Bold);
-            Brush brush = new SolidBrush(Color.White); // Text color
+            Font font = new Font("Arial", 12, FontStyle.Bold);
+            Brush brush = new SolidBrush(Color.Black); // Text color
 
             // Calculate the position to center the text
-            string text = "Your Text Here";
+            string text = memberId.Text;
             SizeF textSize = graphics.MeasureString(text, font);
-            PointF position = new PointF((bitmap.Width - textSize.Width) / 2, (bitmap.Height - textSize.Height) / 2);
+            PointF position = new PointF(((bitmap.Width - textSize.Width) / 2)+80, ((bitmap.Height - textSize.Height) / 2) - 65);
 
             // Add the text to the image
             graphics.DrawString(text, font, brush, position);
@@ -106,8 +106,8 @@ namespace hfiles
             memoryStream.Seek(0, SeekOrigin.Begin);
 
             // Set the Image control's ImageUrl to the memory stream
-            imgWithText.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(memoryStream.ToArray());
-
+            string Image = "data:image/png;base64," + Convert.ToBase64String(memoryStream.ToArray());
+            
             // Dispose the bitmap as we don't need it anymore
             bitmap.Dispose();
         }
