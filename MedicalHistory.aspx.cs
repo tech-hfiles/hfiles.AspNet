@@ -554,6 +554,8 @@ namespace hfiles
     }
     public class MedicationRecord
     {
+        public int? Id { get; set; }
+        public int MemberId { get; set; }
         public string Member { get; set; }
         public string Condition { get; set; }
         public string Medication { get; set; }
@@ -561,14 +563,5 @@ namespace hfiles
         public string Dosage { get; set; }
         public string Timings { get; set; }
     }
-
-    public class FormData
-    {
-        public List<string> Member { get; set; }
-        public List<string> Condition { get; set; }
-        public List<string> Medication { get; set; }
-        public List<string> Power { get; set; }
-        public List<string> Dosage { get; set; }
-        public List<string> Timings { get; set; }
-    }
+    
 }
