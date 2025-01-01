@@ -25,7 +25,7 @@ namespace hfiles
             string usercontact = Session["contact"].ToString();
 
             string userId = Session["Userid"].ToString();
-            string feedbackmail = ConfigurationManager.AppSettings["feedbackmail"].ToString();
+            string feedbackmail = ConfigurationManager.AppSettings["careermailUserId"].ToString();
 
             //sendMailLogic
             AddFeedback(feedbackarea.Value);

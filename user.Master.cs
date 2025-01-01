@@ -72,14 +72,50 @@ namespace hfiles
                     {
                         profile.ImageUrl = "../My Data/default-user-profile.png";
                     }
-                    LoadMembershipCard();
+
+                    getbasicdetails();
+
+
                 }
             }
         }
-
-        public void LoadMembershipCard()
+       
+        public void getbasicdetails()
         {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                using (MySqlCommand command = new MySqlCommand("getUserDetails", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    // Add parameters to the command
+                    command.Parameters.AddWithValue("_Id", DAL.validateInt(Session["Userid"]));
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // Populate the HTML controls with user details.
+                            string Name = reader["user_firstname"].ToString() + " "+ reader["user_lastname"].ToString();
+                            string BloodGroup = reader["user_bloodgroup"].ToString();
+                            string Contact = reader["user_contact"].ToString();
+                            string Expiry = reader["user_expiry"].ToString();
+                            string UserPlan = reader["user_plan"].ToString();
+                            LoadMembershipCard(Name, BloodGroup, Contact, Expiry, UserPlan);
+                        }
+                    }
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+        }
+        public void LoadMembershipCard(string UnserNameText,string BloodGroupText,string EmergencyContact,string ExpiryText,string UserPlan)
+        {
+
+            //Change Image According to User Plan
             string imagePath = Server.MapPath("~/assets/membershipcard/2.png");
+            
+
+            
             Bitmap bitmap = new Bitmap(imagePath);
 
             // Create graphics object
@@ -87,15 +123,44 @@ namespace hfiles
 
             // Define the font and text format
             Font font = new Font("Arial", 12, FontStyle.Bold);
+            Font userfont = new Font("Arial", 9);
+            Font commonfont = new Font("Arial", 5);
+            Font commondatafont = new Font("Arial", 5, FontStyle.Bold);
+            Font customerServicefont = new Font("Arial", 4);
+            Font customerServiceDatafont = new Font("Arial", 4, FontStyle.Bold);
             Brush brush = new SolidBrush(Color.Black); // Text color
 
             // Calculate the position to center the text
-            string text = memberId.Text;
-            SizeF textSize = graphics.MeasureString(text, font);
-            PointF position = new PointF(((bitmap.Width - textSize.Width) / 2)+80, ((bitmap.Height - textSize.Height) / 2) - 65);
+            string memberIdText = memberId.Text;
+            string CustomerServiceContact = ConfigurationManager.AppSettings["customerServiceMobile"].ToString();
+
+            SizeF textSize = graphics.MeasureString(memberIdText, font);
+            PointF memberIdPosition = new PointF(((bitmap.Width - textSize.Width) / 2)+80, ((bitmap.Height - textSize.Height) / 2) - 65);
+            PointF userNamePosition = new PointF(((bitmap.Width - textSize.Width) / 2)+80, ((bitmap.Height - textSize.Height) / 2) + 35);
+            PointF BloodGroupPosition = new PointF(((bitmap.Width - textSize.Width) / 2)+80, ((bitmap.Height - textSize.Height) / 2) + 105);
+            PointF BloodGroupDataPosition = new PointF(((bitmap.Width - textSize.Width) / 2)+220, ((bitmap.Height - textSize.Height) / 2) + 105);
+
+            PointF ExpiryPosition = new PointF(((bitmap.Width - textSize.Width) / 2)+390, ((bitmap.Height - textSize.Height) / 2) + 105);
+            PointF ExpiryDataPosition = new PointF(((bitmap.Width - textSize.Width) / 2)+465, ((bitmap.Height - textSize.Height) / 2) + 105);
+            PointF ContactPosition = new PointF(((bitmap.Width - textSize.Width) / 2)+80, ((bitmap.Height - textSize.Height) / 2) + 165);
+            PointF ContactDataPosition = new PointF(((bitmap.Width - textSize.Width) / 2)+285, ((bitmap.Height - textSize.Height) / 2) + 165);
+            PointF CustomerServicePosition = new PointF(((bitmap.Width - textSize.Width) / 2)+360, ((bitmap.Height - textSize.Height) / 2) + 275);
+            PointF CustomerServiceDataPosition = new PointF(((bitmap.Width - textSize.Width) / 2)+510, ((bitmap.Height - textSize.Height) / 2) + 275);
 
             // Add the text to the image
-            graphics.DrawString(text, font, brush, position);
+            graphics.DrawString(memberIdText, font, brush, memberIdPosition);
+            graphics.DrawString(UnserNameText, userfont, brush, userNamePosition);
+            graphics.DrawString("Blood Group : ", commonfont, brush, BloodGroupPosition);
+            graphics.DrawString(BloodGroupText, commondatafont, brush, BloodGroupDataPosition);
+            graphics.DrawString("Expiry : ", commonfont, brush, ExpiryPosition);
+            graphics.DrawString(ExpiryText, commondatafont, brush, ExpiryDataPosition);
+            graphics.DrawString("Emergency Contact : ", commonfont, brush, ContactPosition);
+            graphics.DrawString(EmergencyContact, commondatafont, brush, ContactDataPosition);
+            graphics.DrawString("Customer service : ", customerServicefont, brush, CustomerServicePosition);
+            graphics.DrawString(CustomerServiceContact, customerServiceDatafont, brush, CustomerServiceDataPosition);
+
+
+
 
             // Clean up resources
             graphics.Dispose();
@@ -108,6 +173,9 @@ namespace hfiles
             // Set the Image control's ImageUrl to the memory stream
             string Image = "data:image/png;base64," + Convert.ToBase64String(memoryStream.ToArray());
             
+            membershipImage.ImageUrl = Image;
+           
+
             // Dispose the bitmap as we don't need it anymore
             bitmap.Dispose();
         }
