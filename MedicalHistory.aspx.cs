@@ -1,6 +1,7 @@
 ﻿using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.IO;
@@ -528,6 +529,46 @@ namespace hfiles
 
             }
         }
+
+        [System.Web.Services.WebMethod]
+        public static void SaveFamilyPrescription(List<MedicationRecord> data)
+        {
+            foreach(var record in data)
+            {
+                var medicationRecord = new MedicationRecord
+                {
+                    Member = record.Member,
+                    Condition = record.Condition,
+                    Medication = record.Medication,
+                    Power = record.Power,
+                    Dosage = record.Dosage,
+                    Timings = record.Timings
+                };
+
+                //medications.Add(medicationRecord); // Save the data
+            }
+        }
+
+
         #endregion
+    }
+    public class MedicationRecord
+    {
+        public string Member { get; set; }
+        public string Condition { get; set; }
+        public string Medication { get; set; }
+        public string Power { get; set; }
+        public string Dosage { get; set; }
+        public string Timings { get; set; }
+    }
+
+    public class FormData
+    {
+        public List<string> Member { get; set; }
+        public List<string> Condition { get; set; }
+        public List<string> Medication { get; set; }
+        public List<string> Power { get; set; }
+        public List<string> Dosage { get; set; }
+        public List<string> Timings { get; set; }
     }
 }

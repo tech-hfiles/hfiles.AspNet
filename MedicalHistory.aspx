@@ -672,6 +672,26 @@
       </div>
     </div>
   </div>
+                  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingFour">
+      <button class="accordion-button collapsed text-center" style="display:flow-root;background-color: #0331b5;color: #ffd101;border-radius: 9px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+        Family Prescription
+      </button>
+    </h2>
+    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+                      <h2>Medication Grid Form</h2>
+        <%--<form id="medicationForm" runat="server">--%>
+            <div id="gridContainer">
+                
+            </div>
+
+            <button type="button" class="btn btn-success" onclick="addNewRow()">Add Row</button>
+            <button type="submit" class="btn btn-primary" onclick="submitForm(event)">Submit</button>
+        <%--</form>--%>
+      </div>
+    </div>
+  </div>
 </div>
            
  <div class="medic-his-btn mt-3 buttons-container" style="display:flex;justify-content:space-evenly">
@@ -774,5 +794,71 @@
                 }
             }, 2000);
         }
+
+        function addNewRow() {
+            var rowHTML = `
+                <div class="row grid-row familyprescription-row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Member" name="member[]" />
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Condition" name="condition[]" />
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Medication" name="medication[]" />
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Power" name="power[]" />
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Dosage" name="dosage[]" />
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Timings" name="timings[]" />
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-danger" onclick="removeRow(this)">Remove</button>
+                    </div>
+                </div>
+            `;
+            $('#gridContainer').append(rowHTML);
+        }
+
+        function removeRow(button) {
+            $(button).closest('.grid-row').remove();
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            var data = [];
+
+            $('.familyprescription-row').each(function () {
+                var row = $(this); // Store the current row
+                data.push({
+                    member: row.find('input[name="member[]"]').val(),
+                    condition: row.find('input[name="condition[]"]').val(),
+                    medication: row.find('input[name="medication[]"]').val(),
+                    power: row.find('input[name="power[]"]').val(),
+                    dosage: row.find('input[name="dosage[]"]').val(),
+                    timings: row.find('input[name="timings[]"]').val(),
+                });
+            });
+
+            console.log(data);
+            
+            // Here you can send the form data to the server (e.g., through Ajax)
+            $.ajax({
+                type: "POST",
+                url: "MedicalHistory.aspx/SaveFamilyPrescription",
+                data: JSON.stringify({ data: data }),
+                contentType: "application/json; charset=utf-8",  // Send JSON
+                dataType: "json",
+                success: function (response) {
+                    alert("Data saved successfully!");
+                    // Optionally, you can bind the saved data after submission
+                }
+            });
+        }
+
     </script>
 </asp:Content>
