@@ -680,13 +680,13 @@
     </h2>
     <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
-                      <h2>Medication Grid Form</h2>
+                      
         <%--<form id="medicationForm" runat="server">--%>
             <div id="gridContainer">
                 
             </div>
 
-            <button type="button" class="btn btn-success" onclick="addNewRow()">Add Row</button>
+            <button type="button" class="btn btn-success" onclick="addRow()">Add Prescription</button>
             <button type="submit" class="btn btn-primary" onclick="submitForm(event)">Submit</button>
         <%--</form>--%>
       </div>
@@ -795,69 +795,196 @@
             }, 2000);
         }
 
-        function addNewRow() {
-            var rowHTML = `
-                <div class="row grid-row familyprescription-row">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Member" name="member[]" />
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Condition" name="condition[]" />
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Medication" name="medication[]" />
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Power" name="power[]" />
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Dosage" name="dosage[]" />
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Timings" name="timings[]" />
-                    </div>
-                    <div class="col">
-                        <button type="button" class="btn btn-danger" onclick="removeRow(this)">Remove</button>
-                    </div>
-                </div>
-            `;
-            $('#gridContainer').append(rowHTML);
+        
+        function fetchData() {
+            $.ajax({
+                type: "POST", // Use POST instead of GET
+                url: "MedicalHistory.aspx/GetFamilyPrescriptions",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    console.log("Data fetched successfully:", response.d);
+                    // Handle success, e.g., bind the data to a grid
+                    const dataList = JSON.parse(response.d);
+
+                    // Iterate over the parsed data and bind to your grid or add rows
+                    dataList.forEach((data) => {
+                        addRow(data);
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error fetching data:", error);
+                }
+            });
+        }
+        var memberMaster = [];
+        var conditionMaster = [];
+        function fetchMemberOptions() {
+            return $.ajax({
+                type: "POST", // Use POST instead of GET
+                url: "MedicalHistory.aspx/GetUserMembers",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    const Data = JSON.parse(response.d);
+                    memberMaster = Data;
+                    console.log("Members", Data);
+                    //return Data.filter(opt => opt.IsDependent == 1); // Ensure that your API returns an array of members in a format similar to this: [{ MemberId: 1, MemberName: 'John Doe' }, ...]
+                },
+                error: function () {
+                    console.error('Error fetching members data');
+                    //return []; // Return empty array in case of an error
+                }
+            });
         }
 
-        function removeRow(button) {
-            $(button).closest('.grid-row').remove();
+        function fetchConditionOptions() {
+            return $.ajax({
+                type: "POST", // Use POST instead of GET
+                url: "MedicalHistory.aspx/GetCondionList",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    const Data = JSON.parse(response.d);
+                    conditionMaster = Data;
+                    console.log("Conditions", Data);
+                    //return Data; // Ensure that your API returns an array of conditions in a format similar to this: [{ ConditionId: 'Condition1', ConditionName: 'Condition 1' }, ...]
+                },
+                error: function () {
+                    console.error('Error fetching conditions data');
+                    //return []; // Return empty array in case of an error
+                }
+            });
+            
         }
+        fetchMemberOptions();
+        fetchConditionOptions();
+        function addRow(data = {}) {
+            // Fetch the dynamic data asynchronously for both members and conditions
+            
+                const members = memberMaster; // Member data array
+                const conditions = conditionMaster; // Conditions data array
+                console.log(members);
+                console.log(conditions);
+                const rowHTML = `
+            <div class="row grid-row familyprescription-row">
+                <div class="col">
+                    <input type="hidden" name="Id[]" value="${data.Id || ''}">
+                    <select class="form-control" name="member[]">
+                        <option value="" disabled selected>Select Member</option>
+                        ${members.map(member =>
+                    `<option value="${member.user_id}" ${data.MemberId == member.user_id ? 'selected' : ''}>${member.user_FirstName}</option>`
+                ).join('')}
+                    </select>
+                </div>
+                <div class="col">
+                    <select class="form-control" name="condition[]" multiple>
+                        ${conditions.map(condition =>
+                    `<option value="${condition.ConditionId}" ${data.Conditions && data.Conditions.includes(condition.ConditionId) ? 'selected' : ''}>${condition.ConditionName}</option>`
+                ).join('')}
+                    </select>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Medication" name="medication[]" value="${data.Medication || ''}" />
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Power" name="power[]" value="${data.Power || ''}" />
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Dosage" name="dosage[]" value="${data.Dosage || ''}" />
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Timings" name="timings[]" value="${data.Timings || ''}" />
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-danger" onclick="removeRow(this)">Remove</button>
+                </div>
+            </div>
+        `;
+                $('#gridContainer').append(rowHTML);
+            
+        }
+
+    
+
+        setTimeout(() => {
+            fetchData();
+        });
+            
+       
+        
+        
+        function removeRow(button) {
+            var row = $(button).closest('.grid-row');
+            var Id = parseInt(row.find('input[name="Id[]"]').val()) || 0;  // Get record ID
+            console.log(Id);
+            if (Id > 0) {
+                // If ID is greater than 0, make an AJAX call to delete it
+                $.ajax({
+                    type: "POST",
+                    url: "MedicalHistory.aspx/RemoveFamilyPrescription",  // Your web service method URL
+                    data: JSON.stringify({ recordId: Id }),  // Send recordId to server
+                    contentType: "application/json; charset=utf-8",  // Set content type as JSON
+                    dataType: "json",  // Expect JSON response
+                    success: function (response) {
+                        // Optionally handle success (e.g., show a success message)
+                        row.remove();  // Remove the row from the table/grid
+                    },
+                    error: function (error) {
+                        // Handle error (e.g., show an error message)
+                        console.error("Error removing record:", error);
+                    }
+                });
+            } else {
+                // If ID is empty or 0, just remove the row
+                row.remove();
+            }
+        }
+
 
         function submitForm(event) {
             event.preventDefault();
             var data = [];
-
+            var isValid = true;
             $('.familyprescription-row').each(function () {
                 var row = $(this); // Store the current row
+                var memberId = row.find('select[name="member[]"]').val(); // Get selected member (single select dropdown)
+                if (!memberId) { // If memberId is empty (not selected)
+                    isValid = false;  // Set form as invalid
+                    alert("Member is required for all rows."); // Display an alert for missing member
+                    return false; // Stop processing and exit the loop
+                }
+                var conditions = row.find('select[name="condition[]"]').val(); // Get selected conditions (multiple select dropdown)
+
+                // For multiple selections, `conditions` will return an array, while `memberId` will be a single value.
                 data.push({
-                    member: row.find('input[name="member[]"]').val(),
-                    condition: row.find('input[name="condition[]"]').val(),
+                    id: row.find('input[name="Id[]"]').val(),  // Keep the original ID if applicable
+                    memberId: memberId || '',  // Use selected member ID or empty string if none
+                    condition: conditions ? conditions.join(',') : '',  // Convert conditions array to comma-separated string
                     medication: row.find('input[name="medication[]"]').val(),
                     power: row.find('input[name="power[]"]').val(),
                     dosage: row.find('input[name="dosage[]"]').val(),
                     timings: row.find('input[name="timings[]"]').val(),
                 });
             });
-
             console.log(data);
+            if (isValid) {
+                $.ajax({
+                    type: "POST",
+                    url: "MedicalHistory.aspx/SaveFamilyPrescription",
+                    data: JSON.stringify({ data: data }),
+                    contentType: "application/json; charset=utf-8",  // Send JSON
+                    dataType: "json",
+                    success: function (response) {
+                        alert("Data saved successfully!");
+                        // Optionally, you can bind the saved data after submission
+                    }
+                });
+            }
+            
             
             // Here you can send the form data to the server (e.g., through Ajax)
-            $.ajax({
-                type: "POST",
-                url: "MedicalHistory.aspx/SaveFamilyPrescription",
-                data: JSON.stringify({ data: data }),
-                contentType: "application/json; charset=utf-8",  // Send JSON
-                dataType: "json",
-                success: function (response) {
-                    alert("Data saved successfully!");
-                    // Optionally, you can bind the saved data after submission
-                }
-            });
+            
         }
 
     </script>

@@ -1,10 +1,15 @@
 ﻿using Google.Protobuf.WellKnownTypes;
+using Microsoft.Graph.Models;
 using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
+using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -37,7 +42,7 @@ namespace hfiles
                     int currentYear = DateTime.Now.Year;
                     for (int i = currentYear; i >= currentYear - 70; i--)
                     {
-                        yearpicker.Items.Add(new ListItem(i.ToString(), i.ToString()));
+                        yearpicker.Items.Add(new System.Web.UI.WebControls.ListItem(i.ToString(), i.ToString()));
                     }
                 }
             }
@@ -531,31 +536,168 @@ namespace hfiles
         }
 
         [System.Web.Services.WebMethod]
-        public static void SaveFamilyPrescription(List<MedicationRecord> data)
+        public static void SaveFamilyPrescription(List<FamilyPrescription> data)
         {
-            foreach(var record in data)
-            {
-                var medicationRecord = new MedicationRecord
-                {
-                    Member = record.Member,
-                    Condition = record.Condition,
-                    Medication = record.Medication,
-                    Power = record.Power,
-                    Dosage = record.Dosage,
-                    Timings = record.Timings
-                };
+            MedicalHistory med = new MedicalHistory();
+            med.AddUpdateFamilyPrescription(data);
+            //Testing
+        }
 
-                //medications.Add(medicationRecord); // Save the data
+        private void AddUpdateFamilyPrescription(List<FamilyPrescription> prescriptions)
+        {
+            
+
+            using (var connection = new MySqlConnection(cs))
+            {
+                connection.Open();
+
+                foreach (var prescription in prescriptions)
+                {
+                    // Call stored procedure for each prescription record
+                    var command = new MySqlCommand("InsertOrUpdateUserFamilyPrescription", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("_Id", Convert.ToInt32(prescription.Id));
+                    command.Parameters.AddWithValue("_MemberId", Convert.ToInt32(prescription.MemberId));
+                    command.Parameters.AddWithValue("_Conditions", prescription.Condition);
+                    command.Parameters.AddWithValue("_Medication", prescription.Medication);
+                    command.Parameters.AddWithValue("_Power", prescription.Power);
+                    command.Parameters.AddWithValue("_Dosage", prescription.Dosage);
+                    command.Parameters.AddWithValue("_Timings", prescription.Timings);
+                    command.Parameters.AddWithValue("_UserId", DAL.validateInt(Session["Userid"]));
+
+                    command.ExecuteNonQuery();
+                }
             }
+
+        }
+
+        [System.Web.Services.WebMethod]
+        public static void RemoveFamilyPrescription(string recordId)
+        {
+            MedicalHistory med = new MedicalHistory();
+            med.DeleteFamilyPrescription(Convert.ToInt32(recordId));
+            //Testing
         }
 
 
+        protected string DeleteFamilyPrescription(int recordId)
+        {
+            using (MySqlConnection conn = new MySqlConnection(cs))
+            {
+                conn.Open();
+                string query = "DELETE FROM user_familyprescription WHERE Id = @id";
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", recordId);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                }
+            }
+            return "Success";
+        }
+        [System.Web.Services.WebMethod]
+        public static string GetFamilyPrescriptions()
+        {
+            // Assuming you cannot access `Session` in a static context
+            // The caller should pass the `UserId` if needed, or refactor accordingly.
+            return new MedicalHistory().FetchUserFamilyPrescription();
+        }
+
+        private string FetchUserFamilyPrescription()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (var connection = new MySqlConnection(cs))
+                {
+                    connection.Open();
+                    using (var cmd = new MySqlCommand("GetFamilyPrescriptions", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@_UserId", DAL.validateInt(Session["Userid"]));
+
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            dt.Load(reader); // Load data into DataTable from the MySqlDataReader
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception if required
+                Response.Write("Error : " + ex.Message);
+                //return JsonConvert.SerializeObject(new { Error = ex.Message });
+            }
+
+            // Convert DataTable to JSON and return
+            return JsonConvert.SerializeObject(dt);
+        }
+        [System.Web.Services.WebMethod]
+        public static string GetUserMembers()
+        {
+            return new MedicalHistory().user_members();
+        }
+        [System.Web.Services.WebMethod]
+        public static string GetCondionList()
+        {
+            return new MedicalHistory().getConditionList();
+        }
+        protected string user_members()
+        {
+            DataTable dt = new DataTable();
+            using (MySqlConnection con = new MySqlConnection(cs))
+            {
+                con.Open();
+                using (MySqlCommand cmd = new MySqlCommand("usp_getmember", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(Session["Userid"])); //Session["Userid"];
+                    cmd.Parameters.AddWithValue("_MemberId", 0); //Session["Userid"];
+                    cmd.Parameters.AddWithValue("_SpType", "LS"); //Session["Userid"];
+                    cmd.Parameters.AddWithValue("_ReportId", 0); //Session["Userid"];
+                    cmd.Parameters.AddWithValue("_RId", 0); //Session["Userid"];
+                                                            // cmd.Parameters.AddWithValue("_AccessMappingId", 0); //Session["Userid"];
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        dt.Load(reader); // Load data into DataTable from the MySqlDataReader
+                    }
+                }
+            }
+            return JsonConvert.SerializeObject(dt);
+        }
+
+        protected string getConditionList()
+        {
+            DataTable dt = new DataTable();
+            //using (MySqlConnection con = new MySqlConnection(cs))
+            //{
+            //    con.Open();
+            //    using (MySqlCommand cmd = new MySqlCommand("usp_getmember", con))
+            //    {
+            //        cmd.CommandType = CommandType.StoredProcedure;
+            //        cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(Session["Userid"])); //Session["Userid"];
+            //        cmd.Parameters.AddWithValue("_MemberId", 0); //Session["Userid"];
+            //        cmd.Parameters.AddWithValue("_SpType", "LS"); //Session["Userid"];
+            //        cmd.Parameters.AddWithValue("_ReportId", 0); //Session["Userid"];
+            //        cmd.Parameters.AddWithValue("_RId", 0); //Session["Userid"];
+            //                                                // cmd.Parameters.AddWithValue("_AccessMappingId", 0); //Session["Userid"];
+            //        using (var reader = cmd.ExecuteReader())
+            //        {
+            //            dt.Load(reader); // Load data into DataTable from the MySqlDataReader
+            //        }
+            //    }
+            //}
+            return JsonConvert.SerializeObject(dt);
+        }
+
         #endregion
     }
-    public class MedicationRecord
+    public class FamilyPrescription
     {
-        public int? Id { get; set; }
-        public int MemberId { get; set; }
+        public string Id { get; set; }
+        public string MemberId { get; set; }
         public string Member { get; set; }
         public string Condition { get; set; }
         public string Medication { get; set; }
