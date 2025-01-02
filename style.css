@@ -675,7 +675,7 @@ input:-webkit-autofill {
 
 .inner-body-right h1,
 span {
-    color: blue;
+    /*color: blue;*/
 }
 
 .inner-body-right span {

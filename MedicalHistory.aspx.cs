@@ -671,24 +671,21 @@ namespace hfiles
         protected string getConditionList()
         {
             DataTable dt = new DataTable();
-            //using (MySqlConnection con = new MySqlConnection(cs))
-            //{
-            //    con.Open();
-            //    using (MySqlCommand cmd = new MySqlCommand("usp_getmember", con))
-            //    {
-            //        cmd.CommandType = CommandType.StoredProcedure;
-            //        cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(Session["Userid"])); //Session["Userid"];
-            //        cmd.Parameters.AddWithValue("_MemberId", 0); //Session["Userid"];
-            //        cmd.Parameters.AddWithValue("_SpType", "LS"); //Session["Userid"];
-            //        cmd.Parameters.AddWithValue("_ReportId", 0); //Session["Userid"];
-            //        cmd.Parameters.AddWithValue("_RId", 0); //Session["Userid"];
-            //                                                // cmd.Parameters.AddWithValue("_AccessMappingId", 0); //Session["Userid"];
-            //        using (var reader = cmd.ExecuteReader())
-            //        {
-            //            dt.Load(reader); // Load data into DataTable from the MySqlDataReader
-            //        }
-            //    }
-            //}
+            using (MySqlConnection con = new MySqlConnection(cs))
+            {
+                con.Open(); // Open the database connection
+
+                string query = "SELECT Id, ConditionName FROM condition_master";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, con))
+                {
+                    // Create a MySqlDataAdapter to fill the DataTable
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt); // Fill the DataTable with the results
+                    }
+                }
+            }
             return JsonConvert.SerializeObject(dt);
         }
 

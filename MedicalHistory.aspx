@@ -332,7 +332,7 @@
                <div style="padding-top:4vh;padding-bottom:10px;display:flex;justify-content:space-evenly;">
                    <h1 style="color: #0331b5;">Medical History</h1>
                </div>
-            <div class="accordion accordion-flush" id="accordionFlushExample" style="width:100%" >
+            <div class="accordion accordion-flush" id="accordionFlushExample" style="width:100%;max-height:65vh;overflow-y:auto" >
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingOne">
       <button class="accordion-button collapsed text-center" style="display:flow-root;background-color: #0331b5;color: #ffd101;border-radius: 9px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -685,9 +685,16 @@
             <div id="gridContainer">
                 
             </div>
+          <div style="display:flex;justify-content:center">
+              <div style="padding:10px">
+                  <button type="button" class="btn btn-success" id="addprescription" onclick="addRow()">Add Prescription</button>
+              </div>
+              <div style="padding:10px">
+                    <button type="submit" class="btn btn-primary" id="saveprescription" onclick="submitForm(event)">Submit</button>  
+              </div>
 
-            <button type="button" class="btn btn-success" onclick="addRow()">Add Prescription</button>
-            <button type="submit" class="btn btn-primary" onclick="submitForm(event)">Submit</button>
+          </div>
+            
         <%--</form>--%>
       </div>
     </div>
@@ -704,6 +711,7 @@
     integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
     crossorigin="anonymous"></script>
    
+
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
@@ -819,97 +827,136 @@
         }
         var memberMaster = [];
         var conditionMaster = [];
-        function fetchMemberOptions() {
-            return $.ajax({
-                type: "POST", // Use POST instead of GET
-                url: "MedicalHistory.aspx/GetUserMembers",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (response) {
-                    const Data = JSON.parse(response.d);
-                    memberMaster = Data;
-                    console.log("Members", Data);
-                    //return Data.filter(opt => opt.IsDependent == 1); // Ensure that your API returns an array of members in a format similar to this: [{ MemberId: 1, MemberName: 'John Doe' }, ...]
-                },
-                error: function () {
-                    console.error('Error fetching members data');
-                    //return []; // Return empty array in case of an error
-                }
-            });
-        }
-
-        function fetchConditionOptions() {
-            return $.ajax({
-                type: "POST", // Use POST instead of GET
-                url: "MedicalHistory.aspx/GetCondionList",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (response) {
-                    const Data = JSON.parse(response.d);
-                    conditionMaster = Data;
-                    console.log("Conditions", Data);
-                    //return Data; // Ensure that your API returns an array of conditions in a format similar to this: [{ ConditionId: 'Condition1', ConditionName: 'Condition 1' }, ...]
-                },
-                error: function () {
-                    console.error('Error fetching conditions data');
-                    //return []; // Return empty array in case of an error
-                }
-            });
-            
-        }
-        fetchMemberOptions();
-        fetchConditionOptions();
+        
+       
+        
         function addRow(data = {}) {
             // Fetch the dynamic data asynchronously for both members and conditions
             
                 const members = memberMaster; // Member data array
                 const conditions = conditionMaster; // Conditions data array
                 console.log(members);
-                console.log(conditions);
-                const rowHTML = `
-            <div class="row grid-row familyprescription-row">
-                <div class="col">
-                    <input type="hidden" name="Id[]" value="${data.Id || ''}">
-                    <select class="form-control" name="member[]">
-                        <option value="" disabled selected>Select Member</option>
-                        ${members.map(member =>
-                    `<option value="${member.user_id}" ${data.MemberId == member.user_id ? 'selected' : ''}>${member.user_FirstName}</option>`
-                ).join('')}
-                    </select>
-                </div>
-                <div class="col">
-                    <select class="form-control" name="condition[]" multiple>
-                        ${conditions.map(condition =>
-                    `<option value="${condition.ConditionId}" ${data.Conditions && data.Conditions.includes(condition.ConditionId) ? 'selected' : ''}>${condition.ConditionName}</option>`
-                ).join('')}
-                    </select>
-                </div>
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Medication" name="medication[]" value="${data.Medication || ''}" />
-                </div>
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Power" name="power[]" value="${data.Power || ''}" />
-                </div>
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Dosage" name="dosage[]" value="${data.Dosage || ''}" />
-                </div>
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Timings" name="timings[]" value="${data.Timings || ''}" />
-                </div>
-                <div class="col">
-                    <button type="button" class="btn btn-danger" onclick="removeRow(this)">Remove</button>
-                </div>
-            </div>
-        `;
-                $('#gridContainer').append(rowHTML);
+                console.log("Conditions : ",conditions);
+            const rowHTML = `
+    <div class="row grid-row familyprescription-row">
+        <div class="col col-xl-2 col-lg-2 col-md-3 col-12" style="padding:10px">
+            <input type="hidden" name="Id[]" value="${data.Id || ''}">
+            <select class="form-select member-select" name="member[]">
+                <option value="" disabled selected>Member</option>
+                ${members.map(member =>
+                `<option value="${member.user_id}" ${data.MemberId == member.user_id ? 'selected' : ''}>${member.user_FirstName}</option>`
+            ).join('')}
+            </select>
+        </div>
+        <div class="col col-xl-2 col-lg-2 col-md-3 col-12" style="padding:10px">
+            <select class="form-select condition-select" name="condition[]" multiple>
+                ${conditions.map(condition =>
+                `<option value="${condition.Id}" ${data.Conditions && data.Conditions.includes(condition.Id) ? 'selected' : ''}>${condition.ConditionName}</option>`
+            ).join('')}
+            </select>
+        </div>
+        <div class="col col-xl-2 col-lg-2 col-md-3 col-12" style="padding:10px">
+            <input type="text" class="form-control" placeholder="Medication" name="medication[]" value="${data.Medication || ''}" />
+        </div>
+        <div class="col col-xl-2 col-lg-2 col-md-3 col-12" style="padding:10px">
+            <input type="text" class="form-control" placeholder="Power" name="power[]" value="${data.Power || ''}" />
+        </div>
+        <div class="col col-xl-2 col-lg-2 col-md-3 col-12" style="padding:10px">
+            <input type="text" class="form-control" placeholder="Dosage" name="dosage[]" value="${data.Dosage || ''}" />
+        </div>
+        <div class="col col-xl-2 col-lg-2 col-md-3 col-12" style="padding:10px">
+            <input type="text" class="form-control" placeholder="Timings" name="timings[]" value="${data.Timings || ''}" />
+        </div>
+        <div class="col col-xl-2 col-lg-2 col-md-3 col-12" style="padding:10px">
+            <button type="button" class="btn btn-danger" onclick="removeRow(this)">Remove</button>
+        </div>
+    </div>
+`;
+
+            // Append the new row
+            $('#gridContainer').append(rowHTML);
+
+            //// Initialize Select2 for the newly added dropdowns
+            //$('#gridContainer .member-select').last().select2({
+            //    placeholder: "Select Member",
+            //    allowClear: true
+            //});
+
+            $('#gridContainer .condition-select').last().select2({
+                placeholder: "Select Conditions",
+                allowClear: true,
+                multiple: true,
+                width: '100%'
+            });
+               
             
         }
+        function fetchMemberOptions() {
+            return new Promise((resolve, reject) => {
+                // Simulate async operation
+                setTimeout(() => {
+                    $.ajax({
+                        type: "POST", // Use POST instead of GET
+                        url: "MedicalHistory.aspx/GetUserMembers",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (response) {
+                            const Data = JSON.parse(response.d);
+                            memberMaster = Data;
+                            console.log("Members", Data);
+                            console.log('Member Options Fetched');
+                            resolve(); // Resolve the promise when done
+                        },
+                        error: function () {
+                            console.error('Error fetching members data');
+                            //return []; // Return empty array in case of an error
+                            resolve();
+                        }
+                    });
+                    
+                }, 500);
+            });
+        }
 
-    
+        function fetchConditionOptions() {
+            return new Promise((resolve, reject) => {
+                // Simulate async operation
+                setTimeout(() => {
+                    $.ajax({
+                        type: "POST", // Use POST instead of GET
+                        url: "MedicalHistory.aspx/GetCondionList",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (response) {
+                            const Data = JSON.parse(response.d);
+                            conditionMaster = Data;
+                            console.log("Conditions", Data);
+                            console.log('Condition Options Fetched');
+                            resolve(); // Resolve the promise when done
+                        },
+                        error: function () {
+                            console.error('Error fetching conditions data');
+                            resolve();
+                        }
+                    });
+                    
+                }, 500);
+            });
+        }
+        
+        $("#addprescription").prop('disabled', true);
+        $("#saveprescription").prop('disabled', true);
 
-        setTimeout(() => {
-            fetchData();
-        });
+        Promise.all([fetchMemberOptions(), fetchConditionOptions()])
+            .then(() => {
+                console.log("Fetch Data Started");
+                fetchData();
+                $("#addprescription").prop('disabled', false);
+                $("#saveprescription").prop('disabled', false);
+            })
+            .catch((error) => {
+                console.error('An error occurred:', error);
+            });
             
        
         
@@ -929,6 +976,7 @@
                     success: function (response) {
                         // Optionally handle success (e.g., show a success message)
                         row.remove();  // Remove the row from the table/grid
+                        toastr.success('Record Removed Successfully!');
                     },
                     error: function (error) {
                         // Handle error (e.g., show an error message)
@@ -938,6 +986,7 @@
             } else {
                 // If ID is empty or 0, just remove the row
                 row.remove();
+                toastr.success('Record Removed Successfully!');
             }
         }
 
@@ -951,7 +1000,8 @@
                 var memberId = row.find('select[name="member[]"]').val(); // Get selected member (single select dropdown)
                 if (!memberId) { // If memberId is empty (not selected)
                     isValid = false;  // Set form as invalid
-                    alert("Member is required for all rows."); // Display an alert for missing member
+                    //alert("Member is required for all rows."); // Display an alert for missing member
+                    toastr.error('Member is required for all rows.');
                     return false; // Stop processing and exit the loop
                 }
                 var conditions = row.find('select[name="condition[]"]').val(); // Get selected conditions (multiple select dropdown)
@@ -968,6 +1018,10 @@
                 });
             });
             console.log(data);
+            if (data.length == 0 && isValid) {
+                isValid = false;  // Set form as invalid
+                toastr.error('Add atleast one prescription.');
+            }
             if (isValid) {
                 $.ajax({
                     type: "POST",
@@ -978,7 +1032,8 @@
                     success: function (response) {
                         $('#gridContainer').html('');
                         fetchData();
-                        alert("Data saved successfully!");
+                        toastr.success('Data Saved Successfully!');
+                        //alert("Data saved successfully!");
                         // Optionally, you can bind the saved data after submission
                     }
                 });
