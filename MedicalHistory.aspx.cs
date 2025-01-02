@@ -546,7 +546,7 @@ namespace hfiles
         private void AddUpdateFamilyPrescription(List<FamilyPrescription> prescriptions)
         {
             
-
+            
             using (var connection = new MySqlConnection(cs))
             {
                 connection.Open();
@@ -556,8 +556,8 @@ namespace hfiles
                     // Call stored procedure for each prescription record
                     var command = new MySqlCommand("InsertOrUpdateUserFamilyPrescription", connection);
                     command.CommandType = CommandType.StoredProcedure;
-
-                    command.Parameters.AddWithValue("_Id", Convert.ToInt32(prescription.Id));
+                    var Id = Convert.ToInt32((prescription.Id != "") ? prescription.Id : "0");
+                    command.Parameters.AddWithValue("_Id", Id);
                     command.Parameters.AddWithValue("_MemberId", Convert.ToInt32(prescription.MemberId));
                     command.Parameters.AddWithValue("_Conditions", prescription.Condition);
                     command.Parameters.AddWithValue("_Medication", prescription.Medication);

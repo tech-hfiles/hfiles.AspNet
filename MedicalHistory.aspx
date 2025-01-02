@@ -976,6 +976,8 @@
                     contentType: "application/json; charset=utf-8",  // Send JSON
                     dataType: "json",
                     success: function (response) {
+                        $('#gridContainer').html('');
+                        fetchData();
                         alert("Data saved successfully!");
                         // Optionally, you can bind the saved data after submission
                     }
