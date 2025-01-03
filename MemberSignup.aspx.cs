@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -76,80 +77,140 @@ namespace hfiles
 
         protected void signup_Click(object sender, EventArgs e)
         {
-            if (otpButton.Text == "GET OTP")
+            if (otpButton.Text.ToLower() == "get otp")
             {
-                // Usage:
                 string email = emailTextBox.Text.ToString();
-                if (Bind() > 0)
-                {
-                    string otp = GenerateOTP(6); // Generate a 6-digit OTP
-                    string subject = "# Verification code";
-                    string body = $"<p style=\"text-align: justify\">Please use the verification code below to sign in. If you didn&rsquo;t request this, you can ignore this email.</p>\r\n<p><strong style=\"font-size: 130%\">{otp}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Thanks,&nbsp;</p><p style=\"text-align: justify\">Team Health Files.</p>";
-                    ViewState["OTPvalue"] = otp;
-                    //Session["Userid"] = hfId.Value;
-                    DAL.SendCareerMail(subject, body, email);
-                    otpButton.Text = "SIGN IN";
-                    divOtp.Visible = true;
-                }
-                else
-                {
-                    Session["Userid"] = null;
-                    otpButton.Text = "GET OTP";
-                    divOtp.Visible = true;
-                    //Pop Up Message
-                    Response.Redirect("~/signup.aspx");//Redirect to registration page
-                }
-            }
-            else if (otpButton.Text == "SIGN IN")
-            {
-                
-                if (ViewState["OTPvalue"] != null)
-                {
-                    if (otpTextBox.Value == ViewState["OTPvalue"].ToString())
-                    {
-                        Session["Userid"] = hfId.Value;
-                        using (MySqlConnection con = new MySqlConnection(cs))
-                        {
-                            con.Open();
-                            using (MySqlCommand cmd = new MySqlCommand("usp_userStatus", con))
-                            {
-                                cmd.CommandType = CommandType.StoredProcedure;
-                                cmd.Parameters.AddWithValue("_UserId", Session["Userid"].ToString());
 
-                                cmd.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
-                                cmd.ExecuteNonQuery();
-                            }
+                if (!string.IsNullOrEmpty(email))
+                {
+                    int re = Bind(); // Call Bind function for validation (check if user exists)
+
+                    if (re > 0)
+                    {
+                        string _MobileNoOrEmail = emailTextBox.Text;
+                        if (IsEmail(_MobileNoOrEmail))
+                        {
+                            string otp = GenerateOTP(6); // Generate a 6-digit OTP
+                            string subject = "# Verification code";
+                            string body = $"<p style=\"text-align: justify\">Please use the verification code below to sign in. If you didn&rsquo;t request this, you can ignore this email.</p>\r\n<p><strong style=\"font-size: 130%\">{otp}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Thanks,&nbsp;</p><p style=\"text-align: justify\">Team Health Files.</p>";
+                            ViewState["OTPvalue"] = otp;
+                            DAL.SendCareerMail(subject, body, email);
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on " + emailTextBox.Text + "');", true);
+                            otpButton.Text = "SIGN IN";
+                            divOtp.Visible = true;
                         }
-                        errorLabel.Text = "";
-                        Response.Redirect("~/addbasicdetails.aspx");//Redirect to registration page
+                        else if (IsMobileNumber(_MobileNoOrEmail))
+                        {
+                            string otp = GenerateOTP(6); // Generate a 6-digit OTP
+                            ViewState["OTPvalue"] = otp;
+                            DAL.SendOTPApiRequest(otp, _MobileNoOrEmail);
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on " + emailTextBox.Text + "');", true);
+                            otpButton.Text = "SIGN IN";
+                            divOtp.Visible = true;
+                        }
+                        else
+                        {
+                            Session["Userid"] = null;
+                            otpButton.Text = "GET OTP";
+                            divOtp.Visible = false;
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.error('Invalid contact or mobile no');", true);
+                            //Pop Up Message
+                        }
+                        //string otp = GenerateOTP(6); // Generate a 6-digit OTP
+                        //string subject = "# Verification code";
+                        //string body = $"<p style=\"text-align: justify\">Please use the verification code below to sign in. If you didn&rsquo;t request this, you can ignore this email.</p>\r\n<p><strong style=\"font-size: 130%\">{otp}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Thanks,&nbsp;</p><p style=\"text-align: justify\">Team Health Files.</p>";
+                        //ViewState["OTPvalue"] = otp;
+                        //DAL.SendCareerMail(subject, body, email);
+                        //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on " + emailTextBox.Text + "');", true);
+                        //otpButton.Text = "SIGN IN";
+                        //divOtp.Visible = true;
+                    }
+                    else if (re == 0)
+                    {
+                        // If user is not registered, redirect to signup page
+                        Session["Userid"] = null;
+                        otpButton.Text = "GET OTP";
+                        divOtp.Visible = false;
+                        Response.Redirect("~/signup.aspx"); // Redirect to registration page
                     }
                     else
                     {
-                        errorLabel.Text = "Inavlid OTP, please enter the correct OTP.";
+                        // Error handling for other cases
+                        Session["Userid"] = null;
+                        otpButton.Text = "GET OTP";
+                        divOtp.Visible = false;
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", "toastr.error('Invalid contact or mobile no');", true);
+                    }
+                }
+            }
+            else if (otpButton.Text == "SIGN IN") // Validate OTP
+            {
+                if (ViewState["OTPvalue"] != null)
+                {
+                    if (otpTextBox.Value == ViewState["OTPvalue"].ToString()) // If OTP matches
+                    {
+                        Session["Userid"] = hfId.Value; // Set user session
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", "toastr.success('Logged in successfully');", true);
+                        Response.Redirect("~/addbasicdetails.aspx"); // Redirect to dashboard or other page
+                    }
+                    else
+                    {
+                        Session["Userid"] = null;
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", "toastr.error('Invalid OTP, please try again');", true);
                     }
                 }
             }
         }
 
+        public bool IsEmail(string input)
+        {
+            // Simple regex for validating email format
+            return Regex.IsMatch(input, @"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.IgnoreCase);
+        }
+
+        public bool IsMobileNumber(string input)
+        {
+            // Assuming mobile number contains only digits and is 10 digits long (adjust pattern as needed)
+            return Regex.IsMatch(input, @"^\d{10}$");
+        }
+
         protected int Bind()
         {
             int result = 0;
+            int mobileorEmail = 0;
             try
             {
-                using (MySqlConnection con = new MySqlConnection(cs))
+                string _MobileNoOrEmail = emailTextBox.Text;
+                if (IsEmail(_MobileNoOrEmail))
                 {
-                    con.Open();
-                    using (MySqlCommand cmd = new MySqlCommand("usp_isuserexists", con))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("_MobileNoOrEmail", emailTextBox.Text);
-                        cmd.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
-                        cmd.ExecuteNonQuery();
-                        result = DAL.validateInt(cmd.Parameters["_Result"].Value.ToString());
-                        hfId.Value = result.ToString();
-                    }
+                    mobileorEmail = 1;
+                }
+                else if (IsMobileNumber(_MobileNoOrEmail))
+                {
+                    mobileorEmail = 1;
+                }
+                else
+                {
+                    mobileorEmail = 0;
+                    result = -1;
                 }
 
+                if (mobileorEmail == 1)
+                {
+                    using (MySqlConnection con = new MySqlConnection(cs))
+                    {
+                        con.Open();
+                        using (MySqlCommand cmd = new MySqlCommand("usp_isuserexists", con))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("_MobileNoOrEmail", emailTextBox.Text);
+                            cmd.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
+                            cmd.ExecuteNonQuery();
+                            result = DAL.validateInt(cmd.Parameters["_Result"].Value.ToString());
+                            hfId.Value = result.ToString();
+                        }
+                    }
+                }
             }
             catch (Exception Ex)
             {
@@ -214,15 +275,24 @@ namespace hfiles
         protected void resendLinkButton_Click(object sender, EventArgs e)
         {
 
-            string email = emailTextBox.Text.ToString();
-            if (Bind() > 0)
+            string _MobileNoOrEmail = emailTextBox.Text;
+            if (IsEmail(_MobileNoOrEmail))
             {
                 string otp = GenerateOTP(6); // Generate a 6-digit OTP
                 string subject = "# Verification code";
                 string body = $"<p style=\"text-align: justify\">Please use the verification code below to sign in. If you didn&rsquo;t request this, you can ignore this email.</p>\r\n<p><strong style=\"font-size: 130%\">{otp}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Thanks,&nbsp;</p><p style=\"text-align: justify\">Team Health Files.</p>";
                 ViewState["OTPvalue"] = otp;
-                Session["Userid"] = hfId.Value;
-                DAL.SendCareerMail(subject, body, email);
+                DAL.SendCareerMail(subject, body, _MobileNoOrEmail);
+                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on " + emailTextBox.Text + "');", true);
+                otpButton.Text = "SIGN IN";
+                divOtp.Visible = true;
+            }
+            else if (IsMobileNumber(_MobileNoOrEmail))
+            {
+                string otp = GenerateOTP(6); // Generate a 6-digit OTP
+                ViewState["OTPvalue"] = otp;
+                DAL.SendOTPApiRequest(otp, _MobileNoOrEmail);
+                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on " + emailTextBox.Text + "');", true);
                 otpButton.Text = "SIGN IN";
                 divOtp.Visible = true;
             }
@@ -230,7 +300,7 @@ namespace hfiles
             {
                 Session["Userid"] = null;
                 otpButton.Text = "GET OTP";
-                divOtp.Visible = true;
+                divOtp.Visible = false;
                 //Pop Up Message
                 Response.Redirect("~/signup.aspx"); //Redirect to registration page
             }

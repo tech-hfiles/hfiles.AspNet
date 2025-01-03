@@ -301,6 +301,10 @@
                     <img class="blue-t-top-right" src="../Avatar/blue-trangle-2.png" alt="">
                     <img class="blue-t-right" src="../Add Members/blue-trangle-3.png" alt="">
                     <a href="#">
+                    <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
+                   <a class="back-arrow-btn-2" href="avatar2.aspx">Back
+                    </a>
+                     </div>
                         <%--<img class="home-icon-top-right" src="../Add Members/home-icon.png" alt="">--%></a>
                     <img class="plus-top-left" src="../assets/plus-icon-3.png" alt="">
                     <div class="main-div">

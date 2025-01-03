@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Memberignup.aspx.cs" Inherits="hfiles.MemberSignup" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MemberSignup.aspx.cs" Inherits="hfiles.MemberSignup" %>
 
 <!DOCTYPE html>
 
@@ -28,7 +28,39 @@
 
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <title>member sign up</title>
-    <style>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+   
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+   <script>
+       toastr.options = {
+           closeButton: true,
+           progressBar: true,
+           positionClass: 'toast-top-right'
+       };
+
+   </script>
+        <style>
+
+                 #toast-container > .toast-success {
+                 background-color: #fdd001;
+                 opacity:2;
+                 color:#0331b5;
+                 font-weight:600;
+             }
+    
+             @media(max-width:640px){
+                 #toast-container>.toast-success{
+                     font-size:14px;
+                 }
+             }
+             /*.toast-message {
+                 background-color: #0331b5;
+             }*/
+            
+
+
         @media (min-width: 992px) {
             /* .footer {
                 position: absolute;
@@ -80,6 +112,7 @@
                 }
             }
     </style>
+
 </head>
 <body>
     <div class="signin-main">
@@ -113,30 +146,36 @@
 
 
                             <div class="col-12 px-1 password-div input-div">
+                            </div>
                                 <div runat="server" id="divOtp">
-                                    <i class="fa-solid fa-lock form-control-feedback"></i>
-                                    <input runat="server" id="otpTextBox" autocomplete="off" class="form-control my-2" type="Text" placeholder="Enter OTP" />
+                                   <input runat="server" required id="otpTextBox" onkeypress="return isNumberKey(event)" autocomplete="off" class="w-100 login-input" style="border-radius: 30px" type="Text" placeholder="Enter OTP" />
                                     <div class="text-end">
                                         <asp:Label Text="" ID="errorLabel" runat="server" Style="color: #fff" />
                                         <span id="timer" style="color: #fff"></span>
                                         <span class="mx-2">
-                                            <asp:LinkButton ID="resendLinkButton" OnClick="resendLinkButton_Click" runat="server">Resend OTP</asp:LinkButton></span>
+                                            <asp:LinkButton ID="resendLinkButton" OnClick="resendLinkButton_Click" ForeColor="Black" runat="server">Resend OTP</asp:LinkButton></span>
                                     </div>
                                 </div>
-                            </div>
                         </div>
-                        <div class="my-1" id="btnSubmitDiv">
-                            <div class="resend-otp-div text-center">
-                                <input type="checkbox" required /><span style="color: #fff"> I agree to <a target="_blank" style="color: #fdd001; font-weight: 700" href="tc.aspx">Terms and Conditions</a> </span>
-                            </div>
+
+                           <div class="text-center my-1" id="otpButtonDiv">
+                            <div class="text-center resend-otp-div">
+                            <input type="checkbox" /><span style="color: #fff"> I agree to <a target="_blank" style="color: #fdd001; font-weight: 700" href="tc.aspx">Terms and Conditions</a> </span>
+                        </div>
+                            <asp:Button ID="otpButton" OnClick="signup_Click" ValidationGroup="otp" runat="server" Text="GET OTP" class="btn thm-button my-2"></asp:Button>
 
                         </div>
 
-                        <div class="text-center my-1" id="otpButtonDiv">
+                        
+
+                      <%--  <div class="text-center my-1" id="otpButtonDiv">
 
                             <asp:Button ID="otpButton" OnClick="signup_Click" runat="server" Text="GET OTP" class="btn thm-button my-2"></asp:Button>
 
-                        </div>
+                        </div>--%>
+                        <%--<div class="text-center my-1" id="otpButtonDiv">
+                            <asp:Button ID="otpButton" OnClick="signup_Click" runat="server" Text="GET OTP" class="btn thm-button my-2"></asp:Button>
+                        </div>--%>
 
 
                     </div>
@@ -170,7 +209,9 @@
 
         </form>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script>
 
 
@@ -188,7 +229,8 @@
         }
 
         let timerOn = true;
-        //$('#resendLinkButton').hide();
+        $('#resendLinkButton').hide();
+
         function timer(remaining) {
 
             var m = Math.floor(remaining / 60);
@@ -215,17 +257,29 @@
             $('#timer').hide()
             $('#resendLinkButton').show()
         }
-        //timer(60);
+
+        timer(60);
+
         $('#resendLinkButton').click(function () {
             $('#resendLinkButton').hide();
             $('#timer').show()
             timer(60);
         })
-        $('#otpButton').click(function () {
-            $('#resendLinkButton').hide();
-            $('#timer').show()
-            timer(60);
-        })
+        toastr.options = {
+            closeButton: true,
+            progressBar: true,
+            positionClass: 'toast-top-right',
+            "showDuration": "3000",
+            "hideDuration": "1000",
+            "timeOut": "3600000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+
+        };
+        //   toastr.success("MacIds added successfully.");
 
     </script>
 

@@ -275,6 +275,10 @@ asp\:GridView td {
     <ContentTemplate>
      <div style="overflow: auto; max-height: 90vh; max-width: 100%; border: 1px solid #ddd;">
          <br />
+                  <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
+    <a class="back-arrow-btn-2" href="avatar2.aspx">Back
+    </a>
+</div>
 
        <h2 style="text-align: center;">All Reports Details</h2>
          <br />
