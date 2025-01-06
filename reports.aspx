@@ -150,42 +150,10 @@
             border-bottom-right-radius: 0px;
         }*/
     </style>
-                                 <%--<script type="text/javascript">
-                                     function openEditReportModal(reportName) {
-                                         // Set the ReportName in the modal
-                                         document.getElementById("txtReportName").innerText = reportName;
-                                         // Optionally, you can set the value in the TextBox for editing
-                                         document.getElementById("<%= txtReportName.ClientID %>").value = reportName;
-
-                                         // Show the modal
-                                         var modal = new bootstrap.Modal(document.getElementById('editReportModal'));
-                                         modal.show();
-                                     }
-</script>--%>
+                                
 
 
-   <%-- <script>
-
-        function populateModal(reportName) {
-            document.getElementById("modalReportName").textContent = reportName;
-        }
-
-
-    </script>--%>
-
-    
-       <%-- <script>
-            function lbtnSave_Click() {
-                const reportName = document.getElementById('txtEditName').value;
-                const reportId = document.getElementById('hiddenReportId').value;
-
-                // Send data to the server using an AJAX call or form submission
-                console.log('Report ID:', reportId);
-                console.log('Updated Name:', reportName);
-
-                // Implement server-side saving here
-            }
-</script>--%>
+ 
     
 
 
@@ -383,7 +351,7 @@
             x.className = "show";
             document.getElementById("img").innerHTML = "<img src='" + icon + "' />"; // Set the message
             document.getElementById("desc").innerHTML = message; // Set the message
-            setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
+            setTimeout(function () { x.className = x.className.replace("show", ""); }, 1000);
         }
         //launch_toast()
     </script>
