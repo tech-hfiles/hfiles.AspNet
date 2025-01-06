@@ -153,6 +153,9 @@ namespace hfiles
                 {
                     if (otpTextBox.Value == ViewState["OTPvalue"].ToString())
                     {
+                        Session["user_email"] = "";
+                        Session["contact"] = "";
+
                         Session["Userid"] = hfId.Value;
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Logged in successfully');", true);
                         errorLabel.Text = "";
@@ -320,7 +323,7 @@ namespace hfiles
                                 Session["UserId"] = dr["user_id"].ToString();
                                 //Session["role"] = dr["RoleType"].ToString();
                                 Session["user_email"] = dr["user_email"].ToString();
-                                Session["contact"] = dr["user_contact"].ToString();
+                                Session["contact"] = dr["user_contact"].ToString() ?? "";
                                 //FormsAuthentication.RedirectFromLoginPage(emailTextBox.Text, false);
                                 //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Logged in successfully');", true);
                                 //FormsAuthentication.RedirectFromLoginPage(dr["user_firstname"].ToString() + " " + dr["user_lastname"].ToString(), false);
