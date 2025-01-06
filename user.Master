@@ -316,6 +316,10 @@
     height: auto;    /* Maintains image's aspect ratio */
     object-fit: contain; /* Ensures the image fits properly without cropping */
 }
+        .accordion-body {
+    transition: height 0.4s ease, opacity 0.4s ease; /* Add smooth collapse transition */
+}
+
     </style>
 
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -455,12 +459,43 @@
             event.stopPropagation();
             menu.classList.toggle('active');
         }
+        var lastSelectedAccordian = '';
         document.addEventListener('click', function (event) {
             if (event.target !== profile && !menu.contains(event.target)) {
                 // Clicked outside the profile button and menu
                 menu.classList.remove('active');
             }
+            if (event.target && event.target.classList.contains('accordion-button')) {
+                const targetId = event.target.getAttribute('data-bs-target');
+                const accordionContent = document.querySelector(targetId);
+
+                // Avoid conflicts by temporarily disabling Bootstrap's toggling
+                event.preventDefault();
+
+                if (lastSelectedAccordian === targetId) {
+                    setTimeout(() => {
+                        // Collapse the currently active accordion item
+                        const bsCollapse = bootstrap.Collapse.getInstance(accordionContent) || new bootstrap.Collapse(accordionContent, { toggle: false });
+                        bsCollapse.hide();
+                        lastSelectedAccordian = ""; // Reset tracking
+                    },400);
+                    
+                }
+                else {
+                    lastSelectedAccordian = targetId; // Track current accordion
+                }
+
+                
+                
+
+                console.log(lastSelectedAccordian);
+            }
+
         });
+        
+            
+
+
         //$("#memberId").on("click", function () {
         //    menu.classList.toggle('active');
         //    $('#exampleModal').modal('show');

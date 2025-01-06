@@ -332,6 +332,10 @@
                <div style="padding-top:4vh;padding-bottom:10px;display:flex;justify-content:space-evenly;">
                    <h1 style="color: #0331b5;">Medical History</h1>
                </div>
+
+
+
+
             <div class="accordion accordion-flush" id="accordionFlushExample" style="width:100%;max-height:65vh;overflow-y:auto" >
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingOne">
