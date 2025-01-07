@@ -1094,7 +1094,7 @@ namespace hfiles
                             cmd.ExecuteNonQuery();
                             int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
                             result = DAL.validateInt(retVal);
-                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');location.reload();", true);
+                            //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');location.reload();", true);
 
                           
 
@@ -1122,7 +1122,7 @@ namespace hfiles
                             cmd.ExecuteNonQuery();
                             int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
                             result = DAL.validateInt(retVal);
-                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');location.reload();", true);
+                            //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');location.reload();", true);
 
                             
 
