@@ -684,22 +684,89 @@
     </h2>
     <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
-                      
+          
+          <div class="row">
+            <div class="col-12">
+                <table id="prescription" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Member</th>
+                            <th>Conditions</th>
+                            <th>Medication</th>
+                            <th>Power</th>
+                            <th>Dosage</th>
+                            <th>Timings</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+              </div>
+          </div>
+
+
+
+
         <%--<form id="medicationForm" runat="server">--%>
             <div id="gridContainer">
                 
             </div>
           <div style="display:flex;justify-content:center">
               <div style="padding:10px">
-                  <button type="button" class="btn btn-success" id="addprescription" onclick="addRow()">Add Prescription</button>
+                  <button type="button" class="btn btn-success" id="addprescription" onclick="openModal()">Add Prescription</button>
               </div>
-              <div style="padding:10px">
-                    <button type="submit" class="btn btn-primary" id="saveprescription" onclick="submitForm(event)">Submit</button>  
-              </div>
+             
 
           </div>
             
         <%--</form>--%>
+
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal Form</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row grid-row familyprescription-row">
+
+    <div class="col col-6" style="padding:10px">
+        <input type="hidden" name="Id[]">
+        <select class="form-select member-select" name="member[]">
+            <option value="" disabled selected>Member</option>
+        </select>
+    </div>
+    <div class="col col-6" style="padding:10px">
+        <select class="form-select condition-select" name="condition[]" multiple>
+        </select>
+    </div>
+    <div class="col col-6" style="padding:10px">
+        <input type="text" class="form-control" placeholder="Medication" name="medication[]" />
+    </div>
+    <div class="col col-6" style="padding:10px">
+        <input type="text" class="form-control" placeholder="Power" name="power[]" />
+    </div>
+    <div class="col col-6" style="padding:10px">
+        <input type="text" class="form-control" placeholder="Dosage" name="dosage[]" />
+    </div>
+    <div class="col col-6" style="padding:10px">
+        <input type="text" class="form-control" placeholder="Timings" name="timings[]" />
+    </div>
+            </div>
+          
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" id="saveprescription" onclick="submitForm(event)">Save</button>  
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
       </div>
     </div>
   </div>
@@ -821,7 +888,7 @@
 
                     // Iterate over the parsed data and bind to your grid or add rows
                     dataList.forEach((data) => {
-                        addRow(data);
+                        addRecordTable(data);
                     });
                 },
                 error: function (xhr, status, error) {
@@ -831,8 +898,42 @@
         }
         var memberMaster = [];
         var conditionMaster = [];
-        
-       
+
+        function openModal() {
+            let modalElement = document.getElementById('exampleModal');
+            let modal = new bootstrap.Modal(modalElement);
+            modal.show();
+        }
+
+        function addRecordTable(rowData) {
+            const tableBody = document.querySelector("#prescription tbody");
+
+            // Create a new row
+            const newRow = document.createElement("tr");
+
+            // Sample data (you can replace these with dynamic inputs)
+
+            // Populate the row with data
+            newRow.innerHTML = `
+                <td>${rowData.Id}</td>
+                <td>${rowData.MemberId}</td>
+                <td>${rowData.Conditions}</td>
+                <td>${rowData.Medication}</td>
+                <td>${rowData.Power}</td>
+                <td>${rowData.Dosage}</td>
+                <td>${rowData.Timings}</td>
+                <td>
+                    <i class="fas fa-edit action-icons" title="Edit" onclick="editRow(this)"></i>
+                    &nbsp;
+                    <i class="fas fa-trash action-icons" title="Remove" onclick="removeRow(this)"></i>
+                </td>
+            `;
+
+            // Append the new row to the table body
+            tableBody.appendChild(newRow);
+        }
+
+
         
         function addRow(data = {}) {
             // Fetch the dynamic data asynchronously for both members and conditions
