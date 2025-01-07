@@ -1178,17 +1178,19 @@ namespace hfiles
                 int _Id = DAL.validateInt(commandArgument);
 
                 //int reportId = 340;
-
+                string rid = Request.QueryString["rid"];
                 // Call the method
                 int updatedId = GetReportNameUpdate(sender, _Id);
 
                 // Optionally, handle the returned ID or display a success message
-                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Name Updated');", true);
-                
+                // ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Name Updated');", true);
+                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", $"reportUpdatedSuccessfully('{rid}');", true);
+            
+
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.fail('ReportName Updated fail');", true);
+                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.fail('ReportName Updated fail');location.reload();", true);
                 
             }
 

@@ -14,6 +14,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
         integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
         integrity="sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -336,9 +339,9 @@
 
             </div>
             <div id="toast">
-                <div id="img">
+                <%--<div id="img">
                     <img src="assets/h-file-logo-white.png" />
-                </div>
+                </div>--%>
                 <div id="desc"></div>
             </div>
         </ContentTemplate>
@@ -355,4 +358,19 @@
         }
         //launch_toast()
     </script>
+ <script>
+     function reportUpdatedSuccessfully(rid) {
+         // Show success message with toastr
+         toastr.success('ReportName Updated successfully');
+
+         // Redirect to the same page with the same 'rid' query string
+         setTimeout(function () {
+             window.location.href = 'reports.aspx?rid=' + rid; // Refresh the page with the current rid
+         }, 1000); // Optional: Delay before redirecting
+     }
+ </script>
+
+
+
+
 </asp:Content>
