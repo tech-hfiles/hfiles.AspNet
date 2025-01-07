@@ -348,7 +348,7 @@
         <Triggers>
         </Triggers>
     </asp:UpdatePanel>
-    <script>
+    <%--<script>
         function launch_toast(message, icon) {
             var x = document.getElementById("toast")
             x.className = "show";
@@ -357,7 +357,7 @@
             setTimeout(function () { x.className = x.className.replace("show", ""); }, 1000);
         }
         //launch_toast()
-    </script>
+    </script>--%>
  <script>
      function reportUpdatedSuccessfully(rid) {
          // Show success message with toastr
