@@ -21,7 +21,7 @@
                 <div class="row" style="display: flex;justify-content: space-evenly;">
                     <div class="col-xl-4 col-lg-4 col-md-6 col-10">
                         <%--<textarea style="width: 100%;"></textarea>--%>
-                        <textarea style="width: 100%;" id="feedbackarea" runat="server" class="form-control" required></textarea>
+                        <textarea style="width: 100%;" id="feedbackarea" runat="server" class="form-control" rows="5" required></textarea>
                     </div>
                 </div>
                 <div class="row" style="display:flex;justify-content: space-evenly;">
