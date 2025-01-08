@@ -26,7 +26,7 @@
                 </div>
                 <div class="row" style="display:flex;justify-content: space-evenly;">
                     <div class="col-xl-2 col-lg-2 col-md-3 col-4" style="display: flex;justify-content: space-evenly;">
-                        <asp:Button ID="submitButton" runat="server" OnClick="submitButton_Click" Text="Submit" class="btn thm-button mb-2 mt-4"></asp:Button>
+                        <asp:Button ID="submitButton" runat="server" OnClick="submitButton_Click" Text="Submit" class="btn thm-button mb-2  mt-4"></asp:Button>
 
                     </div>
                 </div>

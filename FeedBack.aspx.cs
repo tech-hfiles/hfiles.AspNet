@@ -4,7 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -35,9 +37,7 @@ namespace hfiles
             string feedbackmail = ConfigurationManager.AppSettings["careermailUserId"].ToString();
             string Subject = "Feedback:Hfiles";
             string body = $"<p style=\"text-align:justify\">Hi Team,</p><br><p style=\"text-align:justify\">User Name : " + username + " </p>\r\n<p style=\"text-align:justify\">User Email : " + useremail + " </p>\r\n<p style=\"text-align:justify\">User Mobile No : " + usercontact + "</p>\r\n<p style=\"text-align:justify\">User Feedback : " + feedbackData + "</p>\r\n<br>\r\n<p style=\"text-align:justify\">Thank you,</p>\r\n<p style=\"text-align:justify\">Team HFiles Development</p>";
-
-
-            SendMail(Subject, body, feedbackmail);
+            Task.Run(() => SendMail(Subject, body, feedbackmail));
         }
         private void AddFeedback(string Feedback)
         {
@@ -53,39 +53,55 @@ namespace hfiles
                 }
             }
         }
-        public static void SendMail(string Subject, string messageBody, string ToEmail, string attachmentFilePath = "")
+        public async static Task SendMail(string Subject, string messageBody, string ToEmail, string attachmentFilePath = "")
         {
             string fromMail = ConfigurationManager.AppSettings["careermailUserId"].ToString();
             string mailPassword = ConfigurationManager.AppSettings["careermailPassword"].ToString();
             int mailPort = Convert.ToInt32(ConfigurationManager.AppSettings["mailPort"]);
             string mailServer = ConfigurationManager.AppSettings["mailServer"].ToString();
+
             var email = new MimeMessage();
             email.From.Add(new MailboxAddress("H-Files", fromMail));
-            email.To.Add(new MailboxAddress("H-FIles-User", ToEmail));
+            email.To.Add(new MailboxAddress("H-Files-User", ToEmail));
             email.Subject = Subject;
+
             var body = new TextPart("html")
             {
                 Text = messageBody
             };
-            var multipart = new Multipart("mixed");
-            multipart.Add(body);
 
-            //var attachment = new MimeKit.MimePart("application", "pdf")
-            //{
-            //    Content = new MimeContent(System.IO.File.OpenRead(attachmentFilePath), ContentEncoding.Default),
-            //    ContentDisposition = new MimeKit.ContentDisposition(MimeKit.ContentDisposition.Attachment),
-            //    ContentTransferEncoding = ContentEncoding.Base64,
-            //    //FileName = Path.GetFileName(attachmentFilePath)
-            //    FileName = attachmentFilePath
-            //};
-            //multipart.Add(attachment);
-            email.Body = multipart;
-            using (var smtp = new MailKit.Net.Smtp.SmtpClient())
+            var multipart = new Multipart("mixed") { body };
+
+            // If an attachment file path is provided, add the attachment
+            if (!string.IsNullOrWhiteSpace(attachmentFilePath))
             {
-                smtp.Connect(mailServer, mailPort, true);
-                smtp.Authenticate(fromMail, mailPassword);
-                smtp.Send(email);
-                smtp.Disconnect(true);
+                var attachment = new MimeKit.MimePart("application", "octet-stream")
+                {
+                    Content = new MimeContent(System.IO.File.OpenRead(attachmentFilePath), ContentEncoding.Default),
+                    ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
+                    ContentTransferEncoding = ContentEncoding.Base64,
+                    FileName = Path.GetFileName(attachmentFilePath)
+                };
+                multipart.Add(attachment);
+            }
+
+            email.Body = multipart;
+
+            try
+            {
+                using (var smtp = new MailKit.Net.Smtp.SmtpClient())
+                {
+                    await smtp.ConnectAsync(mailServer, mailPort, true);
+                    await smtp.AuthenticateAsync(fromMail, mailPassword);
+                    await smtp.SendAsync(email);
+                    await smtp.DisconnectAsync(true);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                // Example: Logger.LogError("Email sending failed", ex);
+                throw; // Optionally re-throw or handle the exception as needed
             }
         }
 
