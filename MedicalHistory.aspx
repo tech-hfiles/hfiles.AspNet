@@ -320,6 +320,15 @@
         width: 80%;
     }
 }
+#prescription thead,
+#prescription tbody,
+#prescription tfoot,
+#prescription tr,
+#prescription td,
+#prescription th {
+  border-width: thin;
+}
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
@@ -339,8 +348,8 @@
             <div class="accordion accordion-flush" id="accordionFlushExample" style="width:100%;max-height:65vh;overflow-y:auto;padding:0 20px" >
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingOne">
-      <button class="accordion-button collapsed text-center" style="display:flow-root;background-color: #0331b5;color: #ffd101;border-radius: 9px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-        My Medical History
+      <button class="accordion-button collapsed text-center" style="background-color: #0331b5;color: #ffd101;border-radius: 9px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        <label style="margin-right: 0px;margin-left: auto;">My Medical History</label>
       </button>
     </h2>
     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
@@ -406,8 +415,8 @@
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingTwo">
-      <button class="accordion-button collapsed text-blue" style="display:flow-root;background-color: #0331b5;color: #ffd101;text-align-last: center;border-radius: 9px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-        Additional Information
+      <button class="accordion-button collapsed text-blue" style="background-color: #0331b5;color: #ffd101;text-align-last: center;border-radius: 9px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+        <label style="margin-right: 0px;margin-left: auto;">Additional Information</label>
       </button>
     </h2>
     <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
@@ -616,8 +625,8 @@
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingThree">
-      <button class="accordion-button collapsed text-center" style="display:flow-root;background-color: #0331b5;color: #ffd101;border-radius: 9px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-        Allergies
+      <button class="accordion-button collapsed text-center" style="background-color: #0331b5;color: #ffd101;border-radius: 9px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+        <label style="margin-right: 0px;margin-left: auto;">Allergies</label>
       </button>
     </h2>
     <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
@@ -678,26 +687,42 @@
   </div>
                   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingFour">
-      <button class="accordion-button collapsed text-center" style="display:flow-root;background-color: #0331b5;color: #ffd101;border-radius: 9px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-        Family Prescription
+      <button class="accordion-button collapsed text-center" style="background-color: #0331b5;color: #ffd101;border-radius: 9px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+        <label style="margin-right: 0px;margin-left: auto;">Family Prescription</label>
       </button>
     </h2>
     <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
           
           <div class="row">
-            <div class="col-12">
-                <table id="prescription" style="width:100%">
+            <div class="table-responsive">
+                <table id="prescription" class="table" style="border: solid;border-color: #dee2e6;border-width: thin;">
                     <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Member</th>
-                            <th>Conditions</th>
-                            <th>Medication</th>
-                            <th>Power</th>
-                            <th>Dosage</th>
-                            <th>Timings</th>
-                            <th>Action</th>
+                            <th hidden>Id</th>
+                            <th style="background-color: white;text-align: center;">
+                                <button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Member</button>
+                            </th>
+                            <th style="background-color: white;text-align: center;">
+    <button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Condition</button>
+</th>
+                            <th style="background-color: white;text-align: center;">
+    <button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Medication</button>
+</th>
+                            <th style="background-color: white;text-align: center;">
+    <button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Dosage</button>
+</th>
+                            <th style="background-color: white;text-align: center;">
+    <button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Power</button>
+</th>
+                            <th style="background-color: white;text-align: center;">
+    <button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Timing</button>
+</th>
+                                                        <th style="background-color: white;text-align: center;">
+    <button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Action</button>
+</th>
+                            
+                            
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -714,7 +739,7 @@
             </div>
           <div style="display:flex;justify-content:center">
               <div style="padding:10px">
-                  <button type="button" class="btn btn-success" id="addprescription" onclick="openModal()">Add Prescription</button>
+                  <button type="button" class="btn btn-success" id="addprescription" onclick="addPrescription()">Add Prescription</button>
               </div>
              
 
@@ -726,40 +751,69 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal Form</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Prescription Form</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="row grid-row familyprescription-row">
-
-    <div class="col col-6" style="padding:10px">
-        <input type="hidden" name="Id[]">
-        <select class="form-select member-select" name="member[]">
-            <option value="" disabled selected>Member</option>
-        </select>
-    </div>
-    <div class="col col-6" style="padding:10px">
-        <select class="form-select condition-select" name="condition[]" multiple>
-        </select>
-    </div>
-    <div class="col col-6" style="padding:10px">
-        <input type="text" class="form-control" placeholder="Medication" name="medication[]" />
-    </div>
-    <div class="col col-6" style="padding:10px">
-        <input type="text" class="form-control" placeholder="Power" name="power[]" />
-    </div>
-    <div class="col col-6" style="padding:10px">
-        <input type="text" class="form-control" placeholder="Dosage" name="dosage[]" />
-    </div>
-    <div class="col col-6" style="padding:10px">
-        <input type="text" class="form-control" placeholder="Timings" name="timings[]" />
-    </div>
+            <div class="row">
+                <div class="col-4" style="text-align:center;padding-top:12px">
+                    <Button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Member</Button>
+                </div>
+                <div class="col col-6" style="padding:10px">
+                    <input type="hidden" id="PrescriptionId" name="Id[]">
+                    <select class="form-select member-select" id="MemberSelect" name="member[]">
+                        <option value="" disabled selected>Member</option>
+                    </select>
+                </div>
             </div>
+            <div class="row">
+               <div class="col-4" style="text-align:center;padding-top:12px">
+    <Button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Condition</Button>
+</div>
+                <div class="col col-8" style="padding:10px">
+                    <select class="form-select condition-select" id="ConditionSelect" name="condition[]" multiple>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4" style="text-align:center;padding-top:12px">
+    <Button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Medication</Button>
+</div>
+                <div class="col col-8" style="padding:10px">
+                    <input type="text" class="form-control" id="Medication" placeholder="Medication" name="medication[]" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4" style="text-align:center;padding-top:12px">
+    <Button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Power</Button>
+</div>
+                <div class="col col-8" style="padding:10px">
+                    <input type="text" class="form-control" id="Power" placeholder="Power" name="power[]" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4" style="text-align:center;padding-top:12px">
+    <Button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Dosage</Button>
+</div>
+                <div class="col col-8" style="padding:10px">
+                    <input type="text" class="form-control" id="Dosage" placeholder="Dosage" name="dosage[]" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4" style="text-align:center;padding-top:12px">
+    <Button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Timing</Button>
+</div>
+                <div class="col col-8" style="padding:10px">
+                    <input type="text" class="form-control" id="Timings" placeholder="Timings" name="timings[]" />
+                </div>
+            </div>
+        </div>
           
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary" id="saveprescription" onclick="submitForm(event)">Save</button>  
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" id="closeModalBtn" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
@@ -874,8 +928,11 @@
             }, 2000);
         }
 
-        
+        var FetchedData = [];
+        var memberOptionsFetched = false;
+        var conditionOptionsFetched = false;
         function fetchData() {
+            FetchedData = [];
             $.ajax({
                 type: "POST", // Use POST instead of GET
                 url: "MedicalHistory.aspx/GetFamilyPrescriptions",
@@ -885,11 +942,32 @@
                     console.log("Data fetched successfully:", response.d);
                     // Handle success, e.g., bind the data to a grid
                     const dataList = JSON.parse(response.d);
-
+                    FetchedData = dataList;
+                    const tableBody = document.querySelector("#prescription tbody");
+                    tableBody.innerHTML = '';
                     // Iterate over the parsed data and bind to your grid or add rows
-                    dataList.forEach((data) => {
-                        addRecordTable(data);
-                    });
+                    if (memberOptionsFetched && conditionOptionsFetched) {
+                        console.log("Data already fetched, not calling fetch again.");
+                        dataList.forEach((data) => {
+                            addRecordTable(data);
+                        });
+                        
+                    } else {
+                        // Promise.all to fetch both options only once
+                        Promise.all([fetchMemberOptions(), fetchConditionOptions()])
+                            .then(() => {
+                                memberOptionsFetched = true;
+                                conditionOptionsFetched = true;
+                                dataList.forEach((data) => {
+                                    addRecordTable(data);
+                                });
+                            })
+                            .catch(err => {
+                                console.error("Error fetching data:", err);
+                            });
+                    }
+                    $("#addprescription").prop('disabled', false);
+                    $("#saveprescription").prop('disabled', false);
                 },
                 error: function (xhr, status, error) {
                     console.error("Error fetching data:", error);
@@ -898,34 +976,37 @@
         }
         var memberMaster = [];
         var conditionMaster = [];
+        var isAllMasterFetched = false;
 
-        function openModal() {
-            let modalElement = document.getElementById('exampleModal');
-            let modal = new bootstrap.Modal(modalElement);
-            modal.show();
-        }
+        let modalElement = document.getElementById('exampleModal');
+        let modal = new bootstrap.Modal(modalElement);
 
         function addRecordTable(rowData) {
+
+
+
             const tableBody = document.querySelector("#prescription tbody");
 
             // Create a new row
             const newRow = document.createElement("tr");
-
-            // Sample data (you can replace these with dynamic inputs)
-
+            const memberName = memberMaster.find(opt => opt.user_id == parseInt(rowData.MemberId));
+            const conditions = conditionMaster.filter(opt => rowData.Conditions.includes(opt.Id));
+            const conditionNames = conditions.map(condition => condition.ConditionName).join(', ');
+            console.log(conditionNames);
             // Populate the row with data
+            newRow.setAttribute('data-id', rowData.Id);
             newRow.innerHTML = `
-                <td>${rowData.Id}</td>
-                <td>${rowData.MemberId}</td>
-                <td>${rowData.Conditions}</td>
-                <td>${rowData.Medication}</td>
-                <td>${rowData.Power}</td>
-                <td>${rowData.Dosage}</td>
-                <td>${rowData.Timings}</td>
-                <td>
-                    <i class="fas fa-edit action-icons" title="Edit" onclick="editRow(this)"></i>
+                <td hidden>${rowData.Id}</td>
+                <td style="text-align:center">${memberName.user_FirstName}</td>
+                <td style="text-align:center">${conditionNames}</td>
+                <td style="text-align:center">${rowData.Medication}</td>
+                <td style="text-align:center">${rowData.Power}</td>
+                <td style="text-align:center">${rowData.Dosage}</td>
+                <td style="text-align:center">${rowData.Timings}</td>
+                <td style="text-align:center;">
+                    <i class="fas fa-edit action-icons" title="Edit" style="cursor:pointer" onclick="editPrescription(${rowData.Id})"></i>
                     &nbsp;
-                    <i class="fas fa-trash action-icons" title="Remove" onclick="removeRow(this)"></i>
+                    <i class="fas fa-trash action-icons" title="Remove" style="cursor:pointer" onclick="removeRow(${rowData.Id})"></i>
                 </td>
             `;
 
@@ -933,69 +1014,26 @@
             tableBody.appendChild(newRow);
         }
 
+        function addPrescription(data = {}) {
 
-        
-        function addRow(data = {}) {
-            // Fetch the dynamic data asynchronously for both members and conditions
-            
-                const members = memberMaster; // Member data array
-                const conditions = conditionMaster; // Conditions data array
-                console.log(members);
-                console.log("Conditions : ",conditions);
-            const rowHTML = `
-    <div class="row grid-row familyprescription-row">
-        <div class="col col-xl-2 col-lg-2 col-md-3 col-12" style="padding:10px">
-            <input type="hidden" name="Id[]" value="${data.Id || ''}">
-            <select class="form-select member-select" name="member[]">
-                <option value="" disabled selected>Member</option>
-                ${members.map(member =>
-                `<option value="${member.user_id}" ${data.MemberId == member.user_id ? 'selected' : ''}>${member.user_FirstName}</option>`
-            ).join('')}
-            </select>
-        </div>
-        <div class="col col-xl-2 col-lg-2 col-md-3 col-12" style="padding:10px">
-            <select class="form-select condition-select" name="condition[]" multiple>
-                ${conditions.map(condition =>
-                `<option value="${condition.Id}" ${data.Conditions && data.Conditions.includes(condition.Id) ? 'selected' : ''}>${condition.ConditionName}</option>`
-            ).join('')}
-            </select>
-        </div>
-        <div class="col col-xl-2 col-lg-2 col-md-3 col-12" style="padding:10px">
-            <input type="text" class="form-control" placeholder="Medication" name="medication[]" value="${data.Medication || ''}" />
-        </div>
-        <div class="col col-xl-2 col-lg-2 col-md-3 col-12" style="padding:10px">
-            <input type="text" class="form-control" placeholder="Power" name="power[]" value="${data.Power || ''}" />
-        </div>
-        <div class="col col-xl-2 col-lg-2 col-md-3 col-12" style="padding:10px">
-            <input type="text" class="form-control" placeholder="Dosage" name="dosage[]" value="${data.Dosage || ''}" />
-        </div>
-        <div class="col col-xl-2 col-lg-2 col-md-3 col-12" style="padding:10px">
-            <input type="text" class="form-control" placeholder="Timings" name="timings[]" value="${data.Timings || ''}" />
-        </div>
-        <div class="col col-xl-2 col-lg-2 col-md-3 col-12" style="padding:10px">
-            <button type="button" class="btn btn-danger" onclick="removeRow(this)">Remove</button>
-        </div>
-    </div>
-`;
+            modal.show();
 
-            // Append the new row
-            $('#gridContainer').append(rowHTML);
 
-            //// Initialize Select2 for the newly added dropdowns
-            //$('#gridContainer .member-select').last().select2({
-            //    placeholder: "Select Member",
-            //    allowClear: true
-            //});
-
-            $('#gridContainer .condition-select').last().select2({
-                placeholder: "Select Conditions",
-                allowClear: true,
-                multiple: true,
-                width: '100%'
-            });
-               
-            
+            $("#PrescriptionId").val(data.Id || '');
+            $("#MemberSelect").val(data.MemberId || '');
+            const conditions = data.Conditions ? data.Conditions.split(',') : [];
+            $("#ConditionSelect").val(conditions).trigger('change');
+            $("#Medication").val(data.Medication || '');
+            $("#Power").val(data.Power || '');
+            $("#Dosage").val(data.Dosage || '');
+            $("#Timings").val(data.Timings || '');
         }
+        function editPrescription(id) {
+            const data = FetchedData.filter(opt => opt.Id == parseInt(id));
+            addPrescription(data[0]);
+        }
+        
+        
         function fetchMemberOptions() {
             return new Promise((resolve, reject) => {
                 // Simulate async operation
@@ -1009,6 +1047,13 @@
                             const Data = JSON.parse(response.d);
                             memberMaster = Data;
                             console.log("Members", Data);
+                            const select = document.getElementById('MemberSelect');
+                            memberMaster.forEach(option => {
+                                const opt = document.createElement('option');
+                                opt.value = option.user_id; // Set the option value
+                                opt.textContent = option.user_FirstName; // Set the option text
+                                select.appendChild(opt); // Append the option
+                            });
                             console.log('Member Options Fetched');
                             resolve(); // Resolve the promise when done
                         },
@@ -1036,6 +1081,13 @@
                             const Data = JSON.parse(response.d);
                             conditionMaster = Data;
                             console.log("Conditions", Data);
+                            const select = document.getElementById('ConditionSelect');
+                            conditionMaster.forEach(option => {
+                                const opt = document.createElement('option');
+                                opt.value = option.Id; // Set the option value
+                                opt.textContent = option.ConditionName; // Set the option text
+                                select.appendChild(opt); // Append the option
+                            });
                             console.log('Condition Options Fetched');
                             resolve(); // Resolve the promise when done
                         },
@@ -1051,35 +1103,21 @@
         
         $("#addprescription").prop('disabled', true);
         $("#saveprescription").prop('disabled', true);
+        fetchData();
+        
+        function removeRow(rowId) {
 
-        Promise.all([fetchMemberOptions(), fetchConditionOptions()])
-            .then(() => {
-                console.log("Fetch Data Started");
-                fetchData();
-                $("#addprescription").prop('disabled', false);
-                $("#saveprescription").prop('disabled', false);
-            })
-            .catch((error) => {
-                console.error('An error occurred:', error);
-            });
-            
-       
-        
-        
-        function removeRow(button) {
-            var row = $(button).closest('.grid-row');
-            var Id = parseInt(row.find('input[name="Id[]"]').val()) || 0;  // Get record ID
-            console.log(Id);
-            if (Id > 0) {
-                // If ID is greater than 0, make an AJAX call to delete it
+            const row = document.querySelector(`tr[data-id='${rowId}']`); // Select the row based on its Id
+            if (row) {
+                
+                console.log(`Row with ID ${rowId} removed`); // Log or handle the ID of the removed row'
                 $.ajax({
                     type: "POST",
                     url: "MedicalHistory.aspx/RemoveFamilyPrescription",  // Your web service method URL
-                    data: JSON.stringify({ recordId: Id }),  // Send recordId to server
+                    data: JSON.stringify({ recordId: rowId }),  // Send recordId to server
                     contentType: "application/json; charset=utf-8",  // Set content type as JSON
                     dataType: "json",  // Expect JSON response
                     success: function (response) {
-                        // Optionally handle success (e.g., show a success message)
                         row.remove();  // Remove the row from the table/grid
                         toastr.success('Record Removed Successfully!');
                     },
@@ -1088,10 +1126,6 @@
                         console.error("Error removing record:", error);
                     }
                 });
-            } else {
-                // If ID is empty or 0, just remove the row
-                row.remove();
-                toastr.success('Record Removed Successfully!');
             }
         }
 
@@ -1106,7 +1140,7 @@
                 if (!memberId) { // If memberId is empty (not selected)
                     isValid = false;  // Set form as invalid
                     //alert("Member is required for all rows."); // Display an alert for missing member
-                    toastr.error('Member is required for all rows.');
+                    toastr.error('Member is required.');
                     return false; // Stop processing and exit the loop
                 }
                 var conditions = row.find('select[name="condition[]"]').val(); // Get selected conditions (multiple select dropdown)
@@ -1137,11 +1171,13 @@
                     success: function (response) {
                         $('#gridContainer').html('');
                         fetchData();
+
+                        modal.hide();
+                        
                         toastr.success('Data Saved Successfully!');
-                        //alert("Data saved successfully!");
-                        // Optionally, you can bind the saved data after submission
                     }
                 });
+
             }
             
             
