@@ -21,23 +21,22 @@ namespace hfiles
         protected void submitButton_Click(object sender, EventArgs e)
         {
             submitButton.Enabled = false;
-            string username = Session["username"].ToString();
-            string useremail = Session["user_email"].ToString();
-            string usercontact = Session["contact"].ToString();
-
-            string userId = Session["Userid"].ToString();
-            string feedbackmail = ConfigurationManager.AppSettings["careermailUserId"].ToString();
-
+            var feedbackData = feedbackarea.Value;
             //sendMailLogic
-            AddFeedback(feedbackarea.Value);
-            string Subject = "Feedback:Hfiles";
-            string body = $"<p style=\"text-align:justify\">Hi Team,</p><br><p style=\"text-align:justify\">User Name : "+username+" </p>\r\n<p style=\"text-align:justify\">User Email : "+useremail+" </p>\r\n<p style=\"text-align:justify\">User Mobile No : "+usercontact+"</p>\r\n<p style=\"text-align:justify\">User Feedback : "+feedbackarea.Value+"</p>\r\n<br>\r\n<p style=\"text-align:justify\">Thank you,</p>\r\n<p style=\"text-align:justify\">Team HFiles Development</p>";
-            
-
+            AddFeedback(feedbackData);
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "toastr.success('Thank you for your feedback.')", true);
             //Response.Redirect("Dashboard.aspx");
             feedbackarea.Value = "";
             submitButton.Enabled = true;
+            string username = Session["username"].ToString();
+            string useremail = Session["user_email"].ToString();
+            string usercontact = Session["contact"].ToString();
+            string userId = Session["Userid"].ToString();
+            string feedbackmail = ConfigurationManager.AppSettings["careermailUserId"].ToString();
+            string Subject = "Feedback:Hfiles";
+            string body = $"<p style=\"text-align:justify\">Hi Team,</p><br><p style=\"text-align:justify\">User Name : " + username + " </p>\r\n<p style=\"text-align:justify\">User Email : " + useremail + " </p>\r\n<p style=\"text-align:justify\">User Mobile No : " + usercontact + "</p>\r\n<p style=\"text-align:justify\">User Feedback : " + feedbackData + "</p>\r\n<br>\r\n<p style=\"text-align:justify\">Thank you,</p>\r\n<p style=\"text-align:justify\">Team HFiles Development</p>";
+
+
             SendMail(Subject, body, feedbackmail);
         }
         private void AddFeedback(string Feedback)
