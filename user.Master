@@ -397,6 +397,9 @@
     <div style="text-align: center;margin:auto;max-width:70vh;" class="card-box">
         <asp:Image ID="membershipImage" runat="server"  AlternateText="MembershipCard" class="responsive-image" />
     </div>
+    <div style="display:flex;justify-content:space-evenly;padding:20px">
+        <asp:LinkButton ID="UpgradeMember" runat="server" OnClick="upgradeMemberButton_Click" Text="" CssClass="btn btn-primary">Upgrade Membership</asp:LinkButton>
+    </div>
 </div>
     </form>
     

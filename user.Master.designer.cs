@@ -77,6 +77,7 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lBtn;
+        protected global::System.Web.UI.WebControls.LinkButton UpgradeMember;
 
         /// <summary>
         /// ContentPlaceHolder1 control.

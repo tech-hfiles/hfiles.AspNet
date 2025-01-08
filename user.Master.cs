@@ -233,7 +233,11 @@ namespace hfiles
             }
         }
 
-        
+
+        protected void upgradeMemberButton_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "toastr.success('Member Upgraded Successfully.')", true);
+        }
 
 
 
