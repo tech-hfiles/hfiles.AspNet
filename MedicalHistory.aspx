@@ -328,7 +328,27 @@
 #prescription th {
   border-width: thin;
 }
+.responsive-padding-btn {
+    padding: 10px 80px;
+  }
 
+  /* Media query for larger screens */
+  @media (min-width: 768px) {
+    .responsive-padding-btn {
+      padding: 10px 500px;
+    }
+  }
+  
+  .accordion-button.collapsed::after {
+      background-image: url(
+  "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>"
+);
+    }
+    .accordion-button:not(.collapsed)::after {
+      background-image: url(
+  "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>"
+);
+    }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
@@ -348,8 +368,8 @@
             <div class="accordion accordion-flush" id="accordionFlushExample" style="width:100%;max-height:65vh;overflow-y:auto;padding:0 20px" >
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingOne">
-      <button class="accordion-button collapsed text-center" style="background-color: #0331b5;color: #ffd101;border-radius: 9px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-        <label style="margin-right: 0px;margin-left: auto;">My Medical History</label>
+      <button class="accordion-button collapsed text-center responsive-padding-btn" style="background-color: #0331b5;color: #ffd101;border-radius: 9px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        My Medical History
       </button>
     </h2>
     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
@@ -415,8 +435,8 @@
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingTwo">
-      <button class="accordion-button collapsed text-blue" style="background-color: #0331b5;color: #ffd101;text-align-last: center;border-radius: 9px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-        <label style="margin-right: 0px;margin-left: auto;">Additional Information</label>
+      <button class="accordion-button collapsed text-blue responsive-padding-btn" style="background-color: #0331b5;color: #ffd101;text-align-last: center;border-radius: 9px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+        Additional Information
       </button>
     </h2>
     <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
@@ -625,8 +645,8 @@
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingThree">
-      <button class="accordion-button collapsed text-center" style="background-color: #0331b5;color: #ffd101;border-radius: 9px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-        <label style="margin-right: 0px;margin-left: auto;">Allergies</label>
+      <button class="accordion-button collapsed text-center responsive-padding-btn" style="background-color: #0331b5;color: #ffd101;border-radius: 9px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+        Allergies
       </button>
     </h2>
     <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
@@ -687,9 +707,15 @@
   </div>
                   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingFour">
-      <button class="accordion-button collapsed text-center" style="background-color: #0331b5;color: #ffd101;border-radius: 9px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-        <label style="margin-right: 0px;margin-left: auto;">Family Prescription</label>
-      </button>
+      <button class="accordion-button collapsed text-center responsive-padding-btn" 
+        style="background-color: #0331b5; color: #ffd101; border-radius: 9px;" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#flush-collapseFour" 
+        aria-expanded="false" 
+        aria-controls="flush-collapseFour">
+  Family Prescription
+</button>
     </h2>
     <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
