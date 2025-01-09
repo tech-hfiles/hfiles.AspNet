@@ -718,7 +718,7 @@
 </button>
     </h2>
     <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">
+      <div class="accordion-body" style="max-width:87vw;margin:auto">
           
           <div class="row">
             <div class="table-responsive">
