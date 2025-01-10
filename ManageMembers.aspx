@@ -12,6 +12,22 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+
+  <script type="text/javascript">
+      function confirmDelete() {
+          // Show the confirmation dialog box
+          var result = confirm('Are you sure you want to delete?');
+
+          // If the user clicks "OK", return true to proceed with the server-side action
+          if (result) {
+              return true;  // This will trigger the OnClick event (lbtnRemove_Click)
+          } else {
+              return false; // Prevent the OnClick event if the user clicks "Cancel"
+          }
+      }
+</script>
+
     <style>
         .manage-members-div {
             max-width: 100% !important;
@@ -110,15 +126,16 @@
             color:blue;
         }
     </style>
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%--    <asp:ScriptManager ID="scm1" runat="server"></asp:ScriptManager>--%>
     <div class="container-search mt-3 w-100" >
         <div class="row d-flex align-items-center w-100">
-            <div class="col-12 col-md-4 col-xl-6">
-                <a class="back-arrow-btn-managem" href="javascript: history.go(-1)">Back
-                </a>
-            </div>
+            <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
+    <a class="back-arrow-btn-2" href="avatar2.aspx" style="margin-left: 20px;">Back
+    </a>
+</div>
             <div class="col-12 col-md-8 col-xl-6 search-file">
                 <i class="fa-solid fa-magnifying-glass" style="position: absolute;"></i>
                 <asp:TextBox ID="SearchInput" OnTextChanged="SearchInput_TextChanged" AutoPostBack="true" runat="server" placeholder="Search member by Name" class="form-control" />
@@ -238,7 +255,8 @@
                                     </ul>
 
                                     
-                                    <asp:LinkButton ID="lbtnRemove" class="btn btn-delete" runat="server" OnClick="lbtnRemove_Click" Text="Delete" CommandArgument='<%#Eval("user_id")+"|"+Eval("user_relation") +"|"+ Eval("DependentUserId") +"|"+ Eval("User_Reference")  %>'></asp:LinkButton>
+                                    <asp:LinkButton ID="lbtnRemove" class="btn btn-delete" runat="server" OnClick="lbtnRemove_Click"  OnClientClick="return confirmDelete();" Text="Delete" CommandArgument='<%#Eval("user_id")+"|"+Eval("user_relation") +"|"+ Eval("DependentUserId") +"|"+ Eval("User_Reference")  %>'></asp:LinkButton>
+
                                 </div>
                             </ItemTemplate>
                         </asp:Repeater>
@@ -310,6 +328,8 @@
                     <div id="desc"></div>
                 </div>
             </ContentTemplate>
+              <Triggers>
+  </Triggers>
         </asp:UpdatePanel>
 
         <%--<div>
@@ -406,8 +426,12 @@
             x.className = "show";
             document.getElementById("img").innerHTML = "<img src='" + icon + "' />"; // Set the message
             document.getElementById("desc").innerHTML = message; // Set the message
-            setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
+            setTimeout(function () { x.className = x.className.replace("show", ""); });
         }
         //launch_toast()
     </script>
+    
+     
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </asp:Content>

@@ -91,15 +91,20 @@ namespace hfiles
 
 
 
-            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Member Removed Successfully');", true);
+            //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Member Removed Successfully');", true);
+           ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "toastr.success('Member Removed Successfully');location.reload();", true);
+
+
+           
+
         }
 
         protected void RemoveMember(int MemberId, int Dependent_User_Reference, int DependentUserId)
         {
-            if (DependentUserId> 0)
-            {
-                MemberId = Dependent_User_Reference;
-            }
+            //if (DependentUserId> 0)
+            //{
+            //    MemberId = Dependent_User_Reference;
+            //}
             using (MySqlConnection con = new MySqlConnection(cs))
             {
                 con.Open();
