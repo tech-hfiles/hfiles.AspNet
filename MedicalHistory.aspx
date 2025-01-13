@@ -343,10 +343,10 @@
         .accordion-button::after {
             margin-left:10px;
         }
-        .accordion-button{
+        .accordionbutton{
             background-color: #0331b5;
             color: #ffd101;
-            border-radius: 9px;
+            border-radius: 9px !important;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -354,6 +354,10 @@
             height: 50px;
             /* width: auto; */
             padding: 10px 15px;
+        }
+        accordion-button:not(.collapsed) {
+            background-color: #0331b5 !important;
+            color: #ffd101 !important;
         }
     </style>
 </asp:Content>
@@ -374,7 +378,7 @@
             <div class="accordion accordion-flush" id="accordionFlushExample" style="width:100%;max-height:65vh;overflow-y:auto;padding:0 20px" >
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingOne">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+      <button class="accordion-button collapsed accordionbutton" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
         My Medical History
       </button>
     </h2>
@@ -441,7 +445,7 @@
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+      <button class="accordion-button collapsed accordionbutton" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
         Additional Information
       </button>
     </h2>
@@ -651,7 +655,7 @@
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingThree">
-      <button class="accordion-button collapsed"  type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+      <button class="accordion-button collapsed accordionbutton"  type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
         Allergies
       </button>
     </h2>
@@ -713,7 +717,7 @@
   </div>
                   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingFour">
-      <button class="accordion-button collapsed"
+      <button class="accordion-button collapsed accordionbutton"
         type="button" 
         data-bs-toggle="collapse" 
         data-bs-target="#flush-collapseFour" 
