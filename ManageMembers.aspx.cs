@@ -96,10 +96,10 @@ namespace hfiles
 
         protected void RemoveMember(int MemberId, int Dependent_User_Reference, int DependentUserId)
         {
-            if (DependentUserId> 0)
-            {
-                MemberId = Dependent_User_Reference;
-            }
+            //if (DependentUserId> 0)
+            //{
+            //    MemberId = Dependent_User_Reference;
+            //}
             using (MySqlConnection con = new MySqlConnection(cs))
             {
                 con.Open();

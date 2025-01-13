@@ -30,6 +30,17 @@ namespace hfiles
                 divSubmit.Visible = false;
                 divOtp.Visible = true;
                 dateajax.EndDate = DateTime.Now.AddDays(0);
+
+                if (ddlCountry != null)
+                {
+                    getcountrylist(); // Populate the dropdown
+                     // Assign ClientID to hidden field
+                }
+                else
+                {
+                    Response.Redirect("Login.aspx");
+                }
+
             }
         }
         public static string GenerateOTP(int length)
@@ -195,6 +206,7 @@ namespace hfiles
                                 cmdInsert.Parameters.AddWithValue("_user_firstname", firstnameTextBox.Value);
                                 cmdInsert.Parameters.AddWithValue("_user_lastname", lastnameTextBox.Value);
                                 cmdInsert.Parameters.AddWithValue("_user_dob", txtDate.Text);// dobTextBox1.Value));// ;
+                                cmdInsert.Parameters.AddWithValue("_countrycode", ddlCountry.SelectedItem.Text);
                                 cmdInsert.Parameters.AddWithValue("_user_contact", phoneTextBox.Value);
                                 cmdInsert.Parameters.AddWithValue("_user_email", emailTextBox.Value);
                                 cmdInsert.Parameters.AddWithValue("_user_password", hashedPassword);
@@ -208,7 +220,7 @@ namespace hfiles
 
                                 cmdInsert.Parameters.Add("_Result", MySqlDbType.Int32);
                                 cmdInsert.Parameters["_Result"].Direction = ParameterDirection.Output;
-                                cmdInsert.Parameters.AddWithValue("_user_id", (object)Convert.ToInt32(this.Session["Userid"].ToString()));
+                                //cmdInsert.Parameters.AddWithValue("_user_id", (object)Convert.ToInt32(this.Session["Userid"].ToString()));
                                 cmdInsert.ExecuteNonQuery();
                                 userexist = Convert.ToInt32(cmdInsert.Parameters["_Result"].Value.ToString());
                                 if (userexist > 0)
@@ -257,9 +269,30 @@ namespace hfiles
                 return BitConverter.ToString(hashBytes).Replace("-", "").ToLower(); // 64-character hash
             }
         }
-        
 
 
+        private void getcountrylist()
+        {
+            MySqlConnection con = new MySqlConnection(connectionString);
+            string com = "Select * from countrylist";
+            MySqlDataAdapter adpt = new MySqlDataAdapter(com, con);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
+
+            if(dt != null)
+            {
+                ViewState["CountryCodeList"] = dt;
+                ddlCountry.DataSource = dt;
+                ddlCountry.DataTextField = "dialingcode";
+                ddlCountry.DataValueField = "id";
+                ddlCountry.DataBind();
+                ddlCountry.Items.Insert(0, new ListItem("+91", "+91"));
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
 
 
 

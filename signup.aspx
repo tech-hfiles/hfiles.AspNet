@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="signup.aspx.cs" Inherits="hfiles.signup" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="signup_old.aspx.cs" Inherits="hfiles.signup" %>
 
 <!DOCTYPE html>
 
@@ -516,6 +516,8 @@
     <script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+ 
+
     <title>Sign Up</title>
     <style>
         .signin-form {
@@ -701,6 +703,7 @@
 
 
     </script>
+  
 </head>
 <body style="overflow:auto;max-height:90vh">
 
@@ -874,10 +877,29 @@
                                 <input runat="server" id="dobTextBox1" style="display: none; visibility: hidden;" type="date" class="form-control my-2" value="2024-01-01" required />
                             </div>
 
-                            <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
+                           <%-- <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
                                 <i class="fa-solid fa-phone-volume form-control-feedback"></i>
                                 <input type="number" id="phoneTextBox" runat="server" class="form-control my-2" placeholder="Phone No" required />
-                            </div>
+                            </div>--%>
+
+                        <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
+    <div class="input-group">
+        <!-- Dropdown for country codes (populated by ASP.NET) -->
+        <asp:DropDownList ID="ddlCountry" runat="server" CssClass="form-select country-dropdown"></asp:DropDownList>
+
+        <!-- Textbox for phone number -->
+        <input type="number" id="phoneTextBox" runat="server" class="form-control my-2" placeholder="Phone No" required />
+    </div>
+    <!-- Error message -->
+    <small id="errorMessage" class="text-danger" style="display: none;">Invalid phone number format.</small>
+</div>
+
+
+
+
+
+
+
                             <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
                                 <i class="fa-regular fa-envelope form-control-feedback"></i>
                                 <input id="emailTextBox" runat="server" type="email" class="form-control my-2" placeholder="Email ID" required />
