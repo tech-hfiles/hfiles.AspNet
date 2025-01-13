@@ -196,7 +196,7 @@ namespace hfiles
                 Console.WriteLine($"Error: {ex.Message}");
             }
 
-            return string.IsNullOrEmpty(filePath) ? string.Empty : "https://localhost:44335" + filePath;
+            return string.IsNullOrEmpty(filePath) ? string.Empty : "https://hfiles.in" + filePath;
         }
 
         private string GenerateWhatsAppUrl(string filePath)
@@ -226,7 +226,7 @@ namespace hfiles
                 Cache.NoSlidingExpiration, // No sliding expiration
                 CacheItemPriority.Normal, // Cache item priority
                 null);
-            string signedUrl = $"https://localhost:44335/ContentDeliver.aspx?token={tokenId}";
+            string signedUrl = $"https://hfiles.in/ContentDeliver.aspx?token={tokenId}";
             // Callback (if needed)
             // Store token data using tokenId as key (e.g., in MemoryCache, Database, etc.)
 
