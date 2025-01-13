@@ -202,7 +202,7 @@
 
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
-            <div class="user-info-main" runat="server">
+            <div class="user-info-main" style="padding-bottom:20vh" runat="server">
                 <a class="back-arrow-btn" href="javascript: history.go(-1)">
                     <%--                    <img src="../assets/back-arrow.png" alt="">--%>
                     Back</a>
