@@ -17,6 +17,18 @@ namespace hfiles
     {
         string connectionString = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
         int requestCount;
+        Dictionary<int,string> bloodGroups = new Dictionary<int, string>
+{
+            { 0, "" },
+    { 1, "A+" },
+    { 2, "A-" },
+    { 3, "B+" },
+    { 4, "B-" },
+    { 5, "AB+" },
+    { 6, "AB-" },
+    { 7, "O+" },
+    { 8, "O-" }
+};
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Userid"] is null)
@@ -96,11 +108,16 @@ namespace hfiles
                         {
                             // Populate the HTML controls with user details.
                             string Name = reader["user_firstname"].ToString() + " "+ reader["user_lastname"].ToString();
-                            string BloodGroup = reader["user_bloodgroup"].ToString();
-                            string Contact = reader["user_contact"].ToString();
+                            int BloodGroup = Convert.ToInt32(reader["user_bloodgroup"].ToString());
+                            string Contact = reader["user_icecontact"].ToString();
                             string Expiry = reader["user_expiry"].ToString();
                             string UserPlan = reader["user_plan"].ToString();
-                            LoadMembershipCard(Name, BloodGroup, Contact, Expiry, UserPlan);
+
+                            string bgroup = "";
+
+                            bloodGroups.TryGetValue(BloodGroup, out bgroup);
+
+                            LoadMembershipCard(Name, bgroup, Contact, Expiry, UserPlan);
                         }
                     }
                     command.ExecuteNonQuery();
