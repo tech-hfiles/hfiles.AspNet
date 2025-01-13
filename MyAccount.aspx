@@ -347,8 +347,8 @@
         }
         
         .accordionbutton{
-    background-color: #0331b5;
-    color: #ffd101;
+    background-color: #0331b5 !important;
+    color: #ffd101 !important;
     border-radius: 9px !important;
     display: flex;
     justify-content: center;
@@ -435,16 +435,18 @@ accordion-button:not(.collapsed) {
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
-        window.onload = function () {
-            // Fetch the Master Page image `src`
-            var masterImage = document.getElementById('<%= Master.FindControl("membershipImage").ClientID %>');
-            var childImage = document.getElementById('membershipImageAccount');
+        $(document).ready(function () {
+            setTimeout(() => {
+                var masterImage = document.getElementById('<%= Master.FindControl("membershipImage").ClientID %>');
+                var childImage = document.getElementById('ContentPlaceHolder1_membershipImageAccount');
 
-            if (masterImage && childImage) {
-                // Set the Master Page image `src` to the Child Page image
-                childImage.src = masterImage.src;
-            }
-        };
+                if (masterImage && childImage) {
+                    // Set the Master Page image `src` to the Child Page image
+                    childImage.src = masterImage.src;
+                }
+            }, 500);
+        });
+        
     </script>
     
 </asp:Content>

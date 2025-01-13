@@ -344,8 +344,8 @@
             margin-left:10px;
         }
         .accordionbutton{
-            background-color: #0331b5;
-            color: #ffd101;
+            background-color: #0331b5 !important;
+            color: #ffd101 !important;
             border-radius: 9px !important;
             display: flex;
             justify-content: center;
