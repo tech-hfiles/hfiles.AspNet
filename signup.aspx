@@ -883,12 +883,12 @@
                             </div>--%>
 
                         <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
-    <div class="input-group">
+    <div class="form-control" style="background-color:white;border-radius:20px;display:flex;padding:0;margin-top:7px;margin-bottom:7px">
         <!-- Dropdown for country codes (populated by ASP.NET) -->
-        <asp:DropDownList ID="ddlCountry" runat="server" CssClass="form-select country-dropdown"></asp:DropDownList>
+        <asp:DropDownList ID="ddlCountry" runat="server" style="border:none !important;padding-left:12px !important;max-width:100px !important;height:45px !important" CssClass="form-select country-dropdown"></asp:DropDownList>
 
         <!-- Textbox for phone number -->
-        <input type="number" id="phoneTextBox" runat="server" class="form-control my-2" placeholder="Phone No" required />
+        <input type="number" id="phoneTextBox" runat="server" placeholder="Phone No" required  style="border:none !important;padding-left:5px !important"/>
     </div>
     <!-- Error message -->
     <small id="errorMessage" class="text-danger" style="display: none;">Invalid phone number format.</small>
