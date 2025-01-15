@@ -807,7 +807,7 @@
     <Button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Condition</Button>
 </div>
                 <div class="col col-8" style="padding:10px">
-                    <select class="form-select condition-select" id="ConditionSelect" name="condition[]" multiple>
+                    <select class="form-select condition-select" id="ConditionSelect" name="condition[]" multiple="multiple">
                     </select>
                 </div>
             </div>
@@ -910,6 +910,7 @@
     integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
     crossorigin="anonymous"></script>
    
+    
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -1162,6 +1163,21 @@
                                 opt.textContent = option.ConditionName; // Set the option text
                                 select.appendChild(opt); // Append the option
                             });
+                            $('#ConditionSelect').select2({
+        width: '100%',
+        placeholder: "Select conditions",
+        allowClear: true,            // Allows clear button
+        closeOnSelect: false,        // Keeps dropdown open after selection
+        minimumInputLength: 0        // Allows searching with 0 characters
+      });
+
+      // Trigger dropdown opening to show all options on click
+      $('#ConditionSelect').on('select2:open', function () {
+        $('.select2-results__option').css('display', 'block');
+      });
+
+      // Ensure dropdown shows all options initially
+     
                             console.log('Condition Options Fetched');
                             resolve(); // Resolve the promise when done
                         },
