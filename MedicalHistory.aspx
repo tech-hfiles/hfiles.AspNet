@@ -1074,8 +1074,8 @@
                 <td style="text-align:center">${memberName.user_FirstName}</td>
                 <td style="text-align:center">${conditionNames}</td>
                 <td style="text-align:center">${rowData.Medication}</td>
-                <td style="text-align:center">${rowData.Power}</td>
                 <td style="text-align:center">${rowData.Dosage}</td>
+                <td style="text-align:center">${rowData.Power}</td>
                 <td style="text-align:center">${rowData.Timings}</td>
                 <td style="text-align:center;">
                     <i class="fas fa-edit action-icons" title="Edit" style="cursor:pointer" onclick="editPrescription(${rowData.Id})"></i>
