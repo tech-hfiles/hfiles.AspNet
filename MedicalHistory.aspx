@@ -795,7 +795,7 @@
                 <div class="col-4" style="text-align:center;padding-top:12px">
                     <Button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Member</Button>
                 </div>
-                <div class="col col-6" style="padding:10px">
+                <div class="col col-8" style="padding:10px">
                     <input type="hidden" id="PrescriptionId" name="Id[]">
                     <select class="form-select member-select" id="MemberSelect" name="member[]">
                         <option value="" disabled selected>Member</option>
