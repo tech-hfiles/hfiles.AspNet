@@ -748,7 +748,7 @@
     <button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Dosage</button>
 </th>
                             <th style="background-color: white;text-align: center;">
-    <button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Power</button>
+    <button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Schedule</button>
 </th>
                             <th style="background-color: white;text-align: center;">
     <button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Timing</button>
@@ -819,14 +819,7 @@
                     <input type="text" class="form-control" id="Medication" placeholder="Medication" name="medication[]" />
                 </div>
             </div>
-            <div class="row">
-                <div class="col-4" style="text-align:center;padding-top:12px">
-    <Button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Power</Button>
-</div>
-                <div class="col col-8" style="padding:10px">
-                    <input type="text" class="form-control" id="Power" placeholder="Power" name="power[]" />
-                </div>
-            </div>
+            
             <div class="row">
                 <div class="col-4" style="text-align:center;padding-top:12px">
     <Button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Dosage</Button>
@@ -835,12 +828,58 @@
                     <input type="text" class="form-control" id="Dosage" placeholder="Dosage" name="dosage[]" />
                 </div>
             </div>
-            <div class="row">
+                        <div class="row">
                 <div class="col-4" style="text-align:center;padding-top:12px">
-    <Button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Timing</Button>
+    <Button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Schedule</Button>
 </div>
                 <div class="col col-8" style="padding:10px">
-                    <input type="text" class="form-control" id="Timings" placeholder="Timings" name="timings[]" />
+                    <%--<input type="text" class="form-control" id="Power" placeholder="Power" name="power[]" />--%>
+                    <select class="form-select" id="Power" name="power[]">
+                        <option value="" disabled selected>Schedule</option>
+                        <option>All Days</option>
+                        <option>Sunday</option>
+                        <option>Monday</option>
+                        <option>Tuesday</option>
+                        <option>Wednesday</option>
+                        <option>Thursday</option>
+                        <option>Friday</option>
+                        <option>Saturday</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4" style="text-align:center;padding-top:12px">
+    <Button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Timings</Button>
+</div>
+                <div class="col col-8" style="padding:10px">
+                    <%--<input type="text" class="form-control" id="Timings" placeholder="Timings" name="timings[]" />--%>
+                    <select class="form-select" id="Timings" name="timings[]">
+                        <option value="" disabled selected>Timings</option>
+                        <option>12 AM</option>
+                        <option>1 AM</option>
+                        <option>2 AM</option>
+                        <option>3 AM</option>
+                        <option>4 AM</option>
+                        <option>5 AM</option>
+                        <option>6 AM</option>
+                        <option>7 AM</option>
+                        <option>8 AM</option>
+                        <option>9 AM</option>
+                        <option>10 AM</option>
+                        <option>11 AM</option>
+                        <option>12 PM</option>
+                        <option>1 PM</option>
+                        <option>2 PM</option>
+                        <option>3 PM</option>
+                        <option>4 PM</option>
+                        <option>5 PM</option>
+                        <option>6 PM</option>
+                        <option>7 PM</option>
+                        <option>8 PM</option>
+                        <option>9 PM</option>
+                        <option>10 PM</option>
+                        <option>11 PM</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -1186,9 +1225,9 @@
                     memberId: memberId || '',  // Use selected member ID or empty string if none
                     condition: conditions ? conditions.join(',') : '',  // Convert conditions array to comma-separated string
                     medication: row.find('input[name="medication[]"]').val(),
-                    power: row.find('input[name="power[]"]').val(),
+                    power: row.find('select[name="power[]"]').val(),
                     dosage: row.find('input[name="dosage[]"]').val(),
-                    timings: row.find('input[name="timings[]"]').val(),
+                    timings: row.find('select[name="timings[]"]').val(),
                 });
             });
             console.log(data);
