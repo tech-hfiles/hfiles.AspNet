@@ -872,7 +872,7 @@
 
                             <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
                                 <i class="fa-solid fa-cake-candles form-control-feedback"></i>
-                                <asp:TextBox runat="server" placeholder="yyyy-mm-dd" ID="txtDate" required onkeypress="return false" AutoComplete="Off" class="form-control my-2" />
+                                <asp:TextBox runat="server" placeholder="yyyy-mm-dd" ID="txtDate" required onkeypress="return" AutoComplete="Off" class="form-control my-2" />
                                 <ajaxToolkit:CalendarExtender ID="dateajax" runat="server" Format="yyyy-MM-dd" Enabled="true" TargetControlID="txtDate" />
                                 <input runat="server" id="dobTextBox1" style="display: none; visibility: hidden;" type="date" class="form-control my-2" value="2024-01-01" required />
                             </div>

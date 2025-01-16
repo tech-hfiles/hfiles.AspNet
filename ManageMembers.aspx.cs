@@ -1,14 +1,38 @@
 ﻿using MailKit;
+using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.Security;
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
+
+using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using static System.Net.WebRequestMethods;
+using System.Diagnostics;
+
+
+
 
 namespace hfiles
 {
@@ -19,12 +43,26 @@ namespace hfiles
         int Requestcount = 0;
         private object Id;
         private object newIsActive;
+       // private string txtEmail;
+       // private string txtMobile;
+        private string hfUserId;
+        private object commandArgument;
+        private object Profileupload;
+        private string Extension1;
+        private string fileName1;
+        private string dt1;
+        private string filePath;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             user_members();
             requests();
-
+            if (!IsPostBack)
+            {
+                // Bind data to the repeater
+                //gvMembers1.DataSource = GetUserData();
+                gvMembers1.DataBind();
+            }
             //Label masterPageLabel = Master.FindControl("ReqCount") as Label;
 
             //if (masterPageLabel != null)
@@ -61,6 +99,13 @@ namespace hfiles
                 }
             }
         }
+
+      
+
+
+
+
+
         protected void lbtnRemove_Click(object sender, EventArgs e)
         {
             LinkButton lnk = sender as LinkButton;
@@ -363,5 +408,131 @@ namespace hfiles
 
 
         }
+
+
+       
+        protected void editBtn_Click(object sender, EventArgs e)
+        {
+            LinkButton editButton = (LinkButton)sender;
+            string userId = editButton.CommandArgument;
+            ViewState["UserId"] = userId;
+
+            // hfUserId.Value = userId;
+
+            GetUserDetails(userId);
+
+           // ScriptManager.RegisterStartupScript(this, this.GetType(), "showModal", "$('#editUserModal').modal('show');", true);
+
+        }
+
+      
+        protected void GetUserDetails(string userId)
+        {
+            txtEmail.Text = "";
+            txtMobile.Text = "";
+
+
+
+            using (MySqlConnection connection = new MySqlConnection(cs))
+            {
+                connection.Open();
+                string query = "SELECT user_email, user_contact FROM user_details WHERE user_id ="+userId;
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                   
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    
+                        while (reader.Read())
+                        {
+
+                        txtEmail.Text = reader["user_email"].ToString();
+                            txtMobile.Text = reader["user_contact"].ToString();
+                           ScriptManager.RegisterStartupScript(this, this.GetType(), "showModal", "$('#editUserModal').modal('show');", true);
+
+                       }
+                    
+                }
+            }
+            
+        }
+
+       
+        protected void lbtnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string email = txtEmail.Text;
+                string mobile = txtMobile.Text;
+                string userId = ViewState["UserId"] as string;
+
+                // Update user details
+                UpdateUserDetails(userId, email, mobile);
+
+                // Find the FileUpload control inside the parent container (e.g., Panel1)
+                FileUpload fileUpload = Panel1.FindControl("Profileupload") as FileUpload;
+
+                if (fileUpload != null && fileUpload.HasFile)
+                {
+                    string filename = Path.GetFileName(fileUpload.FileName);
+                    string filepath = Server.MapPath("~/upload/") + filename;
+
+                    // Save the file to the server
+                    fileUpload.SaveAs(filepath);
+
+                    // Update database with new image path
+                    UpdateUserProfileImage(userId, filename);
+                }
+                
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "showToastr", "showToastr('success', 'Updated successfully');location.reload()", true);
+                
+
+
+
+            }
+            catch (Exception ex)
+            {
+                // Display error message
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "showToastr", "showToastr('error', 'Update failed');", true);
+            }
+        }
+
+        private void UpdateUserDetails(string userId, string email, string mobile)
+        {
+            using (MySqlConnection con = new MySqlConnection(cs))
+            {
+                string query = "UPDATE user_details SET user_email = @Email, user_contact = @Mobile WHERE user_id = @UserID";
+                using (MySqlCommand cmd = new MySqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", userId);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@Mobile", mobile);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+        }
+
+       
+       
+        private void UpdateUserProfileImage(string userId, string filename)
+        {
+            string filePath = filename;
+
+            // Example: SQL query to update the database
+            string query = "UPDATE user_details SET user_image = @ImagePath WHERE user_id = @UserId";
+            using (MySqlConnection conn = new MySqlConnection(cs))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@ImagePath", filePath);
+                    cmd.Parameters.AddWithValue("@UserId", userId);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+      
     }
 }
