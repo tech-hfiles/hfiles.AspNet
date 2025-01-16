@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user.Master" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="ManageMembers.aspx.cs" Inherits="hfiles.ManageMembers" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user.Master" AutoEventWireup="true"  CodeBehind="ManageMembers.aspx.cs" Inherits="hfiles.ManageMembers" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Manage Members</title>
@@ -27,8 +27,28 @@
           }
       }
 </script>
+    
+        <script>
+            var isToastrCalled = false;
 
-    <style>
+            function showToastr(type, message) {
+                if (isToastrCalled) return;  // Prevent showing toastr multiple times
+                isToastrCalled = true;  // Set the flag to true once toastr is shown
+
+                if (type === 'success') {
+                    toastr.success(message);
+                } else if (type === 'error') {
+                    toastr.error(message);
+                }
+
+                // Optional: Reload page after toastr message
+               
+            }
+        </script>
+
+
+
+        <style>
         .manage-members-div {
             max-width: 100% !important;
         }
@@ -127,15 +147,19 @@
         }
     </style>
    
+   
+
+  
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <%--    <asp:ScriptManager ID="scm1" runat="server"></asp:ScriptManager>--%>
-    <div class="container-search mt-3 w-100" >
+    <%--    <asp:ScriptManager ID="scm1" runat="server"></asp:Scri ptManager>--%>
+    <div class="container-search mt-3 w-100">
         <div class="row d-flex align-items-center w-100">
-            <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
-    <a class="back-arrow-btn-2" href="avatar2.aspx" style="margin-left: 20px;">Back
-    </a>
-</div>
+            <div class="col-md-4 d-flextent-md-start justify-content-start py-1">
+                <a class="back-arrow-btn-tar2.amargin-left: 20px;">Back
+                </a>
+            </div>
             <div class="col-12 col-md-8 col-xl-6 search-file">
                 <i class="fa-solid fa-magnifying-glass" style="position: absolute;"></i>
                 <asp:TextBox ID="SearchInput" OnTextChanged="SearchInput_TextChanged" AutoPostBack="true" runat="server" placeholder="Search member by Name" class="form-control" />
@@ -166,6 +190,7 @@
                                 </ul>
                                 <asp:LinkButton class="btn btn-accept" ID="LinkButton1" runat="server" Text="Accept" OnClick="acceptBtn_Click" CommandArgument='<%# Eval("sentby")%>'></asp:LinkButton>
                                 <asp:LinkButton ID="LinkButton2" class="btn btn-reject" runat="server" Text="Reject" OnClick="rejectBtn_Click" CommandArgument='<%# Eval("sentby")%>'></asp:LinkButton>
+                               
                             </div>
 
                         </ItemTemplate>
@@ -237,99 +262,187 @@
                         <div class="">
                         </div>
                     </div>
+</div>
+               <div class="container-fluid member-cards">
+    <div class="row justify-content-center gap-3">
+        <h2 class="text-center heading my-3">Members List</h2>
+        <asp:Repeater ID="gvMembers1" runat="server">
+            <ItemTemplate>
+                <div class="profile-card">
+                    <!-- Profile Image -->
+                    <img class="members-image" src='<%# ResolveUrl(string.Format("~/upload/{0}", string.IsNullOrEmpty(Eval("user_image").ToString()) ? "../My Data/default-user-profile.png" : Eval("user_image"))) %>'
+                        alt="<%# Eval("user_firstname") %>" class="img-fluid" />
 
-                    <%--</div>--%>
+                    <%--<div class="Addbasicbtnboth">
+                        <!-- Button to Show File Upload -->
+                        <asp:Button ID="showInputButton" CssClass="button-change" runat="server" Text="Change Profile Image" OnClientClick='<%# "toggleFileUpload(this, " + Eval("user_id") + "); return false;" %>' />
+
+                        <!-- File Upload Section -->
+                      <asp:FileUpload ID="Profileupload" CssClass="form-control" runat="server" accept=".png,.jpg,.jpeg" />
+        <asp:LinkButton ID="LinkButton3" CssClass="btn btn-primary" runat="server" Text="Edit"
+            OnClick="btnUpload_Click1" ValidationGroup="Profileupload" CommandArgument='<%# Eval("user_id") %>'></asp:LinkButton>
+                      
+                    </div>--%>
+                   <%--  <div class="Addbasicbtnboth">
+     <asp:Button ID="showInputButton" CssClass="button-change" runat="server" Text="Change Profile Image" OnClientClick="showFileUpload();" />
+     
+                            <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+       <ContentTemplate>
+           <asp:FileUpload CssClass="form-control hidden" runat="server" accept=".png,.jpg,.jpeg,.PNG,.JPG,.JPEG" ID="Profileupload" />
+       </ContentTemplate>
+       <Triggers>
+           <asp:AsyncPostBackTrigger ControlID="LinkButton3" EventName="Click" />
+
+       </Triggers>
+   </asp:UpdatePanel>
+
+
+ </div>--%>
+
+                   <%--  <asp:LinkButton ID="LinkButton3" CssClass="btn btn-primary" runat="server" Text="Submit"
+     OnClick="btnUpload_Click1"  CommandArgument='<%# Eval("user_id") %>'></asp:LinkButton>--%>
+
+                    <h5 class="font-weight-bold u-name">
+                        <%# Eval("user_firstname") + " " + Eval("user_lastname") %>
+                    </h5>
+                    <ul class="list-unstyled text-left mx-auto">
+                        <li><strong>HF - ID :</strong> <%# Eval("user_membernumber") %></li>
+                        <li><strong>Email:</strong> <%# Eval("user_email") %></li>
+                        <li><strong>Mobile No :</strong> <%# Eval("user_contact") %></li>
+                    </ul>
+
+                    <asp:LinkButton ID="LinkButtonEdit" class="btn btn-primary" runat="server" Text="Edit" OnClick="editBtn_Click" CommandArgument='<%# Eval("user_id") %>'></asp:LinkButton>
+
+                    <asp:LinkButton ID="lbtnRemove" class="btn btn-delete" runat="server" OnClick="lbtnRemove_Click"
+                        OnClientClick="return confirmDelete();" Text="Delete"
+                        CommandArgument='<%# Eval("user_id") + "|" + Eval("user_relation") + "|" + Eval("DependentUserId") + "|" + Eval("User_Reference") %>'>
+                    </asp:LinkButton>
                 </div>
-                <div class="container-fluid member-cards">
-                    <div class="row justify-content-center gap-3">
-                        <h2 class="text-center heading my-3">Members List</h2>
-                        <asp:Repeater ID="gvMembers1" runat="server">
-                            <ItemTemplate>
-                                <div class="profile-card">
-                                    <img class="members-image" src="<%# ResolveUrl(string.Format("~/upload/{0}", string.IsNullOrEmpty(Eval("user_image").ToString()) ? "../My Data/default-user-profile.png" : Eval("user_image"))) %>" alt="<%#Eval("user_firstname")  %>" class="img-fluid">
-                                    <h5 class="font-weight-bold u-name"><%#Eval("user_firstname") + " " + Eval("user_lastname") %></h5>
-                                    <ul class="list-unstyled text-left mx-auto">
-                                        <li><strong>HF - ID :</strong> <%# Eval("user_membernumber")%></li>
-                                        <li><strong>Email:</strong> <%# Eval("user_email")%></li>
-                                        <li><strong>Mobile No :</strong> <%# Eval("user_contact")%></li>
-                                    </ul>
+            </ItemTemplate>
+        </asp:Repeater>
 
-                                    
-                                    <asp:LinkButton ID="lbtnRemove" class="btn btn-delete" runat="server" OnClick="lbtnRemove_Click"  OnClientClick="return confirmDelete();" Text="Delete" CommandArgument='<%#Eval("user_id")+"|"+Eval("user_relation") +"|"+ Eval("DependentUserId") +"|"+ Eval("User_Reference")  %>'></asp:LinkButton>
+    </div>
+</div>
 
-                                </div>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                    </div>
-                </div>
 
 
                 <%--<asp:GridView ID="gvMembers" runat="server" CssClass="table table-bordered manage-members-table" AutoGenerateColumns="false" OnRowDataBound="gvMembers_RowDataBound" AlternatingRowStyle-BackColor="Wheat">
-                                <Columns>
-                                    <asp:TemplateField HeaderText="Serial Number">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblSerialNumber" runat="server"></asp:Label>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="HFiles Number">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblHFilesNumber" Text='<%#Eval("user_membernumber") %>' runat="server"></asp:Label>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
+                 <Columns>
+                     <asp:TemplateField HeaderText="Serial Number">
+                         <ItemTemplate>
+                             <asp:Label ID="lblSerialNumber" runat="server"></asp:Label>
+                         </ItemTemplate>
+                     </asp:TemplateField>
+                     <asp:TemplateField HeaderText="HFiles Number">
+                         <ItemTemplate>
+                             <asp:Label ID="lblHFilesNumber" Text='<%#Eval("user_membernumber") %>' runat="server"></asp:Label>
+                         </ItemTemplate>
+                     </asp:TemplateField>
 
-                                    <asp:TemplateField HeaderText="Image">
-                                        <ItemTemplate>
-                                            <asp:Image ID="profileImage" runat="server" ImageUrl='<%# string.IsNullOrEmpty(Eval("user_image").ToString()) ? "../My Data/default-user-profile.png" : "~/upload/" + Eval("user_image") %>' Height="50px" Width="50px"></asp:Image>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Image">
+                         <ItemTemplate>
+                             <asp:Image ID="profileImage" runat="server" ImageUrl='<%# string.IsNullOrEmpty(Eval("user_image").ToString()) ? "../My Data/default-user-profile.png" : "~/upload/" + Eval("user_image") %>' Height="50px" Width="50px"></asp:Image>
+                         </ItemTemplate>
+                     </asp:TemplateField>
 
-                                    <asp:TemplateField HeaderText="Full Name">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblFullname" Text='<%#Eval("user_firstname") %>' runat="server"></asp:Label>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Email ID">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblEmail" Text='<%#Eval("user_email") %>' runat="server"></asp:Label>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Contat No.">
-                                        <ItemTemplate>
+                     <asp:TemplateField HeaderText="Full Name">
+                         <ItemTemplate>
+                             <asp:Label ID="lblFullname" Text='<%#Eval("user_firstname") %>' runat="server"></asp:Label>
+                         </ItemTemplate>
+                     </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Email ID">
+                         <ItemTemplate>
+                             <asp:Label ID="lblEmail" Text='<%#Eval("user_email") %>' runat="server"></asp:Label>
+                         </ItemTemplate>
+                     </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Contat No.">
+                         <ItemTemplate>
 
-                                            <asp:Label ID="lblContact" Text='<%#Eval("user_contact") %>' runat="server"></asp:Label>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
+                             <asp:Label ID="lblContact" Text='<%#Eval("user_contact") %>' runat="server"></asp:Label>
+                         </ItemTemplate>
+                     </asp:TemplateField>
 
-                                    <asp:TemplateField HeaderText="Actions">
-                                        <ItemTemplate>
-                                            <%-- <asp:LinkButton ID="LbtnEdit" runat="server" OnClick="LbtnEdit_Click" CommandArgument='<%#Eval("user_id") %>'>
-                                        <i class="fa-solid fa-pen-to-square fa-1x color-thm-blue"></i>
-                                    </asp:LinkButton>--%>
-                <%--<a href='<%# "addmember.aspx?UserId=" + Eval("user_id") %>'>
-                                        <i class="fa-solid fa-pen-to-square fa-1x color-thm-blue"></i>
-                                    </a>--%>
+                     <asp:TemplateField HeaderText="Actions">
+                         <ItemTemplate>
+                             <%-- <asp:LinkButton ID="LbtnEdit" runat="server" OnClick="LbtnEdit_Click" CommandArgument='<%#Eval("user_id") %>'>
+                         <i class="fa-solid fa-pen-to-square fa-1x color-thm-blue"></i>
+                     </asp:LinkButton>--%>
+ <%--<a href='<%# "addmember.aspx?UserId=" + Eval("user_id") %>'>
+                         <i class="fa-solid fa-pen-to-square fa-1x color-thm-blue"></i>
+                     </a>--%>
 
-                <%--  <a href="#" onclick="return confirm('Are you sure you want to delete this user?');">
-                                        
-                                        <i class="fa-solid fa-trash fa-1x color-thm-danger"></i>
-                                    </a>--%>
+ <%--  <a href="#" onclick="return confirm('Are you sure you want to delete this user?');">
+                         
+                         <i class="fa-solid fa-trash fa-1x color-thm-danger"></i>
+                     </a>--%>
 
-                <%--   </ItemTemplate>
-                                    </asp:TemplateField>
+ <%--   </ItemTemplate>
+                     </asp:TemplateField>
 
-                                </Columns>
+                 </Columns>
 
-                            </asp:GridView>--%>
-
-                <div id="toast">
-                    <div id="img">
-                        <img src="assets/h-file-logo-white.png" />
-                    </div>
-                    <div id="desc"></div>
+             </asp:GridView>--%>     <div id="toast">
+     <div id="img">
+         <img src="assets/h-file-logo-white.png" />
+     </div>
+     <div id="desc"></div>
+ </div>
+<asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center">
+    <div id="editUserModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="editUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
                 </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="txtEmail">Email</label>
+                        <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="Enter your email"></asp:TextBox>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label for="txtMobile">Mobile Number</label>
+                        <asp:TextBox ID="txtMobile" runat="server" CssClass="form-control" placeholder="Enter your mobile number"></asp:TextBox>
+                    </div>
+                    <asp:HiddenField ID="hfUserId" runat="server" />
+                    
+                    <!-- Profile Image Upload Section -->
+                    <div class="Addbasicbtnboth mt-3">
+                      <%--  <asp:Button ID="showInputButton" CssClass="btn btn-info" runat="server" Text="Change Profile Image" OnClientClick="showFileUpload(); return false;" />--%>
+                        
+                       
+
+                            <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+                                <ContentTemplate>
+                                    <asp:Button ID="Button1" CssClass="btn btn-info" runat="server" Text="Change Profile Image" OnClientClick="showFileUpload(); return false;" />
+                                    <%--<asp:LinkButton ID="LinkButton3" runat="server" OnClick="lbtnSave_Click" CssClass="btn btn-primary">Save</asp:LinkButton>--%>
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:PostBackTrigger ControlID="lbtnSave" />
+                                </Triggers>
+                            </asp:UpdatePanel>
+                         <asp:FileUpload ID="Profileupload" runat="server" CssClass="form-control hidden" accept=".png,.jpg,.jpeg" />
+                    </div>
+                    
+                </div>
+                <div class="modal-footer mt-3">
+                    <button type="button" id="btnClose" class="btn btn-secondary mx-3" data-bs-dismiss="modal">Close</button>
+                    <asp:LinkButton ID="lbtnSave" runat="server" OnClick="lbtnSave_Click" Text="Save" CssClass="btn btn-primary"></asp:LinkButton>
+                </div>
+            </div>
+        </div>
+    </div>
+</asp:Panel>
+
+
+
+
+
+
+
             </ContentTemplate>
-              <Triggers>
-  </Triggers>
+            <Triggers>
+            </Triggers>
         </asp:UpdatePanel>
 
         <%--<div>
@@ -413,25 +526,130 @@
                                 </div>
                             </div>
                         </div>--%>
-        <%--</div>
-        </div>--%>
-        <%----%>
-    </div>
+       
+        </div>
+   
 
-    <%-- </div>
-    </div>--%>
+     <script>
+         function launch_toast(message, icon) {
+             var x = document.getElementById("toast")
+             x.className = "show";
+             document.getElementById("img").innerHTML = "<img src='" + icon + "' />"; // Set the message
+             document.getElementById("desc").innerHTML = message; // Set the message
+             setTimeout(function () { x.className = x.className.replace("show", ""); });
+         }
+         //launch_toast()
+     </script>
+
+   <%--<script type="text/javascript">
+       //document.getElementById("change-profile-img").addEventListener("click", function () {
+       //    var inputBox = document.getElementById("Profileupload");
+       //    inputBox.classList.remove("hidden");
+       //});
+       function showFileUpload() {
+           var fileUpload = document.getElementById('<%= Profileupload.ClientID %>');
+           fileUpload.classList.remove("hidden");
+       }
+       function previewImage() {
+           var fileInput = document.getElementById('Profileupload');
+           var preview = document.getElementById('imagePreview');
+
+           // Check if file input and preview elements exist
+           if (!fileInput || !preview) {
+               console.error("File input or preview element not found.");
+               return;
+           }
+
+           var file = fileInput.files[0];
+
+           // Check if a file is selected
+           if (file) {
+               var reader = new FileReader();
+
+               reader.onload = function (e) {
+                   // Create an image element
+                   var img = document.createElement('img');
+                   img.src = e.target.result;
+
+                   img.width = 100;
+                   img.height = 100;
+
+                   // Clear any previous preview
+                   preview.innerHTML = '';
+
+                   // Append the image to the preview div
+                   preview.appendChild(img);
+               };
+
+               // Read the file as a data URL
+               reader.readAsDataURL(file);
+           } else {
+               // Clear the preview if no file is selected
+               preview.innerHTML = '';
+           }
+       }
+
+
+       //function uploadImage() {
+       //    var fileUpload = document.getElementById("Profileupload");
+       //    var imagePreview = document.getElementById("imagePreview");
+
+       //    if (fileUpload.files.length > 0) {
+       //        var file = fileUpload.files[0];
+       //        var reader = new FileReader();
+
+       //        reader.onloadend = function () {
+       //            var base64String = reader.result;
+       //            PageMethods.UploadImage(base64String, onSuccess, onError);
+       //        };
+
+       //        reader.readAsDataURL(file);
+       //    }
+       //}
+
+       function onSuccess(response) {
+           // Update the image preview source
+           document.getElementById("imagePreview").src = response;
+       }
+
+       function onError(error) {
+           // Handle error (display error message, log, etc.)
+           console.error(error);
+       }
+       function launch_toast() {
+           var x = document.getElementById("toast")
+           x.className = "show";
+           setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
+       }
+       //launch_toast()
+
+   </script>--%>
     <script>
-        function launch_toast(message, icon) {
-            var x = document.getElementById("toast")
-            x.className = "show";
-            document.getElementById("img").innerHTML = "<img src='" + icon + "' />"; // Set the message
-            document.getElementById("desc").innerHTML = message; // Set the message
-            setTimeout(function () { x.className = x.className.replace("show", ""); });
-        }
-        //launch_toast()
-    </script>
-    
-     
+        function showFileUpload() {
+            var fileUpload = document.getElementById('<%= Profileupload.ClientID %>');
+           fileUpload.classList.remove('hidden');
+           return false; // prevent the page from reloading
+       }
+</script>
 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <style>
+
+.hidden {
+    display: none;
+}
+    </style>
+    
+<%--<style>
+    .hidden {
+        display: none;
+    }
+    .file-upload-container {
+        margin-top: 10px;
+    }
+</style>--%>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </asp:Content>
