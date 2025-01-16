@@ -89,14 +89,14 @@
           <div style="display:flex;justify-content:end">
               <div style="padding:10px">
                   <button type="button" class="responsive-button" id="addprescription" onclick="addPrescription()">Add <i class="fa fa-add" style="color:#ffd101"></i></button>
-                  <button type="button" class="responsive-button" id="accessprescription" onclick="accessPrescription()">Access <i class="fa fa-check-circle-o" style="color:#ffd101"></i></button>
-                  <button type="button" class="responsive-button" id="shareprescription" onclick="sharePrescription()">Share <i class="fa fa-share" style="color:#ffd101"></i></button>
+                  <button type="button" class="responsive-button" id="accessprescription" data-bs-toggle="modal" data-bs-target="#AccessModal">Access <i class="fa fa-check-circle-o" style="color:#ffd101"></i></button>
+                  <button type="button" class="responsive-button" id="shareprescription" data-bs-toggle="modal" data-bs-target="#ShareModal">Share <i class="fa fa-share" style="color:#ffd101"></i></button>
               </div>
              
 
           </div>
             
-        <%--</form>--%>
+       
 
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -209,6 +209,55 @@
     </div>
   </div>
 </div>
+
+
+            <div class="modal fade" id="AccessModal" tabindex="-1" aria-labelledby="AccessModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="AccessModalLabel">Access Modal Title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    <p>This is the body content of the AccessModal.</p>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+                </div>
+                <div class="modal fade" id="ShareModal" tabindex="-1" aria-labelledby="ShareModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <h5 class="modal-title" id="ShareModalLabel">Access Modal Title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+            <p>This is the body content of the ShareModal.</p>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
+</div>
+        </div>
+
+
+
 
             <script>
                 var FetchedData = [];
@@ -490,7 +539,12 @@
                 }
             </script>
 
+            <script>
+
+            </script>
             
+
+
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>
