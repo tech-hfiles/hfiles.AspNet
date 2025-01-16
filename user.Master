@@ -141,76 +141,96 @@
 
         /* menu (the right one) */
 
-        .profile-menu {
-            position: absolute;
-            top: calc(100% + 8px);
-            right: 70px;
-            width: 200px;
-            min-height: 100px;
-            background: #fff;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
-            opacity: 0;
-            transform: translateY(-10px);
-            visibility: hidden;
-            transition: 300ms;
-        }
+        /* General Profile Menu */
+.profile-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 20px;
+    width: 200px;
+    min-height: 100px;
+    background: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    transition: 300ms;
+}
 
-            .profile-menu::before {
-                content: '';
-                position: absolute;
-                top: -10px;
-                right: 14px;
-                width: 20px;
-                height: 20px;
-                background: #fff;
-                transform: rotate(45deg);
-                z-index: -1;
-            }
+.profile-menu.active {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    z-index: 999;
+}
 
-            .profile-menu.active {
-                opacity: 1;
-                transform: translateY(0);
-                visibility: visible;
-                z-index: 999;
-            }
+/* Profile Menu Items */
+.profile-menu ul {
+    padding: 0;
+    margin: 0;
+}
 
-            /* menu links */
+.profile-menu ul li {
+    list-style: none;
+    position: relative; /* Required for dropdowns */
+}
 
-            .profile-menu ul {
-                position: relative;
-                right: 0px;
-                display: flex;
-                flex-direction: column;
-                z-index: 1000;
-                background: #fff;
-                justify-content: center;
-                padding: 0;
-                margin: 0;
-                width: fit-content;
-            }
+/* Hover effect for main list items */
+.profile-menu ul li:hover {
+    background: #eee;
+}
 
-                .profile-menu ul li {
-                    list-style: none;
-                }
+/* Link styles */
+.profile-menu ul li a {
+    text-decoration: none;
+    color: #000;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1em;
+    border-bottom: 1px solid #ccc;
+}
 
-                    .profile-menu ul li:hover {
-                        background: #eee;
-                    }
+/* Icons */
+.profile-menu ul li a i {
+    font-size: 1.2em;
+}
 
-                    .profile-menu ul li a {
-                        text-decoration: none;
-                        color: #000;
-                        display: flex;
-                        align-items: center;
-                        padding: 15px 20px;
-                        gap: 6px;
-                        font-size: 1em;
-                        border-bottom: 1px solid #ccc;
-                    }
+/* Nested Dropdown (My Account Submenu) */
+.profile-menu ul li.has-dropdown ul.dropdown {
+    display: none; /* Hide by default */
+    /*position: absolute;
+    left: 100%;*/ /* Display submenu to the right */
+    top: 0;
+    min-width: 180px;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding-left:25px;
+}
 
-                        .profile-menu ul li a i {
-                            font-size: 1.2em;
-                        }
+.profile-menu ul li.has-dropdown:hover ul.dropdown {
+    display: block; /* Show submenu on hover */
+}
+
+/* Dropdown items */
+.profile-menu ul li.has-dropdown ul.dropdown li {
+    border: none;
+}
+
+.profile-menu ul li.has-dropdown ul.dropdown li a {
+    padding: 10px 15px;
+    background: #fff;
+    font-size: 0.9em;
+    color: #333;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Hover effect for dropdown links */
+.profile-menu ul li.has-dropdown ul.dropdown li:hover {
+    background: #f7f7f7;
+}
+
 
         .members-image {
             border-radius: 50%;
@@ -360,7 +380,36 @@
                                 <li><a><i class="fa fa-regular fa-id-badge color-thm-blue"></i>
                                     <asp:Label ID="memberId" Style="font-weight: 600; font-family: 'Red Hat Display', sans-serif;" runat="server" Text="" CssClass="color-thm-blue" data-toggle="modal" data-target="#exampleModal"></asp:Label></a></li>
                                 <li><a href="addbasicdetails.aspx" class="color-thm-blue"><i class="fa fa-solid fa-circle-info"></i>My Profile</a></li>
-                                <li><a href="FeedBack.aspx" class="color-thm-blue"><i class="fa fa-comments-o"></i>Feedback Form</a></li>
+                                <li class="has-dropdown">
+            <a href="#" class="color-thm-blue">
+                <i class="fa fa-user-circle"></i> My Account
+            </a>
+            <ul class="dropdown">
+                <li>
+    <a href="Membershipcard.aspx" class="color-thm-blue">
+        <i class="fa fa-id-card"></i> Membership Card
+    </a>
+</li>
+                <li>
+    <a href="SubscriptionPlan.aspx" class="color-thm-blue">
+        <i class="fa fa-credit-card"></i> Subscription Plans
+    </a>
+</li>
+                <li>
+    <a href="WellnessKit.aspx" class="color-thm-blue">
+        <i class="fa fa-heart-o"></i> Wellness Kit
+    </a>
+</li>
+                <li>
+                    <a href="FeedBack.aspx" class="color-thm-blue">
+                        <i class="fa fa-comments-o"></i> Feedback Form
+                    </a>
+                </li>
+            </ul>
+        </li>
+                                
+                                
+                                
                                 <asp:UpdatePanel ID="RequestCount" runat="server">
                                     <ContentTemplate>
                                         <li><a href="managemembers.aspx" class="color-thm-blue"><i class="fa fa-solid fa-user"></i>My Members

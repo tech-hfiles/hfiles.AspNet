@@ -282,6 +282,7 @@
     <Content Include="addbasicdetails.aspx" />
     <Content Include="AllReports.aspx" />
     <Content Include="AllReports123.aspx" />
+    <Content Include="assets2\family-prescription-logo.jpeg" />
     <Content Include="assets\Full Logo Rectangle.png" />
     <Content Include="captchacode.aspx" />
     <Content Include="ContentDeliver.aspx" />
@@ -796,6 +797,7 @@
     <Content Include="medical-history-icons\Obesity.png" />
     <Content Include="medical-history-icons\Psoriasis.png" />
     <Content Include="medical-history-icons\Thyroid.png" />
+    <Content Include="Membershipcard.aspx" />
     <Content Include="MemberSignup.aspx" />
     <Content Include="mentalhealth.jpg" />
     <Content Include="My Data\Asset 1.png" />
@@ -930,6 +932,7 @@
     <Content Include="style2.css" />
     <Content Include="style3.css" />
     <Content Include="style_avatar.css" />
+    <Content Include="SubscriptionPlan.aspx" />
     <Content Include="Suppor Group %28BG  &amp; Icons%29\Asset 166.png" />
     <Content Include="Suppor Group %28BG  &amp; Icons%29\Asset 167.png" />
     <Content Include="Suppor Group %28BG  &amp; Icons%29\Asset 168.png" />
@@ -995,6 +998,7 @@
     <Content Include="video-blog\video-blog.mp4" />
     <Content Include="video-blog\Video-thumb.jpg" />
     <Content Include="Web.config" />
+    <Content Include="WellnessKit.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="addbasicdetails.aspx.cs">
@@ -1179,6 +1183,13 @@
     <Compile Include="ManageMembers.aspx.designer.cs">
       <DependentUpon>ManageMembers.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Membershipcard.aspx.cs">
+      <DependentUpon>Membershipcard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Membershipcard.aspx.designer.cs">
+      <DependentUpon>Membershipcard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MemberSignup.aspx.cs">
       <DependentUpon>MemberSignup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1236,6 +1247,13 @@
     <Compile Include="signup_old.aspx.designer.cs">
       <DependentUpon>signup_old.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SubscriptionPlan.aspx.cs">
+      <DependentUpon>SubscriptionPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubscriptionPlan.aspx.designer.cs">
+      <DependentUpon>SubscriptionPlan.aspx</DependentUpon>
+    </Compile>
     <Compile Include="supportgroup.aspx.cs">
       <DependentUpon>supportgroup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1263,6 +1281,13 @@
     </Compile>
     <Compile Include="user.Master.designer.cs">
       <DependentUpon>user.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WellnessKit.aspx.cs">
+      <DependentUpon>WellnessKit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WellnessKit.aspx.designer.cs">
+      <DependentUpon>WellnessKit.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

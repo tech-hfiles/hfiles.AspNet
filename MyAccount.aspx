@@ -434,19 +434,6 @@ accordion-button:not(.collapsed) {
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            setTimeout(() => {
-                var masterImage = document.getElementById('<%= Master.FindControl("membershipImage").ClientID %>');
-                var childImage = document.getElementById('ContentPlaceHolder1_membershipImageAccount');
-
-                if (masterImage && childImage) {
-                    // Set the Master Page image `src` to the Child Page image
-                    childImage.src = masterImage.src;
-                }
-            }, 500);
-        });
-        
-    </script>
+    
     
 </asp:Content>

@@ -38,7 +38,8 @@
             </style>
             <div class="row">
                 <div style="display:flex;margin:auto;justify-content:center">
-                    <h1 style="color:#0331b5">Family Prescription</h1>
+                    <img src="/assets2/family-prescription-logo.jpeg" style="width:60px;" />
+                    <h1 style="color:#0331b5;margin-top:auto;margin-bottom:auto;">Family Prescription</h1>
                 </div>
                 
             </div>

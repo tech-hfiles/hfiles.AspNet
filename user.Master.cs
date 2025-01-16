@@ -253,7 +253,7 @@ namespace hfiles
 
         protected void upgradeMemberButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/MyAccount.aspx");
+            Response.Redirect("~/SubscriptionPlan.aspx");
             //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "toastr.success('Member Upgraded Successfully.')", true);
         }
 
