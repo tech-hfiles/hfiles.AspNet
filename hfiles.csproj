@@ -286,6 +286,7 @@
     <Content Include="captchacode.aspx" />
     <Content Include="ContentDeliver.aspx" />
     <Content Include="Error.aspx" />
+    <Content Include="FamilyPrescription.aspx" />
     <Content Include="FeedBack.aspx" />
     <Content Include="index2.aspx" />
     <Content Include="MedicalHistory.aspx" />
@@ -1037,6 +1038,13 @@
     </Compile>
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FamilyPrescription.aspx.cs">
+      <DependentUpon>FamilyPrescription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FamilyPrescription.aspx.designer.cs">
+      <DependentUpon>FamilyPrescription.aspx</DependentUpon>
     </Compile>
     <Compile Include="FeedBack.aspx.cs">
       <DependentUpon>FeedBack.aspx</DependentUpon>
