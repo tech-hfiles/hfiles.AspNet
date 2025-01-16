@@ -79,6 +79,48 @@ namespace hfiles
 
             return accessToArray;
         }
+        protected void SetAccessToArrayByUserId(int userId, string accessTo)
+        {
+            // SQL queries
+            string checkQuery = "SELECT COUNT(*) FROM user_prescriptionAccess WHERE UserId = @UserId";
+            string updateQuery = "UPDATE user_prescriptionAccess SET AccessTo = @AccessTo WHERE UserId = @UserId";
+            string insertQuery = "INSERT INTO user_prescriptionAccess (UserId, AccessTo) VALUES (@UserId, @AccessTo)";
 
+            using (MySqlConnection con = new MySqlConnection(cs))
+            {
+                con.Open();
+
+                // Check if the UserId exists
+                bool userExists;
+                using (MySqlCommand checkCmd = new MySqlCommand(checkQuery, con))
+                {
+                    checkCmd.Parameters.AddWithValue("@UserId", userId);
+                    userExists = Convert.ToInt32(checkCmd.ExecuteScalar()) > 0;
+                }
+
+                if (userExists)
+                {
+                    // If UserId exists, update the AccessTo
+                    using (MySqlCommand updateCmd = new MySqlCommand(updateQuery, con))
+                    {
+                        updateCmd.Parameters.AddWithValue("@UserId", userId);
+                        updateCmd.Parameters.AddWithValue("@AccessTo", accessTo);
+                        updateCmd.ExecuteNonQuery();
+                        Console.WriteLine("AccessTo updated successfully.");
+                    }
+                }
+                else
+                {
+                    // If UserId does not exist, insert a new row
+                    using (MySqlCommand insertCmd = new MySqlCommand(insertQuery, con))
+                    {
+                        insertCmd.Parameters.AddWithValue("@UserId", userId);
+                        insertCmd.Parameters.AddWithValue("@AccessTo", accessTo);
+                        insertCmd.ExecuteNonQuery();
+                        Console.WriteLine("New user added and AccessTo set successfully.");
+                    }
+                }
+            }
+        }
     }
 }
