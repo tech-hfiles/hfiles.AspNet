@@ -156,9 +156,10 @@
     <%--    <asp:ScriptManager ID="scm1" runat="server"></asp:Scri ptManager>--%>
     <div class="container-search mt-3 w-100">
         <div class="row d-flex align-items-center w-100">
-            <div class="col-md-4 d-flextent-md-start justify-content-start py-1">
-                <a class="back-arrow-btn-tar2.amargin-left: 20px;">Back
-                </a>
+            <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
+<a class="back-arrow-btn-2" href="avatar2.aspx" style="margin-left: 20px;">Back
+ </a>
+
             </div>
             <div class="col-12 col-md-8 col-xl-6 search-file">
                 <i class="fa-solid fa-magnifying-glass" style="position: absolute;"></i>

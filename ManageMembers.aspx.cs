@@ -16,20 +16,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 
-using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
-using System.IO;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using static System.Net.WebRequestMethods;
-using System.Diagnostics;
 
 
 
@@ -62,6 +48,12 @@ namespace hfiles
                 // Bind data to the repeater
                 //gvMembers1.DataSource = GetUserData();
                 gvMembers1.DataBind();
+            }
+
+            if (Session["showToastr"] != null && (bool)Session["showToastr"])
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "showToastr", "showToastr('success', 'Updated successfully');", true);
+                Session["showToastr"] = null; // Clear the flag
             }
             //Label masterPageLabel = Master.FindControl("ReqCount") as Label;
 
@@ -465,10 +457,9 @@ namespace hfiles
                 string mobile = txtMobile.Text;
                 string userId = ViewState["UserId"] as string;
 
-                // Update user details
+              
                 UpdateUserDetails(userId, email, mobile);
 
-                // Find the FileUpload control inside the parent container (e.g., Panel1)
                 FileUpload fileUpload = Panel1.FindControl("Profileupload") as FileUpload;
 
                 if (fileUpload != null && fileUpload.HasFile)
@@ -476,16 +467,17 @@ namespace hfiles
                     string filename = Path.GetFileName(fileUpload.FileName);
                     string filepath = Server.MapPath("~/upload/") + filename;
 
-                    // Save the file to the server
+                 
                     fileUpload.SaveAs(filepath);
 
-                    // Update database with new image path
+                  
                     UpdateUserProfileImage(userId, filename);
                 }
-                
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "showToastr", "showToastr('success', 'Updated successfully');location.reload()", true);
-                
 
+                //ScriptManager.RegisterStartupScript(this, this.GetType(), "showToastr", "showToastr('success', 'Updated successfully');", true);
+
+                Session["showToastr"] = true;
+                Response.Redirect(Request.Url.AbsoluteUri);
 
 
             }
