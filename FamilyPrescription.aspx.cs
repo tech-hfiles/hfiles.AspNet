@@ -16,8 +16,6 @@ namespace hfiles
         string cs = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            user_members();
-            int[] AccessMembers = GetAccessToArrayByUserId(Convert.ToInt32(Session["Userid"].ToString()));
 
         }
 
@@ -41,9 +39,16 @@ namespace hfiles
                 }
             }
         }
-
-        protected int[] GetAccessToArrayByUserId(int userId)
+        [System.Web.Services.WebMethod]
+        public static int[] GetAccessFamilyPrescription()
         {
+            FamilyPrescription1 fp = new FamilyPrescription1();
+            int[] AccessMember = fp.GetAccessToArrayByUserId();
+            return AccessMember;
+        }
+        private int[] GetAccessToArrayByUserId()
+        {
+            int userId = DAL.validateInt(Session["Userid"]);
             int[] accessToArray = Array.Empty<int>();
 
             // Define the query to fetch AccessTo for the provided UserId
@@ -79,8 +84,16 @@ namespace hfiles
 
             return accessToArray;
         }
-        protected void SetAccessToArrayByUserId(int userId, string accessTo)
+
+        [System.Web.Services.WebMethod]
+        public static void SetAccessFamilyPrescription(string Access)
         {
+            FamilyPrescription1 fp = new FamilyPrescription1();
+            fp.SetAccessToArrayByUserId(Access);
+        }
+        private void SetAccessToArrayByUserId(string accessTo)
+        {
+            int userId = DAL.validateInt(Session["Userid"]);
             // SQL queries
             string checkQuery = "SELECT COUNT(*) FROM user_prescriptionAccess WHERE UserId = @UserId";
             string updateQuery = "UPDATE user_prescriptionAccess SET AccessTo = @AccessTo WHERE UserId = @UserId";

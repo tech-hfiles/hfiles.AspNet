@@ -216,19 +216,19 @@
             <div class="modal-content">
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h5 class="modal-title" id="AccessModalLabel">Access Modal Title</h5>
+                    <h5 class="modal-title" id="AccessModalLabel">Give Access</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <!-- Modal Body -->
                 <div class="modal-body">
-                    <p>This is the body content of the AccessModal.</p>
+                    <div id="checkboxContainer" style="display:flex;justify-content:space-evenly;width:40%;"></div>
                 </div>
 
                 <!-- Modal Footer -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" id="SetAccess">Save changes</button>
                 </div>
             </div>
         </div>
@@ -261,8 +261,10 @@
 
             <script>
                 var FetchedData = [];
+                var AccessMember = [];
                 var memberOptionsFetched = false;
                 var conditionOptionsFetched = false;
+                GetAccessData();
                 function fetchData() {
                     FetchedData = [];
                     $.ajax({
@@ -306,6 +308,23 @@
                         }
                     });
                 }
+                function GetAccessData() {
+                    FetchedData = [];
+                    $.ajax({
+                        type: "POST", // Use POST instead of GET
+                        url: "FamilyPrescription.aspx/GetAccessFamilyPrescription",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (response) {
+                            console.log("Data fetched successfully:", response.d);
+                            const dataList = JSON.parse(response.d);
+                            AccessMember = response.d;
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("Error fetching data:", error);
+                        }
+                    });
+                }
                 var memberMaster = [];
                 var conditionMaster = [];
                 var isAllMasterFetched = false;
@@ -329,7 +348,7 @@
                     newRow.setAttribute('data-id', rowData.Id);
                     newRow.innerHTML = `
           <td hidden>${rowData.Id}</td>
-          <td style="text-align:center">${memberName.user_FirstName}</td>
+          <td style="text-align:center">${rowData.user_firstname}</td>
           <td style="text-align:center">${conditionNames}</td>
           <td style="text-align:center">${rowData.Medication}</td>
           <td style="text-align:center">${rowData.Dosage}</td>
@@ -380,15 +399,45 @@
                                 success: function (response) {
                                     const Data = JSON.parse(response.d);
                                     memberMaster = Data;
+                                    const dependentMember = Data.filter(opt => opt.IsDependent == 1);
+                                    const IndependentMember = Data.filter(opt => opt.IsDependent == 0);
+
                                     console.log("Members", Data);
                                     const select = document.getElementById('MemberSelect');
-                                    memberMaster.forEach(option => {
+                                    dependentMember.forEach(option => {
                                         const opt = document.createElement('option');
                                         opt.value = option.user_id; // Set the option value
                                         opt.textContent = option.user_FirstName; // Set the option text
                                         select.appendChild(opt); // Append the option
                                     });
                                     console.log('Member Options Fetched');
+                                    const container = document.getElementById("checkboxContainer");
+                                    IndependentMember.forEach(pair => {
+                                        // Create a checkbox input
+                                        const checkbox = document.createElement("input");
+                                        checkbox.type = "checkbox";
+                                        checkbox.id = pair.user_id;  // Use the key as the ID
+                                        checkbox.name = "options";
+                                        checkbox.value = pair.user_id; // Use the key as the value
+                                        if (AccessMember.includes(pair.user_id)) {
+                                            checkbox.checked = true;
+                                        }
+                                        // Create a label
+                                        const label = document.createElement("label");
+                                        label.htmlFor = pair.user_id; // Associate the label with the checkbox
+                                        label.textContent = pair.user_FirstName; // Display the value as the label text
+
+                                        // Append checkbox and label to the container
+                                        container.appendChild(checkbox);
+                                        container.appendChild(label);
+
+                                        // Add a line break for spacing
+                                        container.appendChild(document.createElement("br"));
+                                    });
+
+
+
+
                                     resolve(); // Resolve the promise when done
                                 },
                                 error: function () {
@@ -502,7 +551,7 @@
                         data.push({
                             id: row.find('input[name="Id[]"]').val(),  // Keep the original ID if applicable
                             memberId: memberId || '',  // Use selected member ID or empty string if none
-                            condition: conditions ? conditions.join(',') : '',  // Convert conditions array to comma-separated string
+                            condition: conditions || '',  // Convert conditions array to comma-separated string
                             medication: row.find('input[name="medication[]"]').val(),
                             power: row.find('select[name="power[]"]').val(),
                             dosage: row.find('input[name="dosage[]"]').val(),
@@ -537,6 +586,43 @@
                     // Here you can send the form data to the server (e.g., through Ajax)
 
                 }
+
+
+
+                //Access
+                // Select the button and container for displaying the result
+                const fetchCheckedButton = document.getElementById("SetAccess");
+                
+
+                // Add a click event to fetch all checked checkboxes
+                fetchCheckedButton.addEventListener("click", () => {
+                    // Get all checked checkboxes with the name "options"
+                    const checkedCheckboxes = document.querySelectorAll('input[name="options"]:checked');
+
+                    // Map through the NodeList to get their values
+                    const checkedValues = String(Array.from(checkedCheckboxes).map(checkbox => checkbox.value));
+                    $.ajax({
+                        type: "POST",
+                        url: "FamilyPrescription.aspx/SetAccessFamilyPrescription", // Update with your page name
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        data: JSON.stringify({ Access: checkedValues }),
+                        success: function (response) {
+
+                            toastr.success('Successfully Access Given!');
+                        }
+                    });
+                    
+                });
+
+
+
+
+
+
+
+
+
             </script>
 
             <script>
