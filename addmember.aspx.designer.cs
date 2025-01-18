@@ -132,6 +132,15 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.RequiredFieldValidator email;
 
         /// <summary>
+        /// ddlCountry control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCountry;
+
+        /// <summary>
         /// phoneTextBox control.
         /// </summary>
         /// <remarks>
@@ -141,13 +150,13 @@ namespace hfiles
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl phoneTextBox;
 
         /// <summary>
-        /// phone control.
+        /// phoneValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator phone;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator phoneValidator;
 
         /// <summary>
         /// btn_Submit control.

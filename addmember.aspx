@@ -391,12 +391,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="Dateinputfield">
-                                                    <asp:TextBox runat="server" onkeypress="return false" AutoComplete="Off" placeholder="yyyy-mm-dd" ID="txtDate" Style="padding-right: 10px !important;" class="form-control my-2" />
+                                                    <asp:TextBox runat="server" onkeypress="return " onkeyup="validateDOB()" onchange="validateDOB()" AutoComplete="Off" placeholder="yyyy-mm-dd" ID="txtDate" Style="padding-right: 10px !important;" class="form-control my-2" />
                                                     <ajaxToolkit:CalendarExtender ID="dateajax" runat="server" Format="yyyy-MM-dd" Enabled="true" TargetControlID="txtDate" />
 
                                                     <input class="date-input" type="date" id="dobTextBox1" runat="server" style="display: none; visibility: hidden; padding-right: 10px !important;" onchange="calculateAge()" /><%--onchange="calculateAge()"--%>
                                                     <asp:RequiredFieldValidator ID="dob" ControlToValidate="txtDate" runat="server" Display="Dynamic" ValidationGroup="First"></asp:RequiredFieldValidator>
+                                                    <span id="dobErrorMsg" style="color: red; display: none;">Invalid Date of Birth. Please select again.</span>
                                                 </div>
+
                                                 <div class="">
                                                     <div class="phoneTextBox-input">
 
@@ -410,16 +412,23 @@
 
                                                     <asp:RequiredFieldValidator ID="email" ControlToValidate="emailTextBox" runat="server" Display="Dynamic" ValidationGroup="First"></asp:RequiredFieldValidator>
                                                 </div>
+                                               
                                                 <div class="">
-                                                    <div class="phoneTextBox-input">
-                                                        <input id="phoneTextBox" runat="server" type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
+                                                    <div class="phoneTextBox-input" style="display: flex; align-items: center; gap: 8px;">
+                                                       <asp:DropDownList ID="ddlCountry" runat="server" style="border:none !important;padding-left:12px !important;max-width:100px !important;height:45px !important" CssClass="form-select country-dropdown"></asp:DropDownList>
+
+                                                        <input id="phoneTextBox" runat="server" type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" style="flex: 1;" />
+        
                                                         <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512">
                                                             <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                                                            <path fill="#FFD43B" d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z" />
+                                                            <path fill="#FFD43B" d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"/>
                                                         </svg>
                                                     </div>
-                                                    <asp:RequiredFieldValidator ID="phone" ControlToValidate="phoneTextBox" runat="server" Display="Dynamic" ValidationGroup="First"></asp:RequiredFieldValidator>
+    
+                                                    <asp:RequiredFieldValidator ID="phoneValidator" ControlToValidate="phoneTextBox" runat="server" Display="Dynamic" ValidationGroup="First"></asp:RequiredFieldValidator>
                                                 </div>
+
+                                              
 
                                                 <%--  <div class="">
      <input class="number-input" id="default-number" type="number" placeholder="default number." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
@@ -475,7 +484,7 @@
 
         function handleRelation() {
             var relationValue = document.getElementById(<%=relation.ClientID%>);
-        var dobString = document.getElementById(<%=dobTextBox1.ClientID%>);
+        var dobString = document.getElementById(<%=txtDate.ClientID%>);
         var age = calculateAge(dobString);
         console.log("Age:", age);
 
@@ -492,7 +501,7 @@
         }
 
         function calculateAge() {
-            var dobString = document.getElementById(<%=dobTextBox1.ClientID%>);
+            var dobString = document.getElementById(<%=txtDate.ClientID%>);
             var dob = new Date(dobString);
             var today = new Date();
             var age = today.getFullYear() - dob.getFullYear();
@@ -545,6 +554,7 @@
                 //});
             }
         }
+        
 
         // Run the function when the document is ready
         //document.addEventListener('DOMContentLoaded', updateFooterPosition);
@@ -569,4 +579,25 @@
 
 
     </script>
+    
+        <script>
+            function validateDOB() {
+        var dobField = document.getElementById('<%= txtDate.ClientID %>');
+            var dobErrorMsg = document.getElementById('dobErrorMsg');
+
+            if (dobField.value) {
+            var dob = new Date(dobField.value);
+            var today = new Date();
+
+            // Check if DOB is in the future
+            if (dob > today) {
+                dobErrorMsg.style.display = "block";
+            dobField.value = ""; // Clear input if invalid
+            } else {
+                dobErrorMsg.style.display = "none";
+            }
+        }
+    }
+</script>
+    
 </asp:Content>

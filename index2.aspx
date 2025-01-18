@@ -463,6 +463,139 @@
             }
         }
     </style>
+ <style>
+    .review-card {
+        width: 300px;
+        padding: 20px;
+        background-color: #00509e;
+        border-radius: 10px;
+        text-align: center;
+        color: white;
+        border: 2px solid #fff;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .review-text {
+        font-size: 18px;
+        font-style: italic;
+    }
+
+    .full-review {
+        font-size: 16px;
+        display: none;
+        margin-top: 10px;
+    }
+
+    .read-more-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 14px;
+        cursor: pointer;
+        margin-top: 5px;
+        display: inline-block;
+    }
+</style>
+  <script>
+      document.querySelectorAll(".read-more-btn").forEach(button => {
+          button.addEventListener("click", function () {
+              const fullReview = this.previousElementSibling;
+              const shortReview = fullReview.previousElementSibling;
+
+              if (fullReview.style.display === "none" || fullReview.style.display === "") {
+                  fullReview.style.display = "block";
+                  shortReview.style.display = "none";
+                  this.innerText = "Read Less";
+              } else {
+                  fullReview.style.display = "none";
+                  shortReview.style.display = "block";
+                  this.innerText = "Read More";
+              }
+          });
+      });
+</script>
+   <%-- article library--%>
+  <style>
+    .articles-container {
+        display: flex;
+        overflow: hidden;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .article-card {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 700px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+
+    .article-card img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .article-card h3 {
+        font-size: 20px;
+        color: #00509e;
+        margin-top: 0;
+        text-align: left;
+    }
+
+    .article-card p {
+        font-size: 16px;
+        color: #333;
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    .article-card p:last-child {
+        font-size: 14px;
+        color: #777;
+    }
+
+    /* Continuous scrolling animation */
+    @keyframes scrollArticles {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+    }
+
+    .articles-container {
+        animation: scrollArticles 15s infinite linear;
+    }
+</style>
+
+<script>
+    // Get container and article cards
+    const container = document.querySelector('.articles-container');
+    const articleCards = document.querySelectorAll('.article-card');
+    let scrollInterval;
+
+    // Function to move the cards one by one
+    function scrollArticles() {
+        container.scrollBy({ left: container.offsetWidth, behavior: 'smooth' });
+    }
+
+    // Start scrolling every 5 seconds
+    scrollInterval = setInterval(scrollArticles, 5000);
+
+    // Stop scrolling when any article card is clicked
+    articleCards.forEach(card => {
+        card.addEventListener('click', () => {
+            clearInterval(scrollInterval);
+        });
+    });
+</script>
 </head>
 <body class="home page-template page-template-elementor_header_footer page page-id-26 elementor-default elementor-template-full-width elementor-kit-89 elementor-page elementor-page-26">
     <div class="ekit-template-content-markup ekit-template-content-header ekit-template-content-theme-support">
@@ -799,9 +932,9 @@ Update your bond with health by signing up with us today!
         
        <%-- how does health file work--%>
 
-                        <section class="elementor-section elementor-top-section elementor-element elementor-element-32480c6 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="32480c6" data-element_type="section" id="why" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                        <section class="elementor-section elementor-top-section elementor-element elementor-element-32480c6 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="32480c6" data-element_type="section" id="why" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" style="background-color: white">
             <div class="elementor-container elementor-column-gap-no">
-                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f1bc2e1" data-id="f1bc2e1" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f1bc2e1" data-id="f1bc2e1" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" style="background-color: white">
                     <div class="elementor-widget-wrap elementor-element-populated">
                         <section class="elementor-section elementor-inner-section elementor-element elementor-element-9bf08d5 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="9bf08d5" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                             <div class="elementor-container elementor-column-gap-default">
@@ -878,15 +1011,137 @@ control of your healthcare journey with confidence.
     </div>
 </section>
 
-                       
-
-
-
                     </div>
                 </div>
             </div>
         </section>
                          
+        <%--abhay id--%>
+
+
+         <section class="elementor-section elementor-top-section elementor-element elementor-element-d7801ef elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="d7801ef" data-element_type="section" id="ABHA">
+     <div class="elementor-container elementor-column-gap-default">
+         <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-f1b7fed" data-id="f1b7fed" data-element_type="column">
+             <div class="elementor-widget-wrap elementor-element-populated">
+                 <div class="elementor-element elementor-element-4ac3051 elementor-widget__width-initial elementor-invisible elementor-widget elementor-widget-heading" data-id="4ac3051" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="heading.default">
+                     <div class="elementor-widget-container">
+                         <h2 class="elementor-heading-title elementor-size-default">Create your ABHA Health ID card today</h2>
+                     </div>
+                 </div>
+                 <div class="elementor-element elementor-element-24ca986 elementor-widget elementor-widget-elementskit-heading" data-id="24ca986" data-element_type="widget" data-widget_type="elementskit-heading.default">
+                     <div class="elementor-widget-container">
+                         <div class="ekit-wid-con">
+                             <div class="ekit-heading elementskit-section-title-wraper text_left   ekit_heading_tablet-   ekit_heading_mobile-">
+                                 <div class="ekit_heading_separetor_wraper ekit_heading_elementskit-border-divider elementskit-style-long">
+                                     <div class="elementskit-border-divider elementskit-style-long"></div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="elementor-element elementor-element-f620298 elementor-invisible elementor-widget elementor-widget-text-editor" data-id="f620298" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="text-editor.default">
+                     <div class="elementor-widget-container">
+                         Join India’s digital health revolution by making your ABHA (Ayushman Bharat Health Account) Health ID card!					
+                     </div>
+                 </div>
+                 <div class="elementor-element elementor-element-9251d2e elementor-widget elementor-widget-spacer" data-id="9251d2e" data-element_type="widget" data-widget_type="spacer.default">
+                     <div class="elementor-widget-container">
+                         <div class="elementor-spacer">
+                             <div class="elementor-spacer-inner"></div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="elementor-element elementor-element-a514d9b elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-invisible elementor-widget elementor-widget-icon-list" data-id="a514d9b" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:300}" data-widget_type="icon-list.default">
+                     <div class="elementor-widget-container">
+                         <link rel="stylesheet" href="https://hfiles.in/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css">
+                         <ul class="elementor-icon-list-items">
+                             <li class="elementor-icon-list-item">
+                                 <span class="elementor-icon-list-icon">
+                                     <i aria-hidden="true" class="fas fa-check-circle"></i></span>
+                                 <span class="elementor-icon-list-text">Establish a unique identity with healthcare providers</span>
+                             </li>
+                             <li class="elementor-icon-list-item">
+                                 <span class="elementor-icon-list-icon">
+                                     <i aria-hidden="true" class="fas fa-check-circle"></i></span>
+                                 <span class="elementor-icon-list-text">Link all healthcare benefits to your unique ABHA number</span>
+                             </li>
+                             <li class="elementor-icon-list-item">
+                                 <span class="elementor-icon-list-icon">
+                                     <i aria-hidden="true" class="fas fa-check-circle"></i></span>
+                                 <span class="elementor-icon-list-text">Avoid registration queues in healthcare facilities across the country</span>
+                             </li>
+                         </ul>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-409eb3f" data-id="409eb3f" data-element_type="column">
+             <div class="elementor-widget-wrap elementor-element-populated">
+                 <div class="elementor-element elementor-element-a20c1ad elementor-invisible elementor-widget elementor-widget-image" data-id="a20c1ad" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;}" data-widget_type="image.default">
+                     <div class="elementor-widget-container">
+                         <img loading="lazy" decoding="async" width="678" height="702" src="https://hfiles.in/wp-content/uploads/2022/12/user-profile-screen.png" class="attachment-full size-full wp-image-553" alt="" srcset="https://hfiles.in/wp-content/uploads/2022/12/user-profile-screen.png 678w, https://hfiles.in/wp-content/uploads/2022/12/user-profile-screen-290x300.png 290w" sizes="(max-width: 678px) 100vw, 678px" />
+                     </div>
+                 </div>
+             </div>
+         </div>
+        
+     </div>
+            <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+       <img src="/journal-page-images/article/landing-ABHA.jpeg" alt="Error Image" class="error-image">
+   </div>
+             <br />
+            <%--<div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+       <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Error Image" class="error-image" style="width: 64%;">
+   </div>--%>
+ </section>
+            <section class="elementor-section elementor-top-section elementor-element elementor-element-7c53ce41 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7c53ce41" data-element_type="section">
+    <div class="elementor-container elementor-column-gap-default">
+        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-79bdd334" data-id="79bdd334" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+            <div class="elementor-widget-wrap elementor-element-populated">
+                <section class="elementor-section elementor-inner-section elementor-element elementor-element-200ecd8b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="200ecd8b" data-element_type="section">
+                    <div class="elementor-container elementor-column-gap-default">
+
+                        <!-- TEXT COLUMN (Now on the Left) -->
+                        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-403aef59" data-id="403aef59" data-element_type="column">
+                            <div class="elementor-widget-wrap elementor-element-populated">
+                                <div class="elementor-element elementor-element-223afac elementor-invisible elementor-widget elementor-widget-heading" data-id="223afac" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="heading.default">
+                                    <div class="elementor-widget-container">
+                                        <h2 class="elementor-heading-title elementor-size-default">Personalized Health Solutions</h2>
+                                         <h4 class="elementor elementor-size-default" style="color: white;">Enterprise and Organizations</h4>
+                                        <p style="color: yellow;">Tailored solutions designed to meet ypur organization's needs and goals.</p>
+                                    </div>
+                                </div>
+                                <div class="elementor-element elementor-element-6108052 elementor-invisible elementor-widget elementor-widget-button" data-id="6108052" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="button.default">
+                                    <div class="elementor-widget-container">
+                                        <div class="elementor-button-wrapper">
+                                            <a class="elementor-button elementor-button-link elementor-size-sm" href="#">
+                                                <span class="elementor-button-content-wrapper">
+                                                    <span class="elementor-button-text">Contact Us</span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- IMAGE COLUMN (Now on the Right) -->
+                        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-3738a9eb" data-id="3738a9eb" data-element_type="column">
+                            <div class="elementor-widget-wrap elementor-element-populated">
+                                <div class="elementor-element elementor-element-4c3d5035 elementor-widget__width-auto elementor-invisible elementor-widget elementor-widget-image" data-id="4c3d5035" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;}" data-widget_type="image.default">
+                                    <div class="elementor-widget-container">
+                                        <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Error Image" class="error-image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 
@@ -997,58 +1252,157 @@ control of your healthcare journey with confidence.
     <br />
     <%--founder page--%>
 
-                           <section class="elementor-section elementor-top-section elementor-element elementor-element-32480c6 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="32480c6" data-element_type="section" id="why" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                       
+  <section class="elementor-section elementor-top-section elementor-element elementor-element-32480c6 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="32480c6" data-element_type="section" id="why" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" style="background-color: mediumblue">
     <div class="elementor-container elementor-column-gap-no">
         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f1bc2e1" data-id="f1bc2e1" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
             <div class="elementor-widget-wrap elementor-element-populated">
-                <!-- Title Section -->
                 <section class="elementor-section elementor-inner-section elementor-element elementor-element-9bf08d5 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="9bf08d5" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                     <div class="elementor-container elementor-column-gap-default">
                         <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-d0071a8" data-id="d0071a8" data-element_type="column">
                             <div class="elementor-widget-wrap elementor-element-populated">
-                                <!-- Heading -->
                                 <div class="elementor-element elementor-element-db5ed71 elementor-invisible elementor-widget elementor-widget-heading" data-id="db5ed71" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="heading.default">
                                     <div class="elementor-widget-container">
-                                        <h2 class="elementor-heading-title" style="font-size:50px !important; color: #000;">Why Use Health Files?</h2>
+                                        <h2 class="elementor-heading-title" style="font-size:50px !important; color: white;">How does Health Files Work?</h2>
                                     </div>
-                                </div>  
+                                </div>
+                                <div class="elementor-element elementor-element-8050479 elementor-widget__width-initial elementor-invisible elementor-widget elementor-widget-text-editor" data-id="8050479" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="text-editor.default">
+                                    <div class="elementor-widget-container" style="color: white;">
+                                        Sign up easily in just a few steps to securely manage your health records and take control of your healthcare journey with confidence.					
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Content Section with Left Image and Right Text -->
-                <section class="elementor-section elementor-inner-section elementor-element elementor-element-9ecd0b9 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="9ecd0b9" data-element_type="section" style="background-color: yellow; padding: 20px; border-radius: 20px;">
+                <section class="elementor-section elementor-inner-section elementor-element elementor-element-9ecd0b9 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="9ecd0b9" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                     <div class="elementor-container elementor-column-gap-default">
-                        <!-- Left Column for Image -->
-                        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-8d75464" data-id="8d75464" data-element_type="column" style="padding-right: 40px;">
-                            <div class="elementor-widget-wrap">
-                                <div class="elementor-widget-container">
-                                    <!-- Image Display -->
-                                    <img src="/journal-page-images/article/founder.png" alt="Health Files Image" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                                </div>
+                        <!-- Left Column for Images -->
+                        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-8d75464" data-id="8d75464" data-element_type="column" style="padding-right: 20px;">
+                            <div class="elementor-widget-container">
+                                <!-- Image 1 -->
+                                <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Image 1" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
                             </div>
                         </div>
 
-                        <!-- Right Column for Text -->
-                        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-9abcd12" data-id="9abcd12" data-element_type="column" style="padding-left: 40px;">
-                            <div class="elementor-widget-wrap">
-                                <div class="elementor-widget-container">
-                                    <!-- Text Content -->
-                                    <h2 style="font-size: 28px; font-weight: bold; margin-bottom: 20px; color: #000;">Health Files Introduction</h2>
-                                    <p style="font-size: 25px; line-height: 1.8; color: #000;">
-                                        Welcome to Health Files! Here, you can securely store, manage, and share your medical records. Organize health information for yourself and your family with ease, ensuring accessibility when needed. Explore our features designed to simplify your healthcare experience and improve communication with healthcare providers.
-                                    </p>
-                                </div>
+                        <!-- Middle Column for Images -->
+                        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-9abcd12" data-id="9abcd12" data-element_type="column" style="padding-left: 20px; padding-right: 20px;">
+                            <div class="elementor-widget-container">
+                                <!-- Image 2 -->
+                               <%-- <img src="path_to_image_2.jpg" alt="Image 2" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                                 <img src="path_to_image_3.jpg" alt="Image 3" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">--%>
+                            </div>
+                        </div>
+
+                        <!-- Right Column for Images -->
+                        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-9abcd13" data-id="9abcd13" data-element_type="column" style="padding-left: 20px;">
+                            <div class="elementor-widget-container">
+                                <!-- Image 3 -->
+                                 <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Image 2" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
+                                <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Image 3" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
                             </div>
                         </div>
                     </div>
                 </section>
-
             </div>
         </div>
     </div>
 </section>
+
+    <br />
+
+   <%-- Discover the Voices Behind Our Success--%>
+
+<section id="ABHA" style="text-align: center; padding: 40px; background-color: white;">
+    <!-- Heading -->
+    <h2 style="color: black; font-size: 36px; margin-bottom: 40px;">Discover the Voices Behind Our Success</h2>
+
+    <!-- Cards Section -->
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+        
+        <!-- Card 1 -->
+        <div class="review-card">
+            <p class="review-text">We found Health Files to be such a unique and a great platform to store and manage all our data online. As we both are working and...</p>
+            <p class="full-review">We found Health Files to be such a unique and a great platform to store and manage all our data online. As we both are working and have a busy schedule, it has made managing our health records much easier. We no longer have to worry about losing important documents.</p>
+            <button class="read-more-btn">Read More</button>
+            <h3>Akshay Tandon</h3>
+            <p>Newcastle, UK</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="review-card">
+            <p class="review-text">The best health record system I have ever used. It keeps everything so organized and...</p>
+            <p class="full-review">The best health record system I have ever used. It keeps everything so organized and easy to find. Now I don’t have to carry papers around; I just log in and access everything instantly!</p>
+            <button class="read-more-btn">Read More</button>
+            <h3>Sarah Johnson</h3>
+            <p>London, UK</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="review-card">
+            <p class="review-text">The most reliable and secure platform for health management. It has helped my family...</p>
+            <p class="full-review">The most reliable and secure platform for health management. It has helped my family keep track of medical appointments, prescriptions, and health history all in one place.</p>
+            <button class="read-more-btn">Read More</button>
+            <h3>Amit Patel</h3>
+            <p>Mumbai, India</p>
+        </div>
+
+        <!-- Add more cards as needed -->
+
+    </div>
+</section>
+
+
+   <%-- articel library--%>
+
+<section id="ABHA" style="text-align: center; padding: 40px; background-color: white;">
+    <!-- Heading -->
+    <h2 style="color: black; font-size: 36px; margin-bottom: 40px;">Articles Library</h2>
+
+    <!-- Articles Section (Continuous Scroll) -->
+    <div class="articles-container" style="display: flex; padding: 20px; overflow: hidden; width: 100%;">
+
+        <!-- Article Card 1 -->
+        <div class="article-card" style="flex: 0 0 auto; width: 100%; max-width: 700px; border: 1px solid #ddd; border-radius: 10px; background-color: #f9f9f9; padding: 15px; display: flex; align-items: center; flex-wrap: wrap; margin-right: 20px;">
+            <div style="flex: 1; padding-right: 20px;">
+                <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image" style="width: 100%; border-radius: 10px;">
+            </div>
+            <div style="flex: 2;">
+                <h3 style="font-size: 20px; color: #00509e; margin-top: 0;">7 Healthy Habits That Can Improve Your Digestion</h3>
+                <p style="font-size: 16px; color: #333; line-height: 1.6; text-align: left;">Good digestion is important for feeling good, but many of us don't pay attention to habits that...</p>
+                <p style="font-size: 14px; color: #777; text-align: left;">Reviewed by <strong>Hena Kanakia</strong> | 14 January, 24</p>
+            </div>
+        </div>
+
+        <!-- Article Card 2 -->
+        <div class="article-card" style="flex: 0 0 auto; width: 100%; max-width: 700px; border: 1px solid #ddd; border-radius: 10px; background-color: #f9f9f9; padding: 15px; display: flex; align-items: center; flex-wrap: wrap; margin-right: 20px;">
+            <div style="flex: 1; padding-right: 20px;">
+                <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image" style="width: 100%; border-radius: 10px;">
+            </div>
+            <div style="flex: 2;">
+                <h3 style="font-size: 20px; color: #00509e; margin-top: 0;">The Importance of Hydration for Skin Health</h3>
+                <p style="font-size: 16px; color: #333; line-height: 1.6; text-align: left;">Our skin is our largest organ, and proper hydration plays a vital role in maintaining its health...</p>
+                <p style="font-size: 14px; color: #777; text-align: left;">Reviewed by <strong>Sarah Lee</strong> | 10 January, 24</p>
+            </div>
+        </div>
+
+        <!-- Article Card 3 -->
+        <div class="article-card" style="flex: 0 0 auto; width: 100%; max-width: 700px; border: 1px solid #ddd; border-radius: 10px; background-color: #f9f9f9; padding: 15px; display: flex; align-items: center; flex-wrap: wrap; margin-right: 20px;">
+            <div style="flex: 1; padding-right: 20px;">
+                <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image" style="width: 100%; border-radius: 10px;">
+            </div>
+            <div style="flex: 2;">
+                <h3 style="font-size: 20px; color: #00509e; margin-top: 0;">Top Tips for Mental Health and Wellness</h3>
+                <p style="font-size: 16px; color: #333; line-height: 1.6; text-align: left;">Mental health is just as important as physical health. Here are some tips to keep your mind healthy...</p>
+                <p style="font-size: 14px; color: #777; text-align: left;">Reviewed by <strong>John Doe</strong> | 05 January, 24</p>
+            </div>
+        </div>
+
+        <!-- Add more article cards as needed -->
+    </div>
+</section>
+
 
 
 

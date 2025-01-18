@@ -51,6 +51,29 @@ namespace hfiles
                 //    // and pre-fill the form fields
                 //    PopulateUserDetails(userId);
                 //}
+                getcountrylist();
+            }
+        }
+        private void getcountrylist()
+        {
+            MySqlConnection con = new MySqlConnection(cs);
+            string com = "Select * from countrylist";
+            MySqlDataAdapter adpt = new MySqlDataAdapter(com, con);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
+
+            if (dt != null)
+            {
+                ViewState["CountryCodeList"] = dt;
+                ddlCountry.DataSource = dt;
+                ddlCountry.DataTextField = "dialingcode";
+                ddlCountry.DataValueField = "id";
+                ddlCountry.DataBind();
+                ddlCountry.Items.Insert(0, new ListItem("+91", "+91"));
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
             }
         }
         protected void btn_Submit_ServerClick(object sender, EventArgs e)
@@ -249,6 +272,7 @@ namespace hfiles
                             cmdInsert.Parameters.AddWithValue("_user_dob", txtDate.Text);
                             cmdInsert.Parameters.AddWithValue("_user_relation", selectedRelation);
                             cmdInsert.Parameters.AddWithValue("_user_email", Session["user_email"].ToString());
+                            cmdInsert.Parameters.AddWithValue("_countrycode", ddlCountry.SelectedItem.Text);
                             cmdInsert.Parameters.AddWithValue("_user_contact", Session["user_contact"].ToString());
                             cmdInsert.Parameters.AddWithValue("_user_gender", gender);
                             cmdInsert.Parameters.AddWithValue("_user_password", "0");
