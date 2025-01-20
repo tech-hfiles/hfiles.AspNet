@@ -25,12 +25,12 @@
 
 
             </div>
-            <div class="row col-12" style="margin: auto;display: flex;justify-content: center;width: 100%;text-align: center;padding-bottom:20vh">
+            <div class="row col-12" style="margin: auto;display: flex;justify-content: center;width: 100%;text-align: center;padding-bottom:20vh;font-size: smaller;">
                     
-<div class="col-xl-2 col-lg-2 col-md-3 col-10" style="background-color: #b0dcd4;border-radius: 20px;padding: 25px;font-weight: bold;margin: 10px;">
+<div class="" style="background-color: #b0dcd4;border-radius: 20px;padding: 25px;font-weight: bold;margin: 10px;width: 280px;">
     <p style="font-size: xx-large;color:#0331b5" _msttexthash="57356" _msthash="14">Basic</p>
-    <p style="font-size: xx-large;" _msttexthash="31941" _msthash="15">FREE</p>
-    <hr style="opacity: inherit;border-top-color: #000;">
+    <p style="font-size: x-large;margin-bottom: 0;" _msttexthash="31941" _msthash="15">FREE</p>
+    <hr style="opacity: inherit;border-top-color: #000;margin-top: revert;">
     <div style="text-align:left;padding:5px 20px;">
     <p _msttexthash="281008" _msthash="16"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
@@ -41,9 +41,9 @@
     <p _msttexthash="240006" _msthash="18"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
 "></i>Upload PDF files</p>
-        <br />
-        <br />
-        <br />
+        <br>
+        <br>
+        <br>
         
         
         <button style="
@@ -60,14 +60,15 @@
 ">Get started for free</button>
         </div>
 </div>
-<div class="col-xl-2 col-lg-2 col-md-3 col-10" style="background-color: #fff44c;border-radius: 20px;padding: 25px;font-weight: bold;margin: 10px;">
+<div class="" style="background-color: #fff44c;border-radius: 20px;padding: 25px;font-weight: bold;margin: 10px;width: 280px;">
     <p style="font-size: xx-large;color:#0331b5;margin-bottom: 0;" _msttexthash="112164" _msthash="19">Standard</p>
     <p style="font-size: x-large;margin-bottom: 0;" _msttexthash="129155" _msthash="20">Rs. 99/year</p>
 <p style="
-    font-size: large;
+    font-size: larger;
     text-decoration: line-through;
+    margin-bottom: 0;
 " _msttexthash="47502" _msthash="21">Rs. 149</p>
-    <hr style="opacity: inherit;border-top-color: #000;">
+    <hr style="opacity: inherit;border-top-color: #000;margin-top: 0;">
     <div style="text-align:left;padding:5px 20px;">
     <p _msttexthash="281008" _msthash="22"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
@@ -99,14 +100,15 @@
 ">Go Standard</button>
         </div>
 </div>
-<div class="col-xl-2 col-lg-2 col-md-3 col-10" style="background-color: #f8ccc4;border-radius: 20px;padding: 25px;font-weight: bold;margin: 10px;">
+<div class="" style="background-color: #f8ccc4;border-radius: 20px;padding: 25px;font-weight: bold;margin: 10px;width: 280px;">
     <p style="font-size: xx-large;color:#0331b5;margin-bottom: 0;" _msttexthash="96811" _msthash="19">Premium</p>
     <p style="font-size: x-large;margin-bottom: 0;" _msttexthash="143507" _msthash="20">Rs. 399/year</p>
 <p style="
-    font-size: large;
+    font-size: larger;
     text-decoration: line-through;
+    margin-bottom: 0;
 " _msttexthash="48997" _msthash="21">Rs. 799</p>
-    <hr style="opacity: inherit;border-top-color: #000;">
+    <hr style="opacity: inherit;border-top-color: #000;margin-top: 0;">
     <div style="text-align:left;padding:5px 20px;">
     <p _msttexthash="281008" _msthash="22"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
@@ -136,10 +138,10 @@
     margin-left:20px;
 ">Go Premium</button>
         </div>
-</div><div class="col-xl-2 col-lg-2 col-md-3 col-10" style="background-color: #90bcfc;border-radius: 20px;padding: 25px;font-weight: bold;margin: 10px;">
+</div><div class="" style="background-color: #90bcfc;border-radius: 20px;padding: 25px;font-weight: bold;margin: 10px;width: 280px;">
     <p style="font-size: xx-large;color:#0331b5" _msttexthash="57356" _msthash="14">Advanced</p>
-<p style="font-size: xx-large;" _msttexthash="31941" _msthash="15">Contact Sales</p>
-<hr style="opacity: inherit;border-top-color: #000;">
+<p style="font-size: x-large;margin-bottom: 0;" _msttexthash="31941" _msthash="15">Contact Sales</p>
+<hr style="opacity: inherit;border-top-color: #000;margin-top: inherit;">
     <div style="text-align:left;padding:5px 20px;">
     <p _msttexthash="281008" _msthash="22"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
