@@ -463,80 +463,156 @@
             }
         }
     </style>
- <style>
+    <%--discover and voices--%>
+<style>
+/* Container for the reviews */
+.review-container {
+    display: flex;
+    gap: 20px;
+    width: 80%;
+    margin: auto;
+    justify-content: center;
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Hide overflow */
+    transition: transform 0.3s ease; /* Smooth scrolling effect */
+}
+
+/* Individual Review Cards */
+.review-card {
+    flex: 0 0 30%; /* Set each card to take 30% of the width */
+    background: blue; /* Blue background for the card */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 300px;
+    color: white; /* White text color for the cards */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Arrow Button Styles */
+.arrow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent; /* Transparent background */
+    color: black; /* Black arrow color */
+    border: 2px solid black; /* Border around the arrows */
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+
+/* Left Arrow */
+.left-arrow {
+    left: 10px;
+}
+
+/* Right Arrow */
+.right-arrow {
+    right: 10px;
+}
+
+/* Arrow Hover Effect */
+.arrow-btn:hover {
+    background-color: transparent; /* No background change on hover */
+    color: #333; /* Dark grey color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .review-container {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
     .review-card {
-        width: 300px;
-        padding: 20px;
-        background-color: #00509e;
-        border-radius: 10px;
-        text-align: center;
-        color: white;
-        border: 2px solid #fff;
-        position: relative;
-        overflow: hidden;
-        transition: all 0.3s ease-in-out;
+        flex: 0 0 90%; /* Make each card occupy 90% on smaller screens */
     }
+}
 
-    .review-text {
-        font-size: 18px;
-        font-style: italic;
-    }
-
-    .full-review {
-        font-size: 16px;
-        display: none;
-        margin-top: 10px;
-    }
-
-    .read-more-btn {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 14px;
-        cursor: pointer;
-        margin-top: 5px;
-        display: inline-block;
-    }
 </style>
-  <script>
-      document.querySelectorAll(".read-more-btn").forEach(button => {
-          button.addEventListener("click", function () {
-              const fullReview = this.previousElementSibling;
-              const shortReview = fullReview.previousElementSibling;
 
-              if (fullReview.style.display === "none" || fullReview.style.display === "") {
-                  fullReview.style.display = "block";
-                  shortReview.style.display = "none";
-                  this.innerText = "Read Less";
-              } else {
-                  fullReview.style.display = "none";
-                  shortReview.style.display = "block";
-                  this.innerText = "Read More";
-              }
-          });
-      });
+<script>
+    // JavaScript for Scroll Functionality
+    document.addEventListener("DOMContentLoaded", function () {
+        const container = document.querySelector(".review-container");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+
+        const cardWidth = document.querySelector(".review-card").offsetWidth + 20; // Width of one card plus gap
+        const cardsToShow = 3; // Number of cards to show at once
+        let currentPosition = 0; // To track the current scroll position
+
+        // Function to scroll the container
+        function scrollContainer(direction) {
+            const maxScroll = (container.scrollWidth - container.offsetWidth);
+
+            if (direction === "left") {
+                currentPosition -= cardWidth * cardsToShow; // Move left by the width of 3 cards
+                if (currentPosition < 0) currentPosition = 0; // Prevent scrolling past the start
+            } else if (direction === "right") {
+                currentPosition += cardWidth * cardsToShow; // Move right by the width of 3 cards
+                if (currentPosition > maxScroll) currentPosition = maxScroll; // Prevent scrolling past the end
+            }
+
+            // Scroll the container to the new position
+            container.scrollTo({
+                left: currentPosition,
+                behavior: "smooth"
+            });
+        }
+
+        // Event listeners for the arrows
+        prevBtn.addEventListener("click", function () {
+            scrollContainer("left");
+        });
+
+        nextBtn.addEventListener("click", function () {
+            scrollContainer("right");
+        });
+    });
+
 </script>
    <%-- article library--%>
-  <style>
-    .articles-container {
-        display: flex;
-        overflow: hidden;
+<style>
+    /* Wrapper to prevent overflow */
+    .scroll-wrapper {
         width: 100%;
-        padding: 20px;
+        overflow: hidden;
+        white-space: nowrap;
+        padding: 20px 0;
+        position: relative;
     }
 
+    /* Container holding scrolling content */
+    .articles-container {
+        display: flex;
+        flex-wrap: nowrap;
+        width: max-content;
+    }
+
+    /* Scrolling track that repeats */
+    .article-track {
+        display: flex;
+        flex-wrap: nowrap;
+        animation: scrollArticles 15s linear infinite;
+    }
+
+    /* Article card styling */
     .article-card {
         flex: 0 0 auto;
-        width: 100%;
-        max-width: 700px;
+        width: 250px; /* Adjust as needed */
+        margin: 0 10px;
+        padding: 15px;
+        background: #f9f9f9;
         border: 1px solid #ddd;
         border-radius: 10px;
-        background-color: #f9f9f9;
-        padding: 15px;
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        margin-right: 20px;
+        text-align: center;
+        white-space: normal;
         cursor: pointer;
     }
 
@@ -546,56 +622,91 @@
     }
 
     .article-card h3 {
-        font-size: 20px;
+        font-size: 18px;
         color: #00509e;
-        margin-top: 0;
-        text-align: left;
     }
 
     .article-card p {
-        font-size: 16px;
+        font-size: 14px;
         color: #333;
-        line-height: 1.6;
-        text-align: left;
     }
 
-    .article-card p:last-child {
-        font-size: 14px;
+    .article-card .review {
+        font-size: 12px;
         color: #777;
     }
 
     /* Continuous scrolling animation */
     @keyframes scrollArticles {
         0% { transform: translateX(0); }
-        100% { transform: translateX(-100%); }
-    }
-
-    .articles-container {
-        animation: scrollArticles 15s infinite linear;
+        100% { transform: translateX(-50%); } /* Moves only half to create a seamless loop */
     }
 </style>
 
 <script>
-    // Get container and article cards
-    const container = document.querySelector('.articles-container');
+    const track = document.querySelector('.article-track');
     const articleCards = document.querySelectorAll('.article-card');
-    let scrollInterval;
 
-    // Function to move the cards one by one
-    function scrollArticles() {
-        container.scrollBy({ left: container.offsetWidth, behavior: 'smooth' });
-    }
+    let animationPaused = false;
 
-    // Start scrolling every 5 seconds
-    scrollInterval = setInterval(scrollArticles, 5000);
-
-    // Stop scrolling when any article card is clicked
+    // Pause scrolling when an article is clicked
     articleCards.forEach(card => {
         card.addEventListener('click', () => {
-            clearInterval(scrollInterval);
+            if (!animationPaused) {
+                track.style.animationPlayState = 'paused';
+                animationPaused = true;
+            } else {
+                track.style.animationPlayState = 'running';
+                animationPaused = false;
+            }
         });
     });
 </script>
+   <%-- Recognized Under--%>
+   <style>
+/* Image Container - Flexbox for Horizontal Layout */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Ensures responsiveness */
+    gap: 20px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+/* Individual Image Wrapper */
+.image-wrapper {
+    flex: 1;
+    min-width: 200px; /* Ensures images don't break layout on small screens */
+    text-align: center;
+}
+
+/* Image Styling */
+.image-wrapper img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .image-container {
+        flex-wrap: wrap;
+    }
+    .image-wrapper {
+        width: 45%; /* Adjusts to fit smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .image-wrapper {
+        width: 100%; /* Full width on very small screens */
+    }
+}
+</style>
 </head>
 <body class="home page-template page-template-elementor_header_footer page page-id-26 elementor-default elementor-template-full-width elementor-kit-89 elementor-page elementor-page-26">
     <div class="ekit-template-content-markup ekit-template-content-header ekit-template-content-theme-support">
@@ -647,11 +758,8 @@
                                                  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
      <a href="#why" class="ekit-menu-nav-link">About us</a></li>
                                                  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
-     <a href="#why" class="ekit-menu-nav-link">Library</a></li>
-                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
-                                                    <a href="#why" class="ekit-menu-nav-link">Contact us</a></li>
-                                                <li class="menu-item menu-item-type-custom elementor-hidden-desktop elementor-hidden-tablet menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
-    <a href="/login.aspx" class="ekit-menu-nav-link">Login</a></li>
+     <a href="#why" class="ekit-menu-nav-link">Article</a></li>
+                                               
                                                 <li class="menu-item menu-item-type-custom elementor-hidden-desktop elementor-hidden-tablet menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
     <a href="/signup.aspx" class="ekit-menu-nav-link">Sign up</a></li>
                                                <%-- <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-650 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
@@ -681,11 +789,11 @@
                                             <div class="elementor-element elementor-element-0fd294a elementor-align-center elementor-tablet-align-right elementor-widget elementor-widget-button" data-id="0fd294a" data-element_type="widget" data-widget_type="button.default">
                                                 <div class="elementor-widget-container">
                                                     <div class="elementor-button-wrapper">
-                                                        <a class="elementor-button elementor-button-link elementor-size-sm" href="/login.aspx">
+                                                        <%--<a class="elementor-button elementor-button-link elementor-size-sm" href="/login.aspx">
                                                             <span class="elementor-button-content-wrapper">
                                                                 <span class="elementor-button-text">User Login</span>
                                                             </span>
-                                                        </a>
+                                                        </a>--%>
                                                     </div>
                                                 </div>
                                             </div>
@@ -807,7 +915,8 @@
                                     <div class="elementor-widget-wrap elementor-element-populated">
                                         <div class="elementor-element elementor-element-7b119aa animated-fast elementor-invisible elementor-widget elementor-widget-image" data-id="7b119aa" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:300}" data-widget_type="image.default">
                                             <div class="elementor-widget-container">
-                                                <img decoding="async" width="108" height="109" src="/wp-content/uploads/2023/03/ayushman-icon.svg" class="attachment-full size-full wp-image-744" alt="Ayushman Bharat" />
+                                               <%-- <img decoding="async" width="108" height="109" src="/wp-content/uploads/2023/03/ayushman-icon.svg" class="attachment-full size-full wp-image-744" alt="Ayushman Bharat" />--%>
+                                                <img src="/journal-page-images/article/SecureStorageAssured.jpeg" alt="Error Image" class="error-image" style="width: 100%;">
                                             </div>
                                         </div>
                                     </div>
@@ -816,7 +925,8 @@
                                     <div class="elementor-widget-wrap elementor-element-populated">
                                         <div class="elementor-element elementor-element-75f29ae animated-fast elementor-invisible elementor-widget elementor-widget-image" data-id="75f29ae" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:400}" data-widget_type="image.default">
                                             <div class="elementor-widget-container">
-                                                <img loading="lazy" decoding="async" width="107" height="108" src="/wp-content/uploads/2023/03/secure-icon.svg" class="attachment-full size-full wp-image-745" alt="Secure Storage Assured" />
+                                                <%--<img loading="lazy" decoding="async" width="107" height="108" src="/wp-content/uploads/2023/03/secure-icon.svg" class="attachment-full size-full wp-image-745" alt="Secure Storage Assured" />--%>
+                                                <img src="/journal-page-images/article/AyushmanBharat.jpeg" alt="Error Image" class="error-image" style="width: 100%;">
                                             </div>
                                         </div>
                                     </div>
@@ -1250,25 +1360,25 @@ control of your healthcare journey with confidence.
         </section>
     </div>
     <br />
-    <%--founder page--%>
+    <%--Recognized Under--%>
 
                        
-  <section class="elementor-section elementor-top-section elementor-element elementor-element-32480c6 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="32480c6" data-element_type="section" id="why" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" style="background-color: mediumblue">
-    <div class="elementor-container elementor-column-gap-no">
-        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f1bc2e1" data-id="f1bc2e1" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-            <div class="elementor-widget-wrap elementor-element-populated">
-                <section class="elementor-section elementor-inner-section elementor-element elementor-element-9bf08d5 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="9bf08d5" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-                    <div class="elementor-container elementor-column-gap-default">
-                        <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-d0071a8" data-id="d0071a8" data-element_type="column">
-                            <div class="elementor-widget-wrap elementor-element-populated">
-                                <div class="elementor-element elementor-element-db5ed71 elementor-invisible elementor-widget elementor-widget-heading" data-id="db5ed71" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="heading.default">
+<section class="elementor-section elementor-top-section" id="why" style="background-color: mediumblue; padding: 20px;">
+    <div class="elementor-container">
+        <div class="elementor-column elementor-col-100">
+            <div class="elementor-widget-wrap">
+                <section class="elementor-section elementor-inner-section">
+                    <div class="elementor-container">
+                        <div class="elementor-column elementor-col-100">
+                            <div class="elementor-widget-wrap">
+                                <div class="elementor-widget">
                                     <div class="elementor-widget-container">
-                                        <h2 class="elementor-heading-title" style="font-size:50px !important; color: white;">How does Health Files Work?</h2>
+                                      
                                     </div>
                                 </div>
-                                <div class="elementor-element elementor-element-8050479 elementor-widget__width-initial elementor-invisible elementor-widget elementor-widget-text-editor" data-id="8050479" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="text-editor.default">
-                                    <div class="elementor-widget-container" style="color: white;">
-                                        Sign up easily in just a few steps to securely manage your health records and take control of your healthcare journey with confidence.					
+                                <div class="elementor-widget">
+                                    <div class="elementor-widget-container" style="color: white; text-align: center;">
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -1276,31 +1386,21 @@ control of your healthcare journey with confidence.
                     </div>
                 </section>
 
-                <section class="elementor-section elementor-inner-section elementor-element elementor-element-9ecd0b9 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="9ecd0b9" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-                    <div class="elementor-container elementor-column-gap-default">
-                        <!-- Left Column for Images -->
-                        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-8d75464" data-id="8d75464" data-element_type="column" style="padding-right: 20px;">
-                            <div class="elementor-widget-container">
-                                <!-- Image 1 -->
-                                <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Image 1" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                            </div>
+                <!-- Horizontal Image Section -->
+                <section class="elementor-section elementor-inner-section">
+                    <div class="elementor-container image-container">
+                        <div class="image-wrapper">
+                            <h3 style="color: white;">Recognized Under</h3>
+                            <img src="/journal-page-images/article/Recognized.jpeg" alt="Image 1">
                         </div>
 
-                        <!-- Middle Column for Images -->
-                        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-9abcd12" data-id="9abcd12" data-element_type="column" style="padding-left: 20px; padding-right: 20px;">
-                            <div class="elementor-widget-container">
-                                <!-- Image 2 -->
-                               <%-- <img src="path_to_image_2.jpg" alt="Image 2" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                                 <img src="path_to_image_3.jpg" alt="Image 3" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">--%>
-                            </div>
-                        </div>
+                       
 
-                        <!-- Right Column for Images -->
-                        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-9abcd13" data-id="9abcd13" data-element_type="column" style="padding-left: 20px;">
-                            <div class="elementor-widget-container">
-                                <!-- Image 3 -->
-                                 <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Image 2" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
-                                <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Image 3" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                       <div class="image-wrapper">
+                            <h3 style="color: white;">Active Integrator</h3>
+                            <div class="image-flex">
+                                <img src="/journal-page-images/article/Active.jpeg" alt="Image 3" style="margin: 10px;">
+                                <img src="/journal-page-images/article/Active2.jpeg" alt="Image 4" style="margin: 10px;">
                             </div>
                         </div>
                     </div>
@@ -1314,44 +1414,78 @@ control of your healthcare journey with confidence.
 
    <%-- Discover the Voices Behind Our Success--%>
 
-<section id="ABHA" style="text-align: center; padding: 40px; background-color: white;">
+<section id="ABHA" style="text-align: center; padding: 40px; background-color: white; position: relative;">
     <!-- Heading -->
     <h2 style="color: black; font-size: 36px; margin-bottom: 40px;">Discover the Voices Behind Our Success</h2>
 
+    <!-- Arrows for Navigation -->
+    <button id="prevBtn" class="arrow-btn left-arrow"><</button>
+
     <!-- Cards Section -->
-    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+    <div class="review-container">
         
         <!-- Card 1 -->
         <div class="review-card">
-            <p class="review-text">We found Health Files to be such a unique and a great platform to store and manage all our data online. As we both are working and...</p>
-            <p class="full-review">We found Health Files to be such a unique and a great platform to store and manage all our data online. As we both are working and have a busy schedule, it has made managing our health records much easier. We no longer have to worry about losing important documents.</p>
-            <button class="read-more-btn">Read More</button>
+            <p class="review-text">We found Health Files to be such a unique and a great platform...</p>
+            <p class="full-review">We found Health Files to be such a unique and a great platform...</p>
+             <h5 style="color:white">Read More</h5>
             <h3>Akshay Tandon</h3>
             <p>Newcastle, UK</p>
         </div>
 
         <!-- Card 2 -->
         <div class="review-card">
-            <p class="review-text">The best health record system I have ever used. It keeps everything so organized and...</p>
-            <p class="full-review">The best health record system I have ever used. It keeps everything so organized and easy to find. Now I don’t have to carry papers around; I just log in and access everything instantly!</p>
-            <button class="read-more-btn">Read More</button>
-            <h3>Sarah Johnson</h3>
+            <p class="review-text">The best health record system I have ever used...</p>
+            <p class="full-review">The best health record system I have ever used...</p>
+           <h5 style="color:white">Read More</h5>
+            <h3 style="color:white">Sarah Johnson</h3>
             <p>London, UK</p>
         </div>
 
         <!-- Card 3 -->
         <div class="review-card">
-            <p class="review-text">The most reliable and secure platform for health management. It has helped my family...</p>
-            <p class="full-review">The most reliable and secure platform for health management. It has helped my family keep track of medical appointments, prescriptions, and health history all in one place.</p>
-            <button class="read-more-btn">Read More</button>
-            <h3>Amit Patel</h3>
+            <p class="review-text">The most reliable and secure platform...</p>
+            <p class="full-review">The most reliable and secure platform...</p>
+            <h5 style="color:white">Read More</h5>
+            <h3 style="color:white">Amit Patel</h3>
             <p>Mumbai, India</p>
         </div>
 
-        <!-- Add more cards as needed -->
+        <!-- Card 4 -->
+        <div class="review-card">
+            <p class="review-text">The most reliable and secure platform...</p>
+            <p class="full-review">The most reliable and secure platform...</p>
+           <h5 style="color:white">Read More</h5>
+            <h3 style="color:white">Amit Patel</h3>
+            <p>Mumbai, India</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="review-card">
+            <p class="review-text">The most reliable and secure platform...</p>
+            <p class="full-review">The most reliable and secure platform...</p>
+           <h5 style="color:white">Read More</h5>
+            <h3 style="color:white">Amit Patel</h3>
+            <p>Mumbai, India</p>
+        </div>
 
     </div>
+
+    <!-- Right Arrow -->
+    <button id="nextBtn" class="arrow-btn right-arrow">></button>
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
    <%-- articel library--%>
@@ -1360,46 +1494,55 @@ control of your healthcare journey with confidence.
     <!-- Heading -->
     <h2 style="color: black; font-size: 36px; margin-bottom: 40px;">Articles Library</h2>
 
-    <!-- Articles Section (Continuous Scroll) -->
-    <div class="articles-container" style="display: flex; padding: 20px; overflow: hidden; width: 100%;">
+    <!-- Infinite Scrolling Wrapper -->
+    <div class="scroll-wrapper">
+        <div class="articles-container">
+            <!-- Articles (Duplicated for Seamless Looping) -->
+            <div class="article-track">
+                <div class="article-card">
+                    <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image">
+                    <h3>7 Healthy Habits That Can Improve Your Digestion</h3>
+                    <p>Good digestion is important for feeling good, but many of us don't pay attention...</p>
+                    <p class="review">Reviewed by <strong>Hena Kanakia</strong> | 14 January, 24</p>
+                </div>
 
-        <!-- Article Card 1 -->
-        <div class="article-card" style="flex: 0 0 auto; width: 100%; max-width: 700px; border: 1px solid #ddd; border-radius: 10px; background-color: #f9f9f9; padding: 15px; display: flex; align-items: center; flex-wrap: wrap; margin-right: 20px;">
-            <div style="flex: 1; padding-right: 20px;">
-                <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image" style="width: 100%; border-radius: 10px;">
-            </div>
-            <div style="flex: 2;">
-                <h3 style="font-size: 20px; color: #00509e; margin-top: 0;">7 Healthy Habits That Can Improve Your Digestion</h3>
-                <p style="font-size: 16px; color: #333; line-height: 1.6; text-align: left;">Good digestion is important for feeling good, but many of us don't pay attention to habits that...</p>
-                <p style="font-size: 14px; color: #777; text-align: left;">Reviewed by <strong>Hena Kanakia</strong> | 14 January, 24</p>
+                <div class="article-card">
+                    <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image">
+                    <h3>The Importance of Hydration for Skin Health</h3>
+                    <p>Our skin is our largest organ, and proper hydration plays a vital role...</p>
+                    <p class="review">Reviewed by <strong>Sarah Lee</strong> | 10 January, 24</p>
+                </div>
+
+                <div class="article-card">
+                    <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image">
+                    <h3>Top Tips for Mental Health and Wellness</h3>
+                    <p>Mental health is just as important as physical health. Here are some tips...</p>
+                    <p class="review">Reviewed by <strong>John Doe</strong> | 05 January, 24</p>
+                </div>
+
+                <!-- Duplicate Set for Smooth Loop -->
+                <div class="article-card">
+                    <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image">
+                    <h3>7 Healthy Habits That Can Improve Your Digestion</h3>
+                    <p>Good digestion is important for feeling good, but many of us don't pay attention...</p>
+                    <p class="review">Reviewed by <strong>Hena Kanakia</strong> | 14 January, 24</p>
+                </div>
+
+                <div class="article-card">
+                    <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image">
+                    <h3>The Importance of Hydration for Skin Health</h3>
+                    <p>Our skin is our largest organ, and proper hydration plays a vital role...</p>
+                    <p class="review">Reviewed by <strong>Sarah Lee</strong> | 10 January, 24</p>
+                </div>
+
+                <div class="article-card">
+                    <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image">
+                    <h3>Top Tips for Mental Health and Wellness</h3>
+                    <p>Mental health is just as important as physical health. Here are some tips...</p>
+                    <p class="review">Reviewed by <strong>John Doe</strong> | 05 January, 24</p>
+                </div>
             </div>
         </div>
-
-        <!-- Article Card 2 -->
-        <div class="article-card" style="flex: 0 0 auto; width: 100%; max-width: 700px; border: 1px solid #ddd; border-radius: 10px; background-color: #f9f9f9; padding: 15px; display: flex; align-items: center; flex-wrap: wrap; margin-right: 20px;">
-            <div style="flex: 1; padding-right: 20px;">
-                <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image" style="width: 100%; border-radius: 10px;">
-            </div>
-            <div style="flex: 2;">
-                <h3 style="font-size: 20px; color: #00509e; margin-top: 0;">The Importance of Hydration for Skin Health</h3>
-                <p style="font-size: 16px; color: #333; line-height: 1.6; text-align: left;">Our skin is our largest organ, and proper hydration plays a vital role in maintaining its health...</p>
-                <p style="font-size: 14px; color: #777; text-align: left;">Reviewed by <strong>Sarah Lee</strong> | 10 January, 24</p>
-            </div>
-        </div>
-
-        <!-- Article Card 3 -->
-        <div class="article-card" style="flex: 0 0 auto; width: 100%; max-width: 700px; border: 1px solid #ddd; border-radius: 10px; background-color: #f9f9f9; padding: 15px; display: flex; align-items: center; flex-wrap: wrap; margin-right: 20px;">
-            <div style="flex: 1; padding-right: 20px;">
-                <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image" style="width: 100%; border-radius: 10px;">
-            </div>
-            <div style="flex: 2;">
-                <h3 style="font-size: 20px; color: #00509e; margin-top: 0;">Top Tips for Mental Health and Wellness</h3>
-                <p style="font-size: 16px; color: #333; line-height: 1.6; text-align: left;">Mental health is just as important as physical health. Here are some tips to keep your mind healthy...</p>
-                <p style="font-size: 14px; color: #777; text-align: left;">Reviewed by <strong>John Doe</strong> | 05 January, 24</p>
-            </div>
-        </div>
-
-        <!-- Add more article cards as needed -->
     </div>
 </section>
 
