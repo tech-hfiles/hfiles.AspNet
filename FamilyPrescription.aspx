@@ -38,8 +38,16 @@
             </style>
             <div class="row">
                 <div style="display:flex;margin:auto;justify-content:center">
-                    <img src="/assets2/family-prescription-logo.jpeg" style="width:60px;" />
-                    <h1 style="color:#0331b5;margin-top:auto;margin-bottom:auto;">Family Prescription</h1>
+                    <div style="display:flex;margin-left:auto;">
+                        <img src="/assets2/family-prescription-logo.jpeg" style="width:60px;" />
+<h1 style="color:#0331b5;margin-top:auto;margin-bottom:auto;">Family Prescription</h1>
+                    </div>
+                    <div style="display:flex;margin-left:auto;margin-right: 25px;margin-bottom: 10px;margin-top: 10px;">
+                        <select class="form-select select-user" id="UserSelect" name="user[]">
+    <option value="" selected>All User</option>
+</select>
+                    </div>
+                    
                 </div>
                 
             </div>
@@ -114,7 +122,7 @@
                 <div class="col col-8" style="padding:10px">
                     <input type="hidden" id="PrescriptionId" name="Id[]">
                     <select class="form-select member-select" id="MemberSelect" name="member[]">
-                        <option value="" disabled selected>Member</option>
+                        <option value="" disabled selected>Select Member</option>
                     </select>
                 </div>
             </div>
@@ -124,7 +132,7 @@
 </div>
                 <div class="col col-8" style="padding:10px">
                     <select class="form-select condition-select" id="ConditionSelect" name="condition[]" style="width:100%">
-                        <option value="" disabled selected>Condition</option>
+                        <option value="" disabled selected>Select Condition</option>
                     </select>
                 </div>
             </div>
@@ -133,7 +141,7 @@
     <Button style="pointer-events: none;height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text"  class="skip-tab" tabindex="-1">Medication</Button>
 </div>
                 <div class="col col-8" style="padding:10px">
-                    <input type="text" class="form-control" id="Medication" placeholder="Medication" name="medication[]" />
+                    <input type="text" class="form-control" id="Medication" placeholder="Type Medication" name="medication[]" />
                 </div>
             </div>
             
@@ -142,7 +150,7 @@
     <Button style="pointer-events: none;height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text"  class="skip-tab" tabindex="-1">Dosage</Button>
 </div>
                 <div class="col col-8" style="padding:10px">
-                    <input type="text" class="form-control" id="Dosage" placeholder="Dosage" name="dosage[]" />
+                    <input type="text" class="form-control" id="Dosage" placeholder="Type Dosage" name="dosage[]" />
                 </div>
             </div>
                         <div class="row">
@@ -152,7 +160,7 @@
                 <div class="col col-8" style="padding:10px">
                     <%--<input type="text" class="form-control" id="Power" placeholder="Power" name="power[]" />--%>
                     <select class="form-select" id="Power" name="power[]">
-                        <option value="" disabled selected>Schedule</option>
+                        <option value="" disabled selected>Select Schedule</option>
                         <option>All Days</option>
                         <option>Sunday</option>
                         <option>Monday</option>
@@ -171,7 +179,7 @@
                 <div class="col col-8" style="padding:10px">
                     <%--<input type="text" class="form-control" id="Timings" placeholder="Timings" name="timings[]" />--%>
                     <select class="form-select" id="Timings" name="timings[]">
-                        <option value="" disabled selected>Timings</option>
+                        <option value="" disabled selected>Select Timings</option>
                         <option>12 AM</option>
                         <option>1 AM</option>
                         <option>2 AM</option>
@@ -264,6 +272,7 @@
                 var AccessMember = [];
                 var memberOptionsFetched = false;
                 var conditionOptionsFetched = false;
+                var currentUser = [];
                 GetAccessData();
                 function fetchData() {
                     FetchedData = [];
@@ -277,14 +286,17 @@
                             // Handle success, e.g., bind the data to a grid
                             const dataList = JSON.parse(response.d);
                             FetchedData = dataList;
-                            const tableBody = document.querySelector("#prescription tbody");
-                            tableBody.innerHTML = '';
-                            // Iterate over the parsed data and bind to your grid or add rows
+                            
+                            //const tableBody = document.querySelector("#prescription tbody");
+                            //tableBody.innerHTML = '';
+                            //// Iterate over the parsed data and bind to your grid or add rows
                             if (memberOptionsFetched && conditionOptionsFetched) {
                                 console.log("Data already fetched, not calling fetch again.");
-                                dataList.forEach((data) => {
-                                    addRecordTable(data);
-                                });
+                                //dataList.forEach((data) => {
+                                //    addRecordTable(data);
+                                //});
+                                const userselect = document.getElementById('UserSelect');
+                                userselect.dispatchEvent(new Event('change'));
 
                             } else {
                                 // Promise.all to fetch both options only once
@@ -292,9 +304,12 @@
                                     .then(() => {
                                         memberOptionsFetched = true;
                                         conditionOptionsFetched = true;
-                                        dataList.forEach((data) => {
-                                            addRecordTable(data);
-                                        });
+                                        //dataList.forEach((data) => {
+                                        //    addRecordTable(data);
+                                        //});
+                                        //$("#UserSelect").trigger("change");
+                                        const userselect = document.getElementById('UserSelect');
+                                        userselect.dispatchEvent(new Event('change'));
                                     })
                                     .catch(err => {
                                         console.error("Error fetching data:", err);
@@ -308,6 +323,7 @@
                         }
                     });
                 }
+                
                 function GetAccessData() {
                     FetchedData = [];
                     $.ajax({
@@ -317,7 +333,7 @@
                         dataType: "json",
                         success: function (response) {
                             console.log("Data fetched successfully:", response.d);
-                            const dataList = JSON.parse(response.d);
+                            //const dataList = JSON.parse(response.d);
                             AccessMember = response.d;
                         },
                         error: function (xhr, status, error) {
@@ -333,7 +349,10 @@
                 let modal = new bootstrap.Modal(modalElement);
 
                 function addRecordTable(rowData) {
-
+                    var hiddenData = "";
+                    if (currentUser[0].user_id != rowData.UserId) {
+                        hiddenData = "display:none;";
+                    }
 
 
                     const tableBody = document.querySelector("#prescription tbody");
@@ -354,7 +373,7 @@
           <td style="text-align:center">${rowData.Dosage}</td>
           <td style="text-align:center">${rowData.Power}</td>
           <td style="text-align:center">${rowData.Timings}</td>
-          <td style="text-align:center;">
+          <td style="text-align:center;${hiddenData}">
               <i class="fas fa-edit action-icons" title="Edit" style="cursor:pointer" onclick="editPrescription(${rowData.Id})"></i>
               &nbsp;
               <i class="fas fa-trash action-icons" title="Remove" style="cursor:pointer" onclick="removeRow(${rowData.Id})"></i>
@@ -386,66 +405,125 @@
                     addPrescription(data[0]);
                 }
 
+                $("#UserSelect").on("change", function () {
+                    const selectedValue = $(this).val(); // Get the selected value
+                    const selectedText = $(this).find('option:selected').text(); // Get the selected text
+
+                    console.log(`Selected Value: ${selectedValue}`);
+                    console.log(`Selected Text: ${selectedText}`);
+                    const tableBody = document.querySelector("#prescription tbody");
+                    tableBody.innerHTML = '';
+                    if (selectedValue != "") {
+                        const FilteredData = FetchedData.filter(opt => opt.UserId == parseInt(selectedValue));
+                        FilteredData.forEach((data) => {
+                            addRecordTable(data);
+                        });
+                    }
+                    else {
+                        FetchedData.forEach((data) => {
+                            addRecordTable(data);
+                        });
+                    }
+                    
+
+
+                });
+
 
                 function fetchMemberOptions() {
                     return new Promise((resolve, reject) => {
+                        
                         // Simulate async operation
                         setTimeout(() => {
                             $.ajax({
                                 type: "POST", // Use POST instead of GET
-                                url: "MedicalHistory.aspx/GetUserMembers",
+                                url: "FamilyPrescription.aspx/UserData",
                                 contentType: "application/json; charset=utf-8",
                                 dataType: "json",
                                 success: function (response) {
-                                    const Data = JSON.parse(response.d);
-                                    memberMaster = Data;
-                                    const dependentMember = Data.filter(opt => opt.IsDependent == 1);
-                                    const IndependentMember = Data.filter(opt => opt.IsDependent == 0);
+                                    const userData = JSON.parse(response.d);
+                                    currentUser = userData;
+                                    console.log(userData);
+                                    $.ajax({
+                                        type: "POST", // Use POST instead of GET
+                                        url: "MedicalHistory.aspx/GetUserMembers",
+                                        contentType: "application/json; charset=utf-8",
+                                        dataType: "json",
+                                        success: function (response) {
+                                            const Data = JSON.parse(response.d);
+                                            memberMaster = Data;
+                                            const dependentMember = Data.filter(opt => opt.IsDependent == 1);
+                                            const IndependentMember = Data.filter(opt => opt.IsDependent == 0);
 
-                                    console.log("Members", Data);
-                                    const select = document.getElementById('MemberSelect');
-                                    dependentMember.forEach(option => {
-                                        const opt = document.createElement('option');
-                                        opt.value = option.user_id; // Set the option value
-                                        opt.textContent = option.user_FirstName; // Set the option text
-                                        select.appendChild(opt); // Append the option
-                                    });
-                                    console.log('Member Options Fetched');
-                                    const container = document.getElementById("checkboxContainer");
-                                    IndependentMember.forEach(pair => {
-                                        // Create a checkbox input
-                                        const checkbox = document.createElement("input");
-                                        checkbox.type = "checkbox";
-                                        checkbox.id = pair.user_id;  // Use the key as the ID
-                                        checkbox.name = "options";
-                                        checkbox.value = pair.user_id; // Use the key as the value
-                                        if (AccessMember.includes(pair.user_id)) {
-                                            checkbox.checked = true;
+                                            console.log("Members", Data);
+                                            const select = document.getElementById('MemberSelect');
+                                            const userselect = document.getElementById('UserSelect');
+                                            const opt = document.createElement('option');
+                                            opt.value = currentUser[0].user_id; // Set the option value
+                                            opt.textContent = currentUser[0].user_firstname; // Set the option text
+                                            select.appendChild(opt); // Append the option
+                                            
+                                            const myopt = document.createElement('option');
+                                            myopt.value = currentUser[0].user_id; // Set the option value
+                                            myopt.textContent = currentUser[0].user_firstname; // Set the option text
+                                            myopt.selected = true; // Make this option selected
+                                            userselect.appendChild(myopt); // Append the option
+                                            //userselect.dispatchEvent(new Event('change'));
+                                            
+                                            dependentMember.forEach(option => {
+                                                const opt = document.createElement('option');
+                                                opt.value = option.user_id; // Set the option value
+                                                opt.textContent = option.user_FirstName; // Set the option text
+                                                select.appendChild(opt); // Append the option
+                                            });
+                                            
+                                            console.log('Member Options Fetched');
+                                            const container = document.getElementById("checkboxContainer");
+                                            IndependentMember.forEach(pair => {
+                                                // Create a checkbox input
+                                                const checkbox = document.createElement("input");
+                                                checkbox.type = "checkbox";
+                                                checkbox.id = pair.user_id;  // Use the key as the ID
+                                                checkbox.name = "options";
+                                                checkbox.value = pair.user_id; // Use the key as the value
+                                                if (AccessMember.includes(pair.user_id)) {
+                                                    checkbox.checked = true;
+                                                }
+                                                // Create a label
+                                                const label = document.createElement("label");
+                                                label.htmlFor = pair.user_id; // Associate the label with the checkbox
+                                                label.textContent = pair.user_FirstName; // Display the value as the label text
+
+                                                // Append checkbox and label to the container
+                                                container.appendChild(checkbox);
+                                                container.appendChild(label);
+
+
+                                                const opt = document.createElement('option');
+                                                opt.value = pair.user_id; // Set the option value
+                                                opt.textContent = pair.user_FirstName; // Set the option text
+                                                userselect.appendChild(opt); // Append the option
+
+
+
+                                                // Add a line break for spacing
+                                                container.appendChild(document.createElement("br"));
+                                            });
+
+
+
+
+                                            resolve(); // Resolve the promise when done
+                                        },
+                                        error: function () {
+                                            console.error('Error fetching members data');
+                                            //return []; // Return empty array in case of an error
+                                            resolve();
                                         }
-                                        // Create a label
-                                        const label = document.createElement("label");
-                                        label.htmlFor = pair.user_id; // Associate the label with the checkbox
-                                        label.textContent = pair.user_FirstName; // Display the value as the label text
-
-                                        // Append checkbox and label to the container
-                                        container.appendChild(checkbox);
-                                        container.appendChild(label);
-
-                                        // Add a line break for spacing
-                                        container.appendChild(document.createElement("br"));
                                     });
-
-
-
-
-                                    resolve(); // Resolve the promise when done
-                                },
-                                error: function () {
-                                    console.error('Error fetching members data');
-                                    //return []; // Return empty array in case of an error
-                                    resolve();
                                 }
                             });
+                            
 
                         }, 500);
                     });

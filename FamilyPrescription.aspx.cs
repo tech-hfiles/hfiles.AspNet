@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -16,9 +17,36 @@ namespace hfiles
         string cs = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
+
+        [System.Web.Services.WebMethod]
+        public static string UserData()
+        {
+            FamilyPrescription1 fb = new FamilyPrescription1();
+            return fb.getbasicdetails();
+        }
+
+
+        public string getbasicdetails()
+        {
+            int id = DAL.validateInt(Session["Userid"]);
+            DataTable dt = new DataTable();
+            using (MySqlConnection connection = new MySqlConnection(cs))
+            {
+                connection.Open();
+                using (MySqlCommand command = new MySqlCommand("getUserDetails", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("_Id", id);
+                    MySqlDataAdapter da = new MySqlDataAdapter(command);
+                    
+                    da.Fill(dt);
+                }
+            }
+            return JsonConvert.SerializeObject(dt);
+        }
         protected void user_members()
         {
             using (MySqlConnection con = new MySqlConnection(cs))
@@ -39,6 +67,8 @@ namespace hfiles
                 }
             }
         }
+        
+        
         [System.Web.Services.WebMethod]
         public static int[] GetAccessFamilyPrescription()
         {
@@ -91,6 +121,10 @@ namespace hfiles
             FamilyPrescription1 fp = new FamilyPrescription1();
             fp.SetAccessToArrayByUserId(Access);
         }
+
+
+
+
         private void SetAccessToArrayByUserId(string accessTo)
         {
             int userId = DAL.validateInt(Session["Userid"]);
@@ -135,5 +169,19 @@ namespace hfiles
                 }
             }
         }
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
     }
 }

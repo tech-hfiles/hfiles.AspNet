@@ -115,25 +115,31 @@ namespace hfiles
         protected void sharewhatsapp_Click(object sender, EventArgs e)
         {
             string fileUrl = string.Empty;
-
+            string whatsstring = "https://wa.me/?text=";
             // Check if the sender is a LinkButton
-           
-                // Iterate through the GridView rows to find selected CheckBox
-                foreach (GridViewRow row in GridView1.Rows)
+
+            // Iterate through the GridView rows to find selected CheckBox
+            foreach (GridViewRow row in GridView1.Rows)
                 {
                     CheckBox chkSelect = (CheckBox)row.FindControl("chkSelect");
-                    if (chkSelect != null && chkSelect.Checked)
+                    string reportName = row.Cells[1].Text;
+                    string reportType = row.Cells[2].Text;
+
+                if (chkSelect != null && chkSelect.Checked)
                     {
                         HiddenField hfReportId = (HiddenField)row.FindControl("hfReportUrl");
                         if (hfReportId != null && int.TryParse(hfReportId.Value, out int reportId))
                         {
                             // Retrieve the file path from the database
                             fileUrl = GetReportUrlFromDatabase(reportId);
-                            if (!string.IsNullOrEmpty(fileUrl))
-                            {
-                                break; // Stop after finding the first valid report link
-                            }
-                        }
+                        //if (!string.IsNullOrEmpty(fileUrl))
+                        //{
+                        //    break; // Stop after finding the first valid report link
+                        //}
+                        string whatsappMessage = fileUrl;
+                        string whatsappUrl = GenerateWhatsAppUrl(whatsappMessage);
+                        whatsstring += $"{reportName}({reportType}) - {whatsappUrl} %0A";
+                    }
                     }
                 }
             
@@ -148,11 +154,12 @@ namespace hfiles
             }
 
             // Generate WhatsApp share URL
-            string whatsappMessage = fileUrl;
-            string whatsappUrl = GenerateWhatsAppUrl(whatsappMessage);
+            
 
             // Redirect to WhatsApp
-            Response.Redirect(whatsappUrl);
+            Response.Redirect(whatsstring);
+
+            
 
 
 
@@ -233,7 +240,7 @@ namespace hfiles
 
 
             // Return the WhatsApp-ready link
-            return "https://wa.me/?text=" + HttpUtility.UrlEncode(signedUrl);
+            return  HttpUtility.UrlEncode(signedUrl);
         }
         //private string GenerateWhatsAppUrl(string fileUrl)
         //{
