@@ -108,7 +108,12 @@ namespace hfiles
                         {
                             // Populate the HTML controls with user details.
                             string Name = reader["user_firstname"].ToString() + " "+ reader["user_lastname"].ToString();
-                            int BloodGroup = Convert.ToInt32(reader["user_bloodgroup"].ToString());
+                            string ubg = reader["user_bloodgroup"].ToString();
+                            if (string.IsNullOrEmpty(ubg))
+                            {
+                                ubg = "0";
+                            }
+                            int BloodGroup = Convert.ToInt32(ubg);
                             string Contact = reader["user_icecontact"].ToString();
                             string Expiry = reader["user_expiry"].ToString();
                             string UserPlan = reader["user_plan"].ToString();
