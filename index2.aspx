@@ -707,6 +707,27 @@
     }
 }
 </style>
+
+    <%--talking Us Is Easy--%>
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <script>
+      window.onload = function () {
+          setTimeout(function () {
+              document.getElementById("phone-info").style.display = "block";
+          }, 500);
+
+          setTimeout(function () {
+              document.getElementById("email-info").style.display = "block";
+          }, 1500);
+
+          setTimeout(function () {
+              document.getElementById("whatsapp-info").style.display = "block";
+          }, 2500);
+      };
+</script>
+
 </head>
 <body class="home page-template page-template-elementor_header_footer page page-id-26 elementor-default elementor-template-full-width elementor-kit-89 elementor-page elementor-page-26">
     <div class="ekit-template-content-markup ekit-template-content-header ekit-template-content-theme-support">
@@ -1042,89 +1063,108 @@ Update your bond with health by signing up with us today!
         
        <%-- how does health file work--%>
 
-                        <section class="elementor-section elementor-top-section elementor-element elementor-element-32480c6 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="32480c6" data-element_type="section" id="why" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" style="background-color: white">
-            <div class="elementor-container elementor-column-gap-no">
-                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f1bc2e1" data-id="f1bc2e1" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" style="background-color: white">
-                    <div class="elementor-widget-wrap elementor-element-populated">
-                        <section class="elementor-section elementor-inner-section elementor-element elementor-element-9bf08d5 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="9bf08d5" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-                            <div class="elementor-container elementor-column-gap-default">
-                                <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-d0071a8" data-id="d0071a8" data-element_type="column">
-                                    <div class="elementor-widget-wrap elementor-element-populated">
-                                        <div class="elementor-element elementor-element-db5ed71 elementor-invisible elementor-widget elementor-widget-heading" data-id="db5ed71" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="heading.default">
-                                            <div class="elementor-widget-container">
-                                                <h2 class="elementor-heading-title" style="font-size:50px !important;">How does Health Files Work?</h2>
-                                            </div>
-                                        </div>
-                                        <div class="elementor-element elementor-element-8050479 elementor-widget__width-initial elementor-invisible elementor-widget elementor-widget-text-editor" data-id="8050479" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="text-editor.default">
-                                            <div class="elementor-widget-container">
-                                               Sign up easily in just a few steps to securely manage your health records and take 
-control of your healthcare journey with confidence.					
-                                            </div>
-                                            
-                                        </div>
+                      <section class="elementor-section elementor-top-section elementor-element elementor-element-32480c6 elementor-section-boxed elementor-section-height-default elementor-section-height-default" 
+    data-id="32480c6" data-element_type="section" id="why" 
+    data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" 
+    style="background-color: white !important; color: black;">
+    
+    <div class="elementor-container elementor-column-gap-no">
+        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f1bc2e1" 
+            data-id="f1bc2e1" data-element_type="column" 
+            data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" 
+            style="background-color: white; color: black;">
+            
+            <div class="elementor-widget-wrap elementor-element-populated">
+                <section class="elementor-section elementor-inner-section elementor-element elementor-element-9bf08d5 elementor-section-boxed elementor-section-height-default elementor-section-height-default" 
+                    data-id="9bf08d5" data-element_type="section" 
+                    data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                    
+                    <div class="elementor-container elementor-column-gap-default">
+                        <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-d0071a8" 
+                            data-id="d0071a8" data-element_type="column">
+                            
+                            <div class="elementor-widget-wrap elementor-element-populated">
+                                <div class="elementor-element elementor-element-db5ed71 elementor-invisible elementor-widget elementor-widget-heading" 
+                                    data-id="db5ed71" data-element_type="widget" 
+                                    data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" 
+                                    data-widget_type="heading.default">
+                                    
+                                    <div class="elementor-widget-container">
+                                        <h2 class="elementor-heading-title" style="font-size:50px !important; color: black;">How does Health Files Work?</h2>
+                                    </div>
+                                </div>
+                                <div class="elementor-element elementor-element-8050479 elementor-widget__width-initial elementor-invisible elementor-widget elementor-widget-text-editor" 
+                                    data-id="8050479" data-element_type="widget" 
+                                    data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200}" 
+                                    data-widget_type="text-editor.default">
+                                    
+                                    <div class="elementor-widget-container" style="color: black;">
+                                        Sign up easily in just a few steps to securely manage your health records and take 
+                                        control of your healthcare journey with confidence.					
                                     </div>
                                 </div>
                             </div>
-                        </section>
-                        <%--<section class="elementor-section elementor-inner-section elementor-element elementor-element-9ecd0b9 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="9ecd0b9" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-                            <div class="elementor-container elementor-column-gap-default">
-                                <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-8d75464" data-id="8d75464" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                        </div>
+                    </div>
+                </section>
 
+                <section class="elementor-section elementor-inner-section elementor-element elementor-element-9ecd0b9 elementor-section-boxed elementor-section-height-default elementor-section-height-default" 
+                    data-id="9ecd0b9" data-element_type="section" 
+                    data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                    
+                    <div class="elementor-container elementor-column-gap-default">
+                        <!-- Left Column for Video -->
+                        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-8d75464" 
+                            data-id="8d75464" data-element_type="column" 
+                            style="padding-right: 80px;">
+                            
+                            <div class="elementor-widget-container">
+                                <!-- Video Embed -->
+                                <video controls style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                                    <source src="/journal-page-images/article/Welcome to Health Files!.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
 
+                        <!-- Right Column for Text -->
+                        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-9abcd12" 
+                            data-id="9abcd12" data-element_type="column" 
+                            style="padding-left: 40px;">
+                            
+                            <div class="elementor-widget-wrap">
+                                <div class="elementor-widget-container">
+                                    <!-- Step-by-Step Content -->
+                                    <h2 style="font-size: 28px; font-weight: bold; margin-bottom: 20px; color: black;"></h2>
+                                    
+                                    <!-- Step 1 -->
+                                    <div style="margin-bottom: 20px;">
+                                        <h3 style="font-size: 24px; font-weight: bold; margin-bottom: 10px; color: black;">Step 1</h3>
+                                        <p style="font-size: 25px; line-height: 1.8; color: black;">Sign up and create a profile for you. Add your family members.</p>
+                                    </div>
 
-                                  
+                                    <!-- Step 2 -->
+                                    <div style="margin-bottom: 20px;">
+                                        <h3 style="font-size: 24px; font-weight: bold; margin-bottom: 10px; color: black;">Step 2</h3>
+                                        <p style="font-size: 25px; line-height: 1.8; color: black;">Securely upload medical records and organize them for easy access.</p>
+                                    </div>
+
+                                    <!-- Step 3 -->
+                                    <div>
+                                        <h3 style="font-size: 24px; font-weight: bold; margin-bottom: 10px; color: black;">Step 3</h3>
+                                        <p style="font-size: 23px; line-height: 1.8; color: black;">Grant your family access to records anytime and seamlessly share them with your healthcare providers.</p>
+                                    </div>
                                 </div>
                             </div>
-                        </section>--%>
-                    <section class="elementor-section elementor-inner-section elementor-element elementor-element-9ecd0b9 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="9ecd0b9" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-    <div class="elementor-container elementor-column-gap-default">
-        <!-- Left Column for Video -->
-        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-8d75464" data-id="8d75464" data-element_type="column" style="padding-right: 80px;">
-            
-                <div class="elementor-widget-container">
-                    <!-- Video Embed -->
-                    <video controls style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                        <source src="/journal-page-images/article/Welcome to Health Files!.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-        
-        
-        <!-- Right Column for Text -->
-        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-9abcd12" data-id="9abcd12" data-element_type="column" style="padding-left: 40px;">
-            <div class="elementor-widget-wrap">
-                <div class="elementor-widget-container">
-                    <!-- Step-by-Step Content -->
-                    <h2 style="font-size: 28px; font-weight: bold; margin-bottom: 20px; color: #fff;"></h2>
-                    
-                    <!-- Step 1 -->
-                    <div style="margin-bottom: 20px;">
-                        <h3 style="font-size: 24px; font-weight: bold; margin-bottom: 10px; color: #fff;">Step 1</h3>
-                        <p style="font-size: 25px; line-height: 1.8; color: #fff;">Sign up and create a profile for you. Add your family members.</p>
+                        </div>
                     </div>
-                    
-                    <!-- Step 2 -->
-                    <div style="margin-bottom: 20px;">
-                        <h3 style="font-size: 24px; font-weight: bold; margin-bottom: 10px; color: #fff;">Step 2</h3>
-                        <p style="font-size: 25px; line-height: 1.8; color: #fff;">Securely upload medical records and organize them for easy access.</p>
-                    </div>
-                    
-                    <!-- Step 3 -->
-                    <div>
-                        <h3 style="font-size: 24px; font-weight: bold; margin-bottom: 10px; color: #fff;">Step 3</h3>
-                        <p style="font-size: 23px; line-height: 1.8; color: #fff;">Grant your family access to records anytime and seamlessly share them with your healthcare providers.</p>
-                    </div>
-                </div>
+                </section>
+
             </div>
         </div>
     </div>
 </section>
 
-                    </div>
-                </div>
-            </div>
-        </section>
                          
         <%--abhay id--%>
 
@@ -1548,6 +1588,223 @@ control of your healthcare journey with confidence.
 
 
 
+    
+
+
+
+    <%--Talking to us Is Easy--%>
+
+   <section class="elementor-section elementor-top-section elementor-element elementor-section-boxed elementor-section-height-default elementor-section-height-default" style="background-color: white">
+    <div class="elementor-container elementor-column-gap-no">
+        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element" style="background-color: white">
+            <div class="elementor-widget-wrap elementor-element-populated">
+                <section class="elementor-section elementor-inner-section elementor-element elementor-section-boxed elementor-section-height-default elementor-section-height-default">
+                    <div class="elementor-container elementor-column-gap-default">
+                        <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element">
+                            <div class="elementor-widget-wrap elementor-element-populated">
+                                <div class="elementor-widget-container" style="text-align: center;">
+                                    <h2 class="elementor-heading-title" style="font-size: 50px !important; color: black;">Talking To Us Is Easy</h2>
+                                    <p style="font-size: 20px; color: #333;">Have questions about Health Files, want to explore a partnership, or interested in joining our team? We’d love to hear from you!</p>
+<div style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+    <p id="phone-info" style="font-size: 18px; color: black; display: none; flex: 1; text-align: center;">
+        <img src="/journal-page-images/article/phone-icon.png" alt="Phone Icon" style="width: 50px; height: 50px; margin-bottom: 5px;">
+        <br />
+        <strong>Give us a call:</strong>
+        <br />
+        +91 9978043453
+    </p>
+    <p id="email-info" style="font-size: 18px; color: black; display: none; flex: 1; text-align: center;">
+        <img src="/journal-page-images/article/email-icon.png" alt="Email Icon" style="width: 50px; height: 50px; margin-bottom: 5px;">
+        <br />
+        <strong>Write to us:</strong>
+        <br />contact@hfiles.in
+    </p>
+    <p id="whatsapp-info" style="font-size: 18px; color: black; display: none; flex: 1; text-align: center;">
+        <img src="/journal-page-images/article/whatsapp-icon.png" alt="WhatsApp Icon" style="width: 50px; height: 50px; margin-bottom: 5px;">
+        <br />
+        <strong>WhatsApp us:</strong>
+        <br />
+        +91 9978043453
+    </p>
+</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+             <section class="elementor-section elementor-inner-section elementor-section-boxed elementor-section-height-default elementor-section-height-default">
+    <div class="elementor-container elementor-column-gap-default">
+        <!-- Left Column for Logo -->
+        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element" style="text-align: center;">
+            <div class="elementor-widget-container">
+                <img src="/journal-page-images/article/landing-ABHA1.jpeg" alt="Health Files Logo" style="width: 80%; max-width: 300px;">
+            </div>
+        </div>
+        <!-- Right Column for Text -->
+        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element" style="margin-right: 60px;">
+            <div class="elementor-widget-wrap">
+                <div class="elementor-widget-container">
+                    <p style="font-size: 20px; line-height: 1.8; color: black;">Interested in partnering with us to revolutionize healthcare management? Let’s connect and explore the possibilities!</p>
+                    <a href="#contact" class="elementor-button elementor-size-md" style="background-color: #0044cc; color: white; padding: 8px 10px; text-decoration: none; border-radius: 5px;">GET IN TOUCH</a>
+                </div>
+                <div class="elementor-widget-container" style="margin-top: 30px;">
+                    <p style="font-size: 20px; line-height: 1.8; color: black;">Ready to make a difference in healthcare? Join our team and help shape the future of health management!</p>
+                    <a href="#careers" class="elementor-button elementor-size-md" style="background-color: #0044cc; color: white; padding: 8px 10px; text-decoration: none; border-radius: 5px;">GET IN TOUCH</a>
+                    
+                    <!-- Add new image next to the button -->
+                 <%--   <img src="/journal-page-images/article/your-image.jpg" alt="Career Image" style="width: 50px; height: 50px; margin-left: 20px; vertical-align: middle;">--%>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+  <%--  Footer--%>
+
+
+   <%-- <div class="ekit-template-content-markup ekit-template-content-footer ekit-template-content-theme-support">
+    <div data-elementor-type="wp-post" data-elementor-id="23" class="elementor elementor-23">
+        <section class="elementor-section elementor-top-section elementor-element elementor-element-34631969 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="34631969" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-231d9d2b" data-id="231d9d2b" data-element_type="column">
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <!-- Join Us Section -->
+                        <section class="elementor-section elementor-inner-section elementor-element elementor-element-ffc89de elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="ffc89de" data-element_type="section">
+                            <div class="elementor-container elementor-column-gap-default">
+                                <!-- Logo -->
+                                <div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-41059b22" data-id="41059b22" data-element_type="column">
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                        <div class="elementor-element elementor-element-d5f6dab elementor-widget elementor-widget-image" data-id="d5f6dab" data-element_type="widget" data-widget_type="image.default">
+                                            <div class="elementor-widget-container">
+                                                <img width="207" height="80" src="https://hfiles.in/wp-content/uploads/2022/11/hfiles.png" class="attachment-full size-full wp-image-361" alt="hfiles logo" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Social Icons -->
+                                <div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-4f4c1c7" data-id="4f4c1c7" data-element_type="column">
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                        <div class="elementor-element elementor-element-7a8d30ae elementor-widget elementor-widget-heading" data-id="7a8d30ae" data-element_type="widget" data-widget_type="heading.default">
+                                            <div class="elementor-widget-container">
+                                                <h2 class="elementor-heading-title elementor-size-default">FOLLOW US</h2>
+                                            </div>
+                                        </div>
+                                        <div class="elementor-element elementor-element-40020d3a elementor-shape-circle e-grid-align-left e-grid-align-mobile-center e-grid-align-tablet-center elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="40020d3a" data-element_type="widget" data-widget_type="social-icons.default">
+                                            <div class="elementor-widget-container">
+                                                <div class="elementor-social-icons-wrapper elementor-grid">
+                                                    <span class="elementor-grid-item">
+                                                        <a class="elementor-icon elementor-social-icon elementor-social-icon-instagram" href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                                                    </span>
+                                                    <span class="elementor-grid-item">
+                                                        <a class="elementor-icon elementor-social-icon elementor-social-icon-twitter" href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                                                    </span>
+                                                    <span class="elementor-grid-item">
+                                                        <a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin" href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                                    </span>
+                                                    <span class="elementor-grid-item">
+                                                        <a class="elementor-icon elementor-social-icon elementor-social-icon-youtube" href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                                                    </span>
+                                                    <span class="elementor-grid-item">
+                                                        <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook" href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Buttons Section -->
+                                <div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-5532b9b4" data-id="5532b9b4" data-element_type="column">
+                                    <div class="elementor-widget-wrap">
+                                        <!-- Let Us Help You Button -->
+                                        <div class="elementor-element elementor-element-2157551d elementor-widget-mobile__width-initial elementor-widget elementor-widget-button" data-id="2157551d" data-element_type="widget" data-widget_type="button.default">
+                                            <div class="elementor-widget-container">
+                                                <a href="/help" class="elementor-button-link elementor-button elementor-size-md">Let Us Help You</a>
+                                            </div>
+                                        </div>
+                                        <!-- Your Account Button -->
+                                        <div class="elementor-element elementor-element-2cdd472e elementor-widget elementor-widget-button" data-id="2cdd472e" data-element_type="widget" data-widget_type="button.default">
+                                            <div class="elementor-widget-container">
+                                                <a href="/account" class="elementor-button-link elementor-button elementor-size-md">Your Account</a>
+                                            </div>
+                                        </div>
+                                        <!-- Contact Us Button -->
+                                        <div class="elementor-element elementor-element-2157551d elementor-widget-mobile__width-initial elementor-widget elementor-widget-button" data-id="2157551d" data-element_type="widget" data-widget_type="button.default">
+                                            <div class="elementor-widget-container">
+                                                <a href="/contact" class="elementor-button-link elementor-button elementor-size-md">Contact Us</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Additional Information Section -->
+                        <section class="elementor-section elementor-inner-section elementor-element elementor-element-334537a1" data-id="334537a1" data-element_type="section">
+                            <div class="elementor-container">
+                                <!-- Contact Information & Policies (Right aligned) -->
+                                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-5622afe9" data-id="5622afe9" data-element_type="column">
+                                    <div class="elementor-widget-wrap" style="text-align: right;">
+                                        <div class="elementor-element elementor-element-2157551d elementor-widget elementor-widget-text-editor" data-id="2157551d" data-element_type="widget" data-widget_type="text-editor.default">
+                                            <div class="elementor-widget-container">
+                                                <p><strong>Ahmedabad Branch:</strong><br>5-A, Ravi Pushp Apartment, Ahmedabad - 380052, Gujarat</p>
+                                                <p><strong>Mumbai Branch:</strong><br>13/4, Marine Lines, Mumbai - 400020, Maharashtra</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Policies Section (Right aligned) -->
+                                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-4f4c1c7" data-id="4f4c1c7" data-element_type="column">
+                                    <div class="elementor-widget-wrap" style="text-align: right;">
+                                        <div class="elementor-element elementor-element-7a8d30ae elementor-widget elementor-widget-heading" data-id="7a8d30ae" data-element_type="widget" data-widget_type="heading.default">
+                                            <div class="elementor-widget-container">
+                                                <h2 class="elementor-heading-title elementor-size-default">Our Policies</h2>
+                                            </div>
+                                        </div>
+                                        <ul style="list-style-type: none; padding: 0;">
+                                            <li><a href="/privacy-policy">Privacy Policy</a></li>
+                                            <li><a href="/terms-and-conditions">Terms & Conditions</a></li>
+                                            <li><a href="/faqs">FAQs</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="elementor-section elementor-top-section elementor-element elementor-element-75526a66 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="75526a66" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-66406b4e" data-id="66406b4e" data-element_type="column">
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-a8cad3b elementor-widget elementor-widget-text-editor" data-id="a8cad3b" data-element_type="widget" data-widget_type="text-editor.default">
+                            <div class="elementor-widget-container">
+                                Copyright 2024 h.files. All rights reserved by h.files					
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>--%>
+
+
 
 
 
@@ -1574,7 +1831,7 @@ control of your healthcare journey with confidence.
                                             </div>
                                             <div class="elementor-element elementor-element-297b33eb elementor-widget elementor-widget-heading" data-id="297b33eb" data-element_type="widget" data-widget_type="heading.default">
                                                 <div class="elementor-widget-container">
-                                                    <h2 class="elementor-heading-title elementor-size-default">FOLLOW US</h2>
+                                                    <h2 class="elementor-heading-title elementor-size-default">Join us</h2>
                                                 </div>
                                             </div>
                                             <div class="elementor-element elementor-element-40020d3a elementor-shape-circle e-grid-align-left e-grid-align-mobile-center e-grid-align-tablet-center elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="40020d3a" data-element_type="widget" data-widget_type="social-icons.default">
@@ -1877,21 +2134,42 @@ control of your healthcare journey with confidence.
                                                         }
 
                                                         .elementor-shape-circle .elementor-icon.elementor-social-icon {
-                                                            border-radius: 50%
+                                                            border-radius: 20%
                                                         }
                                                     </style>
                                                     <div class="elementor-social-icons-wrapper elementor-grid">
-                                                        <span class="elementor-grid-item">
-                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-39ed829" href="https://www.instagram.com/p/CoUwEw4tcr2/?igshid=MWI4MTIyMDE=" target="_blank">
-                                                                <span class="elementor-screen-only">Instagram</span>
-                                                                <i class="fab fa-instagram"></i></a>
-                                                        </span>
-                                                        <span class="elementor-grid-item">
-                                                            <a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-b01da26" href="https://twitter.com/health_files" target="_blank">
-                                                                <span class="elementor-screen-only">Twitter</span>
-                                                                <i class="fab fa-twitter"></i></a>
-                                                        </span>
-                                                    </div>
+    <span class="elementor-grid-item">
+        <a class="elementor-icon elementor-social-icon elementor-social-icon-instagram" 
+           href="https://www.instagram.com" target="_blank">
+            <i class="fab fa-instagram" style="color:#E4405F;"></i>
+        </a>
+    </span>
+    <span class="elementor-grid-item">
+        <a class="elementor-icon elementor-social-icon elementor-social-icon-twitter" 
+           href="https://twitter.com" target="_blank">
+            <i class="fab fa-twitter" style="color:#1DA1F2;"></i>
+        </a>
+    </span>
+    <span class="elementor-grid-item">
+        <a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin" 
+           href="https://www.linkedin.com" target="_blank">
+            <i class="fab fa-linkedin" style="color:#0077B5;"></i>
+        </a>
+    </span>
+    <span class="elementor-grid-item">
+        <a class="elementor-icon elementor-social-icon elementor-social-icon-youtube" 
+           href="https://www.youtube.com" target="_blank">
+            <i class="fab fa-youtube" style="color:#FF0000;"></i>
+        </a>
+    </span>
+    <span class="elementor-grid-item">
+        <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook" 
+           href="https://www.facebook.com" target="_blank">
+            <i class="fab fa-facebook" style="color:#1877F2;"></i>
+        </a>
+    </span>
+</div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -1909,45 +2187,99 @@ control of your healthcare journey with confidence.
                                         </div>
                                     </div>
 
-                                    <div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-4f4c1c7" data-id="4f4c1c7" data-element_type="column">
-                                        <div class="elementor-widget-wrap elementor-element-populated">
-                                            <div class="elementor-element elementor-element-2157551d elementor-widget-mobile__width-initial elementor-widget elementor-widget-heading" data-id="2157551d" data-element_type="widget" data-widget_type="heading.default">
-                                                <div class="elementor-widget-container">
-                                                    <h2 class="elementor-heading-title elementor-size-default">CONTACT US</h2>
-                                                </div>
-                                            </div>
-                                            <div class="elementor-element elementor-element-2cdd472e elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="2cdd472e" data-element_type="widget" data-widget_type="icon-list.default">
-                                                <div class="elementor-widget-container">
-                                                    <ul class="elementor-icon-list-items">
-                                                        <li class="elementor-icon-list-item">
-                                                            <span class="elementor-icon-list-icon">
-                                                                <i aria-hidden="true" class="fas fa-map-marker-alt"></i></span>
-                                                            <span class="elementor-icon-list-text">H-Files <br />Mumbai, India</span>
-                                                        </li>
+                                   
+                               <div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-4f4c1c7" data-id="4f4c1c7" data-element_type="column">
+    <div class="elementor-widget-wrap elementor-element-populated">
+        <!-- Let Us Help You Section -->
+        <div class="elementor-element elementor-element-2157551d elementor-widget-mobile__width-initial elementor-widget elementor-widget-heading" data-id="2157551d" data-element_type="widget" data-widget_type="heading.default">
+            <div class="elementor-widget-container">
+              <h2 class="elementor-heading-title elementor-size-default" style="color:white; display:inline;">Let Us Help You</h2>
 
-                                                        <li class="elementor-icon-list-item">
-                                                            <span class="elementor-icon-list-icon">
-                                                                <i aria-hidden="true" class="fas fa-phone elementor-phone-icon"></i>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-2cdd472e elementor-widget elementor-widget-icon-list" data-id="2cdd472e" data-element_type="widget" data-widget_type="icon-list.default">
+            <div class="elementor-widget-container">
+                <ul class="elementor-icon-list-items">
+                    <li class="elementor-icon-list-item">
+                        <span class="elementor-icon-list-text">
+                            <a href="/account" style="color:white">Your Account</a>
+                        </span>
+                    </li>
+                    <li class="elementor-icon-list-item">
+                        <span class="elementor-icon-list-text">
+                            <a href="/contact" style="color:white">Contact Us</a>
+                        </span>
+                    </li>
+                    <li class="elementor-icon-list-item">
+                        <span class="elementor-icon-list-text">
+                            <a href="/faqs" style="color:white">FAQs</a>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
-                                                            </span>
-                                                            <span class="elementor-icon-list-text">
-                                                                <a href="tel:+919978043453"><span class="text-white">9978043453</span></a>
-                                                            </span>
-                                                         </li>
+<!-- Our Policies Section -->
+<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-4f4c1c7" data-id="4f4c1c7" data-element_type="column">
+    <div class="elementor-widget-wrap elementor-element-populated">
+        <div class="elementor-element elementor-element-2157551d elementor-widget-mobile__width-initial elementor-widget elementor-widget-heading" data-id="2157551d" data-element_type="widget" data-widget_type="heading.default">
+            <div class="elementor-widget-container">
+                <h2 class="elementor-heading-title elementor-size-default" style="color:white">Our Policies</h2>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-2cdd472e elementor-widget elementor-widget-icon-list" data-id="2cdd472e" data-element_type="widget" data-widget_type="icon-list.default">
+            <div class="elementor-widget-container">
+                <ul class="elementor-icon-list-items">
+                    <li class="elementor-icon-list-item">
+                        <span class="elementor-icon-list-text">
+                            <a href="/terms-and-conditions" style="color:white">Terms & Conditions</a>
+                        </span>
+                    </li>
+                    <li class="elementor-icon-list-item">
+                        <span class="elementor-icon-list-text">
+                            <a href="/privacy-policy" style="color:white">Privacy Policy</a>
+                        </span>
+                    </li>
+                    <li class="elementor-icon-list-item">
+                        <span class="elementor-icon-list-text">
+                            <a href="/copyright" style="color:white">Copyright</a>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
-                                                        <li class="elementor-icon-list-item">
-                                                            <span class="elementor-icon-list-icon">
-                                                                <i aria-hidden="true" class="icon icon-envelope1"></i>
-                                                            </span>
-                                                            <span class="elementor-icon-list-text" >
-                                                                <a href="mailto:contact@hfiles.in" class="__cf_email__ text-white" data-cfemail="066e606f6a6375286f6846616b676f6a2865696b">contact@hfiles.in</a>
-                                                            </span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+<!-- Address Section -->
+<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-4f4c1c7" data-id="4f4c1c7" data-element_type="column">
+    <div class="elementor-widget-wrap elementor-element-populated">
+        <div class="elementor-element elementor-element-2157551d elementor-widget-mobile__width-initial elementor-widget elementor-widget-heading" data-id="2157551d" data-element_type="widget" data-widget_type="heading.default">
+            <div class="elementor-widget-container">
+                <h2 class="elementor-heading-title elementor-size-default" style="color:white">Address</h2>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-2cdd472e elementor-widget elementor-widget-icon-list" data-id="2cdd472e" data-element_type="widget" data-widget_type="icon-list.default">
+            <div class="elementor-widget-container">
+                <ul class="elementor-icon-list-items">
+                    <li class="elementor-icon-list-item">
+                        <span class="elementor-icon-list-text"><strong>Ahmedabad Branch</strong>
+                            <br />5-A, Ravi Pushp Apartment,<br /> Ahmedabad - 380052, Gujarat</span>
+                    </li>
+                    <li class="elementor-icon-list-item">
+                        <span class="elementor-icon-list-text"><strong>Mumbai Branch:</strong> 13/4, Marine Lines, Mumbai - 400020, Maharashtra</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
                                 </div>
                             </section>
                         </div>
@@ -1969,6 +2301,11 @@ control of your healthcare journey with confidence.
             </section>
         </div>
     </div>
+
+
+
+
+
     <link rel='stylesheet' id='e-animations-css' href='https://hfiles.in/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=3.21.3' media='all' />
     <script data-cfasync="false" src="https://hfiles.in/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="https://hfiles.in/wp-content/plugins/cf7-popups//views/assets/js/sweetalert2.min.js?ver=1.2.0" id="sweetalert2-js"></script>
