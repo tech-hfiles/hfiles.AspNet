@@ -17,7 +17,7 @@
   <script type="text/javascript">
       function confirmDelete() {
           // Show the confirmation dialog box
-          var result = confirm('Are you sure you want to delete?');
+          var result = confirm('This will permanently delete Members');
 
           // If the user clicks "OK", return true to proceed with the server-side action
           if (result) {
