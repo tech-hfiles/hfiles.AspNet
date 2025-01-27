@@ -78,7 +78,7 @@ namespace hfiles
             else if (fileExtension == ".pdf")
             {
                 // Embed a PDF
-                Response.Write($"<embed src='{fileUrl}' style='width: 100%; height: 400px;' />");
+                Response.Write($"<embed src='{fileUrl}' style='width: 100%;' />");
             }
         }
 

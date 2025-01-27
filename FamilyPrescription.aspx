@@ -36,6 +36,7 @@
             }
         }
             </style>
+            <div id="contentpdf">
             <div class="row">
                 <div style="display:flex;margin:auto;justify-content:center">
                     <div style="display:flex;margin-left:auto;">
@@ -86,14 +87,11 @@
                 </table>
               </div>
           </div>
+                </div>
 
 
 
-
-        <%--<form id="medicationForm" runat="server">--%>
-            <div id="gridContainer">
-                
-            </div>
+       
           <div style="display:flex;justify-content:end">
               <div style="padding:10px">
                   <button type="button" class="responsive-button" id="addprescription" onclick="addPrescription()">Add <i class="fa fa-add" style="color:#ffd101"></i></button>
@@ -233,11 +231,11 @@
                     <div id="checkboxContainer" style="display:flex;justify-content:space-evenly;width:40%;"></div>
                 </div>
 
-                <!-- Modal Footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="SetAccess">Save changes</button>
-                </div>
+               <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary" id="SetAccess">Save changes</button>
+</div>
+               
             </div>
         </div>
                 </div>
@@ -246,25 +244,30 @@
     <div class="modal-content">
         <!-- Modal Header -->
         <div class="modal-header">
-            <h5 class="modal-title" id="ShareModalLabel">Access Modal Title</h5>
+            <h5 class="modal-title" id="ShareModalLabel">Share as File</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
         <!-- Modal Body -->
         <div class="modal-body">
-            <p>This is the body content of the ShareModal.</p>
+            
+
+                <button class="button whatsapp" onclick="sendWhatsApp(event)">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+    </button>
+<!-- Email Button -->
+    <button class="button email" onclick="sendEmail(event)">
+        <i class="fas fa-envelope"></i> Email
+    </button>
         </div>
 
-        <!-- Modal Footer -->
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
     </div>
 </div>
         </div>
 
 
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 
             <script>
@@ -479,6 +482,7 @@
                                             
                                             console.log('Member Options Fetched');
                                             const container = document.getElementById("checkboxContainer");
+                                            
                                             IndependentMember.forEach(pair => {
                                                 // Create a checkbox input
                                                 const checkbox = document.createElement("input");
@@ -695,10 +699,111 @@
 
 
 
+                async function generatePDF() {
+                    const { jsPDF } = window.jspdf;
+                    const content = document.getElementById("contentpdf");
+
+                    // Clone the original content to avoid modifying the displayed table
+                    const contentClone = content.cloneNode(true);
 
 
 
+                    const originalDropdowns = content.querySelectorAll("select");
+                    const clonedDropdowns = contentClone.querySelectorAll("select");
 
+                    originalDropdowns.forEach((original, index) => {
+                        const cloned = clonedDropdowns[index];
+                        cloned.value = original.value; // Copy the selected value
+                    });
+
+
+
+                    // Hide the last column of all rows in the table
+                    const tables = contentClone.getElementsByTagName("table");
+                    for (let table of tables) {
+                        for (let row of table.rows) {
+                            if (row.cells.length > 0) {
+                                row.cells[row.cells.length - 1].style.display = "none";
+                            }
+                        }
+                    }
+
+                    // Create a temporary wrapper to render the modified content
+                    const wrapper = document.createElement("div");
+                    wrapper.style.position = "absolute";
+                    wrapper.style.left = "-9999px";
+                    wrapper.appendChild(contentClone);
+                    document.body.appendChild(wrapper);
+
+                    // Capture the div content as a canvas
+                    const canvas = await html2canvas(contentClone, { scale: 2 });
+                    const imgData = canvas.toDataURL("image/png");
+
+                    // Remove the temporary wrapper
+                    document.body.removeChild(wrapper);
+
+                    // Create a jsPDF instance
+                    const pdf = new jsPDF();
+
+                    // Add the image to the PDF
+                    const imgWidth = 190; // Width in mm
+                    const pageHeight = pdf.internal.pageSize.height; // Page height in mm
+                    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+                    let position = 0;
+
+                    pdf.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight);
+
+                    return pdf.output("datauristring");
+                }
+
+
+                
+
+                async function sendWhatsApp(event) {
+                    // Prevent the default action that might close the modal
+                    event.stopPropagation();
+                    event.preventDefault();
+
+                    const pdfData = await generatePDF();
+                    $.ajax({
+                        type: "POST",
+                        url: "FamilyPrescription.aspx/ShareFileAsLink",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify({ base64PDF: pdfData.split(",")[1], shareTo : 'WhatsApp' }), // Remove "data:application/pdf;base64,"
+                        dataType: "json",
+                        success: function (response) {
+                            console.log(response);
+                            window.open(response.d, '_blank');
+                        },
+                        error: function (error) {
+                            console.log("Error Share File As Link:", error);
+                        }
+                    });
+                }
+
+
+
+                async function sendEmail(event) {
+                    // Prevent the default action that might close the modal
+                    event.stopPropagation();
+                    event.preventDefault();
+                   const pdfData = await generatePDF();
+                   $.ajax({
+                       type: "POST",
+                       url: "FamilyPrescription.aspx/ShareFileAsLink",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({ base64PDF: pdfData.split(",")[1], shareTo: 'Email' }), // Remove "data:application/pdf;base64,"
+                       dataType: "json",
+                       success: function (response) {
+                           console.log(response);
+                           window.open(response.d, '_blank');
+                       },
+                       error: function (error) {
+                           console.log("Error Share File As Link:", error);
+                       }
+                   });
+                }
 
 
             </script>

@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -15,9 +17,14 @@ namespace hfiles
     public partial class FamilyPrescription1 : System.Web.UI.Page
     {
         string cs = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
+
+        private static readonly string TempDirectory = HttpContext.Current.Server.MapPath("~/TempPDFs/");
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            // Ensure Temp directory exists
+            if (!Directory.Exists(TempDirectory))
+                Directory.CreateDirectory(TempDirectory);
         }
 
 
@@ -28,6 +35,7 @@ namespace hfiles
             return fb.getbasicdetails();
         }
 
+       
 
         public string getbasicdetails()
         {
@@ -170,12 +178,84 @@ namespace hfiles
             }
         }
 
+       
+
+
+        [System.Web.Services.WebMethod]
+        public static string ShareFileAsLink(string base64PDF,string shareTo)
+        {
+            
+            try
+            {
+                string whatsstring = "https://wa.me/?text=";
+                string gmailUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=&su=";
+                // Convert Base64 string to byte array
+                byte[] pdfBytes = Convert.FromBase64String(base64PDF);
+
+                // Generate unique file name
+                string fileName = Guid.NewGuid().ToString() + ".pdf";
+                string filePath = Path.Combine(TempDirectory, fileName);
+
+                // Save the file to server
+                File.WriteAllBytes(filePath, pdfBytes);
+
+                // Schedule file deletion after 1 hour
+                ScheduleFileDeletion(filePath);
+
+                // Return the relative file path (for reference or download link)
+                string fileurl =  $"/TempPDFs/{fileName}";
+                AllReports123 obj = new AllReports123();
+                if(shareTo == "WhatsApp")
+                {
+                    whatsstring += HttpUtility.UrlEncode(obj.GenerateWhatsAppUrl(fileurl));
+                    return whatsstring;
+                }
+                else
+                {
+                    string subject = "Report Link";
+                    string body = obj.GenerateWhatsAppUrl(fileurl);
+                    gmailUrl += $"{Uri.EscapeDataString(subject)}&body={Uri.EscapeDataString(body)}";
+                    return gmailUrl;
+                }
 
 
 
 
 
-        
+
+                
+            }
+            catch (Exception ex)
+            {
+                // Handle any errors
+                throw new Exception("Error saving PDF to the server.", ex);
+            }
+        }
+
+        public void WhatsAppRedirect()
+        {
+
+        }
+
+        private static void ScheduleFileDeletion(string filePath)
+        {
+            // Use a Task to schedule file deletion
+            System.Threading.Tasks.Task.Delay(TimeSpan.FromHours(1)).ContinueWith(_ =>
+            {
+                try
+                {
+                    if (File.Exists(filePath))
+                        File.Delete(filePath);
+                }
+                catch (Exception ex)
+                {
+                    // Log error (e.g., unable to delete file)
+                    // Example: Log to a file or monitoring system
+                }
+            });
+        }
+
+
 
 
 

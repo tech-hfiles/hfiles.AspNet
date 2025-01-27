@@ -206,7 +206,7 @@ namespace hfiles
             return string.IsNullOrEmpty(filePath) ? string.Empty : "https://hfiles.in" + filePath;
         }
 
-        private string GenerateWhatsAppUrl(string filePath)
+        public string GenerateWhatsAppUrl(string filePath)
         {
 
 
