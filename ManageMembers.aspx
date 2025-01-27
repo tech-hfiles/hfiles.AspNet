@@ -274,35 +274,6 @@
                     <img class="members-image" src='<%# ResolveUrl(string.Format("~/upload/{0}", string.IsNullOrEmpty(Eval("user_image").ToString()) ? "../My Data/default-user-profile.png" : Eval("user_image"))) %>'
                         alt="<%# Eval("user_firstname") %>" class="img-fluid" />
 
-                    <%--<div class="Addbasicbtnboth">
-                        <!-- Button to Show File Upload -->
-                        <asp:Button ID="showInputButton" CssClass="button-change" runat="server" Text="Change Profile Image" OnClientClick='<%# "toggleFileUpload(this, " + Eval("user_id") + "); return false;" %>' />
-
-                        <!-- File Upload Section -->
-                      <asp:FileUpload ID="Profileupload" CssClass="form-control" runat="server" accept=".png,.jpg,.jpeg" />
-        <asp:LinkButton ID="LinkButton3" CssClass="btn btn-primary" runat="server" Text="Edit"
-            OnClick="btnUpload_Click1" ValidationGroup="Profileupload" CommandArgument='<%# Eval("user_id") %>'></asp:LinkButton>
-                      
-                    </div>--%>
-                   <%--  <div class="Addbasicbtnboth">
-     <asp:Button ID="showInputButton" CssClass="button-change" runat="server" Text="Change Profile Image" OnClientClick="showFileUpload();" />
-     
-                            <asp:UpdatePanel runat="server" UpdateMode="Conditional">
-       <ContentTemplate>
-           <asp:FileUpload CssClass="form-control hidden" runat="server" accept=".png,.jpg,.jpeg,.PNG,.JPG,.JPEG" ID="Profileupload" />
-       </ContentTemplate>
-       <Triggers>
-           <asp:AsyncPostBackTrigger ControlID="LinkButton3" EventName="Click" />
-
-       </Triggers>
-   </asp:UpdatePanel>
-
-
- </div>--%>
-
-                   <%--  <asp:LinkButton ID="LinkButton3" CssClass="btn btn-primary" runat="server" Text="Submit"
-     OnClick="btnUpload_Click1"  CommandArgument='<%# Eval("user_id") %>'></asp:LinkButton>--%>
-
                     <h5 class="font-weight-bold u-name">
                         <%# Eval("user_firstname") + " " + Eval("user_lastname") %>
                     </h5>
@@ -312,7 +283,13 @@
                         <li><strong>Mobile No :</strong> <%# Eval("user_contact") %></li>
                     </ul>
 
-                    <asp:LinkButton ID="LinkButtonEdit" class="btn btn-primary" runat="server" Text="Edit" OnClick="editBtn_Click" CommandArgument='<%# Eval("user_id") %>'></asp:LinkButton>
+                 <%--   <asp:LinkButton ID="LinkButtonEdit" class="btn btn-primary" runat="server" Text="Edit" OnClick="editBtn_Click" CommandArgument='<%# Eval("user_id") %>'></asp:LinkButton>--%>
+
+                    <asp:LinkButton ID="LinkButtonEdit" class="btn btn-primary" runat="server" Text="Edit" OnClick="editBtn_Click" CommandArgument='<%# Eval("user_id") %>' Visible='<%# Convert.ToInt32(Eval("User_Reference")) != 0 %>'>
+                             </asp:LinkButton>
+
+
+
 
                     <asp:LinkButton ID="lbtnRemove" class="btn btn-delete" runat="server" OnClick="lbtnRemove_Click"
                         OnClientClick="return confirmDelete();" Text="Delete"
