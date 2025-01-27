@@ -705,62 +705,82 @@
 
 
                 async function generatePDF() {
-                    const { jsPDF } = window.jspdf;
-                    const content = document.getElementById("contentpdf");
+    const { jsPDF } = window.jspdf;
+    const content = document.getElementById("contentpdf");
 
-                    // Clone the original content to avoid modifying the displayed table
-                    const contentClone = content.cloneNode(true);
+    // Clone the original content to avoid modifying the displayed table
+    const contentClone = content.cloneNode(true);
 
+    // Synchronize the state of dropdowns between original and cloned content
+    const originalDropdowns = content.querySelectorAll("select");
+    const clonedDropdowns = contentClone.querySelectorAll("select");
 
+    originalDropdowns.forEach((original, index) => {
+        const cloned = clonedDropdowns[index];
+        cloned.value = original.value; // Copy the selected value
+    });
 
-                    const originalDropdowns = content.querySelectorAll("select");
-                    const clonedDropdowns = contentClone.querySelectorAll("select");
+    // Hide the last column of all rows in every table
+    Array.from(contentClone.getElementsByTagName("table")).forEach((table) => {
+        Array.from(table.rows).forEach((row) => {
+            if (row.cells.length > 0) {
+                row.cells[row.cells.length - 1].style.display = "none";
+            }
+        });
+    });
 
-                    originalDropdowns.forEach((original, index) => {
-                        const cloned = clonedDropdowns[index];
-                        cloned.value = original.value; // Copy the selected value
-                    });
+    // Create a temporary wrapper to render the modified content
+    const wrapper = document.createElement("div");
+    Object.assign(wrapper.style, {
+        position: "absolute",
+        left: "-9999px",
+    });
+    wrapper.appendChild(contentClone);
+    document.body.appendChild(wrapper);
 
+    // Capture the div content as a canvas
+    const canvas = await html2canvas(contentClone, {
+        scale: 2, // Higher scale gives better quality but larger file
+    });
+    const imgData = canvas.toDataURL("image/jpeg", 0.8); // Use JPEG for reduced file size with quality
 
+    // Remove the temporary wrapper
+    document.body.removeChild(wrapper);
 
-                    // Hide the last column of all rows in the table
-                    const tables = contentClone.getElementsByTagName("table");
-                    for (let table of tables) {
-                        for (let row of table.rows) {
-                            if (row.cells.length > 0) {
-                                row.cells[row.cells.length - 1].style.display = "none";
-                            }
-                        }
-                    }
+    // Create a jsPDF instance with optional compression
+    const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4",
+        compress: true, // Reduce PDF file size
+    });
 
-                    // Create a temporary wrapper to render the modified content
-                    const wrapper = document.createElement("div");
-                    wrapper.style.position = "absolute";
-                    wrapper.style.left = "-9999px";
-                    wrapper.appendChild(contentClone);
-                    document.body.appendChild(wrapper);
+    // Calculate dimensions for the image and page
+    const imgWidth = 190; // Maximum width in mm
+    const pageHeight = pdf.internal.pageSize.height; // Page height in mm
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-                    // Capture the div content as a canvas
-                    const canvas = await html2canvas(contentClone, { scale: 2 });
-                    const imgData = canvas.toDataURL("image/png");
+    let position = 0;
 
-                    // Remove the temporary wrapper
-                    document.body.removeChild(wrapper);
+    if (imgHeight > pageHeight) {
+        // Split the content across multiple pages if it exceeds one page
+        let remainingHeight = imgHeight;
+        while (remainingHeight > 0) {
+            pdf.addImage(imgData, "JPEG", 10, position, imgWidth, pageHeight);
+            remainingHeight -= pageHeight;
+            if (remainingHeight > 0) {
+                pdf.addPage(); // Add a new page
+            }
+        }
+    } else {
+        // Fit on one page
+        pdf.addImage(imgData, "JPEG", 10, position, imgWidth, imgHeight);
+    }
 
-                    // Create a jsPDF instance
-                    const pdf = new jsPDF();
+    // Return the PDF as a data URI string
+    return pdf.output("datauristring");
+}
 
-                    // Add the image to the PDF
-                    const imgWidth = 190; // Width in mm
-                    const pageHeight = pdf.internal.pageSize.height; // Page height in mm
-                    const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-                    let position = 0;
-
-                    pdf.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight);
-
-                    return pdf.output("datauristring");
-                }
 
 
                 
