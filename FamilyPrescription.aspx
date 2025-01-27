@@ -252,12 +252,12 @@
         <div class="modal-body">
             
 
-                <button class="button whatsapp" onclick="sendWhatsApp(event)">
+                <button class="btn whatsapp" style="background-color:#5FFC7B" onclick="sendWhatsApp(event)">
         <i class="fab fa-whatsapp"></i> WhatsApp
     </button>
 <!-- Email Button -->
-    <button class="button email" onclick="sendEmail(event)">
-        <i class="fas fa-envelope"></i> Email
+    <button class="btn email" style="background-color:#F72a27" onclick="sendEmail(event)">
+        <i class="fas fa-envelope"></i> Gmail
     </button>
         </div>
 
@@ -603,7 +603,7 @@
                             dataType: "json",  // Expect JSON response
                             success: function (response) {
                                 row.remove();  // Remove the row from the table/grid
-                                toastr.success('Record Removed Successfully!');
+                                toastr.success('User Prescription Removed Successfully!');
                             },
                             error: function (error) {
                                 // Handle error (e.g., show an error message)
@@ -657,8 +657,13 @@
                                 fetchData();
 
                                 modal.hide();
-
-                                toastr.success('Data Saved Successfully!');
+                                if(parseInt(data[0].id) > 0){
+                                    toastr.success('User Prescription Updated Successfully!');
+                                }
+                                else{
+                                    toastr.success('User Prescription Added Successfully!');
+                                }
+                                
                             }
                         });
 
@@ -691,7 +696,7 @@
                         data: JSON.stringify({ Access: checkedValues }),
                         success: function (response) {
 
-                            toastr.success('Successfully Access Given!');
+                            toastr.success('Access Updated!');
                         }
                     });
                     
