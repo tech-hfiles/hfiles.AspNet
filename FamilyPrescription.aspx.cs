@@ -227,7 +227,11 @@ namespace hfiles
             }
             catch (Exception ex)
             {
-                // Handle any errors
+                string logPath = HttpContext.Current.Server.MapPath("~/Logs/ErrorLog.txt");
+                string errorDetails = $"Message: {ex.Message}\nStackTrace: {ex.StackTrace}\nInnerException: {ex.InnerException?.Message}";
+                File.AppendAllText(logPath, errorDetails);
+
+                // Throw full error for debugging
                 throw new Exception("Error saving PDF to the server.", ex);
             }
         }
