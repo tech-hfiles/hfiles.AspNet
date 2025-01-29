@@ -14,19 +14,30 @@
     <link rel="stylesheet" href="./style.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
 
-  <script type="text/javascript">
-      function confirmDelete() {
-          // Show the confirmation dialog box
-          var result = confirm('This will permanently delete Members');
+ 
+ <script type="text/javascript">
+     function confirmDelete(userReference) {
+         // Convert userReference to a number if needed
+         userReference = parseInt(userReference);
 
-          // If the user clicks "OK", return true to proceed with the server-side action
-          if (result) {
-              return true;  // This will trigger the OnClick event (lbtnRemove_Click)
-          } else {
-              return false; // Prevent the OnClick event if the user clicks "Cancel"
-          }
-      }
+         // Check if userReference is 0 (Independent Member)
+         if (userReference === 0) {
+             // Show a confirmation dialog for Independent Member
+             var result = confirm("This will permanently delete the Independent Member and all associated Dependent Members. Do you want to proceed?");
+         } else {
+             // Default confirmation for Members
+             var result = confirm("This will permanently delete Members.");
+         }
+
+         // Return true if the user clicks "OK", false if "Cancel"
+         return result;
+     }
 </script>
+
+
+
+
+
     
         <script>
             var isToastrCalled = false;
@@ -292,9 +303,10 @@
 
 
                     <asp:LinkButton ID="lbtnRemove" class="btn btn-delete" runat="server" OnClick="lbtnRemove_Click"
-                        OnClientClick="return confirmDelete();" Text="Delete"
+                        OnClientClick='<%# "return confirmDelete(" + Eval("User_Reference") + ");" %>' Text="Delete"
                         CommandArgument='<%# Eval("user_id") + "|" + Eval("user_relation") + "|" + Eval("DependentUserId") + "|" + Eval("User_Reference") %>'>
                     </asp:LinkButton>
+                   
                 </div>
             </ItemTemplate>
         </asp:Repeater>

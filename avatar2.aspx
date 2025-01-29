@@ -8,6 +8,47 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style_avatar.css" />
     <%--<link rel="stylesheet" href="style3.css" />--%>
+<script>
+    function fetchData() {
+        $.ajax({
+            type: "POST",
+            url: "ManageMembers.aspx/GetCounts", // This WebMethod will return both counts
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                const memberCount = response.d.MemberCount; // The member count returned from the server
+                const reqCount = response.d.ReqCount; // The request count returned from the server
+
+                // Check if the member count is more than 5
+                if (memberCount >= 5) {
+                    // Disable the "Add Member" icon if member count is 5 or more
+                    $(".add-member-icons").hide();
+                    alert("You have already added 5 members.");
+                } else {
+                    $(".add-member-icons").show();
+                }
+
+                // Update the label with the request count
+                var label = document.getElementById('<%= lblUserName.ClientID %>');
+                label.innerText = "Requests: " + reqCount; // Set the text to the ReqCount
+            },
+            error: function (xhr, status, error) {
+                console.error("Error fetching counts:", error);
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        // Trigger the fetchData function when the "Add Member" button is clicked
+        $("#addMemberBtn").click(function () {
+            fetchData(); // This will call the function when "Add Member" is clicked
+        });
+    });
+</script>
+
+
+
+
     <style>
         #selected-member-name {
             margin-top: 5px;
@@ -638,8 +679,9 @@
                             <%-- <asp:ImageButton ID="addmember" runat="server" ImageUrl="../My Data/default-user-profile.png" AlternateText="Add Member" Height="90px" Width="90px"/>--%>
                             <br />
                             <div>
-                                <small class="add-member-name">Add Member
-                                </small>
+                                <small class="add-member-name" id="addMemberBtn">Add Member</small>
+                               <%-- <asp:Button ID="addMemberBtn" runat="server" OnClick="addMemberBtn_Click" Text="Add Member" />--%>
+                               
                             </div>
                         </a>
 

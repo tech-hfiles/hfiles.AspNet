@@ -46,6 +46,7 @@ namespace hfiles
                     getMembersList();
                     showmembersdiv(sender);
                     getUsedStorage();
+                    GetCounts();
                     //bindData(Convert.ToInt32(Session["memberId"].ToString()));
 
                     selectedmembername.InnerText = lblUserName.Text = lbluser.Text = Session["username"].ToString();
@@ -804,6 +805,12 @@ namespace hfiles
 
             }
         }
+
+        //protected void addMemberBtn_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("addmember.aspx");
+        //}
+
         protected void getUsedStorage()
         {
             int UserId = DAL.validateInt(Session["Userid"].ToString());
@@ -843,7 +850,71 @@ namespace hfiles
             }
         }
 
+        //protected void totalmembers()
+        //{
+        //    int UserId = DAL.validateInt(Session["Userid"].ToString());
+        //    using (MySqlConnection con = new MySqlConnection(cs))
+        //    {
+        //        con.Open();
 
+        //        // Modified query for counting the rows
+        //        string fetchQuery = "SELECT COUNT(*) FROM user_details u LEFT JOIN tblrequest r ON u.user_id = r.SentBy WHERE u.user_reference = @UserId OR r.Receivedby = @UserId";
+        //        MySqlCommand fetchCmd = new MySqlCommand(fetchQuery, con);
+
+        //        // Add parameterized query to prevent SQL injection
+        //        fetchCmd.Parameters.AddWithValue("@UserId", UserId);
+
+        //        // Execute the query and get the count
+        //        object result = fetchCmd.ExecuteScalar();
+
+        //        // Convert the result to int (it's an object because ExecuteScalar can return null)
+        //        int count = result != DBNull.Value ? Convert.ToInt32(result) : 0;
+
+        //        // Find the label by its ID and set the count
+        //        Label lblCount = Master.FindControl("ReqCount") as Label;
+        //        if (lblCount != null)
+        //        {
+        //            lblCount.Text = count.ToString();
+        //        }
+        //    }
+
+
+
+
+
+
+        //}
+
+        public  object GetCounts()
+        {
+            int userId = DAL.validateInt(HttpContext.Current.Session["Userid"].ToString());
+
+            // Member count query
+            string memberQuery = "SELECT COUNT(*) FROM user_details u LEFT JOIN tblrequest r ON u.user_id = r.SentBy WHERE u.user_reference = @UserId OR r.Receivedby = @UserId";
+            int memberCount = 0;
+
+            // Request count query
+            string reqQuery = "SELECT COUNT(*) FROM tblrequest r WHERE r.receivedby = @UserId AND r.accepted = 0 AND r.rejected = 0";
+            int reqCount = 0;
+
+            using (MySqlConnection con = new MySqlConnection(cs))
+            {
+                con.Open();
+
+                // Fetch member count
+                MySqlCommand memberCmd = new MySqlCommand(memberQuery, con);
+                memberCmd.Parameters.AddWithValue("@UserId", userId);
+                memberCount = Convert.ToInt32(memberCmd.ExecuteScalar());
+
+                // Fetch request count
+                MySqlCommand reqCmd = new MySqlCommand(reqQuery, con);
+                reqCmd.Parameters.AddWithValue("@UserId", userId);
+                reqCount = Convert.ToInt32(reqCmd.ExecuteScalar());
+            }
+
+            // Return the counts as a JSON object
+            return new { MemberCount = memberCount, ReqCount = reqCount };
+        }
 
     }
 }
