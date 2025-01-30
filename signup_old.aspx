@@ -250,7 +250,7 @@
                                 <i class="fa-solid fa-cake-candles form-control-feedback"></i>
                                 <asp:TextBox runat="server" placeholder="yyyy-mm-dd" ID="txtDate" required onkeypress="return false" AutoComplete="Off" class="form-control my-2" />
                                 <ajaxToolkit:CalendarExtender ID="dateajax" runat="server" Format="yyyy-MM-dd" Enabled="true" TargetControlID="txtDate" />
-                                <input runat="server" id="dobTextBox1" style="display: none; visibility: hidden;" type="date" class="form-control my-2" value="2024-01-01" required />
+                                <input runat="server" id="dobTextBox1" style="display: none; visibility: hidden;" type="date" class="form-control my-2" value="2025-01-01" required />
                             </div>
 
                             <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
@@ -338,7 +338,7 @@
                 <div class="col-4 copy-right text-center p-0 d-xl-flex text-center justify-content-center">
                     <p class="m-0"><a href="/FAQ.aspx" class="text-white">FAQ's</a></p>
                     <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
-                    <p class="m-0"><a class="text-white" href="copyright.aspx">Copyright@2024</a></p>
+                    <p class="m-0"><a class="text-white" href="copyright.aspx">Copyright@2025</a></p>
                 </div>
 
                 <div class="col-4 p-p d-xl-flex text-center justify-content-center">
