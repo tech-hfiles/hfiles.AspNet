@@ -149,8 +149,9 @@ namespace hfiles
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(MemberId)); //Session["Userid"];
-                    cmd.Parameters.AddWithValue("_UserRedId", DAL.validateInt(Session["Userid"])); //Session["Userid"];
-                    cmd.Parameters.AddWithValue("_DependentUserId", DependentUserId); //Session["Userid"];
+                    var _user = DAL.validateInt(Session["Userid"]);
+                    cmd.Parameters.AddWithValue("_UserRedId", _user); //Session["Userid"];
+                    cmd.Parameters.AddWithValue("_DependentUserId", Dependent_User_Reference); //Session["Userid"];
                  
                     cmd.ExecuteNonQuery();
                     //icon = "assets/select.png";

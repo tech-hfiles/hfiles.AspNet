@@ -546,7 +546,17 @@
         const cardWidth = document.querySelector(".review-card").offsetWidth + 20; // Width of one card plus gap
         const cardsToShow = 3; // Number of cards to show at once
         let currentPosition = 0; // To track the current scroll position
+        const track = document.querySelector('.article-track');
+        const articleCards = document.querySelectorAll('.article-card');
+        var article = track.innerHTML;
+        while (true) {
+            setTimeout(() => {
+                track.innerHTML += article;
+            }, 15000);
+        }
+       
 
+        let animationPaused = false;
         // Function to scroll the container
         function scrollContainer(direction) {
             const maxScroll = (container.scrollWidth - container.offsetWidth);
@@ -577,6 +587,8 @@
     });
 
 </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
    <%-- article library--%>
 <style>
     /* Wrapper to prevent overflow */
@@ -599,7 +611,7 @@
     .article-track {
         display: flex;
         flex-wrap: nowrap;
-        animation: scrollArticles 15s linear infinite;
+        animation: scrollArticles 15s linear;
     }
 
     /* Article card styling */
@@ -644,23 +656,30 @@
 </style>
 
 <script>
-    const track = document.querySelector('.article-track');
-    const articleCards = document.querySelectorAll('.article-card');
+    $(document).ready(function () {
+        const track = document.querySelector('.article-track');
+        const articleCards = document.querySelectorAll('.article-card');
+        var article = track.innerHTML;
+        setTimeout(() => {
+            track.innerHTML += article;
+        }, 1000);
 
-    let animationPaused = false;
+        let animationPaused = false;
+    });
+   
 
     // Pause scrolling when an article is clicked
-    articleCards.forEach(card => {
-        card.addEventListener('click', () => {
-            if (!animationPaused) {
-                track.style.animationPlayState = 'paused';
-                animationPaused = true;
-            } else {
-                track.style.animationPlayState = 'running';
-                animationPaused = false;
-            }
-        });
-    });
+    //articleCards.forEach(card => {
+    //    card.addEventListener('click', () => {
+    //        if (!animationPaused) {
+    //            track.style.animationPlayState = 'paused';
+    //            animationPaused = true;
+    //        } else {
+    //            track.style.animationPlayState = 'running';
+    //            animationPaused = false;
+    //        }
+    //    });
+    //});
 </script>
    <%-- Recognized Under--%>
    <style>
@@ -707,6 +726,7 @@
     }
 }
 </style>
+ 
 
     <%--talking Us Is Easy--%>
 
@@ -983,7 +1003,7 @@
                 <section class="elementor-section elementor-top-section elementor-element elementor-element-32480c6 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="32480c6" data-element_type="section" id="why" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
             <div class="elementor-container elementor-column-gap-no">
                 <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f1bc2e1" data-id="f1bc2e1" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-                    <div class="elementor-widget-wrap elementor-element-populated">
+                    <div class="elementor-widget-wrap elementor-element-populated" background-color="white">
                         <section class="elementor-section elementor-inner-section elementor-element elementor-element-9bf08d5 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="9bf08d5" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                             <div class="elementor-container elementor-column-gap-default">
                                 <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-d0071a8" data-id="d0071a8" data-element_type="column">
@@ -1063,21 +1083,21 @@ Update your bond with health by signing up with us today!
         
        <%-- how does health file work--%>
 
+        <div style="background-color:white">
+
                       <section class="elementor-section elementor-top-section elementor-element elementor-element-32480c6 elementor-section-boxed elementor-section-height-default elementor-section-height-default" 
     data-id="32480c6" data-element_type="section" id="why" 
-    data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" 
+   
     style="background-color: white !important; color: black;">
     
     <div class="elementor-container elementor-column-gap-no">
         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f1bc2e1" 
             data-id="f1bc2e1" data-element_type="column" 
-            data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" 
+           
             style="background-color: white; color: black;">
             
             <div class="elementor-widget-wrap elementor-element-populated">
-                <section class="elementor-section elementor-inner-section elementor-element elementor-element-9bf08d5 elementor-section-boxed elementor-section-height-default elementor-section-height-default" 
-                    data-id="9bf08d5" data-element_type="section" 
-                    data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                <section class="elementor-section elementor-inner-section elementor-element elementor-element-9bf08d5 elementor-section-boxed elementor-section-height-default elementor-section-height-default"  style="background-color: white; " data-id="9bf08d5" data-element_type="section">
                     
                     <div class="elementor-container elementor-column-gap-default">
                         <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-d0071a8" 
@@ -1106,11 +1126,11 @@ Update your bond with health by signing up with us today!
                             </div>
                         </div>
                     </div>
-                </section>
+                
 
-                <section class="elementor-section elementor-inner-section elementor-element elementor-element-9ecd0b9 elementor-section-boxed elementor-section-height-default elementor-section-height-default" 
+         <%--       <section class="elementor-section elementor-inner-section elementor-element elementor-element-9ecd0b9 elementor-section-boxed elementor-section-height-default elementor-section-height-default" 
                     data-id="9ecd0b9" data-element_type="section" 
-                    data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                    data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">--%>
                     
                     <div class="elementor-container elementor-column-gap-default">
                         <!-- Left Column for Video -->
@@ -1130,7 +1150,7 @@ Update your bond with health by signing up with us today!
                         <!-- Right Column for Text -->
                         <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-9abcd12" 
                             data-id="9abcd12" data-element_type="column" 
-                            style="padding-left: 40px;">
+                            style="padding-left: 40px;" background-color="">
                             
                             <div class="elementor-widget-wrap">
                                 <div class="elementor-widget-container">
@@ -1158,14 +1178,14 @@ Update your bond with health by signing up with us today!
                             </div>
                         </div>
                     </div>
-                </section>
+                
 
             </div>
         </div>
     </div>
 </section>
 
-                         
+              </div>           
         <%--abhay id--%>
 
 
@@ -1276,15 +1296,33 @@ Update your bond with health by signing up with us today!
                         </div>
 
                         <!-- IMAGE COLUMN (Now on the Right) -->
-                        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-3738a9eb" data-id="3738a9eb" data-element_type="column">
+                       <%-- <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-3738a9eb" data-id="3738a9eb" data-element_type="column">
                             <div class="elementor-widget-wrap elementor-element-populated">
                                 <div class="elementor-element elementor-element-4c3d5035 elementor-widget__width-auto elementor-invisible elementor-widget elementor-widget-image" data-id="4c3d5035" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;}" data-widget_type="image.default">
                                     <div class="elementor-widget-container">
-                                        <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Error Image" class="error-image">
+                                        <img src="/journal-page-images/article/landing-CustomPlans.png" alt="Error Image" class="error-image">
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>--%>
+
+                       <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-3738a9eb" 
+    data-id="3738a9eb" data-element_type="column">
+    
+    <div class="elementor-widget-wrap elementor-element-populated" 
+        style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+        
+        <!-- First Image -->
+        <img src="/journal-page-images/article/building-img.jpeg" alt="New Image" 
+            style="width: 200px; height: 250px; margin-right:70px; ">
+        
+        <!-- Second Image -->
+        <img src="/journal-page-images/article/landing-CustomPlans.png" alt="Error Image" 
+            style="width: 200px; height: 250px; object-fit: cover;">
+    </div>
+</div>
+
+
 
                     </div>
                 </section>
@@ -1541,43 +1579,83 @@ Update your bond with health by signing up with us today!
             <div class="article-track">
                 <div class="article-card">
                     <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image">
-                    <h3>7 Healthy Habits That Can Improve Your Digestion</h3>
+                    <h3>1 7 Healthy Habits That Can Improve Your Digestion</h3>
                     <p>Good digestion is important for feeling good, but many of us don't pay attention...</p>
                     <p class="review">Reviewed by <strong>Hena Kanakia</strong> | 14 January, 24</p>
                 </div>
 
                 <div class="article-card">
                     <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image">
-                    <h3>The Importance of Hydration for Skin Health</h3>
+                    <h3> 2 The Importance of Hydration for Skin Health</h3>
                     <p>Our skin is our largest organ, and proper hydration plays a vital role...</p>
                     <p class="review">Reviewed by <strong>Sarah Lee</strong> | 10 January, 24</p>
                 </div>
 
                 <div class="article-card">
                     <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image">
-                    <h3>Top Tips for Mental Health and Wellness</h3>
+                    <h3> 3 Top Tips for Mental Health and Wellness</h3>
                     <p>Mental health is just as important as physical health. Here are some tips...</p>
                     <p class="review">Reviewed by <strong>John Doe</strong> | 05 January, 24</p>
                 </div>
+                 <div class="article-card">
+     <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image">
+     <h3> 4 7 Healthy Habits That Can Improve Your Digestion</h3>
+     <p>Good digestion is important for feeling good, but many of us don't pay attention...</p>
+     <p class="review">Reviewed by <strong>Hena Kanakia</strong> | 14 January, 24</p>
+ </div>
+
+ <div class="article-card">
+     <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image">
+     <h3> 5 The Importance of Hydration for Skin Health</h3>
+     <p>Our skin is our largest organ, and proper hydration plays a vital role...</p>
+     <p class="review">Reviewed by <strong>Sarah Lee</strong> | 10 January, 24</p>
+ </div>
+
+ <div class="article-card">
+     <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image">
+     <h3> 6 Top Tips for Mental Health and Wellness</h3>
+     <p>Mental health is just as important as physical health. Here are some tips...</p>
+     <p class="review">Reviewed by <strong>John Doe</strong> | 05 January, 24</p>
+ </div>
+                 <div class="article-card">
+     <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image">
+     <h3> 7 7 Healthy Habits That Can Improve Your Digestion</h3>
+     <p>Good digestion is important for feeling good, but many of us don't pay attention...</p>
+     <p class="review">Reviewed by <strong>Hena Kanakia</strong> | 14 January, 24</p>
+ </div>
+
+ <div class="article-card">
+     <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image">
+     <h3> 8 The Importance of Hydration for Skin Health</h3>
+     <p>Our skin is our largest organ, and proper hydration plays a vital role...</p>
+     <p class="review">Reviewed by <strong>Sarah Lee</strong> | 10 January, 24</p>
+ </div>
+
+ <div class="article-card">
+     <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image">
+     <h3> 9 Top Tips for Mental Health and Wellness</h3>
+     <p>Mental health is just as important as physical health. Here are some tips...</p>
+     <p class="review">Reviewed by <strong>John Doe</strong> | 05 January, 24</p>
+ </div>
 
                 <!-- Duplicate Set for Smooth Loop -->
                 <div class="article-card">
                     <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image">
-                    <h3>7 Healthy Habits That Can Improve Your Digestion</h3>
+                    <h3> 10 7 Healthy Habits That Can Improve Your Digestion</h3>
                     <p>Good digestion is important for feeling good, but many of us don't pay attention...</p>
                     <p class="review">Reviewed by <strong>Hena Kanakia</strong> | 14 January, 24</p>
                 </div>
 
                 <div class="article-card">
                     <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image">
-                    <h3>The Importance of Hydration for Skin Health</h3>
+                    <h3>11 The Importance of Hydration for Skin Health</h3>
                     <p>Our skin is our largest organ, and proper hydration plays a vital role...</p>
                     <p class="review">Reviewed by <strong>Sarah Lee</strong> | 10 January, 24</p>
                 </div>
 
                 <div class="article-card">
                     <img src="/journal-page-images/article/landing-CustomPlans.jpeg" alt="Article Image">
-                    <h3>Top Tips for Mental Health and Wellness</h3>
+                    <h3> 12 Top Tips for Mental Health and Wellness</h3>
                     <p>Mental health is just as important as physical health. Here are some tips...</p>
                     <p class="review">Reviewed by <strong>John Doe</strong> | 05 January, 24</p>
                 </div>
@@ -1640,23 +1718,24 @@ Update your bond with health by signing up with us today!
         <!-- Left Column for Logo -->
         <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element" style="text-align: center;">
             <div class="elementor-widget-container">
-                <img src="/journal-page-images/article/landing-ABHA1.jpeg" alt="Health Files Logo" style="width: 80%; max-width: 300px;">
+                <img src="/journal-page-images/article/whatsapp-icon.png" alt="Health Files Logo" style="width: 80%; max-width: 300px;">
+               <%--  <img src="/journal-page-images/article/whatsapp-icon.png" alt="WhatsApp Icon" style="width: 50px; height: 50px; margin-bottom: 5px;">--%>
             </div>
         </div>
         <!-- Right Column for Text -->
         <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element" style="margin-right: 60px;">
             <div class="elementor-widget-wrap">
                 <div class="elementor-widget-container">
-                    <p style="font-size: 20px; line-height: 1.8; color: black;">Interested in partnering with us to revolutionize healthcare management? Let’s connect and explore the possibilities!</p>
+                    <p style="font-size: 20px; line-height: 1.8; color: black;">Ready to make a difference in healthcare? Join our team and help shape the future of health management!</p>
                     <a href="#contact" class="elementor-button elementor-size-md" style="background-color: #0044cc; color: white; padding: 8px 10px; text-decoration: none; border-radius: 5px;">GET IN TOUCH</a>
                 </div>
-                <div class="elementor-widget-container" style="margin-top: 30px;">
+               <%-- <div class="elementor-widget-container" style="margin-top: 30px; margin-left:300px">
                     <p style="font-size: 20px; line-height: 1.8; color: black;">Ready to make a difference in healthcare? Join our team and help shape the future of health management!</p>
                     <a href="#careers" class="elementor-button elementor-size-md" style="background-color: #0044cc; color: white; padding: 8px 10px; text-decoration: none; border-radius: 5px;">GET IN TOUCH</a>
                     
                     <!-- Add new image next to the button -->
-                 <%--   <img src="/journal-page-images/article/your-image.jpg" alt="Career Image" style="width: 50px; height: 50px; margin-left: 20px; vertical-align: middle;">--%>
-                </div>
+                 <%--   <img src="/journal-page-images/article/your-image.jpg" alt="Career Image" style="width: 50px; height: 50px; margin-left: 20px; vertical-align: middle;">
+                </div>--%>
             </div>
         </div>
     </div>
@@ -2174,18 +2253,8 @@ Update your bond with health by signing up with us today!
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-334537a1" data-id="334537a1" data-element_type="column">
-                                        <div class="elementor-widget-wrap">
-                                        </div>
-                                    </div>
-                                    <div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-5532b9b4" data-id="5532b9b4" data-element_type="column">
-                                        <div class="elementor-widget-wrap">
-                                        </div>
-                                    </div>
-                                    <div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-5622afe9" data-id="5622afe9" data-element_type="column">
-                                        <div class="elementor-widget-wrap">
-                                        </div>
-                                    </div>
+                                     <div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-4f4c1c7" data-id="4f4c1c7" data-element_type="column">
+                                         </div>
 
                                    
                                <div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-4f4c1c7" data-id="4f4c1c7" data-element_type="column">
@@ -2194,10 +2263,26 @@ Update your bond with health by signing up with us today!
         <div class="elementor-element elementor-element-2157551d elementor-widget-mobile__width-initial elementor-widget elementor-widget-heading" data-id="2157551d" data-element_type="widget" data-widget_type="heading.default">
             <div class="elementor-widget-container">
               <h2 class="elementor-heading-title elementor-size-default" style="color:white; display:inline;">Let Us Help You</h2>
-
+                 <ul class="elementor-icon-list-items">
+                         <li class="elementor-icon-list-item">
+                             <span class="elementor-icon-list-text">
+                                 <a href="/account" style="color:white">Your Account</a>
+                             </span>
+                         </li>
+                         <li class="elementor-icon-list-item">
+                             <span class="elementor-icon-list-text">
+                                 <a href="/contact" style="color:white">Contact Us</a>
+                             </span>
+                         </li>
+                         <li class="elementor-icon-list-item">
+                             <span class="elementor-icon-list-text">
+                                 <a href="/faqs" style="color:white">FAQs</a>
+                             </span>
+                         </li>
+                     </ul>
             </div>
         </div>
-        <div class="elementor-element elementor-element-2cdd472e elementor-widget elementor-widget-icon-list" data-id="2cdd472e" data-element_type="widget" data-widget_type="icon-list.default">
+      <%--  <div class="elementor-element elementor-element-2cdd472e elementor-widget elementor-widget-icon-list" data-id="2cdd472e" data-element_type="widget" data-widget_type="icon-list.default">
             <div class="elementor-widget-container">
                 <ul class="elementor-icon-list-items">
                     <li class="elementor-icon-list-item">
@@ -2217,7 +2302,7 @@ Update your bond with health by signing up with us today!
                     </li>
                 </ul>
             </div>
-        </div>
+        </div>--%>
     </div>
 </div>
 
@@ -2227,11 +2312,28 @@ Update your bond with health by signing up with us today!
         <div class="elementor-element elementor-element-2157551d elementor-widget-mobile__width-initial elementor-widget elementor-widget-heading" data-id="2157551d" data-element_type="widget" data-widget_type="heading.default">
             <div class="elementor-widget-container">
                 <h2 class="elementor-heading-title elementor-size-default" style="color:white">Our Policies</h2>
+                 <ul class="elementor-icon-list-items">
+                     <li class="elementor-icon-list-item">
+                         <span class="elementor-icon-list-text">
+                             <a href="/terms-and-conditions" style="color:white">Terms & Conditions</a>
+                         </span>
+                     </li>
+                     <li class="elementor-icon-list-item">
+                         <span class="elementor-icon-list-text">
+                             <a href="/privacy-policy" style="color:white">Privacy Policy</a>
+                         </span>
+                     </li>
+                     <li class="elementor-icon-list-item">
+                         <span class="elementor-icon-list-text">
+                             <a href="/copyright" style="color:white">Copyright</a>
+                         </span>
+                     </li>
+                 </ul>
             </div>
         </div>
         <div class="elementor-element elementor-element-2cdd472e elementor-widget elementor-widget-icon-list" data-id="2cdd472e" data-element_type="widget" data-widget_type="icon-list.default">
             <div class="elementor-widget-container">
-                <ul class="elementor-icon-list-items">
+               <%-- <ul class="elementor-icon-list-items">
                     <li class="elementor-icon-list-item">
                         <span class="elementor-icon-list-text">
                             <a href="/terms-and-conditions" style="color:white">Terms & Conditions</a>
@@ -2247,21 +2349,32 @@ Update your bond with health by signing up with us today!
                             <a href="/copyright" style="color:white">Copyright</a>
                         </span>
                     </li>
-                </ul>
+                </ul>--%>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Address Section -->
-<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-4f4c1c7" data-id="4f4c1c7" data-element_type="column">
+<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-4f4c1c7" data-id="4f4c1c7">
     <div class="elementor-widget-wrap elementor-element-populated">
         <div class="elementor-element elementor-element-2157551d elementor-widget-mobile__width-initial elementor-widget elementor-widget-heading" data-id="2157551d" data-element_type="widget" data-widget_type="heading.default">
             <div class="elementor-widget-container">
                 <h2 class="elementor-heading-title elementor-size-default" style="color:white">Address</h2>
+                 <ul class="elementor-icon-list-items" style="color:white">
+     <li class="elementor-icon-list-item">
+         <span class="elementor-icon-list-text"><strong>Ahmedabad Branch</strong>
+             <h8>5-A, Ravi Pushp Apartment,</h8>
+             <h8>Ahmedabad - 380052, Gujarat</h8>
+            </span>
+     </li>
+     <li class="elementor-icon-list-item">
+         <span class="elementor-icon-list-text"><strong>Mumbai Branch:</strong>  13/4, Marine Lines, Mumbai - 400020, Maharashtra</span>
+     </li>
+ </ul>
             </div>
         </div>
-        <div class="elementor-element elementor-element-2cdd472e elementor-widget elementor-widget-icon-list" data-id="2cdd472e" data-element_type="widget" data-widget_type="icon-list.default">
+   <%--     <div class="elementor-element elementor-element-2cdd472e elementor-widget elementor-widget-icon-list" data-id="2cdd472e" data-element_type="widget" data-widget_type="icon-list.default">
             <div class="elementor-widget-container">
                 <ul class="elementor-icon-list-items">
                     <li class="elementor-icon-list-item">
@@ -2273,7 +2386,7 @@ Update your bond with health by signing up with us today!
                     </li>
                 </ul>
             </div>
-        </div>
+        </div>--%>
     </div>
 </div>
 

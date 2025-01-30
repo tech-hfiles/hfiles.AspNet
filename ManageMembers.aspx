@@ -14,19 +14,30 @@
     <link rel="stylesheet" href="./style.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
 
-  <script type="text/javascript">
-      function confirmDelete() {
-          // Show the confirmation dialog box
-          var result = confirm('This will permanently delete Members');
+ 
+ <script type="text/javascript">
+     function confirmDelete(userReference) {
+         // Convert userReference to a number if needed
+         userReference = parseInt(userReference);
 
-          // If the user clicks "OK", return true to proceed with the server-side action
-          if (result) {
-              return true;  // This will trigger the OnClick event (lbtnRemove_Click)
-          } else {
-              return false; // Prevent the OnClick event if the user clicks "Cancel"
-          }
-      }
+         // Check if userReference is 0 (Independent Member)
+         if (userReference === 0) {
+             // Show a confirmation dialog for Independent Member
+             var result = confirm("This will permanently delete the Independent Member and all associated Dependent Members. Do you want to proceed?");
+         } else {
+             // Default confirmation for Members
+             var result = confirm("This will permanently delete Members.");
+         }
+
+         // Return true if the user clicks "OK", false if "Cancel"
+         return result;
+     }
 </script>
+
+
+
+
+
     
         <script>
             var isToastrCalled = false;
@@ -274,35 +285,6 @@
                     <img class="members-image" src='<%# ResolveUrl(string.Format("~/upload/{0}", string.IsNullOrEmpty(Eval("user_image").ToString()) ? "../My Data/default-user-profile.png" : Eval("user_image"))) %>'
                         alt="<%# Eval("user_firstname") %>" class="img-fluid" />
 
-                    <%--<div class="Addbasicbtnboth">
-                        <!-- Button to Show File Upload -->
-                        <asp:Button ID="showInputButton" CssClass="button-change" runat="server" Text="Change Profile Image" OnClientClick='<%# "toggleFileUpload(this, " + Eval("user_id") + "); return false;" %>' />
-
-                        <!-- File Upload Section -->
-                      <asp:FileUpload ID="Profileupload" CssClass="form-control" runat="server" accept=".png,.jpg,.jpeg" />
-        <asp:LinkButton ID="LinkButton3" CssClass="btn btn-primary" runat="server" Text="Edit"
-            OnClick="btnUpload_Click1" ValidationGroup="Profileupload" CommandArgument='<%# Eval("user_id") %>'></asp:LinkButton>
-                      
-                    </div>--%>
-                   <%--  <div class="Addbasicbtnboth">
-     <asp:Button ID="showInputButton" CssClass="button-change" runat="server" Text="Change Profile Image" OnClientClick="showFileUpload();" />
-     
-                            <asp:UpdatePanel runat="server" UpdateMode="Conditional">
-       <ContentTemplate>
-           <asp:FileUpload CssClass="form-control hidden" runat="server" accept=".png,.jpg,.jpeg,.PNG,.JPG,.JPEG" ID="Profileupload" />
-       </ContentTemplate>
-       <Triggers>
-           <asp:AsyncPostBackTrigger ControlID="LinkButton3" EventName="Click" />
-
-       </Triggers>
-   </asp:UpdatePanel>
-
-
- </div>--%>
-
-                   <%--  <asp:LinkButton ID="LinkButton3" CssClass="btn btn-primary" runat="server" Text="Submit"
-     OnClick="btnUpload_Click1"  CommandArgument='<%# Eval("user_id") %>'></asp:LinkButton>--%>
-
                     <h5 class="font-weight-bold u-name">
                         <%# Eval("user_firstname") + " " + Eval("user_lastname") %>
                     </h5>
@@ -312,12 +294,19 @@
                         <li><strong>Mobile No :</strong> <%# Eval("user_contact") %></li>
                     </ul>
 
-                    <asp:LinkButton ID="LinkButtonEdit" class="btn btn-primary" runat="server" Text="Edit" OnClick="editBtn_Click" CommandArgument='<%# Eval("user_id") %>'></asp:LinkButton>
+                 <%--   <asp:LinkButton ID="LinkButtonEdit" class="btn btn-primary" runat="server" Text="Edit" OnClick="editBtn_Click" CommandArgument='<%# Eval("user_id") %>'></asp:LinkButton>--%>
+
+                    <asp:LinkButton ID="LinkButtonEdit" class="btn btn-primary" runat="server" Text="Edit" OnClick="editBtn_Click" CommandArgument='<%# Eval("user_id") %>' Visible='<%# Convert.ToInt32(Eval("User_Reference")) != 0 %>'>
+                             </asp:LinkButton>
+
+
+
 
                     <asp:LinkButton ID="lbtnRemove" class="btn btn-delete" runat="server" OnClick="lbtnRemove_Click"
-                        OnClientClick="return confirmDelete();" Text="Delete"
+                        OnClientClick='<%# "return confirmDelete(" + Eval("User_Reference") + ");" %>' Text="Delete"
                         CommandArgument='<%# Eval("user_id") + "|" + Eval("user_relation") + "|" + Eval("DependentUserId") + "|" + Eval("User_Reference") %>'>
                     </asp:LinkButton>
+                   
                 </div>
             </ItemTemplate>
         </asp:Repeater>
