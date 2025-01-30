@@ -28,8 +28,14 @@ namespace hfiles
         {
             if (Session["Userid"] != null)
             {
+
+             
                 if (!IsPostBack)
                 {
+                    if (hdnAccordionIndex != null)
+                    {
+                        hdnAccordionIndex.Value = "0"; // Default value to avoid null
+                    }
                     //medicalHistoryDiv.Visible = true;
                     //AdditionalDiv.Visible = true;
                     //AllergiesDiv.Visible = true;
@@ -59,7 +65,7 @@ namespace hfiles
                 addSurgery("C");
                 clear();
                 Response.Write("<script>alert('Data saved successfully.')</script>");
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "toastr.success('Record Inserted Successfully')", true);
                 Response.Write("Dashboard.aspx");
             }
             catch (Exception Ex)
@@ -78,7 +84,7 @@ namespace hfiles
             //medicalHistoryDiv.Visible = false;
             //AllergiesDiv.Visible = true;
             //Page.ClientScript.RegisterStartupScript(this.GetType(), "allergyfooter", "allergyfooter()", true);
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Additional Details Updated Successfully')", true);
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "toastr.success('Additional Details Updated Successfully')", true);
         }
         protected void btnMedicalHistory_Click(object sender, EventArgs e)
         {
@@ -91,7 +97,7 @@ namespace hfiles
             //AdditionalDiv.Visible = true;
             //medicalHistoryDiv.Visible = false;
             //AllergiesDiv.Visible = false;
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Medical Details Updated Successfully')", true);
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "toastr.success('Medical Details Updated Successfully')", true);
         }
         protected void btnMedicalBack_Click(object sender, EventArgs e)
         {
@@ -433,6 +439,7 @@ namespace hfiles
 
                 }
             }
+            txtSurgeries.Value = "";
         }
 
         protected void addsurgeryButton_Click(object sender, EventArgs e)
@@ -527,7 +534,7 @@ namespace hfiles
                         cmd.Parameters.AddWithValue("_allergy_id", DAL.validateInt(hfallergy_id.Value));
                         cmd.Parameters.AddWithValue("_yesNo", DAL.validateInt(value_));
                         cmd.ExecuteNonQuery();
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Allergy Details Updated Successfully')", true);
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "toastr.success('Allergy Details Updated Successfully')", true);
                     }
                 }
 

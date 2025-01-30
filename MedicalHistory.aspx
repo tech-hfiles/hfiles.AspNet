@@ -367,7 +367,7 @@
 
 
 
-
+                <asp:HiddenField ID="hdnAccordionIndex" runat="server" />
             <div class="accordion accordion-flush" id="accordionFlushExample" style="width:100%;max-height:65vh;overflow-y:auto;padding:0 20px" >
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingOne">
@@ -747,6 +747,36 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
+        // Function to restore the last opened accordion
+        function restoreAccordion() {
+            var lastOpenedAccordion = $('#<%= hdnAccordionIndex.ClientID %>').val();
+    if (lastOpenedAccordion) {
+        $('#' + lastOpenedAccordion).addClass('show');
+    }
+
+    // Store the currently active accordion panel in the hidden field
+    $('.accordion-collapse').on('shown.bs.collapse', function () {
+        var activeId = $(this).attr('id');
+        $('#<%= hdnAccordionIndex.ClientID %>').val(activeId);
+    });
+        }
+
+        // Ensure the script runs on full page load
+        $(document).ready(function () {
+            restoreAccordion();
+        });
+
+        // Ensure the script runs on every partial postback
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
+            restoreAccordion();
+        });
+
+
+
+    </script>
+
+
+    <script>
 
         function HideAdditionalDiv() {
             document.getElementById('AdditionalDiv').style.display = "none";
@@ -813,25 +843,25 @@
             setTimeout(function () {
                 var allergyDiv = document.getElementById('<%= AllergiesDiv.ClientID %>');
 
-                if (allergyDiv) {
-                    // If the element is found, make the footer's position relative
-                    var footer = document.querySelectorAll('.footer');
-                    if (footer) {
-                        footers.forEach(function (footer) {
-                            footer.style.setProperty('position', 'relative', 'important');
-                        });
-                    }
-                    alert('LUL');
-                } else {
-                    var footers = document.querySelectorAll('.footer');
-                    footers.forEach(function (footer) {
-                        footer.style.removeProperty('position', 'absolute', 'important');
-                    });
-                    // Change the position to 'fixed' for each footer element
-                    footers.forEach(function (footer) {
-                        footer.style.setProperty('position', 'relative', 'important');
-                    });
-                }
+                //if (allergyDiv) {
+                //    // If the element is found, make the footer's position relative
+                //    var footers = document.querySelectorAll('.footer');
+                //    if (footers != undefined) {
+                //        footers.forEach(function (footer) {
+                //            footer.style.setProperty('position', 'relative', 'important');
+                //        });
+                //    }
+                //    //alert('LUL');
+                //} else {
+                //    var footers = document.querySelectorAll('.footer');
+                //    footers.forEach(function (footer) {
+                //        footer.style.removeProperty('position', 'absolute', 'important');
+                //    });
+                //    // Change the position to 'fixed' for each footer element
+                //    footers.forEach(function (footer) {
+                //        footer.style.setProperty('position', 'relative', 'important');
+                //    });
+                //}
             }, 2000);
         }
 
