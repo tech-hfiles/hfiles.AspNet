@@ -759,7 +759,7 @@
                             <div class="elementor-element elementor-element-321fbce elementor-widget elementor-widget-image" data-id="321fbce" data-element_type="widget" data-widget_type="image.default">
                                 <div class="elementor-widget-container">
                                     <style>
-                                        /*! elementor - v3.21.0 - 25-04-2024 */
+                                        /*! elementor - v3.21.0 - 25-04-2025 */
                                         .text-white {
                                             color: #FFFFFF !important;
                                         }
@@ -899,7 +899,7 @@
                         <div class="elementor-element elementor-element-5a58fa8 elementor-widget elementor-widget-spacer" data-id="5a58fa8" data-element_type="widget" data-widget_type="spacer.default">
                             <div class="elementor-widget-container">
                             <%--    <style>
-                                    /*! elementor - v3.21.0 - 25-04-2024 */
+                                    /*! elementor - v3.21.0 - 25-04-2025 */
                                     .elementor-column .elementor-spacer-inner {
                                         height: var(--spacer-size)
                                     }
@@ -1873,7 +1873,7 @@ Update your bond with health by signing up with us today!
                     <div class="elementor-widget-wrap elementor-element-populated">
                         <div class="elementor-element elementor-element-a8cad3b elementor-widget elementor-widget-text-editor" data-id="a8cad3b" data-element_type="widget" data-widget_type="text-editor.default">
                             <div class="elementor-widget-container">
-                                Copyright 2024 h.files. All rights reserved by h.files					
+                                Copyright 2025 h.files. All rights reserved by h.files					
                             </div>
                         </div>
                     </div>
@@ -1916,7 +1916,7 @@ Update your bond with health by signing up with us today!
                                             <div class="elementor-element elementor-element-40020d3a elementor-shape-circle e-grid-align-left e-grid-align-mobile-center e-grid-align-tablet-center elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="40020d3a" data-element_type="widget" data-widget_type="social-icons.default">
                                                 <div class="elementor-widget-container">
                                                     <style>
-                                                        /*! elementor - v3.21.0 - 25-04-2024 */
+                                                        /*! elementor - v3.21.0 - 25-04-2025 */
                                                         .elementor-widget-social-icons.elementor-grid-0 .elementor-widget-container, .elementor-widget-social-icons.elementor-grid-mobile-0 .elementor-widget-container, .elementor-widget-social-icons.elementor-grid-tablet-0 .elementor-widget-container {
                                                             line-height: 1;
                                                             font-size: 0
@@ -2405,7 +2405,7 @@ Update your bond with health by signing up with us today!
                         <div class="elementor-widget-wrap elementor-element-populated">
                             <div class="elementor-element elementor-element-a8cad3b elementor-widget elementor-widget-text-editor" data-id="a8cad3b" data-element_type="widget" data-widget_type="text-editor.default">
                                 <div class="elementor-widget-container">
-                                    Copyright 2024 h.files. All rights reserved by h.files					
+                                    Copyright 2025 h.files. All rights reserved by h.files					
                                 </div>
                             </div>
                         </div>
