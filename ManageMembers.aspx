@@ -179,7 +179,7 @@
         </div>
     </div>
 
-    <div class="manage-members-div" style="display: flex; flex-direction: row-reverse;">
+    <div class="manage-members-div" style="display: flex; flex-direction: row-reverse;padding-bottom:10vh;">
         <%--<div class="row justify-content-center pt-5 m-0" style="min-height: 100vh">
              <div class="col-12 col-md-10 col-lg-10">--%>
         <div class="container-fluid w-50 justify-content-center">

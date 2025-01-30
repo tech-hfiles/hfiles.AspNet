@@ -311,13 +311,23 @@ namespace hfiles
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(Session["Userid"].ToString()));// memberId);/* DAL.validateInt(Session["Userid"].ToString())*/
                             cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(ReportId));
-                            cmd.Parameters.AddWithValue("_memberId", memberId);// DAL.validateInt(Session["Userid"].ToString()));/*UserId*/
+                            
                             cmd.Parameters.AddWithValue("_reportname", "");
-                            cmd.Parameters.AddWithValue("_rId", 0);
+                            cmd.Parameters.AddWithValue("_rId", memberId);
                             cmd.Parameters.AddWithValue("_reporturl", "");
                             cmd.Parameters.AddWithValue("_FileSize", 0);
                             cmd.Parameters.AddWithValue("_SpType", "LR");
-                            cmd.Parameters.AddWithValue("_UploadType", "");
+                            if(user_referenceId > 0)
+                            {
+                                cmd.Parameters.AddWithValue("_UploadType", "dependent");
+                                cmd.Parameters.AddWithValue("_memberId", user_referenceId);// DAL.validateInt(Session["Userid"].ToString()));/*UserId*/
+                            }
+                            else
+                            {
+                                cmd.Parameters.AddWithValue("_memberId", memberId);// DAL.validateInt(Session["Userid"].ToString()));/*UserId*/
+                                cmd.Parameters.AddWithValue("_UploadType", "");
+                            }
+                            
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                             cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
                             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -366,8 +376,12 @@ namespace hfiles
                             da.Fill(dt);
                             if (dt != null && dt.Rows.Count > 0)
                             {
+                                DataView dv = dt.DefaultView;
+                                dv.RowFilter = "UploadType <> 'dependent'"; // Exclude "dependent"
+                                DataTable filteredDt = dv.ToTable();
+
+                                rptReports.DataSource = filteredDt;
                                 //tcount.InnerHtml = dt.Rows.Count.ToString();
-                                rptReports.DataSource = dt;
                                 rptReports.DataBind();
                                 divUpload_Doc.Visible = false;
                                 MySqlDataReader sdr = cmd.ExecuteReader();
@@ -1047,6 +1061,7 @@ namespace hfiles
             int RId = DAL.validateInt(Request.QueryString["rid"]);
             int memberId = Convert.ToInt32(Session["memberId"]);
             List<int> selectedIds = new List<int>();
+            int user_referenceId = Convert.ToInt32(Session["user_reference"]);
 
             foreach (ListItem item in ddlMembers2.Items)
             {
@@ -1055,6 +1070,11 @@ namespace hfiles
                     selectedIds.Add(Convert.ToInt32(item.Value));
                 }
             }
+            if(memberId > 0 && user_referenceId > 0)
+            {
+                selectedIds.Add(memberId);
+            }
+            
             string memberIdList = string.Join(",", selectedIds);
             //int memberId = Convert.ToInt32(ddlMembers2.SelectedItem.Value);
             int result = 0;

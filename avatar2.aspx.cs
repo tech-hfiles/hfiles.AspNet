@@ -298,7 +298,7 @@ namespace hfiles
 
             int user_referenceId = Convert.ToInt32(Session["user_reference"]);
             List<int> selectedIds = new List<int>();
-
+            
             foreach (ListItem item in ddlMembers2.Items)
             {
                 if (item.Selected)
@@ -325,9 +325,9 @@ namespace hfiles
                             Session["memberRelation"] = "Self";
                         }
                         // || Session["memberRelation"].ToString() == "Son" || Session["memberRelation"].ToString() == "daughter" || Session["memberRelation"].ToString() == "cat" || Session["memberRelation"].ToString() == "Dog" || Session["memberRelation"].ToString() == "GrandFather" || Session["memberRelation"].ToString() == "GrandMother" || Session["memberRelation"].ToString() == "Son" && (age < 17 || age > 70)
-                        if (Session["memberRelation"].ToString() == "Self")
+                        //if (Session["memberRelation"].ToString() == "Self")
+                        if(memberId == UserId)
                         {
-
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("_UserId", UserId);
                             cmd.Parameters.AddWithValue("_reportname", reportname);
@@ -347,10 +347,11 @@ namespace hfiles
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Added Successfully');", true);
                             //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Added Successfully')", true);
                             //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
-                            Session["memberId"] = 0;
+                            //Session["memberId"] = 0;
                         }
-                        else if (memberId == UserId)
+                        else if (user_referenceId == 0 && memberId != UserId)
                         {
+
                             //using (MySqlCommand cmd = new MySqlCommand("usp_addreport", con))
                             //{
                             cmd.CommandType = CommandType.StoredProcedure;
@@ -373,8 +374,11 @@ namespace hfiles
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Added Successfully');", true);
                             //ScriptManager.RegisterStartupScript(this, this.GetType(), "Script", "swal("Report Added Successfully");", true);
                         }
-                        else if (user_referenceId > 0 && ((IsValidEmail(Session["user_reference_email"]) == true && IsValidEmail(Session["user_email"]) == true) ? Session["user_reference_email"].ToString() == Session["user_email"].ToString() : false))
+                        //else if (user_referenceId > 0 && ((IsValidEmail(Session["user_reference_email"]) == true && IsValidEmail(Session["user_email"]) == true) ? Session["user_reference_email"].ToString() == Session["user_email"].ToString() : false))
+                        else if (user_referenceId > 0)
                         {
+                            
+
                             memberIdList = memberIdList + "," + memberId;
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("_UserId", UserId);
