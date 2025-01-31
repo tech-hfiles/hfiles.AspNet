@@ -32,6 +32,8 @@ using Org.BouncyCastle.Asn1.Cmp;
 using System.Text;
 using System.IO.Compression;
 using System.Web.Caching;
+using Azure;
+using Microsoft.Graph.Models.TermStore;
 
 namespace hfiles
 {
@@ -95,17 +97,55 @@ namespace hfiles
                         if (Session["memberId"] != null && Convert.ToInt32(Session["memberId"]) > 0)
                         {
                             UserReports(Convert.ToInt32(Session["memberId"]), RId);
+                            string Membersname = Session["Membersname"].ToString();
+                            lblusermIreport.Text = Session["Membersname"].ToString();
                         }
                         else
                         {
                             UserReports(UserId, RId);
+                            string Membersname = Session["username"].ToString();
+                            lblusermIreport.Text = Session["username"].ToString();
                         }
+                      
                         //UserReports(UserId, RId);
                     }
                 }
                 //Session[""];
             }
         }
+        //protected string getName(int user_id)
+        //{
+        //    //usp_commonproductvariation
+        //    //string sptype = "BIND";
+        //    string username = "";
+        //    using (MySqlConnection con = new MySqlConnection(cs))
+        //    {
+        //        con.Open();
+        //        using (MySqlCommand cmd = new MySqlCommand("usp_getuserdetailsbyId", con))
+        //        {
+        //            cmd.CommandType = CommandType.StoredProcedure;
+        //            cmd.Parameters.AddWithValue("_user_id", DAL.validateInt(user_id));
+        //            //cmd.Parameters.AddWithValue("_SpType", sptype);
+        //            //cmd.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
+
+        //            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+        //            DataTable dt = new DataTable();
+        //            da.Fill(dt);
+        //            if (dt != null && dt.Rows.Count > 0)
+        //            {
+
+
+        //                username= dt.Rows[0]["user_firstname"].ToString();
+
+
+
+
+        //            }
+                    
+        //        }
+        //    }
+        //}
+
         public void getReportType(int RId)
         {
             try
