@@ -14,21 +14,7 @@
 
     <title>Add Members</title>
    
-    <%--<script>
-        function validateRequest() {
-            // Replace this with the actual way you retrieve User_Reference
-            var userReference = parseInt(userReference);
-
-
-            if (userReference === 0) {
-                alert("Request Sent.");
-                return true; // Allow form submission
-            } else {
-                alert("Please add independent members before proceeding.");
-                return false; // Prevent form submission
-            }
-        }
-</script>--%>
+ 
 
     <style>
         .btn-div {
