@@ -17,7 +17,7 @@ namespace hfiles
     {
         string connectionString = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
         int requestCount;
-        Dictionary<int,string> bloodGroups = new Dictionary<int, string>
+        public Dictionary<int,string> bloodGroups = new Dictionary<int, string>
 {
             { 0, "" },
     { 1, "A+" },
@@ -121,8 +121,8 @@ namespace hfiles
                             string bgroup = "";
 
                             bloodGroups.TryGetValue(BloodGroup, out bgroup);
-
-                            LoadMembershipCard(Name, bgroup, Contact, Expiry, UserPlan);
+                            string memberIdText = memberId.Text;
+                            membershipImage.ImageUrl = LoadMembershipCard(Name, bgroup, Contact, Expiry, UserPlan, memberIdText);
                         }
                     }
                     command.ExecuteNonQuery();
@@ -130,14 +130,14 @@ namespace hfiles
                 }
             }
         }
-        public void LoadMembershipCard(string UnserNameText,string BloodGroupText,string EmergencyContact,string ExpiryText,string UserPlan)
+        public string LoadMembershipCard(string UnserNameText,string BloodGroupText,string EmergencyContact,string ExpiryText,string UserPlan,string memberIdText)
         {
 
             //Change Image According to User Plan
-            string imagePath = Server.MapPath("~/assets/membershipcard/2.png");
-            
+            //string imagePath = Server.MapPath("~/assets/membershipcard/2.png");
+            string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "membershipcard", "2.png");
 
-            
+
             Bitmap bitmap = new Bitmap(imagePath);
 
             // Create graphics object
@@ -153,7 +153,7 @@ namespace hfiles
             Brush brush = new SolidBrush(Color.Black); // Text color
 
             // Calculate the position to center the text
-            string memberIdText = memberId.Text;
+            
             string CustomerServiceContact = ConfigurationManager.AppSettings["customerServiceMobile"].ToString();
 
             SizeF textSize = graphics.MeasureString(memberIdText, font);
@@ -180,13 +180,8 @@ namespace hfiles
             graphics.DrawString(EmergencyContact, commondatafont, brush, ContactDataPosition);
             graphics.DrawString("Customer service : ", customerServicefont, brush, CustomerServicePosition);
             graphics.DrawString(CustomerServiceContact, customerServiceDatafont, brush, CustomerServiceDataPosition);
-
-
-
-
             // Clean up resources
             graphics.Dispose();
-
             // Save the image to a memory stream
             MemoryStream memoryStream = new MemoryStream();
             bitmap.Save(memoryStream, ImageFormat.Png);
@@ -194,12 +189,9 @@ namespace hfiles
 
             // Set the Image control's ImageUrl to the memory stream
             string Image = "data:image/png;base64," + Convert.ToBase64String(memoryStream.ToArray());
-            
-            membershipImage.ImageUrl = Image;
-           
-
             // Dispose the bitmap as we don't need it anymore
             bitmap.Dispose();
+            return Image;
         }
 
 

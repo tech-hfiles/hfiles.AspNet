@@ -284,6 +284,10 @@
     <Content Include="AllReports123.aspx" />
     <Content Include="assets2\family-prescription-logo.jpeg" />
     <Content Include="assets\Full Logo Rectangle.png" />
+    <Content Include="assets\membershipcard\2.png" />
+    <Content Include="assets\membershipcard\3.png" />
+    <Content Include="assets\membershipcard\4.png" />
+    <Content Include="assets\membershipcard\5.png" />
     <Content Include="captchacode.aspx" />
     <Content Include="ContentDeliver.aspx" />
     <Content Include="Error.aspx" />
