@@ -61,7 +61,8 @@ namespace hfiles
             //    FetchData(21);
             //}
 
-            //mp1.Show();
+            
+            Panel1.Visible = false;
             int RId = DAL.validateInt(Request.QueryString["rid"]);
 
             if (!IsPostBack)
@@ -840,6 +841,7 @@ namespace hfiles
                                 }
                             }
                             mp1.Show();
+                            Panel1.Visible = true;
                         }
                         else
                         {
