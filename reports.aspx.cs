@@ -185,6 +185,7 @@ namespace hfiles
             try
             {
                 int memberId = Convert.ToInt32(Session["memberId"]);
+                int loginuser = Convert.ToInt32(Session["Userid"]);
 
                 int DependentUserIdMember = DAL.validateInt(Session["DependentUserIdMember"]);
                 int Dependent_User_Reference = DAL.validateInt(Session["Dependent_User_Reference"]);
@@ -203,7 +204,8 @@ namespace hfiles
                 //{
 
                 //}
-                if (user_referenceId > 0 && memberId > 0 && ((IsValidEmail(Session["user_reference_email"]) == true && IsValidEmail(Session["user_email"]) == true) ? Session["user_reference_email"].ToString() == Session["user_email"].ToString() : false))
+                //if (user_referenceId > 0 && memberId > 0 && ((IsValidEmail(Session["user_reference_email"]) == true && IsValidEmail(Session["user_email"]) == true) ? Session["user_reference_email"].ToString() == Session["user_email"].ToString() : false))
+                if (user_referenceId > 0 && memberId > 0 && user_referenceId == loginuser)
                 {
                     using (MySqlConnection con = new MySqlConnection(cs))
                     {

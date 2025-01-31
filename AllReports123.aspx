@@ -273,7 +273,7 @@ asp\:GridView td {
     
     <asp:UpdatePanel runat="server">
     <ContentTemplate>
-     <div style="overflow: auto; max-height: 90vh; max-width: 100%; border: 1px solid #ddd;">
+     <div style="overflow: auto; max-height: 90vh; max-width: 100%; border: 1px solid #ddd;padding-bottom:10vh;">
          <br />
                   <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
     <a class="back-arrow-btn-2" href="avatar2.aspx" style="margin-left: 20px;">Back
