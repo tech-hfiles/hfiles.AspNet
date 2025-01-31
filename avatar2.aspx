@@ -590,6 +590,7 @@
                                             <asp:Image ID="imgAvatar" runat="server" alt="" />
                                             <h3>
                                                 <asp:Label Text="" ID="lbluser" runat="server" /></h3>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-4">

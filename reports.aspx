@@ -174,6 +174,9 @@
                             </a>
                         </div>
                         <div class="col-md-4 d-flex justify-content-center py-3 font-size-1em">
+                         <asp:Label Text="" ID="lblusermIreport" runat="server" Style="color: black; font-weight: bold; margin-bottom: 10px; font-size: 25px;" />&nbsp
+
+
                             <asp:Label ID="lblReportType" runat="server" CssClass="report-page-title" Text="INVOICES/MEDICLAIM INSURANCE" />
                         </div>
                         <div class="col-md-4 d-flex justify-content-md-end justify-content-center align-items-center py-2 search-file">

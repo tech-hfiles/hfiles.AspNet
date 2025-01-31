@@ -33,6 +33,9 @@ namespace hfiles
             //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please Fill up Basic Details')", true);
             //    Response.Redirect("addbasicdetails.aspx");
             //}
+           
+
+
             if (Session["username"] != null)
             {
                 if (Session["user_dob"] != null && Session["user_dob"].ToString() != string.Empty)
@@ -49,7 +52,10 @@ namespace hfiles
                     GetCounts();
                     //bindData(Convert.ToInt32(Session["memberId"].ToString()));
 
+
+
                     selectedmembername.InnerText = lblUserName.Text = lbluser.Text = Session["username"].ToString();
+
                     if (Session["gender_string"] != null && Session["age"] != null)
                     {
                         mobileAvatar.Src = imgAvatar.ImageUrl = GetImagePath(DAL.validateInt(Session["age"].ToString()), Session["gender_string"].ToString());
@@ -469,10 +475,14 @@ namespace hfiles
                     da.Fill(dt);
                     if (dt != null && dt.Rows.Count > 0)
                     {
+                        Session["Membersname"] = dt.Rows[0]["user_firstname"].ToString();
                         Session["user_reference"] = dt.Rows[0]["user_reference"].ToString();
                         Session["user_reference_email"] = dt.Rows[0]["user_email"].ToString();
                         gender = dt.Rows[0]["user_gender"].ToString();
-                        selectedmembername.InnerText = lbluser.Text = dt.Rows[0]["user_firstname"].ToString();
+                        selectedmembername.InnerText = lbluser.Text =dt.Rows[0]["user_firstname"].ToString();
+                 
+                        //lnkReport.NavigateUrl = "reports.aspx?rid=" + dt.Rows[0]["user_firstname"].ToString(); 
+
                         age = 0;
                         dob = dt.Rows[0]["user_dob"].ToString();
                         relation = dt.Rows[0]["user_relation"].ToString();
