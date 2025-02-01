@@ -15,23 +15,39 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
 
  
- <script type="text/javascript">
-     function confirmDelete(userReference) {
-         // Convert userReference to a number if needed
-         userReference = parseInt(userReference);
+  <script type="text/javascript">
 
-         // Check if userReference is 0 (Independent Member)
-         if (userReference === 0) {
-             // Show a confirmation dialog for Independent Member
-             var result = confirm("This will permanently delete the Independent Member and all associated Dependent Members. Do you want to proceed?");
-         } else {
-             // Default confirmation for Members
-             var result = confirm("This will permanently delete Members.");
-         }
+      function confirmDelete(userReference) {
 
-         // Return true if the user clicks "OK", false if "Cancel"
-         return result;
-     }
+          // Convert userReference to a number if needed
+
+          userReference = parseInt(userReference);
+
+
+
+          // Check if userReference is 0 (Independent Member)
+
+          if (userReference === 0) {
+
+              // Show a confirmation dialog for Independent Member
+
+              var result = confirm("This will permanently delete the Independent Member and all associated Dependent Members. Do you want to proceed?");
+
+          } else {
+
+              // Default confirmation for Members
+
+              var result = confirm("This will permanently delete Members.");
+
+          }
+
+
+
+          // Return true if the user clicks "OK", false if "Cancel"
+
+          return result;
+
+      }
 </script>
 
 
@@ -159,7 +175,83 @@
     </style>
    
    
+   <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/4.5/1/MicrosoftAjax.js"></script>
 
+<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/4.5/1/WebForms.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
+
+   <script type="text/javascript">
+
+       $(document).ready(function () {
+
+
+
+           function checkNotifications() {
+
+               $.ajax({
+
+                   url: 'ManageMembers.aspx/GetNotifiedRequest', // URL to the WebMethod
+
+                   type: 'POST', // WebMethods require POST
+
+                   contentType: 'application/json; charset=utf-8', // Required for WebMethods
+
+                   dataType: 'json', // Expected response type
+
+                   // Empty data object (required for WebMethods)
+
+                   success: function (result1) {
+
+                       if (result1.d == 1) {
+
+                           //if (result1.d && result1.d.length > 0) { // Check the response
+
+                           //alert("You have received Request.....");
+
+                           toastr.success('You have received Request');
+
+                       }
+
+                       // }
+
+                   },
+
+                   error: function (xhr, status, error) {
+
+                       //console.error("AJAX Error: " + status + " - " + error);
+
+                   },
+
+                   complete: function () {
+
+                       // Poll again after a delay
+
+                       // setTimeout(checkNotifications, 5000); // Poll every 5 seconds
+
+                   }
+
+               });
+
+           }
+
+
+
+           // Start polling 
+
+           $(document).ready(function () {
+
+               checkNotifications();
+
+           });
+
+
+
+       });
+
+   </script>
   
 
 </asp:Content>

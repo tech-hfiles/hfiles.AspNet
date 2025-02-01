@@ -280,6 +280,7 @@
     <Content Include="Add Members\shorting-icon-blue.png" />
     <Content Include="Add Members\shorting-icon.png" />
     <Content Include="addbasicdetails.aspx" />
+    <Content Include="AddClinics.aspx" />
     <Content Include="AllReports.aspx" />
     <Content Include="AllReports123.aspx" />
     <Content Include="assets2\family-prescription-logo.jpeg" />
@@ -1007,6 +1008,13 @@
     </Compile>
     <Compile Include="addbasicdetails.aspx.designer.cs">
       <DependentUpon>addbasicdetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddClinics.aspx.cs">
+      <DependentUpon>AddClinics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddClinics.aspx.designer.cs">
+      <DependentUpon>AddClinics.aspx</DependentUpon>
     </Compile>
     <Compile Include="AllReports.aspx.cs">
       <DependentUpon>AllReports.aspx</DependentUpon>

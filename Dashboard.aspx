@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/user.Master" CodeBehind="Dashboard.aspx.cs" Inherits="hfiles.Dashboard" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/user.Master"  CodeBehind="Dashboard.aspx.cs" Inherits="hfiles.Dashboard" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Dashboard</title>
@@ -87,9 +87,60 @@
                 position:relative;
             }
         }
+          
     </style>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/4.5/1/MicrosoftAjax.js"></script>
+<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/4.5/1/WebForms.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+      
+          <%-- <script type="text/javascript">
+               Sys.Application.add_load(function () {
+        // Ensure PageMethods is available after the page loads
+        var pageMethods = Sys.WebForms.PageRequestManager._getInstance()._pageMethods;
+
+        // Now you can use pageMethods if necessary
+        // For example, call a method or perform other operations
+    });
+</script>--%>
+     <script type="text/javascript">
+         $(document).ready(function () {
+
+             function checkNotifications() {
+                 $.ajax({
+                     url: 'ManageMembers.aspx/GetNotifiedRequest', // URL to the WebMethod
+                     type: 'POST', // WebMethods require POST
+                     contentType: 'application/json; charset=utf-8', // Required for WebMethods
+                     dataType: 'json', // Expected response type
+                     // Empty data object (required for WebMethods)
+                     success: function (result1) {
+                         if (result1.d == 1) {
+                             //if (result1.d && result1.d.length > 0) { // Check the response
+                             //alert("You have received Request.....");
+                             toastr.success('You have received Request');
+                         }
+                         // }
+                     },
+                     error: function (xhr, status, error) {
+                         //console.error("AJAX Error: " + status + " - " + error);
+                     },
+                     complete: function () {
+                         // Poll again after a delay
+                         // setTimeout(checkNotifications, 5000); // Poll every 5 seconds
+                     }
+                 });
+             }
+
+             // Start polling 
+             $(document).ready(function () {
+                 checkNotifications();
+             });
+
+         });
+     </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    	
     <div class="journal">
         <div class="journal_main">
             <div class="jur-width-div" style="width: 85%;">
@@ -249,24 +300,26 @@
             </div>
         </div>
     </div>
+
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
     <script>
 
-        var text = "Coming Soon !"; // Text to be typed
-        var speed = 100; // Typing speed in milliseconds
-        var index = 0; // Index of the current character being typed
+        //var text = "Coming Soon !"; // Text to be typed
+        //var speed = 100; // Typing speed in milliseconds
+        //var index = 0; // Index of the current character being typed
 
-        function typeWriter() {
-            if (index < text.length) {
-                document.getElementById("comingSoon").innerHTML += text.charAt(index);
-                index++;
-                setTimeout(typeWriter, speed);
-            }
-        }
+        //function typeWriter() {
+        //    if (index < text.length) {
+        //        document.getElementById("comingSoon").innerHTML += text.charAt(index);
+        //        index++;
+        //        setTimeout(typeWriter, speed);
+        //    }
+        //}
 
-        typeWriter(); // Start typing when the page loads
+        //typeWriter(); // Start typing when the page loads
 
 
         // Function to open the modal and backdrop when the page renders
@@ -286,7 +339,7 @@
             document.getElementById("backdrop").style.display = "none";
         }
 
-        
-        
+
+
     </script>
 </asp:Content>

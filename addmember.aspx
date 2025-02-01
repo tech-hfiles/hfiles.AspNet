@@ -14,21 +14,7 @@
 
     <title>Add Members</title>
    
-    <script>
-        function validateRequest() {
-            // Replace this with the actual way you retrieve User_Reference
-            var userReference = parseInt(userReference);
-
-
-            if (userReference === 0) {
-                alert("Request Sent.");
-                return true; // Allow form submission
-            } else {
-                alert("Please add independent members before proceeding.");
-                return false; // Prevent form submission
-            }
-        }
-</script>
+ 
 
     <style>
         .btn-div {
@@ -465,7 +451,7 @@
                                                 </div>
                                                 <div class="btn-div">
                                                      <%--<asp:Button runat="server" ID="btnSendRequst" Text="Send Request" OnClick="request_Click" ValidationGroup="Second" CssClass="btn submit-btn"></asp:Button>--%>
-                                                    <button runat="server" id="request" onserverclick="request_Click" type="submit" class="btn submit-btn" validationgroup="Second" onclick='<%# "return validateRequest(\"" + Eval("User_Reference") + "\");" %>'>Send Request</button><%--btn submit-btn request-btn--%>
+                                                    <button runat="server" id="request" onserverclick="request_Click" type="submit" class="btn submit-btn" validationgroup="Second">Send Request</button><%--btn submit-btn request-btn--%>
                                                 </div>
                                             </div>
 

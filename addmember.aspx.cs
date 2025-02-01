@@ -186,6 +186,11 @@ namespace hfiles
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Can not send request to yourself');", true);
                         //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Can not send request to yourself')", true);
                     }
+                    else if (result1 == 7)
+                    {
+                        hfnumber.Text = string.Empty;
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.warning('First, add the independent member before adding dependent members.');", true);
+                    }
                     else if (result1 == 0)
                     {
                         // User does not exist
