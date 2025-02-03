@@ -528,11 +528,7 @@ namespace hfiles
                             // Perform case-insensitive search
                             foreach (DataRow row in dt.Rows)
                             {
-                                //if (row["ReportName"].ToString().Contains(searchTerm))
-                                //{
-                                //    filteredData.ImportRow(row);
-                                //}
-                                if (row["ReportName"].ToString().IndexOf(searchTerm, StringComparison.Ordinal) >= 0)
+                               
                                 if (row["ReportName"].ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)
                                 {
                                     filteredData.ImportRow(row);
