@@ -98,13 +98,13 @@ namespace hfiles
                         {
                             UserReports(Convert.ToInt32(Session["memberId"]), RId);
                             string Membersname = Session["Membersname"].ToString();
-                            lblusermIreport.Text = Session["Membersname"].ToString();
+                            lblusermIreport.Text = Session["Membersname"].ToString()+"'S";
                         }
                         else
                         {
                             UserReports(UserId, RId);
                             string Membersname = Session["username"].ToString();
-                            lblusermIreport.Text = Session["username"].ToString();
+                            lblusermIreport.Text = Session["username"].ToString() + "'S";
                         }
                       
                         //UserReports(UserId, RId);
@@ -494,8 +494,6 @@ namespace hfiles
        
 
         protected void SearchInput_TextChanged(object sender, EventArgs e)
-        
-        
         {
             int RId = DAL.validateInt(Request.QueryString["rid"]);
             DataTable dt;
@@ -531,7 +529,11 @@ namespace hfiles
                             //foreach (DataRow row in dt.Rows) 
                             foreach (DataRow row in dt.Rows)
                             {
-                                if (row["ReportName"].ToString().Contains(searchTerm))
+                                //if (row["ReportName"].ToString().Contains(searchTerm))
+                                //{
+                                //    filteredData.ImportRow(row);
+                                //}
+                                if (row["ReportName"].ToString().IndexOf(searchTerm, StringComparison.Ordinal) >= 0)
                                 {
                                     filteredData.ImportRow(row);
                                 }
