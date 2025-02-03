@@ -110,7 +110,14 @@ namespace hfiles
         }
 
 
-        
+        protected void lnkShare_Click(object sender, EventArgs e)
+        {
+
+            //    whatsappLinkButton.Enabled = true;
+            //    lbtnshareEmail.Enabled = true;
+            //    lnkShare.Enabled = false;
+        }
+
 
         protected void sharewhatsapp_Click(object sender, EventArgs e)
         {

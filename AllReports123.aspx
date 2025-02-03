@@ -74,7 +74,7 @@
              height: 200px;
          }
 
-         . /*back-arrow-btn {
+        /*back-arrow-btn {
              top: 10% !important;
          }*/
      }
@@ -152,107 +152,112 @@
              height: 400px;
          }
      }
- </style>
+
+    .oval-button {
 
 
-
-
-
-  <%--  <style>
-        /* General styles for responsiveness */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+   
+    background-color: transparent; /* Transparent background */
+    color: black;                  /* Black text */
+    border: 2px solid black;       /* Black border with 2px thickness */
+    padding: 10px 30px;            /* Padding to control button size */
+    font-size: 16px;               /* Font size */
+    text-align: center;            /* Center the text */
+    cursor: pointer;              /* Pointer cursor on hover */
+    border-radius: 25px;           /* Make the button oval */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    display: inline-flex;          /* Flexbox for icon and text alignment */
+    align-items: center;           /* Align items in the center */
+    justify-content: center;       /* Center content */
 }
 
-/* Container for scrolling div */
-div[style*="overflow: auto"] {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Hover effect */
+
+/* Styling for the icon */
+.oval-button i {
+    margin-right: 5px;          /* Space between icon and text */
+    font-size: 18px;            /* Icon size */
 }
 
-/* Center the header */
-h2 {
-    font-size: 1.5rem;
-    text-align: center;
-    margin: 10px 0;
+.oval-button:hover {
+    background-color: #45a049;  /*Darker green when hovered */
 }
 
-/* Link button styling */
-asp\:LinkButton img {
-    vertical-align: middle;
-}
 
-.report-share-icon {
-    display: inline-block;
-    margin-right: 5px;
-    vertical-align: middle;
-}
-
-/* GridView responsiveness */
-.gridviewscroll {
-    overflow-x: auto;
-    margin: 10px 0;
-}
-
-asp\:GridView {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: auto;
-}
-
-asp\:GridView th,
-asp\:GridView td {
-    text-align: left;
-    padding: 8px;
-    border: 1px solid #ddd;
-    word-wrap: break-word;
-}
-
-/* Adjust the font size for smaller devices */
-@media (max-width: 768px) {
-    h2 {
-        font-size: 1.25rem;
+    .custom-gridview {
+        border: 3px solid #2196F3;  /* Blue border for the entire GridView */
+        border-radius: 10px;         /* Rounded corners for the GridView */
+        overflow: hidden;            /* Ensure that rounded corners work well */
     }
 
-    .gridviewscroll {
-        margin: 5px 0;
-    }
-
-    asp\:GridView th,
-    asp\:GridView td {
-        font-size: 0.9rem;
-        padding: 6px;
-    }
-
-    asp\:GridView th {
+    /* Header Row Border */
+    .custom-gridview th {
+        border-bottom: 2px solid #0331b5; /* Green border for header */
+        padding: 15px;
         text-align: center;
     }
+
+    /* Row Borders */
+    .custom-gridview td {
+        border-right: 1px solid #ddd;  /* Light gray right borders for cells */
+        border-bottom: 1px solid #ddd; /* Light gray bottom borders for cells */
+        padding: 10px;
+        text-align: center;
+    }
+
+    /* Remove the right border from the last column */
+    .custom-gridview td:last-child {
+        border-right: none;
+    }
+
+    /* Styling for alternating rows */
+    .custom-gridview tr:nth-child(odd) {
+        background-color: #f9f9f9;  /* Light gray for odd rows */
+    }
+
+    /* Selected Row Styling */
+    .custom-gridview .selected {
+        background-color: #4CAF50;  /* Green background for selected row */
+        color: white;
+    }
+
+    /* Footer Styling */
+    .custom-gridview tfoot {
+        border-top: 2px solid #4CAF50; /* Green border for footer */
+        text-align: center;
+        padding: 10px;
+    }
+
+    .custom-gridview tr:hover {
+    background-color: #ADD8E6 !important; /* Darker green when hovered */
 }
+ </style>
+    <script type="text/javascript">
+        function hideButton() {
 
-/* Adjust the layout for very small devices */
-@media (max-width: 480px) {
-    h2 {
-        font-size: 1rem;
+            var share = document.getElementById('shareb');
+            var sharebtn = document.getElementById('wgshare');
+           
+        
+
+            if (sharebtn.style.display === 'none') {
+                sharebtn.style.display = 'inline-block';
+                document.getElementById('<%= whatsappLinkButton.ClientID %>').style.display = 'inline-block';
+                document.getElementById('<%= lbtnshareEmail.ClientID %>').style.display = 'inline-block';// Show the div
+            } else {
+                share.style.display = 'none'; // Hide the div
+            }
+        // Hide the button by setting its display style to 'none'
+       <%-- document.getElementById('<%= lnkShare.ClientID %>').style.display = 'none';
+        document.getElementById('<%= whatsappLinkButton.ClientID %>').style.display = 'inline-block';
+        document.getElementById('<%= lbtnshareEmail.ClientID %>').style.display = 'inline-block';--%>
     }
+</script>
 
-    asp\:LinkButton {
-        display: block;
-        margin: 5px 0;
-    }
 
-    asp\:GridView th,
-    asp\:GridView td {
-        font-size: 0.8rem;
-    }
-}
 
-    </style>--%>
+
+ 
 
 
 
@@ -263,32 +268,53 @@ asp\:GridView td {
 
 
   
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
+
+<%--<asp:Content ID="Content3" ContentPlaceHolderID="" runat="server">
+     --%>
+  <%--  <asp:UpdatePanel runat="server">
+        <ContentTemplate>--%>
+                  
+<%--            </ContentTemplate>
+</asp:UpdatePanel> 
+    </asp:Content>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
     <asp:UpdatePanel runat="server">
     <ContentTemplate>
+<<<<<<< HEAD
      <div style="overflow: auto; max-height: 90vh; max-width: 100%; border: 1px solid #ddd;padding-bottom:10vh;">
+=======
+    
+    <%-- <div style="overflow: auto; max-height: 90vh; max-width: 100%; border: 1px solid #dddd;">--%>
+>>>>>>> 5a979e2dfea1be8f373499f2e77547172ac4393e
          <br />
-                  <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
+                                <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
+            <%--   <asp:Button ID="btnShare" runat="server" CssClass="oval-button" OnClick="btnShare_Click" Text="&nbsp;&nbsp;<i class='fas fa-share'></i>&nbsp;&nbsp;Share" />    --%>    
+     
     <a class="back-arrow-btn-2" href="avatar2.aspx" style="margin-left: 20px;">Back
     </a>
 </div>
+            
 
-       <h2 style="text-align: center;">All Reports Details</h2>
+ <h2 style="text-align: center;"><u>All Reports Details</u></h2>
          <br />
-       
+         <%--<div class="share1" >
+           <asp:LinkButton ID="lnkShare" class="oval-button" OnClick="btnshare_Click" runat="server" CommandName="Share" CommandArgument='<%# Eval("Id") %>' 
+                 Text="Share"  style="margin-left: 20px;" />
+             </div>--%>
+       <div class="share" id="wgshare" style="display: none;">
 
         <%-- <asp:Button ID="sharewhatsapp" runat="server" Text="Send whatsapp" ForeColor="Blue"  OnClick="sharewhatsapp_Click"/>--%>
-        <asp:LinkButton ID="whatsappLinkButton" Text="" runat="server" CommandName="Share" 
+        <asp:LinkButton ID="whatsappLinkButton" Text="WhatsApp" runat="server" CommandName="Share" 
     OnClick="sharewhatsapp_Click" style="display: inline-block; padding: 10px; margin-left: 20px; 
     border: 1px solid #63E6BE; border-radius: 8px; background-color: #f0f0f0; text-align: center; 
-    text-decoration: none; color: #000; font-family: Arial, sans-serif; font-size: 14px;">
+    text-decoration: none; color: #000; font-family: Arial, sans-serif; font-size: 14px; display:none;" >
     <div style="display: flex; align-items: center; gap: 8px;">
         <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 448 512">
             <path fill="#63E6BE" 
@@ -300,64 +326,68 @@ asp\:GridView td {
 
        <%--  <asp:Button ID="shareEmail" runat="server" Text="Send Email" ForeColor="Black"  OnClick="shareEmail_Click"/>--%>
 
-        <asp:LinkButton ID="lbtnshareEmail" Text="" runat="server" CommandName="Share" 
+        <asp:LinkButton ID="lbtnshareEmail" Text="Email" runat="server" CommandName="Share" 
     OnClick="shareEmail_Click" style="display: inline-block; padding: 10px; margin-left: 20px; 
     border: 1px solid #D44638; border-radius: 8px; background-color: #f0f0f0; text-align: center; 
-    text-decoration: none; color: #000; font-family: Arial, sans-serif; font-size: 14px;">
+    text-decoration: none; color: #000; font-family: Arial, sans-serif; font-size: 14px; display:none;"  >
     <div style="display: flex; align-items: center; gap: 8px;">
         <img src="../assets/gmail.png" alt="Email Icon" style="width: 20px; height: 20px;" />
         <span style="color: #D44638; font-weight: bold;">Email</span>
     </div>
 </asp:LinkButton>
-
+           </div>
         <br />
          <br />
-       
+           <div class="sharebtn" id="shareb">
+                    <asp:LinkButton ID="lnkShare" class="oval-button" OnClick="lnkShare_Click" runat="server" OnClientClick="hideButton();" CommandName="Share" 
+       Text="Share"  style="margin-left: 20px;" > &nbsp;&nbsp;<i class='fas fa-share'></i>&nbsp;Share</asp:LinkButton>
+</div>
          
          <%--<asp:Label ID="lbldeletereport" runat="server" Visible="false"></asp:Label>--%>
          <div  class="gridviewscroll">
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"  DataKeyNames="Id" Width="100%" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
-            <AlternatingRowStyle BackColor="#DCDCDC" />
-            <Columns>
+   
 
-               <asp:TemplateField HeaderText="Select">
+
+          <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" Width="70%" HorizontalAlign="Center" 
+               BorderStyle="Solid" BorderWidth="2px" 
+              CellPadding="10" GridLines="None" CssClass="custom-gridview">
+    <AlternatingRowStyle BackColor="#f9f9f9" />
+    <Columns>
+       
+        <asp:TemplateField HeaderText="Select">
             <ItemTemplate>
                 <asp:CheckBox ID="chkSelect" runat="server" />
-                <asp:HiddenField ID="hfReportUrl" runat="server" Value='<%# Eval("Id") %>' />
+                 <asp:HiddenField ID="hfReportUrl" runat="server" Value='<%# Eval("Id") %>' />
             </ItemTemplate>
         </asp:TemplateField>
-    
-    <asp:BoundField DataField="ReportName" HeaderText="Report Name" />
 
+        <asp:BoundField DataField="ReportName" HeaderText="Report Name" SortExpression="ReportName" />
+        <asp:BoundField DataField="ReportType" HeaderText="Report Type" SortExpression="ReportType" />
+        <asp:BoundField DataField="CreatedDate" HeaderText="Date" SortExpression="CreatedDate" 
+                       DataFormatString="{0:yyyy-MM-dd}" />
+        
+        <asp:TemplateField HeaderText="Action">
+            <ItemTemplate>
+                <asp:LinkButton ID="lnkViewFile" runat="server" CommandName="ViewFile" CommandArgument='<%# Eval("Id") %>' 
+                               Text="View File" CssClass="oval-button" onClick="lnkViewFile_Click" />
+            </ItemTemplate>
+        </asp:TemplateField>
+    </Columns>
+    <FooterStyle BackColor="#f9f9f9" ForeColor="Black" />
+    <HeaderStyle BackColor="#0331b5" Font-Bold="True" ForeColor="White" />
+    <PagerStyle BackColor="#f9f9f9" ForeColor="Black" HorizontalAlign="Center" />
+    <RowStyle BackColor="#ffffff" ForeColor="Black" />
+    <SelectedRowStyle BackColor="#45a049" Font-Bold="True" ForeColor="Red" />
+</asp:GridView>
+
+<!-- Add some custom CSS to control the borders -->
+<style>
+    /* Style the grid border */
    
-    <asp:BoundField DataField="ReportType" HeaderText="Report Type" />
+</style>
 
-    
-    <asp:BoundField DataField="CreatedDate" HeaderText="Date" DataFormatString="{0:yyyy-MM-dd}" />
 
-    
-    <asp:TemplateField HeaderText="Action">
-        <ItemTemplate>
-             
 
-             <asp:LinkButton ID="lnkViewFile" runat="server" CommandName="ViewFile" CommandArgument='<%# Eval("Id") %>' Text="View File" CssClass="btn btn-sm btn-primary"  OnClick="lnkViewFile_Click" />
-           
-
-           
-
-        </ItemTemplate>
-    </asp:TemplateField>
-</Columns>
-            <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
-            <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-            <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
-            <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-            <SortedAscendingHeaderStyle BackColor="#0000A9" />
-            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-            <SortedDescendingHeaderStyle BackColor="#000065" />
-        </asp:GridView>
              </div>
 
     </div>
@@ -372,7 +402,7 @@ asp\:GridView td {
 
 
 
-<asp:Content ID="Content3" ContentPlaceHolderID="jsScript" runat="server">
+<%--<asp:Content ID="Content3" ContentPlaceHolderID="jsScript" runat="server">
 
 
-</asp:Content>
+</asp:Content>--%>

@@ -218,6 +218,50 @@ namespace hfiles
             }
             // return Requestcount;
         }
+
+        [System.Web.Services.WebMethod]
+        public static int GetNotifiedRequest()
+        {
+            // Assuming you cannot access `Session` in a static context
+            // The caller should pass the `UserId` if needed, or refactor accordingly.
+            return new ManageMembers().notifiedRequests();
+        }
+
+        private int notifiedRequests()
+        {
+            DataTable dt = new DataTable();
+            int result1 = 0;
+            try
+            {
+                using (var connection = new MySqlConnection(cs))
+                {
+                    connection.Open();
+                    using (var cmd = new MySqlCommand("usp_getnotifiedRequests", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@_user_id", DAL.validateInt(Session["Userid"]));
+                        MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(cmd);
+                        DataTable dataTable = new DataTable();
+                        mySqlDataAdapter.Fill(dataTable);
+                        result1 = dataTable.Rows.Count;
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception if required
+               // Response.Write("Error : " + ex.Message);
+                //return JsonConvert.SerializeObject(new { Error = ex.Message });
+            }
+            if (result1 > 0)
+            {
+                // Convert DataTable to JSON and return
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You have receive Member Request..')", true);
+            }
+            return result1;
+
+        }
         protected void acceptBtn_Click(object sender, EventArgs e)
         {
             LinkButton lbtn = sender as LinkButton;
