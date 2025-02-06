@@ -160,7 +160,7 @@
 
                            <div class="text-center my-1" id="otpButtonDiv">
                             <div class="text-center resend-otp-div">
-                            <input type="checkbox" /><span style="color: #fff"> I agree to <a target="_blank" style="color: #fdd001; font-weight: 700" href="tc.aspx">Terms and Conditions</a> </span>
+                            <input type="checkbox" /><span style="color: #fff"> I agree to <a target="_blank" style="color: #fdd001; font-weight: 700" href="Terms&Conditions.aspx">Terms and Conditions</a> </span>
                         </div>
                             <asp:Button ID="otpButton" OnClick="signup_Click" ValidationGroup="otp" runat="server" Text="GET OTP" class="btn thm-button my-2"></asp:Button>
 

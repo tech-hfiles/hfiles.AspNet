@@ -12,7 +12,7 @@ using System.Web.UI.WebControls;
 
 namespace hfiles
 {
-    public partial class avatar2 : System.Web.UI.Page
+    public partial class MyHFiles : System.Web.UI.Page
     {
         #region Variable
         string cs = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
@@ -33,7 +33,7 @@ namespace hfiles
             //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please Fill up Basic Details')", true);
             //    Response.Redirect("addbasicdetails.aspx");
             //}
-           
+
 
 
             if (Session["username"] != null)
@@ -304,7 +304,7 @@ namespace hfiles
 
             int user_referenceId = Convert.ToInt32(Session["user_reference"]);
             List<int> selectedIds = new List<int>();
-            
+
             foreach (ListItem item in ddlMembers2.Items)
             {
                 if (item.Selected)
@@ -332,7 +332,7 @@ namespace hfiles
                         }
                         // || Session["memberRelation"].ToString() == "Son" || Session["memberRelation"].ToString() == "daughter" || Session["memberRelation"].ToString() == "cat" || Session["memberRelation"].ToString() == "Dog" || Session["memberRelation"].ToString() == "GrandFather" || Session["memberRelation"].ToString() == "GrandMother" || Session["memberRelation"].ToString() == "Son" && (age < 17 || age > 70)
                         //if (Session["memberRelation"].ToString() == "Self")
-                        if(memberId == UserId)
+                        if (memberId == UserId)
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("_UserId", UserId);
@@ -383,7 +383,7 @@ namespace hfiles
                         //else if (user_referenceId > 0 && ((IsValidEmail(Session["user_reference_email"]) == true && IsValidEmail(Session["user_email"]) == true) ? Session["user_reference_email"].ToString() == Session["user_email"].ToString() : false))
                         else if (user_referenceId > 0)
                         {
-                            
+
 
                             memberIdList = memberIdList + "," + memberId;
                             cmd.CommandType = CommandType.StoredProcedure;
@@ -479,8 +479,8 @@ namespace hfiles
                         Session["user_reference"] = dt.Rows[0]["user_reference"].ToString();
                         Session["user_reference_email"] = dt.Rows[0]["user_email"].ToString();
                         gender = dt.Rows[0]["user_gender"].ToString();
-                        selectedmembername.InnerText = lbluser.Text =dt.Rows[0]["user_firstname"].ToString();
-                 
+                        selectedmembername.InnerText = lbluser.Text = dt.Rows[0]["user_firstname"].ToString();
+
                         //lnkReport.NavigateUrl = "reports.aspx?rid=" + dt.Rows[0]["user_firstname"].ToString(); 
 
                         age = 0;
@@ -899,7 +899,7 @@ namespace hfiles
 
         //}
 
-        public  object GetCounts()
+        public object GetCounts()
         {
             int userId = DAL.validateInt(HttpContext.Current.Session["Userid"].ToString());
 

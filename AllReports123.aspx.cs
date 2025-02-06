@@ -66,10 +66,10 @@ namespace hfiles
         {
             if (!IsPostBack)
             {
-
-               // popup.Visible = false;
+                // popup.Visible = false;
 
                 GridBind();
+                getMembersList();
 
 
             }
@@ -77,12 +77,164 @@ namespace hfiles
         }
         public void GridBind()
         {
+            
             if (Session["UserID"] != null)
             {
-                // Retrieve the UserID from the session
-                int UserId = DAL.validateInt(Session["UserID"].ToString());
+                int UserId = DAL.validateInt(Session["Userid"].ToString());
+                using (MySqlConnection con = new MySqlConnection(cs))
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("usp_getmember", con)) 
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("_UserId", UserId);
+                        cmd.Parameters.AddWithValue("_MemberId", 0);
+                        cmd.Parameters.AddWithValue("_SpType", "LS");
+                        cmd.Parameters.AddWithValue("_ReportId", 0);
+                        cmd.Parameters.AddWithValue("_RId", 0);
+                        cmd.ExecuteNonQuery();
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        if (dt != null && dt.Rows.Count > 0)
+                        {
+                            Dropmembers.DataSource = dt;
+                            Dropmembers.DataTextField = "user_FirstName";
+                            Dropmembers.DataValueField = "user_Id";
+                            Dropmembers.DataBind();
+                            List<string> p_membersId = new List<string>();
+                            foreach (DataRow row in dt.Rows)
+                            {
+                                p_membersId.Add(row["user_Id"].ToString());
+                            }
 
-                // Set up the database connection
+                            // Store p_membersId directly in the session
+                            Session["MemberIds"] = p_membersId;
+                        }
+                    }
+                }
+
+
+                if (Session["UserID"] != null)
+                {
+                    // Retrieve the UserID from the session
+                    //int UserId = DAL.validateInt(Session["UserID"].ToString());
+
+                    // Get the list of member IDs from the session
+                    List<string> p_membersId = (List<string>)Session["MemberIds"];
+
+                    // Ensure that p_membersId is not null and has values
+                    if (p_membersId == null || p_membersId.Count == 0)
+                    {
+                        // Handle the case where member IDs are not available
+                        Response.Write("No members found.");
+                        return;
+                    }
+
+                    // Convert the list of member IDs to a comma-separated string
+                    string memberIdsString = string.Join(",", p_membersId);
+
+                    // Store UserId and MemberIds in session (if needed)
+                    Session["UserId"] = UserId;
+                    Session["MemberIds"] = p_membersId;
+
+                    // Set up the database connection
+                    using (MySqlConnection connection = new MySqlConnection(cs))
+                    {
+                        connection.Open();
+
+                        // Prepare the stored procedure command
+                        using (MySqlCommand cmd = new MySqlCommand("USP_GetAllReports", connection))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("p_UserId", UserId);
+                            if (memberIdsString.Length==5)
+                            {
+                                cmd.Parameters.AddWithValue("p_membersId", memberIdsString);
+                            }
+                          else
+                            {
+                                string selectedUserId = Dropmembers.SelectedValue;
+                                cmd.Parameters.AddWithValue("p_membersId", selectedUserId);
+                            }
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                GridView1.DataSource = reader;
+                                GridView1.DataBind();
+                            }
+                        }
+                    }
+
+                }
+                else
+                {
+                    Response.Redirect("Login.aspx");
+                }
+
+
+                }
+            }
+
+
+        protected void getMembersList()
+        {
+            if (Session["UserID"] != null)
+            {
+                int UserId = DAL.validateInt(Session["Userid"].ToString());
+
+                using (MySqlConnection con = new MySqlConnection(cs))
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("usp_getmember", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("_UserId", UserId);
+                        cmd.Parameters.AddWithValue("_MemberId", 0);
+                        cmd.Parameters.AddWithValue("_SpType", "LS");
+                        cmd.Parameters.AddWithValue("_ReportId", 0);
+                        cmd.Parameters.AddWithValue("_RId", 0);
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        if (dt.Rows.Count > 0)
+                        {
+                            Dropmembers.DataSource = dt;
+                            Dropmembers.DataTextField = "user_FirstName";
+                            Dropmembers.DataValueField = "user_Id";
+                            Dropmembers.DataBind();
+                        }
+
+                        // Ensure the "All" option is always present at the top
+                        System.Web.UI.WebControls.ListItem allItem = new System.Web.UI.WebControls.ListItem("All", "0");
+
+                        // Check if the "All" item is already in the dropdown
+                        if (Dropmembers.Items.FindByValue("0") == null)
+                        {
+                            Dropmembers.Items.Insert(0, allItem);  // Insert the "All" item at the top
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
+
+        protected void Dropmembers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedName = Dropmembers.SelectedValue;
+
+            // If "All" is selected, call GridBind
+            if (selectedName == "0")
+            {
+                GridBind();  // Call the GridBind method when "All" is selected
+            }
+            else
+            {
+                int UserId = DAL.validateInt(Session["Userid"].ToString());
+
                 using (MySqlConnection connection = new MySqlConnection(cs))
                 {
                     connection.Open();
@@ -91,9 +243,8 @@ namespace hfiles
                     using (MySqlCommand cmd = new MySqlCommand("USP_GetAllReports", connection))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("p_UserId", UserId);
-
-                        // Execute the command and bind data to the GridView
+                        cmd.Parameters.AddWithValue("p_UserId", selectedName);
+                        cmd.Parameters.AddWithValue("p_membersId", selectedName);
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
                             GridView1.DataSource = reader;
@@ -102,10 +253,103 @@ namespace hfiles
                     }
                 }
             }
-            else
+        }
+
+
+
+        //protected void Dropmembers_SelectedIndexChanged1(object sender, EventArgs e)
+        //{
+        //    int UserId = DAL.validateInt(Session["Userid"].ToString());
+        //    string selectedUserId = Dropmembers.SelectedValue; // Get selected user ID
+
+        //    if (!string.IsNullOrEmpty(selectedUserId))
+        //    {
+        //        using (MySqlConnection con = new MySqlConnection(cs))
+        //        {
+        //            con.Open();
+        //            using (MySqlCommand cmd = new MySqlCommand("USP_GetAllReports", con))
+        //            {
+        //                cmd.CommandType = CommandType.StoredProcedure;
+        //                cmd.Parameters.AddWithValue("p_UserId", UserId);
+        //                cmd.Parameters.AddWithValue("p_membersId", selectedUserId);  // Filter by selected user
+
+        //                using (MySqlDataReader reader = cmd.ExecuteReader())
+        //                {
+        //                    DataTable dt = new DataTable();
+        //                    dt.Load(reader);
+        //                    GridView1.DataSource = dt;
+        //                    GridView1.DataBind();
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+
+
+
+
+
+
+
+
+        protected void SearchInput_TextChanged(object sender, EventArgs e)
+        {
+            int RId = DAL.validateInt(Request.QueryString["rid"]);
+            DataTable dt;
+
+            try
             {
-                // Redirect to the login page if the session variable is null
-                Response.Redirect("Login.aspx");
+                using (MySqlConnection con = new MySqlConnection(cs))
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("usp_addreport", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(Session["Userid"].ToString()));
+                        cmd.Parameters.AddWithValue("_reportname", "");
+                        cmd.Parameters.AddWithValue("_reporturl", "");
+                        cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(RId));
+                        cmd.Parameters.AddWithValue("_memberId", DAL.validateInt(RId));
+                        cmd.Parameters.AddWithValue("_SpType", "UR");
+                        cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
+                        cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        dt = new DataTable();
+                        da.Fill(dt);
+
+                        if (dt != null && dt.Rows.Count > 0)
+                        {
+                            string searchTerm = SearchInput.Text.Trim();
+
+                            // Clone the structure of the original DataTable
+                            DataTable filteredData = dt.Clone();
+
+                            // Perform case-insensitive search
+                            foreach (DataRow row in dt.Rows)
+                            {
+                                if (row["ReportName"].ToString().IndexOf(searchTerm, StringComparison.Ordinal) >= 0)
+                                    if (row["ReportName"].ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)
+                                    {
+                                        filteredData.ImportRow(row);
+                                    }
+                            }
+
+                            // Bind filtered data (or original if no matches)
+                            rptReports.DataSource = filteredData.Rows.Count > 0 ? filteredData : dt;
+                            rptReports.DataBind();
+                        }
+                        else
+                        {
+                            rptReports.DataSource = dt;
+                            rptReports.DataBind();
+                        }
+
+                      
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
             }
         }
 
@@ -127,18 +371,18 @@ namespace hfiles
 
             // Iterate through the GridView rows to find selected CheckBox
             foreach (GridViewRow row in GridView1.Rows)
-                {
-                    CheckBox chkSelect = (CheckBox)row.FindControl("chkSelect");
-                    string reportName = row.Cells[1].Text;
-                    string reportType = row.Cells[2].Text;
+            {
+                CheckBox chkSelect = (CheckBox)row.FindControl("chkSelect");
+                string reportName = row.Cells[1].Text;
+                string reportType = row.Cells[2].Text;
 
                 if (chkSelect != null && chkSelect.Checked)
+                {
+                    HiddenField hfReportId = (HiddenField)row.FindControl("hfReportUrl");
+                    if (hfReportId != null && int.TryParse(hfReportId.Value, out int reportId))
                     {
-                        HiddenField hfReportId = (HiddenField)row.FindControl("hfReportUrl");
-                        if (hfReportId != null && int.TryParse(hfReportId.Value, out int reportId))
-                        {
-                            // Retrieve the file path from the database
-                            fileUrl = GetReportUrlFromDatabase(reportId);
+                        // Retrieve the file path from the database
+                        fileUrl = GetReportUrlFromDatabase(reportId);
                         //if (!string.IsNullOrEmpty(fileUrl))
                         //{
                         //    break; // Stop after finding the first valid report link
@@ -147,9 +391,9 @@ namespace hfiles
                         string whatsappUrl = HttpUtility.UrlEncode(GenerateWhatsAppUrl(whatsappMessage));
                         whatsstring += $"{reportName}({reportType}) - {whatsappUrl}";
                     }
-                    }
                 }
-            
+            }
+
 
             Debug.WriteLine($"File URL: {fileUrl}");
 
@@ -161,12 +405,12 @@ namespace hfiles
             }
 
             // Generate WhatsApp share URL
-            
+
 
             // Redirect to WhatsApp
             Response.Redirect(whatsstring);
 
-            
+
 
 
 
@@ -295,7 +539,7 @@ namespace hfiles
             try
             {
                 // Define connection string (replace with your actual connection string)
-                
+
 
                 using (MySqlConnection conn = new MySqlConnection(cs))
                 {
@@ -365,27 +609,27 @@ namespace hfiles
                 return;
             }
 
-           
-                // Set up email
-                // MailMessage mail = new MailMessage();
-                // mail.From = new MailAddress("Hfiles.in@gmail.com"); 
-                //// mail.To.Add("kamleshram562@gmail.com"); 
-                // mail.Subject = "Report Link";
-                // mail.Body =  fileUrl;
-                // mail.IsBodyHtml = false;
+
+            // Set up email
+            // MailMessage mail = new MailMessage();
+            // mail.From = new MailAddress("Hfiles.in@gmail.com"); 
+            //// mail.To.Add("kamleshram562@gmail.com"); 
+            // mail.Subject = "Report Link";
+            // mail.Body =  fileUrl;
+            // mail.IsBodyHtml = false;
 
 
-                // // Configure SMTP client
-                // SmtpClient smtpClient = new SmtpClient("smtp.gmail.com"); // Replace with your SMTP server
-                // smtpClient.Port = 587; // Use appropriate port
-                // smtpClient.Credentials = new NetworkCredential("Hfiles.in@gmail.com", "qpjdigykglmnuxlt");
-                // smtpClient.EnableSsl = true;
+            // // Configure SMTP client
+            // SmtpClient smtpClient = new SmtpClient("smtp.gmail.com"); // Replace with your SMTP server
+            // smtpClient.Port = 587; // Use appropriate port
+            // smtpClient.Credentials = new NetworkCredential("Hfiles.in@gmail.com", "qpjdigykglmnuxlt");
+            // smtpClient.EnableSsl = true;
 
-                // // Send email
-                // smtpClient.Send(mail);
+            // // Send email
+            // smtpClient.Send(mail);
 
-                string subject = "Report Link";
-                string body = emailstring;
+            string subject = "Report Link";
+            string body = emailstring;
 
             // Generate a mailto URL
             string gmailUrl = $"https://mail.google.com/mail/?view=cm&fs=1&to=&su={Uri.EscapeDataString(subject)}&body={Uri.EscapeDataString(body)}";
@@ -408,48 +652,48 @@ namespace hfiles
 
         }
 
-            private string GetReportUrlFromDatabaseEmail(int reportId)
-            {  
-                string filePath = string.Empty;
+        private string GetReportUrlFromDatabaseEmail(int reportId)
+        {
+            string filePath = string.Empty;
 
-                try
+            try
+            {
+                // Define connection string (replace with your actual connection string)
+
+
+                using (MySqlConnection conn = new MySqlConnection(cs))
                 {
-                    // Define connection string (replace with your actual connection string)
-               
-
-                    using (MySqlConnection conn = new MySqlConnection(cs))
+                    using (MySqlCommand cmd = new MySqlCommand("GetReportFilePath", conn))
                     {
-                        using (MySqlCommand cmd = new MySqlCommand("GetReportFilePath", conn))
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("_Id", reportId);
+
+                        conn.Open();
+                        var result = cmd.ExecuteScalar(); // Execute the stored procedure
+
+                        if (result != null)
                         {
-                            cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Parameters.AddWithValue("_Id", reportId);
-
-                            conn.Open();
-                            var result = cmd.ExecuteScalar(); // Execute the stored procedure
-
-                            if (result != null)
-                            {
-                                filePath = result.ToString(); // Retrieve the FullPath directly
-                                filePath = Path.Combine(Server.MapPath("~/upload/report/"), filePath); // Convert to full local path
-                            }
-                            else
-                            {
-                                // Log an error if no result is returned
-                                Console.WriteLine($"Error: No result returned for ReportId: {reportId}");
-                            }
+                            filePath = result.ToString(); // Retrieve the FullPath directly
+                            filePath = Path.Combine(Server.MapPath("~/upload/report/"), filePath); // Convert to full local path
+                        }
+                        else
+                        {
+                            // Log an error if no result is returned
+                            Console.WriteLine($"Error: No result returned for ReportId: {reportId}");
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    // Log exception details for debugging
-                    Console.WriteLine($"Error: {ex.Message}");
-                }
-
-               //return filePath; // Return the direct file path
-              return string.IsNullOrEmpty(filePath) ? string.Empty : "https://hfiles.in" + filePath;
-
             }
+            catch (Exception ex)
+            {
+                // Log exception details for debugging
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            //return filePath; // Return the direct file path
+            return string.IsNullOrEmpty(filePath) ? string.Empty : "https://hfiles.in" + filePath;
+
+        }
 
         private bool SendFileLinksViaEmail(List<string> fileUrls)
         {
@@ -482,5 +726,9 @@ namespace hfiles
                 return false;
             }
         }
+
+        
+
     }
+
 }

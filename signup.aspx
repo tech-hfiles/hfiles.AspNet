@@ -938,7 +938,7 @@
 
                         <div class="text-center my-3 text-white">
                             <input type="checkbox" id="termsCheckbox" required />
-                            <label for="termsCheckbox">I accept the <a href="tc.aspx" target="_blank">Terms & Conditions</a></label>
+                            <label for="termsCheckbox">I accept the <a href="Terms&Conditions.aspx" target="_blank">Terms & Conditions</a></label>
                         </div>
 
                         <div class="text-center my-3" runat="server" id="divOtp" style="padding-bottom:150px">

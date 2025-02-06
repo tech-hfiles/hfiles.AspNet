@@ -865,7 +865,7 @@
 
                         <div class="text-center my-1" id="otpButtonDiv">
                             <%--<div class="text-center resend-otp-div">
-                            <input type="checkbox" /><span style="color: #fff"> I agree to <a target="_blank" style="color: #fdd001; font-weight: 700" href="tc.aspx">Terms and Conditions</a> </span>
+                            <input type="checkbox" /><span style="color: #fff"> I agree to <a target="_blank" style="color: #fdd001; font-weight: 700" href="Terms&Conditions.aspx">Terms and Conditions</a> </span>
                         </div>--%>
                             <asp:Button ID="otpButton" OnClick="signup_Click" ValidationGroup="otp" runat="server" Text="GET OTP" class="btn thm-button my-2"></asp:Button>
 
@@ -873,7 +873,7 @@
 
                         <div class="text-center my-1" id="btnSubmitDiv">
                             <%--<div class="text-center resend-otp-div">
-                            <input type="checkbox" /><span style="color: #fff"> I agree to <a target="_blank" style="color: #fdd001; font-weight: 700" href="tc.aspx">Terms and Conditions</a> </span>
+                            <input type="checkbox" /><span style="color: #fff"> I agree to <a target="_blank" style="color: #fdd001; font-weight: 700" href="Terms&Conditions.aspx">Terms and Conditions</a> </span>
                         </div>--%>
                             <asp:LinkButton class="btn thm-button my-2" Text="Login" ValidationGroup="login" OnClick="btnSubmit_Click" ID="btnSubmit" runat="server" meta:resourcekey="btnsubmitlogin" />
 
@@ -897,7 +897,7 @@
                 <%--<div class="row footer justify-content-around align-items-center m-0 mr-0">--%>
                  <div class="row footer justify-content-around align-items-center m-0 mr-0" style="z-index:1000000">
                     <div class="col-4 t-c d-xl-flex justify-content-center text-center">
-                        <p class="m-0"><a href="tc.aspx">Terms & Conditions</a></p>
+                        <p class="m-0"><a href="Terms&Conditions.aspx">Terms & Conditions</a></p>
                         <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
                         <p class="m-0"><a href="privacypolicy.aspx">Privacy & Policy</a></p>
                     </div>

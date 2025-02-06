@@ -528,7 +528,6 @@ namespace hfiles
                             // Perform case-insensitive search
                             foreach (DataRow row in dt.Rows)
                             {
-                               
                                 if (row["ReportName"].ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)
                                 {
                                     filteredData.ImportRow(row);
@@ -536,7 +535,7 @@ namespace hfiles
                             }
 
                             // Bind filtered data (or original if no matches)
-                            rptReports.DataSource = filteredData.Rows.Count > 0 ? filteredData : dt;
+                            rptReports.DataSource = filteredData;
                             rptReports.DataBind();
                         }
                         else
@@ -545,38 +544,7 @@ namespace hfiles
                             rptReports.DataBind();
                         }
 
-                        //if (dt != null && dt.Rows.Count > 0)
-                        //{
-                        //    //tcount.InnerHtml = dt.Rows.Count.ToString();
-                        //    string searchTerm = SearchInput.Text;
-
-                        //    // Filter the DataTable based on the search term.
-                        //    DataTable filteredData = new DataTable();
-                        //    filteredData = dt.Clone(); // Clone the structure of the original DataTable.
-
-                        //    //foreach (DataRow row in dt.Rows) 
-                        //    foreach (DataRow row in dt.Rows)
-                        //    {
-                        //        //if (row["ReportName"].ToString().Contains(searchTerm))
-                        //        //{
-                        //        //    filteredData.ImportRow(row);
-                        //        //}
-
-                        //        if (row["ReportName"].ToString().IndexOf(searchTerm, StringComparison.Ordinal) >= 0)
-                        //        {
-                        //            filteredData.ImportRow(row);
-                        //        }
-                        //    }
-
-                        //    // Bind the filtered DataTable to the Repeater.
-                        //    rptReports.DataSource = filteredData;
-                        //    rptReports.DataBind();
-                        //}
-                        //else
-                        //{
-                        //    rptReports.DataSource = dt;
-                        //    rptReports.DataBind();
-                        //}
+                        
                     }
                 }
             }

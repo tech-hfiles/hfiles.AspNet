@@ -188,8 +188,8 @@ namespace hfiles
             LinkButton lbtnRemove = (LinkButton)sender;
             string userId = lbtnRemove.CommandArgument;
 
-            // Redirect to addmember.aspx with the user ID as a parameter
-            Response.Redirect($"addmember.aspx?UserId={userId}");
+            // Redirect to AddMembers.aspx with the user ID as a parameter
+            Response.Redirect($"AddMembers.aspx?UserId={userId}");
         }
         protected void requests()
         {

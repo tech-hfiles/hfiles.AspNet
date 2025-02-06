@@ -260,7 +260,7 @@
     <div class="container-search mt-3 w-100">
         <div class="row d-flex align-items-center w-100">
             <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
-<a class="back-arrow-btn-2" href="avatar2.aspx" style="margin-left: 20px;">Back
+<a class="back-arrow-btn-2" href="MyHFiles.aspx" style="margin-left: 20px;">Back
  </a>
 
             </div>
@@ -449,7 +449,7 @@
                              <%-- <asp:LinkButton ID="LbtnEdit" runat="server" OnClick="LbtnEdit_Click" CommandArgument='<%#Eval("user_id") %>'>
                          <i class="fa-solid fa-pen-to-square fa-1x color-thm-blue"></i>
                      </asp:LinkButton>--%>
- <%--<a href='<%# "addmember.aspx?UserId=" + Eval("user_id") %>'>
+ <%--<a href='<%# "AddMembers.aspx?UserId=" + Eval("user_id") %>'>
                          <i class="fa-solid fa-pen-to-square fa-1x color-thm-blue"></i>
                      </a>--%>
 
@@ -463,7 +463,8 @@
 
                  </Columns>
 
-             </asp:GridView>--%>     <div id="toast">
+             </asp:GridView>--%>
+     <div id="toast">
      <div id="img">
          <img src="assets/h-file-logo-white.png" />
      </div>

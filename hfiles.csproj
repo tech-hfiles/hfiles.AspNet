@@ -281,6 +281,7 @@
     <Content Include="Add Members\shorting-icon.png" />
     <Content Include="addbasicdetails.aspx" />
     <Content Include="AddClinics.aspx" />
+    <Content Include="AddMembers.aspx" />
     <Content Include="AllReports.aspx" />
     <Content Include="AllReports123.aspx" />
     <Content Include="assets2\family-prescription-logo.jpeg" />
@@ -863,6 +864,7 @@
     <Content Include="My Data\default-user-profile.png" />
     <Content Include="copyright.aspx" />
     <Content Include="MyAccount.aspx" />
+    <Content Include="MyHFiles.aspx" />
     <Content Include="Policy.aspx" />
     <Content Include="privacypolicy.aspx" />
     <Content Include="Reception Page\002A.jpg" />
@@ -989,6 +991,7 @@
     <Content Include="Terms &amp; Conditions\blue-trangle6.png" />
     <Content Include="Terms &amp; Conditions\plus-1.png" />
     <Content Include="Terms &amp; Conditions\plus-2.png" />
+    <Content Include="Terms&amp;Conditions.aspx" />
     <Content Include="TermsAndConditions.aspx" />
     <Content Include="upload\report\10_21_2023_12_50_18_864.png" />
     <Content Include="upload\report\10_21_2023_12_51_08_499.png" />
@@ -1019,6 +1022,13 @@
     </Compile>
     <Compile Include="AddClinics.aspx.designer.cs">
       <DependentUpon>AddClinics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddMembers.aspx.cs">
+      <DependentUpon>AddMembers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddMembers.aspx.designer.cs">
+      <DependentUpon>AddMembers.aspx</DependentUpon>
     </Compile>
     <Compile Include="AllReports.aspx.cs">
       <DependentUpon>AllReports.aspx</DependentUpon>
@@ -1223,6 +1233,13 @@
     <Compile Include="MyAccount.aspx.designer.cs">
       <DependentUpon>MyAccount.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MyHFiles.aspx.cs">
+      <DependentUpon>MyHFiles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyHFiles.aspx.designer.cs">
+      <DependentUpon>MyHFiles.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Policy.aspx.cs">
       <DependentUpon>Policy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1279,6 +1296,13 @@
     </Compile>
     <Compile Include="tc.aspx.designer.cs">
       <DependentUpon>tc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Terms&amp;Conditions.aspx.cs">
+      <DependentUpon>Terms&amp;Conditions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Terms&amp;Conditions.aspx.designer.cs">
+      <DependentUpon>Terms&amp;Conditions.aspx</DependentUpon>
     </Compile>
     <Compile Include="TermsAndConditions.aspx.cs">
       <DependentUpon>TermsAndConditions.aspx</DependentUpon>

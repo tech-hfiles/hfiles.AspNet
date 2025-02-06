@@ -174,7 +174,7 @@
                             </div>
                         </a>
 
-                        <a class="support-group mb-lg-5 w-100" href="avatar2.aspx">
+                        <a class="support-group mb-lg-5 w-100" href="MyHFiles.aspx">
                             <div class="my_profile">
                                 <div class="row align-items-center">
 
@@ -205,7 +205,7 @@
                                                 <img class="dropdown-icon" src="../Reception Page/add-icon.png" alt="">My Medical History
                                             </li>
                                         </a>
-                                        <a href="<%= ResolveUrl("~/addmember.aspx") %>">
+                                        <a href="<%= ResolveUrl("~/AddMembers.aspx") %>">
                                             <li class="color-white" style="border: 0;">
                                                 <img class="dropdown-icon" src="../Reception Page/add-icon.png" alt="">Add Member
                                             </li>

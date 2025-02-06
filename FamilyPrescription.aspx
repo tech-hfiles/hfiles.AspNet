@@ -11,259 +11,306 @@
         <ContentTemplate>
             <style>
                 #prescription thead,
-#prescription tbody,
-#prescription tfoot,
-#prescription tr,
-#prescription td,
-#prescription th {
-  border-width: thin;
-}
-                .select2-container {
-    z-index: 105000; /* Same as Bootstrap's modal z-index or higher */
-}
-                .responsive-button {
-            font-size: larger; /* Default for mobile */
-            color: black;
-            background-color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor:pointer;
-        }
+                #prescription tbody,
+                #prescription tfoot,
+                #prescription tr,
+                #prescription td,
+                #prescription th {
+                    border-width: thin;
+                }
 
-        @media (min-width: 768px) {
-            .responsive-button {
-                font-size: x-large; /* Larger font size for desktop */
-            }
-        }
+                .select2-container {
+                    z-index: 105000; /* Same as Bootstrap's modal z-index or higher */
+                }
+
+                .responsive-button {
+                    font-size: larger; /* Default for mobile */
+                    color: black;
+                    background-color: white;
+                    border: none;
+                    padding: 10px 20px;
+                    cursor: pointer;
+                }
+
+                @media (min-width: 768px) {
+                    .responsive-button {
+                        font-size: x-large; /* Larger font size for desktop */
+                    }
+                }
             </style>
             <div id="contentpdf">
-            <div class="row">
-                <div style="display:flex;margin:auto;justify-content:center">
-                    <div style="display:flex;margin-left:auto;">
-                        <img src="/assets2/family-prescription-logo.jpeg" style="width:60px;" />
-<h1 style="color:#0331b5;margin-top:auto;margin-bottom:auto;">Family Prescription</h1>
+                <div class="row">
+                    <div style="display: flex; margin: auto; justify-content: center">
+                        <div style="display: flex; margin-left: auto;">
+                            <img src="/assets2/family-prescription-logo.jpeg" style="width: 60px;" />
+                            <h1 style="color: #0331b5; margin-top: auto; margin-bottom: auto;">Family Prescription</h1>
+                        </div>
+                        <div style="display: flex; margin-left: auto; margin-right: 25px; margin-bottom: 10px; margin-top: 10px;">
+                            <select class="form-select select-user" id="UserSelect" name="user[]">
+                                <option value="" selected>All User</option>
+                            </select>
+                        </div>
                     </div>
-                    <div style="display:flex;margin-left:auto;margin-right: 25px;margin-bottom: 10px;margin-top: 10px;">
-                        <select class="form-select select-user" id="UserSelect" name="user[]">
-    <option value="" selected>All User</option>
-</select>
+                </div>
+                <div class="row" style="max-width: 98vw; margin: auto">
+                    <div class="table-responsive">
+                        <table id="prescription" class="table" style="border: solid; border-color: #dee2e6; border-width: thin;">
+                            <thead>
+                                <tr>
+                                    <th hidden>Id</th>
+                                    <th style="background-color: white; text-align: center;">
+                                        <button style="height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text">Member</button>
+                                    </th>
+                                    <th style="background-color: white; text-align: center;">
+                                        <button style="height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text">Condition</button>
+                                    </th>
+                                    <th style="background-color: white; text-align: center;">
+                                        <button style="height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text">Medication</button>
+                                    </th>
+                                    <th style="background-color: white; text-align: center;">
+                                        <button style="height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text">Dosage</button>
+                                    </th>
+                                    <th style="background-color: white; text-align: center;">
+                                        <button style="height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text">Schedule</button>
+                                    </th>
+                                    <th style="background-color: white; text-align: center;">
+                                        <button style="height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text">Timing</button>
+                                    </th>
+                                    <th style="background-color: white; text-align: center;">
+                                        <button style="height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text">Action</button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    
                 </div>
-                
+
             </div>
-                      <div class="row" style="max-width:98vw;margin:auto">
-            <div class="table-responsive">
-                <table id="prescription" class="table" style="border: solid;border-color: #dee2e6;border-width: thin;">
-                    <thead>
-                        <tr>
-                            <th hidden>Id</th>
-                            <th style="background-color: white;text-align: center;">
-                                <button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Member</button>
-                            </th>
-                            <th style="background-color: white;text-align: center;">
-    <button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Condition</button>
-</th>
-                            <th style="background-color: white;text-align: center;">
-    <button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Medication</button>
-</th>
-                            <th style="background-color: white;text-align: center;">
-    <button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Dosage</button>
-</th>
-                            <th style="background-color: white;text-align: center;">
-    <button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Schedule</button>
-</th>
-                            <th style="background-color: white;text-align: center;">
-    <button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Timing</button>
-</th>
-                                                        <th style="background-color: white;text-align: center;">
-    <button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text">Action</button>
-</th>
-                            
-                            
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-              </div>
-          </div>
-                </div>
 
 
 
-       
-          <div style="display:flex;justify-content:end">
-              <div style="padding:10px">
-                  <button type="button" class="responsive-button" id="addprescription" onclick="addPrescription()">Add <i class="fa fa-add" style="color:#ffd101"></i></button>
-                  <button type="button" class="responsive-button" id="accessprescription" data-bs-toggle="modal" data-bs-target="#AccessModal">Access <i class="fa fa-check-circle-o" style="color:#ffd101"></i></button>
-                  <button type="button" class="responsive-button" id="shareprescription" data-bs-toggle="modal" data-bs-target="#ShareModal">Share <i class="fa fa-share" style="color:#ffd101"></i></button>
-              </div>
-             
 
-          </div>
-            
-       
+            <div style="display: flex; justify-content: end; margin-top: 250px">
+                <div style="padding: 10px;">
+                    <button type="button" class="responsive-button" id="addprescription" onclick="addPrescription()">Add <i class="fa fa-add" style="color: #ffd101"></i></button>
+                    <button type="button" class="responsive-button" id="accessprescription" data-bs-toggle="modal" data-bs-target="#AccessModal">Access <i class="fa fa-check-circle-o" style="color: #ffd101"></i></button>
+                    <button type="button" class="responsive-button" id="shareprescription" data-bs-toggle="modal" data-bs-target="#ShareModal">Share <i class="fa fa-share" style="color: #ffd101"></i></button>
+                </div>
 
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Prescription Form</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="row grid-row familyprescription-row">
-            <div class="row">
-                <div class="col-4" style="text-align:center;padding-top:12px">
-                    <Button style="height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text;pointer-events: none;" class="skip-tab"  tabindex="-1">Member</Button>
-                </div>
-                <div class="col col-8" style="padding:10px">
-                    <input type="hidden" id="PrescriptionId" name="Id[]">
-                    <select class="form-select member-select" id="MemberSelect" name="member[]">
-                        <option value="" disabled selected>Select Member</option>
-                    </select>
+
+            </div>
+
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Prescription Form</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row grid-row familyprescription-row">
+                                <div class="row">
+                                    <div class="col-4" style="text-align: center; padding-top: 12px">
+                                        <button style="height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text; pointer-events: none;" class="skip-tab" tabindex="-1">Member</button>
+                                    </div>
+                                    <div class="col col-8" style="padding: 10px">
+                                        <input type="hidden" id="PrescriptionId" name="Id[]">
+                                        <select class="form-select member-select" id="MemberSelect" name="member[]">
+                                            <option value="" disabled selected>Select Member</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4" style="text-align: center; padding-top: 12px">
+                                        <button style="pointer-events: none; height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text" class="skip-tab" tabindex="-1">Condition</button>
+                                    </div>
+                                    <div class="col col-8" style="padding: 10px">
+                                        <select class="form-select condition-select" id="ConditionSelect" name="condition[]" style="width: 100%">
+                                            <option value="" disabled selected>Select Condition</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4" style="text-align: center; padding-top: 12px">
+                                        <button style="pointer-events: none; height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text" class="skip-tab" tabindex="-1">Medication</button>
+                                    </div>
+                                    <div class="col col-8" style="padding: 10px">
+                                        <input type="text" class="form-control" id="Medication" placeholder="Type Medication" name="medication[]" />
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4" style="text-align: center; padding-top: 12px">
+                                        <button style="pointer-events: none; height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text" class="skip-tab" tabindex="-1">Dosage</button>
+                                    </div>
+                                    <div class="col col-8" style="padding: 10px">
+                                        <input type="text" class="form-control" id="Dosage" placeholder="Type Dosage" name="dosage[]" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4" style="text-align: center; padding-top: 12px">
+                                        <button style="pointer-events: none; height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text" class="skip-tab" tabindex="-1">Schedule</button>
+                                    </div>
+                                    <div class="col col-8" style="padding: 10px">
+                                        <%--<input type="text" class="form-control" id="Power" placeholder="Power" name="power[]" />--%>
+                                        <select class="form-select" id="Power" name="power[]">
+                                            <option value="" disabled selected>Select Schedule</option>
+                                            <option>All Days</option>
+                                            <option>Sunday</option>
+                                            <option>Monday</option>
+                                            <option>Tuesday</option>
+                                            <option>Wednesday</option>
+                                            <option>Thursday</option>
+                                            <option>Friday</option>
+                                            <option>Saturday</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4" style="text-align: center; padding-top: 12px">
+                                        <button style="pointer-events: none; height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text" class="skip-tab" tabindex="-1">Timings</button>
+                                    </div>
+                                    <div class="col col-8" style="padding: 10px">
+                                        <%--<input type="text" class="form-control" id="Timings" placeholder="Timings" name="timings[]" />--%>
+                                        <select class="form-select" id="Timings" name="timings[]">
+                                            <option value="" disabled selected>Select Timings</option>
+                                            <option>12 AM</option>
+                                            <option>1 AM</option>
+                                            <option>2 AM</option>
+                                            <option>3 AM</option>
+                                            <option>4 AM</option>
+                                            <option>5 AM</option>
+                                            <option>6 AM</option>
+                                            <option>7 AM</option>
+                                            <option>8 AM</option>
+                                            <option>9 AM</option>
+                                            <option>10 AM</option>
+                                            <option>11 AM</option>
+                                            <option>12 PM</option>
+                                            <option>1 PM</option>
+                                            <option>2 PM</option>
+                                            <option>3 PM</option>
+                                            <option>4 PM</option>
+                                            <option>5 PM</option>
+                                            <option>6 PM</option>
+                                            <option>7 PM</option>
+                                            <option>8 PM</option>
+                                            <option>9 PM</option>
+                                            <option>10 PM</option>
+                                            <option>11 PM</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" id="saveprescription" onclick="submitForm(event)">Save</button>
+                            <button type="button" class="btn btn-secondary" id="closeModalBtn" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-               <div class="col-4" style="text-align:center;padding-top:12px">
-    <Button style="pointer-events: none;height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text"  class="skip-tab" tabindex="-1">Condition</Button>
-</div>
-                <div class="col col-8" style="padding:10px">
-                    <select class="form-select condition-select" id="ConditionSelect" name="condition[]" style="width:100%">
-                        <option value="" disabled selected>Select Condition</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4" style="text-align:center;padding-top:12px">
-    <Button style="pointer-events: none;height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text"  class="skip-tab" tabindex="-1">Medication</Button>
-</div>
-                <div class="col col-8" style="padding:10px">
-                    <input type="text" class="form-control" id="Medication" placeholder="Type Medication" name="medication[]" />
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-4" style="text-align:center;padding-top:12px">
-    <Button style="pointer-events: none;height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text"  class="skip-tab" tabindex="-1">Dosage</Button>
-</div>
-                <div class="col col-8" style="padding:10px">
-                    <input type="text" class="form-control" id="Dosage" placeholder="Type Dosage" name="dosage[]" />
-                </div>
-            </div>
-                        <div class="row">
-                <div class="col-4" style="text-align:center;padding-top:12px">
-    <Button style="pointer-events: none;height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text"  class="skip-tab" tabindex="-1">Schedule</Button>
-</div>
-                <div class="col col-8" style="padding:10px">
-                    <%--<input type="text" class="form-control" id="Power" placeholder="Power" name="power[]" />--%>
-                    <select class="form-select" id="Power" name="power[]">
-                        <option value="" disabled selected>Select Schedule</option>
-                        <option>All Days</option>
-                        <option>Sunday</option>
-                        <option>Monday</option>
-                        <option>Tuesday</option>
-                        <option>Wednesday</option>
-                        <option>Thursday</option>
-                        <option>Friday</option>
-                        <option>Saturday</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4" style="text-align:center;padding-top:12px">
-    <Button style="pointer-events: none;height:40px;width:100px;background-color:#8cbcfa;border:none;border-radius:5px;cursor:text"  class="skip-tab" tabindex="-1">Timings</Button>
-</div>
-                <div class="col col-8" style="padding:10px">
-                    <%--<input type="text" class="form-control" id="Timings" placeholder="Timings" name="timings[]" />--%>
-                    <select class="form-select" id="Timings" name="timings[]">
-                        <option value="" disabled selected>Select Timings</option>
-                        <option>12 AM</option>
-                        <option>1 AM</option>
-                        <option>2 AM</option>
-                        <option>3 AM</option>
-                        <option>4 AM</option>
-                        <option>5 AM</option>
-                        <option>6 AM</option>
-                        <option>7 AM</option>
-                        <option>8 AM</option>
-                        <option>9 AM</option>
-                        <option>10 AM</option>
-                        <option>11 AM</option>
-                        <option>12 PM</option>
-                        <option>1 PM</option>
-                        <option>2 PM</option>
-                        <option>3 PM</option>
-                        <option>4 PM</option>
-                        <option>5 PM</option>
-                        <option>6 PM</option>
-                        <option>7 PM</option>
-                        <option>8 PM</option>
-                        <option>9 PM</option>
-                        <option>10 PM</option>
-                        <option>11 PM</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-          
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" id="saveprescription" onclick="submitForm(event)">Save</button>  
-        <button type="button" class="btn btn-secondary" id="closeModalBtn" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
             <div class="modal fade" id="AccessModal" tabindex="-1" aria-labelledby="AccessModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h5 class="modal-title" id="AccessModalLabel">Give Access</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="AccessModalLabel">Give Access</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
 
-                <!-- Modal Body -->
-                <div class="modal-body">
-                    <div id="checkboxContainer" style="display:flex;justify-content:space-evenly;width:40%;"></div>
-                </div>
+                        <!-- Modal Body -->
+                        <div class="modal-body">
+                            <div id="checkboxContainer" style="display: flex; justify-content: space-evenly; width: 40%;"></div>
+                        </div>
 
-               <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-primary" id="SetAccess">Save changes</button>
-</div>
-               
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="SetAccess">Save changes</button>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-        </div>
+            <div class="modal fade" id="ShareModal" tabindex="-1" aria-labelledby="ShareModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ShareModalLabel">Share as File</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <!-- Modal Body -->
+                        <div class="modal-body">
+
+
+                            <button class="btn whatsapp" style="background-color: #5FFC7B" onclick="sendWhatsApp(event)">
+                                <i class="fab fa-whatsapp"></i>WhatsApp
+                            </button>
+                            <!-- Email Button -->
+                            <button class="btn email" style="background-color: #F72a27" onclick="sendEmail(event)">
+                                <i class="fas fa-envelope"></i>Gmail
+                            </button>
+                        </div>
+
+                    </div>
                 </div>
-                <div class="modal fade" id="ShareModal" tabindex="-1" aria-labelledby="ShareModalLabel" aria-hidden="true">
-<div class="modal-dialog">
-    <div class="modal-content">
-        <!-- Modal Header -->
-        <div class="modal-header">
-            <h5 class="modal-title" id="ShareModalLabel">Share as File</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-
-        <!-- Modal Body -->
-        <div class="modal-body">
-            
-
-                <button class="btn whatsapp" style="background-color:#5FFC7B" onclick="sendWhatsApp(event)">
-        <i class="fab fa-whatsapp"></i> WhatsApp
-    </button>
-<!-- Email Button -->
-    <button class="btn email" style="background-color:#F72a27" onclick="sendEmail(event)">
-        <i class="fas fa-envelope"></i> Gmail
-    </button>
-        </div>
-
-    </div>
-</div>
-        </div>
+            </div>
 
 
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -289,7 +336,7 @@
                             // Handle success, e.g., bind the data to a grid
                             const dataList = JSON.parse(response.d);
                             FetchedData = dataList;
-                            
+
                             //const tableBody = document.querySelector("#prescription tbody");
                             //tableBody.innerHTML = '';
                             //// Iterate over the parsed data and bind to your grid or add rows
@@ -326,7 +373,7 @@
                         }
                     });
                 }
-                
+
                 function GetAccessData() {
                     FetchedData = [];
                     $.ajax({
@@ -427,7 +474,7 @@
                             addRecordTable(data);
                         });
                     }
-                    
+
 
 
                 });
@@ -435,7 +482,7 @@
 
                 function fetchMemberOptions() {
                     return new Promise((resolve, reject) => {
-                        
+
                         // Simulate async operation
                         setTimeout(() => {
                             $.ajax({
@@ -465,24 +512,24 @@
                                             opt.value = currentUser[0].user_id; // Set the option value
                                             opt.textContent = currentUser[0].user_firstname; // Set the option text
                                             select.appendChild(opt); // Append the option
-                                            
+
                                             const myopt = document.createElement('option');
                                             myopt.value = currentUser[0].user_id; // Set the option value
                                             myopt.textContent = currentUser[0].user_firstname; // Set the option text
                                             myopt.selected = true; // Make this option selected
                                             userselect.appendChild(myopt); // Append the option
                                             //userselect.dispatchEvent(new Event('change'));
-                                            
+
                                             dependentMember.forEach(option => {
                                                 const opt = document.createElement('option');
                                                 opt.value = option.user_id; // Set the option value
                                                 opt.textContent = option.user_FirstName; // Set the option text
                                                 select.appendChild(opt); // Append the option
                                             });
-                                            
+
                                             console.log('Member Options Fetched');
                                             const container = document.getElementById("checkboxContainer");
-                                            
+
                                             IndependentMember.forEach(pair => {
                                                 // Create a checkbox input
                                                 const checkbox = document.createElement("input");
@@ -527,7 +574,7 @@
                                     });
                                 }
                             });
-                            
+
 
                         }, 500);
                     });
@@ -657,13 +704,13 @@
                                 fetchData();
 
                                 modal.hide();
-                                if(parseInt(data[0].id) > 0){
+                                if (parseInt(data[0].id) > 0) {
                                     toastr.success('User Prescription Updated Successfully!');
                                 }
-                                else{
+                                else {
                                     toastr.success('User Prescription Added Successfully!');
                                 }
-                                
+
                             }
                         });
 
@@ -679,7 +726,7 @@
                 //Access
                 // Select the button and container for displaying the result
                 const fetchCheckedButton = document.getElementById("SetAccess");
-                
+
 
                 // Add a click event to fetch all checked checkboxes
                 fetchCheckedButton.addEventListener("click", () => {
@@ -699,91 +746,91 @@
                             toastr.success('Access Updated!');
                         }
                     });
-                    
+
                 });
 
 
 
                 async function generatePDF() {
-    const { jsPDF } = window.jspdf;
-    const content = document.getElementById("contentpdf");
+                    const { jsPDF } = window.jspdf;
+                    const content = document.getElementById("contentpdf");
 
-    // Clone the original content to avoid modifying the displayed table
-    const contentClone = content.cloneNode(true);
+                    // Clone the original content to avoid modifying the displayed table
+                    const contentClone = content.cloneNode(true);
 
-    // Synchronize the state of dropdowns between original and cloned content
-    const originalDropdowns = content.querySelectorAll("select");
-    const clonedDropdowns = contentClone.querySelectorAll("select");
+                    // Synchronize the state of dropdowns between original and cloned content
+                    const originalDropdowns = content.querySelectorAll("select");
+                    const clonedDropdowns = contentClone.querySelectorAll("select");
 
-    originalDropdowns.forEach((original, index) => {
-        const cloned = clonedDropdowns[index];
-        cloned.value = original.value; // Copy the selected value
-    });
+                    originalDropdowns.forEach((original, index) => {
+                        const cloned = clonedDropdowns[index];
+                        cloned.value = original.value; // Copy the selected value
+                    });
 
-    // Hide the last column of all rows in every table
-    Array.from(contentClone.getElementsByTagName("table")).forEach((table) => {
-        Array.from(table.rows).forEach((row) => {
-            if (row.cells.length > 0) {
-                row.cells[row.cells.length - 1].style.display = "none";
-            }
-        });
-    });
+                    // Hide the last column of all rows in every table
+                    Array.from(contentClone.getElementsByTagName("table")).forEach((table) => {
+                        Array.from(table.rows).forEach((row) => {
+                            if (row.cells.length > 0) {
+                                row.cells[row.cells.length - 1].style.display = "none";
+                            }
+                        });
+                    });
 
-    // Create a temporary wrapper to render the modified content
-    const wrapper = document.createElement("div");
-    Object.assign(wrapper.style, {
-        position: "absolute",
-        left: "-9999px",
-    });
-    wrapper.appendChild(contentClone);
-    document.body.appendChild(wrapper);
+                    // Create a temporary wrapper to render the modified content
+                    const wrapper = document.createElement("div");
+                    Object.assign(wrapper.style, {
+                        position: "absolute",
+                        left: "-9999px",
+                    });
+                    wrapper.appendChild(contentClone);
+                    document.body.appendChild(wrapper);
 
-    // Capture the div content as a canvas
-    const canvas = await html2canvas(contentClone, {
-        scale: 2, // Higher scale gives better quality but larger file
-    });
-    const imgData = canvas.toDataURL("image/jpeg", 0.8); // Use JPEG for reduced file size with quality
+                    // Capture the div content as a canvas
+                    const canvas = await html2canvas(contentClone, {
+                        scale: 2, // Higher scale gives better quality but larger file
+                    });
+                    const imgData = canvas.toDataURL("image/jpeg", 0.8); // Use JPEG for reduced file size with quality
 
-    // Remove the temporary wrapper
-    document.body.removeChild(wrapper);
+                    // Remove the temporary wrapper
+                    document.body.removeChild(wrapper);
 
-    // Create a jsPDF instance with optional compression
-    const pdf = new jsPDF({
-        orientation: "portrait",
-        unit: "mm",
-        format: "a4",
-        compress: true, // Reduce PDF file size
-    });
+                    // Create a jsPDF instance with optional compression
+                    const pdf = new jsPDF({
+                        orientation: "portrait",
+                        unit: "mm",
+                        format: "a4",
+                        compress: true, // Reduce PDF file size
+                    });
 
-    // Calculate dimensions for the image and page
-    const imgWidth = 190; // Maximum width in mm
-    const pageHeight = pdf.internal.pageSize.height; // Page height in mm
-    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+                    // Calculate dimensions for the image and page
+                    const imgWidth = 190; // Maximum width in mm
+                    const pageHeight = pdf.internal.pageSize.height; // Page height in mm
+                    const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-    let position = 0;
+                    let position = 0;
 
-    if (imgHeight > pageHeight) {
-        // Split the content across multiple pages if it exceeds one page
-        let remainingHeight = imgHeight;
-        while (remainingHeight > 0) {
-            pdf.addImage(imgData, "JPEG", 10, position, imgWidth, pageHeight);
-            remainingHeight -= pageHeight;
-            if (remainingHeight > 0) {
-                pdf.addPage(); // Add a new page
-            }
-        }
-    } else {
-        // Fit on one page
-        pdf.addImage(imgData, "JPEG", 10, position, imgWidth, imgHeight);
-    }
+                    if (imgHeight > pageHeight) {
+                        // Split the content across multiple pages if it exceeds one page
+                        let remainingHeight = imgHeight;
+                        while (remainingHeight > 0) {
+                            pdf.addImage(imgData, "JPEG", 10, position, imgWidth, pageHeight);
+                            remainingHeight -= pageHeight;
+                            if (remainingHeight > 0) {
+                                pdf.addPage(); // Add a new page
+                            }
+                        }
+                    } else {
+                        // Fit on one page
+                        pdf.addImage(imgData, "JPEG", 10, position, imgWidth, imgHeight);
+                    }
 
-    // Return the PDF as a data URI string
-    return pdf.output("datauristring");
-}
+                    // Return the PDF as a data URI string
+                    return pdf.output("datauristring");
+                }
 
 
 
-                
+
 
                 async function sendWhatsApp(event) {
                     // Prevent the default action that might close the modal
@@ -795,7 +842,7 @@
                         type: "POST",
                         url: "FamilyPrescription.aspx/ShareFileAsLink",
                         contentType: "application/json; charset=utf-8",
-                        data: JSON.stringify({ base64PDF: pdfData.split(",")[1], shareTo : 'WhatsApp' }), // Remove "data:application/pdf;base64,"
+                        data: JSON.stringify({ base64PDF: pdfData.split(",")[1], shareTo: 'WhatsApp' }), // Remove "data:application/pdf;base64,"
                         dataType: "json",
                         success: function (response) {
                             console.log(response);
@@ -813,21 +860,21 @@
                     // Prevent the default action that might close the modal
                     event.stopPropagation();
                     event.preventDefault();
-                   const pdfData = await generatePDF();
-                   $.ajax({
-                       type: "POST",
-                       url: "FamilyPrescription.aspx/ShareFileAsLink",
-                       contentType: "application/json; charset=utf-8",
-                       data: JSON.stringify({ base64PDF: pdfData.split(",")[1], shareTo: 'Email' }), // Remove "data:application/pdf;base64,"
-                       dataType: "json",
-                       success: function (response) {
-                           console.log(response);
-                           window.open(response.d, '_blank');
-                       },
-                       error: function (error) {
-                           console.log("Error Share File As Link:", error);
-                       }
-                   });
+                    const pdfData = await generatePDF();
+                    $.ajax({
+                        type: "POST",
+                        url: "FamilyPrescription.aspx/ShareFileAsLink",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify({ base64PDF: pdfData.split(",")[1], shareTo: 'Email' }), // Remove "data:application/pdf;base64,"
+                        dataType: "json",
+                        success: function (response) {
+                            console.log(response);
+                            window.open(response.d, '_blank');
+                        },
+                        error: function (error) {
+                            console.log("Error Share File As Link:", error);
+                        }
+                    });
                 }
 
 
@@ -835,8 +882,8 @@
 
             <script>
 
-            </script>
-            
+</script>
+
 
 
         </ContentTemplate>

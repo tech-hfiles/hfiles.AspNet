@@ -170,7 +170,7 @@
                 <div class="heading-title Report_heading-title mb-3 px-3">
                     <div class="row report-page-header">
                         <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
-                            <a class="back-arrow-btn-2" href="avatar2.aspx">Back
+                            <a class="back-arrow-btn-2" href="MyHFiles.aspx">Back
                             </a>
                         </div>
                         <div class="col-md-4 d-flex justify-content-center py-3 font-size-1em">
@@ -193,7 +193,7 @@
                         <div id="divUpload_Doc" style="display: block" runat="server">
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
-                                    <a href="avatar2.aspx">
+                                    <a href="MyHFiles.aspx">
                                         <img src="../Avatar/file-not-found-new.jpg" class="card-img-top" alt="pdf-thumbnail" width="90%"></a>
                                     <h2 class="text-center">No File Found</h2>
                                 </div>

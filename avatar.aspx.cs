@@ -96,7 +96,7 @@ namespace hfiles
                 li.Attributes["class"] = "border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4";
 
                 HtmlAnchor a = new HtmlAnchor();
-                a.HRef = "addmember.aspx";
+                a.HRef = "AddMembers.aspx";
 
                 HtmlImage img = new HtmlImage();
                 img.Src = "../Avatar/add-icon.png";
@@ -124,7 +124,7 @@ namespace hfiles
             //    li1.Attributes["class"] = "border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4";
 
             //    HtmlAnchor a = new HtmlAnchor();
-            //    a.HRef = "addmember.aspx";
+            //    a.HRef = "AddMembers.aspx";
 
             //    HtmlImage img = new HtmlImage();
             //    img.Src = "../Avatar/add-icon.png";

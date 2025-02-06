@@ -386,7 +386,7 @@
                                                         <ItemTemplate>
                                                             <div id="divWrapper" runat="server" style="padding: 10px">
                                                                 <%-- <a href="#">--%>
-                                                                <%--<a href="addmember.aspx">--%>
+                                                                <%--<a href="AddMembers.aspx">--%>
                                                                 <%--  <img src="../Avatar/add-icon.png" alt=""
                                                                 width="30px" />  --%>
                                                                 <a>
@@ -515,7 +515,7 @@
                 <div class="main-div member-mobile-view d-block d-md-none">
                     <div class="d-flex justify-content-between align-items-center py-4 px-2 w-100" style="height: 250px">
                         <div class="add-member-icons add-member-icons_mobile_responsive  text-center">
-                            <a class="text-center" href="addmember.aspx">
+                            <a class="text-center" href="AddMembers.aspx">
                                 <img src="../My Data/Hfiles.png" alt="" />
                                 <%-- <asp:ImageButton ID="addmember" runat="server" ImageUrl="../My Data/default-user-profile.png" AlternateText="Add Member" Height="90px" Width="90px"/>--%>
                                 <br />

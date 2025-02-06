@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user.Master" AutoEventWireup="true" CodeBehind="avatar2.aspx.cs" Inherits="hfiles.avatar2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user.Master" AutoEventWireup="true" CodeBehind="MyHFiles.aspx.cs" Inherits="hfiles.MyHFiles" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -509,9 +509,9 @@
                                                 <asp:Repeater ID="rptMember" runat="server" OnItemDataBound="rptMember_ItemDataBound">
                                                     <ItemTemplate>
                                                         <div class="Huz_AddmembersideotherLidiv" id="divWrapper" runat="server">
-                                                            <a href="">
-                                                                <img src='<%# Eval("user_image") != string.Empty ? "upload/" + Eval("user_image").ToString() : "Avatar2/default-user-profile.png" %>' alt="" class="side_user_profile_img" />
-                                                            </a>
+                                                            <asp:LinkButton ID="imgLinkButton" runat="server" OnClick="member1_Click" CommandArgument='<%#Eval("user_Id")+"|"+Eval("user_relation") +"|"+ Eval("DependentUserId") +"|"+ Eval("User_Reference")  %>' CssClass="img-link">
+                                                            <img src='<%# Eval("user_image") != string.Empty ? "upload/" + Eval("user_image").ToString() : "Avatar2/default-user-profile.png" %>' alt="" class="side_user_profile_img" />
+                                                            </asp:LinkButton>
                                                             <div class="Huz_AddmembersideotherLidiv_name">
                                                                 <asp:LinkButton ID="member1" runat="server" Text='<%#Eval("user_FirstName") %>' OnClick="member1_Click" CommandArgument='<%#Eval("user_Id")+"|"+Eval("user_relation") +"|"+ Eval("DependentUserId") +"|"+ Eval("User_Reference")  %>'></asp:LinkButton>
                                                                 <asp:HiddenField ID="hfmemberid" runat="server" Value='<%#Eval("user_Id") %>' />
