@@ -222,6 +222,33 @@
      .search-file i {
          margin-right: 5px;
      }
+
+     .responsive-dropdown {
+    width: 100%;             /* Make the dropdown take full width on small screens */
+    max-width: 300px;        /* Maximum width for large screens */
+    margin-right: auto;      /* Center align horizontally when screen size is small */
+    margin-left: auto;       /* Center align horizontally when screen size is small */
+    float: none;             /* Remove floating to avoid issues on small screens */
+    padding: 8px;            /* Padding for the dropdown */
+}
+
+/* Large screen styles */
+@media (min-width: 768px) {
+    .responsive-dropdown {
+        width: 200px;        /* Fixed width for medium and larger screens */
+        margin-left: 860px; /* Adjust margin for larger screens */
+    }
+}
+
+/* Extra small screens (e.g., mobile) */
+@media (max-width: 480px) {
+    .responsive-dropdown {
+        width: 100%;         /* Full width on small screens */
+        margin-right: 0;     /* Remove extra margin */
+        margin-left: 0;      /* Remove extra margin */
+    }
+}
+
     </style>
     <script type="text/javascript">
         function hideButton() {
@@ -295,6 +322,9 @@
 
                 <h2 style="text-align: center;"><u>All Reports Details</u></h2>
                                 <br />
+               <asp:DropDownList ID="Dropmembers" AutoPostBack="true" OnSelectedIndexChanged="Dropmembers_SelectedIndexChanged" runat="server" CssClass="responsive-dropdown"></asp:DropDownList>
+                <br />
+
                  <div class="col-md-4 d-flex justify-content-md-end justify-content-center align-items-center py-2 search-file" style="margin-right: 20px;">
                      <i class="fas fa-magnifying-glass"></i>
                      <asp:TextBox ID="SearchInput" OnTextChanged="SearchInput_TextChanged" AutoPostBack="true" runat="server" />
@@ -319,7 +349,7 @@
                 </div>
 
 
-                <asp:DropDownList ID="Dropmembers" AutoPostBack="true" OnSelectedIndexChanged="Dropmembers_SelectedIndexChanged" runat="server" Style="float: right; width: 200px; margin-right: 350px;"></asp:DropDownList>
+               
 
 
 

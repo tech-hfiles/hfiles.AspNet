@@ -283,7 +283,6 @@
     <Content Include="AddClinics.aspx" />
     <Content Include="AddMembers.aspx" />
     <Content Include="AllReports.aspx" />
-    <Content Include="AllReports123.aspx" />
     <Content Include="assets2\family-prescription-logo.jpeg" />
     <Content Include="assets\Full Logo Rectangle.png" />
     <Content Include="assets\membershipcard\2.png" />
@@ -297,7 +296,6 @@
     <Content Include="FeedBack.aspx" />
     <Content Include="index2.aspx" />
     <Content Include="MedicalHistory.aspx" />
-    <Content Include="addmember.aspx" />
     <Content Include="Admin\AddBlog.aspx" />
     <Content Include="Admin\AddBlogs.aspx" />
     <Content Include="assets2\002B.png" />
@@ -471,7 +469,6 @@
     <Content Include="assets\user-edit-white.png" />
     <Content Include="assets\whatsapp.jpg" />
     <Content Include="avatar.aspx" />
-    <Content Include="avatar2.aspx" />
     <Content Include="Avatar2\01.png" />
     <Content Include="Avatar2\02.png" />
     <Content Include="Avatar2\03.png" />
@@ -966,7 +963,6 @@
     <Content Include="Suppor Group %28BG  &amp; Icons%29\tab-check.png" />
     <Content Include="Suppor Group %28BG  &amp; Icons%29\user-default.png" />
     <Content Include="supportgroup.aspx" />
-    <Content Include="tc.aspx" />
     <Content Include="Terms &amp; Conditions\Asset 45.png" />
     <Content Include="Terms &amp; Conditions\Asset 46.png" />
     <Content Include="Terms &amp; Conditions\Asset 49.png" />
@@ -1037,13 +1033,6 @@
     <Compile Include="AllReports.aspx.designer.cs">
       <DependentUpon>AllReports.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AllReports123.aspx.cs">
-      <DependentUpon>AllReports123.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AllReports123.aspx.designer.cs">
-      <DependentUpon>AllReports123.aspx</DependentUpon>
-    </Compile>
     <Compile Include="captchacode.aspx.cs">
       <DependentUpon>captchacode.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1093,13 +1082,6 @@
     <Compile Include="MedicalHistory.aspx.designer.cs">
       <DependentUpon>MedicalHistory.aspx</DependentUpon>
     </Compile>
-    <Compile Include="addmember.aspx.cs">
-      <DependentUpon>addmember.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="addmember.aspx.designer.cs">
-      <DependentUpon>addmember.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\AddBlog.aspx.cs">
       <DependentUpon>AddBlog.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1125,13 +1107,6 @@
     </Compile>
     <Compile Include="avatar.aspx.designer.cs">
       <DependentUpon>avatar.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="avatar2.aspx.cs">
-      <DependentUpon>avatar2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="avatar2.aspx.designer.cs">
-      <DependentUpon>avatar2.aspx</DependentUpon>
     </Compile>
     <Compile Include="blogdetails.aspx.cs">
       <DependentUpon>blogdetails.aspx</DependentUpon>
@@ -1289,13 +1264,6 @@
     </Compile>
     <Compile Include="supportgroup.aspx.designer.cs">
       <DependentUpon>supportgroup.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="tc.aspx.cs">
-      <DependentUpon>tc.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="tc.aspx.designer.cs">
-      <DependentUpon>tc.aspx</DependentUpon>
     </Compile>
     <Compile Include="Terms&amp;Conditions.aspx.cs">
       <DependentUpon>Terms&amp;Conditions.aspx</DependentUpon>

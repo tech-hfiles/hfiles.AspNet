@@ -37,6 +37,34 @@
                         font-size: x-large; /* Larger font size for desktop */
                     }
                 }
+               /* Set a fixed width for all table header cells to match the table data cells */
+                    #prescription th {
+                        width: 169.28px;
+                    }
+
+                    /* Apply the same width and height to td elements to ensure consistency */
+                    #prescription td {
+                        width: 169.28px;
+                        height: 41px;
+                        text-align: center;
+                    }
+
+                    /* Optional: Fix the width of the action button to prevent expansion */
+                    #prescription th button {
+                        width: 100px;  /* You can adjust this if needed */
+                        height: 40px;
+                        background-color: #8cbcfa;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: text;
+                    }
+
+                    /* To make sure the action button is not expanding, set a specific width for the last column */
+                    #prescription td:last-child {
+                        width: 169.28px; /* Ensure the last column also has the same width */
+                    }
+
+
             </style>
             <div id="contentpdf">
                 <div class="row">
@@ -81,66 +109,26 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </tbody>
+                          <tbody id="prescriptionTableBody">
+                           
+                        </tbody>
+
                         </table>
+                        <%--</thead>
+                            <tbody id="prescriptionTableBody">
+                                <!-- Default rows will be inserted here -->
+                            </tbody>
+                        </table>--%>
+                       <%-- <button id="addRowButton">Add Row</button>
+                        <button id="submitPrescriptionButton">Submit Prescription</button>--%>
                     </div>
                 </div>
-
             </div>
 
 
 
 
-            <div style="display: flex; justify-content: end; margin-top: 250px">
+            <div style="display: flex; justify-content: end;">
                 <div style="padding: 10px;">
                     <button type="button" class="responsive-button" id="addprescription" onclick="addPrescription()">Add <i class="fa fa-add" style="color: #ffd101"></i></button>
                     <button type="button" class="responsive-button" id="accessprescription" data-bs-toggle="modal" data-bs-target="#AccessModal">Access <i class="fa fa-check-circle-o" style="color: #ffd101"></i></button>
@@ -333,38 +321,25 @@
                         dataType: "json",
                         success: function (response) {
                             console.log("Data fetched successfully:", response.d);
-                            // Handle success, e.g., bind the data to a grid
                             const dataList = JSON.parse(response.d);
                             FetchedData = dataList;
 
-                            //const tableBody = document.querySelector("#prescription tbody");
-                            //tableBody.innerHTML = '';
-                            //// Iterate over the parsed data and bind to your grid or add rows
+                            // Fetch the member options and condition options only once
                             if (memberOptionsFetched && conditionOptionsFetched) {
                                 console.log("Data already fetched, not calling fetch again.");
-                                //dataList.forEach((data) => {
-                                //    addRecordTable(data);
-                                //});
-                                const userselect = document.getElementById('UserSelect');
-                                userselect.dispatchEvent(new Event('change'));
-
+                                populateTableWithData(FetchedData);
                             } else {
-                                // Promise.all to fetch both options only once
                                 Promise.all([fetchMemberOptions(), fetchConditionOptions()])
                                     .then(() => {
                                         memberOptionsFetched = true;
                                         conditionOptionsFetched = true;
-                                        //dataList.forEach((data) => {
-                                        //    addRecordTable(data);
-                                        //});
-                                        //$("#UserSelect").trigger("change");
-                                        const userselect = document.getElementById('UserSelect');
-                                        userselect.dispatchEvent(new Event('change'));
+                                        populateTableWithData(FetchedData);
                                     })
                                     .catch(err => {
                                         console.error("Error fetching data:", err);
                                     });
                             }
+
                             $("#addprescription").prop('disabled', false);
                             $("#saveprescription").prop('disabled', false);
                         },
@@ -373,6 +348,79 @@
                         }
                     });
                 }
+
+                function populateTableWithData(dataList) {
+                    // Get the table body
+                    const tableBody = document.querySelector("#prescription tbody");
+
+                    // Fill the first 6 rows with default values or fetched data
+                    let filledRows = 0;
+
+                    // Fill the table with 6 rows by default (empty if no data available)
+                    for (let i = 0; i < 6; i++) {
+                        const rowData = dataList[i] || {}; // If data exists, use it, otherwise an empty object
+                        addRecordTable(rowData);
+                        filledRows++;
+                    }
+
+                    // If the fetched data has more than 6 entries, append them
+                    for (let i = filledRows; i < dataList.length; i++) {
+                        addRecordTable(dataList[i]);
+                    }
+                }
+
+                function addRecordTable(rowData) {
+                    const tableBody = document.querySelector("#prescription tbody");
+
+                    // Create a new row
+                    const newRow = document.createElement("tr");
+
+                    // Set the height of the row to 41px
+                    newRow.style.height = '41px';
+
+                    // Set the width for each cell and apply height
+                    newRow.innerHTML = `
+    <td style="width: 169.28px; height: 41px;">${rowData.user_firstname || ''}</td>
+    <td style="width: 169.28px; height: 41px;">${rowData.ConditionNames || ''}</td>
+    <td style="width: 169.28px; height: 41px;">${rowData.Medication || ''}</td>
+    <td style="width: 169.28px; height: 41px;">${rowData.Dosage || ''}</td>
+    <td style="width: 169.28px; height: 41px;">${rowData.Power || ''}</td>
+    <td style="width: 169.28px; height: 41px;">${rowData.Timings || ''}</td>
+    <td style="width: 169.28px; height: 41px;">
+        <i class="fas fa-edit action-icons" title="Edit" style="cursor:pointer" onclick="editPrescription(${rowData.Id || ''})"></i>
+        &nbsp;
+        <i class="fas fa-trash action-icons" title="Remove" style="cursor:pointer" onclick="removeRow(${rowData.Id || ''})"></i>
+    </td>
+`;
+
+                    // Append the new row to the table body
+                    tableBody.appendChild(newRow);
+                }
+
+                function loadEmptyRows() {
+                    const tableBody = document.querySelector("#prescriptionTableBody");
+                    // Ensure that we load 6 empty rows initially
+                    for (let i = 0; i < 6; i++) {
+                        const newRow = document.createElement("tr");
+
+                        // Set the height of the row to 41px
+                        newRow.style.height = '41px';
+
+                        newRow.innerHTML = `
+             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
+             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
+             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
+             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
+             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
+             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
+             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
+         `;
+
+                        tableBody.appendChild(newRow);
+                    }
+                }
+
+
 
                 function GetAccessData() {
                     FetchedData = [];
@@ -398,41 +446,8 @@
                 let modalElement = document.getElementById('exampleModal');
                 let modal = new bootstrap.Modal(modalElement);
 
-                function addRecordTable(rowData) {
-                    var hiddenData = "";
-                    if (currentUser[0].user_id != rowData.UserId) {
-                        hiddenData = "display:none;";
-                    }
+              
 
-
-                    const tableBody = document.querySelector("#prescription tbody");
-
-                    // Create a new row
-                    const newRow = document.createElement("tr");
-                    const memberName = memberMaster.find(opt => opt.user_id == parseInt(rowData.MemberId));
-                    const conditions = conditionMaster.filter(opt => rowData.Conditions.includes(opt.Id));
-                    const conditionNames = conditions.map(condition => condition.ConditionName).join(', ');
-                    console.log(conditionNames);
-                    // Populate the row with data
-                    newRow.setAttribute('data-id', rowData.Id);
-                    newRow.innerHTML = `
-          <td hidden>${rowData.Id}</td>
-          <td style="text-align:center">${rowData.user_firstname}</td>
-          <td style="text-align:center">${conditionNames}</td>
-          <td style="text-align:center">${rowData.Medication}</td>
-          <td style="text-align:center">${rowData.Dosage}</td>
-          <td style="text-align:center">${rowData.Power}</td>
-          <td style="text-align:center">${rowData.Timings}</td>
-          <td style="text-align:center;${hiddenData}">
-              <i class="fas fa-edit action-icons" title="Edit" style="cursor:pointer" onclick="editPrescription(${rowData.Id})"></i>
-              &nbsp;
-              <i class="fas fa-trash action-icons" title="Remove" style="cursor:pointer" onclick="removeRow(${rowData.Id})"></i>
-          </td>
-      `;
-
-                    // Append the new row to the table body
-                    tableBody.appendChild(newRow);
-                }
 
                 function addPrescription(data = {}) {
 
@@ -455,30 +470,81 @@
                     addPrescription(data[0]);
                 }
 
-                $("#UserSelect").on("change", function () {
-                    const selectedValue = $(this).val(); // Get the selected value
-                    const selectedText = $(this).find('option:selected').text(); // Get the selected text
+                $(document).ready(function () {
+                    // Load initial empty rows for all users
+                    //loadEmptyRows();
 
-                    console.log(`Selected Value: ${selectedValue}`);
-                    console.log(`Selected Text: ${selectedText}`);
-                    const tableBody = document.querySelector("#prescription tbody");
-                    tableBody.innerHTML = '';
-                    if (selectedValue != "") {
-                        const FilteredData = FetchedData.filter(opt => opt.UserId == parseInt(selectedValue));
-                        FilteredData.forEach((data) => {
-                            addRecordTable(data);
-                        });
-                    }
-                    else {
-                        FetchedData.forEach((data) => {
-                            addRecordTable(data);
-                        });
-                    }
+                    $("#UserSelect").on("change", function () {
+                        const selectedValue = $(this).val(); // Get the selected value
+                        const tableBody = document.querySelector("#prescriptionTableBody");
+                        tableBody.innerHTML = ''; // Clear the table body to prevent duplication
 
-
-
+                        if (selectedValue != "") {
+                            // Filter data for the selected user
+                            const FilteredData = FetchedData.filter(opt => opt.UserId == parseInt(selectedValue));
+                            populateRows(FilteredData); // Populate the table with the filtered data
+                        } else {
+                            // If "All User" is selected, populate all data
+                            populateRows(FetchedData);
+                        }
+                    });
                 });
 
+               
+
+                // Function to populate the table with data and ensure 6 rows are filled at least
+                function populateRows(dataList) {
+                    const tableBody = document.querySelector("#prescriptionTableBody");
+                    let filledRows = 0;
+
+                    // Fill the first 6 rows with data or empty values
+                    for (let i = 0; i < 6; i++) {
+                        const rowData = dataList[i] || {}; // If no data, fill with empty object
+                        addRecordTable(rowData);
+                        filledRows++;
+                    }
+
+                    // If there are more rows to be added, append them
+                    for (let i = filledRows; i < dataList.length; i++) {
+                        addRecordTable(dataList[i]);
+                    }
+                }
+
+                // Function to add records to the table
+                function addRecordTable(rowData) {
+                    var hiddenData = "";
+                    if (currentUser[0].user_id != rowData.UserId) {
+                        hiddenData = "display:none;";
+                    }
+
+                    const tableBody = document.querySelector("#prescriptionTableBody");
+
+                    // Create a new row
+                    const newRow = document.createElement("tr");
+                    const memberName = memberMaster.find(opt => opt.user_id == parseInt(rowData.MemberId));
+                    const conditions = conditionMaster.filter(opt => rowData.Conditions && rowData.Conditions.includes(opt.Id));
+                    const conditionNames = conditions.map(condition => condition.ConditionName).join(', ');
+
+                    newRow.setAttribute('data-id', rowData.Id || ''); // Use rowData.Id or an empty string if it's not available
+                    newRow.innerHTML = `
+                        <td hidden>${rowData.Id || ''}</td>
+                        <td style="text-align:center">${rowData.user_firstname || ''}</td>
+                        <td style="text-align:center">${conditionNames || ''}</td>
+                        <td style="text-align:center">${rowData.Medication || ''}</td>
+                        <td style="text-align:center">${rowData.Dosage || ''}</td>
+                        <td style="text-align:center">${rowData.Power || ''}</td>
+                        <td style="text-align:center">${rowData.Timings || ''}</td>
+                        <td style="text-align:center;${hiddenData}">
+                            <i class="fas fa-edit action-icons" title="Edit" style="cursor:pointer" onclick="editPrescription(${rowData.Id || ''})"></i>
+                            &nbsp;
+                            <i class="fas fa-trash action-icons" title="Remove" style="cursor:pointer" onclick="removeRow(${rowData.Id || ''})"></i>
+                        </td>
+                        `;
+
+                    // Append the new row to the table body
+                    tableBody.appendChild(newRow);
+                }
+                               
 
                 function fetchMemberOptions() {
                     return new Promise((resolve, reject) => {
@@ -701,14 +767,20 @@
                             dataType: "json",
                             success: function (response) {
                                 $('#gridContainer').html('');
-                                fetchData();
+                               
 
                                 modal.hide();
                                 if (parseInt(data[0].id) > 0) {
                                     toastr.success('User Prescription Updated Successfully!');
+                                    setTimeout(function () {
+                                        location.reload();
+                                    }, 200);
                                 }
                                 else {
                                     toastr.success('User Prescription Added Successfully!');
+                                    setTimeout(function () {
+                                        location.reload();
+                                    }, 200);
                                 }
 
                             }

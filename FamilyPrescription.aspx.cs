@@ -74,8 +74,7 @@ namespace hfiles
                     da.Fill(dt);
                 }
             }
-        }
-        
+        }        
         
         [System.Web.Services.WebMethod]
         public static int[] GetAccessFamilyPrescription()
@@ -131,8 +130,6 @@ namespace hfiles
         }
 
 
-
-
         private void SetAccessToArrayByUserId(string accessTo)
         {
             int userId = DAL.validateInt(Session["Userid"]);
@@ -176,9 +173,7 @@ namespace hfiles
                     }
                 }
             }
-        }
-
-       
+        }      
 
 
         [System.Web.Services.WebMethod]
@@ -204,7 +199,7 @@ namespace hfiles
 
                 // Return the relative file path (for reference or download link)
                 string fileurl =  $"/TempPDFs/{fileName}";
-                AllReports123 obj = new AllReports123();
+                AllReports obj = new AllReports();
                 if(shareTo == "WhatsApp")
                 {
                     whatsstring += HttpUtility.UrlEncode(obj.GenerateWhatsAppUrl(fileurl));
@@ -216,14 +211,7 @@ namespace hfiles
                     string body = obj.GenerateWhatsAppUrl(fileurl);
                     gmailUrl += $"{Uri.EscapeDataString(subject)}&body={Uri.EscapeDataString(body)}";
                     return gmailUrl;
-                }
-
-
-
-
-
-
-                
+                }                
             }
             catch (Exception ex)
             {
@@ -235,7 +223,6 @@ namespace hfiles
                 throw new Exception("Error saving PDF to the server.", ex);
             }
         }
-
         public void WhatsAppRedirect()
         {
 
@@ -258,14 +245,6 @@ namespace hfiles
                 }
             });
         }
-
-
-
-
-
-
-
-
 
     }
 }
