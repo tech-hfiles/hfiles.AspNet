@@ -13,10 +13,11 @@
             right: 20px;
             top: 25px;
         }
+ 
 
-            .top-icon img {
-                cursor: pointer;
-            }
+        .top-icon img {
+            cursor: pointer;
+        }
 
         /*.journal-main-div {
             min-height: 87vh;
@@ -48,6 +49,14 @@
         }
 
         @media (min-width: 1024px) and (min-height: 600px) {
+            .footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 820px) and (min-height: 1180px) {
             .footer {
                 position: fixed;
                 bottom: 0;
@@ -87,7 +96,7 @@
     <%-- <asp:ScriptManager ID="scm1" runat="server"></asp:ScriptManager>--%>
     <%--<body class="journal common-design">
  <form id="form1" runat="server">--%>
-    <div class="journal">
+    <div class="journal" style="margin-bottom:280px;">
 
         <%-- <div class="top-icon">
         <img id="" class="" src="../Add Members/save-icon.png" alt="" width="35px">
@@ -159,12 +168,12 @@
                 <td>Pet care</td>
               </tr>
             </tbody>
-          </table>
+          </table mb-5>
         </div>
-      </div>--%>
+     max-height:90vh </div>--%>
         </div>
 
-        <div class="journal-main-div mt-4 mb-5"  style="overflow:auto;max-height:90vh">
+        <div class="journal-main-div mt-4" style="overflow: auto;">
 
             <div class="tab-div container px-5 d-flex justify-content-center my-3">
                 <div class="tab-div container px-5 d-flex justify-content-center mt-5">
@@ -224,13 +233,13 @@
                         <img class="mx-2" src="../Add Members/share-not-active.png" width="20px" alt="">
                         <img class="mx-2 d-none" src="../Add Members/share-active.png" width="20px" alt="">--%>
                                                     <%--<p class="m-0 col-8 text-left"><strong>Hena Kanakia Gangar</strong></p>--%>
-                                                     <p class="m-0 col-8 text-left"><strong><%# Eval("Title") %></strong></p>
+                                                    <p class="m-0 col-8 text-left"><strong><%# Eval("Title") %></strong></p>
                                                 </div>
                                             </div>
-                                           
+
                                         </div>
 
-                                                     
+
                                     </ItemTemplate>
                                 </asp:Repeater>
 

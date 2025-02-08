@@ -127,7 +127,7 @@
             border-width: 3px;
             border-style: solid;
             border-color: black;
-            padding: 20px;
+            padding: 5px;
             width: 35%;
             /*height: 48%;*/
             height: auto;
@@ -1042,7 +1042,7 @@
                         </asp:UpdatePanel>
                     </div>
                 </div>
-                <div class="row w-100 my-3" style="width: 100%">
+                <div class="row w-100" style="width: 100%">
                     <div class="col-12">
                         <div class="row">
                             <%-- <div class="col-5 lbl">
@@ -1065,9 +1065,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <br />
+                </div
                 <br />
                 <asp:Button Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click" ValidationGroup="abRe" runat="server" CssClass="submit-btn" />
                 <%--<asp:Label Text="" ID="lblMsg" runat="server" />--%>

@@ -78,6 +78,7 @@
         <style>
         .manage-members-div {
             max-width: 100% !important;
+            max-height:100% !important;
         }
 
         .container-search {
@@ -145,6 +146,7 @@
 
             .manage-members-div {
                 margin-top: 0 !important;
+                margin-bottom: 0 !important;
             }
             /*.back-arrow-btn {
                 top: 8% !important;
@@ -169,7 +171,7 @@
             .manage-members-div {
             }
         }
-        //.access{
+       .access{
             color:blue;
         }
     </style>
@@ -270,8 +272,8 @@
             </div>
         </div>
     </div>
-
-    <div class="manage-members-div" style="display: flex; flex-direction: row-reverse;padding-bottom:10vh;">
+    <div style="margin-top:100px; margin-bottom:300px;"> 
+    <div class="manage-members-div" style="display: flex; flex-direction: row-reverse;">
         <%--<div class="row justify-content-center pt-5 m-0" style="min-height: 100vh">
              <div class="col-12 col-md-10 col-lg-10">--%>
         <div class="container-fluid w-50 justify-content-center">
@@ -612,7 +614,7 @@
        
         </div>
    
-
+        </div>
      <script>
          function launch_toast(message, icon) {
              var x = document.getElementById("toast")

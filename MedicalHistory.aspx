@@ -366,7 +366,6 @@
                </div>
 
 
-
                 <asp:HiddenField ID="hdnAccordionIndex" runat="server" />
             <div class="accordion accordion-flush" id="accordionFlushExample" style="width:100%;max-height:65vh;overflow-y:auto;padding:0 20px" >
   <div class="accordion-item">
@@ -398,7 +397,7 @@
                 </div>
             </div>
             
-            <div class="row inner-main-div" style="overflow-y:auto;max-height:30vh;overflow-x:hidden">
+            <div class="row inner-main-div" style="overflow-y:auto;max-height:30vh;">
                 <asp:Repeater runat="server" ID="rptDisease">
                     <ItemTemplate>
                         <div class="row border-bottom mt-1">
@@ -436,6 +435,9 @@
       </div>
     </div>
   </div>
+
+
+
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingTwo">
       <button class="accordion-button collapsed accordionbutton" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
@@ -663,7 +665,7 @@
                 <h4 class="heading mb-2">Do You Have Any of These Allergies?</h4>
             </div>
             <div class="row border-bottom">
-                <div class="col-md-6 col-4 m-0">
+                <div class="col-md-5 col-4 m-0">
                     <p>Type</p>
                 </div>
                 <div class="col-md-2 col-3 text-center">
@@ -678,8 +680,8 @@
                 <div class="col-12">
                     <asp:Repeater runat="server" ID="rptAllergy">
                         <ItemTemplate>
-                            <div class="row py-1 border-bottom allergy-row">
-                                <div class="col-md-6 col-4 d-flex align-items-center">
+                            <div class="row border-bottom allergy-row">
+                                <div class="col-md-5 col-4 d-flex align-items-center">
                                     <p class="m-0"><%# Eval("allergy_name") %></p>
                                     <asp:HiddenField runat="server" ID="hfallergy_id" Value='<%# Eval("allergy_id") %>' />
                                 </div>

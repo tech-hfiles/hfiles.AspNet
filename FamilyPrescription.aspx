@@ -20,11 +20,11 @@
                 }
 
                 .select2-container {
-                    z-index: 105000; /* Same as Bootstrap's modal z-index or higher */
+                    z-index: 105000;
                 }
 
                 .responsive-button {
-                    font-size: larger; /* Default for mobile */
+                    font-size: larger; 
                     color: black;
                     background-color: white;
                     border: none;
@@ -34,24 +34,24 @@
 
                 @media (min-width: 768px) {
                     .responsive-button {
-                        font-size: x-large; /* Larger font size for desktop */
+                        font-size: x-large; 
                     }
                 }
-               /* Set a fixed width for all table header cells to match the table data cells */
+            
                     #prescription th {
                         width: 169.28px;
                     }
 
-                    /* Apply the same width and height to td elements to ensure consistency */
+                   
                     #prescription td {
                         width: 169.28px;
                         height: 41px;
                         text-align: center;
                     }
 
-                    /* Optional: Fix the width of the action button to prevent expansion */
+                   
                     #prescription th button {
-                        width: 100px;  /* You can adjust this if needed */
+                        width: 100px; 
                         height: 40px;
                         background-color: #8cbcfa;
                         border: none;
@@ -59,12 +59,21 @@
                         cursor: text;
                     }
 
-                    /* To make sure the action button is not expanding, set a specific width for the last column */
+                   
                     #prescription td:last-child {
-                        width: 169.28px; /* Ensure the last column also has the same width */
+                        width: 169.28px; 
                     }
-
-
+                    .form-control{
+                        border-radius: 3.375rem;
+                        height:52px;
+                        text-align: center;
+                    }
+                    /*.modal-content{
+                        margin-top: 60px;
+                    }*/
+                    /*.modal.show .modal-dialog {
+                          transform: none !important;
+                    }*/
             </style>
             <div id="contentpdf">
                 <div class="row">
@@ -350,20 +359,20 @@
                 }
 
                 function populateTableWithData(dataList) {
-                    // Get the table body
+                   
                     const tableBody = document.querySelector("#prescription tbody");
 
-                    // Fill the first 6 rows with default values or fetched data
+                    
                     let filledRows = 0;
 
-                    // Fill the table with 6 rows by default (empty if no data available)
+                   
                     for (let i = 0; i < 6; i++) {
-                        const rowData = dataList[i] || {}; // If data exists, use it, otherwise an empty object
+                        const rowData = dataList[i] || {}; 
                         addRecordTable(rowData);
                         filledRows++;
                     }
 
-                    // If the fetched data has more than 6 entries, append them
+                   
                     for (let i = filledRows; i < dataList.length; i++) {
                         addRecordTable(dataList[i]);
                     }
@@ -372,26 +381,26 @@
                 function addRecordTable(rowData) {
                     const tableBody = document.querySelector("#prescription tbody");
 
-                    // Create a new row
+                   
                     const newRow = document.createElement("tr");
 
-                    // Set the height of the row to 41px
+                   
                     newRow.style.height = '41px';
 
-                    // Set the width for each cell and apply height
+                   
                     newRow.innerHTML = `
-    <td style="width: 169.28px; height: 41px;">${rowData.user_firstname || ''}</td>
-    <td style="width: 169.28px; height: 41px;">${rowData.ConditionNames || ''}</td>
-    <td style="width: 169.28px; height: 41px;">${rowData.Medication || ''}</td>
-    <td style="width: 169.28px; height: 41px;">${rowData.Dosage || ''}</td>
-    <td style="width: 169.28px; height: 41px;">${rowData.Power || ''}</td>
-    <td style="width: 169.28px; height: 41px;">${rowData.Timings || ''}</td>
-    <td style="width: 169.28px; height: 41px;">
-        <i class="fas fa-edit action-icons" title="Edit" style="cursor:pointer" onclick="editPrescription(${rowData.Id || ''})"></i>
-        &nbsp;
-        <i class="fas fa-trash action-icons" title="Remove" style="cursor:pointer" onclick="removeRow(${rowData.Id || ''})"></i>
-    </td>
-`;
+                            <td style="width: 169.28px; height: 41px;">${rowData.user_firstname || ''}</td>
+                            <td style="width: 169.28px; height: 41px;">${rowData.ConditionNames || ''}</td>
+                            <td style="width: 169.28px; height: 41px;">${rowData.Medication || ''}</td>
+                            <td style="width: 169.28px; height: 41px;">${rowData.Dosage || ''}</td>
+                            <td style="width: 169.28px; height: 41px;">${rowData.Power || ''}</td>
+                            <td style="width: 169.28px; height: 41px;">${rowData.Timings || ''}</td>
+                            <td style="width: 169.28px; height: 41px;">
+                                <i class="fas fa-edit action-icons" title="Edit" style="cursor:pointer" onclick="editPrescription(${rowData.Id || ''})"></i>
+                                &nbsp;
+                                <i class="fas fa-trash action-icons" title="Remove" style="cursor:pointer" onclick="removeRow(${rowData.Id || ''})"></i>
+                            </td>
+                        `;
 
                     // Append the new row to the table body
                     tableBody.appendChild(newRow);
@@ -406,15 +415,15 @@
                         // Set the height of the row to 41px
                         newRow.style.height = '41px';
 
-                        newRow.innerHTML = `
-             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
-             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
-             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
-             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
-             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
-             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
-             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
-         `;
+                                        newRow.innerHTML = `
+                             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
+                             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
+                             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
+                             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
+                             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
+                             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
+                             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
+                         `;
 
                         tableBody.appendChild(newRow);
                     }
@@ -471,20 +480,19 @@
                 }
 
                 $(document).ready(function () {
-                    // Load initial empty rows for all users
-                    //loadEmptyRows();
+                   
 
                     $("#UserSelect").on("change", function () {
-                        const selectedValue = $(this).val(); // Get the selected value
+                        const selectedValue = $(this).val(); 
                         const tableBody = document.querySelector("#prescriptionTableBody");
-                        tableBody.innerHTML = ''; // Clear the table body to prevent duplication
+                        tableBody.innerHTML = ''; 
 
                         if (selectedValue != "") {
-                            // Filter data for the selected user
+                          
                             const FilteredData = FetchedData.filter(opt => opt.UserId == parseInt(selectedValue));
-                            populateRows(FilteredData); // Populate the table with the filtered data
+                            populateRows(FilteredData); 
                         } else {
-                            // If "All User" is selected, populate all data
+                           
                             populateRows(FetchedData);
                         }
                     });
@@ -492,25 +500,25 @@
 
                
 
-                // Function to populate the table with data and ensure 6 rows are filled at least
+               
                 function populateRows(dataList) {
                     const tableBody = document.querySelector("#prescriptionTableBody");
                     let filledRows = 0;
 
-                    // Fill the first 6 rows with data or empty values
+                   
                     for (let i = 0; i < 6; i++) {
-                        const rowData = dataList[i] || {}; // If no data, fill with empty object
+                        const rowData = dataList[i] || {}; 
                         addRecordTable(rowData);
                         filledRows++;
                     }
 
-                    // If there are more rows to be added, append them
+                  
                     for (let i = filledRows; i < dataList.length; i++) {
                         addRecordTable(dataList[i]);
                     }
                 }
 
-                // Function to add records to the table
+              
                 function addRecordTable(rowData) {
                     var hiddenData = "";
                     if (currentUser[0].user_id != rowData.UserId) {
@@ -519,13 +527,13 @@
 
                     const tableBody = document.querySelector("#prescriptionTableBody");
 
-                    // Create a new row
+                   
                     const newRow = document.createElement("tr");
                     const memberName = memberMaster.find(opt => opt.user_id == parseInt(rowData.MemberId));
                     const conditions = conditionMaster.filter(opt => rowData.Conditions && rowData.Conditions.includes(opt.Id));
                     const conditionNames = conditions.map(condition => condition.ConditionName).join(', ');
 
-                    newRow.setAttribute('data-id', rowData.Id || ''); // Use rowData.Id or an empty string if it's not available
+                    newRow.setAttribute('data-id', rowData.Id || ''); 
                     newRow.innerHTML = `
                         <td hidden>${rowData.Id || ''}</td>
                         <td style="text-align:center">${rowData.user_firstname || ''}</td>
@@ -541,7 +549,7 @@
                         </td>
                         `;
 
-                    // Append the new row to the table body
+                   
                     tableBody.appendChild(newRow);
                 }
                                
@@ -549,10 +557,10 @@
                 function fetchMemberOptions() {
                     return new Promise((resolve, reject) => {
 
-                        // Simulate async operation
+                      
                         setTimeout(() => {
                             $.ajax({
-                                type: "POST", // Use POST instead of GET
+                                type: "POST", 
                                 url: "FamilyPrescription.aspx/UserData",
                                 contentType: "application/json; charset=utf-8",
                                 dataType: "json",
@@ -561,7 +569,7 @@
                                     currentUser = userData;
                                     console.log(userData);
                                     $.ajax({
-                                        type: "POST", // Use POST instead of GET
+                                        type: "POST", 
                                         url: "MedicalHistory.aspx/GetUserMembers",
                                         contentType: "application/json; charset=utf-8",
                                         dataType: "json",
@@ -575,66 +583,66 @@
                                             const select = document.getElementById('MemberSelect');
                                             const userselect = document.getElementById('UserSelect');
                                             const opt = document.createElement('option');
-                                            opt.value = currentUser[0].user_id; // Set the option value
-                                            opt.textContent = currentUser[0].user_firstname; // Set the option text
-                                            select.appendChild(opt); // Append the option
+                                            opt.value = currentUser[0].user_id; 
+                                            opt.textContent = currentUser[0].user_firstname;
+                                            select.appendChild(opt); 
 
                                             const myopt = document.createElement('option');
-                                            myopt.value = currentUser[0].user_id; // Set the option value
-                                            myopt.textContent = currentUser[0].user_firstname; // Set the option text
-                                            myopt.selected = true; // Make this option selected
-                                            userselect.appendChild(myopt); // Append the option
-                                            //userselect.dispatchEvent(new Event('change'));
+                                            myopt.value = currentUser[0].user_id; 
+                                            myopt.textContent = currentUser[0].user_firstname; 
+                                            myopt.selected = true; 
+                                            userselect.appendChild(myopt);
+                                           
 
                                             dependentMember.forEach(option => {
                                                 const opt = document.createElement('option');
-                                                opt.value = option.user_id; // Set the option value
-                                                opt.textContent = option.user_FirstName; // Set the option text
-                                                select.appendChild(opt); // Append the option
+                                                opt.value = option.user_id;
+                                                opt.textContent = option.user_FirstName; 
+                                                select.appendChild(opt); 
                                             });
 
                                             console.log('Member Options Fetched');
                                             const container = document.getElementById("checkboxContainer");
 
                                             IndependentMember.forEach(pair => {
-                                                // Create a checkbox input
+                                               
                                                 const checkbox = document.createElement("input");
                                                 checkbox.type = "checkbox";
-                                                checkbox.id = pair.user_id;  // Use the key as the ID
+                                                checkbox.id = pair.user_id; 
                                                 checkbox.name = "options";
-                                                checkbox.value = pair.user_id; // Use the key as the value
+                                                checkbox.value = pair.user_id;
                                                 if (AccessMember.includes(pair.user_id)) {
                                                     checkbox.checked = true;
                                                 }
-                                                // Create a label
+                                                
                                                 const label = document.createElement("label");
-                                                label.htmlFor = pair.user_id; // Associate the label with the checkbox
-                                                label.textContent = pair.user_FirstName; // Display the value as the label text
+                                                label.htmlFor = pair.user_id;
+                                                label.textContent = pair.user_FirstName; 
 
-                                                // Append checkbox and label to the container
+                                             
                                                 container.appendChild(checkbox);
                                                 container.appendChild(label);
 
 
                                                 const opt = document.createElement('option');
-                                                opt.value = pair.user_id; // Set the option value
-                                                opt.textContent = pair.user_FirstName; // Set the option text
-                                                userselect.appendChild(opt); // Append the option
+                                                opt.value = pair.user_id; 
+                                                opt.textContent = pair.user_FirstName; 
+                                                userselect.appendChild(opt); 
 
 
 
-                                                // Add a line break for spacing
+                                                
                                                 container.appendChild(document.createElement("br"));
                                             });
 
 
 
 
-                                            resolve(); // Resolve the promise when done
+                                            resolve(); 
                                         },
                                         error: function () {
                                             console.error('Error fetching members data');
-                                            //return []; // Return empty array in case of an error
+                                           
                                             resolve();
                                         }
                                     });
@@ -704,14 +712,14 @@
 
                 function removeRow(rowId) {
 
-                    const row = document.querySelector(`tr[data-id='${rowId}']`); // Select the row based on its Id
+                    const row = document.querySelector(`tr[data-id='${rowId}']`); 
                     if (row) {
 
-                        console.log(`Row with ID ${rowId} removed`); // Log or handle the ID of the removed row'
+                        console.log(`Row with ID ${rowId} removed`); 
                         $.ajax({
                             type: "POST",
-                            url: "MedicalHistory.aspx/RemoveFamilyPrescription",  // Your web service method URL
-                            data: JSON.stringify({ recordId: rowId }),  // Send recordId to server
+                            url: "MedicalHistory.aspx/RemoveFamilyPrescription",  
+                            data: JSON.stringify({ recordId: rowId }),  
                             contentType: "application/json; charset=utf-8",  // Set content type as JSON
                             dataType: "json",  // Expect JSON response
                             success: function (response) {
@@ -732,21 +740,21 @@
                     var data = [];
                     var isValid = true;
                     $('.familyprescription-row').each(function () {
-                        var row = $(this); // Store the current row
-                        var memberId = row.find('select[name="member[]"]').val(); // Get selected member (single select dropdown)
-                        if (!memberId) { // If memberId is empty (not selected)
-                            isValid = false;  // Set form as invalid
-                            //alert("Member is required for all rows."); // Display an alert for missing member
+                        var row = $(this); 
+                        var memberId = row.find('select[name="member[]"]').val(); 
+                        if (!memberId) { 
+                            isValid = false;  
+                          
                             toastr.error('Member is required.');
-                            return false; // Stop processing and exit the loop
+                            return false; 
                         }
-                        var conditions = row.find('select[name="condition[]"]').val(); // Get selected conditions (multiple select dropdown)
+                        var conditions = row.find('select[name="condition[]"]').val(); 
 
-                        // For multiple selections, `conditions` will return an array, while `memberId` will be a single value.
+                       
                         data.push({
-                            id: row.find('input[name="Id[]"]').val(),  // Keep the original ID if applicable
-                            memberId: memberId || '',  // Use selected member ID or empty string if none
-                            condition: conditions || '',  // Convert conditions array to comma-separated string
+                            id: row.find('input[name="Id[]"]').val(),  
+                            memberId: memberId || '',  
+                            condition: conditions || '',  
                             medication: row.find('input[name="medication[]"]').val(),
                             power: row.find('select[name="power[]"]').val(),
                             dosage: row.find('input[name="dosage[]"]').val(),
