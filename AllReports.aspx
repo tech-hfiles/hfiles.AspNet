@@ -144,144 +144,122 @@
             color: black; 
             border: 2px solid black; 
             padding: 10px 30px; 
-            font-size: 16px; /* Font size */
-            text-align: center; /* Center the text */
-            cursor: pointer; /* Pointer cursor on hover */
-            border-radius: 25px; /* Make the button oval */
-            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
-            display: inline-flex; /* Flexbox for icon and text alignment */
-            align-items: center; /* Align items in the center */
-            justify-content: center; /* Center content */
+            font-size: 16px; 
+            text-align: center; 
+            cursor: pointer; 
+            border-radius: 25px; 
+            transition: background-color 0.3s ease, color 0.3s ease; 
+            display: inline-flex; 
+            align-items: center;
+            justify-content: center;
         }
 
-            /* Hover effect */
 
-            /* Styling for the icon */
+          
             .oval-button i {
-                margin-right: 5px; /* Space between icon and text */
-                font-size: 18px; /* Icon size */
+                margin-right: 5px; 
+                font-size: 18px; 
             }
 
             .oval-button:hover {
-                background-color: #45a049; /*Darker green when hovered */
+                background-color: #45a049; 
             }
 
 
         .custom-gridview {
-            border: 3px solid #2196F3; /* Blue border for the entire GridView */
-            border-radius: 10px; /* Rounded corners for the GridView */
-            overflow: hidden; /* Ensure that rounded corners work well */
+            border: 3px solid #2196F3; 
+            border-radius: 10px; 
+            overflow: hidden;
         }
 
-            /* Header Row Border */
+          
             .custom-gridview th {
-                border-bottom: 2px solid #0331b5; /* Green border for header */
+                border-bottom: 2px solid #0331b5;
                 padding: 15px;
                 text-align: center;
             }
 
-            /* Row Borders */
+          
             .custom-gridview td {
-                border-right: 1px solid #ddd; /* Light gray right borders for cells */
-                border-bottom: 1px solid #ddd; /* Light gray bottom borders for cells */
+                border-right: 1px solid #ddd; 
+                border-bottom: 1px solid #ddd; 
                 padding: 10px;
                 text-align: center;
             }
 
-                /* Remove the right border from the last column */
+             
                 .custom-gridview td:last-child {
                     border-right: none;
                 }
 
-            /* Styling for alternating rows */
+        
             .custom-gridview tr:nth-child(odd) {
-                background-color: #f9f9f9; /* Light gray for odd rows */
+                background-color: #f9f9f9; 
             }
 
-            /* Selected Row Styling */
+         
             .custom-gridview .selected {
-                background-color: #4CAF50; /* Green background for selected row */
+                background-color: #4CAF50; 
                 color: white;
             }
 
-            /* Footer Styling */
+           
             .custom-gridview tfoot {
-                border-top: 2px solid #4CAF50; /* Green border for footer */
+                border-top: 2px solid #4CAF50; 
                 text-align: center;
                 padding: 10px;
             }
 
             .custom-gridview tr:hover {
-                background-color: #ADD8E6 !important; /* Darker green when hovered */
+                background-color: #ADD8E6 !important; 
             }
-             .search-file {
-     display: flex;
-     align-items: center;
- }
-
-     .search-file i {
-         margin-right: 5px;
-     }
-
-     .responsive-dropdown {
-    width: 100%;             /* Make the dropdown take full width on small screens */
-    max-width: 300px;        /* Maximum width for large screens */
-    margin-right: auto;      /* Center align horizontally when screen size is small */
-    margin-left: auto;       /* Center align horizontally when screen size is small */
-    float: none;             /* Remove floating to avoid issues on small screens */
-    padding: 8px;            /* Padding for the dropdown */
+             search-file {
+    margin-right: 0 !important; 
 }
 
-/* Large screen styles */
-@media (min-width: 768px) {
-    .responsive-dropdown {
-        width: 200px;        /* Fixed width for medium and larger screens */
-        margin-left: 860px; /* Adjust margin for larger screens */
+.position-relative {
+    width: 20%;
+    max-width: 250px; 
+}
+
+.search-icon {
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    position: absolute;
+    pointer-events: none; 
+}
+
+.responsive-dropdown {
+    display: block;
+    width: auto; 
+    margin-bottom: -43px;
+}
+
+.dropdown-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding-right: 10px; 
+  
+}
+@media (max-width: 768px) { 
+    .dropdown-container {
+        justify-content: flex-end;
+        padding-right: 5px;
     }
 }
 
-/* Extra small screens (e.g., mobile) */
 @media (max-width: 480px) {
-    .responsive-dropdown {
-        width: 100%;         /* Full width on small screens */
-        margin-right: 0;     /* Remove extra margin */
-        margin-left: 0;      /* Remove extra margin */
+    .dropdown-container {
+        justify-content: flex-end;
+        padding-right: 5px;
     }
 }
+
 
     </style>
-    <script type="text/javascript">
-        function hideButton() {
-
-            var share = document.getElementById('shareb');
-            var sharebtn = document.getElementById('wgshare');
-
-
-
-            if (sharebtn.style.display === 'none') {
-                sharebtn.style.display = 'inline-block';
-                document.getElementById('<%= whatsappLinkButton.ClientID %>').style.display = 'inline-block';
-                document.getElementById('<%= lbtnshareEmail.ClientID %>').style.display = 'inline-block';// Show the div
-            } else {
-                share.style.display = 'none'; // Hide the div
-            }
-            // Hide the button by setting its display style to 'none'
-       <%-- document.getElementById('<%= lnkShare.ClientID %>').style.display = 'none';
-        document.getElementById('<%= whatsappLinkButton.ClientID %>').style.display = 'inline-block';
-        document.getElementById('<%= lbtnshareEmail.ClientID %>').style.display = 'inline-block';--%>
-        }
-    </script>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -305,11 +283,40 @@
 
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
+                 <div class="modal fade" id="ShareModal" tabindex="-1" aria-labelledby="ShareModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+             <div class="modal-content">
+               
+                 <div class="modal-header">
+                     <h5 class="modal-title" id="ShareModalLabel">Share as File</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                 </div>
 
+               
+                 <div class="modal-body">
+
+
+                           
+                    <asp:LinkButton ID="whatsappLinkButton" Text="WhatsApp" runat="server" CommandName="Share"
+                        OnClick="sharewhatsapp_Click">
+                        <img src="../assets/whatsapp.jpg" alt="Whatsapp Icon" style="width: 20px; height: 20px;" />
+                        <span style="color: #63E6BE; font-weight: bold;">WhatsApp</span>
+
+                    </asp:LinkButton>
+                   
+                                     <asp:LinkButton ID="lbtnshareEmail" Text="Email" runat="server" CommandName="Share"
+                    OnClick="shareEmail_Click" >
+    <img src="../assets/gmail.png" alt="Email Icon" style="width: 20px; height: 20px;" />
+    <span style="color: #D44638; font-weight: bold;"> Email</span>
+
+                </asp:LinkButton>
+                   
+                 </div>
+
+             </div>
+         </div>
+     </div>
             <div style="overflow: auto; max-height: 90vh; max-width: 100%; border: 1px solid #ddd; padding-bottom: 10vh;">
-
-
-                <%-- <div style="overflow: auto; max-height: 90vh; max-width: 100%; border: 1px solid #dddd;">--%>
 
                 <br />
                 <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
@@ -318,17 +325,26 @@
                     <a class="back-arrow-btn-2" href="MyHFiles.aspx" style="margin-left: 20px;">Back
                     </a>
                 </div>
-
-
-                <h2 style="text-align: center;"><u>All Reports Details</u></h2>
-                                <br />
-               <asp:DropDownList ID="Dropmembers" AutoPostBack="true" OnSelectedIndexChanged="Dropmembers_SelectedIndexChanged" runat="server" CssClass="responsive-dropdown"></asp:DropDownList>
-                <br />
-
-                 <div class="col-md-4 d-flex justify-content-md-end justify-content-center align-items-center py-2 search-file" style="margin-right: 20px;">
+                
+                <%-- <div class="col-md-4 d-flex justify-content-md-end justify-content-center align-items-center py-2 search-file" style="margin-right: 20px;">
                      <i class="fas fa-magnifying-glass"></i>
                      <asp:TextBox ID="SearchInput" OnTextChanged="SearchInput_TextChanged" AutoPostBack="true" runat="server" />
-                 </div>
+                 </div>--%>
+                                <div class="dropdown-container">
+                    <div class="position-relative w-100">
+                        <asp:TextBox ID="SearchInput" CssClass="form-control pr-5" OnTextChanged="SearchInput_TextChanged" AutoPostBack="true" runat="server" />
+                        <i class="fas fa-magnifying-glass position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%); color: #aaa;"></i>
+                    </div>
+                </div>
+
+
+                <h2 style="text-align: center; color: #0331b5;">All Reports Details</h2>
+                                <br />
+                          <div class="dropdown-container">
+                        <asp:DropDownList ID="Dropmembers" AutoPostBack="true" OnSelectedIndexChanged="Dropmembers_SelectedIndexChanged" runat="server" CssClass="responsive-dropdown"></asp:DropDownList>
+                    </div>
+                <br />
+
 
                 <div class="row mb-5">
                     <asp:Repeater ID="rptReports" runat="server">
@@ -336,13 +352,7 @@
                             <div class="col-md-4 col-lg-4 my-2">
 
                                 <div class="card text-start px-3 h-100">
-                                    <%--<div runat="server" visible='<%#  (Eval("UserId") != null &&  Session["UserId"] != null ) == true ? (((Eval("UploadType") != null && Eval("UploadType").ToString() == "dependent") && hfiles.DAL.validateInt(Session["UserId"].ToString()) !=  hfiles.DAL.validateInt(Eval("UserId"))) == true ? true : false) : false %>'>
-                         <%--<h5 class="card-title"><strong>Name: </strong><%# Eval("UploadType") %></h5>--%>
-                                    <%--<%#   Eval("UploadType").ToString()+ " "+ hfiles.DAL.validateInt(Session["UserId"].ToString()) +" "+  hfiles.DAL.validateInt(Eval("UserId")) %>
-                         <h5 class="card-title position-absolute dependent-report"><%= Session["DependentParentName"] != null ? Session["DependentParentName"].ToString() : "" %><%# "\'s " + Eval("user_firstname") %></h5>
-                     </div>--%>
-
-                                 
+                            
                         </ItemTemplate>
                     </asp:Repeater>
 
@@ -359,41 +369,25 @@
              </div>--%>
                 <div class="share" id="wgshare" style="display: none;">
 
-                    <%-- <asp:Button ID="sharewhatsapp" runat="server" Text="Send whatsapp" ForeColor="Blue"  OnClick="sharewhatsapp_Click"/>--%>
-                    <asp:LinkButton ID="whatsappLinkButton" Text="WhatsApp" runat="server" CommandName="Share"
-                        OnClick="sharewhatsapp_Click" Style="display: inline-block; padding: 10px; margin-left: 20px; border: 1px solid #63E6BE; border-radius: 8px; background-color: #f0f0f0; text-align: center; text-decoration: none; color: #000; font-family: Arial, sans-serif; font-size: 14px; display: none;">
-    <div style="display: flex; align-items: center; gap: 8px;">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 448 512">
-            <path fill="#63E6BE" 
-                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-        </svg>
-        <span style="color: #63E6BE; font-weight: bold;">WhatsApp</span>
-    </div>
-                    </asp:LinkButton>
+            
 
-                    <%--  <asp:Button ID="shareEmail" runat="server" Text="Send Email" ForeColor="Black"  OnClick="shareEmail_Click"/>--%>
+               
 
-                    <asp:LinkButton ID="lbtnshareEmail" Text="Email" runat="server" CommandName="Share"
-                        OnClick="shareEmail_Click" Style="display: inline-block; padding: 10px; margin-left: 20px; border: 1px solid #D44638; border-radius: 8px; background-color: #f0f0f0; text-align: center; text-decoration: none; color: #000; font-family: Arial, sans-serif; font-size: 14px; display: none;">
-    <div style="display: flex; align-items: center; gap: 8px;">
-        <img src="../assets/gmail.png" alt="Email Icon" style="width: 20px; height: 20px;" />
-        <span style="color: #D44638; font-weight: bold;">Email</span>
-    </div>
-                    </asp:LinkButton>
+                    
                 </div>
                 <br />
                 <br />
                 <div class="sharebtn" id="shareb">
-                    <asp:LinkButton ID="lnkShare" class="oval-button" OnClick="lnkShare_Click" runat="server" OnClientClick="hideButton();" CommandName="Share"
-                        Text="Share" Style="margin-left: 20px;"> &nbsp;&nbsp;<i class='fas fa-share'></i>&nbsp;Share</asp:LinkButton>
+                    <asp:LinkButton ID="lnkShare" class="oval-button" data-bs-toggle="modal" data-bs-target="#ShareModal"  runat="server"  CommandName="Share"
+                        Text="Share" Style="margin-left: 20px;margin-bottom: 10px;margin-top: -46px;"> &nbsp;&nbsp;<i class='fas fa-share'></i>&nbsp;Share</asp:LinkButton>
                 </div>
 
-                <%--<asp:Label ID="lbldeletereport" runat="server" Visible="false"></asp:Label>--%>
+              
                 <div class="gridviewscroll">
 
 
 
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" Width="70%" HorizontalAlign="Center"
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" Width="90%" HorizontalAlign="Center"
                         BorderStyle="Solid" BorderWidth="2px"
                         CellPadding="10" GridLines="None" CssClass="custom-gridview">
                         <AlternatingRowStyle BackColor="#f9f9f9" />
@@ -428,13 +422,6 @@
                         <SelectedRowStyle BackColor="#45a049" Font-Bold="True" ForeColor="Red" />
                     </asp:GridView>
 
-                    <!-- Add some custom CSS to control the borders -->
-                    <style>
-                        /* Style the grid border */
-                    </style>
-
-
-
                 </div>
 
             </div>
@@ -449,7 +436,3 @@
 
 
 
-<%--<asp:Content ID="Content3" ContentPlaceHolderID="jsScript" runat="server">
-
-
-</asp:Content>--%>

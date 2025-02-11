@@ -364,7 +364,7 @@
  <script>
      function reportUpdatedSuccessfully(rid) {
          // Show success message with toastr
-         toastr.success('ReportName Updated successfully');
+         toastr.success('Updated successfully');
 
          // Redirect to the same page with the same 'rid' query string
          setTimeout(function () {

@@ -302,7 +302,7 @@ namespace hfiles
                             {
                                 clear();
                                 ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Member added successfully');", true);
-                                Response.Redirect("~/avatar2.aspx");
+                                Response.Redirect("~/MyHFiles.aspx");
                             }
 
                         }
@@ -342,7 +342,7 @@ namespace hfiles
                         {
                             clear();
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Member added successfully');", true);
-                            Response.Redirect("~/avatar2.aspx");
+                            Response.Redirect("~/MyHFiles.aspx");
                         }
                     }
                     else

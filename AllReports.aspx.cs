@@ -60,6 +60,7 @@ namespace hfiles
         private string subject;
         private string body;
         private object lnk;
+        private static readonly string TempDirectory = HttpContext.Current.Server.MapPath("~/TempPDFs/");
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -116,28 +117,26 @@ namespace hfiles
 
                 if (Session["UserID"] != null)
                 {
-                    // Retrieve the UserID from the session
-                    //int UserId = DAL.validateInt(Session["UserID"].ToString());
+                   
 
-                    // Get the list of member IDs from the session
+                   
                     List<string> p_membersId = (List<string>)Session["MemberIds"];
 
-                    // Ensure that p_membersId is not null and has values
+                
                     if (p_membersId == null || p_membersId.Count == 0)
                     {
-                        // Handle the case where member IDs are not available
-                        Response.Write("No members found.");
+                       
+                       
                         return;
                     }
 
-                    // Convert the list of member IDs to a comma-separated string
                     string memberIdsString = string.Join(",", p_membersId);
 
-                    // Store UserId and MemberIds in session (if needed)
+                  
                     Session["UserId"] = UserId;
                     Session["MemberIds"] = p_membersId;
 
-                    // Set up the database connection
+                   
                     using (MySqlConnection connection = new MySqlConnection(cs))
                     {
                         connection.Open();
@@ -347,12 +346,70 @@ namespace hfiles
 
 
 
-        protected void lnkShare_Click(object sender, EventArgs e)
+        [System.Web.Services.WebMethod]
+        public static string ShareFileAsLink(string base64PDF, string shareTo)
         {
 
-            //    whatsappLinkButton.Enabled = true;
-            //    lbtnshareEmail.Enabled = true;
-            //    lnkShare.Enabled = false;
+            try
+            {
+                string whatsstring = "https://wa.me/?text=";
+                string gmailUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=&su=";
+                // Convert Base64 string to byte array
+                byte[] pdfBytes = Convert.FromBase64String(base64PDF);
+
+                // Generate unique file name
+                string fileName = Guid.NewGuid().ToString() + ".pdf";
+                string filePath = Path.Combine(TempDirectory, fileName);
+
+                // Save the file to server
+                System.IO.File.WriteAllBytes(filePath, pdfBytes);
+
+                // Schedule file deletion after 1 hour
+                ScheduleFileDeletion(filePath);
+
+                // Return the relative file path (for reference or download link)
+                string fileurl = $"/TempPDFs/{fileName}";
+                AllReports obj = new AllReports();
+                if (shareTo == "WhatsApp")
+                {
+                    whatsstring += HttpUtility.UrlEncode(obj.GenerateWhatsAppUrl(fileurl));
+                    return whatsstring;
+                }
+                else
+                {
+                    string subject = "Report Link";
+                    string body = obj.GenerateWhatsAppUrl(fileurl);
+                    gmailUrl += $"{Uri.EscapeDataString(subject)}&body={Uri.EscapeDataString(body)}";
+                    return gmailUrl;
+                }
+            }
+            catch (Exception ex)
+            {
+                string logPath = HttpContext.Current.Server.MapPath("~/Logs/ErrorLog.txt");
+                string errorDetails = $"Message: {ex.Message}\nStackTrace: {ex.StackTrace}\nInnerException: {ex.InnerException?.Message}";
+                System.IO.File.AppendAllText(logPath, errorDetails);
+
+                // Throw full error for debugging
+                throw new Exception("Error saving PDF to the server.", ex);
+            }
+        }
+
+        private static void ScheduleFileDeletion(string filePath)
+        {
+            // Use a Task to schedule file deletion
+            System.Threading.Tasks.Task.Delay(TimeSpan.FromHours(1)).ContinueWith(_ =>
+            {
+                try
+                {
+                    if (System.IO.File.Exists(filePath))
+                        System.IO.File.Delete(filePath);
+                }
+                catch (Exception ex)
+                {
+                    // Log error (e.g., unable to delete file)
+                    // Example: Log to a file or monitoring system
+                }
+            });
         }
 
 
