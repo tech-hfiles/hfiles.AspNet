@@ -84,7 +84,7 @@ namespace hfiles
             //medicalHistoryDiv.Visible = false;
             //AllergiesDiv.Visible = true;
             //Page.ClientScript.RegisterStartupScript(this.GetType(), "allergyfooter", "allergyfooter()", true);
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "toastr.success('Additional Details Updated Successfully')", true);
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "toastr.options = { 'timeOut': 1000, 'extendedTimeOut': 200 };toastr.success('Additional Details Updated Successfully')", true);
         }
         protected void btnMedicalHistory_Click(object sender, EventArgs e)
         {

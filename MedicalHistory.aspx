@@ -20,7 +20,15 @@
             outline: 0;
             border: 1px solid #d6d6d6;
         }
-
+        @media (min-width: 768px) {
+    .col-md-6 {
+        flex: 0 0 auto;
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: auto;
+        width: 38%;
+    }
+}
         .thm-back-button {
             font-size: 15px;
             margin: 8px 0 !important;
@@ -333,6 +341,9 @@
   "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>"
 );
     }
+    .SingleCheckbox {
+        text-align:center;
+    }
         .accordion-button::after {
             margin-left:10px;
         }
@@ -353,6 +364,8 @@
             color: #ffd101 !important;
         }
     </style>
+    
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
     <%--  <asp:ScriptManager runat="server" />--%>
@@ -367,7 +380,7 @@
 
 
                 <asp:HiddenField ID="hdnAccordionIndex" runat="server" />
-            <div class="accordion accordion-flush" id="accordionFlushExample" style="width:100%;max-height:65vh;overflow-y:auto;padding:0 20px" >
+            <div class="accordion accordion-flush" id="accordionFlushExample" style="width:100%;max-height:65vh;padding:0 20px" >
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingOne">
       <button class="accordion-button collapsed accordionbutton" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -387,17 +400,17 @@
                     <p id="type">Type</p>
                 </div>
                 <div class="col-md-2 col-2 text-center">
-                    <p>Myself</p>
+                    <p >Myself</p>
                 </div>
                 <div class="col-md-2 col-3 text-center">
-                    <p>Mother Side's</p>
+                    <p >Mother Side's</p>
                 </div>
                 <div class="col-md-2 col-3 text-center">
-                    <p>Father Side's</p>
+                    <p >Father Side's</p>
                 </div>
             </div>
             
-            <div class="row inner-main-div" style="overflow-y:auto;max-height:30vh;">
+            <div class="row inner-main-div" style="max-height:30vh;">
                 <asp:Repeater runat="server" ID="rptDisease">
                     <ItemTemplate>
                         <div class="row border-bottom mt-1">
@@ -409,7 +422,7 @@
 
                             </div>
                             <div class="col-md-6 col-5 pt-1 SingleCheckbox justify-content-center align-items-center">
-                                <asp:CheckBoxList runat="server" ID="cbl" Style="padding: 20px;" RepeatDirection="Horizontal">
+                                <asp:CheckBoxList runat="server" ID="cbl"  RepeatDirection="Horizontal">
                                     <asp:ListItem Value="1" Text=" " class="CheckBoxLabel" />
                                     <asp:ListItem Value="2" Text=" " />
                                     <asp:ListItem Value="3" Text=" " />
@@ -422,7 +435,7 @@
 
             </div>
         </div>
-        <div style="display:flex;justify-content:space-evenly">
+        <div style="display:flex;justify-content:space-evenly;margin-top: 62px;">
             <asp:Button Text="Save" ID="btnMedicalHistory" class="thm-blue-buttn" OnClick="btnMedicalHistory_Click" runat="server" />
         </div>
     </div>

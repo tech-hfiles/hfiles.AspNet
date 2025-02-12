@@ -48,7 +48,7 @@
           return result;
 
       }
-</script>
+  </script>
 
 
 
@@ -69,7 +69,7 @@
                 }
 
                 // Optional: Reload page after toastr message
-               
+
             }
         </script>
 
@@ -175,7 +175,28 @@
             color:blue;
         }
     </style>
-   
+   <script>
+       document.addEventListener("DOMContentLoaded", function () {
+           let searchInput = document.getElementById('<%= SearchInput.ClientID %>');
+
+           if (searchInput) {
+               searchInput.addEventListener("keyup", function () {
+                   let searchTerm = searchInput.value.toLowerCase();
+                   let profiles = document.querySelectorAll(".profile-card");
+
+                   profiles.forEach(function (profile) {
+                       let name = profile.querySelector(".u-name").textContent.toLowerCase();
+                       if (name.includes(searchTerm)) {
+                           profile.style.display = "block"; // Show the matching item
+                       } else {
+                           profile.style.display = "none"; // Hide non-matching item
+                       }
+                   });
+               });
+           }
+       });
+   </script>
+
    
    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/4.5/1/MicrosoftAjax.js"></script>
 
@@ -268,7 +289,7 @@
             </div>
             <div class="col-12 col-md-8 col-xl-6 search-file">
                 <i class="fa-solid fa-magnifying-glass" style="position: absolute;"></i>
-                <asp:TextBox ID="SearchInput" OnTextChanged="SearchInput_TextChanged" AutoPostBack="true" runat="server" placeholder="Search member by Name" class="form-control" />
+<asp:TextBox ID="SearchInput" runat="server" placeholder="Search member by Name" class="form-control" />
             </div>
         </div>
     </div>
@@ -712,10 +733,10 @@
     <script>
         function showFileUpload() {
             var fileUpload = document.getElementById('<%= Profileupload.ClientID %>');
-           fileUpload.classList.remove('hidden');
-           return false; // prevent the page from reloading
-       }
-</script>
+            fileUpload.classList.remove('hidden');
+            return false; // prevent the page from reloading
+        }
+    </script>
 
 
     <style>
