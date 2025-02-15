@@ -734,7 +734,7 @@ padding-top: 156px;
                 .articlename {
     font-size: 44px !important;  /* Reduce font size */
     white-space: nowrap;         /* Prevent text from breaking */
-    overflow: hidden;            /* Prevent overflow issues */
+               /* Prevent overflow issues */
     text-overflow: ellipsis;     /* Add "..." if necessary */
     width: 100%;                 /* Ensure it takes full width */
     text-align: left;          /* Center the text (optional) */
@@ -1054,9 +1054,9 @@ padding-top: 156px;
                             <div class="elementor-element elementor-element-1b85bfcc elementor-widget elementor-widget-ekit-nav-menu" data-id="1b85bfcc" data-element_type="widget" data-widget_type="ekit-nav-menu.default">
                                 <div class="elementor-widget-container">
                                     <div class="ekit-wid-con ekit_menu_responsive_tablet" data-hamburger-icon="icon icon-menu-5" data-hamburger-icon-type="icon" data-responsive-breakpoint="1024">
-                                        <button class="elementskit-menu-hamburger elementskit-menu-toggler" type="button" aria-label="hamburger-icon">
+                                       <%-- <button class="elementskit-menu-hamburger elementskit-menu-toggler" type="button" aria-label="hamburger-icon">
                                             <i aria-hidden="true" class="ekit-menu-icon icon icon-menu-5"></i>
-                                        </button>
+                                        </button>--%>
                                         <div id="ekit-megamenu-primary-menu" class="elementskit-menu-container elementskit-menu-offcanvas-elements elementskit-navbar-nav-default ekit-nav-menu-one-page-no ekit-nav-dropdown-hover">
                                             <ul id="menu-primary-menu" class="elementskit-navbar-nav elementskit-menu-po-right submenu-click-on-icon">
                                                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
@@ -1064,9 +1064,9 @@ padding-top: 156px;
                                                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
                                                     <a href="#why" class="ekit-menu-nav-link">Article</a></li>
 
-                                                <li class="menu-item menu-item-type-custom elementor-hidden-desktop elementor-hidden-tablet menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
-                                                    <a href="/signup.aspx" class="ekit-menu-nav-link ">Sign up</a></li>
-                                                <%-- <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-650 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
+<%--                                                <li class="menu-item menu-item-type-custom elementor-hidden-desktop elementor-hidden-tablet menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
+                                                    <a href="/signup.aspx" class="ekit-menu-nav-link ">Sign up</a></li>--%>
+                                          <%--    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-650 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
                                                     <a href="#ABHA" class="ekit-menu-nav-link">ABHA</a></li>--%>
                                             </ul>
                                              <div class="elementskit-nav-identity-panel">
@@ -1241,7 +1241,7 @@ padding-top: 156px;
         background: url('hamburger-icon.svg') no-repeat center;
         background-size: contain;
     }
-
+  
     /* Hide desktop menu on mobile */
    
     </style>
@@ -1461,16 +1461,15 @@ padding-top: 156px;
                 }
 
                 .elementor-widget-container p {
-                    font-size: 21px;
-                    font-family: 'Montserrat', sans-serif;
-                    font-weight: 400;
-                    line-height: 1.4; /* Adjust line height */
-                    text-align: left;
-                    white-space: normal; /* Ensure text wraps */
-                    overflow:auto;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 2; /* Restrict to 2 lines */
-                    -webkit-box-orient: vertical;
+                   font-size: 22px;
+font-family: Montserrat;
+font-weight: 400;
+text-align: left;
+white-space: normal;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: horizontal;
+line-height: 38px;
                 }
             }
 
@@ -1984,7 +1983,7 @@ padding-top: 156px;
                                                                 /* Fix background issues */
                                                                 .responsive-bg {
                                                                     width: 100%;
-                                                                    min-height: 50vh;
+                                                                    min-height: 65vh;
                                                                     margin-top: 0; /* Reset negative margin */
                                                                     background-size: contain;
                                                                 }
@@ -2361,6 +2360,16 @@ border-radius: 10px;
 margin-left:1px !important;
 
  }
+            #myVideo1 {
+     width: 399px;
+height: 514px;
+top: 233px;
+left: 21px;
+border-radius: 10px;
+ margin-left: 23px;
+
+ }
+     
       .stepsvideo
       {
           width: 396px;
@@ -2573,7 +2582,7 @@ left: 31px;
          <style>
              @media(max-width:480px) {
                  .abhaid h2{
-                     margin-top: 157px;
+                     margin-top: 328px;
                  }
              }
             
@@ -2870,10 +2879,10 @@ left: 31px;
                     text-align: left;
                 }
                  .personalizedcontact img {
-                    width: 407px;
-                    height: 407px;
-                    top: 306px;
-                    left: 17px;
+                           width: 339px;
+        height: 390px;
+        margin-left: -6px;
+        margin-top: 11px;
                     
 
  }
@@ -2912,20 +2921,20 @@ left: 31px;
               </div>
           </div>
           <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-61d0182" data-id="61d0182" data-element_type="column">
-              <div class="elementor-widget-wrap elementor-element-populated">
-                  <div class="elementor-element elementor-element-937ccc4 elementor-widget elementor-widget-spacer" data-id="937ccc4" data-element_type="widget" data-widget_type="spacer.default">
-                      <div class="elementor-widget-container">
-                          <div class="elementor-spacer">
-                              <div class="elementor-spacer-inner"></div>
-                          </div>
-                      </div>
-                  </div>
+       <div class="elementor-widget-wrap elementor-element-populated">
+           <div class="elementor-element elementor-element-937ccc4 elementor-widget elementor-widget-spacer" data-id="937ccc4" data-element_type="widget" data-widget_type="spacer.default">
+               <div class="elementor-widget-container">
+                   <div class="elementor-spacer">
+                       <div class="elementor-spacer-inner"></div>
+                   </div>
+               </div>
+           </div>
                   <div class="elementor-element elementor-element-8afee48 elementor-invisible elementor-widget elementor-widget-heading" data-id="8afee48" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="heading.default">
                       <div class="elementor-widget-container">
                           <h2 class="elementor-heading-title elementor-size-default">About Us</h2>
                       </div>
                   </div>
-                <%--  <div class="elementor-element elementor-element-c4543a5 elementor-widget elementor-widget-elementskit-heading" data-id="c4543a5" data-element_type="widget" data-widget_type="elementskit-heading.default">
+                  <div class="elementor-element elementor-element-c4543a5 elementor-widget elementor-widget-elementskit-heading" data-id="c4543a5" data-element_type="widget" data-widget_type="elementskit-heading.default">
                       <div class="elementor-widget-container">
                           <div class="ekit-wid-con">
                               <div class="ekit-heading elementskit-section-title-wraper text_left   ekit_heading_tablet-   ekit_heading_mobile-">
@@ -2935,7 +2944,7 @@ left: 31px;
                               </div>
                           </div>
                       </div>
-                  </div>--%>
+                  </div>
                   <div class="elementor-element elementor-element-d09d4b3 elementor-invisible elementor-widget elementor-widget-text-editor" data-id="d09d4b3" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="text-editor.default">
                       <div class="elementor-widget-container">
                           <p>Welcome to Hfiles, where we aim to simplify and manage the healthcare system for your entire family, from birth to adulthood. We believe that organization is the key to leading a successful life, and our mission is to help you organize your medical life into one neat file.</p>
@@ -3687,22 +3696,24 @@ left: 31px;
         <br />
         <strong>Give us a call:</strong>
         <br />
-        +91 9978043453
+        <a href="tel:+919978043453"><span>9978043453</span></a>
     </p>
     <p id="email-info" >
         <img src="/journal-page-images/article/email-icon.png" alt="Email Icon" >
         <br />
         <strong>Write to us:</strong>
-        <br />contact@hfiles.in
+         <a href="mailto:contact@hfiles.in" class="_cf_email_" data-cfemail="066e606f6a6375286f6846616b676f6a2865696b">contact@hfiles.in</a>
     </p>
     <p id="whatsapp-info" >
         <img src="/journal-page-images/article/whatsapp-icon.png" alt="WhatsApp Icon" >
         <br />
         <strong>WhatsApp us:</strong>
         <br />
-        +91 9978043453
+         <a href="https://api.whatsapp.com/send?phone=919978043453&text=Hi">+91 9978043453</a>
     </p>
 </div>
+
+
                                 </div>
                             </div>
                         </div>
@@ -4493,12 +4504,14 @@ letter-spacing: 0px;
     /* Make sure the text and links are easily readable */
     .elementor-icon-list-text {
         font-size: 16px;
+        text-align:left;
     }
 
     /* Adjust spacing around the address section */
     .address-container {
         font-size: 16px;
         padding: 0 10px;
+                margin-left: -43px;
     }
 
     /* Adjust padding and font sizes in the footer */
@@ -4535,11 +4548,14 @@ letter-spacing: 0px;
         text-align: center;
 /* Add padding on left and right */
     }
-  .elementor-section .elementor-container{
-    padding:3px 0;
-    display:flex;/* Add some padding */
-    width:100%;
-}
+    .elementor-section .elementor-container{
+
+        padding: 4px 17px !important;
+        display: flex !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
 }
 
 /* Media Query for Extra Small Screens (Portrait Mobile) */
@@ -4810,6 +4826,13 @@ letter-spacing: 0px;
                                             </div>
                                         </div>
                                         <style>
+                                            .address-container h2{
+    margin-left:-21px;
+    color:white !important;
+    font-family:Montserrat;
+    font-size:24px;
+    font-weight:500;
+}
                                             @media (min-width: 768px) {
     .elementor-23 .elementor-element.elementor-element-4f4c1c7 {
         width: 16.802%;
@@ -4861,11 +4884,11 @@ letter-spacing: 0px;
          overflow-wrap: break-word;
      }
      .address-container h2{
-         margin-left:-21px;
-         color:white !important;
-         font-family:Montserrat;
-         font-size:24px;
-         font-weight:500;
+        margin-left: -1px;
+        color: white !important;
+        font-family: Poppins;
+        font-size: 24px !important;
+        font-weight: 500 !important;
      }
  }
                                         </style>
@@ -4904,6 +4927,11 @@ letter-spacing: 0px;
         </div>
     </div>
     <style>
+/*        .socialicon{
+                position: absolute;
+    left: 56%;
+    transform: translateX(-50%);
+        }*/
        .address {
     color: white;
     font-family: Montserrat, sans-serif;
@@ -4930,6 +4958,7 @@ letter-spacing: 0px;
     max-width: 250px;
     line-height: 1.3;
     margin-bottom: 10px; 
+        margin-left: -19px;
 }
 
 /* Ensure Address Stays in Two Lines */
@@ -5035,7 +5064,7 @@ letter-spacing: 0px;
             height:80px;
         }
         .socialicon{
-            letter-spacing: 7px;
+            letter-spacing: 1px;
             margin-left:-7px;
         }
         .complogo img{
@@ -5180,7 +5209,8 @@ letter-spacing: 0px;
                 height: 62px;
                 top: 282px;
                 left: 64px;
-                margin-left:-91px;   
+                margin-left:-91px;  
+                
 
             }
             .joinus {

@@ -484,6 +484,9 @@
         p #storageusedm,p #storageleftm{
             background-color:darkred !important;
         }
+        .accordion-button::after {
+    filter: invert(1); /* Inverts black to white */
+}
         /*avatar responsive*/
     </style>
 </asp:Content>
@@ -710,7 +713,7 @@
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item mb-4">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <button class="accordion-button text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color:white">
                                         Select Members
                                     </button>
                                 </h2>
