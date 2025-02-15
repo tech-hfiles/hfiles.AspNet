@@ -41,6 +41,10 @@ namespace hfiles
                 {
                     Response.Redirect("~/login.aspx");
                 }
+
+              
+                       
+              
                 //Response.Redirect("~/login.aspx");
             }
             else
@@ -49,7 +53,7 @@ namespace hfiles
                 if (Session["username"] != null)
                 {
                     // Check if there are any requests
-                    bool hasRequests = HasRequests();
+                  
                     //ReqCount.Text = requestCount.ToString();
                     using (MySqlConnection con = new MySqlConnection(connectionString))
                     {
@@ -68,9 +72,23 @@ namespace hfiles
                             da.Fill(dt);
 
 
+
                             //MasterPage page = new MasterPage();
                             //Label ReqCount = Master.FindControl("ReqCount") as Label;
                             ReqCount.Text = dt != null && dt.Rows.Count > 0 ? dt.Rows.Count.ToString() : "0";
+                            bool hasRequests = HasRequests();
+                            if (hasRequests == true)
+                            {
+                                // Or your condition
+                                requestDot.Text = hasRequests ? "●" : "";
+                                requestDot.ForeColor = System.Drawing.Color.Red;
+                                requestDot.Visible = hasRequests;
+                            }
+                            else
+                            {
+                                // Handle case when requestDot is not found
+                                requestDot.Text = "";
+                            }               
                         }
                     }
                     //managerMembersTab.Text = $"Manager Members ({requestCount})";

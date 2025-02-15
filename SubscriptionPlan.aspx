@@ -41,12 +41,21 @@
     <p _msttexthash="240006" _msthash="18"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
 "></i>Upload PDF files</p>
+            <p _msttexthash="240006" _msthash="18" style="text-decoration: line-through;"><i class="fa fa-check-circle" aria-hidden="true" style="
+    padding-right: 10px;
+"></i>Wellness kit</p>
+            <p _msttexthash="240006" _msthash="18" style="text-decoration: line-through;"><i class="fa fa-check-circle" aria-hidden="true" style="
+    padding-right: 10px;
+"></i>Access to blogs</p>
+            <p _msttexthash="240006" _msthash="18" style="text-decoration: line-through;"><i class="fa fa-check-circle" aria-hidden="true" style="
+    padding-right: 10px;
+"></i>Membership card</p>
         <br>
         <br>
         <br>
         
         
-        <button style="
+       <%-- <button style="
     width: 80%;
     background-color: #0331b5;
     color: white;
@@ -57,7 +66,7 @@
     margin-top: 55px;
     margin-bottom: 0;
     margin-left:20px;
-">Get started for free</button>
+">Get started for free</button>--%>
         </div>
 </div>
 <div class="" style="background-color: #fff44c;border-radius: 20px;padding: 25px;font-weight: bold;margin: 10px;width: 280px;">

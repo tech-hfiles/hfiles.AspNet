@@ -290,6 +290,9 @@ namespace hfiles
                     //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Accepted')", true);
 
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Request Accepted');", true);
+
+                    Label requestDot = Master.FindControl("requestDot") as Label;
+                    requestDot.Visible = false;
                 }
             }
             requests();
@@ -300,6 +303,12 @@ namespace hfiles
         }
         protected void rejectBtn_Click(object sender, EventArgs e)
         {
+
+            LinkButton lbtn = sender as LinkButton;
+            int int16 = (int)Convert.ToInt16((sender as LinkButton).CommandArgument);
+            RepeaterItem rv = lbtn.NamingContainer as RepeaterItem;
+            HiddenField hfDependentUserId = rv.FindControl("hfDependentUserId") as HiddenField;
+
             int value = (int)Convert.ToInt16((sender as LinkButton).CommandArgument);
             using (MySqlConnection connection = new MySqlConnection(this.cs))
             {
@@ -311,6 +320,7 @@ namespace hfiles
                     mySqlCommand.Parameters.AddWithValue("_requestedid", value);
                     mySqlCommand.Parameters.AddWithValue("_accepted", (object)0);
                     mySqlCommand.Parameters.AddWithValue("_rejected", (object)1);
+                    mySqlCommand.Parameters.AddWithValue("_dependentUserId", DAL.validateInt(hfDependentUserId.Value));
                     mySqlCommand.ExecuteNonQuery();
                     connection.Close();
                     //icon = "assets/not-select-red.png";
@@ -320,6 +330,8 @@ namespace hfiles
                     //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Rejected')", true);
 
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Request Rejected');", true);
+                    Label requestDot = Master.FindControl("requestDot") as Label;
+                    requestDot.Visible = false;
                 }
             }
             user_members();

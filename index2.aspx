@@ -471,7 +471,16 @@
     <%--discover and voices--%>
     <style>
         /* Container for the reviews */
-     
+        @media(max-width:768px) {
+            .article-card {
+                width: 48% !important;
+            }
+        }
+         @media(max-width:600px) {
+     .article-card {
+         width: 52% !important;
+     }
+ }
 
         .article-description {
             margin-bottom: 10px; /* Space below the description */
@@ -711,7 +720,7 @@ padding-top: 156px;
         /* Individual Article Card */
         .article-card {
             display: flex; /* Ensures the content is aligned horizontally (side-by-side) */
-            width: 25%; /* Adjust the card width to fit multiple cards in a row */
+            width: 28%; /* Adjust the card width to fit multiple cards in a row */
             border: 1px solid #ddd;
             border-radius: 10px;
             padding: 15px;
@@ -722,7 +731,14 @@ padding-top: 156px;
             margin: 10px;
             padding: 10px;
         }
-
+                .articlename {
+    font-size: 44px !important;  /* Reduce font size */
+    white-space: nowrap;         /* Prevent text from breaking */
+    overflow: hidden;            /* Prevent overflow issues */
+    text-overflow: ellipsis;     /* Add "..." if necessary */
+    width: 100%;                 /* Ensure it takes full width */
+    text-align: left;          /* Center the text (optional) */
+}
             /* Image inside the card */
             .article-card img {
                 width: 250px; /* Set the image width */
@@ -842,7 +858,7 @@ padding-top: 156px;
         }
         @media (max-width: 600px) {
     .article-card {
-              width: 155%;
+              width: 156% !important;
         height: 265px;
         padding: 25px;
         gap: 11px;/* Add more padding for better spacing */
@@ -1009,10 +1025,30 @@ padding-top: 156px;
                                     </style>
 
                                     <img width="207" height="80" src="https://hfiles.in/wp-content/uploads/2022/11/hfiles.png" class="attachment-full size-full wp-image-361" alt="hfiles logo" />
+
+
+
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <style> .elementskit-menu-hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.ekit-menu-icon {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url('hamburger-icon.svg') no-repeat center;
+    background-size: contain;
+}</style>
+                    <script>document.querySelector(".elementskit-menu-toggler").addEventListener("click", function () {
+                            document.querySelector(".mobile-menu").classList.toggle("active");
+                        });</script>
                     <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-37d29820" data-id="37d29820" data-element_type="column">
                         <div class="elementor-widget-wrap elementor-element-populated">
                             <div class="elementor-element elementor-element-1b85bfcc elementor-widget elementor-widget-ekit-nav-menu" data-id="1b85bfcc" data-element_type="widget" data-widget_type="ekit-nav-menu.default">
@@ -1029,7 +1065,7 @@ padding-top: 156px;
                                                     <a href="#why" class="ekit-menu-nav-link">Article</a></li>
 
                                                 <li class="menu-item menu-item-type-custom elementor-hidden-desktop elementor-hidden-tablet menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
-                                                    <a href="/signup.aspx" class="ekit-menu-nav-link">Sign up</a></li>
+                                                    <a href="/signup.aspx" class="ekit-menu-nav-link ">Sign up</a></li>
                                                 <%-- <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-650 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
                                                     <a href="#ABHA" class="ekit-menu-nav-link">ABHA</a></li>--%>
                                             </ul>
@@ -1077,7 +1113,7 @@ padding-top: 156px;
                                                     <div class="elementor-button-wrapper">
                                                         <a class="elementor-button elementor-button-link elementor-size-sm" href="/signup.aspx">
                                                             <span class="elementor-button-content-wrapper">
-                                                                <span class="elementor-button-text">Sign up</span>
+                                                                <span class="elementor-button-text signup">Sign up</span>
                                                             </span>
                                                         </a>
                                                     </div>
@@ -1093,7 +1129,122 @@ padding-top: 156px;
             </section>
         </div>
     </div>
+    <style>
 
+        @media (max-width: 768px) {
+    .elementor-button-wrapper {
+        display: flex;
+        justify-content: center; /* Center button */
+        width: 100%;
+    }
+
+    .elementor-button {
+        width: 80%; /* Adjust button width */
+        max-width: 250px;
+    }
+}
+        @media(max-width:768px)
+        {
+            .signup{
+                width: 89px;
+                height: 30px;
+                top: 24px;
+                left: 296px;
+                font-family: Montserrat;
+                font-weight: 600;
+                font-size: 18.5px;
+                line-height: 22.55px;
+                letter-spacing: 0px;
+                text-align: center;
+                color:#0331B5;
+            }
+        }
+        @media(max-width:480px)
+{
+    .signup{
+        width: 89px;
+        height: 30px;
+        top: 24px;
+        left: 296px;
+        font-family: Montserrat;
+        font-weight: 600;
+        font-size: 18.5px;
+        line-height: 22.55px;
+        letter-spacing: 0px;
+        text-align: center;
+        color:#0331B5;
+    }
+}
+        @media(max-width:600px)
+{
+    .signup{
+        width: 89px;
+        height: 30px;
+        top: 24px;
+        left: 296px;
+        font-family: Montserrat;
+        font-weight: 600;
+        font-size: 18.5px;
+        line-height: 22.55px;
+        letter-spacing: 0px;
+        text-align: center;
+        color:#0331B5;
+    }
+}
+
+        @media (max-width: 768px) {
+    .elementor-section.elementor-top-section {
+        height: auto !important; /* Adjusts height dynamically */
+        min-height: 50px; /* Reduce minimum height */
+        padding: 5px 10px !important; /* Adjust inner spacing */
+    }
+
+    /* Reduce logo size for smaller screens */
+    .elementor-widget-image img {
+        width: 150px !important; /* Adjust logo width */
+        height: auto;
+    }
+
+    /* Reduce padding in navigation elements */
+    .elementor-widget-container {
+        padding: 5px 0 !important;
+    }
+
+    /* Adjust Sign Up button size */
+    .elementor-button {
+        font-size: 14px !important; /* Smaller text */
+        padding: 5px 10px !important; /* Reduce button padding */
+    }
+
+    /* Adjust menu icon size */
+    .elementskit-menu-hamburger {
+        font-size: 20px !important; /* Reduce icon size */
+    }
+
+    /* Reduce menu spacing */
+    .elementskit-navbar-nav-default {
+        padding: 5px 0 !important;
+    }
+}
+         .elementskit-menu-hamburger {
+        display: block !important;  /* Ensures it shows on mobile */
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+    }
+
+    .ekit-menu-icon {
+        display: block !important;
+        width: 30px;
+        height: 30px;
+        background: url('hamburger-icon.svg') no-repeat center;
+        background-size: contain;
+    }
+
+    /* Hide desktop menu on mobile */
+   
+    </style>
 
     <div data-elementor-type="wp-page" data-elementor-id="26" class="elementor elementor-26">
         <section class="elementor-section elementor-top-section elementor-element elementor-element-40c8b6f7 elementor-section-height-min-height elementor-section-items-stretch elementor-section-boxed elementor-section-height-default" data-id="40c8b6f7" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
@@ -1290,23 +1441,38 @@ padding-top: 156px;
     /* Text section styling */
 
 
-    .elementor-widget-container p {
-        font-size: 26px;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 100;
-        line-height: 31.69px;
-        text-align: left;
-    }
+  .elementor-widget-container p {
+    font-size: 22px;
+    font-family: Montserrat;
+    font-weight: 400;
+    text-align: left;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: horizontal;
+    line-height: 46px;
+}
+
 
     /* Media Query for Tablets */
-    @media (max-width: 1024px) {
-        .elementor-heading-title {
-            font-size: 40px ; /* Slightly smaller heading */
-        }
-        .elementor-widget-container p {
-            font-size: 22px ; /* Smaller text for tablets */
-        }
-    }
+            @media (max-width: 1024px) {
+                .elementor-heading-title {
+                    font-size: 40px; /* Slightly smaller heading */
+                }
+
+                .elementor-widget-container p {
+                    font-size: 21px;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 400;
+                    line-height: 1.4; /* Adjust line height */
+                    text-align: left;
+                    white-space: normal; /* Ensure text wraps */
+                    overflow:auto;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2; /* Restrict to 2 lines */
+                    -webkit-box-orient: vertical;
+                }
+            }
 
     /* Media Query for Mobile Phones */
     @media (max-width: 768px) {
@@ -1315,7 +1481,8 @@ padding-top: 156px;
         }
         .elementor-widget-container p {
             font-size: 18px ; /* Smaller text for mobile */
-            line-height: 1.5; /* Increase line height for readability */
+            line-height: 1.5;
+            /* Increase line height for readability */
         }
     }
 
@@ -1810,7 +1977,7 @@ padding-top: 156px;
 
                                                                 .elementor-button {
                                                                     font-size: 1em;
-                                                                    width: 100%; /* Full width button for mobile */
+                                                                    width: 50%; /* Full width button for mobile */
                                                                     text-align: center;
                                                                 }
 
@@ -1948,7 +2115,7 @@ padding-top: 156px;
                                                 data-widget_type="heading.default">
 
                                                 <div class="howhealth">
-                                                    <h2 class="elementor-heading-title" style="font-size: 34px; color: black;">How does Health Files Work?</h2>
+                                                    <h2 >How does Health Files Work?</h2>
                                                 </div>
                                             </div>
                                             <div class="elementor-element elementor-element-8050479 elementor-widget__width-initial elementor-invisible elementor-widget elementor-widget-text-editor"
@@ -1979,7 +2146,7 @@ padding-top: 156px;
                                         data-id="8d75464" data-element_type="column"
                                         style="padding-right: 80px;">
 
-                                        <div class="elementor-widget-container">
+                                        <div class="videodesktop">
                                             <!-- Video Embed -->
                                             <video id="myVideo" controls style="width: 218%; height: 500px;margin-left:-164px;">
                                                 <source src="/journal-page-images/article/Welcome to Health Files!.mp4" type="video/mp4">
@@ -1987,7 +2154,39 @@ padding-top: 156px;
                                
                                             </video>
                                         </div>
+                                        <div class="videomobile">
+    <!-- Video Embed -->
+                                            <video id="myVideo1" controls style="width: 399px; height: 514px;">
+                                             <source src="/journal-page-images/article/phoneview.mp4" type="video/mp4">
+                                                 Your browser does not support the video tag.
+                               
+                                                </video>
+                                            </div>
                                     </div>
+                                    <style>
+                                        .videodesktop{
+                                            display:block;
+                                        }
+                                        .videomobile{
+                                             display:none;
+                                        }
+                                        @media(max-width:768px){
+                                             .videodesktop{
+                                                 display:none;
+                                             }
+                                             .videomobile{
+                                                  display:block;
+                                             }
+                                        }
+                                        @media(max-width:480px){
+                                          .videodesktop{
+                                              display:none;
+                                          }
+                                          .videomobile{
+                                               display:block;
+                                          }
+}
+                                    </style>
                                   
                                     <!-- Right Column for Text -->
                                     <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-9abcd12"
@@ -2066,7 +2265,7 @@ padding-top: 156px;
             width: 100%; /* Make sure it's fully visible */
         }
         .howhealth{
-            width: 416px;
+            width: 311px;
             height: 90px;
             top: 34px;
             left: 12px;
@@ -2078,6 +2277,9 @@ padding-top: 156px;
             text-align: center;
 
 
+        }
+        howhealth h2{
+            text-align:left;
         }
     }
 
@@ -2137,7 +2339,7 @@ padding-top: 156px;
   color:black;
 }
      .howhealth{
-     width: 416px;
+     width: 311px;
      height: 90px;
      top: 34px;
      left: 12px;
@@ -2173,6 +2375,59 @@ left: 31px;
 }
 
 </style>
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function () {
+                // Get the video element after the DOM has loaded
+                var video = document.getElementById("myVideo1");
+
+                if (video) {
+                    // Mute the video to allow autoplay
+                    video.muted = true; 
+
+                    // Function to play the video
+                    function playVideo() {
+                        if (video.paused) {
+                            video.play();
+                        }
+                    }
+
+                    // Function to pause the video
+                    function pauseVideo() {
+                        if (!video.paused) {
+                            video.pause();
+                        }
+                    }
+
+                    // Automatically play the video when the page is visible
+                    document.addEventListener('visibilitychange', function () {
+                        if (document.visibilityState === 'visible') {
+                            playVideo();  // Play the video when the page is active
+                        } else {
+                            pauseVideo(); // Pause the video when the page is hidden
+                        }
+                    });
+
+                    // You can also trigger the play/pause when the video comes into the viewport
+                    // Using Intersection Observer (optional)
+                    let videoObserver = new IntersectionObserver((entries, observer) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                playVideo(); // Play video when it comes into the viewport
+                            } else {
+                                pauseVideo(); // Pause video when it leaves the viewport
+                            }
+                        });
+                    }, { threshold: 0.5 });
+
+                    videoObserver.observe(video);
+                } else {
+                    console.error("Video element with id 'myVideo1' not found.");
+                }
+            });
+
+        </script>  
+
+
                                  <script type="text/javascript">
                                      document.addEventListener("DOMContentLoaded", function () {
                                          // Get the video element after the DOM has loaded
@@ -2442,10 +2697,11 @@ left: 31px;
                                 <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-403aef59" data-id="403aef59" data-element_type="column">
                                     <div class="elementor-widget-wrap elementor-element-populated">
                                         <div class="elementor-element elementor-element-223afac elementor-invisible elementor-widget elementor-widget-heading" data-id="223afac" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="heading.default">
-                                            <div class="personalizedcontact">
-                                                <h2 class="personalized">Personalized Health Solutions</h2>
+                                            <div class="personalizedcontact" >
+                                                <h2 class="personalized">Personalized Health</h2>
+                                                <h2 class="personalizedsolut">Solutions</h2>
                                                 <h4 class="enterprose">Enterprise and Organizations</h4>
-                                                <p class="tailored">Tailored solutions designed to meet ypur organization's needs and goals.</p>
+                                                <p class="tailored">Tailored solutions designed to meet your organization's needs and goals.</p>
                                                 <img src="/journal-page-images/article/personalized.png" />
                                                  <a class="personalizedcontact" href="#contactus">
                                                      Contact Us</a>
@@ -2475,57 +2731,96 @@ left: 31px;
         text-align: left;
         max-width: 800px;
         margin: auto;
+        margin-left: 329px;
     }
 
     .personalizedcontact h2 {
+        width: 1002px;
+        height: 121px;
+        top: 1356px;
+        left: 72px;
         font-family: "Red Hat Display", sans-serif;
         font-weight: 700;
-        font-size: 48px;
+        font-size: 80px;
         line-height: 56px;
         letter-spacing: 1.5px;
         color: #000;
         margin-bottom: 10px;
     }
+    .personalizedsolut{
+        width: 791px;
+        height: 121px;
+        top: 1477px;
+        left: 72px;
+        font-family: Red Hat Display;
+        font-weight: 700;
+        font-size: 80px;
+        line-height: 105.84px;
+        letter-spacing: 2px;
+
+
+    }
 
     .personalizedcontact h4 {
-        font-family: "Montserrat", sans-serif;
+        width: 698px;
+        height: 123px;
+        top: 1569px;
+        left: 72px;
+        font-family: Montserrat;
         font-weight: 600;
         font-size: 28px;
-        line-height: 34px;
+        line-height: 36px;
         letter-spacing: 1px;
         color: #444;
         margin-bottom: 10px;
     }
 
     .personalizedcontact p {
-        font-family: "Montserrat", sans-serif;
+        width: 709px;
+        height: 123px;
+        top: 1699px;
+        left: 72px;
+        font-family: Montserrat;
         font-weight: 400;
         font-size: 20px;
-        line-height: 28px;
+        line-height: -20px;
         letter-spacing: 0.5px;
         color: #666;
-        margin-bottom: 20px;
+        margin-bottom: -60px;
+        margin-top: -40px;
     }
 
     .personalizedcontact img {
-        width: 500px;
-        height: auto;
-        display: block;
-        margin-bottom: 20px;
+       width: 705px;
+       height: 705px;
+       top: 1418px;
+       left: 737px;
+           margin-left: 633px;
+    margin-top: -400px;
     }
 
     .personalizedcontact a {
-        display: inline-block;
-        background-color: #FFD100; /* Yellow button */
-        color: black;
-        padding: 17px 43px;
-        font-size: 20px;
-        font-weight: 600;
-        text-decoration: none;
-        border-radius: 8px;
-        transition: background-color 0.3s, transform 0.2s;
-        border: 2px solid black;
-    }
+    width: 318px;
+    height: 95px;
+    top: 1872px;
+    left: 72px;
+    border-radius: 5px;
+    border-width: 1px;
+    display: inline-block;
+    background-color: #FFD100;
+    color: black;
+    padding: 22px 81px;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+    border: 1px solid black;
+    margin-left: -2px;
+    margin-top: -59px;
+    margin-bottom: 41px;
+}
+
 
     .personalizedcontact a:hover {
         background-color: gold;
@@ -2533,6 +2828,10 @@ left: 31px;
     }
 
             @media(max-width:480px){
+                .personalizedcontact {
+                width: 100%;
+                margin-left:0;
+                }
                    .personalizedcontact h2 {
                     width: 391px;
                     height: 92px;
@@ -2696,7 +2995,7 @@ left: 31px;
                   </div>
                   <div class="elementor-element elementor-element-fcd7a2f elementor-widget elementor-widget-text-editor" data-id="fcd7a2f" data-element_type="widget" data-widget_type="text-editor.default">
                       <div class="elementor-widget-container">
-                          To create a social healthcare network that connects families and health care professionals seamlessly. To build a global health community where individuals can share experiences and empower each other to lead healthier lives.					
+                        <p>  To create a social healthcare network that connects families and health care professionals seamlessly. To build a global health community where individuals can share experiences and empower each other to lead healthier lives.					</p>
                       </div>
                   </div>
               </div>
@@ -3411,7 +3710,7 @@ left: 31px;
                 </section>
 
 
-                <hr />
+      
              <section class="handshakesection">
     <div class="handshake1">
         <!-- Left Column for Logo -->
@@ -3636,28 +3935,14 @@ left: 31px;
        left: 187px;
 
    }
-   #phone-info  {
+     .talkus img {
        width: 125px;
        height: 125px;
        top: 293px;
        left: 234px;
 
    }
-   #email-info{
-       width: 125px;
-height: 125px;
-top: 293px;
-left: 234px;
-
-   }
-   #whatsapp-info{
-       width: 125px;
-height: 125px;
-top: 293px;
-left: 940px;
-
-   }
-
+  
 /* Left Side - Handshake Image */
 .handshake {
     flex: 1; /* Takes up equal space */
@@ -3740,8 +4025,12 @@ letter-spacing: 0px;
 
 @media(max-width: 768px) {
     .talkusp{
-        margin-left: -58px;
+        width:418px;
+        height:65px;
+        font-size:16px;
+        margin-left: -41px;
     text-align: left;
+
     }
          .talkusheader {
                  margin-left: -224px;
@@ -3765,6 +4054,14 @@ letter-spacing: 0px;
         margin-right: 0;
         font-weight: 600;
     }
+         .talkus img {
+       width: 73px;
+       height: 73px;
+       top: 293px;
+       left: 234px;
+
+   }
+  
 }
 
 
@@ -3809,19 +4106,27 @@ letter-spacing: 0px;
 
          @media(max-width:600px) {
              .talkus {
-                   width: 437px;
-                   height: 78px;
-                   margin-top: 65px;
-                   margin-left: -80px;
-                   display: flex;
-                   justify-content: space-between;
-                   align-items: center;
+                width: 409px;
+                height: 91px;
+                margin-top: 65px;
+                margin-left: -70px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+    }
 
-             }
              .talkus p{
                  font-size:14px;
+
              }
-         }
+                   .talkus img  {
+       width: 73px;
+       height: 73px;
+       top: 293px;
+       left: 234px;
+
+   }
+     }
 
 
 
@@ -4362,7 +4667,7 @@ letter-spacing: 0px;
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-4f4c1c7" data-id="4f4c1c7" data-element_type="column">
+                                    <div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-4f4c1c7" data-id="4f4c1c7" data-element_type="column" style="margin-right:-25px">
                                     </div>
 
 
@@ -4371,7 +4676,7 @@ letter-spacing: 0px;
                                             <!-- Let Us Help You Section -->
                                             <div class="elementor-element elementor-element-2157551d elementor-widget-mobile__width-initial elementor-widget elementor-widget-heading" style="background-color: #0331B5;" data-id="2157551d" data-element_type="widget" data-widget_type="heading.default">
                                                 <div class="letus">
-                                                    <h2 class="elementor-heading-title elementor-size-default" style="font-family: Poppins; color: white; text-align:left; font-weight: 500; font-size: 23px; height: 38px; width: 187px;"><u>Let Us Help You</u></h2>
+                                                    <h2 class="elementor-heading-title elementor-size-default" style="font-family: Poppins;     color: white; text-align:left; font-weight: 500; font-size: 23px; height: 38px; width: 192px;"><u>Let Us Help You</u></h2>
                                                     <ul class="elementor-icon-list-items" style="align-items: baseline;">
                                                         <li class="elementor-icon-list-item">
                                                             <span class="elementor-icon-list-text">
@@ -4488,35 +4793,81 @@ letter-spacing: 0px;
                                         <div class="elementor-widget-wrap elementor-element-populated">
                                             <div class="elementor-element elementor-element-2157551d elementor-widget-mobile__width-initial elementor-widget elementor-widget-heading" data-id="2157551d" data-element_type="widget" data-widget_type="heading.default">
                                                 <div class="elementor-widget-container">
-                                                    <div class="address">
-                                                        <h2 class="elementor-heading-title elementor-size-default" style="font-family: Poppins; color: white; font-weight: 500; font-size: 24px; height: 38px; width: 187px;text-align:left;"><u>Address</u></h2>
-                                                        <ul class="elementor-icon-list-items" style="color: white; width: 123px;">
-                                                            <li class="elementor-icon-list-item" style="color: white; width: 123px;">
-
-
-                                                                <span class="addressheader" style=""><strong>Ahmedabad Branch:</strong><br />
-                                                                    <h8>
-                                                                        5-A,Ravi Pushp Apartment,<br />
-                                                                        Ahmedabad-380052, Gujarat.</h8>
-                                                                </span>
-                                                            </li>
-                                                            <br />
-                                                            <li class="elementor-icon-list-item">
-                                                                <p class="branch" style="">Mumbai Branch:</p><br />
-                                                                   <p class="branchaddress"> 13/4, Marine Lines,<br />
-                                                                    Mumbai - 400020, Maharashtra.</p>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                                    <div class="address-container">
+    <h2><u>Address</u></h2>
+    <ul class="elementor-icon-list-items">
+        <li class="address-item">
+            <span class="addressheader"><strong>Ahmedabad Branch:</strong></span>
+            <p class="branchaddress">5-A, Ravi Pushp Apartment, Ahmedabad-380052, Gujarat.</p>
+        </li>
+        <li class="address-item">
+            <span class="addressheader"><strong>Mumbai Branch:</strong></span>
+            <p class="branchaddress">13/4, Marine Lines, Mumbai - 400020, Maharashtra.</p>
+        </li>
+    </ul>
+</div>
                                                 </div>
                                             </div>
                                         </div>
                                         <style>
+                                            @media (min-width: 768px) {
+    .elementor-23 .elementor-element.elementor-element-4f4c1c7 {
+        width: 16.802%;
+        margin-left: -20px;
+        margin-right: 16px;
+    
+    }
+}
                                             .address-container {
                                                 white-space: nowrap; /* Prevents unnecessary line breaks */
                                                 max-width: 250px;
                                                 overflow-wrap: break-word;
                                             }
+                                            @media(max-width:768px)
+                                            {
+                                                .address-container {
+                                                    white-space: nowrap; /* Prevents unnecessary line breaks */
+                                                    max-width: 250px;
+                                                    overflow-wrap: break-word;
+                                                }
+                                                .address-container h2{
+                                                    margin-left:-21px;
+                                                    color:white !important;
+                                                    font-family:Montserrat;
+                                                    font-size:24px;
+                                                    font-weight:500;
+                                                }
+                                            }
+                                            @media(max-width:1024px)
+{
+    .address-container {
+        white-space: nowrap; /* Prevents unnecessary line breaks */
+        max-width: 250px;
+        overflow-wrap: break-word;
+    }
+    .address-container h2{
+        margin-left:-21px;
+        color:white !important;
+        font-family:Montserrat;
+        font-size:24px;
+        font-weight:500;
+    }
+}
+                                             @media(max-width:600px)
+ {
+     .address-container {
+         white-space: nowrap; /* Prevents unnecessary line breaks */
+         max-width: 250px;
+         overflow-wrap: break-word;
+     }
+     .address-container h2{
+         margin-left:-21px;
+         color:white !important;
+         font-family:Montserrat;
+         font-size:24px;
+         font-weight:500;
+     }
+ }
                                         </style>
                                         <%--     <div class="elementor-element elementor-element-2cdd472e elementor-widget elementor-widget-icon-list" data-id="2cdd472e" data-element_type="widget" data-widget_type="icon-list.default">
             <div class="elementor-widget-container">
@@ -4553,51 +4904,106 @@ letter-spacing: 0px;
         </div>
     </div>
     <style>
-        .branchaddress{
-            color: white; 
-            font-family: Montserrat; 
-            font-size: 22px !important; 
-            font-weight: 400; 
-            line-height: 29.26px; 
-            text-align: left; 
-            text-underline-position: from-font; 
-            text-decoration-skip-ink: none;
-        }
-        .branch{
-            color: white; 
-            font-family: Montserrat; 
-            font-size: 22px !important; 
-            font-weight: 400; 
-            line-height: 29.26px; 
-            text-align: left; 
-            text-underline-position: from-font; 
-            text-decoration-skip-ink: none;
-        }
-        .addressheader{
-            font-family: Montserrat; 
-            font-size: 22px;
-            text-align:left;
-            font-weight:200;
-        }
-        .addressheader h8{
-            color: white; 
-            font-family: Montserrat; 
-            font-size: 22px; 
-            font-weight: 400; 
-            line-height: 29.26px; 
-            text-align: left; 
-            text-underline-position: from-font; 
-            text-decoration-skip-ink: none;
-        }
-        .address h2 {
-            font-family: Poppins; 
-            color: white; 
-            font-weight: 500; 
-            font-size: 24px; 
-            height: 38px; 
-            width: 187px;
-            text-align:left;
-        }
+       .address {
+    color: white;
+    font-family: Montserrat, sans-serif;
+    text-align: left;
+    margin-left: 0px; /* Fix unnecessary negative margins */
+}
+
+/* Address Title */
+.address h2 {
+    font-size: 22px;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+/* Address List */
+.address ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Address Items */
+.address-item {
+    max-width: 250px;
+    line-height: 1.3;
+    margin-bottom: 10px; 
+}
+
+/* Ensure Address Stays in Two Lines */
+.branchaddress {
+    width:300px;
+    color:white;
+    font-size:22px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit text to 2 lines */
+    -webkit-box-orient: vertical;
+   
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .address {
+        text-align: left; /* Center-align content */
+    }
+
+    .address-item {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .branchaddress {
+        text-align: left;
+        -webkit-line-clamp: 2; /* Ensure it stays on two lines */
+    }
+}
+
+     
+        .elementor-23 .elementor-element.elementor-element-2157551d .elementor-heading-title {
+    color: white;
+    font-family: "Poppins", Sans-serif;
+    font-size: 23px;
+    font-weight: 600;
+    text-transform: none;
+    line-height: 1.2em;
+    letter-spacing: 0.5px;
+    width:400px;
+}
+        .addressheader {
+    color: white !important;
+    font-family: Montserrat;
+    font-size: 22px;
+   
+    width:400px;
+    text-align: left;
+    white-space: nowrap; /* Allow text to wrap */
+    
+
+}
+
+/* Ensure Address Stays in Two Lines */
+@media (max-width: 768px) {
+    .addressheader {
+        display: block;
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+        line-height: 1.4; /* Adjust line spacing */
+        margin: 0 auto;
+    }
+
+    .branchaddress {
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* Limit text to 2 lines */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-align: center;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+}
         .joinus h2{
             font-size: 28px; 
             font-weight: 500; 
@@ -4608,7 +5014,13 @@ letter-spacing: 0px;
             font-family: 'Montserrat', sans-serif; 
             line-height: 42px; 
             color: white;
+                margin-left: -7px;
+
         }
+        .letus h2{
+    text-align:center;
+    width:400px;
+}
         .beapart h2{
          margin-left: -14px;
     width: 439px;
@@ -4624,6 +5036,7 @@ letter-spacing: 0px;
         }
         .socialicon{
             letter-spacing: 7px;
+            margin-left:-7px;
         }
         .complogo img{
             width: 269px; 
@@ -4659,6 +5072,36 @@ letter-spacing: 0px;
              line-height: 42px;
              color: white;
          }
+         @media(max-width:480px)
+         {
+             .socialicon
+{
+    width: 412px;
+    height: 62px;
+    top: 282px;
+    left: 64px;
+    margin-left:-91px;   
+
+}
+             .letus h2{
+                 text-align:center;
+                 width:400px;
+             }
+             .addressheader
+{
+     width: 352px;
+     height: 37px;
+     top: 985px;
+     left: 71px;
+     font-family: Poppins;
+     font-weight: 400 !important;
+     font-size: 22px;
+     line-height: 39px;
+     letter-spacing: 0px;
+     text-align: left;
+
+}
+         }
         @media(max-width:768px)
         { .address h8{
               width: 360px;
@@ -4675,28 +5118,30 @@ letter-spacing: 0px;
           }
             .address{
                 width: 126px;
-                height: 45px;
+                height: 145px;
                 top: 911px;
                 left: 157px;
                 font-family: Poppins;
                 font-weight: 600;
-                font-size: 30px;
+                font-size: 22px !important;
                 line-height: 45px;
                 letter-spacing: 0px;
+                margin-left: -30px;
+                margin-top: -146px;
 
             }
             .addressheader
             {
-                width: 298px;
-                height: 36px;
-                top: 985px;
-                left: 71px;
-                font-family: Poppins;
-                font-weight: 500;
-                font-size: 24px;
-                line-height: 36px;
-                letter-spacing: 0px;
-                text-align: center;
+                 width: 352px;
+                 height: 37px;
+                 top: 985px;
+                 left: 71px;
+                 font-family: Poppins;
+                 font-weight: 400 !important;
+                 font-size: 22px;
+                 line-height: 39px;
+                 letter-spacing: 0px;
+                 text-align: left;
 
             }
             .address p{
@@ -4706,16 +5151,16 @@ letter-spacing: 0px;
                 left: 54px;
                 font-family: Montserrat;
                 font-weight: 400;
-                font-size: 26px;
+                font-size: 22px !important;
                 line-height: 31.69px;
                 letter-spacing: 0px;
-                text-align: center;
+                text-align: left;
 
             }
             .policies
          {
              width: 296px;
-             height: 194px;
+             height: 120px;
              top: 645px;
              left: 108px;
 
@@ -4724,17 +5169,18 @@ letter-spacing: 0px;
             .letus
          {
              width: 226px;
-             height: 194px;
+             height: 120px;
              top: 396px;
              left: 108px;
 
          }
             .socialicon
             {
-                width: 312px;
-                height: 52px;
+                width: 412px;
+                height: 62px;
                 top: 282px;
                 left: 64px;
+                margin-left:-91px;   
 
             }
             .joinus {

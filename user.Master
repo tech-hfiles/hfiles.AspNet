@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="user.master.cs" Inherits="hfiles.user" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="user.Master.cs" Inherits="hfiles.user" %>
 
 <!DOCTYPE html>
 
@@ -341,6 +341,17 @@
     transition: height 0.4s ease, opacity 0.4s ease; /* Add smooth collapse transition */
 }
 
+        .dot-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: red;
+    border-radius: 50%;
+    margin-left: 5px;
+   
+}
+
+
     </style>
 
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -413,8 +424,10 @@
                                 <asp:UpdatePanel ID="RequestCount" runat="server">
                                     <ContentTemplate>
                                         <li><a href="managemembers.aspx" class="color-thm-blue"><i class="fa fa-solid fa-user"></i>My Members
-                                            <asp:Label ID="ReqCount" runat="server" CssClass="badge bg-warning rounded-circle"></asp:Label></a></li>
-                                                        
+                                            <asp:Label ID="ReqCount" runat="server" CssClass="badge bg-warning rounded-circle"></asp:Label>
+                                           <asp:Label ID="requestDot" runat="server" class=""></asp:Label>
+                                            </a></li>
+                                                      
                                         
                                         
                                     </ContentTemplate>
