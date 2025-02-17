@@ -777,8 +777,38 @@ namespace hfiles
             }
         }
 
+        protected void lbtnremove_Click(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
 
+            int reportId = Convert.ToInt32(GridView1.DataKeys[row.RowIndex].Value);
 
+            DeleteReport(reportId);
+
+            
+            GridView1.DeleteRow(row.RowIndex);
+
+            GridBind();
+        }
+        private void DeleteReport(int reportId)
+        {
+            string query = "DELETE FROM user_reports WHERE Id = @Id";
+            using (MySqlConnection conn = new MySqlConnection(cs))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Id", reportId);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report deleted successfully');", true);
+        }
     }
 
 }

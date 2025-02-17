@@ -939,7 +939,7 @@
                                                          <div class="Mobile_menu-circle_outer">
                                                              <div class="Mobile_menu-circle">
                                                                  <a href="AllReports.aspx">
-                                                                     <img src="../Avatar/all-reports.jpeg" alt="" />
+                                                                     <img src="../Avatar/all-reportsimg.png" alt="" style="height: 52px;" />
                                                                  </a>
                                                              </div>
                                                              <div class="Mobile_menu-circle_name py-2">

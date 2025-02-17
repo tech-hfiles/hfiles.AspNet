@@ -88,6 +88,9 @@
     <p _msttexthash="240006" _msthash="24"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
 "></i>Upload PDF files</p>
+            <p _msttexthash="240006" _msthash="24"><i class="fa fa-check-circle" aria-hidden="true" style="
+    padding-right: 10px;
+"></i>Wellness kit</p>
     <p _msttexthash="240006" _msthash="24"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
 "></i>Access to blogs</p>
@@ -128,6 +131,9 @@
     <p _msttexthash="240006" _msthash="24"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
 "></i>Upload PDF,video files</p>
+     <p _msttexthash="240006" _msthash="24"><i class="fa fa-check-circle" aria-hidden="true" style="
+    padding-right: 10px;
+"></i>Wellness kit</p>
     <p _msttexthash="240006" _msthash="24"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
 "></i>Access to exclusive blogs</p>
@@ -163,10 +169,11 @@
 "></i>Membership card</p>
     <p _msttexthash="240006" _msthash="24"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
-"></i>Wellness kit</p>
+"></i>Wellness program</p>
     <p _msttexthash="240006" _msthash="24"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
 "></i>Personalized solutions</p>
+        
         <button style="
     width: 80%;
     background-color: #0331b5;
@@ -175,7 +182,7 @@
     border: none;
     border-radius: 20px;
     bottom: 0;
-    margin-top: 50px;
+    margin-top: 81px;
     margin-bottom: 0;
     margin-left:20px;
 ">Contact Sales</button>

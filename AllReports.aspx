@@ -387,7 +387,7 @@
 
 
 
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" Width="90%" HorizontalAlign="Center"
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" Width="90%" HorizontalAlign="Center" OnRowDeleting="GridView1_RowDeleting"
                         BorderStyle="Solid" BorderWidth="2px"
                         CellPadding="10" GridLines="None" CssClass="custom-gridview">
                         <AlternatingRowStyle BackColor="#f9f9f9" />
@@ -412,6 +412,11 @@
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkViewFile" runat="server" CommandName="ViewFile" CommandArgument='<%# Eval("Id") %>'
                                         Text="View File" CssClass="oval-button" OnClick="lnkViewFile_Click" />
+                                     &nbsp;
+                                        <asp:LinkButton Text="text" ID="lbtnremove" OnClick="lbtnremove_Click" OnClientClick="return confirm('This will permanently delete Reports')" runat="server" CommandName="Delete" CommandArgument='<%# Eval("Id")%>'>
+                                           <image style="max-width:20px;max-height:20px;" src="../Suppor Group (BG  & Icons)/delete-icon.png"  />
+
+                                        </asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

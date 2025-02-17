@@ -2711,7 +2711,7 @@ left: 31px;
                                                 <h2 class="personalizedsolut">Solutions</h2>
                                                 <h4 class="enterprose">Enterprise and Organizations</h4>
                                                 <p class="tailored">Tailored solutions designed to meet your organization's needs and goals.</p>
-                                                <img src="/journal-page-images/article/personalized.png" />
+                                                <img src="/journal-page-images/article/personalized.jpeg" />
                                                  <a class="personalizedcontact" href="#contactus">
                                                      Contact Us</a>
 
