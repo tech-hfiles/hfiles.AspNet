@@ -138,7 +138,7 @@
 
 
             <div style="display: flex; justify-content: end;">
-                <div style="padding: 10px;">
+                <div style="padding: 10px; bottom: 0;">
                     <button type="button" class="responsive-button" id="addprescription" onclick="addPrescription()">Add <i class="fa fa-add" style="color: #ffd101"></i></button>
                     <button type="button" class="responsive-button" id="accessprescription" data-bs-toggle="modal" data-bs-target="#AccessModal">Access <i class="fa fa-check-circle-o" style="color: #ffd101"></i></button>
                     <button type="button" class="responsive-button" id="shareprescription" data-bs-toggle="modal" data-bs-target="#ShareModal">Share <i class="fa fa-share" style="color: #ffd101"></i></button>

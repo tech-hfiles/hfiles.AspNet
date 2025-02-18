@@ -470,7 +470,7 @@ namespace hfiles
 
             GetUserDetails(userId);
 
-           // ScriptManager.RegisterStartupScript(this, this.GetType(), "showModal", "$('#editUserModal').modal('show');", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "showModal", "$('#exampleModal').modal('show');", true);
 
         }
 

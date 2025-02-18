@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -19,7 +20,13 @@ namespace hfiles
             {
                 BindUserAccordion();
             }
-            
+
+            if (Session["showToastr"] != null && (bool)Session["showToastr"])
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "showToastr", "showToastr('success', 'Updated successfully');", true);
+                Session["showToastr"] = null; // Clear the flag
+            }
+
         }
         private void BindUserAccordion()
         {
@@ -105,72 +112,89 @@ namespace hfiles
 
             return dt;
         }
-        //public DataTable GetAllUserDetails()
-        //{
-        //    DataTable dt = new DataTable();
-        //    List<int> userIds = new List<int>();
 
-        //    // Step 1: Get a list of all user IDs
-        //    using (MySqlConnection con = new MySqlConnection(cs))
-        //    {
-        //        con.Open();
-        //        using (MySqlCommand cmd = new MySqlCommand("usp_getmember", con))
-        //        {
-        //            cmd.CommandType = CommandType.StoredProcedure;
-        //            cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(Session["Userid"]));
-        //            cmd.Parameters.AddWithValue("_MemberId", 0);
-        //            cmd.Parameters.AddWithValue("_SpType", "LS");
-        //            cmd.Parameters.AddWithValue("_ReportId", 0);
-        //            cmd.Parameters.AddWithValue("_RId", 0);
+        protected void LinkButtonEdit_Click(object sender, EventArgs e)
+        {
+            LinkButton editButton = (LinkButton)sender;
+            string userId = editButton.CommandArgument;
 
-        //            using (MySqlDataReader reader = cmd.ExecuteReader())
-        //            {
-        //                while (reader.Read())
-        //                {
-        //                    if (Convert.ToInt32(reader["IsDependent"]) == 1 && Convert.ToInt32(reader["DependentUserId"]) == DAL.validateInt(Session["Userid"]))
-        //                    {
-        //                        userIds.Add(Convert.ToInt32(reader["UserId"]));
-        //                    }
-        //                }
-        //            }
-        //        }
-        //    }
+            ViewState["UserId"] = userId; // Store User ID
+            GetUserDetails(userId);
 
-        //    // Step 2: Loop through each user ID and get basic details
-        //    foreach (int userId in userIds)
-        //    {
-        //        getbasicdetails(userId);
-        //    }
-        //    return dt;
-        //}
+            //ScriptManager.RegisterStartupScript(this, this.GetType(), "showModal", "$('#exampleModal').modal('show');", true);
+        }
+        protected void GetUserDetails(string userId)
+        {
+           
 
-        //public void getbasicdetails(int id)
-        //{
-        //    using (MySqlConnection connection = new MySqlConnection(cs))
-        //    {
-        //        connection.Open();
-        //        using (MySqlCommand command = new MySqlCommand("getUserDetails", connection))
-        //        {
-        //            command.CommandType = CommandType.StoredProcedure;
-        //            command.Parameters.AddWithValue("_Id", id);
+            using (MySqlConnection connection = new MySqlConnection(cs))
+            {
+                connection.Open();
+                string query = "SELECT user_bloodgroup, user_icecontact FROM user_details WHERE user_id =" + userId;
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
 
-        //            using (MySqlDataReader reader = command.ExecuteReader())
-        //            {
-        //                while (reader.Read())
-        //                {
-        //                    string userName = reader["UserName"].ToString();
-        //                    string email = reader["Email"].ToString();
-        //                    string role = reader["Role"].ToString();
+                    MySqlDataReader reader = cmd.ExecuteReader();
 
-        //                    // Process user details (example: print or store)
-        //                    Console.WriteLine($"User ID: {id}, Name: {userName}, Email: {email}, Role: {role}");
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
+                    while (reader.Read())
+                    {
+
+                        DropDownbloodgrp.Text = reader["user_bloodgroup"].ToString();
+                        txtEmerContact.Text = reader["user_icecontact"].ToString();
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "showModal", "$('#exampleModal').modal('show');", true);
+
+                    }
+
+                }
+            }
+
+        }
+        protected void lbtnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Bloodgrp = DropDownbloodgrp.SelectedValue;
+                string Emergencyno = txtEmerContact.Text;
+
+                string userId = ViewState["UserId"] as string;
 
 
-        
+                UpdateUserDetails(userId, Bloodgrp, Emergencyno);
+
+
+                //ScriptManager.RegisterStartupScript(this, this.GetType(), "showToastr", "showToastr('success', 'Updated successfully');", true);
+
+                Session["showToastr"] = true;
+                Response.Redirect(Request.Url.AbsoluteUri);
+
+            }
+            catch (Exception ex)
+            {
+                // Display error message
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "showToastr", "showToastr('error', 'Update failed');", true);
+            }
+        }
+
+        private void UpdateUserDetails(string userId, string Bloodgrp, string Emergencyno)
+        {
+            using (MySqlConnection con = new MySqlConnection(cs))
+            {
+                string query = "UPDATE user_details SET user_bloodgroup = @user_bloodgroup, user_icecontact = @user_icecontact WHERE user_id = @UserID";
+                using (MySqlCommand cmd = new MySqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", userId);
+                    cmd.Parameters.AddWithValue("@user_bloodgroup", Bloodgrp);
+                    cmd.Parameters.AddWithValue("@user_icecontact", Emergencyno);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+        }
+       
+
+
+
     }
 }

@@ -40,6 +40,13 @@
             background-color: #0331b5 !important;
             color: #ffd101 !important;
         }
+                .right-align {
+            display: block;
+            text-align: right;
+           
+             font-weight: bold;
+        }
+        
 </style>
             <div style="text-align: center;margin:auto;max-width:70vh;margin-top:5vh;padding-bottom:10vh;" class="card-box">
                 <div style="display:flex;justify-content:center">
@@ -77,13 +84,93 @@
                          data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <img id='membershipImageAccount<%# Eval("user_id") %>' src='<%# Eval("user_image") %>' class="responsive-image" />
+
+                           
+                                 <asp:LinkButton ID="LinkButtonEdit" runat="server" Text="Edit" OnClick="LinkButtonEdit_Click" CommandArgument='<%# Eval("user_id") %>' CssClass="right-align">
+                                   </asp:LinkButton>
+                             
                         </div>
                     </div>
                 </div>
             </ItemTemplate>
         </asp:Repeater>
     </asp:Panel>
+
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="MemberSelect" class="form-label">Select Blood Group</label>
+                   <asp:DropDownList ID="DropDownbloodgrp" runat="server" CssClass="form-select">
+                        <asp:ListItem Text="Blood Group" Value="0" Selected="True"></asp:ListItem>
+                        <asp:ListItem Text="A+" Value="1"></asp:ListItem>
+                        <asp:ListItem Text="A-" Value="2"></asp:ListItem>
+                        <asp:ListItem Text="B+" Value="3"></asp:ListItem>
+                        <asp:ListItem Text="B-" Value="4"></asp:ListItem>
+                        <asp:ListItem Text="AB+" Value="5"></asp:ListItem>
+                        <asp:ListItem Text="AB-" Value="6"></asp:ListItem>
+                        <asp:ListItem Text="O+" Value="7"></asp:ListItem>
+                        <asp:ListItem Text="O-" Value="8"></asp:ListItem>
+                    </asp:DropDownList>
+                    
+                </div>
+
+                <div class="mb-3" style="border-radius: 14px">
+                    <label for="Emergency" class="form-label">Emergency Contact</label>
+                  <asp:TextBox ID="txtEmerContact" runat="server" CssClass="form-control" placeholder="Enter Contact No." style="border-radius: 15px;" ></asp:TextBox>
+                    <asp:CustomValidator ID="cvEmerContact" runat="server" ControlToValidate="txtEmerContact"
+                        ClientValidationFunction="validatePhoneNumber" 
+                        ForeColor="Red" ErrorMessage="Please enter a valid 10-digit phone number."
+                        ValidationGroup="phoneValidation" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                 <asp:LinkButton ID="lbtnSave" runat="server" OnClick="lbtnSave_Click" Text="Save" CssClass="btn btn-primary" ValidationGroup="phoneValidation"></asp:LinkButton>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
+
+     <script>
+         var isToastrCalled = false;
+
+         function showToastr(type, message) {
+             if (isToastrCalled) return;  // Prevent showing toastr multiple times
+             isToastrCalled = true;  // Set the flag to true once toastr is shown
+
+             if (type === 'success') {
+                 toastr.success(message);
+             } else if (type === 'error') {
+                 toastr.error(message);
+             }
+
+             // Optional: Reload page after toastr message
+
+         }
+     </script>           
+<script type="text/javascript">
+    // Client-side validation function
+    function validatePhoneNumber(sender, args) {
+        var phoneNumber = args.Value;
+
+        // Check if the phone number is exactly 10 digits
+        var phonePattern = /^[0-9]{10}$/;
+
+        // Validate phone number using regex pattern
+        if (phonePattern.test(phoneNumber)) {
+            args.IsValid = true; // Validation passed
+        } else {
+            args.IsValid = false; // Validation failed
+        }
+    }
+</script>
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
