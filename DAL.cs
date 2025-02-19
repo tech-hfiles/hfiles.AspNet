@@ -95,9 +95,14 @@ namespace hfiles
             string url = ConfigurationManager.AppSettings["interaktApiurl"].ToString();
             string apiKey = ConfigurationManager.AppSettings["interaktApiKey"].ToString();
 
+            var countryCodeDigit = "";
+            if (MobileNo.Length == 10)
+            {
+                countryCodeDigit = "+91";
+            }
             var requestBody = new
             {
-                countryCode = "+91",
+                countryCode = countryCodeDigit,
                 phoneNumber = MobileNo,
                 type = "Template",
                 callbackData = "some_callback_data",
