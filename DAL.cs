@@ -12,6 +12,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 
 namespace hfiles
 {
@@ -95,15 +96,32 @@ namespace hfiles
             string url = ConfigurationManager.AppSettings["interaktApiurl"].ToString();
             string apiKey = ConfigurationManager.AppSettings["interaktApiKey"].ToString();
 
-            var countryCodeDigit = "";
-            if (MobileNo.Length == 10)
+            //var countryCodeDigit = "";
+            //if (MobileNo.Length == 10)
+            //{
+            //    countryCodeDigit = "+91";
+            //}
+
+            string countryCodeDigit = "";
+            string pureMobileNumber = "";
+
+            Match match = Regex.Match(MobileNo, @"^(\+?\d{1,4})?(\d{10})$");
+
+            if (match.Success)
             {
-                countryCodeDigit = "+91";
+                countryCodeDigit = match.Groups[1].Value;  
+                pureMobileNumber = match.Groups[2].Value;  
+
+                if (string.IsNullOrEmpty(countryCodeDigit))
+                {
+                    countryCodeDigit = "+91";
+                }
             }
+
             var requestBody = new
             {
                 countryCode = countryCodeDigit,
-                phoneNumber = MobileNo,
+                phoneNumber = pureMobileNumber,
                 type = "Template",
                 callbackData = "some_callback_data",
                 template = new
