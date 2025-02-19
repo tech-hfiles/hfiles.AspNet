@@ -68,12 +68,68 @@
                         height:52px;
                         text-align: center;
                     }
-                    /*.modal-content{
-                        margin-top: 60px;
-                    }*/
-                    /*.modal.show .modal-dialog {
-                          transform: none !important;
-                    }*/
+                  
+                    .table-responsive {
+                        max-width: 98vw;
+                        margin: auto;
+                        border: solid 1px #dee2e6;
+                        overflow-y: auto;
+                    }
+
+                 
+                    .table {
+                        width: 100%;
+                        min-width: 800px; /* Ensures table doesn't shrink too much */
+                        border-collapse: collapse;
+                    }
+
+                   
+                    thead {
+                        position: sticky;
+                        top: 0;
+                        background-color: white;
+                        z-index: 1;
+                    }
+
+                   
+                    .table button {
+                        height: 40px;
+                        width: 100px;
+                        background-color: #8cbcfa;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: default;
+                    }
+
+                  
+                    @media (max-width: 767px) {
+                        .table-responsive {
+                            max-height: 400px;
+                        }
+
+                        .table {
+                            min-width: 600px;
+                        }
+                    }
+                                    .form-select {
+                   
+                                        width: 151px!important;
+                                        margin-right: -19px;
+                                    }
+                  
+                    @media (min-width: 768px) and (max-width: 1180px) {
+                        .table-responsive {
+                            max-height: 500px;
+                        }
+                    }
+
+                   
+                    @media (min-width: 1181px) {
+                        .table-responsive {
+                            max-height: 650px;
+                        }
+                    }
+
             </style>
             <div id="contentpdf">
                 <div class="row">
@@ -366,7 +422,7 @@
                     let filledRows = 0;
 
                    
-                    for (let i = 0; i < 6; i++) {
+                    for (let i = 0; i < 14; i++) {
                         const rowData = dataList[i] || {}; 
                         addRecordTable(rowData);
                         filledRows++;
@@ -409,7 +465,7 @@
                 function loadEmptyRows() {
                     const tableBody = document.querySelector("#prescriptionTableBody");
                     // Ensure that we load 6 empty rows initially
-                    for (let i = 0; i < 6; i++) {
+                    for (let i = 0; i < 14; i++) {
                         const newRow = document.createElement("tr");
 
                         // Set the height of the row to 41px
@@ -420,6 +476,10 @@
                              <td style="width: 169.28px; height: 41px;">&nbsp;</td>
                              <td style="width: 169.28px; height: 41px;">&nbsp;</td>
                              <td style="width: 169.28px; height: 41px;">&nbsp;</td>
+                             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
+                             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
+                             <td style="width: 169.28px; height: 41px;">&nbsp;</td>
+                              <td style="width: 169.28px; height: 41px;">&nbsp;</td>
                              <td style="width: 169.28px; height: 41px;">&nbsp;</td>
                              <td style="width: 169.28px; height: 41px;">&nbsp;</td>
                              <td style="width: 169.28px; height: 41px;">&nbsp;</td>
@@ -506,7 +566,7 @@
                     let filledRows = 0;
 
                    
-                    for (let i = 0; i < 6; i++) {
+                    for (let i = 0; i < 14; i++) {
                         const rowData = dataList[i] || {}; 
                         addRecordTable(rowData);
                         filledRows++;
@@ -725,6 +785,10 @@
                             success: function (response) {
                                 row.remove();  // Remove the row from the table/grid
                                 toastr.success('User Prescription Removed Successfully!');
+
+                                setTimeout(function () {
+                                    location.reload();
+                                }, 500);
                             },
                             error: function (error) {
                                 // Handle error (e.g., show an error message)
