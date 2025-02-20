@@ -382,7 +382,7 @@
                         Text="Share" Style="margin-left: 20px;margin-bottom: 10px;margin-top: -46px;"> &nbsp;&nbsp;<i class='fas fa-share'></i>&nbsp;Share</asp:LinkButton>
                 </div>
 
-              
+                <asp:Label ID="gridLabel" runat="server"  Style="display:none"></asp:Label>
                 <div class="gridviewscroll">
 
 
@@ -403,7 +403,7 @@
                             <asp:BoundField DataField="ReportName" HeaderText="Report Name" SortExpression="ReportName" />
                           
                             <asp:BoundField DataField="ReportType" HeaderText="Report Type" SortExpression="ReportType" />
-                            <asp:BoundField DataField="user_firstname" HeaderText="First Name" SortExpression="user_firstname" />
+                            <asp:BoundField DataField="UserName" HeaderText="User Name" SortExpression="user_firstname" />
                         
                             <asp:BoundField DataField="CreatedDate" HeaderText="Date" SortExpression="CreatedDate"
                                 DataFormatString="{0:yyyy-MM-dd}" />

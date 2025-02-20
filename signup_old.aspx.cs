@@ -55,6 +55,9 @@ namespace hfiles
         {
             string userInput = txtcaptcha.Text;
             string actualCaptcha = Session["Captcha"]?.ToString();
+            string CountryCode = ddlCountry.SelectedItem.Text;
+
+            string phone = CountryCode + phoneTextBox.Value;
 
             if (userInput == actualCaptcha)
             {
@@ -67,7 +70,7 @@ namespace hfiles
                 else
                 {
                     string otp = GenerateOTP(6);
-                    DAL.SendOTPApiRequest(otp, phoneTextBox.Value);
+                    DAL.SendOTPApiRequest(otp, phone);
                     // Generate a 6-digit OTP
                     //string subject = "Welcome to Hfiles";
                     //string body = $"<p style=\"text-align: justify\">Dear {firstnameTextBox.Value},&nbsp;</p>\r\n<p style=\"text-align: justify\">Thank you for signing up for Hfiles! We&apos;re excited to have you on board as a valued member of our community.&nbsp;</p>\r\n<p style=\"text-align: justify\">To complete your registration, please use the following One-Time Password</p>\r\n<p style=\"text-align: justify\"><strong style=\"font-size: 130%\">{otp}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Email footer/ Privacy Agreement: Please keep this OTP secure, as you will need it to verify your account and access our services.&nbsp;</p>\r\n<p style=\"text-align: justify\">At Hfiles, we take your privacy and data security seriously. We are committed to safeguarding your personal information and ensuring it is used in accordance with our Privacy Agreement.</p>";
@@ -113,7 +116,7 @@ namespace hfiles
                         DAL.SendCareerMail(subject, body, email);
                         divSubmit.Visible = true;
                         divOtp.Visible = false;
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on " + emailTextBox.Value + " and " + phoneTextBox.Value + ".');", true);
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on " + emailTextBox.Value + " and " + phone + ".');", true);
                     }
                    
                 }

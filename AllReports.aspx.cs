@@ -159,8 +159,16 @@ namespace hfiles
                             }
                             using (MySqlDataReader reader = cmd.ExecuteReader())
                             {
-                                GridView1.DataSource = reader;
-                                GridView1.DataBind();
+                                if(reader.HasRows == true)
+                                {
+                                    GridView1.DataSource = reader;
+                                    GridView1.DataBind();
+                                }
+                                else
+                                {
+                                    gridLabel.Visible=true;
+                                    gridLabel.Text = "No Data Found!";
+                                }
                             }
                         }
                     }
