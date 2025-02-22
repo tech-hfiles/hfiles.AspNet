@@ -111,7 +111,7 @@
                             min-width: 600px;
                         }
                     }
-                                    .form-select {
+                                    .select-user {
                    
                                         width: 151px!important;
                                         margin-right: -19px;

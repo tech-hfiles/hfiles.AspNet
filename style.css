@@ -1727,9 +1727,10 @@ span.img-notselected {
     padding-left: 35px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    width: 50%;
+ /*   width: 50%;*/
     outline: 0;
 }
+
 
 .download-doc-inner .search-file i {
     position: relative;

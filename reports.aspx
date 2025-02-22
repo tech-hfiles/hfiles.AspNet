@@ -142,6 +142,7 @@
                 font-weight: 600;
             }
         }
+             
 
         /*.dependent-report {
             right: 0;
@@ -203,7 +204,7 @@
                         </div>
                         <div class="col-md-4 d-flex justify-content-md-end justify-content-center align-items-center py-2 search-file">
                             <i class="fas fa-magnifying-glass"></i>
-                            <asp:TextBox ID="SearchInput" runat="server" CssClass="form-control" placeholder="Search by Report Name" />
+                            <asp:TextBox ID="SearchInput" runat="server"  CssClass="form-control" placeholder="Search by Report Name"  Style="width: 253px;"/>
                         </div>
                     </div>
                 </div>

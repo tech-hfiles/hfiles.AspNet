@@ -171,7 +171,7 @@ namespace hfiles
         public bool IsMobileNumber(string input)
         {
             // Assuming mobile number contains only digits and is 10 digits long (adjust pattern as needed)
-            return Regex.IsMatch(input, @"^\d{10}$");
+            return Regex.IsMatch(input, @"^(\+?\d{1,4})?\d{10}$");
         }
 
         protected int Bind()

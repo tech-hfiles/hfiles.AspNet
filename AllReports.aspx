@@ -234,7 +234,7 @@
 .responsive-dropdown {
     display: block;
     width: auto; 
-    margin-bottom: -43px;
+   
 }
 
 .dropdown-container {
@@ -331,7 +331,7 @@
                      <asp:TextBox ID="SearchInput" OnTextChanged="SearchInput_TextChanged" AutoPostBack="true" runat="server" />
                  </div>--%>
                                 <div class="dropdown-container">
-                    <div class="position-relative w-100">
+                    <div class="position-relative w-100" style="margin-top: -52px;">
                         <asp:TextBox ID="SearchInput" CssClass="form-control pr-5" OnTextChanged="SearchInput_TextChanged" AutoPostBack="true" runat="server" />
                         <i class="fas fa-magnifying-glass position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%); color: #aaa;"></i>
                     </div>
