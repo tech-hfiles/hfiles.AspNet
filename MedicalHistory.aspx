@@ -26,7 +26,7 @@
         flex-grow: 0;
         flex-shrink: 0;
         flex-basis: auto;
-        width: 38%;
+        /*width: 38%;*/
     }
 }
         .thm-back-button {
@@ -412,6 +412,10 @@
         width: 100%;
         max-width: 250px;
     }
+
+    .medical-history{
+
+    }
 }
 
    </style>
@@ -437,7 +441,7 @@
       </button>
     </h2>
     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">
+      <div class="accordion-body medical-history">
                          <div runat="server" id="medicalHistoryDiv" class="medical-history common-design">
 
 
@@ -463,14 +467,11 @@
                 <asp:Repeater runat="server" ID="rptDisease">
                     <ItemTemplate>
                         <div class="row border-bottom mt-1">
-                            <div class="col-md-6 col-4 pt-2">
+                            <div class="col-md-6 col-6 pt-2 col-sm-6">
                                 <p><%# Eval("disease_name") %></p>
                                 <asp:HiddenField runat="server" ID="hfdisease_id" Value='<%# Eval("disease_id") %>' />
-
-
-
                             </div>
-                            <div class="col-md-6 col-5 pt-1 SingleCheckbox justify-content-center align-items-center">
+                            <div class="col-md-6 col-5 pt-1 col-sm-6  SingleCheckbox justify-content-center align-items-center">
                                 <asp:CheckBoxList runat="server" ID="cbl"  RepeatDirection="Horizontal">
                                     <asp:ListItem Value="1" Text=" " class="CheckBoxLabel" />
                                     <asp:ListItem Value="2" Text=" " />
