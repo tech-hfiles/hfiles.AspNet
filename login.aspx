@@ -551,7 +551,7 @@
             background-position: center; /* Centers the background image */
             background-repeat: no-repeat; /* Prevents the background image from repeating */
             height: 100vh; /* Sets the height to 100% of the viewport height */
-            display: flex; /* Enables flexbox layout */
+            /*display: flex;*/ /* Enables flexbox layout */
             align-items: center; /* Centers content vertically */
             justify-content: center; /* Centers content horizontally */
             margin: 0; /* Resets any default margin */
@@ -657,6 +657,24 @@
             @media (min-height: 598px) and (max-height: 600px) {
                 .footer {
                     bottom: 0;
+                }
+            }
+
+    </style>
+    <style>
+                       .back-arrow-btn-2 {
+                display: inline-block; /* Visible by default */
+                padding: 8px 16px;
+                font-size: 16px;
+                text-decoration: none;
+                       margin-top: -41px;
+                     margin-left: -44px;
+            }
+
+            /* Hide on iPad Air (width >= 768px) and Desktop */
+            @media (min-width: 768px) { 
+                .back-arrow-btn-2 {
+                    display: none !important;
                 }
             }
     </style>
@@ -833,6 +851,13 @@
              <div class="col-sm-12 col-lg-6 inner-main" id="right-side-bar" style="/*overflow-y: auto;*/ height: 100vh !important; /*padding: 20px;*/">
                 <div class="d-flex align-items-center justify-content-center h-100 inner-body">
                     <div class="text-center">
+
+                            <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
+                            <a class="back-arrow-btn-2" href="index.aspx">Back
+                             </a>
+                              </div>
+
+
                         <div class="text-center signin-heading">
                             <img src="<%= ResolveUrl("~/Sign Up Page/Hfiles Logo.png") %>" alt="" width="120px" />
                             <br />

@@ -365,7 +365,56 @@
         }
     </style>
     
-   
+   <style>
+       /* Style for medical history container */
+.medical-main-div {
+    padding: 10px;
+}
+
+/* Ensure checkboxes align properly */
+.checkbox-list {
+    display: flex;
+    justify-content: center;
+}
+
+/* Make the header text bold */
+#type {
+    font-weight: bold;
+}
+
+/* Disease name styling */
+.disease-name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Ensure scrollable content in smaller screens */
+.inner-main-div {
+    max-height: 40vh;
+    overflow-y: auto;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .medical-main-div {
+        padding: 5px;
+    }
+    
+    .disease-name {
+        font-size: 14px;
+    }
+
+    .checkbox-list {
+        justify-content: space-around;
+    }
+
+    .thm-blue-buttn {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+   </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
     <%--  <asp:ScriptManager runat="server" />--%>

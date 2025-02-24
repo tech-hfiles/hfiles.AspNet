@@ -666,6 +666,22 @@
       left: 0;
       right: 0;
     }
+   .back-arrow-btn-2 {
+    display: inline-block; /* Visible by default */
+    padding: 8px 16px;
+    font-size: 16px;
+    text-decoration: none;
+        margin-top: -20px;
+    margin-left: -36px;
+}
+
+/* Hide on iPad Air (width >= 768px) and Desktop */
+@media (min-width: 768px) { 
+    .back-arrow-btn-2 {
+        display: none !important;
+    }
+}
+
     </style>
 
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -842,6 +858,7 @@
             <%--<div id="google_translate_element" class="language"></div>--%>
             <asp:ScriptManager ID="scmSignUp" runat="server"></asp:ScriptManager>
 
+
             <%--<div class="row vert-cent w-100 h-sm-100vh m-0 ">--%>
                 <div class="row vert-cent w-100 h-100 m-0 ">
                 <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 samanta-stand-image h-lg-100vh d-none d-lg-block px-5" style="background: #fff">
@@ -851,6 +868,12 @@
                 <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12 px-5 d-flex justify-content-center align-items-center"
                     style="background-image: url('<%= ResolveUrl("~/Reception Page/002B.png") %>'); background-repeat: no-repeat; background-size: cover;flex-direction:column;">
                     <div style="padding-top:100px; padding-bottom:150px;">
+
+                        <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
+                        <a class="back-arrow-btn-2" href="index.aspx">Back
+                         </a>
+                          </div>
+
                         <div class="text-center signin-heading">
                             <img src="<%= ResolveUrl("~/Sign Up Page/Hfiles Logo.png") %>" alt="" width="120px" />
                             <br />
@@ -885,7 +908,7 @@
                         <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
     <div class="form-control" style="background-color:white;border-radius:20px;display:flex;padding:0;margin-top:7px;margin-bottom:7px">
         <!-- Dropdown for country codes (populated by ASP.NET) -->
-        <asp:DropDownList ID="ddlCountry" runat="server" style="border:none !important;padding-left:12px !important;max-width:100px !important;height:45px !important" CssClass="form-select country-dropdown"></asp:DropDownList>
+        <asp:DropDownList ID="ddlCountry" runat="server" style="border:none !important;padding-left:12px !important;max-width:94px !important;height:49px !important" CssClass="form-select country-dropdown"></asp:DropDownList>
 
         <!-- Textbox for phone number -->
         <input type="number" id="phoneTextBox" runat="server" placeholder="Phone No" required  style="border:none !important;padding-left:5px !important"/>
