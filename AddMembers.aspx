@@ -420,7 +420,7 @@
                                                     <div class="phoneTextBox-input" style="display: flex; align-items: center; gap: 8px;">
                                                        <asp:DropDownList ID="ddlCountry" runat="server" style="border:none !important;padding-left:12px !important;max-width:100px !important;height:45px !important" CssClass="form-select country-dropdown"></asp:DropDownList>
 
-                                                        <input id="phoneTextBox" runat="server" type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" style="flex: 1;margin-left: -36px;"/>
+                                                        <input id="phoneTextBox" runat="server" type="number" placeholder="Phone No." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" style="flex: 1;margin-left: -22px;"/>
         
                                                         <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512">
                                                             <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->

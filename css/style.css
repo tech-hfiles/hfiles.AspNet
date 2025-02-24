@@ -468,6 +468,7 @@ select {
 
 .signin-form .form-select {
     color: #e6e6e6;
+    width:20px;
 }
 
 .signin-form .imp-star {
