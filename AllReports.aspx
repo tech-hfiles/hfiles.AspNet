@@ -234,9 +234,24 @@
             .responsive-dropdown {
                 display: block;
                 width: auto; 
+                border: 2px solid black !important; 
    
             }
-
+          
+                .Searchicon
+                {
+                    position: absolute;
+                    transform: translateY(-48%);
+                    color: #aaa;
+                    margin-top: 41px;
+                    margin-left: -39px;
+                    background-color: #01154C;
+                    border-radius: 30px;
+                    height: 35px;
+                    width: 35px;
+                        line-height: 33px;
+                    padding: 3px 9px;
+                }
             .dropdown-container {
                 display: flex;
                 justify-content: flex-end;
@@ -366,8 +381,8 @@
                  </div>--%>
                                 <div class="dropdown-container">
                     <div class="position-relative w-100" style="margin-top: -52px;">
-                        <asp:TextBox ID="SearchInput" CssClass="form-control pr-5" OnTextChanged="SearchInput_TextChanged" AutoPostBack="true" runat="server" />
-                        <i class="fas fa-magnifying-glass position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%); color: #aaa;"></i>
+                        <asp:TextBox ID="SearchInput" CssClass="form-control pr-5" OnTextChanged="SearchInput_TextChanged" AutoPostBack="true" runat="server"  Style="border-radius: 30px;"/>
+                        <i class="fas fa-magnifying-glass Searchicon" style="right: 10px; top: 50%; transform: translateY(-50%); color: #aaa; margin-top: -7px; margin-right: -5px;height: 32px; padding: 9px;"></i>
                     </div>
                 </div>
 
