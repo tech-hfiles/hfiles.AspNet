@@ -214,50 +214,84 @@
                 background-color: #ADD8E6 !important; 
             }
              search-file {
-    margin-right: 0 !important; 
-}
+                margin-right: 0 !important; 
+            }
 
-.position-relative {
-    width: 20%;
-    max-width: 250px; 
-}
+            .position-relative {
+                width: 20%;
+                max-width: 250px; 
+            }
 
-.search-icon {
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #aaa;
-    position: absolute;
-    pointer-events: none; 
-}
+            .search-icon {
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #aaa;
+                position: absolute;
+                pointer-events: none; 
+            }
 
-.responsive-dropdown {
-    display: block;
-    width: auto; 
+            .responsive-dropdown {
+                display: block;
+                width: auto; 
    
-}
+            }
 
-.dropdown-container {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    padding-right: 10px; 
+            .dropdown-container {
+                display: flex;
+                justify-content: flex-end;
+                width: 100%;
+                padding-right: 10px; 
   
-}
-@media (max-width: 768px) { 
-    .dropdown-container {
-        justify-content: flex-end;
-        padding-right: 5px;
-    }
-}
+            }
+            @media (max-width: 768px) { 
+                .dropdown-container {
+                    justify-content: flex-end;
+                    padding-right: 5px;
+                }
+            }
 
-@media (max-width: 480px) {
-    .dropdown-container {
-        justify-content: flex-end;
-        padding-right: 5px;
-    }
-}
+            @media (max-width: 480px) {
+                .dropdown-container {
+                    justify-content: flex-end;
+                    padding-right: 5px;
+                }
+            }
+             .dropdownlist-container {
+                 display: flex;
+                 justify-content: flex-end;
+                 width: 100%;
+                 padding-right: 105px; 
+                 margin-bottom: -151px;
+  
+             }
+             @media (max-width: 768px) { 
+                 .dropdownlist-container {
+                     justify-content: flex-end;
+                     padding-right: 5px;
+                 }
+             }
 
+            @media (max-width: 480px) {
+                .responsive-dropdown {
+                    width: 160px; 
+                    height: 80px; 
+                    font-size: 12px; 
+                }
+            }
+              @media screen and (max-width: 768px) {
+                .sharebtn {
+                    text-align: left; 
+                    margin-left: -121px;
+                }
+                @media (max-width: 480px) {
+            .oval-button {
+                padding: 8px 20px; 
+                font-size: 14px; 
+                border: 1.5px solid black;
+                border-radius: 20px; 
+            }
+        }
 
     </style>
 
@@ -340,7 +374,7 @@
 
                 <h2 style="text-align: center; color: #0331b5;">All Reports Details</h2>
                                 <br />
-                          <div class="dropdown-container">
+                          <div class="dropdownlist-container">
                         <asp:DropDownList ID="Dropmembers" AutoPostBack="true" OnSelectedIndexChanged="Dropmembers_SelectedIndexChanged" runat="server" CssClass="responsive-dropdown"></asp:DropDownList>
                     </div>
                 <br />
@@ -379,7 +413,7 @@
                 <br />
                 <div class="sharebtn" id="shareb">
                     <asp:LinkButton ID="lnkShare" class="oval-button" data-bs-toggle="modal" data-bs-target="#ShareModal"  runat="server"  CommandName="Share"
-                        Text="Share" Style="margin-left: 20px;margin-bottom: 10px;margin-top: -46px;"> &nbsp;&nbsp;<i class='fas fa-share'></i>&nbsp;Share</asp:LinkButton>
+                        Text="Share" Style="margin-left: 124px;margin-bottom: 10px;margin-top: -46px;"> &nbsp;&nbsp;<i class='fas fa-share'></i>&nbsp;Share</asp:LinkButton>
                 </div>
 
                 <asp:Label ID="gridLabel" runat="server"  Style="display:none"></asp:Label>
