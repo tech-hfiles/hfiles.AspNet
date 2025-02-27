@@ -312,6 +312,7 @@
     <Content Include="icheck.min.js" />
     <Content Include="index.html" />
     <Content Include="index2.aspx" />
+    <Content Include="index3 .aspx" />
     <Content Include="index3.aspx" />
     <Content Include="journal-page-images\article\404img.png" />
     <Content Include="journal-page-images\article\abha-id.png" />
