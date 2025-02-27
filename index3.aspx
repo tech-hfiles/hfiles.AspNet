@@ -510,7 +510,7 @@
 </section>
 
      
-        <section id="ABHA" style="text-align: center; padding: 40px; background-color: white; position: relative;">
+        <section style="text-align: center; padding: 40px; background-color: white; position: relative;">
         <!-- Heading -->
         <h2 style="color: black; font-size: 36px; margin-bottom: 40px; text-align:left;"><u>Discover the Voices Behind Our Success</u></h2>
 

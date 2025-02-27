@@ -6,6 +6,13 @@
     font-family: "Poppins", sans-serif;
 }
 
+img, div {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+html, body {
+    overflow-x: hidden;
+}
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -27,6 +34,7 @@ body {
     justify-content: space-between;
     align-items: center;
     position: relative;
+    height: 86px;
 }
     
 /* Hamburger Button */
@@ -158,7 +166,12 @@ body {
         text-align: left;
         margin-left: 86px;
     }
-   
+        .nav-links a {
+            text-decoration: none;
+            color: black !important;
+            font-family: Poppins;
+            font-size: 20px;
+        }
 }
 
 /* General Styles */
@@ -273,12 +286,21 @@ body {
         text-align: center;
         padding: 30px;
     }
+
     .image-circle img {
-        width: 373px;
-        height: 311px;
+        width: 392px !important;
+        height: 333px !important;
+        margin-bottom: -290px !important;
+        margin-left: -27px !important;
+        max-width: 400px;
     }
-    .badges{
-        margin-left:65px;
+
+    .badges {
+        margin-left: -10px !important;
+        width: 130px;
+        display: flex;
+        gap: 15px;
+        margin-top: -89px;
     }
     .text-content {
         max-width: 100%;
@@ -287,19 +309,26 @@ body {
     }
 
     .main-heading {
-        font-size: 28px;
-        line-height: 39px;
+        font-size: 55px !important;
+        font-weight: bold !important;
+        color: #0331B5 !important;
+        font-family: "Red Hat Display", Sans-serif !important;
+        line-height: 61.61px !important;
+        width: 395px !important;
+        text-align: left !IMPORTANT;
+        margin-left: -19px !important;
+        margin-top: 12px !important;
     }
 
     .sub-text {
-        font-family: Red Hat Display;
-        font-weight: 400;
+        font-family: Red Hat Display !important;
+        font-weight: 400 !important;
         font-size: 16px !important;
-        line-height: 31.75px;
+        line-height: 31.75px !important;
         letter-spacing: 0px;
-        width: 528px;
-        height: 32px;
-        margin-left: -100px ;
+        width: 528px !important;
+        height: 32px !important;
+        margin-left: -116px !important;
     }
 
     .cta-button {
@@ -430,20 +459,21 @@ body {
     }
 
     #myVideo {
-        width: 498px !important;
-        height: 474px !important;
+        width: 531px !important;
+        height: 464px !important;
         top: 209px;
         left: 56px;
-        border-radius: 10px;
-        margin-left: 286px !important;
+        border-radius: 10px !important;
+        margin-left: 432px !important;
         margin-top: -55px !important;
     }
 
-    .step {
+    .stepss {
         width: 693px;
         height: 100px;
         top: 209px;
         left: 735px;
+        margin-left: 353px !important;
     }
 
         .step h3 {
@@ -542,7 +572,7 @@ body, html {
     top: 209px;
     left: 56px;
     border-radius: 10px;
-    margin-left: 231px;
+    margin-left: 260px;
     margin-top: -25px;
 }
 
@@ -663,7 +693,7 @@ body, html {
             font-size: 17px;
             font-weight: 400;
             color: black;
-            margin-left: -101px;
+            margin-left: 126px;
             margin-top: 27px;
             font-family: Montserrat;
         }
@@ -679,7 +709,7 @@ body, html {
             line-height: 44.98px;
             letter-spacing: 0px;
             text-align: center;
-            margin-left: -81px;
+            margin-left: 116px;
         }
     }
     /*.video-container video {
@@ -733,10 +763,11 @@ body, html {
     @media (max-width: 600px) {
         .step p {
             white-space: pre-line;
-            width: 340px;
+            width: 340px !important;
+            margin-left: -13px;
         }
     }
-}
+
 .videodesktop {
     display: block;
 }
@@ -775,6 +806,7 @@ body, html {
 .stepss {
     flex: 1;
     max-width: 50%;
+    margin-left: 464px;
 }
 
 .step {
@@ -796,18 +828,18 @@ body, html {
 
     .video-container {
         order: -1; /* Video first */
-        max-width: 100%;
+        max-width: 100px;
+        margin-left: -432px;
     }
 
     .stepss {
-       
         max-width: 100%;
-        margin-top: 483px;
-        margin-left: -476px;
+        margin-top: 490px;
+        margin-left: 7px !important;
+        grid-template-columns: 1fr;
+        margin-bottom: 201px;
     }
-    .stepss {
-        grid-template-columns: 1fr; /* 2 columns on mobile */
-    }
+    
     .step {
         width: 90%; /* Make steps take full width */
         max-width: 400px; /* Prevents stretching too wide */
@@ -836,7 +868,8 @@ body, html {
         top: 233px;
         left: 21px;
         border-radius: 10px;
-        margin-right: 48px;
+        margin-right: 75px;
+        margin-left: 187px;
     }
 }
 .videopbadge {
@@ -932,25 +965,23 @@ body, html {
 }
 
 .personalizedcontact a {
-    width: 318px;
-    height: 95px;
-    top: 1872px;
-    left: 72px;
+    width: 246px;
+    height: 75px;
     border-radius: 5px;
     border-width: 1px;
-    display: inline-block;
+    display: block;
     background-color: #FFD100;
     color: black;
-    padding: 32px 100px;
+    padding: 26px 59px;
     font-size: 20px;
     font-weight: 600;
     text-decoration: none;
     border-radius: 8px;
     transition: background-color 0.3s, transform 0.2s;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin-left: -2px;
-    margin-top: -59px;
-    margin-bottom: 41px;
+    margin-top: -233px;
+    margin-bottom: 136px;
 }
 
 
@@ -965,7 +996,7 @@ body, html {
     }
     .personalizedcontact {
         width: 100%;
-        margin-left: 0;
+        margin-left: 257px;
         padding-left: 32px;
     }
 
@@ -994,6 +1025,7 @@ body, html {
             line-height: 29.26px;
             letter-spacing: 2px;
             text-align: left;
+            margin-top: -40px;
         }
 
         .personalizedcontact p {
@@ -1007,29 +1039,31 @@ body, html {
             line-height: 29.26px;
             letter-spacing: 2px;
             text-align: left;
+            margin-top: 10px;
         }
 
         .personalizedcontact img {
-            width: 339px;
-            height: 390px;
-            margin-left: -6px;
+            width: 339px !important;
+            height: 390px !important;
+            margin-left: -6px !important;
             margin-top: 11px;
         }
 
         .personalizedcontact a {
-            display: inline-block;
-            background-color: #FFD100; /* Button background */
-            color: black; /* Text color */
-            padding: 17px 43px; /* Spacing inside the button */
-            font-size: 18px; /* Font size */
-            font-weight: 300; /* Make text bold */
-            text-decoration: none; /* Remove underline */
-            border-radius: 8px; /* Rounded corners */
+            display: block;
+            background-color: #FFD100;
+            color: black;
+            padding: 17px 43px;
+            font-size: 18px;
+            font-weight: 300;
+            text-decoration: none;
+            border-radius: 8px;
             transition: background-color 0.3s, transform 0.2s;
             width: 204px;
-            height: 67px;
-            margin-top: 16px;
-            margin-left: 78px;
+            height: 58px;
+            margin-bottom: 52px;
+            margin-top: 9px;
+            margin-left: 66px;
         }
 
             .personalizedcontact a:hover {
@@ -1327,6 +1361,14 @@ body, html {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .abha-card-image {
+        width: 300px;
+        max-width: 349px;
+        border-radius: 10px;
+        margin-top: -150px;
+    
+    }
+
     .container {
         flex-direction: column;
         text-align: center;
@@ -1502,12 +1544,11 @@ body, html {
     }*/
     .abha-id-section {
         width: 470px !important;
-        height: 903px;
+        height: 791px;
         top: 2635px;
         left: 3035px;
         background: #4A6DCB;
-        margin-left:6px;
-        
+        margin-left: 2px !important;
     }
     .abha-content, .abha-image-container {
         max-width: 96%;
@@ -1522,6 +1563,7 @@ body, html {
         font-size: 41px;
         line-height: 54.24px;
         letter-spacing: 0px;
+        margin-top: 119px !important;
     }
     .abha-content-Id p {
         width: 420px;
@@ -1546,7 +1588,7 @@ body, html {
         letter-spacing: 0px;
     }
     .abha-button {
-        width: 323px;
+        width: 310px !important;
         height: 72px;
         top: 645px;
         left: 59px;
@@ -1556,6 +1598,9 @@ body, html {
         line-height: 31.69px;
         letter-spacing: 0px;
         text-align: center;
+        margin-left: -90px;
+        max-width: 300px;
+        padding: 12px;
     }
     .abha-image-container {
         margin-bottom: 20px;
@@ -1572,6 +1617,20 @@ body, html {
         top: 20px;
         left: 11px;
     }
+    .floating-card {
+        position: absolute !important;
+        padding: 10px !important;
+        border-radius: 8px !important;
+        font-size: 1rem;
+        text-align: center;
+        color: #000;
+        margin-top: -226px !important;
+        margin-left: 6px !important;
+        width: 417px !important;
+        height: 175px !important;
+        max-width: 401px !important;
+    }
+
 
 }
 @media (max-width: 480px) {
@@ -1601,13 +1660,19 @@ body, html {
             text-align: left;
         }
 
-        .abha-content-Id p,
-        .abhap {
+        .abha-content-Id p
+         {
             font-size: 16px;
             max-width: 90%;
             margin-right: -147px;
             text-align: left;
         }
+    .abhap {
+        font-size: 22px !important;
+        max-width: 90%;
+        margin-right: -147px;
+        text-align: left;
+    }
 
     .abha-button {
         width: 62%;
@@ -1626,6 +1691,7 @@ body, html {
         width: 90%;
         margin-top: -210px;
         margin-left: 4px;
+
     }
 }
 /* General Styling */
@@ -1740,16 +1806,16 @@ body {
         }
 
         .about-image img {
-            width: 601px !important;
-            height: 888px !important;
+            width: 520px !important;
+            height: 796px !important;
             margin-left: 7px !important;
             margin-top: 11px;
         }
 
         .about-text {
             max-width: 600px;
-            margin-top: -276px !important;
-            margin-right: 101px !important;
+            margin-top: -1185px !important;
+            margin-left: 555px !important;
         }
 
             .about-text h2 {
@@ -1781,7 +1847,7 @@ body {
             background: #eef2ff;
             border-radius: 10px;
             margin-top: -640px;
-            margin-left: 698px;
+            margin-left: 550px;
             
         }
 
@@ -1790,8 +1856,8 @@ body {
             padding: 30px;
             background: #eef2ff;
             border-radius: 10px;
-            margin-top: -95px;
-            margin-left: 150px
+            margin-top: -180px;
+            margin-left: 27px;
         }
 
 
@@ -1835,12 +1901,13 @@ body {
 }
 
 @media (max-width: 768px) {
-   
+
     .about-image img {
         width: 307px !important;
         height: 822px !important;
-        margin-right:272px;
-        margin-top: -151px;
+        margin-top: -166px;
+        margin-right: -151px;
+        margin-left: -473px !important;
     }
     .mission h2,.vision h2{
         font-size:28px;
@@ -2018,6 +2085,7 @@ body {
         font-size: 16.5px;
         line-height: 24.75px;
         letter-spacing: 0px;
+        margin-top:-5px;
     }
 
     .article-content p {
@@ -2064,10 +2132,11 @@ body {
 
 @media (max-width: 600px) {
     .article-card {
-        width: 195% !important;
-        height: 265px;
+        width: 461px !important;
+        height: 265px !important;
         padding: 25px;
-        gap: 11px; /* Add more padding for better spacing */
+        gap: 11px;
+        max-width: 450px;
     }
 
     h4 {
@@ -2195,23 +2264,25 @@ body {
 
     /* Left Arrow */
     .left-arrow {
-        left: 20px;
+        left: 10px;
         font-weight: 400;
         margin-left: -17px;
         padding-top: 148px;
         font-weight: 500;
         font-size: 45px;
         padding-top: 156px;
+        color: black;
     }
 
     /* Right Arrow */
     .right-arrow {
-        right: 20px;
+        right: 10px;
         margin-right: -17px;
         padding-top: 148px;
         font-weight: 500;
         font-size: 45px;
         padding-top: 156px;
+        color: black;
     }
 }
 
@@ -2508,13 +2579,14 @@ body {
     }
 
     .getintouch {
-        padding: 14px 10px;
+        padding: 18px 34px;
         font-size: 14px;
         width: 45%;
-        margin-left: -59px;
+        margin-left: -1009px;
         margin-right: 0;
         font-weight: 600;
     }
+    
     .handshake img {
         width: 227px;
         height: 170px;
@@ -2528,10 +2600,10 @@ body {
         line-height: 1.8;
         color: black;
         font-family: 'Montserrat';
-        margin-top: -152px;
+        margin-top: -125px;
         margin-left: -1013px;
         margin-bottom: 9px;
-        width: 500px;
+        width: 467px;
     }
     .handshakesection {
         width: 1279px;
@@ -2542,12 +2614,29 @@ body {
         margin-top: 135px;
     }
 
+    .talkusp {
+        width: 472px;
+        height: 59px;
+        font-size: 18px;
+        margin-left: 211px;
+        text-align: left;
+    }
 
     .talkus img {
-        width: 73px;
-        height: 73px;
+        width: 116px;
+        height: 116px;
         top: 293px;
         left: 234px;
+    }
+    .talkus {
+        margin-top: 20px !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        margin-left: 199px;
+        gap: 19px;
+        width: 531px;
+        height: 186px;
     }
 }
     @media (max-width: 480px) {
@@ -2625,7 +2714,7 @@ body {
     }
 
 @media(max-width:600px) {
-    .talkus {
+   /* .talkus {
         width: 409px;
         height: 91px;
         margin-top: 65px;
@@ -2633,7 +2722,7 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
+    }*/
 
         .talkus p {
             font-size: 14px;
@@ -2971,6 +3060,8 @@ body {
         }
 }
 
+
+
 /* Footer Styles */
 .section-footer {
     background: #0331B5; /* Blue Background */
@@ -3165,11 +3256,16 @@ body {
 
     .handshakecontent {
         text-align: center;
+        margin-left: -115px;
     }
 
     .handshake img {
-        width: 14%;
-        margin-left: -1215px;
+        width: 136px !important;
+        height: 79px !important;
+        margin-left: -43px;
+        margin-top: -81px;
+        margin-right: 449px;
+        margin-bottom: -77px;
     }
 
     .handshakecontent p {
@@ -3183,14 +3279,16 @@ body {
 }
 @media(max-width:600px) {
     .talkus {
-        width: 409px;
-        height: 91px;
-        margin-top: 65px;
-        margin-left: -70px;
+        width: 384px !important;
+        height: 91px !important;
+        margin-top: 57px !important;
+        margin-left: -79px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        max-width: 400px !important;
     }
+    
 
         .talkus p {
             font-size: 14px;
@@ -3213,11 +3311,12 @@ body {
     .about-text {
         text-align: center;
         padding: 10px;
-        margin-left: 289px;
+        margin-left: -8px;
     }
 
         .about-text h2 {
             font-size: 28px;
+            margin-left: -47px;
         }
         .separator1{
             margin-left:33px
@@ -3243,14 +3342,15 @@ body {
         padding: 15px;
         text-align: center;
         margin-top: 442px;
-        margin-left: -99px;
+        margin-left: -628px;
         margin-right: -109px;
     }
     .vision {
         padding: 15px;
         text-align: center;
         margin-top: -85px;
-        margin-left: 194px;
+        margin-left: -224px;
+        width: 300px;
     }
         .mission p {
             font-size: 16px;
@@ -3358,8 +3458,9 @@ body {
     .whyuse-container {
         flex-direction: column;
         align-items: center;
-        margin-left: -75px;
-        margin-right: 75px;
+        margin-left: 30px;
+        margin-right: 20px;
+        margin-top: 26px;
     }
 
     .whyuse-features {
@@ -3368,8 +3469,10 @@ body {
     }
 
     .whyuse-mockup img {
-        width: 500px;
-        height: 475px;
+        width: 779px !important;
+        /* height: 220px; */
+        max-width: 797px;
+        margin-left: -244px;
     }
     .whyuse-section {
         margin-top: 63px;
