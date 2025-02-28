@@ -29,9 +29,11 @@ namespace hfiles
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
+
             //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on ');", true);
             if (!IsPostBack)
             {
+                getcountrylist();
                 Session.RemoveAll();
                 Session.Abandon();
                 Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
@@ -44,6 +46,7 @@ namespace hfiles
                 {
                     var sessionuserid = Session["Userid"];
                     Response.Redirect("~/Dashboard.aspx");
+                   
                 }
                 //rm = new ResourceManager();
                 //rm = new ResourceManager("Resources.Strings", System.Reflection.Assembly.Load("App_GlobalResources"));
@@ -371,6 +374,44 @@ namespace hfiles
                 }
             }
 
+        }
+
+        private void getcountrylist()
+        {
+            MySqlConnection con = new MySqlConnection(cs);
+            string com = "Select * from countrylist";
+            MySqlDataAdapter adpt = new MySqlDataAdapter(com, con);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
+
+            if (dt != null)
+            {
+                ViewState["CountryCodeList"] = dt;
+
+                // Add a new column for concatenated text if it doesn't exist
+                if (!dt.Columns.Contains("DisplayText"))
+                {
+                    dt.Columns.Add("DisplayText", typeof(string));
+                }
+
+                // Populate the new column with concatenated values
+                foreach (DataRow row in dt.Rows)
+                {
+                    row["DisplayText"] = row["countryname"].ToString() + " (" + row["dialingcode"].ToString() + ")";
+                }
+
+                ddlCountry.DataSource = dt;
+                ddlCountry.DataTextField = "DisplayText"; // Use the new concatenated column
+                ddlCountry.DataValueField = "id";
+                ddlCountry.DataBind();
+
+                // Add default option
+                ddlCountry.Items.Insert(0, new ListItem("India (+91)", "+91"));
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
 
 

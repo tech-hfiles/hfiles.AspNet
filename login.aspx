@@ -538,8 +538,8 @@
             border: none;
             background: white;
             border-bottom: 1px solid #ffffff3d;
-            padding: 10px 40px;
-            margin: 8px 0;
+            padding: 4px 40px;
+           /* margin: 8px 0;*/
             color: #08138f;
             outline: 0;
             width: 100%;
@@ -714,6 +714,26 @@
 
     </script>
 
+    <%--dropdown--%>
+   <script>
+       function toggleDropdown() {
+           var inputField = document.getElementById('<%= emailTextBox.ClientID %>');
+        var dropdown = document.getElementById('<%= ddlCountry.ClientID %>');
+
+           // Check if input contains only numbers
+           if (/^\d+$/.test(inputField.value)) {
+               dropdown.style.display = "block"; // Show dropdown
+           } else {
+               dropdown.style.display = "none"; // Hide dropdown
+           }
+
+
+       }
+       $(document).ready(function () {
+           toggleDropdown();
+       });
+</script>
+
 </head>
 
 <body>
@@ -752,7 +772,9 @@
                                                 display: inline-block
                                             }
                                     </style>
+                                    <a href="index.aspx">
 <img width="207" height="80" src="https://hfiles.in/wp-content/uploads/2022/11/hfiles.png" class="attachment-full size-full wp-image-361" alt="hfiles logo" />
+                                        </a>
                                 </div>
                             </div>
                         </div>
@@ -863,10 +885,29 @@
                             <br />
                             <h1 class="color-white pl-3">Welcome Back!</h1>
                         </div>
-                        <div>
+                       <%-- <div>
                             <asp:TextBox ID="emailTextBox" CssClass="w-95 login-input" required TextMode="SingleLine" placeholder="Email Id / Contact No." runat="server" Style="border-radius: 30px"></asp:TextBox>
-                            <%-- <asp:TextBox runat="server"  id="emailTextBox" class="w-100 login-input" type="Text" placeholder="Username" />--%>
-                        </div>
+                            
+                        </div>--%>
+
+
+                      <div>
+    <div class="form-control" style="background-color:white;border-radius:20px;display:flex;padding:0;margin-top:7px;margin-bottom:7px">
+        <!-- Dropdown for email or contact selection -->
+        <asp:DropDownList ID="ddlCountry" runat="server" CssClass="form-select"
+            style="border:none !important;padding-left:12px !important;max-width:120px !important;height:49px !important; display:block;">
+            <asp:ListItem Text="Email" Value="Email" Selected="True"></asp:ListItem>
+            <asp:ListItem Text="Phone" Value="Phone"></asp:ListItem>
+        </asp:DropDownList>
+
+        <!-- Input for email or phone -->
+        <asp:TextBox ID="emailTextBox" CssClass="w-95 login-input" required TextMode="SingleLine"
+          placeholder="Email Id / Contact No."   runat="server" Style="border:none !important; padding-left:5px !important; flex-grow:1;" 
+             oninput="toggleDropdown()"></asp:TextBox>
+    </div>
+</div>
+
+
 
                         <div class="password-div" id="divpassword" runat="server">
                             <asp:HiddenField runat="server" ID="hfIsPasswordDivActive" />

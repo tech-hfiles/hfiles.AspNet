@@ -71,7 +71,7 @@ namespace hfiles
 
             if (!IsPostBack)
             {
-                ShowPreview();
+                //ShowPreview();
 
                 if (Session["Userid"] != null)
                 {
@@ -1474,71 +1474,71 @@ namespace hfiles
         }
 
 
-        private void ShowPreview()
-        {
-            // Clear previous values
-            txtReportName.Text = "";
-            lbtnSave.CommandArgument = "";
+        //private void ShowPreview()
+        //{
+        //    // Clear previous values
+        //    txtReportName.Text = "";
+        //    lbtnSave.CommandArgument = "";
 
 
-            using (MySqlConnection con = new MySqlConnection(cs))
-            {
-                try
-                {
-                    con.Open();
+        //    using (MySqlConnection con = new MySqlConnection(cs))
+        //    {
+        //        try
+        //        {
+        //            con.Open();
 
-                    string query = "SELECT Id, ReportUrl FROM user_reports WHERE Id =" + Id;
+        //            string query = "SELECT Id, ReportUrl FROM user_reports WHERE Id =" + Id;
 
-                    using (MySqlCommand cmd = new MySqlCommand(query, con))
-                    {
-                        cmd.Parameters.AddWithValue("@Id", Id); // Secure parameterized query
+        //            using (MySqlCommand cmd = new MySqlCommand(query, con))
+        //            {
+        //                cmd.Parameters.AddWithValue("@Id", Id); // Secure parameterized query
 
-                        using (MySqlDataReader dr = cmd.ExecuteReader())
-                        {
-                            if (dr.Read()) // Fetch a single record
-                            {
-                                int Id = Convert.ToInt32(dr["Id"]);
-                                string ReportUrl = dr["ReportUrl"].ToString();
+        //                using (MySqlDataReader dr = cmd.ExecuteReader())
+        //                {
+        //                    if (dr.Read()) // Fetch a single record
+        //                    {
+        //                        int Id = Convert.ToInt32(dr["Id"]);
+        //                        string ReportUrl = dr["ReportUrl"].ToString();
 
-                                // Assign retrieved values to UI controls
-                                txtReportName.Text = ReportUrl;
-                                lbtnSave.CommandArgument = Convert.ToString(Id); // Store ReportId in CommandArgument
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    // Log or display error message
-                    Console.WriteLine("Error: " + ex.Message);
-                }
-            }
+        //                        // Assign retrieved values to UI controls
+        //                        txtReportName.Text = ReportUrl;
+        //                        lbtnSave.CommandArgument = Convert.ToString(Id); // Store ReportId in CommandArgument
+        //                    }
+        //                }
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            // Log or display error message
+        //            Console.WriteLine("Error: " + ex.Message);
+        //        }
+        //    }
 
-            // Determine correct preview based on file extension
-            string relativeUrl = ResolveUrl(fileUrl);
+        //    // Determine correct preview based on file extension
+        //    string relativeUrl = ResolveUrl(fileUrl);
 
-            if (fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension == ".png" || fileExtension == ".gif")
-            {
-                imgPreview.ImageUrl = relativeUrl;
-                imgPreview.Visible = true;
-                pdfPreview.Visible = false;
-                videoPreview.Visible = false;
-            }
-            else if (fileExtension == ".pdf")
-            {
-                pdfPreview.Attributes["src"] = relativeUrl;
-                pdfPreview.Visible = true;
-                imgPreview.Visible = false;
-                videoPreview.Visible = false;
-            }
-            else if (fileExtension == ".mp4" || fileExtension == ".webm" || fileExtension == ".ogg")
-            {
-                videoPreview.Attributes["src"] = relativeUrl;
-                videoPreview.Visible = true;
-                imgPreview.Visible = false;
-                pdfPreview.Visible = false;
-            }
-        }
+        //    if (fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension == ".png" || fileExtension == ".gif")
+        //    {
+        //        imgPreview.ImageUrl = relativeUrl;
+        //        imgPreview.Visible = true;
+        //        pdfPreview.Visible = false;
+        //        videoPreview.Visible = false;
+        //    }
+        //    else if (fileExtension == ".pdf")
+        //    {
+        //        pdfPreview.Attributes["src"] = relativeUrl;
+        //        pdfPreview.Visible = true;
+        //        imgPreview.Visible = false;
+        //        videoPreview.Visible = false;
+        //    }
+        //    else if (fileExtension == ".mp4" || fileExtension == ".webm" || fileExtension == ".ogg")
+        //    {
+        //        videoPreview.Attributes["src"] = relativeUrl;
+        //        videoPreview.Visible = true;
+        //        imgPreview.Visible = false;
+        //        pdfPreview.Visible = false;
+        //    }
+        //}
 
     }
 }

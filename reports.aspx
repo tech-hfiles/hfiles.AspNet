@@ -234,24 +234,9 @@
                                                 <h5 class="card-title position-absolute dependent-report"><%= Session["DependentParentName"] != null ? Session["DependentParentName"].ToString() : "" %><%# "\'s " + Eval("user_firstname") %></h5>
                                             </div>--%>
 
-                                          <%--  <img src="../assets/pdf-doc.png" class="card-img-top" alt="pdf-thumbnail">--%>
+                                            <img src="../assets/pdf-doc.png" class="card-img-top" alt="pdf-thumbnail">
 
-                                         <!-- File Preview Section -->
-<asp:Literal ID="litFileName" runat="server" />
-
-<!-- Image Preview -->
-<asp:Image ID="imgPreview" runat="server" Visible="false" Height="200px" />
-
-<!-- PDF Preview -->
-<iframe id="pdfPreview" runat="server" visible="false" width="500px" height="300px"></iframe>
-
-<!-- Video Preview -->
-<video id="videoPreview" runat="server" visible="false" width="500px" height="300px" controls></video>
-
-
-
-
-
+                                     
 
                                             <div class="card-body">
 

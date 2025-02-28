@@ -756,7 +756,9 @@
                                                 display: inline-block
                                             }
                                     </style>
+                                    <a href="index.aspx">
 <img width="207" height="80" src="https://hfiles.in/wp-content/uploads/2022/11/hfiles.png" class="attachment-full size-full wp-image-361" alt="hfiles logo" />
+                                        </a>
                                 </div>
                             </div>
                         </div>
