@@ -26,6 +26,7 @@ namespace hfiles
         string cs = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
         ResourceManager rm;
         CultureInfo ci;
+        private string userInput;
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -93,7 +94,14 @@ namespace hfiles
                     int re = Bind();
                     if (re > 0)
                     {
+                        string countryCode = ddlCountry.SelectedItem.Text.Trim();
                         string _MobileNoOrEmail = emailTextBox.Text;
+
+                        if (IsMobileNumber(_MobileNoOrEmail))
+                        {
+                            userInput = countryCode + _MobileNoOrEmail;
+                        }
+
                         if (IsEmail(_MobileNoOrEmail))
                         {
                             string otp = GenerateOTP(6); // Generate a 6-digit OTP
@@ -109,8 +117,8 @@ namespace hfiles
                         {
                             string otp = GenerateOTP(6); // Generate a 6-digit OTP
                             ViewState["OTPvalue"] = otp;
-                            DAL.SendOTPApiRequest(otp, _MobileNoOrEmail);
-                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on " + emailTextBox.Text + "');", true);
+                            DAL.SendOTPApiRequest(otp, userInput);
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on " + userInput + "');", true);
                             otpButton.Text = "SIGN IN";
                             divOtp.Visible = true;
                         }
@@ -215,8 +223,27 @@ namespace hfiles
                         con.Open();
                         using (MySqlCommand cmd = new MySqlCommand("usp_isuserexists", con))
                         {
+                            string countryCode = ddlCountry.SelectedItem.Text.Trim();
+                             _MobileNoOrEmail = emailTextBox.Text;
+
+
+                            if (IsMobileNumber(_MobileNoOrEmail))
+                            {
+                                userInput = countryCode + _MobileNoOrEmail;
+                            }
+
                             cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Parameters.AddWithValue("_MobileNoOrEmail", emailTextBox.Text);
+                            if(userInput != null)
+                            {
+                                cmd.Parameters.AddWithValue("_MobileNoOrEmail", userInput);
+                            }
+                            else
+                            {
+
+                            
+
+                             cmd.Parameters.AddWithValue("_MobileNoOrEmail", emailTextBox.Text);
+                            }
                             cmd.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
                             cmd.ExecuteNonQuery();
                             result = DAL.validateInt(cmd.Parameters["_Result"].Value.ToString());
@@ -384,29 +411,14 @@ namespace hfiles
             DataTable dt = new DataTable();
             adpt.Fill(dt);
 
-            if (dt != null)
+            if(dt != null)
             {
                 ViewState["CountryCodeList"] = dt;
-
-                // Add a new column for concatenated text if it doesn't exist
-                if (!dt.Columns.Contains("DisplayText"))
-                {
-                    dt.Columns.Add("DisplayText", typeof(string));
-                }
-
-                // Populate the new column with concatenated values
-                foreach (DataRow row in dt.Rows)
-                {
-                    row["DisplayText"] = row["countryname"].ToString() + " (" + row["dialingcode"].ToString() + ")";
-                }
-
                 ddlCountry.DataSource = dt;
-                ddlCountry.DataTextField = "DisplayText"; // Use the new concatenated column
+                ddlCountry.DataTextField = "dialingcode";
                 ddlCountry.DataValueField = "id";
                 ddlCountry.DataBind();
-
-                // Add default option
-                ddlCountry.Items.Insert(0, new ListItem("India (+91)", "+91"));
+                ddlCountry.Items.Insert(0, new ListItem("+91", "+91"));
             }
             else
             {

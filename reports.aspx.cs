@@ -58,6 +58,7 @@ namespace hfiles
         private string fileExtension;
         private string fileUrl;
 
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (!IsPostBack)
@@ -65,20 +66,21 @@ namespace hfiles
             //    FetchData(21);
             //}
 
-            
+
             Panel1.Visible = false;
             int RId = DAL.validateInt(Request.QueryString["rid"]);
 
             if (!IsPostBack)
             {
-                //ShowPreview();
+               
 
                 if (Session["Userid"] != null)
                 {
                     getMembersList();
                     getReportType(RId);
                     getReportMaster();
-                    
+                    // ShowPreview();
+                    BindRepeater();
 
 
 
@@ -100,7 +102,7 @@ namespace hfiles
                         {
                             UserReports(Convert.ToInt32(Session["memberId"]), RId);
                             string Membersname = Session["Membersname"].ToString();
-                            lblusermIreport.Text = Session["Membersname"].ToString()+"'S";
+                            lblusermIreport.Text = Session["Membersname"].ToString() + "'S";
                         }
                         else
                         {
@@ -108,7 +110,7 @@ namespace hfiles
                             string Membersname = Session["username"].ToString();
                             lblusermIreport.Text = Session["username"].ToString() + "'S";
                         }
-                      
+
                         //UserReports(UserId, RId);
                     }
                 }
@@ -143,7 +145,7 @@ namespace hfiles
 
 
         //            }
-                    
+
         //        }
         //    }
         //}
@@ -356,13 +358,13 @@ namespace hfiles
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("_UserId", DAL.validateInt(Session["Userid"].ToString()));// memberId);/* DAL.validateInt(Session["Userid"].ToString())*/
                             cmd.Parameters.AddWithValue("_reportId", DAL.validateInt(ReportId));
-                            
+
                             cmd.Parameters.AddWithValue("_reportname", "");
                             cmd.Parameters.AddWithValue("_rId", memberId);
                             cmd.Parameters.AddWithValue("_reporturl", "");
                             cmd.Parameters.AddWithValue("_FileSize", 0);
                             cmd.Parameters.AddWithValue("_SpType", "LR");
-                            if(user_referenceId > 0)
+                            if (user_referenceId > 0)
                             {
                                 cmd.Parameters.AddWithValue("_UploadType", "dependent");
                                 cmd.Parameters.AddWithValue("_memberId", user_referenceId);// DAL.validateInt(Session["Userid"].ToString()));/*UserId*/
@@ -372,7 +374,7 @@ namespace hfiles
                                 cmd.Parameters.AddWithValue("_memberId", memberId);// DAL.validateInt(Session["Userid"].ToString()));/*UserId*/
                                 cmd.Parameters.AddWithValue("_UploadType", "");
                             }
-                            
+
                             cmd.Parameters.AddWithValue("_Result", SqlDbType.Int);
                             cmd.Parameters["_Result"].Direction = ParameterDirection.Output;
                             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -493,7 +495,7 @@ namespace hfiles
 
 
 
-       
+
 
         protected void SearchInput_TextChanged(object sender, EventArgs e)
         {
@@ -546,7 +548,7 @@ namespace hfiles
                             rptReports.DataBind();
                         }
 
-                        
+
                     }
                 }
             }
@@ -781,7 +783,7 @@ namespace hfiles
         }
         protected void lbtnEdit_Click(object sender, EventArgs e)
         {
-            
+
 
             int memberId = Convert.ToInt32(Session["memberId"]);
             int user_referenceId = Convert.ToInt32(Session["user_reference"]);
@@ -836,18 +838,18 @@ namespace hfiles
                             //for merging 2 datatables
                             DataTable mergedTable = MergeDataTables(Session["dtMemberList"] as DataTable, dt);
 
-                                                        var filteredRows = mergedTable.AsEnumerable()
-                                 .Where(row =>
-                                 {
-                                     var isDependentValue = row["IsDependent"];
+                            var filteredRows = mergedTable.AsEnumerable()
+     .Where(row =>
+     {
+         var isDependentValue = row["IsDependent"];
 
-                                     // Ensure value is not null and is convertible to an integer
-                                     if (isDependentValue != DBNull.Value && int.TryParse(isDependentValue.ToString(), out int isDependent))
-                                     {
-                                         return isDependent == 0; // Only independent members
-                                     }
-                                     return false; // Exclude if null or not valid
-                                 });
+         // Ensure value is not null and is convertible to an integer
+         if (isDependentValue != DBNull.Value && int.TryParse(isDependentValue.ToString(), out int isDependent))
+         {
+             return isDependent == 0; // Only independent members
+         }
+         return false; // Exclude if null or not valid
+     });
 
                             if (filteredRows.Any())
                             {
@@ -918,76 +920,37 @@ namespace hfiles
             MySqlConnection con = new MySqlConnection(cs);
 
 
-               
-
-                    con.Open();
 
 
-                    string query = "SELECT ReportId, Id, ReportName FROM user_reports where Id ="+Id;
+            con.Open();
 
-                 
 
-                    MySqlCommand cmd = new MySqlCommand(query, con);
+            string query = "SELECT ReportId, Id, ReportName FROM user_reports where Id =" + Id;
+
+
+
+            MySqlCommand cmd = new MySqlCommand(query, con);
             //         cmd.Parameters.AddWithValue("@Id", Id);
 
 
-                    MySqlDataReader dr = cmd.ExecuteReader();
+            MySqlDataReader dr = cmd.ExecuteReader();
 
-                    while (dr.Read())
-                    {
-                        txtReportName.Text = dr["ReportName"].ToString();
-                        lbtnSave.CommandArgument = Convert.ToString(Id);
-                    }
+            while (dr.Read())
+            {
+                txtReportName.Text = dr["ReportName"].ToString();
+                lbtnSave.CommandArgument = Convert.ToString(Id);
+            }
 
 
-                    con.Close();
-                    
-                
-               
-            
+            con.Close();
+
+
+
+
 
         }
 
-        //public dynamic GetReportById(int id)
-        //{
-        //    using (MySqlConnection conn = new MySqlConnection(cs))
-        //    {
-        //        string query = "SELECT Id, ReportName FROM Reports WHERE Id = @Id";
-        //        MySqlCommand cmd = new MySqlCommand(query, conn);
-        //        cmd.Parameters.AddWithValue("@Id", id);
 
-        //        conn.Open();
-        //        MySqlDataReader reader = cmd.ExecuteReader();
-        //        if (reader.Read())
-        //        {
-        //            // Debugging: Output the values fetched from the database
-        //            string reportName = reader.GetString(reader.GetOrdinal("ReportName"));
-        //            int reportId = reader.GetInt32(reader.GetOrdinal("Id"));
-        //            Response.Write($"<script>alert('Report found: {reportName}, {reportId}');</script>");
-
-        //            return new
-        //            {
-        //                Id = reportId,
-        //                ReportName = reportName
-        //            };
-        //        }
-        //        else
-        //        {
-        //            return null; // Return null if no report is found
-        //        }
-        //    }
-        //}
-
-       
-
-
-
-
-        
-       
-
-
-        // Method to merge two DataTables
         private DataTable MergeDataTables(DataTable dt1, DataTable dt2)
         {
             // Create a new DataTable
@@ -1115,11 +1078,11 @@ namespace hfiles
                     selectedIds.Add(Convert.ToInt32(item.Value));
                 }
             }
-            if(memberId > 0 && user_referenceId > 0)
+            if (memberId > 0 && user_referenceId > 0)
             {
                 selectedIds.Add(memberId);
             }
-            
+
             string memberIdList = string.Join(",", selectedIds);
             //int memberId = Convert.ToInt32(ddlMembers2.SelectedItem.Value);
             int result = 0;
@@ -1161,11 +1124,11 @@ namespace hfiles
                             result = DAL.validateInt(retVal);
                             //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');location.reload();", true);
 
-                          
+
 
 
                             Session["memberId"] = 0;
-                           
+
                         }
                         else if (memberId == int.Parse(Session["Userid"].ToString()))
                         {
@@ -1189,7 +1152,7 @@ namespace hfiles
                             result = DAL.validateInt(retVal);
                             //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');location.reload();", true);
 
-                            
+
 
                         }
                         else
@@ -1212,7 +1175,7 @@ namespace hfiles
                             cmd.ExecuteNonQuery();
                             int retVal = Convert.ToInt32(cmd.Parameters["_Result"].Value);
                             result = DAL.validateInt(retVal);
-                           // ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');", true);
+                            // ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Updated successfully');", true);
                             //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Report Updated Successfully')", true);
                             //else
                             //{
@@ -1250,13 +1213,13 @@ namespace hfiles
                 // Optionally, handle the returned ID or display a success message
                 // ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Report Name Updated');", true);
                 ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", $"reportUpdatedSuccessfully('{rid}');", true);
-            
+
 
             }
             catch (Exception ex)
             {
                 ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.fail('ReportName Updated fail');location.reload();", true);
-                
+
             }
 
 
@@ -1284,7 +1247,7 @@ namespace hfiles
 
                 using (MySqlConnection con = new MySqlConnection(cs))
                 {
-                    
+
 
                     using (MySqlCommand cmd = new MySqlCommand("GetReportNameByUserId", con))
                     {
@@ -1311,7 +1274,7 @@ namespace hfiles
 
 
 
-            protected void btnSubmit_Click(object sender, EventArgs e)
+        protected void btnSubmit_Click(object sender, EventArgs e)
         {
 
         }
@@ -1326,7 +1289,7 @@ namespace hfiles
             Repeater reportRepeater = e.Item.FindControl("rptReports") as Repeater;
         }
 
-       
+
 
         protected void whatsappLinkButton_Click(object sender, EventArgs e)
         {
@@ -1348,7 +1311,7 @@ namespace hfiles
 
         private string GenerateWhatsAppUrl(string filePath)
         {
-           
+
 
             DateTime utcNow = DateTime.UtcNow;
 
@@ -1357,7 +1320,7 @@ namespace hfiles
 
             // Convert UTC to IST
             DateTime indiaTime = TimeZoneInfo.ConvertTimeFromUtc(utcNow, istTimeZone).AddMinutes(60);
-           
+
 
 
             Guid tokenId = Guid.NewGuid();
@@ -1384,15 +1347,15 @@ namespace hfiles
         }
 
 
-        
-       
 
 
 
 
 
 
-       
+
+
+
         protected void btnShareEmail_Command(object sender, CommandEventArgs e)
         {
             try
@@ -1439,7 +1402,7 @@ namespace hfiles
             }
         }
 
-       
+
 
         protected void lbtnShareMail_Click1(object sender, EventArgs e)
         {
@@ -1460,6 +1423,9 @@ namespace hfiles
             //DAL.SendMailPDF(subject, body, email, pdfFilePath);
             //SendEmailWithAttachment();
         }
+
+        
+
         protected bool IsValidEmail(object sessionvalue)
         {
             string email = sessionvalue as string;
@@ -1473,72 +1439,95 @@ namespace hfiles
             }
         }
 
+        protected void rptReports_ItemDataBound1(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                // Get controls inside the repeater item
+                Literal litFileName = (Literal)e.Item.FindControl("litFileName");
+                System.Web.UI.WebControls.Image imgPreview = (System.Web.UI.WebControls.Image)e.Item.FindControl("imgPreview");
+                System.Web.UI.HtmlControls.HtmlIframe pdfPreview = (System.Web.UI.HtmlControls.HtmlIframe)e.Item.FindControl("pdfPreview");
+                System.Web.UI.HtmlControls.HtmlVideo videoPreview = (System.Web.UI.HtmlControls.HtmlVideo)e.Item.FindControl("videoPreview");
 
-        //private void ShowPreview()
-        //{
-        //    // Clear previous values
-        //    txtReportName.Text = "";
-        //    lbtnSave.CommandArgument = "";
+                // Get data for the current repeater item
+                DataRowView row = (DataRowView)e.Item.DataItem;
+                string ReportUrl = row["ReportUrl"].ToString();
 
+                // Assign file name
+                if (litFileName != null)
+                {
+                    litFileName.Text = ReportUrl;
+                }
 
-        //    using (MySqlConnection con = new MySqlConnection(cs))
-        //    {
-        //        try
-        //        {
-        //            con.Open();
+                // Extract file extension
+                string fileExtension = Path.GetExtension(ReportUrl).ToLower();
+                string relativeUrl = ResolveUrl($"~/upload/report/{ReportUrl}");
 
-        //            string query = "SELECT Id, ReportUrl FROM user_reports WHERE Id =" + Id;
+                // Show preview based on file extension
+                if (fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension == ".png" || fileExtension == ".gif")
+                {
+                    if (imgPreview != null)
+                    {
+                        imgPreview.ImageUrl = relativeUrl;
+                        imgPreview.Visible = true;
+                    }
+                    if (pdfPreview != null) pdfPreview.Visible = false;
+                    if (videoPreview != null) videoPreview.Visible = false;
+                }
+                else if (fileExtension == ".pdf")
+                {
+                    if (pdfPreview != null)
+                    {
+                        pdfPreview.Attributes["src"] = relativeUrl;
+                        pdfPreview.Visible = true;
+                    }
+                    if (imgPreview != null) imgPreview.Visible = false;
+                    if (videoPreview != null) videoPreview.Visible = false;
+                }
+                else if (fileExtension == ".mp4" || fileExtension == ".webm" || fileExtension == ".ogg")
+                {
+                    if (videoPreview != null)
+                    {
+                        videoPreview.Attributes["src"] = relativeUrl;
+                        videoPreview.Visible = true;
+                    }
+                    if (imgPreview != null) imgPreview.Visible = false;
+                    if (pdfPreview != null) pdfPreview.Visible = false;
+                }
+            }
+        }
+        private void BindRepeater()
+        {
+            int UserId = int.Parse(Session["Userid"].ToString());
 
-        //            using (MySqlCommand cmd = new MySqlCommand(query, con))
-        //            {
-        //                cmd.Parameters.AddWithValue("@Id", Id); // Secure parameterized query
+            using (MySqlConnection con = new MySqlConnection(cs))
+            {
+                try
+                {
+                    con.Open();
+                    string query = "SELECT Id,UserId,ReportName, ReportUrl,CreatedDate FROM user_reports WHERE IsActive = 1 AND UserId = @UserId";
 
-        //                using (MySqlDataReader dr = cmd.ExecuteReader())
-        //                {
-        //                    if (dr.Read()) // Fetch a single record
-        //                    {
-        //                        int Id = Convert.ToInt32(dr["Id"]);
-        //                        string ReportUrl = dr["ReportUrl"].ToString();
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@UserId", UserId);
+                        using (MySqlDataAdapter da = new MySqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
 
-        //                        // Assign retrieved values to UI controls
-        //                        txtReportName.Text = ReportUrl;
-        //                        lbtnSave.CommandArgument = Convert.ToString(Id); // Store ReportId in CommandArgument
-        //                    }
-        //                }
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            // Log or display error message
-        //            Console.WriteLine("Error: " + ex.Message);
-        //        }
-        //    }
-
-        //    // Determine correct preview based on file extension
-        //    string relativeUrl = ResolveUrl(fileUrl);
-
-        //    if (fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension == ".png" || fileExtension == ".gif")
-        //    {
-        //        imgPreview.ImageUrl = relativeUrl;
-        //        imgPreview.Visible = true;
-        //        pdfPreview.Visible = false;
-        //        videoPreview.Visible = false;
-        //    }
-        //    else if (fileExtension == ".pdf")
-        //    {
-        //        pdfPreview.Attributes["src"] = relativeUrl;
-        //        pdfPreview.Visible = true;
-        //        imgPreview.Visible = false;
-        //        videoPreview.Visible = false;
-        //    }
-        //    else if (fileExtension == ".mp4" || fileExtension == ".webm" || fileExtension == ".ogg")
-        //    {
-        //        videoPreview.Attributes["src"] = relativeUrl;
-        //        videoPreview.Visible = true;
-        //        imgPreview.Visible = false;
-        //        pdfPreview.Visible = false;
-        //    }
-        //}
+                            rptReports.DataSource = dt;
+                            rptReports.DataBind();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+        }
+       
 
     }
 }
+

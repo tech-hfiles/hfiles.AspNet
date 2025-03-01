@@ -538,8 +538,8 @@
             border: none;
             background: white;
             border-bottom: 1px solid #ffffff3d;
-            padding: 4px 40px;
-           /* margin: 8px 0;*/
+            padding: 10px 40px;
+            margin: 8px 0;
             color: #08138f;
             outline: 0;
             width: 100%;
@@ -715,6 +715,9 @@
     </script>
 
     <%--dropdown--%>
+    <style>
+
+    </style>
    <script>
        function toggleDropdown() {
            var inputField = document.getElementById('<%= emailTextBox.ClientID %>');

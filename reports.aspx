@@ -224,7 +224,7 @@
                             </div>
                         </div>
                         <div class="row mb-5">
-                            <asp:Repeater ID="rptReports" runat="server">
+                            <asp:Repeater ID="rptReports"  OnItemDataBound="rptReports_ItemDataBound1" runat="server">
                                 <ItemTemplate>
                                     <div class="col-md-4 col-lg-4 my-2 report-card">
                                         <div class="card text-start px-3 h-100">
@@ -234,10 +234,12 @@
                                                 <h5 class="card-title position-absolute dependent-report"><%= Session["DependentParentName"] != null ? Session["DependentParentName"].ToString() : "" %><%# "\'s " + Eval("user_firstname") %></h5>
                                             </div>--%>
 
-                                            <img src="../assets/pdf-doc.png" class="card-img-top" alt="pdf-thumbnail">
-
+                                          <%--  <img src="../assets/pdf-doc.png" class="card-img-top" alt="pdf-thumbnail">--%>
+                                             <asp:Image ID="imgPreview" runat="server" Visible="false" Height="200px" />
+                                                <iframe id="pdfPreview" runat="server" visible="false" Height="200px"></iframe> <!-- ✅ HtmlIframe -->
+                                                <video id="videoPreview" runat="server"  visible="false" Height="200px"></video> <!-- ✅ HtmlGenericControl -->
+                                            <asp:Literal ID="litFileName" runat="server"></asp:Literal>
                                      
-
                                             <div class="card-body">
 
                                                 <h5 class="card-title report-name"><strong>Name: </strong><%# Eval("ReportName") %></h5>
