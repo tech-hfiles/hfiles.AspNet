@@ -57,7 +57,12 @@ namespace hfiles
             string actualCaptcha = Session["Captcha"]?.ToString();
             string CountryCode = ddlCountry.SelectedItem.Text;
 
-            string phone = CountryCode + phoneTextBox.Value;
+            string countryCode = ddlCountry.SelectedItem.Text.Trim(); // Example: "IND +91"
+
+            // Find the last space and extract the dialing code
+            string dialingCode = countryCode.Substring(countryCode.LastIndexOf(" ") + 1);
+
+            string phone = dialingCode + phoneTextBox.Value;
 
             if (userInput == actualCaptcha)
             {
@@ -277,19 +282,34 @@ namespace hfiles
         private void getcountrylist()
         {
             MySqlConnection con = new MySqlConnection(connectionString);
-            string com = "Select * from countrylist";
+            string com = "SELECT * FROM countrylist2";
             MySqlDataAdapter adpt = new MySqlDataAdapter(com, con);
             DataTable dt = new DataTable();
             adpt.Fill(dt);
+            ddlCountry.Visible = true;
 
-            if(dt != null)
+            if (dt != null && dt.Rows.Count > 0)
             {
                 ViewState["CountryCodeList"] = dt;
-                ddlCountry.DataSource = dt;
-                ddlCountry.DataTextField = "dialingcode";
-                ddlCountry.DataValueField = "id";
-                ddlCountry.DataBind();
-                ddlCountry.Items.Insert(0, new ListItem("+91", "+91"));
+                ddlCountry.Items.Clear();
+
+                // Default item
+                ListItem defaultItem = new ListItem("IND +91", "IND +91");
+                ddlCountry.Items.Add(defaultItem);
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    // Display: Country Name + Dialing Code
+                    string countryDisplay = row["countryname"].ToString() + " " + row["dialingcode"].ToString();
+
+                    // Value: ISO Code + Dialing Code
+                    string isoValue = row["isocode"].ToString() + " " + row["dialingcode"].ToString();
+
+                    ListItem item = new ListItem(countryDisplay, isoValue);
+                    ddlCountry.Items.Add(item);
+                }
+
+                ddlCountry.SelectedIndex = 0;
             }
             else
             {

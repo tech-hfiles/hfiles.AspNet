@@ -94,12 +94,17 @@ namespace hfiles
                     int re = Bind();
                     if (re > 0)
                     {
-                        string countryCode = ddlCountry.SelectedItem.Text.Trim();
+                        //string countryCode = ddlCountry.SelectedItem.Text.Trim();
+                        string countryCode = ddlCountry.SelectedItem.Text.Trim(); // Example: "IND +91"
+
+                        // Find the last space and extract the dialing code
+                        string dialingCode = countryCode.Substring(countryCode.LastIndexOf(" ") + 1);
+
                         string _MobileNoOrEmail = emailTextBox.Text;
 
                         if (IsMobileNumber(_MobileNoOrEmail))
                         {
-                            userInput = countryCode + _MobileNoOrEmail;
+                            userInput = dialingCode + _MobileNoOrEmail;
                         }
 
                         if (IsEmail(_MobileNoOrEmail))
@@ -110,6 +115,7 @@ namespace hfiles
                             ViewState["OTPvalue"] = otp;
                             DAL.SendCareerMail(subject, body, email);
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on " + emailTextBox.Text + "');", true);
+                            ddlCountry.Visible = false;
                             otpButton.Text = "SIGN IN";
                             divOtp.Visible = true;
                         }
@@ -223,13 +229,18 @@ namespace hfiles
                         con.Open();
                         using (MySqlCommand cmd = new MySqlCommand("usp_isuserexists", con))
                         {
-                            string countryCode = ddlCountry.SelectedItem.Text.Trim();
-                             _MobileNoOrEmail = emailTextBox.Text;
+                            // string countryCode = ddlCountry.SelectedItem.Text.Trim();
+                            string countryCode = ddlCountry.SelectedItem.Text.Trim(); // Example: "IND +91"
+
+                            // Find the last space and extract the dialing code
+                            string dialingCode = countryCode.Substring(countryCode.LastIndexOf(" ") + 1);
+
+                            _MobileNoOrEmail = emailTextBox.Text;
 
 
                             if (IsMobileNumber(_MobileNoOrEmail))
                             {
-                                userInput = countryCode + _MobileNoOrEmail;
+                                userInput = dialingCode + _MobileNoOrEmail;
                             }
 
                             cmd.CommandType = CommandType.StoredProcedure;
@@ -403,28 +414,113 @@ namespace hfiles
 
         }
 
+        //private void getcountrylist()
+        //{
+        //    MySqlConnection con = new MySqlConnection(cs);
+        //    string com = "SELECT id, CONCAT(isocode, ' ', dialingcode) AS DisplayCode,CONCAT(countryname, ' ', dialingcode) AS DisplayCode1, dialingcode FROM countrylist2";
+        //    MySqlDataAdapter adpt = new MySqlDataAdapter(com, con);
+        //    DataTable dt = new DataTable();
+        //    adpt.Fill(dt);
+
+        //    if (dt != null && dt.Rows.Count > 0)
+        //    {
+        //        ViewState["CountryCodeList"] = dt;
+        //        ddlCountry.DataSource = dt;
+        //        ddlCountry.DataTextField = "DisplayCode1";  // Show "ISO Code + Dialing Code"
+        //        ddlCountry.DataValueField = "dialingcode"; // Save dialing code as value
+        //        ddlCountry.DataBind();
+
+        //        // Insert default (example: India)
+        //        ddlCountry.Items.Insert(0, new ListItem("+91", "+91"));
+        //    }
+        //    else
+        //    {
+        //        Response.Redirect("Login.aspx");
+        //    }
+        //}
+
+        //private void getcountrylist()
+        //{
+        //    MySqlConnection con = new MySqlConnection(cs);
+        //    string com = "SELECT * FROM countrylist2";
+        //    MySqlDataAdapter adpt = new MySqlDataAdapter(com, con);
+        //    DataTable dt = new DataTable();
+        //    adpt.Fill(dt);
+
+        //    if (dt != null && dt.Rows.Count > 0)
+        //    {
+        //        ViewState["CountryCodeList"] = dt;
+        //        ddlCountry.Items.Clear(); // Clear previous items
+
+        //        // Add Default Option
+        //        ListItem defaultItem = new ListItem("IND +91", "IND+91");
+        //        defaultItem.Attributes["data-country"] = "IND +91"; // Show Country Name + Dialing Code
+        //        defaultItem.Attributes["data-iso"] = "IND +91"; // Show ISO Code + Dialing Code
+        //        ddlCountry.Items.Add(defaultItem);
+
+        //        foreach (DataRow row in dt.Rows)
+        //        {
+        //            string countryDisplay = row["countryname"].ToString() + " " + row["dialingcode"].ToString();
+        //            string isoDisplay = row["isocode"].ToString() + " " + row["dialingcode"].ToString();
+
+        //            ListItem item = new ListItem(countryDisplay, row["dialingcode"].ToString());
+        //            item.Attributes["data-country"] = countryDisplay; // Country Name + Dialing Code
+        //            item.Attributes["data-iso"] = isoDisplay; // ISO Code + Dialing Code
+        //            ddlCountry.Items.Add(item);
+        //        }
+
+        //        // Set Default Selection
+        //        ddlCountry.SelectedIndex = 0;
+        //    }
+        //    else
+        //    {
+        //        Response.Redirect("Login.aspx");
+        //    }
+        //}
+
+
+
         private void getcountrylist()
         {
             MySqlConnection con = new MySqlConnection(cs);
-            string com = "Select * from countrylist";
+            string com = "SELECT * FROM countrylist2";
             MySqlDataAdapter adpt = new MySqlDataAdapter(com, con);
             DataTable dt = new DataTable();
             adpt.Fill(dt);
+            ddlCountry.Visible = true;
 
-            if(dt != null)
+            if (dt != null && dt.Rows.Count > 0)
             {
                 ViewState["CountryCodeList"] = dt;
-                ddlCountry.DataSource = dt;
-                ddlCountry.DataTextField = "dialingcode";
-                ddlCountry.DataValueField = "id";
-                ddlCountry.DataBind();
-                ddlCountry.Items.Insert(0, new ListItem("+91", "+91"));
+                ddlCountry.Items.Clear();
+
+                // Default item
+                ListItem defaultItem = new ListItem("IND +91", "IND +91");
+                ddlCountry.Items.Add(defaultItem);
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    // Display: Country Name + Dialing Code
+                    string countryDisplay = row["countryname"].ToString() + " " + row["dialingcode"].ToString();
+
+                    // Value: ISO Code + Dialing Code
+                    string isoValue = row["isocode"].ToString() + " " + row["dialingcode"].ToString();
+
+                    ListItem item = new ListItem(countryDisplay, isoValue);
+                    ddlCountry.Items.Add(item);
+                }
+
+                ddlCountry.SelectedIndex = 0;
             }
             else
             {
                 Response.Redirect("Login.aspx");
             }
         }
+
+
+
+
 
 
     }

@@ -41,6 +41,54 @@
        };
 
    </script>
+
+    <script>
+        function toggleDropdown() {
+            var inputField = document.getElementById('<%= emailTextBox.ClientID %>');
+         var dropdown = document.getElementById('<%= ddlCountry.ClientID %>');
+
+    if (inputField && dropdown) {
+        if (/^\d+$/.test(inputField.value)) {
+            dropdown.style.display = "block"; // Show dropdown
+            inputField.style.paddingLeft = "60px !important"; // Move text after dropdown
+            // Adjust width dynamically
+        } else {
+            dropdown.style.display = "none"; // Hide dropdown
+            inputField.style.paddingLeft = "1px !important "; // Reset for email input
+             // Reset width
+        }
+    }
+}
+
+// Call function on input change
+$(document).ready(function () {
+    toggleDropdown();
+    $("#<%= emailTextBox.ClientID %>").on("input", function () {
+        toggleDropdown();
+    });
+});</script>
+
+  <script>
+
+      function updateDialingCode() {
+          var dropdown = document.getElementById("ddlCountry");
+
+          if (dropdown) {
+              let selectedIndex = dropdown.selectedIndex;
+              let selectedOption = dropdown.options[selectedIndex];
+
+              // Extract values: text (Country + Dialing Code) and value (ISO Code + Dialing Code)
+              let isoValue = selectedOption.value; // e.g., "ARM +374"
+
+              // Update the selected option's visible text in the dropdown
+              selectedOption.text = isoValue;  // Change visible dropdown text
+          }
+      }
+
+
+  </script>
+
+
         <style>
 
                  #toast-container > .toast-success {
@@ -140,8 +188,31 @@
                         <div class="row signin-form form-group has-search text-center ">
                             <div class="col-12 px-1 input-div">
                                 <i class="fa-solid fa-user form-control-feedback"></i>
-                                <asp:TextBox ID="emailTextBox" CssClass="form-control my-2" TextMode="SingleLine" placeholder="Email Id / Contact No." runat="server"></asp:TextBox>
-                                <%-- <asp:TextBox runat="server"  id="emailTextBox" class="w-100 login-input" type="Text" placeholder="Username" />--%>
+                               <%-- <asp:TextBox ID="emailTextBox" CssClass="form-control my-2" TextMode="SingleLine" placeholder="Email Id / Contact No." runat="server"></asp:TextBox>--%>
+                              
+                                                                              <div style="position: relative; width: 350px;">  
+    <div class="form-control" id="inputWrapper" 
+        style="border-radius:20px; display:flex; padding:0; margin-top:7px; margin-bottom:7px; 
+               width: 100%; height: 50px; align-items: center; overflow: hidden; border: 1px solid #ccc;">
+
+        <!-- Dropdown for email or contact selection -->
+        <asp:DropDownList ID="ddlCountry" runat="server" CssClass="form-select" onchange="updateDialingCode()" style="display: block;    left: 23px;    top: 1px;    border: none !important;    padding-left: 21px !important;    width: 122px !important;    height: 49px !important;    margin-left: 9px;
+    margin-right: -15px;">
+           
+        </asp:DropDownList>
+         
+        <asp:TextBox ID="emailTextBox" CssClass="w-95 login-input" required TextMode="SingleLine"
+            placeholder="Email Id / Contact No." runat="server" 
+            Style="border:none !important;padding-left: 43px !important; width: calc(100% - 15px); height: 48px; padding-right: 10px;padding-bottom: 4px;">
+        </asp:TextBox>
+    </div>
+</div>
+
+
+
+
+
+
                             </div>
 
 

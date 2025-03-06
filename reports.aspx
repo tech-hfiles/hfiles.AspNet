@@ -144,16 +144,124 @@
         }
              
 
-        /*.dependent-report {
-            right: 0;
-            padding: 5px;
-            top: 0;
-            color: white;
-            background: #b4b4b4;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 0px;
-        }*/
-    </style>
+               .play-overlay {
+            position: absolute;
+            top: 27%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            z-index: 2;
+            width: 60px;
+        }
+
+        .play-button {
+            width: 30px;
+            height: 30px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .play-button:hover {
+            opacity: 1;
+        }
+        /* Default styles */
+            #videoContainer {
+                position: relative;
+                width: 100%;
+                max-width: 600px; /* Adjust based on your layout */
+                margin: auto;
+            }
+
+            video {
+                width: 100%;
+                height: 200px; /* Default height */
+            }
+
+            .play-overlay {
+                position: absolute;
+                top: 27%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                cursor: pointer;
+                z-index: 2;
+            }
+
+            .play-button {
+                width: 50px;
+                height: 50px;
+                opacity: 0.8;
+                transition: opacity 0.3s ease;
+            }
+
+            .play-button:hover {
+                opacity: 1;
+            }
+
+            /* iPad Air (Landscape & Portrait) */
+            @media screen and (max-width: 1024px) {
+                video {
+                    height: 180px;
+                }
+
+                .play-button {
+                    width: 45px;
+                    height: 45px;
+                }
+            }
+
+            /* Mobile Devices (Portrait & Landscape) */
+            @media screen and (max-width: 768px) {
+                video {
+                    height: 160px;
+                }
+
+                .play-button {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+
+            /* Small Mobile Devices */
+            @media screen and (max-width: 480px) {
+                video {
+                    height: 140px;
+                }
+
+                .play-button {
+                    width: 35px;
+                    height: 35px;
+                }
+            }
+           
+            .preview-container {
+                width: 100%; 
+                height: 200px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+            }
+
+            .preview-container img, 
+            .preview-container video {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+
+            .play-overlay {
+                position: absolute;
+                width: 50px;
+                height: 135px;
+                cursor: pointer;
+            }
+
+            .play-button {
+                width: 50px;
+                height: 50px;
+            }
+        </style>
+ 
     <!-- jQuery (Make sure it's only included once) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -177,10 +285,27 @@
             });
         });
     </script>
+    <script>
+        function playVideo(playOverlay) {
+            var video = playOverlay.previousElementSibling; // Get the video element
+            video.play();
+            playOverlay.style.display = "none"; // Hide play button when video starts
+        }
 
+        // Handle play and pause events for all videos
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll("video").forEach(function (video) {
+                video.addEventListener("pause", function () {
+                    this.nextElementSibling.style.display = "block"; // Show play button when video is paused
+                });
 
+                video.addEventListener("play", function () {
+                    this.nextElementSibling.style.display = "none"; // Hide play button when video plays
+                });
+            });
+        });
 
-
+    </script>
 
 
 </asp:Content>
@@ -234,16 +359,71 @@
                                                 <h5 class="card-title position-absolute dependent-report"><%= Session["DependentParentName"] != null ? Session["DependentParentName"].ToString() : "" %><%# "\'s " + Eval("user_firstname") %></h5>
                                             </div>--%>
 
-                                          <%--  <img src="../assets/pdf-doc.png" class="card-img-top" alt="pdf-thumbnail">--%>
-                                             <asp:Image ID="imgPreview" runat="server" Visible="false" Height="200px" />
-                                                <iframe id="pdfPreview" runat="server" visible="false" Height="200px"></iframe> <!-- ✅ HtmlIframe -->
-                                                <video id="videoPreview" runat="server"  visible="false" Height="200px"></video> <!-- ✅ HtmlGenericControl -->
-                                            <asp:Literal ID="litFileName" runat="server"></asp:Literal>
-                                     
                                             <div class="card-body">
+                                                 <%--<asp:Image ID="imgPreview" runat="server" Visible="false" Height="200px" />
+                                          
+
+                                                     <div id="pdfPreview" runat="server" style="display:none;Height:200px">
+                                                        <img src="../assets/pdfpreview.jpeg" class="card-img-top">
+                                                    </div>
+                                                   <div id="videoContainer" runat="server" style="display:none;">
+                                                    <video id="videoPreview" runat="server" visible="false" Height="200px" controls></video>
+    
+                                                    <!-- Play Button Overlay -->
+                                                    <div class="play-overlay" onclick="playVideo(this)">
+                                                        <img src="../assets/play-button-icon.png" alt="Play" class="play-button">
+                                                    </div>
+                                                </div>
+
+
+                                                <div id="docPreview" runat="server" style="display:none; Height:200px;">
+                                                        <img src="../assets/documentpreview.jpeg" class="card-img-top" alt="Word Document">
+                                                    </div>
+
+                                                    <!-- Excel File Preview -->
+                                                    <div id="excelPreview" runat="server" style="display:none; Height:200px;">
+                                                        <img src="../assets/excelpre.jpeg" class="card-img-top" alt="Excel Document">
+                                                    </div>
+
+                                                <div id="otherFilesPreview" runat="server" style="display: none;Height:200px;">
+                                                    <img src="../assets/excelpre.jpeg" class="card-img-top" alt="Other File">
+                                                </div>
+
+                                              <div style="padding-bottom: 5px;">
+                                                 <asp:Literal ID="litFileName" runat="server"></asp:Literal>
+                                             </div>--%>
+
+
+
+                                               <div class="file-preview-container">
+                                                        <asp:Image ID="imgPreview" runat="server" Visible="false" Height="200px" />
+                                                     <div id="pdfPreview" runat="server" style="height:200px !important; overflow:hidden; border:none;"></div>
+                                                           <div id="videoContainer" runat="server" style="display:none;">
+                                                <video id="videoPreview" runat="server" visible="false" Height="200px" controls></video>
+    
+                                                <!-- Play Button Overlay -->
+                                                <div class="play-overlay" onclick="playVideo(this)">
+                                                    <img src="../assets/play-button-icon.png" alt="Play" class="play-button">
+                                                </div>
+                                            </div>
+                                                       <div id="docPreview" runat="server" style="display:none; Height:200px;">
+                                                    <img src="../assets/documentpreview.jpeg" class="card-img-top" alt="Word Document">
+                                                </div>
+
+                                                <!-- Excel File Preview -->
+                                                <div id="excelPreview" runat="server" style="display:none; Height:200px;">
+                                                    <img src="../assets/excelpre.jpeg" class="card-img-top" alt="Excel Document">
+                                                </div>
+                                                        <div id="otherFilesPreview" runat="server" style=" Height:200px;"></div>
+                                                    </div>
+                                                    <div style="padding-bottom: 5px;">
+                                                        <asp:Literal ID="litFileName" runat="server"></asp:Literal>
+                                                    </div>
 
                                                 <h5 class="card-title report-name"><strong>Name: </strong><%# Eval("ReportName") %></h5>
+                                               
                                                 <p class="card-text"><strong>Date: </strong><%# Eval("CreatedDate") %> </p>
+                                                
                                                 <div class="Whatappicon d-flex align-items-center justify-content-between">
                                                     <a href="<%# ResolveUrl( string.Format("~/upload/report/{0}", Eval("ReportUrl"))) %>" target="_blank" class="btn btn-sm btn-primary" style="align-self: center">View File</a>
                                                     <%-- <i class="fa-brands fa-whatsapp"></i>--%>

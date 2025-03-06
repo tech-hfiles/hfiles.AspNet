@@ -79,7 +79,6 @@ namespace hfiles
                     getMembersList();
                     getReportType(RId);
                     getReportMaster();
-                    // ShowPreview();
                     BindRepeater();
 
 
@@ -1439,6 +1438,187 @@ namespace hfiles
             }
         }
 
+        //protected void rptReports_ItemDataBound1(object sender, RepeaterItemEventArgs e)
+        //{
+        //    if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+        //    {
+        //        // Get controls inside the repeater item
+        //        Literal litFileName = (Literal)e.Item.FindControl("litFileName");
+        //        System.Web.UI.WebControls.Image imgPreview = (System.Web.UI.WebControls.Image)e.Item.FindControl("imgPreview");
+        //        HtmlGenericControl pdfPreview = (HtmlGenericControl)e.Item.FindControl("pdfPreview");
+        //        HtmlGenericControl videoContainer = (HtmlGenericControl)e.Item.FindControl("videoContainer");
+        //        HtmlGenericControl docPreview = (HtmlGenericControl)e.Item.FindControl("docPreview");
+        //        HtmlGenericControl excelPreview = (HtmlGenericControl)e.Item.FindControl("excelPreview");
+        //        HtmlVideo videoPreview = (HtmlVideo)e.Item.FindControl("videoPreview");
+
+        //        // Get data for the current repeater item
+        //        DataRowView row = (DataRowView)e.Item.DataItem;
+        //        string ReportUrl = row["ReportUrl"].ToString();
+
+
+        //        // Extract file extension
+        //        string fileExtension = Path.GetExtension(ReportUrl).ToLower();
+        //        string filesize= row["fileSize"].ToString() + " kb";
+        //        if (litFileName != null)
+        //        {
+
+        //            litFileName.Text = filesize;
+        //        }
+
+        //        string relativeUrl = ResolveUrl($"~/upload/report/{ReportUrl}");
+
+        //        // Hide all previews by default
+        //        if (imgPreview != null) imgPreview.Visible = false;
+        //        if (pdfPreview != null) pdfPreview.Style["display"] = "none";
+        //        if (videoContainer != null) videoContainer.Style["display"] = "none";
+        //        if (docPreview != null) docPreview.Style["display"] = "none";
+        //        if (excelPreview != null) excelPreview.Style["display"] = "none";
+
+        //        // Show preview based on file extension
+        //        if (fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension == ".png" || fileExtension == ".gif")
+        //        {
+        //            if (imgPreview != null)
+        //            {
+        //                imgPreview.ImageUrl = relativeUrl;
+        //                imgPreview.Visible = true;
+        //            }
+        //        }
+        //        else if (fileExtension == ".pdf")
+        //        {
+        //            if (pdfPreview != null)
+        //            {
+        //                pdfPreview.Style["display"] = "block";
+        //                pdfPreview.InnerHtml = $"<img src='../assets/pdf-thumbnail .jpg' class='card-img-top' alt='PDF Thumbnail'>";
+        //            }
+        //        }
+        //        else if (fileExtension == ".mp4" || fileExtension == ".webm" || fileExtension == ".ogg")
+        //        {
+        //            if (videoContainer != null)
+        //            {
+        //                videoContainer.Style["display"] = "block";
+        //            }
+        //            if (videoPreview != null)
+        //            {
+        //                videoPreview.Attributes["src"] = relativeUrl;
+        //                videoPreview.Visible = true;
+        //            }
+        //        }
+        //        else if (fileExtension == ".doc" || fileExtension == ".docx")
+        //        {
+        //            if (docPreview != null)
+        //            {
+        //                docPreview.Style["display"] = "block";
+        //                docPreview.InnerHtml = $"<img src='../assets/pdf-thumbnail .jpg' class='card-img-top' alt='Word Document'>";
+        //            }
+        //        }
+        //        else if (fileExtension == ".xls" || fileExtension == ".xlsx")
+        //        {
+        //            if (excelPreview != null)
+        //            {
+        //                excelPreview.Style["display"] = "block";
+        //                excelPreview.InnerHtml = $"<img src='../assets/pdf-thumbnail .jpg' class='card-img-top' alt='Excel Document'>";
+        //            }
+        //        }
+        //    }
+        //}
+
+        //protected void rptReports_ItemDataBound1(object sender, RepeaterItemEventArgs e)
+        //{
+        //    if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+        //    {
+        //        // Get controls inside the repeater item
+        //        Literal litFileName = (Literal)e.Item.FindControl("litFileName");
+        //        System.Web.UI.WebControls.Image imgPreview = (System.Web.UI.WebControls.Image)e.Item.FindControl("imgPreview");
+        //        HtmlGenericControl pdfPreview = (HtmlGenericControl)e.Item.FindControl("pdfPreview");
+        //        HtmlGenericControl videoContainer = (HtmlGenericControl)e.Item.FindControl("videoContainer");
+        //        HtmlGenericControl docPreview = (HtmlGenericControl)e.Item.FindControl("docPreview");
+        //        HtmlGenericControl excelPreview = (HtmlGenericControl)e.Item.FindControl("excelPreview");
+        //        HtmlGenericControl otherFilesPreview = (HtmlGenericControl)e.Item.FindControl("otherFilesPreview"); // Add new div for other files
+        //        HtmlVideo videoPreview = (HtmlVideo)e.Item.FindControl("videoPreview");
+
+        //        // Get data for the current repeater item
+        //        DataRowView row = (DataRowView)e.Item.DataItem;
+        //        string ReportUrl = row["ReportUrl"].ToString();
+
+        //        // Extract file extension
+        //        string fileExtension = Path.GetExtension(ReportUrl).ToLower();
+
+        //        // Get file size and convert it using a separate method
+        //        double fileSizeInBytes = Convert.ToDouble(row["fileSize"]);
+        //        string fileSizeDisplay = FormatFileSize(fileSizeInBytes);
+
+        //        if (litFileName != null)
+        //        {
+        //            litFileName.Text = "<span style='font-weight: bold;'>FileSize:</span>" + fileSizeDisplay;
+        //        }
+
+        //        string relativeUrl = ResolveUrl($"~/upload/report/{ReportUrl}");
+
+        //        // Hide all previews by default
+        //        if (imgPreview != null) imgPreview.Visible = false;
+        //        if (pdfPreview != null) pdfPreview.Style["display"] = "none";
+        //        if (videoContainer != null) videoContainer.Style["display"] = "none";
+        //        if (docPreview != null) docPreview.Style["display"] = "none";
+        //        if (excelPreview != null) excelPreview.Style["display"] = "none";
+        //        if (otherFilesPreview != null) otherFilesPreview.Style["display"] = "none"; // Hide other files preview by default
+
+        //        // Show preview based on file extension
+        //        if (fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension == ".png" || fileExtension == ".gif")
+        //        {
+        //            if (imgPreview != null)
+        //            {
+        //                imgPreview.ImageUrl = relativeUrl;
+        //                imgPreview.Visible = true;
+        //            }
+        //        }
+        //        else if (fileExtension == ".pdf")
+        //        {
+        //            if (pdfPreview != null)
+        //            {
+        //                pdfPreview.Style["display"] = "block";
+        //                pdfPreview.InnerHtml = $"<img src='../assets/pdfpreview.jpeg' class='card-img-top' alt='PDF Thumbnail'>";
+        //            }
+        //        }
+        //        else if (fileExtension == ".mp4" || fileExtension == ".webm" || fileExtension == ".ogg")
+        //        {
+        //            if (videoContainer != null)
+        //            {
+        //                videoContainer.Style["display"] = "block";
+        //            }
+        //            if (videoPreview != null)
+        //            {
+        //                videoPreview.Attributes["src"] = relativeUrl;
+        //                videoPreview.Visible = true;
+        //            }
+        //        }
+        //        else if (fileExtension == ".doc" || fileExtension == ".docx")
+        //        {
+        //            if (docPreview != null)
+        //            {
+        //                docPreview.Style["display"] = "block";
+        //                docPreview.InnerHtml = $"<img src='../assets/documentpreview.jpeg' class='card-img-top' alt='Word Document'>";
+        //            }
+        //        }
+        //        else if (fileExtension == ".xls" || fileExtension == ".xlsx")
+        //        {
+        //            if (excelPreview != null)
+        //            {
+        //                excelPreview.Style["display"] = "block";
+        //                excelPreview.InnerHtml = $"<img src='../assets/excelpre.jpeg' class='card-img-top' alt='Excel Document'>";
+        //            }
+        //        }
+        //        else
+        //        {
+        //            // Show a default preview for other file types
+        //            if (otherFilesPreview != null)
+        //            {
+        //                otherFilesPreview.Style["display"] = "block";
+        //                otherFilesPreview.InnerHtml = $"<img src='../assets/excelpre.jpeg' class='card-img-top' alt='Other File'>";
+        //            }
+        //        }
+        //    }
+        //}
+
         protected void rptReports_ItemDataBound1(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
@@ -1446,54 +1626,95 @@ namespace hfiles
                 // Get controls inside the repeater item
                 Literal litFileName = (Literal)e.Item.FindControl("litFileName");
                 System.Web.UI.WebControls.Image imgPreview = (System.Web.UI.WebControls.Image)e.Item.FindControl("imgPreview");
-                System.Web.UI.HtmlControls.HtmlIframe pdfPreview = (System.Web.UI.HtmlControls.HtmlIframe)e.Item.FindControl("pdfPreview");
-                System.Web.UI.HtmlControls.HtmlVideo videoPreview = (System.Web.UI.HtmlControls.HtmlVideo)e.Item.FindControl("videoPreview");
+                HtmlGenericControl pdfPreview = (HtmlGenericControl)e.Item.FindControl("pdfPreview");
+                HtmlGenericControl videoContainer = (HtmlGenericControl)e.Item.FindControl("videoContainer");
+                HtmlGenericControl docPreview = (HtmlGenericControl)e.Item.FindControl("docPreview");
+                HtmlGenericControl excelPreview = (HtmlGenericControl)e.Item.FindControl("excelPreview");
+                HtmlGenericControl otherFilesPreview = (HtmlGenericControl)e.Item.FindControl("otherFilesPreview");
+                HtmlVideo videoPreview = (HtmlVideo)e.Item.FindControl("videoPreview");
 
                 // Get data for the current repeater item
                 DataRowView row = (DataRowView)e.Item.DataItem;
                 string ReportUrl = row["ReportUrl"].ToString();
-
-                // Assign file name
-                if (litFileName != null)
-                {
-                    litFileName.Text = ReportUrl;
-                }
-
-                // Extract file extension
                 string fileExtension = Path.GetExtension(ReportUrl).ToLower();
                 string relativeUrl = ResolveUrl($"~/upload/report/{ReportUrl}");
 
-                // Show preview based on file extension
+                // File size display
+                //double fileSizeInBytes = Convert.ToDouble(row["fileSize"]);
+                //string fileSizeDisplay = FormatFileSize(fileSizeInBytes);
+
+                //if (litFileName != null)
+                //{
+                //    litFileName.Text = "<span style='font-weight: bold;'>FileSize:</span> " + fileSizeDisplay;
+                //}
+
+                // Hide all previews by default
+                imgPreview.Visible = false;
+                pdfPreview.Style["display"] = "none";
+                videoContainer.Style["display"] = "none";
+                docPreview.Style["display"] = "none";
+                excelPreview.Style["display"] = "none";
+                otherFilesPreview.Style["display"] = "none";
+
+                // Display the actual file
                 if (fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension == ".png" || fileExtension == ".gif")
                 {
-                    if (imgPreview != null)
-                    {
-                        imgPreview.ImageUrl = relativeUrl;
-                        imgPreview.Visible = true;
-                    }
-                    if (pdfPreview != null) pdfPreview.Visible = false;
-                    if (videoPreview != null) videoPreview.Visible = false;
+                    imgPreview.ImageUrl = relativeUrl;
+                    imgPreview.Visible = true;
                 }
                 else if (fileExtension == ".pdf")
                 {
-                    if (pdfPreview != null)
-                    {
-                        pdfPreview.Attributes["src"] = relativeUrl;
-                        pdfPreview.Visible = true;
-                    }
-                    if (imgPreview != null) imgPreview.Visible = false;
-                    if (videoPreview != null) videoPreview.Visible = false;
+                    pdfPreview.Style["display"] = "block";
+                    pdfPreview.InnerHtml = $"<embed src='{relativeUrl}#toolbar=0' type='application/pdf' width='100%' height='200px' style='border:none; overflow:hidden;'/>";
                 }
+
+
                 else if (fileExtension == ".mp4" || fileExtension == ".webm" || fileExtension == ".ogg")
                 {
-                    if (videoPreview != null)
-                    {
-                        videoPreview.Attributes["src"] = relativeUrl;
-                        videoPreview.Visible = true;
-                    }
-                    if (imgPreview != null) imgPreview.Visible = false;
-                    if (pdfPreview != null) pdfPreview.Visible = false;
+                    videoContainer.Style["display"] = "block";
+                    videoPreview.Attributes["src"] = relativeUrl;
+                    videoPreview.Visible = true;
                 }
+                else if (fileExtension == ".doc" || fileExtension == ".docx")
+                {
+                    if (docPreview != null)
+                    {
+                        docPreview.Style["display"] = "block";
+                        docPreview.InnerHtml = $"<img src='../assets/documentpreview.jpeg' class='card-img-top' alt='Word Document'>";
+                    }
+                }
+                else if (fileExtension == ".xls" || fileExtension == ".xlsx")
+                {
+                    if (excelPreview != null)
+                    {
+                        excelPreview.Style["display"] = "block";
+                        excelPreview.InnerHtml = $"<img src='../assets/excelpre.jpeg' class='card-img-top' alt='Excel Document'>";
+                    }
+                }
+
+                else
+                {
+                    otherFilesPreview.Style["display"] = "block";
+                    otherFilesPreview.InnerHtml = $"<iframe src='{relativeUrl}' width='100%' height='200px' style='border:none; overflow:hidden;' scrolling='no'></iframe>";
+                }
+            }
+        }
+
+        private string FormatFileSize(double fileSizeInBytes)
+        {
+            if (fileSizeInBytes <= 0)
+                return "0 KB"; // Handle zero file size case
+
+            double fileSizeInKB = fileSizeInBytes;
+
+            if (fileSizeInKB < 1024) // Less than 1MB (1024 KB)
+            {
+                return Math.Round(fileSizeInKB) + " KB"; // Round to nearest whole number
+            }
+            else // 1MB or more
+            {
+                double fileSizeInMB = fileSizeInKB / 1024;
+                return fileSizeInMB.ToString("0.00") + " MB"; // Show 2 decimal places
             }
         }
         private void BindRepeater()
@@ -1505,7 +1726,7 @@ namespace hfiles
                 try
                 {
                     con.Open();
-                    string query = "SELECT Id,UserId,ReportName, ReportUrl,CreatedDate FROM user_reports WHERE IsActive = 1 AND UserId = @UserId";
+                    string query = "SELECT Id, UserId, ReportName, ReportUrl, CreatedDate, FileSize as fileSize FROM user_reports WHERE IsActive = 1 AND UserId = @UserId";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, con))
                     {
@@ -1514,6 +1735,18 @@ namespace hfiles
                         {
                             DataTable dt = new DataTable();
                             da.Fill(dt);
+
+                            // Debug: Print all column names
+                            foreach (DataColumn col in dt.Columns)
+                            {
+                                Console.WriteLine("Column: " + col.ColumnName);
+                            }
+
+                            // Check if FileSize column exists
+                            if (!dt.Columns.Contains("FileSize"))
+                            {
+                                Console.WriteLine("FileSize column is missing from DataTable!");
+                            }
 
                             rptReports.DataSource = dt;
                             rptReports.DataBind();
@@ -1526,7 +1759,8 @@ namespace hfiles
                 }
             }
         }
-       
+
+
 
     }
 }

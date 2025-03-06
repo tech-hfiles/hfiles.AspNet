@@ -17,8 +17,13 @@ namespace hfiles
         string cs = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["id"] != null)
+            if (!IsPostBack)
             {
+                getcountrylist();
+            }
+
+                if (Request.QueryString["id"] != null)
+                {
                 // Retrieve the parameter value
                 string paramValue = Server.UrlDecode(Request.QueryString["id"]);
                 divOtp.Visible = false;
@@ -306,6 +311,50 @@ namespace hfiles
             }
 
         }
+
+
+
+
+        private void getcountrylist()
+        {
+            MySqlConnection con = new MySqlConnection(cs);
+            string com = "SELECT * FROM countrylist2";
+            MySqlDataAdapter adpt = new MySqlDataAdapter(com, con);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
+            ddlCountry.Visible = true;
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                ViewState["CountryCodeList"] = dt;
+                ddlCountry.Items.Clear();
+
+                // Default item
+                ListItem defaultItem = new ListItem("IND +91", "IND +91");
+                ddlCountry.Items.Add(defaultItem);
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    // Display: Country Name + Dialing Code
+                    string countryDisplay = row["countryname"].ToString() + " " + row["dialingcode"].ToString();
+
+                    // Value: ISO Code + Dialing Code
+                    string isoValue = row["isocode"].ToString() + " " + row["dialingcode"].ToString();
+
+                    ListItem item = new ListItem(countryDisplay, isoValue);
+                    ddlCountry.Items.Add(item);
+                }
+
+                ddlCountry.SelectedIndex = 0;
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
+
+
+
     }
 
 }

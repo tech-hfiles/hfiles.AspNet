@@ -717,7 +717,23 @@
         };
         /* Style for checkbox */
 
+        </script>
 
+    <script>
+        function updateDialingCode() {
+            var dropdown = document.getElementById("ddlCountry");
+
+            if (dropdown) {
+                let selectedIndex = dropdown.selectedIndex;
+                let selectedOption = dropdown.options[selectedIndex];
+
+                // Extract values: text (Country + Dialing Code) and value (ISO Code + Dialing Code)
+                let isoValue = selectedOption.value; // e.g., "ARM +374"
+
+                // Update the selected option's visible text in the dropdown
+                selectedOption.text = isoValue;  // Change visible dropdown text
+            }
+        }
     </script>
   
 </head>
@@ -910,7 +926,7 @@
                         <div class="col-12 col-md-7 col-lg-6 col-xl-6 px-1 input-div">
     <div class="form-control" style="background-color:white;border-radius:20px;display:flex;padding:0;margin-top:7px;margin-bottom:7px">
         <!-- Dropdown for country codes (populated by ASP.NET) -->
-        <asp:DropDownList ID="ddlCountry" runat="server" style="border:none !important;padding-left:12px !important;max-width:94px !important;height:49px !important" CssClass="form-select country-dropdown"></asp:DropDownList>
+        <asp:DropDownList ID="ddlCountry" runat="server" onchange="updateDialingCode()" style="border:none !important;padding-left:12px !important;max-width:137px !important;height:49px !important" CssClass="form-select country-dropdown"></asp:DropDownList>
 
         <!-- Textbox for phone number -->
         <input type="number" id="phoneTextBox" runat="server" placeholder="Phone No" required  style="border:none !important;padding-left:5px !important"/>

@@ -663,20 +663,20 @@
     </style>
     <style>
                        .back-arrow-btn-2 {
-                display: inline-block; /* Visible by default */
-                padding: 8px 16px;
-                font-size: 16px;
-                text-decoration: none;
-                       margin-top: -41px;
-                     margin-left: -44px;
-            }
+                            display: inline-block; /* Visible by default */
+                            padding: 8px 16px;
+                            font-size: 16px;
+                            text-decoration: none;
+                                     margin-top: -32px;
+                     
+                        }
 
-            /* Hide on iPad Air (width >= 768px) and Desktop */
-            @media (min-width: 768px) { 
-                .back-arrow-btn-2 {
-                    display: none !important;
-                }
-            }
+                /* Hide on iPad Air (width >= 768px) and Desktop */
+                        @media (min-width: 768px) { 
+                            .back-arrow-btn-2 {
+                                display: none !important;
+                            }
+                        }
     </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -718,24 +718,49 @@
     <style>
 
     </style>
-   <script>
-       function toggleDropdown() {
-           var inputField = document.getElementById('<%= emailTextBox.ClientID %>');
+<script>
+    function toggleDropdown() {
+       
+        var inputField = document.getElementById('<%= emailTextBox.ClientID %>');
         var dropdown = document.getElementById('<%= ddlCountry.ClientID %>');
+        
+        if (inputField && dropdown) {
+            if (/^\d+$/.test(inputField.value)) {
+                dropdown.style.display = "block"; // Show dropdown
+                inputField.style.paddingLeft = "143px"; // Adjust padding so text stays visible
+            } else {
+                dropdown.style.display = "none"; // Hide dropdown
+                inputField.style.paddingLeft = "40px"; // Reset padding when dropdown is hidden
+            }
+        }
+    }
 
-           // Check if input contains only numbers
-           if (/^\d+$/.test(inputField.value)) {
-               dropdown.style.display = "block"; // Show dropdown
-           } else {
-               dropdown.style.display = "none"; // Hide dropdown
-           }
+    $(document).ready(function () {
+        toggleDropdown();
+        $("#<%= emailTextBox.ClientID %>").on("input", function () {
+            toggleDropdown();
+        });
+    });</script>
+
+  <script>
+    
+      function updateDialingCode() {
+          var dropdown = document.getElementById("ddlCountry");
+
+          if (dropdown) {
+              let selectedIndex = dropdown.selectedIndex;
+              let selectedOption = dropdown.options[selectedIndex];
+
+              // Extract values: text (Country + Dialing Code) and value (ISO Code + Dialing Code)
+              let isoValue = selectedOption.value; // e.g., "ARM +374"
+
+              // Update the selected option's visible text in the dropdown
+              selectedOption.text = isoValue;  // Change visible dropdown text
+          }
+      }
 
 
-       }
-       $(document).ready(function () {
-           toggleDropdown();
-       });
-</script>
+  </script>
 
 </head>
 
@@ -894,7 +919,7 @@
                         </div>--%>
 
 
-                      <div>
+                      <%--<div>
     <div class="form-control" style="background-color:white;border-radius:20px;display:flex;padding:0;margin-top:7px;margin-bottom:7px">
         <!-- Dropdown for email or contact selection -->
         <asp:DropDownList ID="ddlCountry" runat="server" CssClass="form-select"
@@ -908,7 +933,30 @@
           placeholder="Email Id / Contact No."   runat="server" Style="border:none !important; padding-left:5px !important; flex-grow:1;" 
              oninput="toggleDropdown()"></asp:TextBox>
     </div>
+</div>--%>
+
+                        <div style="position: relative; width: 350px;">  
+    <div class="form-control" id="inputWrapper" 
+        style="border-radius:20px; display:flex; padding:0; margin-top:7px; margin-bottom:7px; 
+               width: 100%; height: 50px; align-items: center; overflow: hidden; border: 1px solid #ccc;">
+
+        <!-- Dropdown for email or contact selection -->
+        <asp:DropDownList ID="ddlCountry" runat="server" CssClass="form-select" onchange="updateDialingCode()" style="border:none !important; padding-left:12px !important; 
+            width: 128px !important; height: 49px !important; display:none; 
+            position: absolute; left: 2px; top: 1px;">
+           
+        </asp:DropDownList>
+         
+        <asp:TextBox ID="emailTextBox" CssClass="w-95 login-input" required TextMode="SingleLine"
+            placeholder="Email Id / Contact No." runat="server" 
+            Style="border:none !important; padding-left:143px !important; width: 100%; height: 48px; padding-right: 10px;padding-bottom: 4px;">
+        </asp:TextBox>
+    </div>
 </div>
+                      
+
+
+
 
 
 
