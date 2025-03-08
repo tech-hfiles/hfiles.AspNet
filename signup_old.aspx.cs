@@ -122,6 +122,7 @@ namespace hfiles
                         divSubmit.Visible = true;
                         divOtp.Visible = false;
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on " + emailTextBox.Value + " and " + phone + ".');", true);
+                        getcountrylist();
                     }
                    
                 }

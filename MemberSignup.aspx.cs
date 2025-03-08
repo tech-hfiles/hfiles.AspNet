@@ -15,6 +15,7 @@ namespace hfiles
     public partial class MemberSignup : System.Web.UI.Page
     {
         string cs = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
+        private string userInput;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -92,7 +93,21 @@ namespace hfiles
 
                     if (re > 0)
                     {
+                        string countryCode = ddlCountry.SelectedItem.Text.Trim(); // Example: "IND +91"
+
+                        // Find the last space and extract the dialing code
+                        string dialingCode = countryCode.Substring(countryCode.LastIndexOf(" ") + 1);
+
+
                         string _MobileNoOrEmail = emailTextBox.Text;
+
+                        if (IsMobileNumber(_MobileNoOrEmail))
+                        {
+                            userInput = dialingCode + _MobileNoOrEmail;
+                        }
+
+
+
                         if (IsEmail(_MobileNoOrEmail))
                         {
                             string otp = GenerateOTP(6); // Generate a 6-digit OTP
@@ -108,8 +123,8 @@ namespace hfiles
                         {
                             string otp = GenerateOTP(6); // Generate a 6-digit OTP
                             ViewState["OTPvalue"] = otp;
-                            DAL.SendOTPApiRequest(otp, _MobileNoOrEmail);
-                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on " + emailTextBox.Text + "');", true);
+                            DAL.SendOTPApiRequest(otp, userInput);
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on " + userInput + "');", true);
                             otpButton.Text = "SIGN IN";
                             divOtp.Visible = true;
                         }

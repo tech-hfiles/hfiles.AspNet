@@ -736,8 +736,10 @@
     }
 
     $(document).ready(function () {
+        updateDialingCode();
         toggleDropdown();
         $("#<%= emailTextBox.ClientID %>").on("input", function () {
+           
             toggleDropdown();
         });
     });</script>
@@ -745,6 +747,7 @@
   <script>
     
       function updateDialingCode() {
+          debugger
           var dropdown = document.getElementById("ddlCountry");
 
           if (dropdown) {
@@ -941,7 +944,7 @@
                width: 100%; height: 50px; align-items: center; overflow: hidden; border: 1px solid #ccc;">
 
         <!-- Dropdown for email or contact selection -->
-        <asp:DropDownList ID="ddlCountry" runat="server" CssClass="form-select" onchange="updateDialingCode()" style="border:none !important; padding-left:12px !important; 
+        <asp:DropDownList ID="ddlCountry" runat="server" CssClass="form-select" EnableViewState="true" onchange="updateDialingCode()" style="border:none !important; padding-left:12px !important; 
             width: 128px !important; height: 49px !important; display:none; 
             position: absolute; left: 2px; top: 1px;">
            

@@ -62,6 +62,10 @@ namespace hfiles
                 //ci = Thread.CurrentThread.CurrentCulture;
                 //LoadString(ci);
             }
+            if (ViewState["SelectedCountry"] != null)
+            {
+                ddlCountry.SelectedValue = ViewState["SelectedCountry"].ToString();
+            }
 
         }
 
@@ -87,6 +91,8 @@ namespace hfiles
         {
             if (otpButton.Text.ToLower() == "get otp")
             {
+
+                
                 // Usage:
                 string email = emailTextBox.Text.ToString();
                 if (emailTextBox.Text != string.Empty)
@@ -125,6 +131,11 @@ namespace hfiles
                             ViewState["OTPvalue"] = otp;
                             DAL.SendOTPApiRequest(otp, userInput);
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on " + userInput + "');", true);
+                            
+                            if (ViewState["SelectedCountry"] != null)
+                            {
+                                ddlCountry.SelectedValue = ViewState["SelectedCountry"].ToString();
+                            }
                             otpButton.Text = "SIGN IN";
                             divOtp.Visible = true;
                         }

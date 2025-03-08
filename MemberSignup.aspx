@@ -50,11 +50,11 @@
     if (inputField && dropdown) {
         if (/^\d+$/.test(inputField.value)) {
             dropdown.style.display = "block"; // Show dropdown
-            inputField.style.paddingLeft = "60px !important"; // Move text after dropdown
+            inputField.style.paddingLeft = "100px !important"; // Move text after dropdown
             // Adjust width dynamically
         } else {
             dropdown.style.display = "none"; // Hide dropdown
-            inputField.style.paddingLeft = "1px !important "; // Reset for email input
+            inputField.style.paddingLeft = "51px !important "; // Reset for email input
              // Reset width
         }
     }
@@ -62,6 +62,7 @@
 
 // Call function on input change
 $(document).ready(function () {
+    updateDialingCode();
     toggleDropdown();
     $("#<%= emailTextBox.ClientID %>").on("input", function () {
         toggleDropdown();
@@ -190,20 +191,20 @@ $(document).ready(function () {
                                 <i class="fa-solid fa-user form-control-feedback"></i>
                                <%-- <asp:TextBox ID="emailTextBox" CssClass="form-control my-2" TextMode="SingleLine" placeholder="Email Id / Contact No." runat="server"></asp:TextBox>--%>
                               
-                                                                              <div style="position: relative; width: 350px;">  
+                                                                              <div style="position: relative;">  
     <div class="form-control" id="inputWrapper" 
         style="border-radius:20px; display:flex; padding:0; margin-top:7px; margin-bottom:7px; 
                width: 100%; height: 50px; align-items: center; overflow: hidden; border: 1px solid #ccc;">
 
         <!-- Dropdown for email or contact selection -->
-        <asp:DropDownList ID="ddlCountry" runat="server" CssClass="form-select" onchange="updateDialingCode()" style="display: block;    left: 23px;    top: 1px;    border: none !important;    padding-left: 21px !important;    width: 122px !important;    height: 49px !important;    margin-left: 9px;
+        <asp:DropDownList ID="ddlCountry" runat="server" CssClass="form-select" onchange="updateDialingCode()" style="display: block;    left: 23px;    top: 1px;    border: none !important;    padding-left: 21px !important;    width: 137px  !important;    height: 49px !important;    margin-left: 9px;
     margin-right: -15px;">
            
         </asp:DropDownList>
          
         <asp:TextBox ID="emailTextBox" CssClass="w-95 login-input" required TextMode="SingleLine"
             placeholder="Email Id / Contact No." runat="server" 
-            Style="border:none !important;padding-left: 43px !important; width: calc(100% - 15px); height: 48px; padding-right: 10px;padding-bottom: 4px;">
+            Style="border:none !important;padding-left: 43px !important; width: calc(100% - 15px); height: 48px; padding-right: 10px;padding-bottom: 4px;background-color:white !important">
         </asp:TextBox>
     </div>
 </div>

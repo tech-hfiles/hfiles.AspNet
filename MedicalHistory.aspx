@@ -418,6 +418,32 @@
     }
 }
 
+   @media (min-width: 820px) and (max-width: 1180px) { /* iPad Air Specific */
+    .col-md-2 {
+        flex: 0 0 auto;
+        width: 21.666667%
+    }
+
+    
+
+    
+}
+   @media (max-width: 767px) { /* Mobile view */
+    .col-3 {
+        flex: 0 0 auto;
+        width: 33%;
+    }
+
+}
+      @media (max-width: 768px) { /* Mobile view */
+    .col-3 {
+        flex: 0 0 auto;
+       width: 25%;
+    }
+
+}
+
+
    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
