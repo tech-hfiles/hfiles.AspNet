@@ -15,6 +15,7 @@
       }
     }
 
+
     .form-element .form-control {
       padding: 10px 5px;
       border-radius: 15px;
@@ -81,6 +82,12 @@
                     <div class="d-flex justify-content-center w-100">
                       <asp:LinkButton runat="server" class="btn thm-button mb-2 mt-4" ValidationGroup="a" OnClick="btnSave_Click" ID="btnSave">Change Password</asp:LinkButton>
                     </div>
+                      <br />
+                      
+                      <h5 style="color:red">If you forgot your old password.Please go to the Login Page click "Forgot Password," and create a new password.</h5>
+
+
+
                   </div>
                 </div>
               </div>

@@ -10,6 +10,8 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using System.Configuration;
 using System.Web.Security;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace hfiles
 {
@@ -62,86 +64,107 @@ namespace hfiles
       return new string(Enumerable.Repeat(chars, length)
           .Select(s => s[random.Next(s.Length)]).ToArray());
     }
-    protected void signup_Click(object sender, EventArgs e)
-    {
-      if (otpButton.Text == "GET OTP")
-      {
-        string email = emailTextBox.Text.ToString();
-        if (Bind() > 0)
+        public string HashPassword(string password)
         {
-          string otp = GenerateOTP(6);
-          string subject = "# Forgot Password ?";
-          string body = $"<p style=\"text-align: justify\">Please use the verification code below to change your password. If you didn&rsquo;t request this, you can ignore this email.</p>\r\n<p><strong style=\"font-size: 130%\">{otp}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Thanks,&nbsp;</p><p style=\"text-align: justify\">Team Health Files.</p>";
-          ViewState["OTPvalue"] = otp;
-          //Session["Userid"] = hfId.Value;
-          DAL.SendCareerMail(subject, body, email);
-          otpButton.Text = "Change Password";
-          divOtp.Visible = true;
-        }
-        else
-        {
-          Session["Userid"] = null;
-          otpButton.Text = "GET OTP";
-          divOtp.Visible = true;
-
-          Response.Redirect("~/signup.aspx");
-        }
-      }
-      else if (otpButton.Text == "Change Password")
-      {
-        if (ViewState["OTPvalue"] != null)
-        {
-          if (otpTextBox.Value == ViewState["OTPvalue"].ToString())
-          {
-            int userexist = 0;
-
-            // GetUserId(emailTextBox.Text);
-
-            using (MySqlConnection connection = new MySqlConnection(cs))
+            using (SHA256 sha256 = SHA256.Create())
             {
-              connection.Open();
-
-              string query = "SELECT otp_code FROM otp WHERE user_id = @userId ORDER BY created_at DESC LIMIT 1";
-
-              using (MySqlCommand command = new MySqlCommand(query, connection))
+                byte[] hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return BitConverter.ToString(hashBytes).Replace("-", "").ToLower(); // 64-character hash
+            }
+        }
+        protected void signup_Click(object sender, EventArgs e)
+        {
+              if (otpButton.Text == "GET OTP")
               {
-                command.Parameters.AddWithValue("@userId", emailTextBox.Text);
-
-                string otpCodeFromDatabase = (string)command.ExecuteScalar();
-                using (MySqlCommand cmdInsert = new MySqlCommand("usp_changepassword", connection))
+                string email = emailTextBox.Text.ToString();
+                if (Bind() > 0)
                 {
-                  cmdInsert.CommandType = CommandType.StoredProcedure;
+                  string otp = GenerateOTP(6);
+                  string subject = "# Forgot Password ?";
+                  string body = $"<p style=\"text-align: justify\">Please use the verification code below to change your password. If you didn&rsquo;t request this, you can ignore this email.</p>\r\n<p><strong style=\"font-size: 130%\">{otp}</strong>\r\n</span></p>\r\n<p style=\"text-align: justify\">Thanks,&nbsp;</p><p style=\"text-align: justify\">Team Health Files.</p>";
+                  ViewState["OTPvalue"] = otp;
+                  //Session["Userid"] = hfId.Value;
+                  DAL.SendCareerMail(subject, body, email);
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('OTP sent on " + emailTextBox.Text + "');", true);
+                    otpButton.Text = "Change Password";
+                  divOtp.Visible = true;
+                }
+                else
+                {
+                  Session["Userid"] = null;
+                  otpButton.Text = "GET OTP";
+                  divOtp.Visible = true;
 
-                  cmdInsert.CommandType = CommandType.StoredProcedure;
-                  cmdInsert.Parameters.AddWithValue("_UserId", hfId.Value);
-                  cmdInsert.Parameters.AddWithValue("_OldPassword", txtPassword.Text);
-                  cmdInsert.Parameters.AddWithValue("_NewPassword", txtPassword.Text);
-                  cmdInsert.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
-                  cmdInsert.ExecuteNonQuery();
-
-                  if (DAL.validateInt(cmdInsert.Parameters["_Result"].Value.ToString()) == 1)
-                  {
-                    //CleanUp();
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Password Changed Successfully.');", true);
-                    Response.Redirect("~/login.aspx");
-                  }
+                  Response.Redirect("~/signup.aspx");
                 }
               }
-              connection.Close();
-            }
-          }
-          else
-          {
-            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.error('Invalid OTP, please enter the correct OTP.');", true);
-          }
+              else if (otpButton.Text == "Change Password")
+              {
+                if (ViewState["OTPvalue"] != null)
+                {
+                  if (otpTextBox.Value == ViewState["OTPvalue"].ToString())
+                  {
+                    int userexist = 0;
+
+                        // GetUserId(emailTextBox.Text);
+
+                        using (MySqlConnection connection = new MySqlConnection(cs))
+                        {
+                            connection.Open();
+
+                            string query = "SELECT otp_code FROM otp WHERE user_id = @userId ORDER BY created_at DESC LIMIT 1";
+
+                            using (MySqlCommand command = new MySqlCommand(query, connection))
+                            {
+                                command.Parameters.AddWithValue("@userId", emailTextBox.Text);
+
+                                string otpCodeFromDatabase = (string)command.ExecuteScalar();
+
+                                string hashedNewPassword = HashPassword(txtPassword.Text); // Hash the new password
+                                string hashedOldPassword = HashPassword(txtPassword.Text); // Hash the old password
+
+                                using (MySqlCommand cmdInsert = new MySqlCommand("usp_changepassword", connection))
+                                {
+                                    cmdInsert.CommandType = CommandType.StoredProcedure;
+                                    cmdInsert.Parameters.AddWithValue("_UserId", hfId.Value);
+                                    cmdInsert.Parameters.AddWithValue("_OldPassword", hashedOldPassword);
+                                    cmdInsert.Parameters.AddWithValue("_NewPassword", hashedNewPassword);
+                                    cmdInsert.Parameters.Add("_Result", MySqlDbType.Int32).Direction = ParameterDirection.Output;
+                                    cmdInsert.ExecuteNonQuery();
+
+                                    if (DAL.validateInt(cmdInsert.Parameters["_Result"].Value.ToString()) == 1)
+                                    {
+                                        //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Password Changed Successfully.');", true);
+                                        //Response.Redirect("~/login.aspx");
+                                        string script = @"
+                                                toastr.success('Password Changed Successfully.');
+                                                setTimeout(function() {
+                                                    window.location.href = 'login.aspx';
+                                                }, 3000); // Delay for 3 seconds (3000ms)
+                                            ";
+
+                                        ScriptManager.RegisterStartupScript(this, this.GetType(), "toastrMessage", script, true);
+                                    }
+                                }
+                            }
+                            connection.Close();
+                        }
+                    }
+                  else
+                  {
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.error('Invalid OTP, please enter the correct OTP.');", true);
+                  }
+                }
+
+              }
+
         }
 
-      }
 
-    }
+       
 
-    protected int Bind()
-    {
+        protected int Bind()
+      {
       int result = 0;
       try
       {

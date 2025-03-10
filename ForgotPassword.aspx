@@ -93,6 +93,16 @@
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <!-- jQuery (Required for Toastr) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Toastr CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+
+<!-- Toastr JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
     <script>
         toastr.options = {
             closeButton: true,
@@ -101,6 +111,7 @@
         };
 
     </script>
+
 </head>
 
 <body>
@@ -134,12 +145,12 @@
 
                             <div class="password-div">
                                 <i id="passwordView1" class="fa fa-solid fa-eye-slash hide-password-toggal color-theme-yellow"></i>
-                                <asp:TextBox runat="server" ID="txtPassword" class="login-input" type="password" placeholder="Password" />
+                                <asp:TextBox runat="server" ID="txtPassword" class="login-input" type="password" placeholder=" New Password" />
                             </div>
 
                             <div class="password-div">
                                 <i id="passwordView2" class="fa fa-solid fa-eye-slash hide-password-toggal color-theme-yellow"></i>
-                                <asp:TextBox runat="server" ID="cpwdTextBox" class="login-input" type="password" placeholder="Password" />
+                                <asp:TextBox runat="server" ID="cpwdTextBox" class="login-input" type="password" placeholder=" Confirm Password" />
 
                             </div>
                             <asp:RequiredFieldValidator ControlToValidate="cpwdTextBox" Display="Dynamic" ErrorMessage="Please enter Password" ForeColor="White" runat="server"></asp:RequiredFieldValidator>

@@ -221,8 +221,8 @@
                                 <div class="Addbasicbtnboth">
                                     <asp:Button ID="showInputButton" CssClass="button-change" runat="server" Text="Change Profile Image" OnClientClick="showFileUpload(); return false;" />
                                       <%--  <li><a href="changepassword.aspx" class="color-thm-blue"><i class="fa fa-solid fa-circle-info"></i>Change Password</a></li>--%>
-                                     <asp:Button ID="btnpasswdchange" CssClass="button-change" runat="server" Text="Change Password"  OnClick="btnpasswdchange_Click" />
                                     <asp:Button ID="removeProfileButton" CssClass="button-change" runat="server" OnClick="removeProfileButton_Click" Text="Remove Profile Image"></asp:Button>
+                                     <asp:Button ID="btnpasswdchange" CssClass="button-change" runat="server" Text="Change Password"  OnClick="btnpasswdchange_Click" />
                                 </div>
                                 <br />
 

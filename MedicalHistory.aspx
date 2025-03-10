@@ -431,19 +431,11 @@
    @media (max-width: 767px) { /* Mobile view */
     .col-3 {
         flex: 0 0 auto;
-        width: 33%;
+        width: 33% !important;
     }
 
 }
-      @media (max-width: 768px) { /* Mobile view */
-    .col-3 {
-        flex: 0 0 auto;
-       width: 25%;
-    }
-
-}
-
-
+  
    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
