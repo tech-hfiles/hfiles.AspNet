@@ -747,7 +747,7 @@
   <script>
     
       function updateDialingCode() {
-          debugger
+          
           var dropdown = document.getElementById("ddlCountry");
 
           if (dropdown) {
