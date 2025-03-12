@@ -149,7 +149,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             width: 250px;
-            text-align: center;
+            text-align: left;
             z-index: 1000;
             margin-top: -262px;
             margin-left: 254px;
@@ -170,10 +170,10 @@
         .popup button {
             margin-top: 10px;
             padding: 6px 12px;
-            background-color: #007bff;
+          /*  background-color: #007bff;*/
             color: white;
             border: none;
-            border-radius: 5px;
+           /* border-radius: 5px;*/
             cursor: pointer;
         }
 
@@ -243,67 +243,53 @@
 
       <%-- intractive poppu for my H-files--%>
 
- <script>
-     document.addEventListener("DOMContentLoaded", function () {
-         const overlay = document.getElementById("overlay");
-         const hFilesContainer = document.getElementById("hFilesContainer");
-         const hFilesTrigger = document.getElementById("hFilesTrigger");
-         const popupHFiles = document.getElementById("popupHFiles");
-         const hFilesCloseButton = document.getElementById("closePopupHFiles");
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const hFilesTrigger = document.getElementById("hFilesTrigger");
+        const popupHFiles = document.getElementById("popupHFiles");
+        const hFilesCloseButton = document.getElementById("closePopupHFiles");
 
-         function positionPopup(trigger, popup) {
-             const rect = trigger.getBoundingClientRect();
-             popup.style.top = `${rect.bottom + window.scrollY + 5}px`; // Below the element
-             popup.style.left = `${rect.left + window.scrollX - 20}px`; // Slightly left
-         }
+        function positionPopup(trigger, popup) {
+            const rect = trigger.getBoundingClientRect();
+            popup.style.top = `${rect.bottom + window.scrollY + 5}px`; // Position below the trigger
+            popup.style.left = `${rect.left + window.scrollX - 20}px`; // Adjust left
+        }
 
-         function showPopup(trigger, popup) {
-             positionPopup(trigger, popup);
-             popup.style.display = "block";
-             overlay.style.display = "block";
-             hFilesContainer.classList.add("blur-background"); // Apply blur
-         }
+        function showPopup() {
+            positionPopup(hFilesTrigger, popupHFiles);
+            popupHFiles.style.display = "block";
+        }
 
-         function hidePopup(popup) {
-             popup.style.display = "none";
-             overlay.style.display = "none";
-             hFilesContainer.classList.remove("blur-background"); // Remove blur
-         }
+        function hidePopup() {
+            popupHFiles.style.display = "none";
+        }
 
-         let isHovering = false; // Track hover state
+        hFilesTrigger.addEventListener("mouseenter", function () {
+            showPopup();
+        });
 
-         hFilesTrigger.addEventListener("mouseenter", function () {
-             isHovering = true;
-             showPopup(hFilesTrigger, popupHFiles);
-         });
+        popupHFiles.addEventListener("mouseenter", function () {
+            showPopup();
+        });
 
-         popupHFiles.addEventListener("mouseenter", function () {
-             isHovering = true;
-         });
+        hFilesTrigger.addEventListener("mouseleave", function () {
+            setTimeout(() => {
+                if (!popupHFiles.matches(":hover")) {
+                    hidePopup();
+                }
+            }, 100);
+        });
 
-         hFilesTrigger.addEventListener("mouseleave", function () {
-             setTimeout(() => {
-                 if (!isHovering) {
-                     hidePopup(popupHFiles);
-                 }
-             }, 200);
-         });
+        popupHFiles.addEventListener("mouseleave", function () {
+            hidePopup();
+        });
 
-         popupHFiles.addEventListener("mouseleave", function () {
-             isHovering = false;
-             setTimeout(() => {
-                 if (!hFilesTrigger.matches(":hover")) {
-                     hidePopup(popupHFiles);
-                 }
-             }, 200);
-         });
+        hFilesCloseButton.addEventListener("click", function () {
+            hidePopup();
+        });
+    });
+</script>
 
-         hFilesCloseButton.addEventListener("click", function () {
-             hidePopup(popupHFiles);
-         });
-     });
-
- </script>
  <style>
              /* Background blur effect */
        
@@ -317,7 +303,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             width: 250px;
-            text-align: center;
+            text-align: left;
             z-index: 1000;
             transition: opacity 0.2s ease-in-out;
         }
@@ -334,15 +320,15 @@
         }
 
         /* Button styling */
-        .popup button {
+        /*.popup button {
             margin-top: 10px;
-            padding: 6px 12px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+            padding: 6px 12px;*/
+            /*background-color: #007bff;*/
+            /*color: white;*/
+          /*  border: none;*/
+            /*border-radius: 5px;*/
+            /*cursor: pointer;
+        }*/
 
       
 
@@ -353,82 +339,82 @@
 
      <%-- intractive poppu for Journal--%>
 
-  <script>
-      document.addEventListener("DOMContentLoaded", function () {
-          const journalContainer = document.querySelector(".popup-container");
-          const popupJournal = document.getElementById("popupJournal");
+ <script>
+     document.addEventListener("DOMContentLoaded", function () {
+         const journalContainer = document.querySelector(".popup-container");
+         const popupJournal = document.getElementById("popupJournal");
 
-          function showPopup() {
-              popupJournal.style.display = "block";
-          }
+         function showPopup() {
+             popupJournal.style.display = "block";
+         }
 
-          function hidePopup() {
-              popupJournal.style.display = "none";
-          }
+         function hidePopup() {
+             popupJournal.style.display = "none";
+         }
 
-          let isHovering = false;
+         journalContainer.addEventListener("mouseenter", function () {
+             showPopup();
+         });
 
-          journalContainer.addEventListener("mouseenter", function () {
-              isHovering = true;
-              showPopup();
-          });
+         journalContainer.addEventListener("mouseleave", function () {
+             setTimeout(() => {
+                 if (!popupJournal.matches(":hover")) {
+                     hidePopup();
+                 }
+             }, 100);
+         });
 
-          popupJournal.addEventListener("mouseenter", function () {
-              isHovering = true;
-          });
+         popupJournal.addEventListener("mouseleave", function () {
+             hidePopup();
+         });
+     });
+ </script>
 
-          journalContainer.addEventListener("mouseleave", function () {
-              setTimeout(() => {
-                  if (!isHovering) {
-                      hidePopup();
-                  }
-              }, 200);
-          });
-
-          popupJournal.addEventListener("mouseleave", function () {
-              isHovering = false;
-              setTimeout(() => {
-                  if (!journalContainer.matches(":hover")) {
-                      hidePopup();
-                  }
-              }, 200);
-          });
-      });
-
-  </script>
    <style>
   
 
 /* Popup styling */
-.popup-box {
-    display: none;
-    position: absolute;
-    background-color: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    width: 280px;
-    text-align: center;
-    z-index: 1000;
-    top: 100%; /* Position below the element */
-    left: 50%;
-    transform: translateX(-50%);
-    transition: opacity 0.2s ease-in-out;
-   margin-left: -409px;
-    margin-top: -272px;
-}
+            .popup-box {
+                display: none;
+                position: absolute;
+                background-color: white;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                width: 280px;
+                text-align: left;
+                z-index: 1000;
+                top: 100%; /* Position below the element */
+                left: 50%;
+                transform: translateX(-50%);
+                transition: opacity 0.2s ease-in-out;
+               margin-left: -409px;
+                margin-top: -301px;
+            }
 
-/* Arrow pointing to the trigger */
-.popup-box::before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent transparent white transparent;
-}
+            /* Arrow pointing to the trigger */
+            .popup-box::before {
+                content: "";
+                position: absolute;
+                top: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                border-width: 10px;
+                border-style: solid;
+                border-color: transparent transparent white transparent;
+            }
+            .popup-box button {
+                margin-top: 10px;
+                padding: 6px 12px;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+
+            .popup-box button:hover {
+                background-color: #0056b3;
+            }
+
 
    </style>
 </asp:Content>
@@ -490,41 +476,40 @@
                                     <li>Allergies</li>
                                     <li>Prescriptions</li>
                                 </ul>
-                                <button id="closePopup">Close</button>
+                                <button id="closePopup">🌹</button>
                             </div>
 
 
 
 
 
-                        <!-- Background Blur Overlay -->
-<%--<div id="overlay" class="overlay"></div>--%>
+                       
 
-<!-- H-Files Section -->
-<div id="hFilesContainer">
-    <a class="support-group mb-lg-5 w-100" href="MyHFiles.aspx">
-        <div class="my_profile">
-            <div class="row align-items-center">
-                <div class="col-3 tab-icon-div" style="margin-left:-15px;">
-                    <img src="../Reception Page/h-files-icon.png" />
-                </div>
-                <div class="col-9 popup-trigger" id="hFilesTrigger">
-                    <h3>My H-Files</h3>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
+                                    <!-- H-Files Section -->
+                                    <div id="hFilesContainer">
+                                        <a class="support-group mb-lg-5 w-100" href="MyHFiles.aspx">
+                                            <div class="my_profile">
+                                                <div class="row align-items-center">
+                                                    <div class="col-3 tab-icon-div" style="margin-left:-15px;">
+                                                        <img src="../Reception Page/h-files-icon.png" />
+                                                    </div>
+                                                    <div class="col-9 popup-trigger" id="hFilesTrigger">
+                                                        <h3>My H-Files</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
 
-<!-- H-Files Popup -->
-<div id="popupHFiles" class="popup">
-    <h3>H-Files Overview:</h3>
-    <ul>
-        <li>Add members</li>
-        <li>Keep track of your and your family's medical records</li>
-    </ul>
-    <button id="closePopupHFiles">Close</button>
-</div>
+                                    <!-- H-Files Popup -->
+                                    <div id="popupHFiles" class="popup">
+                                        <h3>H-Files Overview:</h3>
+                                        <ul>
+                                            <li>Add members</li>
+                                            <li>Keep track of your and your family's medical records</li>
+                                        </ul>
+                                        <button id="closePopupHFiles">🌹</button>
+                                    </div>
 
 
                         <%--<a class="support-group mb-lg-5 w-100" href="MyHFiles.aspx">
@@ -584,34 +569,34 @@
                             </div>
                         </div>--%>
 
-                      <!-- Journal Section with Hover Popup -->
-<div class="popup-container">
-    <a class="support-group mb-5 w-100 popup-trigger" href="<%= ResolveUrl("~/journal.aspx") %>">
-        <div class="my_profile">
-            <div class="row align-items-center">
-                <div class="col-3 tab-icon-div" style="margin-left:-15px;">
-                    <img src="../Reception Page/journal.png" />
-                </div>
-                <div class="col-9">
-                    <h3>Journal</h3>
-                </div>
-            </div>
-        </div>
-    </a>
+                                                  <!-- Journal Section with Hover Popup -->
+                            <div class="popup-container">
+                                <a class="support-group mb-5 w-100 popup-trigger" href="<%= ResolveUrl("~/journal.aspx") %>">
+                                    <div class="my_profile">
+                                        <div class="row align-items-center">
+                                            <div class="col-3 tab-icon-div" style="margin-left:-15px;">
+                                                <img src="../Reception Page/journal.png" />
+                                            </div>
+                                            <div class="col-9">
+                                                <h3>Journal</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
 
 
 
-    <div id="popupJournal" class="popup-box">
-    <h3>Journal Overview:</h3>
-    <ul>
-        <li>Health Journal</li>
-        <li>Explore expert-written articles covering a variety of health topics.</li>
-    </ul>
-    <button id="closePopupHFiless"></button>
-</div>
+                                <div id="popupJournal" class="popup-box">
+                                <h3>Journal Overview:</h3>
+                                <ul>
+                                    <li>Health Journal</li>
+                                    <li>Explore expert-written articles covering a variety of health topics.</li>
+                                </ul>
+                                <button id="closePopupHFiless">🌹</button>
+                            </div>
   
     
-</div>
+                            </div>
 
 
 
