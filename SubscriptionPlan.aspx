@@ -7,10 +7,46 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
+    <style>
+
+            .subscription-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .subscription-card {
+                background-color: #fff;
+                border-radius: 20px;
+                padding: 25px;
+                font-weight: bold;
+                width: 280px;
+                text-align: center;
+                margin: 10px;
+            }
+
+            @media (min-width: 820px) and (max-width: 1024px) {
+                .subscription-container {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .row1, .row2 {
+                    display: flex;
+                    justify-content: center;
+                    gap: 10px;
+                }
+            }
+        
+    </style>
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
 
-            
+             <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
+     <a class="back-arrow-btn-2" href="Dashboard.aspx">Back to Home
+     </a>
+ </div>
 
             <div style="text-align: center;margin:auto;max-width:70vh;margin-top:5vh;" class="card-box">
                 <div style="display:flex;justify-content:center">
@@ -37,13 +73,14 @@
 "></i>Add upto 5 members</p>
     <p _msttexthash="181064" _msthash="17"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
-"></i>100 MB storage</p>
+"></i>Upload files with a total</p>
+    <p style="padding-left: 21px;"> Storage of up to 100 MB</p>
     <p _msttexthash="240006" _msthash="18"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
-"></i>Upload PDF files</p>
+"><%--</i>Upload files</p>
             <p _msttexthash="240006" _msthash="18" style="text-decoration: line-through;"><i class="fa fa-check-circle" aria-hidden="true" style="
-    padding-right: 10px;
-"></i>Wellness kit</p>
+    padding-right: 10px;--%>
+</i>Wellness kit</p>
             <p _msttexthash="240006" _msthash="18" style="text-decoration: line-through;"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
 "></i>Access to blogs</p>
@@ -84,13 +121,13 @@
 "></i>Add upto 7 members</p>
     <p _msttexthash="181064" _msthash="23"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
-"></i>300 MB storage</p>
+"></i>Upload files with a total</p><p style="padding-left: 21px;"> Storage of up to 300 MB</p>
     <p _msttexthash="240006" _msthash="24"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
-"></i>Upload PDF files</p>
+"><%--</i>Upload files</p>
             <p _msttexthash="240006" _msthash="24"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
-"></i>Wellness kit</p>
+">--%></i>Wellness kit</p>
     <p _msttexthash="240006" _msthash="24"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
 "></i>Access to blogs</p>
@@ -127,13 +164,13 @@
 "></i>Add upto 10 members</p>
     <p _msttexthash="181064" _msthash="23"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
-"></i>1000 MB storage</p>
+"></i>Upload files with a total</p><p style="padding-left: 21px;"> Storage of up to 1000 MB</p>
     <p _msttexthash="240006" _msthash="24"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
-"></i>Upload PDF,video files</p>
+"><%--</i>Upload files</p>
      <p _msttexthash="240006" _msthash="24"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
-"></i>Wellness kit</p>
+">--%></i>Wellness kit</p>
     <p _msttexthash="240006" _msthash="24"><i class="fa fa-check-circle" aria-hidden="true" style="
     padding-right: 10px;
 "></i>Access to exclusive blogs</p>

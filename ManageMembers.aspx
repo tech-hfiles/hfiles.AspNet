@@ -283,7 +283,7 @@
     <div class="container-search mt-3 w-100">
         <div class="row d-flex align-items-center w-100">
             <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
-<a class="back-arrow-btn-2" href="MyHFiles.aspx" style="margin-left: 20px;">Back
+<a class="back-arrow-btn-2" href="Dashboard.aspx">Back to Home
  </a>
 
             </div>

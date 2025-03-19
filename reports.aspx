@@ -48,9 +48,9 @@
             flex-wrap: wrap;
         }
 
-        .back-arrow-btn-2 {
+        /*.back-arrow-btn-2 {
             margin-right: 10px;
-        }
+        }*/
 
         .search-file {
             display: flex;

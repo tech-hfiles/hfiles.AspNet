@@ -139,7 +139,7 @@
          });
      </script>
    <%-- intractive poppu for medical history--%>
-<style>
+<%--<style>
         /* Popup styling */
         .popup {
             display: none; /* Initially hidden */
@@ -180,7 +180,7 @@
         .popup button:hover {
             background-color: #0056b3;
         }
-    </style>
+    </style>--%>
  <script>
      document.addEventListener("DOMContentLoaded", function () {
          // Get elements
@@ -339,7 +339,7 @@
 
      <%-- intractive poppu for Journal--%>
 
- <script>
+<%-- <script>
      document.addEventListener("DOMContentLoaded", function () {
          const journalContainer = document.querySelector(".popup-container");
          const popupJournal = document.getElementById("popupJournal");
@@ -368,9 +368,9 @@
              hidePopup();
          });
      });
- </script>
+ </script>--%>
 
-   <style>
+  <%-- <style>
   
 
 /* Popup styling */
@@ -416,7 +416,7 @@
             }
 
 
-   </style>
+   </style>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     	
@@ -469,7 +469,7 @@
                             </div>
 
                             <!-- Popup -->
-                            <div id="popup" class="popup">
+                         <%--   <div id="popup" class="popup">
                                 <h3>Quick Look of:</h3>
                                 <ul>
                                     <li>Your medical history</li>
@@ -478,7 +478,7 @@
                                 </ul>
                                 <button id="closePopup">🌹</button>
                             </div>
-
+--%>
 
 
 
@@ -502,14 +502,14 @@
                                     </div>
 
                                     <!-- H-Files Popup -->
-                                    <div id="popupHFiles" class="popup">
+                                   <%-- <div id="popupHFiles" class="popup">
                                         <h3>H-Files Overview:</h3>
                                         <ul>
                                             <li>Add members</li>
                                             <li>Keep track of your and your family's medical records</li>
                                         </ul>
                                         <button id="closePopupHFiles">🌹</button>
-                                    </div>
+                                    </div>--%>
 
 
                         <%--<a class="support-group mb-lg-5 w-100" href="MyHFiles.aspx">
@@ -586,14 +586,14 @@
 
 
 
-                                <div id="popupJournal" class="popup-box">
+<%--                                <div id="popupJournal" class="popup-box">
                                 <h3>Journal Overview:</h3>
                                 <ul>
                                     <li>Health Journal</li>
                                     <li>Explore expert-written articles covering a variety of health topics.</li>
                                 </ul>
                                 <button id="closePopupHFiless">🌹</button>
-                            </div>
+                            </div>--%>
   
     
                             </div>

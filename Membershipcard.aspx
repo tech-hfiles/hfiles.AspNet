@@ -48,6 +48,10 @@
         }
         
 </style>
+             <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
+     <a class="back-arrow-btn-2" href="Dashboard.aspx">Back to Home
+     </a>
+ </div>
             <div style="text-align: center;margin:auto;max-width:70vh;margin-top:5vh;padding-bottom:10vh;" class="card-box">
                 <div style="display:flex;justify-content:center">
                     <h1 style="font-weight:bold;color:#0331b5">Membership Card</h1>

@@ -1000,7 +1000,10 @@
             <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center" Style="display: none;overflow-x:hidden;overflow-y:auto;max-height:95vh">
                 <div class="row my-2">
                     <div class="col-12">
-                        <h2>Upload Report</h2>
+                       <%-- <h2>Upload Report</h2>--%>
+                        <h2>
+                <asp:Label ID="lblUploadHeader" runat="server" Text="Upload Report"></asp:Label>
+            </h2>
                     </div>
                 </div>
                 <div class="row w-100 my-1" style="width: 100%">

@@ -294,19 +294,41 @@
                     font-size: 12px; 
                 }
             }
-              @media screen and (max-width: 768px) {
-                .sharebtn {
-                    text-align: left; 
-                    margin-left: -121px;
-                }
-                @media (max-width: 480px) {
-            .oval-button {
-                padding: 8px 20px; 
-                font-size: 14px; 
-                border: 1.5px solid black;
-                border-radius: 20px; 
+        @media screen and (max-width: 768px) {
+            .sharebtn {
+                text-align: left;
+                margin-left: -121px;
             }
         }
+        @media (max-width: 480px) {
+            .oval-button {
+                padding: 8px 20px;
+                font-size: 14px;
+                border: 1.5px solid black;
+                border-radius: 20px;
+            }
+        }
+             .share-btn {
+           display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 7px;
+    text-decoration: none;
+    color: black;
+    margin: 10px;
+    border: none;
+    border: 2px solid dimgray;
+        width: 165px;
+    }
+
+   
+
+    .share-btn img {
+        margin-right: 8px;
+    }
 
     </style>
 
@@ -332,46 +354,42 @@
 
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
-                 <div class="modal fade" id="ShareModal" tabindex="-1" aria-labelledby="ShareModalLabel" aria-hidden="true">
-         <div class="modal-dialog">
-             <div class="modal-content">
-               
-                 <div class="modal-header">
-                     <h5 class="modal-title" id="ShareModalLabel">Share as File</h5>
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                 </div>
 
-               
-                 <div class="modal-body">
+           <div class="modal fade" id="ShareModal" tabindex="-1" aria-labelledby="ShareModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h5 class="modal-title" id="ShareModalLabel">Share as File</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
 
-
-                           
-                    <asp:LinkButton ID="whatsappLinkButton" Text="WhatsApp" runat="server" CommandName="Share"
-                        OnClick="sharewhatsapp_Click">
-                        <img src="../assets/whatsapp.jpg" alt="Whatsapp Icon" style="width: 20px; height: 20px;" />
-                        <span style="color: #63E6BE; font-weight: bold;">WhatsApp</span>
-
-                    </asp:LinkButton>
-                   
-                                     <asp:LinkButton ID="lbtnshareEmail" Text="Email" runat="server" CommandName="Share"
-                    OnClick="shareEmail_Click" >
-    <img src="../assets/gmail.png" alt="Email Icon" style="width: 20px; height: 20px;" />
-    <span style="color: #D44638; font-weight: bold;"> Email</span>
-
+            <!-- Modal Body -->
+            <div class="modal-body text-center">
+                <!-- WhatsApp Button -->
+                <asp:LinkButton ID="whatsappLinkButton" CssClass="share-btn whatsapp-btn" runat="server" CommandName="Share" OnClick="sharewhatsapp_Click">
+               <img src="journal-page-images/article/whatsapp.png" />
+                    WhatsApp
                 </asp:LinkButton>
-                   
-                 </div>
 
-             </div>
-         </div>
-     </div>
+                <!-- Gmail Button with Google 'G' Logo -->
+                <asp:LinkButton ID="lbtnshareEmail" CssClass="share-btn gmail-btn" runat="server" CommandName="Share" OnClick="shareEmail_Click">
+                    <img src="journal-page-images/article/gmail.png" />   
+                    Gmail
+                </asp:LinkButton>
+            </div>
+        </div>
+    </div>
+</div>
+
+                 
             <div style="overflow: auto; max-height: 90vh; max-width: 100%; border: 1px solid #ddd; padding-bottom: 10vh;">
 
                 <br />
                 <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
                     <%--   <asp:Button ID="btnShare" runat="server" CssClass="oval-button" OnClick="btnShare_Click" Text="&nbsp;&nbsp;<i class='fas fa-share'></i>&nbsp;&nbsp;Share" />    --%>
 
-                    <a class="back-arrow-btn-2" href="MyHFiles.aspx" style="margin-left: 20px;">Back
+                    <a class="back-arrow-btn-2" href="MyHFiles.aspx" style="margin-left: -2px;">Back to Home
                     </a>
                 </div>
                 
@@ -380,9 +398,9 @@
                      <asp:TextBox ID="SearchInput" OnTextChanged="SearchInput_TextChanged" AutoPostBack="true" runat="server" />
                  </div>--%>
                                 <div class="dropdown-container">
-                    <div class="position-relative w-100" style="margin-top: -52px;">
+                    <div class="position-relative w-100" style="margin-top: -4px;">
                         <asp:TextBox ID="SearchInput" CssClass="form-control pr-5" OnTextChanged="SearchInput_TextChanged" AutoPostBack="true" runat="server"  Style="border-radius: 30px;"/>
-                        <i class="fas fa-magnifying-glass Searchicon" style="right: 10px; top: 50%; transform: translateY(-50%); color: #aaa; margin-top: -7px; margin-right: -5px;height: 32px; padding: 9px;"></i>
+                        <i class="fas fa-magnifying-glass Searchicon" style="right: 10px; top: 50%; transform: translateY(-50%); color: #aaa; margin-top: 0px; margin-right: -5px;height: 32px; padding: 9px;"></i>
                     </div>
                 </div>
 

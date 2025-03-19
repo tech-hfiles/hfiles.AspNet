@@ -6,6 +6,13 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <!-- jsPDF Library -->
+    <meta name="viewport" content="width=device-height, initial-scale=1, maximum-scale=1, user-scalable=no, orientation=landscape"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- AutoTable Plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
     <br />
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
@@ -118,6 +125,10 @@
                                     }
                   
                     @media (min-width: 768px) and (max-width: 1180px) {
+                        #contentpdf {
+    width: 100vw !important;
+    overflow: visible !important;
+}
                         .table-responsive {
                             max-height: 500px;
                         }
@@ -129,13 +140,151 @@
                             max-height: 650px;
                         }
                     }
+                             .share-btn {
+                       display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px 15px;
+                font-size: 16px;
+                font-weight: bold;
+                border-radius: 7px;
+                text-decoration: none;
+                color: black;
+                margin: 10px;
+                border: none;
+                border: 2px solid dimgray;
+                    width: 165px;
+                }
+
+   
+
+                .share-btn img {
+                    margin-right: 8px;
+                }
+
+
+             
+/* Keep button style for headers */
+.header-btn {
+    height: 40px;
+    width: 100px;
+    background-color: #8cbcfa;
+    border: none;
+    border-radius: 5px;
+    cursor: text;
+    font-weight: bold;
+}
+/* Ensure headers are visible */
+thead {
+    display: table-header-group !important;
+}
+
+/* Responsive table design */
+@media screen and (max-width: 768px) {
+    thead {
+        display: none; /* Hides headers in small screens */
+    }
+
+    tbody, tr {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        background: #fff;
+    }
+
+    td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    /* Add custom labels before each data row */
+    td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #333;
+    }
+  
+    .table-responsive {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    tbody, tr {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border: 1px solid #dee2e6;
+        margin-bottom: 10px;
+        padding: 10px;
+        background: #fff;
+    }
+
+    th, td {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 8px;
+    }
+
+    /* Hide actual table headers for mobile */
+    thead {
+        display: none;
+    }
+
+    td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #333;
+    }
+
+    td:first-child {
+        border-top: none;
+    }
+
+    td:last-child {
+        border-bottom: none;
+    }
+
+}
 
             </style>
+                <script type="text/javascript">
+                    document.addEventListener("DOMContentLoaded", function () {
+                        var conditionSelect = document.getElementById("ConditionSelect");
+                        var otherConditionRow = document.getElementById("otherConditionRow");
+
+                        if (conditionSelect) {
+                            // Run only when the dropdown value changes
+                            conditionSelect.addEventListener("change", function () {
+                                debugger
+                                if (this.options[this.selectedIndex].text === "Others") {
+                                    otherConditionRow.style.display = "flex"; // Show the textbox row
+                                } else {
+                                    otherConditionRow.style.display = "none"; // Hide the textbox row
+                                }
+                            });
+                        }
+                    });
+                </script>
+
             <div id="contentpdf">
                 <div class="row">
                     <div style="display: flex; margin: auto; justify-content: center">
                         <div style="display: flex; margin-left: auto;">
-                            <img src="/assets2/family-prescription-logo.jpeg" style="width: 60px;" />
+                            <img src="journal-page-images/article/familyprescriptionlogo.jpeg" style="width: 60px;" />
+                         
                             <h1 style="color: #0331b5; margin-top: auto; margin-bottom: auto;">Family Prescription</h1>
                         </div>
                         <div style="display: flex; margin-left: auto; margin-right: 25px; margin-bottom: 10px; margin-top: 10px;">
@@ -146,7 +295,7 @@
                     </div>
                 </div>
                 <div class="row" style="max-width: 98vw; margin: auto">
-                    <div class="table-responsive">
+                    <div class="table-responsive"  style="overflow-x: auto;">
                         <table id="prescription" class="table" style="border: solid; border-color: #dee2e6; border-width: thin;">
                             <thead>
                                 <tr>
@@ -225,15 +374,25 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-4" style="text-align: center; padding-top: 12px">
-                                        <button style="pointer-events: none; height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text" class="skip-tab" tabindex="-1">Condition</button>
-                                    </div>
-                                    <div class="col col-8" style="padding: 10px">
-                                        <select class="form-select condition-select" id="ConditionSelect" name="condition[]" style="width: 100%">
-                                            <option value="" disabled selected>Select Condition</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                 <div class="col-4" style="text-align: center; padding-top: 12px">
+                                     <button style="pointer-events: none; height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text" class="skip-tab" tabindex="-1">Condition</button>
+                                 </div>
+                                 <div class="col col-8" style="padding: 10px">
+                                     <select class="form-select condition-select" id="ConditionSelect" name="condition[]" style="width: 100%">
+                                         <option value="" disabled selected>Select Condition</option>
+                                     </select>
+
+                                 </div>
+                             </div>
+                             <div class="row" id="otherConditionRow" style="display:none;">
+                                 <div>
+
+                                 </div>
+                                 <div>
+                                       <input type="text" class="form-control" style="width: 291px; margin-left: 154px;" id="othercondition" placeholder="Type Other Condition" name="othercondition[]" />
+                                 </div>
+
+                             </div>
                                 <div class="row">
                                     <div class="col-4" style="text-align: center; padding-top: 12px">
                                         <button style="pointer-events: none; height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text" class="skip-tab" tabindex="-1">Medication</button>
@@ -339,36 +498,35 @@
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="ShareModal" tabindex="-1" aria-labelledby="ShareModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="ShareModalLabel">Share as File</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-
-                        <!-- Modal Body -->
-                        <div class="modal-body">
-
-
-                            <button class="btn whatsapp" style="background-color: #5FFC7B" onclick="sendWhatsApp(event)">
-                                <i class="fab fa-whatsapp"></i>WhatsApp
-                            </button>
-                            <!-- Email Button -->
-                            <button class="btn email" style="background-color: #F72a27" onclick="sendEmail(event)">
-                                <i class="fas fa-envelope"></i>Gmail
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
+     
+                       <div class="modal fade" id="ShareModal" tabindex="-1" aria-labelledby="ShareModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h5 class="modal-title" id="ShareModalLabel">Share as File</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
+            <!-- Modal Body -->
+            <div class="modal-body text-center">
+                <!-- WhatsApp Button -->
+                <button class="share-btn whatsapp-btn" onclick="sendWhatsApp(event)">
+                           <img src="journal-page-images/article/whatsapp.png" />   WhatsApp
+                 </button>
+                 <!-- Email Button -->
+                 <button class="share-btn gmail-btn" onclick="sendEmail(event)">
+                     <img src="journal-page-images/article/gmail.png" />Gmail
+                 </button>
+            </div>
+        </div>
+    </div>
+</div>
 
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
+             <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
 
             <script>
                 var FetchedData = [];
@@ -376,6 +534,7 @@
                 var memberOptionsFetched = false;
                 var conditionOptionsFetched = false;
                 var currentUser = [];
+                var dataList = [];
                 GetAccessData();
                 function fetchData() {
                     FetchedData = [];
@@ -386,7 +545,7 @@
                         dataType: "json",
                         success: function (response) {
                             console.log("Data fetched successfully:", response.d);
-                            const dataList = JSON.parse(response.d);
+                             dataList = JSON.parse(response.d);
                             FetchedData = dataList;
 
                             // Fetch the member options and condition options only once
@@ -412,56 +571,164 @@
                             console.error("Error fetching data:", error);
                         }
                     });
+
+                   
+                }
+               
+                document.addEventListener("DOMContentLoaded", () => {
+                    
+                    if (typeof dataList !== "undefined" && dataList.length > 0) {
+                        populateMobileView(dataList);
+                    } else {
+                        console.log("No data found");
+                    }
+                });
+                
+                
+                //window.addEventListener("resize", () => {
+                //    if (window.innerWidth <= 768) {
+                //        document.querySelector(".table-responsive").style.overflowX = "auto";
+                //    } else {
+                //        document.querySelector(".table-responsive").style.overflowX = "unset";
+                //    }
+                //});
+                function populateTableWithData(dataList) {
+                    const tableBody = document.querySelector("#prescriptionTableBody");
+                    tableBody.innerHTML = ""; // Clear previous data
+
+                    const isMobile = window.innerWidth <= 768; // Detect mobile
+                    let filledRows = 0;
+                    if (isMobile) {
+                        
+
+                        for (let i = 0; i < 6; i++) {
+                            const rowData = dataList[i] || {};
+                            populateMobileView(rowData);
+                            filledRows++;
+                        }
+
+
+                        for (let i = filledRows; i < dataList.length; i++) {
+                            populateMobileView(dataList[i]);
+                        }// Switch to horizontal mobile layout
+                    } else {
+                        for (let i = 0; i < 6; i++) {
+                            const rowData = dataList[i] || {};
+                            addRecordTable(rowData);
+                            filledRows++;
+                        }
+
+
+                        for (let i = filledRows; i < dataList.length; i++) {
+                            addRecordTable(dataList);
+                        }// Switch to horizontal mobile layout
+                        // Default table layout
+                    }
                 }
 
-                function populateTableWithData(dataList) {
+                // 🟢 Desktop Layout - Normal Table Format
+                function populateDesktopView(dataList) {
+                    const tableBody = document.querySelector("#prescriptionTableBody");
+                    debugger
+                    let conditionName = "";
                    
-                    const tableBody = document.querySelector("#prescription tbody");
+                    dataList.forEach(rowData => {
+
+                        if (rowData.Conditions) {
+                            const conditionId = parseInt(rowData.Conditions); // Convert to number
+                            const condition = conditionMaster.find(opt => opt.Id === conditionId);
+
+                            if (condition.ConditionName == "Others") {
+                                conditionName = rowData.otherConditions;
+                            }
+                            else {
+                                conditionName = condition ? condition.ConditionName : "";
+                            }// Assign name if found
+                        }
+                        const newRow = document.createElement("tr");
+                        newRow.innerHTML = `
+            <td>${rowData.user_firstname || '—'}</td>
+            <td>${conditionName || '—'}</td>
+            <td>${rowData.Medication || '—'}</td>
+            <td>${rowData.Dosage || '—'}</td>
+            <td>${rowData.Power || '—'}</td>
+            <td>${rowData.Timings || '—'}</td>
+            <td>
+                <i class="fas fa-edit action-icons" title="Edit" style="cursor:pointer" onclick="editPrescription(${rowData.Id})"></i>
+                &nbsp;
+                <i class="fas fa-trash action-icons" title="Remove" style="cursor:pointer" onclick="removeRow(${rowData.Id})"></i>
+            </td>
+        `;
+                        tableBody.appendChild(newRow);
+                    });
+                }
+
+                // 🔵 Mobile Layout - Horizontal Format
+                function populateMobileView(dataList) {
+                    const tableBody = document.querySelector("#prescriptionTableBody");
+                    tableBody.innerHTML = ""; // Clear previous data
+
+                    dataList.forEach(rowData => {
+                        const newRow = document.createElement("tr");
+
+                        newRow.innerHTML = `
+            <td>
+                <button class="header-btn">Member</button>
+            </td>
+            <td>${rowData.user_firstname || '—'}</td>
+        </tr>
+        <tr>
+            <td>
+                <button class="header-btn">Condition</button>
+            </td>
+            <td>${rowData.ConditionNames || '—'}</td>
+        </tr>
+        <tr>
+            <td>
+                <button class="header-btn">Medication</button>
+            </td>
+            <td>${rowData.Medication || '—'}</td>
+        </tr>
+        <tr>
+            <td>
+                <button class="header-btn">Dosage</button>
+            </td>
+            <td>${rowData.Dosage || '—'}</td>
+        </tr>
+        <tr>
+            <td>
+                <button class="header-btn">Schedule</button>
+            </td>
+            <td>${rowData.Power || '—'}</td>
+        </tr>
+        <tr>
+            <td>
+                <button class="header-btn">Timing</button>
+            </td>
+            <td>${rowData.Timings || '—'}</td>
+        </tr>
+        <tr>
+            <td>
+                <button class="header-btn">Action</button>
+            </td>
+            <td>
+                <button class="btn btn-primary" onclick="editPrescription(${rowData.Id})">Edit</button>
+                <button class="btn btn-danger" onclick="removeRow(${rowData.Id})">Delete</button>
+            </td>
+        </tr>
+        `;
+
+                        tableBody.appendChild(newRow);
+                    });
+                }
 
                     
-                    let filledRows = 0;
 
-                   
-                    for (let i = 0; i < 14; i++) {
-                        const rowData = dataList[i] || {}; 
-                        addRecordTable(rowData);
-                        filledRows++;
-                    }
+                    // Run the function when the page loads
+              
 
-                   
-                    for (let i = filledRows; i < dataList.length; i++) {
-                        addRecordTable(dataList[i]);
-                    }
-                }
-
-                function addRecordTable(rowData) {
-                    const tableBody = document.querySelector("#prescription tbody");
-
-                   
-                    const newRow = document.createElement("tr");
-
-                   
-                    newRow.style.height = '41px';
-
-                   
-                    newRow.innerHTML = `
-                            <td style="width: 169.28px; height: 41px;">${rowData.user_firstname || ''}</td>
-                            <td style="width: 169.28px; height: 41px;">${rowData.ConditionNames || ''}</td>
-                            <td style="width: 169.28px; height: 41px;">${rowData.Medication || ''}</td>
-                            <td style="width: 169.28px; height: 41px;">${rowData.Dosage || ''}</td>
-                            <td style="width: 169.28px; height: 41px;">${rowData.Power || ''}</td>
-                            <td style="width: 169.28px; height: 41px;">${rowData.Timings || ''}</td>
-                            <td style="width: 169.28px; height: 41px;">
-                                <i class="fas fa-edit action-icons" title="Edit" style="cursor:pointer" onclick="editPrescription(${rowData.Id || ''})"></i>
-                                &nbsp;
-                                <i class="fas fa-trash action-icons" title="Remove" style="cursor:pointer" onclick="removeRow(${rowData.Id || ''})"></i>
-                            </td>
-                        `;
-
-                    // Append the new row to the table body
-                    tableBody.appendChild(newRow);
-                }
-
+                // 🟡 Refresh Data on Screen Resize
+               
                 function loadEmptyRows() {
                     const tableBody = document.querySelector("#prescriptionTableBody");
                     // Ensure that we load 6 empty rows initially
@@ -580,24 +847,34 @@
 
               
                 function addRecordTable(rowData) {
+                   
+                    
                     var hiddenData = "";
                     if (currentUser[0].user_id != rowData.UserId) {
                         hiddenData = "display:none;";
                     }
-
                     const tableBody = document.querySelector("#prescriptionTableBody");
 
                    
                     const newRow = document.createElement("tr");
                     const memberName = memberMaster.find(opt => opt.user_id == parseInt(rowData.MemberId));
-                    const conditions = conditionMaster.filter(opt => rowData.Conditions && rowData.Conditions.includes(opt.Id));
-                    const conditionNames = conditions.map(condition => condition.ConditionName).join(', ');
+                    let conditionName = "";
+                    if (rowData.Conditions) {
+                        const conditionId = parseInt(rowData.Conditions); // Convert to number
+                        const condition = conditionMaster.find(opt => opt.Id === conditionId);
 
-                    newRow.setAttribute('data-id', rowData.Id || ''); 
+                        if (condition.ConditionName == "Others") {
+                            conditionName = rowData.otherConditions;
+                        }
+                        else {
+                            conditionName = condition ? condition.ConditionName : "";
+                        }// Assign name if found
+                    }
+                    newRow.setAttribute('data-id', rowData.Id || '');
                     newRow.innerHTML = `
                         <td hidden>${rowData.Id || ''}</td>
                         <td style="text-align:center">${rowData.user_firstname || ''}</td>
-                        <td style="text-align:center">${conditionNames || ''}</td>
+                        <td style="text-align:center">${conditionName || ''}</td>
                         <td style="text-align:center">${rowData.Medication || ''}</td>
                         <td style="text-align:center">${rowData.Dosage || ''}</td>
                         <td style="text-align:center">${rowData.Power || ''}</td>
@@ -819,6 +1096,7 @@
                             id: row.find('input[name="Id[]"]').val(),  
                             memberId: memberId || '',  
                             condition: conditions || '',  
+                            otherCondition: row.find('input[name="othercondition[]"]').val(),
                             medication: row.find('input[name="medication[]"]').val(),
                             power: row.find('select[name="power[]"]').val(),
                             dosage: row.find('input[name="dosage[]"]').val(),
@@ -895,83 +1173,75 @@
 
 
 
-                async function generatePDF() {
-                    const { jsPDF } = window.jspdf;
-                    const content = document.getElementById("contentpdf");
-
-                    // Clone the original content to avoid modifying the displayed table
-                    const contentClone = content.cloneNode(true);
-
-                    // Synchronize the state of dropdowns between original and cloned content
-                    const originalDropdowns = content.querySelectorAll("select");
-                    const clonedDropdowns = contentClone.querySelectorAll("select");
-
-                    originalDropdowns.forEach((original, index) => {
-                        const cloned = clonedDropdowns[index];
-                        cloned.value = original.value; // Copy the selected value
+           
+                
+                function getBase64Image(url) {
+                    return new Promise((resolve, reject) => {
+                        let img = new Image();
+                        img.crossOrigin = "Anonymous"; // To prevent CORS issues
+                        img.src = url;
+                        img.onload = function () {
+                            let canvas = document.createElement("canvas");
+                            canvas.width = img.width;
+                            canvas.height = img.height;
+                            let ctx = canvas.getContext("2d");
+                            ctx.drawImage(img, 0, 0);
+                            let dataURL = canvas.toDataURL("image/png"); // Convert to Base64
+                            resolve(dataURL);
+                        };
+                        img.onerror = function () {
+                            reject("Error loading image: " + url);
+                        };
                     });
-
-                    // Hide the last column of all rows in every table
-                    Array.from(contentClone.getElementsByTagName("table")).forEach((table) => {
-                        Array.from(table.rows).forEach((row) => {
-                            if (row.cells.length > 0) {
-                                row.cells[row.cells.length - 1].style.display = "none";
-                            }
-                        });
-                    });
-
-                    // Create a temporary wrapper to render the modified content
-                    const wrapper = document.createElement("div");
-                    Object.assign(wrapper.style, {
-                        position: "absolute",
-                        left: "-9999px",
-                    });
-                    wrapper.appendChild(contentClone);
-                    document.body.appendChild(wrapper);
-
-                    // Capture the div content as a canvas
-                    const canvas = await html2canvas(contentClone, {
-                        scale: 2, // Higher scale gives better quality but larger file
-                    });
-                    const imgData = canvas.toDataURL("image/jpeg", 0.8); // Use JPEG for reduced file size with quality
-
-                    // Remove the temporary wrapper
-                    document.body.removeChild(wrapper);
-
-                    // Create a jsPDF instance with optional compression
-                    const pdf = new jsPDF({
-                        orientation: "portrait",
-                        unit: "mm",
-                        format: "a4",
-                        compress: true, // Reduce PDF file size
-                    });
-
-                    // Calculate dimensions for the image and page
-                    const imgWidth = 190; // Maximum width in mm
-                    const pageHeight = pdf.internal.pageSize.height; // Page height in mm
-                    const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-                    let position = 0;
-
-                    if (imgHeight > pageHeight) {
-                        // Split the content across multiple pages if it exceeds one page
-                        let remainingHeight = imgHeight;
-                        while (remainingHeight > 0) {
-                            pdf.addImage(imgData, "JPEG", 10, position, imgWidth, pageHeight);
-                            remainingHeight -= pageHeight;
-                            if (remainingHeight > 0) {
-                                pdf.addPage(); // Add a new page
-                            }
-                        }
-                    } else {
-                        // Fit on one page
-                        pdf.addImage(imgData, "JPEG", 10, position, imgWidth, imgHeight);
-                    }
-
-                    // Return the PDF as a data URI string
-                    return pdf.output("datauristring");
                 }
 
+                async function generatePDF() {
+                    const { jsPDF } = window.jspdf;
+                    const doc = new jsPDF("landscape");
+
+                    const table = document.getElementById("prescription");
+                    if (!table) {
+                        console.error("Error: Table element not found!");
+                        return null;
+                    }
+
+                    try {
+                        const base64Image = await getBase64Image("/journal-page-images/article/familyprescriptionlogo.jpeg");
+
+                        const pageWidth = doc.internal.pageSize.getWidth(); // Get page width
+                        const imageWidth = 30; // Image width
+                        const xImage = (pageWidth - imageWidth) / 2; // Center image horizontally
+
+                        // Add centered image
+                        doc.addImage(base64Image, "JPEG", xImage, 5, imageWidth, 20);
+
+                        // Center text
+                        const text = "Family Prescription";
+                        const textWidth = doc.getTextWidth(text);
+                        const xText = (pageWidth - textWidth) / 2;
+
+                        doc.setFontSize(16);
+                        doc.setTextColor(0, 0, 255);
+                        doc.setFont("helvetica", "bold");
+                        doc.text(text, xText, 30); // Text below the image
+
+                        // Generate Table
+                        doc.autoTable({
+                            html: table,
+                            startY: 40, // Adjust position to avoid overlapping with the image and text
+                            theme: "grid",
+                            headStyles: { fillColor: [0, 150, 136], textColor: 255 },
+                            styles: { fontSize: 10, cellPadding: 2 },
+                            margin: { top: 10, left: 10, right: 10 }
+                        });
+
+                        return doc.output("datauristring");
+
+                    } catch (error) {
+                        console.error("Error generating PDF:", error);
+                        return null;
+                    }
+                }
 
 
 
@@ -986,7 +1256,7 @@
                         type: "POST",
                         url: "FamilyPrescription.aspx/ShareFileAsLink",
                         contentType: "application/json; charset=utf-8",
-                        data: JSON.stringify({ base64PDF: pdfData.split(",")[1], shareTo: 'WhatsApp' }), // Remove "data:application/pdf;base64,"
+                        data: JSON.stringify({ base64PDF: pdfData.split(',')[1]?.trim(), shareTo: 'WhatsApp' }), // Remove "data:application/pdf;base64,"
                         dataType: "json",
                         success: function (response) {
                             console.log(response);
@@ -1016,17 +1286,15 @@
                             window.open(response.d, '_blank');
                         },
                         error: function (error) {
-                            console.log("Error Share File As Link:", error);
+                               console.log("Error Share File As Link:", error);
                         }
                     });
                 }
-
+                      
 
             </script>
 
-            <script>
-
-</script>
+           
 
 
 

@@ -203,9 +203,10 @@
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
             <div class="user-info-main" style="padding-bottom:20vh" runat="server">
-                <a class="back-arrow-btn" href="javascript: history.go(-1)">
-                    <%--                    <img src="../assets/back-arrow.png" alt="">--%>
-                    Back</a>
+                           <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
+    <a class="back-arrow-btn-2" href="Dashboard.aspx">Back to Home
+    </a>
+</div>
                 <div class="container mt-768-80">
                     <img class="blue-trangle-top-left" src="../assets/blue-trangle.png" alt="">
                     <img class="blue-trangle-top-right" src="../assets/blue-trangle.png" alt="">

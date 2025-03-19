@@ -32,13 +32,13 @@
             border-radius: 50px;
             border: 0;
             outline: 0;
-            color: #0512b9;
+            color: gray;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 34px;
             font-family: 'Red Hat Display', Sans-serif !important;
             font-weight: 700;
             font-size: 16px;
-            background-color: #fdd001;
+           
         }
 
         @media (max-width:540px) {
@@ -134,7 +134,7 @@
         <img class="blue_trangle_top_right" src="../Terms & Conditions/blue-trangle2.png" alt="">
         <img class="plus_top_left" src="../Terms & Conditions/plus-1.png" alt="">
 
-        <a class="back-arrow-btn" href="javascript: history.go(-1)">Back</a>
+        <a class="back-arrow-btn" href="index4.aspx">Back</a>
 
         <div class="mt-5 mt-lg-0" style="height: 90%;">
             <div class="d-flex justify-content-center align-items-center h-100">

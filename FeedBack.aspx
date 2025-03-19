@@ -9,8 +9,12 @@
     <br />
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
+                                      <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
+    <a class="back-arrow-btn-2" href="Dashboard.aspx">Back to Home
+    </a>
+</div>
             <div style="margin:auto;padding-top:100px;width:100%" runat="server">
-                <a class="back-arrow-btn" href="javascript: history.go(-1)">Back</a>
+                          
                 <div class="row text-center">
                     <h1 style="color: #0331b5;">Your Feedback Matters</h1>
     

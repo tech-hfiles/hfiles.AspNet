@@ -305,6 +305,7 @@
     <Content Include="ClinicLogo\fe68738c-976a-4d27-b560-7bd12ada54d0.jpg" />
     <Content Include="ContentDeliver.aspx" />
     <Content Include="css\index3.css" />
+    <Content Include="css\index4.css" />
     <Content Include="Error.aspx" />
     <Content Include="FamilyPrescription.aspx" />
     <Content Include="FeedBack.aspx" />
@@ -313,72 +314,15 @@
     <Content Include="index2.aspx" />
     <Content Include="index3 .aspx" />
     <Content Include="index3.aspx" />
+    <Content Include="index4.aspx" />
     <Content Include="journal-page-images\article\404img.png" />
     <Content Include="journal-page-images\article\abha-id.png" />
     <Content Include="journal-page-images\article\Abhay.png" />
     <Content Include="journal-page-images\article\Active.jpeg" />
     <Content Include="journal-page-images\article\Active2.jpeg" />
     <Content Include="journal-page-images\article\Anjali-kalachand.png" />
-    <Content Include="journal-page-images\article\article\article\404img.png" />
-    <Content Include="journal-page-images\article\article\article\Abhay.png" />
-    <Content Include="journal-page-images\article\article\article\Active.jpeg" />
-    <Content Include="journal-page-images\article\article\article\Active2.jpeg" />
-    <Content Include="journal-page-images\article\article\article\Anjali-kalachand.png" />
-    <Content Include="journal-page-images\article\article\article\Article.jpg" />
-    <Content Include="journal-page-images\article\article\article\ayushman.png" />
-    <Content Include="journal-page-images\article\article\article\AyushmanBharat.jpeg" />
-    <Content Include="journal-page-images\article\article\article\back-pain.jpg" />
-    <Content Include="journal-page-images\article\article\article\building-img.jpeg" />
-    <Content Include="journal-page-images\article\article\article\burden.jpg" />
-    <Content Include="journal-page-images\article\article\article\cat nutrition 101- Anjali .pdf" />
-    <Content Include="journal-page-images\article\article\article\cat nutrition cover image.jpeg.jpg" />
-    <Content Include="journal-page-images\article\article\article\cat-nut.jpg" />
-    <Content Include="journal-page-images\article\article\article\CLENCHING.jpg" />
-    <Content Include="journal-page-images\article\article\article\cola.jpg" />
-    <Content Include="journal-page-images\article\article\article\comingsoon.png" />
-    <Content Include="journal-page-images\article\article\article\distress tolerance - binoy shah.pdf" />
-    <Content Include="journal-page-images\article\article\article\distress tolerance cover image-old.jpg" />
-    <Content Include="journal-page-images\article\article\article\distress tolerance cover image.jpeg.jpg" />
-    <Content Include="journal-page-images\article\article\article\distress.jpegold.jpg" />
-    <Content Include="journal-page-images\article\article\article\distress.jpg" />
-    <Content Include="journal-page-images\article\article\article\dog-nut.jpg" />
-    <Content Include="journal-page-images\article\article\article\dog-parent.jpg" />
-    <Content Include="journal-page-images\article\article\article\ekta-khatri.jpg" />
-    <Content Include="journal-page-images\article\article\article\email-icon.png" />
-    <Content Include="journal-page-images\article\article\article\failure.jpeg" />
-    <Content Include="journal-page-images\article\article\article\founder.png" />
-    <Content Include="journal-page-images\article\article\article\Gareema-Prasad.jpg" />
-    <Content Include="journal-page-images\article\article\article\health-wealth.jpg" />
-    <Content Include="journal-page-images\article\article\article\hfiles article 1 - shobhika jaju - Copy.pdf" />
-    <Content Include="journal-page-images\article\article\article\hfiles article 2- Dr. Shubhangini Sharma.pdf" />
-    <Content Include="journal-page-images\article\article\article\hfiles2image1.JPG" />
-    <Content Include="journal-page-images\article\article\article\landing-ABHA.jpeg" />
-    <Content Include="journal-page-images\article\article\article\landing-CustomPlans.png" />
-    <Content Include="journal-page-images\article\article\article\landing-CustomPlans2.jpeg" />
-    <Content Include="journal-page-images\article\article\article\landing-handshake.png" />
-    <Content Include="journal-page-images\article\article\article\landing-page.jpeg" />
-    <Content Include="journal-page-images\article\article\article\landinghandshake.jpg" />
-    <Content Include="journal-page-images\article\article\article\motivation - binoy shah.pdf" />
-    <Content Include="journal-page-images\article\article\article\motivation cover image.jpg" />
-    <Content Include="journal-page-images\article\article\article\motivation.jpg" />
-    <Content Include="journal-page-images\article\article\article\peel.jpg" />
-    <Content Include="journal-page-images\article\article\article\personalized.png" />
-    <Content Include="journal-page-images\article\article\article\phone-icon.png" />
-    <Content Include="journal-page-images\article\article\article\phoneview.mp4" />
-    <Content Include="journal-page-images\article\article\article\pixelcut-export.jpeg" />
-    <Content Include="journal-page-images\article\article\article\Recognized.jpeg" />
-    <Content Include="journal-page-images\article\article\article\SecureStorageAssured.jpeg" />
-    <Content Include="journal-page-images\article\article\article\Shobhika-Jaju .jpg" />
-    <Content Include="journal-page-images\article\article\article\Shobhika-Jaju.png" />
-    <Content Include="journal-page-images\article\article\article\shubhangini.jpg" />
-    <Content Include="journal-page-images\article\article\article\signupabha.png" />
-    <Content Include="journal-page-images\article\article\article\success.jfif" />
-    <Content Include="journal-page-images\article\article\article\supplementing dogs diet cover image.jpg" />
-    <Content Include="journal-page-images\article\article\article\Supplementing your dog%27s diet - Anjali.pdf" />
-    <Content Include="journal-page-images\article\article\article\Welcome to Health Files!.mp4" />
-    <Content Include="journal-page-images\article\article\article\whatsapp-icon.png" />
     <Content Include="journal-page-images\article\ayushman.png" />
-    <Content Include="journal-page-images\article\AyushmanBharat.jpeg" />
+    <Content Include="journal-page-images\article\AyushmanBharat.jpg" />
     <Content Include="journal-page-images\article\back-pain.jpg" />
     <Content Include="journal-page-images\article\buddahasing.png" />
     <Content Include="journal-page-images\article\building-img.jpeg" />
@@ -2474,6 +2418,7 @@
     <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
     <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
     <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="ShareReports.aspx" />
     <Content Include="shobija.jpg" />
     <Content Include="Sign Up Page\Hfiles Logo.png" />
     <Content Include="Sign Up Page\Samanta.png" />
@@ -2795,6 +2740,13 @@
     </Compile>
     <Compile Include="Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShareReports.aspx.cs">
+      <DependentUpon>ShareReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShareReports.aspx.designer.cs">
+      <DependentUpon>ShareReports.aspx</DependentUpon>
     </Compile>
     <Compile Include="signup_old.aspx.cs">
       <DependentUpon>signup_old.aspx</DependentUpon>

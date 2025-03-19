@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -33,7 +34,38 @@ namespace hfiles
             //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please Fill up Basic Details')", true);
             //    Response.Redirect("addbasicdetails.aspx");
             //}
-
+            int UserId = 0;
+            if (Session["Userid"] != null && int.TryParse(Session["Userid"].ToString(), out UserId))
+            {
+                // Ensure memberId exists and is valid
+                int memberId = 0;
+                if (Session["memberId"] != null && int.TryParse(Session["memberId"].ToString(), out memberId) && memberId > 0)
+                {
+                    if (Session["Membersname"] != null)
+                    {
+                        string membersName = Session["Membersname"].ToString();
+                        string formattedName = char.ToUpper(membersName[0]) + membersName.Substring(1).ToLower();
+                        lblUploadHeader.Text = "Upload " + formattedName + "'s Report";
+                    }
+                    else
+                    {
+                        lblUploadHeader.Text = "Upload Report"; // Default text if Membersname is null
+                    }
+                }
+                else
+                {
+                    if (Session["username"] != null)
+                    {
+                        string username = Session["username"].ToString();
+                        string formattedUsername = char.ToUpper(username[0]) + username.Substring(1).ToLower();
+                        lblUploadHeader.Text = "Upload " + formattedUsername + "'s Report";
+                    }
+                    else
+                    {
+                        lblUploadHeader.Text = "Upload Report"; // Default text if username is null
+                    }
+                }
+            }
 
 
             if (Session["username"] != null)
@@ -55,6 +87,11 @@ namespace hfiles
 
 
                     selectedmembername.InnerText = lblUserName.Text = lbluser.Text = Session["username"].ToString();
+
+
+
+                    // Ensure UserId is retrieved safely
+                   
 
                     if (Session["gender_string"] != null && Session["age"] != null)
                     {

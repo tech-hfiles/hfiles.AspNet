@@ -73,13 +73,13 @@ a {
     border-radius: 50px;
     border: 0;
     outline: 0;
-    color: #0512b9;
+    color: gray;
     cursor: pointer;
     margin-top: 20px;
     font-family: 'Red Hat Display', Sans-serif !important;
     font-weight: 700;
     font-size: 16px;
-    background-color: #fdd001;
+   /* background-color: #fdd001;*/
 }
 
 
@@ -93,7 +93,7 @@ a {
 }
 
 .back-arrow-btn-2 {
-    /* position: absolute; */
+    position: absolute;
     /*    left: 10%;
     top: 10%;
 */ /* color: #0512b9; */
@@ -103,13 +103,13 @@ a {
     border-radius: 50px;
     border: 0;
     outline: 0;
-    color: #0512b9;
+    color: gray;
     cursor: pointer;
-    /* margin-top: 20px; */
+    margin-top: 3px !important;
     font-family: 'Red Hat Display', Sans-serif !important;
     font-weight: 700;
     font-size: 16px;
-    background-color: #fdd001;
+    /*background-color: #fdd001;*/
 }
 
 

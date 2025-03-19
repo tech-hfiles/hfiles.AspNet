@@ -268,40 +268,7 @@ namespace hfiles
 
 
 
-        //protected void Dropmembers_SelectedIndexChanged1(object sender, EventArgs e)
-        //{
-        //    int UserId = DAL.validateInt(Session["Userid"].ToString());
-        //    string selectedUserId = Dropmembers.SelectedValue; // Get selected user ID
-
-        //    if (!string.IsNullOrEmpty(selectedUserId))
-        //    {
-        //        using (MySqlConnection con = new MySqlConnection(cs))
-        //        {
-        //            con.Open();
-        //            using (MySqlCommand cmd = new MySqlCommand("USP_GetAllReports", con))
-        //            {
-        //                cmd.CommandType = CommandType.StoredProcedure;
-        //                cmd.Parameters.AddWithValue("p_UserId", UserId);
-        //                cmd.Parameters.AddWithValue("p_membersId", selectedUserId);  // Filter by selected user
-
-        //                using (MySqlDataReader reader = cmd.ExecuteReader())
-        //                {
-        //                    DataTable dt = new DataTable();
-        //                    dt.Load(reader);
-        //                    GridView1.DataSource = dt;
-        //                    GridView1.DataBind();
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
-
-
-
-
-
-
-
+       
 
         protected void SearchInput_TextChanged(object sender, EventArgs e)
         {
@@ -380,13 +347,13 @@ namespace hfiles
                 AllReports obj = new AllReports();
                 if (shareTo == "WhatsApp")
                 {
-                    whatsstring += HttpUtility.UrlEncode(obj.GenerateWhatsAppUrl(fileurl));
+                    whatsstring += HttpUtility.UrlEncode(obj.GenerateWhatsAppUrlFP(fileurl));
                     return whatsstring;
                 }
                 else
                 {
                     string subject = "Report Link";
-                    string body = obj.GenerateWhatsAppUrl(fileurl);
+                    string body = obj.GenerateWhatsAppUrlFP(fileurl);
                     gmailUrl += $"{Uri.EscapeDataString(subject)}&body={Uri.EscapeDataString(body)}";
                     return gmailUrl;
                 }
@@ -421,61 +388,103 @@ namespace hfiles
         }
 
 
+        //protected void sharewhatsapp_Click(object sender, EventArgs e)
+        //{
+        //    string whatsstring = "https://wa.me/?text=";
+        //    int maxReports = 10; // Set the maximum number of reports
+        //    int reportCount = 0;
+        //    List<string> selectedReports = new List<string>();
+
+        //    // Iterate through the GridView rows to find selected CheckBox
+        //    foreach (GridViewRow row in GridView1.Rows)
+        //    {
+        //        if (reportCount >= maxReports)
+        //        {
+        //            break; // Stop adding more reports after reaching the limit
+        //        }
+
+        //        CheckBox chkSelect = (CheckBox)row.FindControl("chkSelect");
+
+        //        if (chkSelect != null && chkSelect.Checked)
+        //        {
+        //            string reportName = row.Cells[1].Text;
+        //            string reportType = row.Cells[2].Text;
+
+        //            HiddenField hfReportId = (HiddenField)row.FindControl("hfReportUrl");
+        //            if (hfReportId != null && int.TryParse(hfReportId.Value, out int reportId))
+        //            {
+        //                // Retrieve the file path from the database
+        //                string fileUrl = GetReportUrlFromDatabase(reportId);
+        //                if (!string.IsNullOrEmpty(fileUrl))
+        //                {
+        //                    string whatsappMessage = fileUrl;
+        //                    string whatsappUrl = HttpUtility.UrlEncode(GenerateWhatsAppUrlFP(whatsappMessage));
+        //                    whatsstring += $"{reportName}({reportType}) - {whatsappUrl}";
+
+
+        //                    reportCount++;
+        //                }
+        //            }
+        //        }
+        //    }
+
+        //    // If no reports were selected, show an alert
+        //    if (whatsstring.Length == 0)
+        //    {
+        //        ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Please select at least one report.');setTimeout(function() { location.reload(); }, 1000);", true);
+        //        return;
+        //    }
+
+        //    // Concatenate the reports with new lines (%0A for WhatsApp URL encoding)
+
+        //    string script = $"window.open('{whatsstring}', '_blank');setTimeout(function() {{ location.reload(); }}, 1000);";
+        //    ScriptManager.RegisterStartupScript(this, GetType(), "openWhatsApp", script, true);
+        //    // Redirect to WhatsApp
+        //    //  Response.Redirect(whatsstring);
+        //}
+
         protected void sharewhatsapp_Click(object sender, EventArgs e)
         {
-            string fileUrl = string.Empty;
-            string whatsstring = "https://wa.me/?text=";
-            // Check if the sender is a LinkButton
+            string baseWhatsAppUrl = "https://wa.me/?text=";
+            List<int> selectedReportIds = new List<int>();
 
             // Iterate through the GridView rows to find selected CheckBox
             foreach (GridViewRow row in GridView1.Rows)
             {
                 CheckBox chkSelect = (CheckBox)row.FindControl("chkSelect");
-                string reportName = row.Cells[1].Text;
-                string reportType = row.Cells[2].Text;
 
                 if (chkSelect != null && chkSelect.Checked)
                 {
                     HiddenField hfReportId = (HiddenField)row.FindControl("hfReportUrl");
                     if (hfReportId != null && int.TryParse(hfReportId.Value, out int reportId))
                     {
-                        // Retrieve the file path from the database
-                        fileUrl = GetReportUrlFromDatabase(reportId);
-                        //if (!string.IsNullOrEmpty(fileUrl))
-                        //{
-                        //    break; // Stop after finding the first valid report link
-                        //}
-                        string whatsappMessage = fileUrl;
-                        string whatsappUrl = HttpUtility.UrlEncode(GenerateWhatsAppUrl(whatsappMessage));
-                        whatsstring += $"{reportName}({reportType}) - {whatsappUrl}";
+                        selectedReportIds.Add(reportId);
                     }
                 }
             }
 
-
-            Debug.WriteLine($"File URL: {fileUrl}");
-
-            // If no file link is found, show an alert
-            if (string.IsNullOrEmpty(fileUrl))
+            // If no reports were selected, show an alert
+            if (selectedReportIds.Count == 0)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Please select a report or click a valid link.');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Please select at least one report.');setTimeout(function() { location.reload(); }, 1000);", true);
                 return;
             }
 
-            // Generate WhatsApp share URL
+            // Generate a single shared report link
+            string reportPageUrl = "https://hfiles.in/ShareReports.aspx?reports=" + string.Join(",", selectedReportIds);
+            string encodedMessage = HttpUtility.UrlEncode("View your reports here: " + reportPageUrl);
+            string fullWhatsAppUrl = baseWhatsAppUrl + encodedMessage;
 
-
-            // Redirect to WhatsApp
-            Response.Redirect(whatsstring);
-
-
-
-
-
-
-
-
+            // Open WhatsApp in a new tab
+            string script = $"window.open('{fullWhatsAppUrl}', '_blank');setTimeout(function() {{ location.reload(); }}, 1000);";
+            ScriptManager.RegisterStartupScript(this, GetType(), "openWhatsApp", script, true);
         }
+
+
+
+
+
+
         private string GetReportUrlFromDatabase(int reportId)
         {
             string filePath = string.Empty;
@@ -515,7 +524,44 @@ namespace hfiles
             return string.IsNullOrEmpty(filePath) ? string.Empty : "https://hfiles.in" + filePath;
         }
 
-        public string GenerateWhatsAppUrl(string filePath)
+
+        public string GenerateWhatsAppUrl(List<string> reportList)
+        {
+
+
+            DateTime utcNow = DateTime.UtcNow;
+
+            // Define the IST timezone
+            TimeZoneInfo istTimeZone = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+
+            // Convert UTC to IST
+            DateTime indiaTime = TimeZoneInfo.ConvertTimeFromUtc(utcNow, istTimeZone).AddMinutes(60);
+
+
+
+            Guid tokenId = Guid.NewGuid();
+
+            var tokenData = new { FilePath = reportList, Expiry = indiaTime };
+
+            // Storing data in Cache using tokenId as key
+            HttpContext.Current.Cache.Insert(
+                tokenId.ToString(),      // Key
+                tokenData,               // Value
+                null,                    // Dependencies (none in this case)
+                indiaTime.AddMinutes(30), // Absolute Expiry Time
+                Cache.NoSlidingExpiration, // No sliding expiration
+                CacheItemPriority.Normal, // Cache item priority
+                null);
+            string signedUrl = $"https://hfiles.in/ContentDeliver.aspx?token={tokenId} \n";
+            // Callback (if needed)
+            // Store token data using tokenId as key (e.g., in MemoryCache, Database, etc.)
+
+
+
+            // Return the WhatsApp-ready link
+            return signedUrl;
+        }
+        public string GenerateWhatsAppUrlFP(string filePath)
         {
 
 
@@ -551,20 +597,7 @@ namespace hfiles
             // Return the WhatsApp-ready link
             return signedUrl;
         }
-        //private string GenerateWhatsAppUrl(string fileUrl)
-        //{
-        //    try
-        //    {
-        //        string encodedUrl = HttpUtility.UrlEncode(fileUrl);
-        //        return $"https://wa.me/?text={encodedUrl}";
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Log any encoding errors for debugging
-        //        Console.WriteLine($"Error encoding URL: {ex.Message}");
-        //        return string.Empty;
-        //    }
-        //}
+        
 
         protected void lnkViewFile_Click(object sender, EventArgs e)
         {
@@ -630,85 +663,108 @@ namespace hfiles
             return filePath; // Return the direct file path
         }
 
+
+
+        //protected void shareEmail_Click(object sender, EventArgs e)
+        //{
+        //    int maxReports = 10; // Maximum reports allowed
+        //    int reportCount = 0;
+        //    string emailstring = "";
+        //    List<string> selectedReports = new List<string>();
+
+        //    // Iterate through GridView rows to find selected CheckBox
+        //    foreach (GridViewRow row in GridView1.Rows)
+        //    {
+        //        if (reportCount >= maxReports)
+        //        {
+        //            break; // Stop after reaching the limit
+        //        }
+
+        //        CheckBox chkSelect = (CheckBox)row.FindControl("chkSelect");
+
+        //        if (chkSelect != null && chkSelect.Checked)
+        //        {
+        //            string reportName = row.Cells[1].Text;
+        //            string reportType = row.Cells[2].Text;
+
+        //            HiddenField hfReportId = (HiddenField)row.FindControl("hfReportUrl");
+        //            if (hfReportId != null && int.TryParse(hfReportId.Value, out int reportId))
+        //            {
+        //                // Retrieve the file URL from the database
+        //                string fileUrl = GetReportUrlFromDatabaseEmail(reportId);
+        //                if (!string.IsNullOrEmpty(fileUrl))
+        //                {
+
+
+        //                    string whatsappMessage = fileUrl;
+        //                    string whatsappUrl = GenerateWhatsAppUrlFP(whatsappMessage);
+        //                    emailstring += $"{reportName}({reportType}) - {whatsappUrl}";
+        //                    reportCount++;
+        //                }
+        //            }
+        //        }
+        //    }
+
+        //    // If no reports were selected, show an alert
+        //    if (emailstring.Length == 0)
+        //    {
+        //        ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Please select at least one report.');setTimeout(function() { location.reload(); }, 1000);", true);
+        //        return;
+        //    }
+
+        //    // Format the email body with new lines
+        //    string subject = "Report Links";
+        //    string body = emailstring; // \n for new lines in email body
+
+
+        //    // Open WhatsApp link
+
+        //    // Generate a universal mailto URL (works for all email clients)
+        //    string gmailUrl = $"https://mail.google.com/mail/?view=cm&fs=1&to=&su={Uri.EscapeDataString(subject)}&body={Uri.EscapeDataString(body)}";
+
+        //    // Open email client in a new tab
+        //    string script = $"window.open('{gmailUrl}', '_blank');setTimeout(function() {{ location.reload(); }}, 1000);";
+        //    ScriptManager.RegisterStartupScript(this, GetType(), "openEmail", script, true);
+        //}
+
         protected void shareEmail_Click(object sender, EventArgs e)
         {
-            string fileUrl = string.Empty;
-            string emailstring = "";
-            //string recipientEmail = "kamleshram562@gmail.com";
+            List<int> selectedReportIds = new List<int>();
 
-            // Check for selected CheckBox in the GridView
+            // Iterate through the GridView rows to find selected CheckBox
             foreach (GridViewRow row in GridView1.Rows)
             {
                 CheckBox chkSelect = (CheckBox)row.FindControl("chkSelect");
-                string reportName = row.Cells[1].Text;
-                string reportType = row.Cells[2].Text;
+
                 if (chkSelect != null && chkSelect.Checked)
                 {
                     HiddenField hfReportId = (HiddenField)row.FindControl("hfReportUrl");
                     if (hfReportId != null && int.TryParse(hfReportId.Value, out int reportId))
                     {
-                        // Retrieve the file URL from the database
-                        fileUrl = GetReportUrlFromDatabaseEmail(reportId);
-                        //if (!string.IsNullOrEmpty(fileUrl))
-                        //{
-                        //    break; // Stop after finding the first selected report link
-                        //}
-                        string whatsappMessage = fileUrl;
-                        string whatsappUrl = GenerateWhatsAppUrl(whatsappMessage);
-                        emailstring += $"{reportName}({reportType}) - {whatsappUrl}";
+                        selectedReportIds.Add(reportId);
                     }
                 }
             }
 
-            // If no file link is found, show an alert
-            if (string.IsNullOrEmpty(emailstring))
+            // If no reports were selected, show an alert
+            if (selectedReportIds.Count == 0)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Please select a report to share.');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Please select at least one report.');setTimeout(function() { location.reload(); }, 1000);", true);
                 return;
             }
 
+            // Generate a single shared report link
+            string reportPageUrl = "https://hfiles.in/ShareReports.aspx?reports=" + string.Join(",", selectedReportIds);
+            string encodedMessage = "View your reports here: " + reportPageUrl;
 
-            // Set up email
-            // MailMessage mail = new MailMessage();
-            // mail.From = new MailAddress("Hfiles.in@gmail.com"); 
-            //// mail.To.Add("kamleshram562@gmail.com"); 
-            // mail.Subject = "Report Link";
-            // mail.Body =  fileUrl;
-            // mail.IsBodyHtml = false;
-
-
-            // // Configure SMTP client
-            // SmtpClient smtpClient = new SmtpClient("smtp.gmail.com"); // Replace with your SMTP server
-            // smtpClient.Port = 587; // Use appropriate port
-            // smtpClient.Credentials = new NetworkCredential("Hfiles.in@gmail.com", "qpjdigykglmnuxlt");
-            // smtpClient.EnableSsl = true;
-
-            // // Send email
-            // smtpClient.Send(mail);
-
-            string subject = "Report Link";
-            string body = emailstring;
-
-            // Generate a mailto URL
-            string gmailUrl = $"https://mail.google.com/mail/?view=cm&fs=1&to=&su={Uri.EscapeDataString(subject)}&body={Uri.EscapeDataString(body)}";
-
-            // Use a script to open the user's default email client
-            string script = $"window.open('{gmailUrl}', '_blank');";
-            ScriptManager.RegisterStartupScript(this, GetType(), "openGmail", script, true);
-
-
-            //string mailtoUrl = $"mailto:?subject={Uri.EscapeDataString(subject)}&body={Uri.EscapeDataString(body)}";
-
-            //// Use a script to open the user's default email client
-            //string script = $"window.open('{mailtoUrl}', '_blank');";
-            //ScriptManager.RegisterStartupScript(this, GetType(), "openEmailClient", script, true);
-
-            // Trigger the script to open Gmail
-            //ScriptManager.RegisterStartupScript(this, GetType(), "openGmail", script, true);
-
-
-
+            // Generate a universal mailto URL (works for all email clients)
+            string gmailUrl = $"https://mail.google.com/mail/?view=cm&fs=1&to=&su={Uri.EscapeDataString("Report Links")}&body={Uri.EscapeDataString(encodedMessage)}";
+            // Open email client in a new tab
+            string script = $"window.open('{gmailUrl}', '_blank');setTimeout(function() {{ location.reload(); }}, 1000);";
+            ScriptManager.RegisterStartupScript(this, GetType(), "openEmail", script, true);
         }
+
+
 
         private string GetReportUrlFromDatabaseEmail(int reportId)
         {
@@ -752,7 +808,6 @@ namespace hfiles
             return string.IsNullOrEmpty(filePath) ? string.Empty : "https://hfiles.in" + filePath;
 
         }
-
         private bool SendFileLinksViaEmail(List<string> fileUrls)
         {
             try

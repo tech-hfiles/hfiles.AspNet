@@ -111,7 +111,9 @@
             <img class="blue_trangle_top_right" src="../Terms & Conditions/blue-trangle2.png" alt="">
             <img class="plus_top_left" src="../Terms & Conditions/plus-1.png" alt="">
 
-            <a class="back-arrow-btn" href="javascript: history.go(-1)">Back</a>
+                                                   <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
+<a class="back-arrow-btn-2" href="index4.aspx">Back
+</a>
 
             <div class="mt-5 mt-lg-0" style="height: 100%;">
                 <div class="d-flex justify-content-center align-items-center h-100">
