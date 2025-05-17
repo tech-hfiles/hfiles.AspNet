@@ -6,7 +6,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+           <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <br />
     <style>
 
@@ -21,6 +21,7 @@
                 background-color: #fff;
                 border-radius: 20px;
                 padding: 25px;
+
                 font-weight: bold;
                 width: 280px;
                 text-align: center;
@@ -111,15 +112,12 @@
 
         
     </style>
+    <div>
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
-            <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+              
             
-              <form action="Charge.aspx" method="post" name="razorpayForm" >
-      <input id="razorpay_payment_id" type="hidden" name="razorpay_payment_id" />
-      <input id="razorpay_order_id" type="hidden" name="razorpay_order_id" />
-      <input id="razorpay_signature" type="hidden" name="razorpay_signature" />
-  </form>
+             
              <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
      <a class="back-arrow-btn-2" href="Dashboard.aspx">Back to Home
      </a>
@@ -330,107 +328,151 @@
     </div>
   </div>
 </div>
+      
     <script>
-        var orderId = "<%=orderId%>";
+        window.onload = function () {
+            // your Razorpay logic here (same as inside DOMContentLoaded)
+
+            var orderId = '<%= Session["orderId_basic"] %>';
+
+            var options = {
+                key: "rzp_live_kpCWRpxOkiH9M7",
+                amount: "100", // in paise
+                currency: "INR",
+                name: "Hfiles",
+                description: "Subscription Payment",
+                order_id: '<%= Session["orderId_basic"] %>',
+                image: "https://hfiles.in/wp-content/uploads/2022/11/hfileslogo.jpeg",
+                prefill: {
+                    name: "HEALTH FILES MEDICO PRIVATE LIMITED",
+                    email: "contact@hfiles.in",
+                    contact: "+919978043453",
+                },
+                notes: {
+                    address: "Hello World",
+                    merchant_order_id: "12312321",
+                },
+                theme: {
+                    color: "#0331B5",
+                    image_padding: false
+                },
+                handler: function (response) {
+                    console.log("Handler called with:", response);
+
+                    var form = document.createElement("form");
+                    form.setAttribute("method", "POST");
+                    form.setAttribute("action", "Charge");
+
+                    var fields = {
+                        razorpay_payment_id: response.razorpay_payment_id,
+                        razorpay_order_id: response.razorpay_order_id,
+                        razorpay_signature: response.razorpay_signature,
+                        plan:"Standard"
+                    };
+
+                    for (var key in fields) {
+                        if (fields.hasOwnProperty(key)) {
+                            var input = document.createElement("input");
+                            input.setAttribute("type", "hidden");
+                            input.setAttribute("name", key);
+                            input.setAttribute("value", fields[key]);
+                            form.appendChild(input);
+                        }
+                    }
+
+                    document.body.appendChild(form);
+
+                    console.log("Submitting form...");
+                    form.submit();
+                },
+
+                modal: {
+                    ondismiss: function () {
+                        console.log("This code runs when the popup is closed");
+                    },
+                    escape: true,
+                    backdropclose: false
+                }
+            };
+
+            var rzp = new Razorpay(options);
+            document.getElementById('rzp-button1').onclick = function (e) {
+                rzp.open();
+                e.preventDefault();
+            };
+        };
+
+
  
+        document.getElementById("rzp-button2").addEventListener("click", function (e) {
+            var orderId = "<%= Session["orderId"] %>";
+            var options1 = {
+                key: "rzp_live_kpCWRpxOkiH9M7",
+                amount: "500", // in paise
+                currency: "INR",
+                name: "Hfiles",
+                description: "Subscription Payment",
+                order_id: '<%= Session["orderId_premium"] %>',
+                image: "https://hfiles.in/wp-content/uploads/2022/11/hfileslogo.jpeg",
+                prefill: {
+                    name: "HEALTH FILES MEDICO PRIVATE LIMITED",
+                    email: "contact@hfiles.in",
+                    contact: "+919978043453",
+                },
+                notes: {
+                    address: "Hello World",
+                    merchant_order_id: "12312321",
+                },
+                theme: {
+                    color: "#0331B5",
+                    image_padding: false
+                },
+                handler: function (response) {
+                    console.log("Handler called with:", response);
+
+                    var form = document.createElement("form");
+                    form.setAttribute("method", "POST");
+                    form.setAttribute("action", "Charge");
+
+                    var fields = {
+                        razorpay_payment_id: response.razorpay_payment_id,
+                        razorpay_order_id: response.razorpay_order_id,
+                        razorpay_signature: response.razorpay_signature,
+                        plan: "Premium"
+                    };
+
+                    for (var key in fields) {
+                        if (fields.hasOwnProperty(key)) {
+                            var input = document.createElement("input");
+                            input.setAttribute("type", "hidden");
+                            input.setAttribute("name", key);
+                            input.setAttribute("value", fields[key]);
+                            form.appendChild(input);
+                        }
+                    }
+
+                    document.body.appendChild(form);
+
+                    console.log("Submitting form...");
+                    form.submit();
+                },
+
+                modal: {
+                    ondismiss: function () {
+                        console.log("This code runs when the popup is closed");
+                    },
+                    escape: true,
+                    backdropclose: false
+                }
+            };
+
+            var rzp1 = new Razorpay(options1);
+           
+                rzp1.open();
+                e.preventDefault();
             
+        });
 
-
-    document.getElementById('rzp-button1').onclick = function (e) {
-        var options = {
-            "key": "rzp_live_kpCWRpxOkiH9M7", // Replace with your Razorpay Key ID
-            "amount": 9900, // Amount in paise (99 INR)
-            "currency": "INR",
-            "name": "Hfiles",
-            "description": "Subscription Payment",
-            "image": "https://hfiles.in/wp-content/uploads/2022/11/hfileslogo.jpeg",
-            "order_id": orderId, // Generate order ID from backend
-            "handler": function (response) {
-                // Send payment details to Charge.aspx
-                document.getElementById('razorpay_payment_id').value = response.razorpay_payment_id;
-                document.getElementById('razorpay_order_id').value = response.razorpay_order_id;
-                document.getElementById('razorpay_signature').value = response.razorpay_signature;
-                document.razorpayForm.submit();
-            },
-            //"prefill": {
-            //    "name": "HEALTH FILES MDEICO PRIVATE LIMITED",
-            //    "email": "contact@hfiles.in",
-            //    "contact": "+919978043453"
-            //},
-            "theme": {
-                "color": "#0331B5"
-            },
-            "config": { // Move the method settings inside config
-                "display": {
-                    "blocks": {
-                        "upi": {
-                            "name": "UPI Payment",
-                            "instruments": [
-                                {
-                                    "method": "upi"
-                                }
-                            ]
-                        }
-                    },
-                    "sequence": ["upi", "card", "netbanking"],
-                    "preferences": {
-                        "show_default_blocks": true
-                    }
-                }
-            }
-        };
-        var rzp1 = new Razorpay(options);
-        rzp1.open();
-        e.preventDefault();
-    };
-    document.getElementById('rzp-button2').onclick = function (e) {
-        var options = {
-            "key": "rzp_live_kpCWRpxOkiH9M7", // Replace with your Razorpay Key ID
-            "amount": 39900, // Amount in paise (99 INR)
-            "currency": "INR",
-            "name": "Hfiles",
-            "description": "Subscription Payment",
-            "image": "https://hfiles.in/wp-content/uploads/2022/11/hfileslogo.jpeg",
-            "order_id": orderId, // Generate order ID from backend
-            "handler": function (response) {
-                // Send payment details to Charge.aspx
-                document.getElementById('razorpay_payment_id').value = response.razorpay_payment_id;
-                document.getElementById('razorpay_order_id').value = response.razorpay_order_id;
-                document.getElementById('razorpay_signature').value = response.razorpay_signature;
-                document.razorpayForm.submit();
-            },
-            //"prefill": {
-            //    "name": "HEALTH FILES MDEICO PRIVATE LIMITED",
-            //    "email": "contact@hfiles.in",
-            //    "contact": "+919978043453"
-            //},
-            "theme": {
-                "color": "#0331B5"
-            }
-            ,
-            "config": { // Move the method settings inside config
-                "display": {
-                    "blocks": {
-                        "upi": {
-                            "name": "UPI Payment",
-                            "instruments": [
-                                {
-                                    "method": "upi"
-                                }
-                            ]
-                        }
-                    },
-                    "sequence": ["upi", "card", "netbanking"],
-                    "preferences": {
-                        "show_default_blocks": true
-                    }
-                }
-            }
-        };
-        var rzp1 = new Razorpay(options);
-        rzp1.open();
-        e.preventDefault();
-    };
         function openModal() {
             document.getElementById("contactModal").style.display = "block";
         }
@@ -461,5 +503,5 @@
         </ContentTemplate>
         
     </asp:UpdatePanel>
-    
+    </div>
 </asp:Content>

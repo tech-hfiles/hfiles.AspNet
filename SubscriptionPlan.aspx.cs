@@ -1,54 +1,166 @@
-﻿using Razorpay.Api;
+﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using Razorpay.Api;
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Net.Mail;
 using System.Web.UI;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Text;
+
 namespace hfiles
 {
     public partial class SubscriptionPlan : System.Web.UI.Page
     {
-        public string orderId;
+      //  public string orderId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                GenerateOrderID();
-            }
+
+
+            //if (IsPostBack)
+            //{
+            GenerateOrderID();
+            GenerateOrderID1();
+            // }
+        }
+        private void GenerateOrderID()
+        {
+            CreateOrder("orderId_basic", 100, "receipt_basic");
         }
 
-        private void GenerateOrderID()
+        private void GenerateOrderID1()
+        {
+            CreateOrder("orderId_premium", 500, "receipt_premium");
+        }
+
+        private void CreateOrder(string sessionKey, int amount, string receipt)
         {
             try
             {
                 string key = "rzp_live_kpCWRpxOkiH9M7";
                 string secret = "e1kqeFIRJDAdEoL7V6wq7N7b";
 
-                // Create Razorpay client
-                RazorpayClient client = new RazorpayClient(key, secret);
+                var client = new HttpClient();
+                var byteArray = Encoding.ASCII.GetBytes($"{key}:{secret}");
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 
-                // Define order parameters
-                Dictionary<string, object> options = new Dictionary<string, object>()
-            {
-                { "amount", 9900 },  // Amount in paise (99 INR)
-                { "currency", "INR" },
-                { "payment_capture", 1 }
-            };
+                var postData = new
+                {
+                    amount = amount, // in paise
+                    currency = "INR",
+                    receipt = receipt,
+                    payment_capture = 1
+                };
 
-                // Create order
-                Order order = client.Order.Create(options);
+                var json = JsonConvert.SerializeObject(postData);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                string orderId = order.Attributes["id"];  // Extract ID correctly
+                var response = client.PostAsync("https://api.razorpay.com/v1/orders", content).Result;
+                var responseString = response.Content.ReadAsStringAsync().Result;
 
-
-                // Store order ID in ViewState
-                orderId = order["id"].ToString();
+                var result = JsonConvert.DeserializeObject<JObject>(responseString);
+                Session[sessionKey] = result["id"]?.ToString();
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
+                Response.Write("<script>alert('Order Error: " + ex.Message.Replace("'", "\\'") + "');</script>");
             }
         }
+        //private void GenerateOrderID()
+        //{
+        //    try
+        //    {
+        //        string key = "rzp_live_kpCWRpxOkiH9M7";
+        //        string secret = "e1kqeFIRJDAdEoL7V6wq7N7b";
+
+        //        var client = new HttpClient();
+        //        var byteArray = Encoding.ASCII.GetBytes($"{key}:{secret}");
+        //        client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+
+        //        var postData = new
+        //        {
+        //            amount = 100, // in paise
+        //            currency = "INR",
+        //            receipt = "receipt#1",
+        //            payment_capture = 1
+        //        };
+
+        //        var json = JsonConvert.SerializeObject(postData);
+        //        var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+        //        var response = client.PostAsync("https://api.razorpay.com/v1/orders", content).Result;
+        //        var responseString = response.Content.ReadAsStringAsync().Result;
+
+        //        var result = JsonConvert.DeserializeObject<JObject>(responseString);
+        //        Session["orderId"] = result["id"]?.ToString();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Response.Write("<script>alert('Order Error: " + ex.Message.Replace("'", "\\'") + "');</script>");
+        //    }
+        //}
+
+        //private void GenerateOrderID1()
+        //{
+        //    try
+        //    {
+        //        string key = "rzp_live_kpCWRpxOkiH9M7";
+        //        string secret = "e1kqeFIRJDAdEoL7V6wq7N7b";
+
+        //        var client = new HttpClient();
+        //        var byteArray = Encoding.ASCII.GetBytes($"{key}:{secret}");
+        //        client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+
+        //        var postData = new
+        //        {
+        //            amount = 100, // in paise
+        //            currency = "INR",
+        //            receipt = "receipt#1",
+        //            payment_capture = 1
+        //        };
+
+        //        var json = JsonConvert.SerializeObject(postData);
+        //        var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+        //        var response = client.PostAsync("https://api.razorpay.com/v1/orders", content).Result;
+        //        var responseString = response.Content.ReadAsStringAsync().Result;
+
+        //        var result = JsonConvert.DeserializeObject<JObject>(responseString);
+        //        Session["orderId"] = result["id"]?.ToString();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Response.Write("<script>alert('Order Error: " + ex.Message.Replace("'", "\\'") + "');</script>");
+        //    }
+        //}
+
+        //private void GenerateOrderID()
+        //{
+        //    try
+        //    {
+        //        System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+
+        //        Dictionary<string, object> input = new Dictionary<string, object>();
+        //        input.Add("amount", 100); // this amount should be same as transaction amount
+        //        input.Add("currency", "INR");
+        //        input.Add("receipt", "13131");
+        //        input.Add("payment_capture", 1);
+
+        //        string key = "rzp_live_kpCWRpxOkiH9M7";
+        //        string secret = "e1kqeFIRJDAdEoL7V6wq7N7b";
+
+        //        RazorpayClient client = new RazorpayClient(key, secret);
+
+        //        Razorpay.Api.Order order = client.Order.Create(input);
+        //        Session["orderId"] = order["id"].ToString();
+
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
+        //    }
+        //}
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             try
