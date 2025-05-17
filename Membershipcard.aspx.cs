@@ -57,7 +57,7 @@ namespace hfiles
                 string expiryText = row["user_expiry"].ToString();
                 string userPlan = row["user_plan"].ToString();
                 string memberIdText = row["user_membernumber"].ToString();
-                string image = masterclass.LoadMembershipCard(userNameText,bloodGroupText,emergencyContactText,expiryText,userPlan,memberIdText);
+                string image = masterclass.LoadMembershipCard(userNameText, bloodGroupText, emergencyContactText, expiryText, userPlan, memberIdText);
                 row["user_image"] = image;
             }
 
@@ -125,7 +125,7 @@ namespace hfiles
         }
         protected void GetUserDetails(string userId)
         {
-           
+
 
             using (MySqlConnection connection = new MySqlConnection(cs))
             {
@@ -192,7 +192,7 @@ namespace hfiles
                 }
             }
         }
-       
+
 
 
 
