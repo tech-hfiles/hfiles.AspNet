@@ -425,69 +425,7 @@ namespace hfiles
 
         }
 
-        //private void getcountrylist()
-        //{
-        //    MySqlConnection con = new MySqlConnection(cs);
-        //    string com = "SELECT id, CONCAT(isocode, ' ', dialingcode) AS DisplayCode,CONCAT(countryname, ' ', dialingcode) AS DisplayCode1, dialingcode FROM countrylist2";
-        //    MySqlDataAdapter adpt = new MySqlDataAdapter(com, con);
-        //    DataTable dt = new DataTable();
-        //    adpt.Fill(dt);
-
-        //    if (dt != null && dt.Rows.Count > 0)
-        //    {
-        //        ViewState["CountryCodeList"] = dt;
-        //        ddlCountry.DataSource = dt;
-        //        ddlCountry.DataTextField = "DisplayCode1";  // Show "ISO Code + Dialing Code"
-        //        ddlCountry.DataValueField = "dialingcode"; // Save dialing code as value
-        //        ddlCountry.DataBind();
-
-        //        // Insert default (example: India)
-        //        ddlCountry.Items.Insert(0, new ListItem("+91", "+91"));
-        //    }
-        //    else
-        //    {
-        //        Response.Redirect("Login.aspx");
-        //    }
-        //}
-
-        //private void getcountrylist()
-        //{
-        //    MySqlConnection con = new MySqlConnection(cs);
-        //    string com = "SELECT * FROM countrylist2";
-        //    MySqlDataAdapter adpt = new MySqlDataAdapter(com, con);
-        //    DataTable dt = new DataTable();
-        //    adpt.Fill(dt);
-
-        //    if (dt != null && dt.Rows.Count > 0)
-        //    {
-        //        ViewState["CountryCodeList"] = dt;
-        //        ddlCountry.Items.Clear(); // Clear previous items
-
-        //        // Add Default Option
-        //        ListItem defaultItem = new ListItem("IND +91", "IND+91");
-        //        defaultItem.Attributes["data-country"] = "IND +91"; // Show Country Name + Dialing Code
-        //        defaultItem.Attributes["data-iso"] = "IND +91"; // Show ISO Code + Dialing Code
-        //        ddlCountry.Items.Add(defaultItem);
-
-        //        foreach (DataRow row in dt.Rows)
-        //        {
-        //            string countryDisplay = row["countryname"].ToString() + " " + row["dialingcode"].ToString();
-        //            string isoDisplay = row["isocode"].ToString() + " " + row["dialingcode"].ToString();
-
-        //            ListItem item = new ListItem(countryDisplay, row["dialingcode"].ToString());
-        //            item.Attributes["data-country"] = countryDisplay; // Country Name + Dialing Code
-        //            item.Attributes["data-iso"] = isoDisplay; // ISO Code + Dialing Code
-        //            ddlCountry.Items.Add(item);
-        //        }
-
-        //        // Set Default Selection
-        //        ddlCountry.SelectedIndex = 0;
-        //    }
-        //    else
-        //    {
-        //        Response.Redirect("Login.aspx");
-        //    }
-        //}
+      
 
 
 

@@ -111,7 +111,7 @@
         };
 
     </script>
-
+    
 </head>
 
 <body>
@@ -145,9 +145,10 @@
 
                             <div class="password-div">
                                 <i id="passwordView1" class="fa fa-solid fa-eye-slash hide-password-toggal color-theme-yellow"></i>
-                                <asp:TextBox runat="server" ID="txtPassword" class="login-input" type="password" placeholder=" New Password" />
+                                <asp:TextBox runat="server" ID="txtPassword" class="login-input" type="password" placeholder=" New Password" ClientIDMode="Static" onkeyup="javascript:return validate();" />
+                                
                             </div>
-
+                            <span id="demo"></span> <br />
                             <div class="password-div">
                                 <i id="passwordView2" class="fa fa-solid fa-eye-slash hide-password-toggal color-theme-yellow"></i>
                                 <asp:TextBox runat="server" ID="cpwdTextBox" class="login-input" type="password" placeholder=" Confirm Password" />
@@ -192,7 +193,45 @@
 
     </div>
 </div>
+        <%--strong password--%>
+<script>
+    function validate() {
+        var str = document.getElementById("txtPassword").value;
+        var message = document.getElementById("demo");
+        var errors = [];
 
+        if (str.length < 8) {
+            errors.push("at least 8 characters which Include");
+        }
+        if (!/[0-9]/.test(str)) {
+            errors.push("a number");
+        }
+        if (!/[a-z]/.test(str)) {
+            errors.push("a lowercase letter");
+        }
+        if (!/[A-Z]/.test(str)) {
+            errors.push("an uppercase letter");
+        }
+        if (!/[!@#$%^&()_+.,;:]/.test(str)) {
+            errors.push("a special character (!@#$%^&()_+.,;:)");
+        }
+
+        // Show errors if any
+        if (errors.length > 0) {
+            message.innerHTML = "Password must be " + errors.join(", ") + ".";
+            message.style.color = "Red";
+            return "invalid";
+        }
+
+        // If no errors, show success message
+        message.innerHTML = "Password is strong!";
+        message.style.color = "Green";
+        return "OK";
+    }
+
+
+
+</script>
     <script language="JavaScript">
         $('.password-div .hide-password-toggal').click(function () {
             var passwordTextBox = $(this).siblings('.login-input');

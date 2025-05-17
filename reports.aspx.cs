@@ -1303,8 +1303,8 @@ namespace hfiles
             LinkButton lnk = sender as LinkButton;
             string fileUrl = "https://hfiles.in" + lnk.CommandArgument;
             string whatsappUrl = GenerateWhatsAppUrl(fileUrl);
-            Response.Redirect(whatsappUrl);
-
+           // Response.Redirect(whatsappUrl);
+            ClientScript.RegisterStartupScript(this.GetType(), "openWhatsApp", $"window.open('{whatsappUrl}', '_blank');", true);
         }
 
 
@@ -1340,9 +1340,11 @@ namespace hfiles
             // Store token data using tokenId as key (e.g., in MemoryCache, Database, etc.)
 
 
+            string encodedUrl = Uri.EscapeDataString(signedUrl);
 
-            // Return the WhatsApp-ready link
-            return "https://wa.me/?text=" + HttpUtility.UrlEncode(signedUrl);
+            //return $"https://wa.me/?text={encodedUrl}";
+            return $"https://api.whatsapp.com/send?text={encodedUrl}";
+
         }
 
 

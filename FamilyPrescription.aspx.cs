@@ -7,11 +7,11 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static hfiles.MedicalHistory;
 
 namespace hfiles
 {
@@ -20,9 +20,10 @@ namespace hfiles
         string cs = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
 
         private static readonly string TempDirectory = HttpContext.Current.Server.MapPath("~/TempPDFs/");
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             // Ensure Temp directory exists
             if (!Directory.Exists(TempDirectory))
                 Directory.CreateDirectory(TempDirectory);
@@ -129,8 +130,78 @@ namespace hfiles
             FamilyPrescription1 fp = new FamilyPrescription1();
             fp.SetAccessToArrayByUserId(Access);
         }
+        [System.Web.Services.WebMethod]
+        public static string SaveFamilyPrescription(string jsonData)
+        {
+            try
+            {
+                // Deserialize JSON string into a List<FamilyPrescription>
+                List<FamilyPrescription> prescriptions = JsonConvert.DeserializeObject<List<FamilyPrescription>>(jsonData);
+
+                FamilyPrescription1 med = new FamilyPrescription1();
+                med.AddUpdateFamilyPrescription(prescriptions);
+
+                return JsonConvert.SerializeObject(new { success = true, message = "Saved successfully" });
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(new { success = false, message = ex.Message });
+            }
+        }
+
+        private void AddUpdateFamilyPrescription(List<FamilyPrescription> prescriptions)
+        {
 
 
+            using (var connection = new MySqlConnection(cs))
+            {
+                connection.Open();
+
+                foreach (var prescription in prescriptions)
+                {
+                    // Call stored procedure for each prescription record
+                    var command = new MySqlCommand("InsertOrUpdateUserFamilyPrescription", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    var Id = Convert.ToInt32((prescription.Id != "") ? prescription.Id : "0");
+                    command.Parameters.AddWithValue("_Id", Id);
+                    command.Parameters.AddWithValue("_MemberId", Convert.ToInt32(prescription.MemberId));
+                    command.Parameters.AddWithValue("_Conditions", prescription.Condition);
+                    command.Parameters.AddWithValue("_otherConditions", prescription.otherCondition);
+                    command.Parameters.AddWithValue("_Medication", prescription.Medication);
+                    command.Parameters.AddWithValue("_Power", prescription.Power);
+                    command.Parameters.AddWithValue("_Dosage", prescription.Dosage);
+                    command.Parameters.AddWithValue("_Timings", prescription.Timings);
+                    command.Parameters.AddWithValue("_UserId", DAL.validateInt(Session["Userid"]));
+
+                    command.ExecuteNonQuery();
+                }
+            }
+
+        }
+
+        [System.Web.Services.WebMethod]
+        public static void RemoveFamilyPrescription(string recordId)
+        {
+            FamilyPrescription1 med = new FamilyPrescription1();
+            med.DeleteFamilyPrescription(Convert.ToInt32(recordId));
+            //Testing
+        }
+
+
+        protected string DeleteFamilyPrescription(int recordId)
+        {
+            using (MySqlConnection conn = new MySqlConnection(cs))
+            {
+                conn.Open();
+                string query = "DELETE FROM user_familyprescription WHERE Id = @id";
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", recordId);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                }
+            }
+            return "Success";
+        }
         private void SetAccessToArrayByUserId(string accessTo)
         {
             int userId = DAL.validateInt(Session["Userid"]);
@@ -174,94 +245,34 @@ namespace hfiles
                     }
                 }
             }
-        }
+        }      
 
 
-        //[System.Web.Services.WebMethod]
-        //public static string ShareFileAsLink(string base64PDF,string shareTo)
-        //{
-
-        //    try
-        //    {
-        //        string whatsstring = "https://wa.me/?text=";
-        //        string gmailUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=&su=";
-        //        // Convert Base64 string to byte array
-        //        byte[] pdfBytes = Convert.FromBase64String(base64PDF);
-
-        //        // Generate unique file name
-        //        string fileName = Guid.NewGuid().ToString() + ".pdf";
-        //        string filePath = Path.Combine(TempDirectory, fileName);
-
-        //        // Save the file to server
-        //        File.WriteAllBytes(filePath, pdfBytes);
-
-        //        // Schedule file deletion after 1 hour
-        //        ScheduleFileDeletion(filePath);
-
-        //        // Return the relative file path (for reference or download link)
-        //        string fileurl =  $"/TempPDFs/{fileName}";
-        //        AllReports obj = new AllReports();
-        //        if(shareTo == "WhatsApp")
-        //        {
-        //            whatsstring += HttpUtility.UrlEncode(obj.GenerateWhatsAppUrl(fileurl));
-        //            return whatsstring;
-        //        }
-        //        else
-        //        {
-        //            string subject = "Report Link";
-        //            string body = obj.GenerateWhatsAppUrl(fileurl);
-        //            gmailUrl += $"{Uri.EscapeDataString(subject)}&body={Uri.EscapeDataString(body)}";
-        //            return gmailUrl;
-        //        }                
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        string logPath = HttpContext.Current.Server.MapPath("~/Logs/ErrorLog.txt");
-        //        string errorDetails = $"Message: {ex.Message}\nStackTrace: {ex.StackTrace}\nInnerException: {ex.InnerException?.Message}";
-        //        File.AppendAllText(logPath, errorDetails);
-
-        //        // Throw full error for debugging
-        //        throw new Exception("Error saving PDF to the server.", ex);
-        //    }
-        //}
-
-        public static bool IsBase64String(string base64)
-        {
-            base64 = base64.Trim();
-            return (base64.Length % 4 == 0) && Regex.IsMatch(base64, "^[A-Za-z0-9+/]*={0,2}$");
-        }
         [System.Web.Services.WebMethod]
-        public static string ShareFileAsLink(string base64PDF, string shareTo)
+        public static string ShareFileAsLink(string base64PDF,string shareTo)
         {
+            
             try
             {
-                if (!IsBase64String(base64PDF))
-                {
-                    throw new Exception("Invalid Base64 format.");
-                }
-                
-                // Decode URL if necessary
-                //base64PDF = HttpUtility.UrlDecode(base64PDF);
-
-                // Validate Base64 String
-                if (string.IsNullOrEmpty(base64PDF) || base64PDF.Length % 4 != 0 || !Regex.IsMatch(base64PDF, "^[A-Za-z0-9+/]*={0,2}$"))
-                {
-                    throw new ArgumentException("Invalid Base64 string.");
-                }
-
+                string whatsstring = "https://wa.me/?text=";
+                string gmailUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=&su=";
+                // Convert Base64 string to byte array
                 byte[] pdfBytes = Convert.FromBase64String(base64PDF);
+
+                // Generate unique file name
                 string fileName = Guid.NewGuid().ToString() + ".pdf";
                 string filePath = Path.Combine(TempDirectory, fileName);
 
+                // Save the file to server
                 File.WriteAllBytes(filePath, pdfBytes);
+
+                // Schedule file deletion after 1 hour
                 ScheduleFileDeletion(filePath);
 
-                string fileurl = $"/TempPDFs/{fileName}";
+                // Return the relative file path (for reference or download link)
+                string fileurl =  $"/TempPDFs/{fileName}";
                 AllReports obj = new AllReports();
-                string whatsstring = "https://wa.me/?text=";
-                string gmailUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=&su=";
-
-                if (shareTo == "WhatsApp")
+                if(shareTo == "WhatsApp")
                 {
                     whatsstring += HttpUtility.UrlEncode(obj.GenerateWhatsAppUrlFP(fileurl));
                     return whatsstring;
@@ -272,7 +283,7 @@ namespace hfiles
                     string body = obj.GenerateWhatsAppUrlFP(fileurl);
                     gmailUrl += $"{Uri.EscapeDataString(subject)}&body={Uri.EscapeDataString(body)}";
                     return gmailUrl;
-                }
+                }                
             }
             catch (Exception ex)
             {
@@ -280,10 +291,10 @@ namespace hfiles
                 string errorDetails = $"Message: {ex.Message}\nStackTrace: {ex.StackTrace}\nInnerException: {ex.InnerException?.Message}";
                 File.AppendAllText(logPath, errorDetails);
 
+                // Throw full error for debugging
                 throw new Exception("Error saving PDF to the server.", ex);
             }
         }
-
         public void WhatsAppRedirect()
         {
 

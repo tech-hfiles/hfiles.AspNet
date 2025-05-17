@@ -23,6 +23,10 @@ namespace hfiles
         string connectionString = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+                   ScriptManager.RegisterStartupScript(this, GetType(), "attachDobValidation",
+            "document.getElementById('txtDate').addEventListener('change', function() { validateDOB(this); });", true);
+
             if (!IsPostBack)
             {
                 Session.RemoveAll();
@@ -203,7 +207,7 @@ namespace hfiles
                         //Details to be saved in user details table
                         //Response.Redirect("addbasicdetails.aspx");
                         string hashedPassword = HashPassword(cpwdTextBox.Text);
-
+                        string dob = txtDate.Text;
                         //newly added to change registration processflow
                         //using (MySqlConnection connection = new MySqlConnection(connectionString))
                         {
@@ -214,7 +218,8 @@ namespace hfiles
                                 cmdInsert.Parameters.AddWithValue("_user_reference", 0);
                                 cmdInsert.Parameters.AddWithValue("_user_firstname", firstnameTextBox.Value);
                                 cmdInsert.Parameters.AddWithValue("_user_lastname", lastnameTextBox.Value);
-                                cmdInsert.Parameters.AddWithValue("_user_dob", txtDate.Text);// dobTextBox1.Value));// ;
+                                /*cmdInsert.Parameters.AddWithValue("_user_dob", txtDate.Text);*/// dobTextBox1.Value));// ;
+                                cmdInsert.Parameters.AddWithValue("_user_dob", DateTime.Parse(dob).ToString("yyyy-MM-dd"));
                                 cmdInsert.Parameters.AddWithValue("_countrycode", ddlCountry.SelectedItem.Text);
                                 cmdInsert.Parameters.AddWithValue("_user_contact", phoneTextBox.Value);
                                 cmdInsert.Parameters.AddWithValue("_user_email", emailTextBox.Value);

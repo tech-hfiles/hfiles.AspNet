@@ -699,124 +699,227 @@
 
     </script>
 
+        <style>
+        .header {
+    font-family: "Poppins";
+    background-color: #0331B5;
+    color: white;
+    padding: 5px 20px 5px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    height: 80px;
+}
 
+    .header img {
+        width: 9rem;
+        height: max-content;
+    }
+
+.hamburger {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+    text-align: right;
+}
+
+p { 
+    margin-top: 0;
+    margin-bottom: 0rem !important;
+}
+     .nav {
+        display: none;
+        margin-bottom: -19px !important;
+    }
+
+.active {
+    display: flex !important;
+    position: absolute;
+    overflow: hidden;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 75vh;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 10px 10px;
+    padding: 10px 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: slideFadeIn 0.4s ease-in-out;
+}
+
+@keyframes slideFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100%); /* Start from the left */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0); /* Slide into position */
+    }
+}
+
+.closing {
+    display: flex;
+    position: absolute;
+    overflow: hidden;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 75vh;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 10px 10px;
+    padding: 10px 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: slideOut 0.4s ease-in-out forwards;
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+.active .signup {
+    display: flex;
+    justify-content: center;
+    background-color: #FFD100; /* Yellow color */
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #0331B5; /* Blue text */
+    transition: all 0.3s ease;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #0331B5;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    transition: background 0.3s ease-in-out;
+}
+
+@media(min-width: 425px) {
+    .signup {
+        display: flex !important; /* Force visibility */
+        background-color: #FFD100;
+        width: 7rem;
+        font-family: Montserrat;
+        font-weight: 600;
+        font-size: 17px;
+        text-align: center;
+        color: #0331B5 !important;
+        padding: 10px;
+        border-radius: 10px;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+/* Header */
+@media(min-width:768px) {
+
+
+    .header img {
+        width: 12rem;
+        margin-left: 1rem;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    /* Navigation Menu */
+    .nav {
+        display: flex !important;
+        margin-right: 54px;
+    }
+
+    .nav-links {
+        align-items: center;
+        list-style: none;
+        display: flex;
+        gap: 47px;
+        font-weight: 400;
+        text-align: left;
+        margin-left: 86px;
+    }
+
+        .nav-links li {
+            margin: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            padding: 0px;
+            font-weight: 400;
+            width: 100%;
+            font-family: Poppins;
+            font-size: 18px;
+        }
+
+    /* Signup Button */
+    .signup {
+        background-color: #FFD100;
+        width: 7rem;
+        font-family: Montserrat;
+        font-weight: 600;
+        font-size: 17px;
+        text-align: center;
+        color: #0331B5 !important;
+        padding: 10px;
+        border-radius: 10px;
+    }
+}
+    </style>
 
 </head>
 
 <body>
   
-        <div class="ekit-template-content-markup ekit-template-content-header ekit-template-content-theme-support">
-        <div data-elementor-type="wp-post" data-elementor-id="22" class="elementor elementor-22">
-            <section class="elementor-section elementor-top-section elementor-element elementor-element-398692e4 she-header-yes elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="398692e4" data-element_type="section" data-settings="{&quot;transparent&quot;:&quot;yes&quot;,&quot;background_background&quot;:&quot;classic&quot;,&quot;shrink_header&quot;:&quot;yes&quot;,&quot;custom_height_header&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:50,&quot;sizes&quot;:[]},&quot;transparent_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;scroll_distance&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:60,&quot;sizes&quot;:[]},&quot;scroll_distance_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;scroll_distance_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;custom_height_header_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;custom_height_header_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}">
-                <div class="elementor-container elementor-column-gap-default">
-                    <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-5fe2b7fd" data-id="5fe2b7fd" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-                        <div class="elementor-widget-wrap elementor-element-populated">
-                            <div class="elementor-element elementor-element-321fbce elementor-widget elementor-widget-image" data-id="321fbce" data-element_type="widget" data-widget_type="image.default">
-                                <div class="elementor-widget-container">
-                                    <style>
-                                        /*! elementor - v3.21.0 - 25-04-2025 */
-                                        .text-white {
-                                            color: #FFFFFF !important;
-                                        }
+      
 
-                                        .elementor-widget-image {
-                                            text-align: center
-                                        }
+     <header class="header">
+     <img src="https://hfiles.in/wp-content/uploads/2022/11/hfiles.png" alt="hfiles logo" />
+     <%--<button class="hamburger" id="menu-toggle" type="button">☰</button>--%>
+                     <button class="hamburger" id="menu-toggle" type="button">&#9776;</button>
 
-                                            .elementor-widget-image a {
-                                                display: inline-block
-                                            }
 
-                                                .elementor-widget-image a img[src$=".svg"] {
-                                                    width: 48px
-                                                }
+     <nav id="nav-menu" class="nav" >
+         <ul class="nav-links">
+             <li><a href="index.aspx#about_us_section" class="aboutus">About us</a></li>
+             <li><a href="https://articles.hfiles.in/">Article</a></li>
+             <li>
+                 <a href="/login.aspx" >
+                   <div class="signup">
+                       <p>Sign In</p>
+                   </div>
+                 </a>
+             </li>
+         </ul>
+     </nav>
+ </header>
 
-                                            .elementor-widget-image img {
-                                                vertical-align: middle;
-                                                display: inline-block
-                                            }
-                                    </style>
-<img width="207" height="80" src="https://hfiles.in/wp-content/uploads/2022/11/hfiles.png" class="attachment-full size-full wp-image-361" alt="hfiles logo" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-37d29820" data-id="37d29820" data-element_type="column">
-                        <div class="elementor-widget-wrap elementor-element-populated">
-                            <div class="elementor-element elementor-element-1b85bfcc elementor-widget elementor-widget-ekit-nav-menu" data-id="1b85bfcc" data-element_type="widget" data-widget_type="ekit-nav-menu.default">
-                                <div class="elementor-widget-container">
-                                    <div class="ekit-wid-con ekit_menu_responsive_tablet" data-hamburger-icon="icon icon-menu-5" data-hamburger-icon-type="icon" data-responsive-breakpoint="1024">
-                                        <button class="elementskit-menu-hamburger elementskit-menu-toggler" type="button" aria-label="hamburger-icon">
-                                            <i aria-hidden="true" class="ekit-menu-icon icon icon-menu-5" style="color:white"></i>
-                                        </button>
-                                        <div id="ekit-megamenu-primary-menu" class="elementskit-menu-container elementskit-menu-offcanvas-elements elementskit-navbar-nav-default ekit-nav-menu-one-page-no ekit-nav-dropdown-hover">
-                                            <ul id="menu-primary-menu" class="elementskit-navbar-nav elementskit-menu-po-right submenu-click-on-icon">
-                                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
-                                                    <a href="/index.aspx#why" class="ekit-menu-nav-link">Why hfiles?</a></li>
-                                                <li class="menu-item menu-item-type-custom elementor-hidden-desktop elementor-hidden-tablet menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
-                                                <a href="/login.aspx" class="ekit-menu-nav-link">Login</a></li>
-                                                                                            <li class="menu-item menu-item-type-custom elementor-hidden-desktop elementor-hidden-tablet menu-item-object-custom menu-item-649 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
-                                                <a href="/signup.aspx" class="ekit-menu-nav-link">Sign up</a></li>
-                                                <%-- <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-650 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px">
-                                                   <a href="#ABHA" class="ekit-menu-nav-link">ABHA</a></li>--%>
-                                            </ul>
-                                            <div class="elementskit-nav-identity-panel">
-                                                <div class="elementskit-site-title">
-                                                    <%--<a class="elementskit-nav-logo" href="https://hfiles.in/" target="_self" rel="">
-                                                        <img fetchpriority="high" width="512" height="512" src="https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon.png" class="attachment-full size-full" alt="" decoding="async" srcset="https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon.png 512w, https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon-300x300.png 300w, https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon-150x150.png 150w, https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon-270x270.png 270w, https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon-192x192.png 192w, https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon-180x180.png 180w, https://hfiles.in/wp-content/uploads/2022/12/cropped-favicon-32x32.png 32w" sizes="(max-width: 512px) 100vw, 512px" />
-                                                    </a>--%>
-                                                </div>
-                                                <button class="elementskit-menu-close elementskit-menu-toggler" type="button">X</button>
-                                            </div>
-                                        </div>
-                                        <div class="elementskit-menu-overlay elementskit-menu-offcanvas-elements elementskit-menu-toggler ekit-nav-menu--overlay"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-2347957b elementor-hidden-mobile" data-id="2347957b" data-element_type="column">
-                        <div class="elementor-widget-wrap elementor-element-populated">
-                            <section class="elementor-section elementor-inner-section elementor-element elementor-element-d5de6cc elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="d5de6cc" data-element_type="section">
-                                <div class="elementor-container elementor-column-gap-default">
-                                    <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-5e07fc7" data-id="5e07fc7" data-element_type="column">
-                                        <div class="elementor-widget-wrap elementor-element-populated">
-                                            <div class="elementor-element elementor-element-0fd294a elementor-align-center elementor-tablet-align-right elementor-widget elementor-widget-button" data-id="0fd294a" data-element_type="widget" data-widget_type="button.default">
-                                                <div class="elementor-widget-container">
-                                                    <div class="elementor-button-wrapper">
-                                                        <a class="elementor-button elementor-button-link elementor-size-sm" href="/login.aspx">
-                                                            <span class="elementor-button-content-wrapper">
-                                                                <span class="elementor-button-text" style="color:white;"> User Login</span>
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-51a43c9" data-id="51a43c9" data-element_type="column">
-                                        <div class="elementor-widget-wrap elementor-element-populated">
-                                            <div class="elementor-element elementor-element-43a819f elementor-align-center elementor-tablet-align-right elementor-widget elementor-widget-button" data-id="43a819f" data-element_type="widget" data-widget_type="button.default">
-                                                <div class="elementor-widget-container">
-                                                    <div class="elementor-button-wrapper">
-                                                        <a class="elementor-button elementor-button-link elementor-size-sm" style="background-color:#fdd001" href="/signup.aspx">
-                                                            <span class="elementor-button-content-wrapper">
-                                                                <span class="elementor-button-text" style="color:black;">Sign up</span>
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
 
 
         <%-- Error part--%>
@@ -824,7 +927,7 @@
         <div class="error-container">
      
         
-             <img src="/journal-page-images/article/404img.png" alt="Error Image" class="error-image" style="width: 100%;">
+             <img src="/journal-page-images/article/404img.png" alt="Error Image" class="error-image" style="width: 100%;height:50%">
     </div>
 
 

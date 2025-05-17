@@ -54,18 +54,18 @@
             position: absolute;
             left: 10%;
             top: 10%;
-            /* color: #0512b9; */
+            color: #0512b9; 
             padding: 5px 20px;
             border-radius: 50px;
             border: 0;
             outline: 0;
-            color: #0512b9;
+            color: gray;
             cursor: pointer;
             margin-top: 20px;
             font-family: 'Red Hat Display', Sans-serif !important;
             font-weight: 700;
             font-size: 16px;
-            background-color: #fdd001;
+           /* background-color: #fdd001;*/
         }
 
         @media (max-width:540px) {
@@ -107,13 +107,14 @@
     <form id="form1" runat="server">
         <div class="privacy_main h-100vh h-xl-90vh">
 
+
+                              <a class="back-arrow-btn" href="index4.aspx">Back</a>
+
             <img class="blue_trangle_top_left" src="../Terms & Conditions/blue-trangle1.png" alt="">
             <img class="blue_trangle_top_right" src="../Terms & Conditions/blue-trangle2.png" alt="">
             <img class="plus_top_left" src="../Terms & Conditions/plus-1.png" alt="">
 
-                                                   <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
-<a class="back-arrow-btn-2" href="index4.aspx">Back
-</a>
+                      
 
             <div class="mt-5 mt-lg-0" style="height: 100%;">
                 <div class="d-flex justify-content-center align-items-center h-100">

@@ -47,7 +47,7 @@ namespace hfiles
             {
                 // Bind data to the repeater
                 //gvMembers1.DataSource = GetUserData();
-                gvMembers1.DataBind();
+                //gvMembers1.DataBind();
             }
 
             if (Session["showToastr"] != null && (bool)Session["showToastr"])
@@ -82,8 +82,10 @@ namespace hfiles
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
-                    gvMembers1.DataSource = dt;
-                    gvMembers1.DataBind();
+                    //gvMembers1.DataSource = dt;
+                    //gvMembers1.DataBind();
+                    gvMemberslist.DataSource = dt;
+                    gvMemberslist.DataBind();
                     ViewState["usermemberlist"] = dt;
 
                     Label ReqCount = Master.FindControl("ReqCount") as Label;
@@ -129,7 +131,7 @@ namespace hfiles
 
 
             //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Member Removed Successfully');", true);
-           ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "toastr.success('Member Removed Successfully');location.reload();", true);
+           ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "toastr.success('Member Removed Successfully');", true);
 
 
            
@@ -199,24 +201,25 @@ namespace hfiles
                 using (MySqlCommand selectCommand = new MySqlCommand("usp_getallRequests", connection))
                 {
                     selectCommand.CommandType = CommandType.StoredProcedure;
-                    selectCommand.Parameters.AddWithValue("_user_id", (object)DAL.validateInt(this.Session["Userid"]));
+                    selectCommand.Parameters.AddWithValue("_user_id", DAL.validateInt(this.Session["Userid"]));
                     MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(selectCommand);
                     DataTable dataTable = new DataTable();
                     mySqlDataAdapter.Fill(dataTable);
                     Requestcount = dataTable.Rows.Count;
                     this.rptRequests.DataSource = dataTable;
                     this.rptRequests.DataBind();
-                    Label masterPageLabel = Master.FindControl("ReqCount") as Label;
 
+                    Label masterPageLabel = Master.FindControl("ReqCount") as Label;
                     if (masterPageLabel != null)
                     {
                         masterPageLabel.Text = Requestcount.ToString();
-
-                        string labelText = masterPageLabel.Text;
                     }
+
+                    // **Update the Request Count Badge using JavaScript**
+                    ClientScript.RegisterStartupScript(this.GetType(), "updateRequestCount",
+                        $"document.getElementById('requestCountBadge').innerText = '{Requestcount}';", true);
                 }
             }
-            // return Requestcount;
         }
 
         [System.Web.Services.WebMethod]
@@ -337,101 +340,105 @@ namespace hfiles
             user_members();
             requests();
         }
-        protected void SearchInput_TextChanged(object sender, EventArgs e)
-        {
+        //protected void SearchInput_TextChanged(object sender, EventArgs e)
+        //{
 
-            try
-            {
-                DataTable dt;
-                using (MySqlConnection con = new MySqlConnection(cs))
-                {
-                    con.Open();
-                    using (MySqlCommand cmd = new MySqlCommand("usp_getallRequests", con))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("_user_id", (object)DAL.validateInt(this.Session["Userid"]));
-                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        dt = new DataTable();
-                        da.Fill(dt);
-                        if (dt != null && dt.Rows.Count > 0)
-                        {
-                            //tcount.InnerHtml = dt.Rows.Count.ToString();
-                            string searchTerm = SearchInput.Text;
+        //    try
+        //    {
+        //        DataTable dt;
+        //        using (MySqlConnection con = new MySqlConnection(cs))
+        //        {
+        //            con.Open();
+        //            using (MySqlCommand cmd = new MySqlCommand("usp_getallRequests", con))
+        //            {
+        //                cmd.CommandType = CommandType.StoredProcedure;
+        //                cmd.Parameters.AddWithValue("_user_id", (object)DAL.validateInt(this.Session["Userid"]));
+        //                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+        //                dt = new DataTable();
+        //                da.Fill(dt);
+        //                if (dt != null && dt.Rows.Count > 0)
+        //                {
+        //                    //tcount.InnerHtml = dt.Rows.Count.ToString();
+        //                    string searchTerm = SearchInput.Text;
 
-                            // Filter the DataTable based on the search term.
-                            DataTable filteredData = new DataTable();
-                            filteredData = dt.Clone(); // Clone the structure of the original DataTable.
+        //                    // Filter the DataTable based on the search term.
+        //                    DataTable filteredData = new DataTable();
+        //                    filteredData = dt.Clone(); // Clone the structure of the original DataTable.
 
-                            //foreach (DataRow row in dt.Rows) 
-                            foreach (DataRow row in dt.Rows)
-                            {
-                                string firstName = row["user_firstname"].ToString().ToLower();
-                                string lastName = row["user_lastname"].ToString().ToLower();
-                                if (firstName.Contains(searchTerm) || lastName.Contains(searchTerm))
-                                {
-                                    filteredData.ImportRow(row);
-                                }
-                            }
+        //                    //foreach (DataRow row in dt.Rows) 
+        //                    foreach (DataRow row in dt.Rows)
+        //                    {
+        //                        string firstName = row["user_firstname"].ToString().ToLower();
+        //                        string lastName = row["user_lastname"].ToString().ToLower();
+        //                        if (firstName.Contains(searchTerm) || lastName.Contains(searchTerm))
+        //                        {
+        //                            filteredData.ImportRow(row);
+        //                        }
+        //                    }
 
-                            // Bind the filtered DataTable to the Repeater.
-                            rptRequests.DataSource = filteredData;
-                            rptRequests.DataBind();
-                        }
-                        else
-                        {
-                            rptRequests.DataSource = dt;
-                            rptRequests.DataBind();
-                        }
-                    }
-                }
-            }
-            catch (Exception Ex)
-            {
-            }
+        //                    // Bind the filtered DataTable to the Repeater.
+        //                    rptRequests.DataSource = filteredData;
+        //                    rptRequests.DataBind();
+        //                    gvRequestlist.DataSource = filteredData;
+        //                    gvRequestlist.DataBind();
+        //                }
+        //                else
+        //                {
+        //                    rptRequests.DataSource = dt;
+        //                    rptRequests.DataBind();
+        //                    gvRequestlist.DataSource = dt;
+        //                    gvRequestlist.DataBind();
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception Ex)
+        //    {
+        //    }
 
-            try
-            {
-                DataTable dt = new DataTable();
-                if (ViewState["usermemberlist"] != null)
-                {
-                    dt = (DataTable)ViewState["usermemberlist"];
-                }
-                if (dt != null && dt.Rows.Count > 0)
-                {
-                    //tcount.InnerHtml = dt.Rows.Count.ToString();
-                    string searchTerm = SearchInput.Text;
+        //    try
+        //    {
+        //        DataTable dt = new DataTable();
+        //        if (ViewState["usermemberlist"] != null)
+        //        {
+        //            dt = (DataTable)ViewState["usermemberlist"];
+        //        }
+        //        if (dt != null && dt.Rows.Count > 0)
+        //        {
+        //            //tcount.InnerHtml = dt.Rows.Count.ToString();
+        //            string searchTerm = SearchInput.Text;
 
-                    // Filter the DataTable based on the search term.
-                    DataTable filteredData = new DataTable();
-                    filteredData = dt.Clone(); // Clone the structure of the original DataTable.
+        //            // Filter the DataTable based on the search term.
+        //            DataTable filteredData = new DataTable();
+        //            filteredData = dt.Clone(); // Clone the structure of the original DataTable.
 
-                    //foreach (DataRow row in dt.Rows) 
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        string firstName = row["user_firstname"].ToString().ToLower();
-                        string lastName = row["user_lastname"].ToString().ToLower();
-                        if (firstName.Contains(searchTerm) || lastName.Contains(searchTerm))
-                        {
-                            filteredData.ImportRow(row);
-                        }
-                    }
+        //            //foreach (DataRow row in dt.Rows) 
+        //            foreach (DataRow row in dt.Rows)
+        //            {
+        //                string firstName = row["user_firstname"].ToString().ToLower();
+        //                string lastName = row["user_lastname"].ToString().ToLower();
+        //                if (firstName.Contains(searchTerm) || lastName.Contains(searchTerm))
+        //                {
+        //                    filteredData.ImportRow(row);
+        //                }
+        //            }
 
-                    // Bind the filtered DataTable to the Repeater.
-                    gvMembers1.DataSource = filteredData;
-                    gvMembers1.DataBind();
-                }
-                else
-                {
-                    gvMembers1.DataSource = dt;
-                    gvMembers1.DataBind();
-                }
-            }
-            catch (Exception)
-            {
+        //            // Bind the filtered DataTable to the Repeater.
+        //            gvMembers1.DataSource = filteredData;
+        //            gvMembers1.DataBind();
+        //        }
+        //        else
+        //        {
+        //            gvMembers1.DataSource = dt;
+        //            gvMembers1.DataBind();
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
 
-                throw;
-            }
-        }
+        //        throw;
+        //    }
+        //}
 
         protected void btnAddMember_Click(object sender, EventArgs e)
         {
@@ -462,6 +469,8 @@ namespace hfiles
        
         protected void editBtn_Click(object sender, EventArgs e)
         {
+           
+
             LinkButton editButton = (LinkButton)sender;
             string userId = editButton.CommandArgument;
             ViewState["UserId"] = userId;

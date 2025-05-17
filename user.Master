@@ -15,7 +15,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
-       <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
@@ -26,14 +26,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
     <script src="https://ajax.aspnetcdn.com/ajax/4.5.1/1/MicrosoftAjax.js"></script>
-<script src="https://ajax.aspnetcdn.com/ajax/4.5.1/1/MicrosoftAjaxWebForms.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/4.5.1/1/MicrosoftAjaxWebForms.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
         crossorigin="anonymous"></script>
 
     <%--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>--%>
-   
+
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -72,7 +72,7 @@
         .body {
             margin: 0;
             height: auto;
-            overflow-x:hidden;
+            overflow-x: hidden;
             /*            overflow:hidden;
 */ width: 100%;
         }
@@ -149,94 +149,94 @@
         /* menu (the right one) */
 
         /* General Profile Menu */
-.profile-menu {
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 20px;
-    width: 200px;
-    min-height: 100px;
-    background: #fff;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    opacity: 0;
-    transform: translateY(-10px);
-    visibility: hidden;
-    transition: 300ms;
-}
+        .profile-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 20px;
+            width: 200px;
+            min-height: 100px;
+            background: #fff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(-10px);
+            visibility: hidden;
+            transition: 300ms;
+        }
 
-.profile-menu.active {
-    opacity: 1;
-    transform: translateY(0);
-    visibility: visible;
-    z-index: 999;
-}
+            .profile-menu.active {
+                opacity: 1;
+                transform: translateY(0);
+                visibility: visible;
+                z-index: 999;
+            }
 
-/* Profile Menu Items */
-.profile-menu ul {
-    padding: 0;
-    margin: 0;
-}
+            /* Profile Menu Items */
+            .profile-menu ul {
+                padding: 0;
+                margin: 0;
+            }
 
-.profile-menu ul li {
-    list-style: none;
-    position: relative; /* Required for dropdowns */
-}
+                .profile-menu ul li {
+                    list-style: none;
+                    position: relative; /* Required for dropdowns */
+                }
 
-/* Hover effect for main list items */
-.profile-menu ul li:hover {
-    background: #eee;
-}
+                    /* Hover effect for main list items */
+                    .profile-menu ul li:hover {
+                        background: #eee;
+                    }
 
-/* Link styles */
-.profile-menu ul li a {
-    text-decoration: none;
-    color: #000;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 1em;
-    border-bottom: 1px solid #ccc;
-}
+                    /* Link styles */
+                    .profile-menu ul li a {
+                        text-decoration: none;
+                        color: #000;
+                        padding: 15px 20px;
+                        display: flex;
+                        align-items: center;
+                        gap: 6px;
+                        font-size: 1em;
+                        border-bottom: 1px solid #ccc;
+                    }
 
-/* Icons */
-.profile-menu ul li a i {
-    font-size: 1.2em;
-}
+                        /* Icons */
+                        .profile-menu ul li a i {
+                            font-size: 1.2em;
+                        }
 
-/* Nested Dropdown (My Account Submenu) */
-.profile-menu ul li.has-dropdown ul.dropdown {
-    display: none; /* Hide by default */
-    /*position: absolute;
+                    /* Nested Dropdown (My Account Submenu) */
+                    .profile-menu ul li.has-dropdown ul.dropdown {
+                        display: none; /* Hide by default */
+                        /*position: absolute;
     left: 100%;*/ /* Display submenu to the right */
-    top: 0;
-    min-width: 180px;
-    background: #fff;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    padding-left:25px;
-}
+                        top: 0;
+                        min-width: 180px;
+                        background: #fff;
+                        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                        z-index: 1000;
+                        padding-left: 25px;
+                    }
 
-.profile-menu ul li.has-dropdown:hover ul.dropdown {
-    display: block; /* Show submenu on hover */
-}
+                    .profile-menu ul li.has-dropdown:hover ul.dropdown {
+                        display: block; /* Show submenu on hover */
+                    }
 
-/* Dropdown items */
-.profile-menu ul li.has-dropdown ul.dropdown li {
-    border: none;
-}
+                    /* Dropdown items */
+                    .profile-menu ul li.has-dropdown ul.dropdown li {
+                        border: none;
+                    }
 
-.profile-menu ul li.has-dropdown ul.dropdown li a {
-    padding: 10px 15px;
-    background: #fff;
-    font-size: 0.9em;
-    color: #333;
-    border-bottom: 1px solid #e0e0e0;
-}
+                        .profile-menu ul li.has-dropdown ul.dropdown li a {
+                            padding: 10px 15px;
+                            background: #fff;
+                            font-size: 0.9em;
+                            color: #333;
+                            border-bottom: 1px solid #e0e0e0;
+                        }
 
-/* Hover effect for dropdown links */
-.profile-menu ul li.has-dropdown ul.dropdown li:hover {
-    background: #f7f7f7;
-}
+                        /* Hover effect for dropdown links */
+                        .profile-menu ul li.has-dropdown ul.dropdown li:hover {
+                            background: #f7f7f7;
+                        }
 
 
         .members-image {
@@ -296,7 +296,7 @@
                 padding: 5px 0;
             }
 
-            #modalOverlay {
+        #modalOverlay {
             display: none;
             position: fixed;
             top: 0;
@@ -305,7 +305,7 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.7);
             z-index: 9999;
-            padding-top:200px;
+            padding-top: 200px;
         }
 
         /* Modal Box */
@@ -339,35 +339,41 @@
         .modal-body {
             margin-top: 20px;
         }
+
         .responsive-image {
-    max-width: 100%; /* Ensures image doesn't exceed modal width */
-    height: auto;    /* Maintains image's aspect ratio */
-    object-fit: contain; /* Ensures the image fits properly without cropping */
-}
+            max-width: 100%; /* Ensures image doesn't exceed modal width */
+            height: auto; /* Maintains image's aspect ratio */
+            object-fit: contain; /* Ensures the image fits properly without cropping */
+        }
+
         .accordion-body {
-    transition: height 0.4s ease, opacity 0.4s ease; /* Add smooth collapse transition */
-}
+            transition: height 0.4s ease, opacity 0.4s ease; /* Add smooth collapse transition */
+        }
 
         .dot-indicator {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background-color: red;
-    border-radius: 50%;
-    margin-left: 5px;
-   
-}
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: red;
+            border-radius: 50%;
+            margin-left: 5px;
+        }
 
-
+        .profile-hfid{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 15px;
+        }
     </style>
 
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
-<body style="overflow-x:hidden">
+<body style="overflow-x: hidden">
     <form id="form1" runat="server">
-        
-                                                
-        <asp:ScriptManager ID="scm1" runat="server"></asp:ScriptManager>
+
+
+        <asp:ScriptManager ID="scm1" runat="server" EnablePageMethods="true"></asp:ScriptManager>
         <div class="top-home-icons d-flex justify-content-between align-items-center w-100">
             <div class="common-heading mx-3">
                 <a href="Dashboard.aspx">
@@ -395,51 +401,53 @@
                         </div>
                         <div class="profile-menu">
                             <ul>
-                                <li><a><i class="fa fa-regular fa-id-badge color-thm-blue"></i>
-                                    <asp:Label ID="memberId" Style="font-weight: 600; font-family: 'Red Hat Display', sans-serif;" runat="server" Text="" CssClass="color-thm-blue" data-toggle="modal" data-target="#exampleModal"></asp:Label></a></li>
-                                <li><a href="addbasicdetails.aspx" class="color-thm-blue"><i class="fa fa-solid fa-circle-info"></i>My Profile</a></li>
+                               <%-- <span class="color-thm-blue">My HF ID</span>--%>
+                                <li class="profile-hfid"><a><i class="fa fa-regular fa-id-badge color-thm-blue"></i>
+                                    <asp:Label ID="memberId" Style="font-weight: 600; font-family: 'Red Hat Display', sans-serif; pointer-events: none;" runat="server" Text="" CssClass="color-thm-blue" data-toggle="modal" data-target="#exampleModal"></asp:Label></a></li>
+
                                 <li class="has-dropdown">
-            <a href="#" class="color-thm-blue">
-                <i class="fa fa-user-circle"></i> My Account
-            </a>
-            <ul class="dropdown">
-                <li>
-    <a href="Membershipcard.aspx" class="color-thm-blue">
-        <i class="fa fa-id-card"></i> Membership Card
-    </a>
-</li>
-                <li>
-    <a href="SubscriptionPlan.aspx" class="color-thm-blue">
-        <i class="fa fa-credit-card"></i> Subscription Plans
-    </a>
-</li>
-                <li>
-    <a href="WellnessKit.aspx" class="color-thm-blue">
-        <i class="fa fa-heart-o"></i> Wellness Kit
-    </a>
-</li>
-                <li>
-                    <a href="FeedBack.aspx" class="color-thm-blue">
-                        <i class="fa fa-comments-o"></i> Feedback Form
-                    </a>
-                </li>
-            </ul>
-        </li>
-                                
-                                
-                                
+                                    <a href="#" class="color-thm-blue">
+                                        <i class="fa fa-user-circle"></i>My Account
+                                    </a>
+                                    <ul class="dropdown">
+                                        <li><a href="addbasicdetails.aspx" class="color-thm-blue"><i class="fa fa-solid fa-circle-info"></i>My Profile</a></li>
+                                        <li>
+                                            <a href="Membershipcard.aspx" class="color-thm-blue">
+                                                <i class="fa fa-id-card"></i>Membership Card
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="SubscriptionPlan.aspx" class="color-thm-blue">
+                                                <i class="fa fa-credit-card"></i>Subscription Plans
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="WellnessKit.aspx" class="color-thm-blue">
+                                                <i class="fa fa-heart-o"></i>Wellness Kit
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="FeedBack.aspx" class="color-thm-blue">
+                                                <i class="fa fa-comments-o"></i>Feedback Form
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+
+
                                 <asp:UpdatePanel ID="RequestCount" runat="server">
                                     <ContentTemplate>
                                         <li><a href="managemembers.aspx" class="color-thm-blue"><i class="fa fa-solid fa-user"></i>My Members
                                             <asp:Label ID="ReqCount" runat="server" CssClass="badge bg-warning rounded-circle"></asp:Label>
-                                           <asp:Label ID="requestDot" runat="server" class=""></asp:Label>
-                                            </a></li>
-                                                      
-                                        
-                                        
+                                            <asp:Label ID="requestDot" runat="server" class=""></asp:Label>
+                                        </a></li>
+
+
+
                                     </ContentTemplate>
                                 </asp:UpdatePanel>
-                              <%--  <li><a href="changepassword.aspx" class="color-thm-blue"><i class="fa fa-solid fa-circle-info"></i>Change Password</a></li>--%>
+                                <%--  <li><a href="changepassword.aspx" class="color-thm-blue"><i class="fa fa-solid fa-circle-info"></i>Change Password</a></li>--%>
                                 <%--<li><a runat="server"><i class="ph-bold ph-sign-out"></i>&nbsp;Sign Out</a></li>--%>
                                 <li>
 
@@ -457,43 +465,43 @@
                 <%--<asp:ImageButton ID="logoutImageButton" Text="text" CssClass="log-out-btn" ImageUrl="../Avatar/shutoff-white.png" OnClick="logout_Click" runat="server"></asp:ImageButton>--%>
             </div>
         </div>
-        
+
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
-                
 
- <div id="modalOverlay" runat="server">
-    <div style="text-align: center;margin:auto;max-width:70vh;" class="card-box">
-        <asp:Image ID="membershipImage" runat="server"  AlternateText="MembershipCard" class="responsive-image" />
-    </div>
-    <div style="display:flex;justify-content:space-evenly;padding:20px">
-        <asp:LinkButton ID="UpgradeMember" runat="server" OnClick="upgradeMemberButton_Click" Text="" CssClass="btn btn-primary">Upgrade Membership</asp:LinkButton>
-    </div>
-</div>
+
+        <div id="modalOverlay" runat="server">
+            <div style="text-align: center; margin: auto; max-width: 70vh;" class="card-box">
+                <asp:Image ID="membershipImage" runat="server" AlternateText="MembershipCard" class="responsive-image" />
+            </div>
+            <div style="display: flex; justify-content: space-evenly; padding: 20px">
+                <asp:LinkButton ID="UpgradeMember" runat="server" OnClick="upgradeMemberButton_Click" Text="" CssClass="btn btn-primary">Upgrade Membership</asp:LinkButton>
+            </div>
+        </div>
     </form>
-    
-    <div class="row footer justify-content-around align-items-center m-0" style="z-index:1000000;position:fixed !important;bottom:0;width:100%">
-    <div class="col-4 t-c d-xl-flex justify-content-center text-center">
-        <p class="m-0"><a href="TermsAndConditions.aspx">Terms & Conditions</a></p>
-        <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
-        <p class="m-0"><a href="privacypolicy.aspx">Privacy & Policy</a></p>
-    </div>
-    <div class="col-4 copy-right text-center p-0 d-xl-flex text-center justify-content-center">
-        <p class="m-0"><a href="/FAQ.aspx" class="text-white">FAQ's</a></p>
-        <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
-        <p class="m-0"><a class="text-white" href="copyright.aspx">Copyright@2025</a></p>
-    </div>
 
-    <div class="col-4 p-p d-xl-flex text-center justify-content-center">
-        <p class="m-0">
-            <a
-                href="https://wa.me/919978043453"><i class="fa-brands fa-whatsapp"></i>&nbsp; 9978043453</a>
-        </p>
-        <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
-        <p class="m-0"><a class="" href="mailto:contact@hfiles.in"><i class="fa fa-solid fa-envelope"></i>&nbsp; contact@hfiles.in</a></p>
+    <div class="row footer justify-content-around align-items-center m-0" style="z-index: 1000000; position: fixed !important; bottom: 0; width: 100%">
+        <div class="col-4 t-c d-xl-flex justify-content-center text-center">
+            <p class="m-0"><a href="TermsAndConditions.aspx">Terms & Conditions</a></p>
+            <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
+            <p class="m-0"><a href="privacypolicy.aspx">Privacy & Policy</a></p>
+        </div>
+        <div class="col-4 copy-right text-center p-0 d-xl-flex text-center justify-content-center">
+            <p class="m-0"><a href="/FAQs.aspx" class="text-white">FAQ's</a></p>
+            <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
+            <p class="m-0"><a class="text-white" href="copyright.aspx">Copyright@2025</a></p>
+        </div>
 
+        <div class="col-4 p-p d-xl-flex text-center justify-content-center">
+            <p class="m-0">
+                <a
+                    href="https://wa.me/919978043453"><i class="fa-brands fa-whatsapp"></i>&nbsp; 9978043453</a>
+            </p>
+            <div class="d-none d-xl-block" style="border-left: 2px solid #fff; height: 20px; margin: 0 10px;"></div>
+            <p class="m-0"><a class="" href="mailto:contact@hfiles.in"><i class="fa fa-solid fa-envelope"></i>&nbsp; contact@hfiles.in</a></p>
+
+        </div>
     </div>
-</div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
@@ -551,31 +559,31 @@
                         const bsCollapse = bootstrap.Collapse.getInstance(accordionContent) || new bootstrap.Collapse(accordionContent, { toggle: false });
                         bsCollapse.hide();
                         lastSelectedAccordian = ""; // Reset tracking
-                    },400);
-                    
+                    }, 400);
+
                 }
                 else {
                     lastSelectedAccordian = targetId; // Track current accordion
                 }
 
-                
-                
+
+
 
                 console.log(lastSelectedAccordian);
             }
 
         });
-        
-            
+
+
 
 
         //$("#memberId").on("click", function () {
         //    menu.classList.toggle('active');
         //    $('#exampleModal').modal('show');
         //});
-        
+
         $('#memberId').on('click', function () {
-            
+
             $('#modalOverlay').fadeIn();
         });
 

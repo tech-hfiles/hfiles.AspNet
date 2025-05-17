@@ -2250,7 +2250,7 @@ span.img-notselected {
     .download-doc-inner .report-page-title {
         font-size: 24px;
         font-family: 'Red Hat Display', Sans-serif !important;
-        font-weight: 600;
+       
     }
 }
 
@@ -2781,8 +2781,9 @@ span.img-notselected {
     }
 
     .download-doc-inner .report-page-title {
-        font-size: 20px;
-        font-weight:500;
+       /* font-size: 20px;*/
+        font-weight: 500;
+       /* font-weight: bold;*/
     }
 }
 

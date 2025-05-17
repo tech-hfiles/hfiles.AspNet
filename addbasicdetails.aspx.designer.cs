@@ -33,24 +33,6 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.Button showInputButton;
 
         /// <summary>
-        /// removeProfileButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button removeProfileButton;
-
-        /// <summary>
-        /// btnpasswdchange control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnpasswdchange;
-
-        /// <summary>
         /// Profileupload control.
         /// </summary>
         /// <remarks>
@@ -76,15 +58,6 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText lastNameTextBox;
-
-        /// <summary>
-        /// selectgender control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect selectgender;
 
         /// <summary>
         /// txtDate control.
@@ -114,6 +87,42 @@ namespace hfiles
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dobTextBox1;
 
         /// <summary>
+        /// contactTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl contactTextBox;
+
+        /// <summary>
+        /// flagImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage flagImage;
+
+        /// <summary>
+        /// emailTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl emailTextBox;
+
+        /// <summary>
+        /// selectgender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect selectgender;
+
+        /// <summary>
         /// bloodgroup control.
         /// </summary>
         /// <remarks>
@@ -123,13 +132,13 @@ namespace hfiles
         protected global::System.Web.UI.HtmlControls.HtmlSelect bloodgroup;
 
         /// <summary>
-        /// ddlCountry control.
+        /// txtpincode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCountry;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtpincode;
 
         /// <summary>
         /// stateDropDownList control.
@@ -177,6 +186,15 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.DropDownList cityDropDownList;
 
         /// <summary>
+        /// rfvcitycityTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvcitycityTextBox;
+
+        /// <summary>
         /// cityTextBox control.
         /// </summary>
         /// <remarks>
@@ -204,33 +222,6 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvcityTextBox;
 
         /// <summary>
-        /// dialcode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label dialcode;
-
-        /// <summary>
-        /// contactTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl contactTextBox;
-
-        /// <summary>
-        /// emailTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl emailTextBox;
-
-        /// <summary>
         /// icecontactTextBox control.
         /// </summary>
         /// <remarks>
@@ -238,24 +229,6 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl icecontactTextBox;
-
-        /// <summary>
-        /// relativecontactTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText relativecontactTextBox;
-
-        /// <summary>
-        /// famdocTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText famdocTextBox;
 
         /// <summary>
         /// submitButton control.

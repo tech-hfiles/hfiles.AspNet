@@ -127,6 +127,13 @@
                 left: 20px !important;
             }
         }
+        @media (max-width: 540px) {
+    .search-file {
+       
+       margin-top: -62px !important;
+
+    }
+}
 
         @media (min-width: 1020px) {
             .footer {
@@ -260,6 +267,33 @@
                 width: 50px;
                 height: 50px;
             }
+
+           @media (max-width: 500px) {
+                #lblusermIreport, /* Targets the user name */
+                #lblReportType { /* Targets the report type */
+                    /*font-weight: bold;*/ /* Make text bold */
+                    /*font-size: 10px;*/ /* Adjust font size for mobile */
+                    /*text-transform: uppercase;*/
+                }
+            }
+
+            @media (max-width: 768px) {
+                .report-title, .report-subtitle {
+                    font-size: 16px; /* Adjusted for mobile */
+                }
+            }
+            .py-3 {
+                padding-top: 1rem !important;
+                padding-bottom: 3rem !important;
+            }
+            @media (max-width: 480px) {
+                .back-arrow-btn-2 {
+                    padding: 1px 10px;
+                    font-size: 15px;
+                    margin-left: -9px;
+                }
+            }
+
         </style>
  
     <!-- jQuery (Make sure it's only included once) -->
@@ -304,6 +338,15 @@
                 });
             });
         });
+        document.addEventListener("DOMContentLoaded", function () {
+            let noDataElement = document.querySelector(".card-img-top"); // Change this to the actual class or ID of the "No File Found" image or message
+            let cardBody = document.querySelector(".card-body");
+            let textnofound = document.querySelector(".text-center");
+            if (cardBody && window.getComputedStyle(cardBody).display !== "none") {
+                noDataElement.style.display = "none";
+                textnofound.style.display = "none";
+            }
+        });
 
     </script>
 
@@ -321,15 +364,15 @@
                             <a class="back-arrow-btn-2" href="MyHFiles.aspx">Back
                             </a>
                         </div>
-                        <div class="col-md-4 d-flex justify-content-center py-3 font-size-1em">
-                            <asp:Label Text="" ID="lblusermIreport" runat="server" Style="color: black; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; font-size: 25px;" />&nbsp
+                        <div class="col-md-4 d-flex justify-content-center py-3 font-size-1em" style="color:gray !important;" >
+                            <asp:Label Text="" ID="lblusermIreport" runat="server" Style="color: gray; margin-bottom: 10px; text-transform: uppercase; font-size: 25px;" />&nbsp
 
 
-                            <asp:Label ID="lblReportType" runat="server" CssClass="report-page-title" Text="INVOICES/MEDICLAIM INSURANCE" />
+                            <asp:Label ID="lblReportType" runat="server" CssClass="report-page-title"  Text="INVOICES/MEDICLAIM INSURANCE" />
                         </div>
                         <div class="col-md-4 d-flex justify-content-md-end justify-content-center align-items-center py-2 search-file">
                             <i class="fas fa-magnifying-glass"></i>
-                            <asp:TextBox ID="SearchInput" runat="server"  CssClass="form-control" placeholder="Search by Report Name"  Style="width: 253px;"/>
+                            <asp:TextBox ID="SearchInput" runat="server"  CssClass="form-control" placeholder="Search"  Style="width: 253px;"/>
                         </div>
                     </div>
                 </div>

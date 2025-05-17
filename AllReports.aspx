@@ -330,6 +330,11 @@
         margin-right: 8px;
     }
 
+
+        .back-arrow-btn-2 {
+            position: relative !important;
+        }
+
     </style>
 
 

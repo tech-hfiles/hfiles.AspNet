@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -19,6 +20,7 @@ namespace hfiles
         {
             if (!IsPostBack)
             {
+                LoadUserName();
                 //Session["Userid"] = 1;
                 if (Session["Userid"] != null)
                 {
@@ -29,6 +31,35 @@ namespace hfiles
                     Response.Redirect("~/login.aspx");
                 }
                 //bindData(DAL.validateInt(4));
+            }
+
+        }
+        private void LoadUserName()
+        {
+            int UserId;
+            UserId = DAL.validateInt(Session["UserID"].ToString());
+
+
+            using (MySqlConnection conn = new MySqlConnection(cs))
+            {
+                string query = "SELECT user_FirstName FROM user_details WHERE user_id = @UserId";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@UserId", UserId);
+
+                conn.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    string firstName = reader["user_FirstName"].ToString();
+                    string formattedName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(firstName.ToLower());
+                    string greetingHtml = $"<h2 style=\"font-size: 27px; font-weight: 600; color: #333333; font-family:'Poppins';\">Hi {formattedName}!</h2>";
+
+
+                    usernamem.Text = greetingHtml;
+                    usernamemobile.Text = greetingHtml;
+
+                }
+                reader.Close();
             }
         }
 
@@ -52,7 +83,7 @@ namespace hfiles
                     da.Fill(dt);
                     if (dt != null && dt.Rows.Count > 0)
                     {
-                        Session["userpic"] =dt.Rows[0]["user_image"].ToString();
+                        Session["userpic"] = dt.Rows[0]["user_image"].ToString();
                         Session["username"] = dt.Rows[0]["user_firstname"].ToString();
                         Session["user_gender"] = dt.Rows[0]["user_gender"].ToString();
                         Session["user_membernumber"] = dt.Rows[0]["user_membernumber"].ToString();

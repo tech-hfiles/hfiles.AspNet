@@ -38,6 +38,8 @@
         cursor: pointer;
       }
   </style>
+    
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
  <%-- <asp:ScriptManager runat="server" EnableCdn="true" />--%>
@@ -65,8 +67,9 @@
                     </div>
                     <div class="form-element my-3 password-div">
                       <label for="">New Password</label>
-                      <asp:TextBox ID="txtNewPassword" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
+                      <asp:TextBox ID="txtNewPassword" TextMode="Password" CssClass="form-control" runat="server" ClientIDMode="Static" onkeyup="javascript:return validate();"></asp:TextBox>
                       <i id="passwordView2" class="fa-solid fa-eye-slash hide-password-toggal"></i>
+                        <span id="demo"></span> <br />
                       <%--<img id="showNewPass" class="showpass" src="./img/eye.png" width="25px" onclick="HideShowPassword('<%= txtNewPassword.ClientID %>')" />--%>
                       <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="txtNewPassword" runat="server" Display="Dynamic" ForeColor="Red" Font-Size="13px" ValidationGroup="a" />
                     </div>
@@ -105,6 +108,46 @@
     <div id="img"><img src="assets/h-file-logo-white.png" /></div>
     <div id="desc"></div>
   </div>
+     <%--strong password--%>
+ <script>
+     function validate() {
+         var str = document.getElementById("txtNewPassword").value;
+         var message = document.getElementById("demo");
+         var errors = [];
+
+         if (str.length < 8) {
+             errors.push("at least 8 characters which Include");
+         }
+         if (!/[0-9]/.test(str)) {
+             errors.push("a number");
+         }
+         if (!/[a-z]/.test(str)) {
+             errors.push("a lowercase letter");
+         }
+         if (!/[A-Z]/.test(str)) {
+             errors.push("an uppercase letter");
+         }
+         if (!/[!@#$%^&()_+.,;:]/.test(str)) {
+             errors.push("a special character (!@#$%^&()_+.,;:)");
+         }
+
+         // Show errors if any
+         if (errors.length > 0) {
+             message.innerHTML = "Password must be " + errors.join(", ") + ".";
+             message.style.color = "Red";
+             return "invalid";
+         }
+
+         // If no errors, show success message
+         message.innerHTML = "Password is strong!";
+         message.style.color = "Green";
+         return "OK";
+     }
+
+
+
+ </script>
+
   <script>
     function launch_toast(message,icon) {
       var x = document.getElementById("toast")

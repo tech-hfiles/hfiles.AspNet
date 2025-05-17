@@ -6,47 +6,473 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <!-- jsPDF Library -->
-    <meta name="viewport" content="width=device-height, initial-scale=1, maximum-scale=1, user-scalable=no, orientation=landscape"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-<!-- AutoTable Plugin -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
-
     <br />
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
+
             <style>
-                #prescription thead,
-                #prescription tbody,
-                #prescription tfoot,
-                #prescription tr,
-                #prescription td,
-                #prescription th {
-                    border-width: thin;
-                }
+                html, body {
+   overflow:scroll;
+   position:relative;
+    min-height: 100%;
+    top: 0px;
+}.container {
+    display: flex;
+    flex-direction: column;
+}* {
+    box-sizing: border-box;
+    max-width: 100%;
+}
 
-                .select2-container {
-                    z-index: 105000;
-                }
+ img, video, iframe, table, pre, code {
+    max-width: 100%;
+    height: auto;
+}
+       h1 {
+    font-size: 28px;
+    color: #007bff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#prescription {
+    display: table !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 1000 !important;
+    overflow-y:scroll;/* Make sure it is above background layers */
+}
+/* Buttons */
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-                .responsive-button {
-                    font-size: larger; 
-                    color: black;
-                    background-color: white;
-                    border: none;
-                    padding: 10px 20px;
-                    cursor: pointer;
-                }
+button:hover {
+    opacity: 0.8;
+}
 
-                @media (min-width: 768px) {
+/* Button Variants */
+
+/* Table Styling */
+/*table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    
+    margin-top: 10px;
+
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}*/
+
+/* Header Row */
+/*th {
+    background-color: #ACEDFF;
+    
+    font-size: 16px;
+    text-align: center;
+}*/
+
+/* Rows */
+/*tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+tr:hover {
+    background: #e9ecef;
+}*/
+
+/* Dropdown Styling */
+select {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+}
+
+/* Adjustments */
+.container {
+    max-width:100%;
+    margin: auto;
+}
+
+.btn-share {
+    background-color: #f4b400;
+    color: #fff;
+}
+
+.btn-add {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-access {
+    background-color: #ccc;
+    color: #000;
+}
+
+.btn-edit {
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+}
+
+/* Share Buttons */
+.share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+
+
+/* Table Header Buttons */
+th button {
+    width: 100px;
+    height: 40px;
+   
+    border: none;
+    border-radius: 5px;
+    cursor: text;
+    font-weight: bold;
+}
+
+/* Select Dropdown */
+.form-select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+   
+}
+#contentpdf {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Reduce gap between image and text */
+}
+
+.d-flex img {
+    width: 50px; /* Adjust image size if needed */
+    height: 50px;
+}
+
+h1.text-primary {
+    color:#0331b5;
+    font-size: 47px; /* Adjust font size */
+    margin: 0; /* Remove unwanted margin */
+}
+
+@media(min-width:1440px){
+                #UserSelect{
+                  width: 207px ;
+height: 43px ;
+top: 265px;
+left: 1178px;
+border-width: 1px ;
+border: 1px solid #000000 ;
+padding: 3px 93px 2px 14px ;
+margin-bottom: -37px;
+justify-content: right ;
+margin-right: 467px;
+margin-left: 1109px ;
+margin-top: -2px;
+            }
+}
+                @media(min-width:1024px) {
+                    #addprescription {
+                        width: 156px;
+                        height: 42px;
+                        top: 274px;
+                        left: 394px;
+                        border-radius: 30px;
+                        border-width: 1px;
+                        border: 1px solid #000000;
+                        padding: 3px 45px 2px 41px !important;
+                        font-size: 22px;
+                    }
+
+                    #accessprescription {
+                        width: 156px;
+                        height: 43px;
+                        top: 274px;
+                        left: 232px;
+                        border-radius: 30px;
+                        border: 1px solid #000000;
+                        padding: 3px 29px 2px 22px !important;
+                        font-size: 22px;
+                    }
+
+                    #shareprescription {
+                        width: 156px;
+                        height: 43px;
+                        top: 274px;
+                        left: 69px;
+                        border-radius: 30px;
+                        border-width: 1px;
+                        border: 1px solid #000000;
+                        padding: 3px 31px 2px 24px !important;
+                        font-size: 22px;
+                    }
+                    .table-responsive {
+    max-width: 80%;
+    margin: auto;
+    margin-left: -115px;
+    overflow-x: unset !important;
+    -webkit-overflow-scrolling: unset !important;
+}
+
+                    #UserSelect {
+                        width: 207px;
+                        height: 43px;
+                        top: 265px;
+                        left: 1178px;
+                        border-width: 1px;
+                        border: 1px solid #000000;
+                        padding: 3px 93px 2px 14px;
+                        margin-bottom: -37px;
+                        justify-content: right;
+                        margin-right: 467px;
+                        margin-left: 744px;
+                        margin-top: -2px;
+                    }
+                }             
+                
+                #addprescription{
+                   width: 156px;
+                   height: 42px;
+                   top: 274px;
+                   left: 394px;
+                    border-radius: 30px;
+                   border-width: 1px;
+                   border: 1px solid #000000;
+                   padding: 3px 5px 2px 14px;
+                    font-size:22px;
+                }
+                #accessprescription{
+                    width: 156px;
+                    height: 43px;
+                    top: 274px;
+                    left: 232px;
+                     border-radius: 30px;
+                    border: 1px solid #000000;
+                    padding: 3px 5px 2px 14px;
+                     font-size:22px;
+                }
+                #shareprescription{
+
+                    width: 156px;
+                    height: 43px;
+                    top: 274px;
+                    left: 69px;
+                    border-radius: 30px;
+                    border-width: 1px;
+                    border: 1px solid #000000;
+                    padding: 3px 5px 2px 14px;
+                    font-size:22px;
+                }
+                #UserSelect{
+                      width: 207px;
+    height: 43px ;
+    top: 265px;
+    left: 1178px;
+    border-width: 1px ;
+    border: 1px solid #000000 ;
+    padding: 3px 93px 2px 14px;
+    margin-bottom: -37px;
+    justify-content: right ;
+    margin-right: 467px;
+    margin-left: 1483px;
+    margin-top: -2px;
+                }
+                
+                @media (min-width: 767px) {
                     .responsive-button {
                         font-size: x-large; 
                     }
+                   
+                   #mobileTableBody{
+                       display:none;
+                   }
+                   
+                #addprescription{
+                   width: 156px;
+                   height: 42px;
+                   top: 274px;
+                   left: 394px;
+                    border-radius: 30px;
+                   border-width: 1px;
+                   border: 1px solid #000000;
+                   padding: 3px 5px 2px 14px;
+                    font-size:22px;
                 }
-            
+                #accessprescription{
+                    width: 156px;
+                    height: 43px;
+                    top: 274px;
+                    left: 232px;
+                     border-radius: 30px;
+                    border: 1px solid #000000;
+                    padding: 3px 5px 2px 14px;
+                     font-size:22px;
+                }
+                #shareprescription{
+
+                    width: 156px;
+                    height: 43px;
+                    top: 274px;
+                    left: 69px;
+                    border-radius: 30px;
+                    border-width: 1px;
+                    border: 1px solid #000000;
+                    padding: 3px 5px 2px 14px;
+                    font-size:22px;
+                }
+                #UserSelect{
+                       width: 156px !important;
+                       height: 43px !important;
+                       top: 265px;
+                       left: 1178px;
+                       border-width: 1px !important;
+                       border: 1px solid #000000 !important;
+                       padding: 3px 5px 2px 14px !important;
+                       margin-bottom: -48px;
+                       justify-content: right !important;
+                       margin-right: 467px;
+                       margin-left:973px;
+                }
+                }
+          @media (max-width: 820px) {
+   .button-container {
+        display: flex;
+        flex-direction: row; /* Ensures horizontal layout */
+        justify-content: center; /* Centers buttons horizontally */
+        align-items: center; /* Aligns buttons vertically */
+        gap: 15px; /* Adds space between buttons */
+        flex-wrap: nowrap; /* Prevents buttons from wrapping to new line */
+        margin-bottom: 20px;
+    }
+   .table-responsive{
+           max-width: 98vw;
+    margin-left: -194px !important;
+   }
+    .responsive-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 15px;
+        font-size: 16px;
+        white-space: nowrap; /* Prevents buttons from breaking into multiple lines */
+        min-width: 120px; /* Ensures all buttons have a uniform width */
+        text-align: center;
+    }
+
+    /* Ensure buttons don’t have absolute positioning */
+                #addprescription {width: 195px !important;
+        height: 62px !important;
+        border-radius: 30px;
+        border: 1px solid #000000;
+        padding: 0px 63px 61px 86px;
+        font-size: 18px;
+        display: inline-block;
+        text-align: left;
+        max-width: 200px;
+        margin-left: -134px;
+                }
+    #accessprescription{width: 200px !important;
+        height: 62px !important;
+        border-radius: 30px;
+        border: 1px solid #000000;
+        padding: 10px 55px;
+        font-size: 18px;
+        display: inline-block;
+        text-align: center;
+        max-width: 200px;
+        margin-left: -2px;}
+    #shareprescription {
+               width: 200px !important;
+        height: 62px !important;
+        border-radius: 30px;
+        border: 1px solid #000000;
+        padding: 10px 62px;
+        font-size: 18px;
+        display: inline-block;
+        text-align: center;
+        max-width: 200px;
+        margin-left: -2px;
+    }
+    #UserSelect {
+           width: 207px !important;
+        height: 49px !important;
+        top: 265px;
+        left: 1178px;
+        border-width: 1px !important;
+        border: 1px solid #000000 !important;
+        padding: 3px 93px 2px 14px !important;
+        margin-bottom: -37px;
+        justify-content: right !important;
+        margin-right: 467px;
+        margin-left: 629px !important;
+        margin-top: 10px;
+}
+}
+@media (max-width:1180px) and (min-width:820px)
+{
+                #UserSelect{
+                 width: 207px !important;
+        height: 43px !important;
+        top: 265px;
+        left: 1178px;
+        border-width: 1px !important;
+        border: 1px solid #000000 !important;
+        padding: 2px 84px 2px 14px !important;
+        margin-bottom: -37px;
+        justify-content: right !important;
+        margin-right: 467px;
+        margin-left: 926px !important;
+        margin-top: -2px;
+            }
+}
+
                     #prescription th {
-                        width: 169.28px;
+                        width: 237.28px;
+                         background-color: #ACEDFF;
+                         text-align: center;
                     }
 
                    
@@ -54,16 +480,17 @@
                         width: 169.28px;
                         height: 41px;
                         text-align: center;
-                    }
+                    } 
 
                    
                     #prescription th button {
                         width: 100px; 
                         height: 40px;
-                        background-color: #8cbcfa;
+                        background-color: #ACEDFF;
                         border: none;
                         border-radius: 5px;
                         cursor: text;
+                        text-align:center;
                     }
 
                    
@@ -77,38 +504,62 @@
                     }
                   
                     .table-responsive {
-                        max-width: 98vw;
+                        max-width: 80%;
                         margin: auto;
-                        border: solid 1px #dee2e6;
-                        overflow-y: auto;
+                       margin-left: -9px;
+                       overflow-x: unset !important;
+    -webkit-overflow-scrolling: unset !important;
                     }
 
                  
-                    .table {
-                        width: 100%;
-                        min-width: 800px; /* Ensures table doesn't shrink too much */
-                        border-collapse: collapse;
-                    }
+                    table {
+    width: 80%;
+    margin-left:188px;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
 
-                   
-                    thead {
-                        position: sticky;
-                        top: 0;
-                        background-color: white;
-                        z-index: 1;
-                    }
+th {
+    background-color: #ACEDFF;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
 
-                   
-                    .table button {
-                        height: 40px;
-                        width: 100px;
-                        background-color: #8cbcfa;
-                        border: none;
-                        border-radius: 5px;
-                        cursor: default;
-                    }
+td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
 
-                  
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #e0f7ff;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+button.edit {
+    background-color: black;
+    color: white;
+}
+
+button.delete {
+    background-color: black;
+    color: white;
+}
+/* === Default Table Styles === */
+/* Default Table Styling */
+
+
+
+                  /*
                     @media (max-width: 767px) {
                         .table-responsive {
                             max-height: 400px;
@@ -139,7 +590,7 @@
                         .table-responsive {
                             max-height: 650px;
                         }
-                    }
+                    }*/
                              .share-btn {
                        display: inline-flex;
                 align-items: center;
@@ -162,6 +613,63 @@
                     margin-right: 8px;
                 }
 
+.mobile-table {
+    width: 100%;
+    display: block;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+    overflow-y:scroll;
+    margin-left: 359px;
+}
+@media(max-width:480)
+{
+    .table-responsive table{
+        display:none;
+    }
+}
+.mobile-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.mobile-row:last-child {
+    border-bottom: none;
+}
+
+.mobile-header {
+    font-weight: bold;
+    width: 40%; /* Adjust width for alignment */
+}
+
+.mobile-data {
+    width: 60%;
+    text-align: left;
+}
+
+.action-row {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.edit-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.action-icons {
+    color: black;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
 
              
 /* Keep button style for headers */
@@ -178,115 +686,453 @@
 thead {
     display: table-header-group !important;
 }
+.button-container {
+    display: flex;
+    gap: 11px;
+    justify-content: left;
+    margin-right: 550px;
+    margin-left: 213px;
+    margin-top: -12px;
+    margin-bottom: 11px;
 
-/* Responsive table design */
-@media screen and (max-width: 768px) {
-    thead {
-        display: none; /* Hides headers in small screens */
-    }
+}
+.btn-custom {
+    padding: 8px 16px; /* Adjust padding */ 
+    font-size: 14px; /* Adjust text size */
+    border-radius: 8px; /* Rounded corners */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Space between icon and text */
+}
 
-    tbody, tr {
-        display: block;
+.btn-custom img {
+    width: 16px; /* Icon size */
+    height: 16px;
+}
+
+
+
+/* Mobile View: Convert Table to Vertical Format */
+/* Default table styling (for desktop view) */
+/* Default table styling */
+/*.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container th, 
+.table-container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}*/
+
+/* Mobile view adjustments */
+/*@media screen and (max-width: 768px) {
+    .table-container table, 
+    .table-container thead, 
+    .table-container tbody, 
+    .table-container th, 
+    .table-container td, 
+    .table-container tr { 
+        display: block; 
         width: 100%;
-        margin-bottom: 10px;
-        border: 1px solid #ddd;
-        padding: 10px;
-        background: #fff;
-    }
+    }*/
 
-    td {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px;
-        border-bottom: 1px solid #ccc;
-    }
-
-    /* Add custom labels before each data row */
-    td::before {
-        content: attr(data-label);
-        font-weight: bold;
-        color: #333;
-    }
-  
-    .table-responsive {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    tbody, tr {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        border: 1px solid #dee2e6;
-        margin-bottom: 10px;
-        padding: 10px;
-        background: #fff;
-    }
-
-    th, td {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        padding: 8px;
-    }
-
-    /* Hide actual table headers for mobile */
-    thead {
+    /* Hide table headers in mobile view */
+    /*.table-container thead {
         display: none;
-    }
+    }*/
 
-    td::before {
+    /* Make each row act like a card */
+    /*.table-container tr {
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        padding: 10px;
+        background: #e5f6ff;
+    }*/
+
+    /* Stack table data and show labels */
+    /*.table-container td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        text-align: left;
+    }*/
+
+    /* Use data-label to show field names */
+    /*.table-container td:before {
         content: attr(data-label);
         font-weight: bold;
-        color: #333;
+        flex: 1;
     }
+}*/
 
-    td:first-child {
-        border-top: none;
+  .modal {
+    overflow-y: auto !important;
+}.select2-container {
+    z-index: 1050 !important; /* Higher than Bootstrap modal */
+}
+   @media (min-width: 768px) and (max-width: 1180px) {
+      .select2-container--default select2-selection select2-selection--multiple{
+        width: 183px !important;
+   overflow: visible !important;
+   border: none !important;
+   background: transparent !important;
+}
+      .select2-container--default .select2-selection--multiple {
+     background-color: none !important; 
+     border: none !important; 
+    border-radius: 4px;
+    cursor: text;
+                     width: 183px !important;
+overflow: visible !important;
+
+}
+      .row .col-8
+      {
+              padding: 10px;
+    border: 1px solid #ced4da ;
+    border-radius: 30px ;
+    height: 49px;
+    width: 212px;
+    margin-left: 179px;
+    margin-top: -40px;
+      }
+          .familyprescription-row .col-8 input {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    border-radius: 5px !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 5px !important;
+}
+      .familyprescription-row .col-8 select {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    border-radius: 5px !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 5px !important;
+}
+  }
+   @media(max-width:480px)
+   {
+       #prescription{
+           width:0px !important;
+           display:block !important;
+       }
+
+         #addprescription{
+    width: 104px !important;
+        height: 42px !important;
+        top: 274px;
+        left: 394px;
+        border-radius: 30px;
+        border-width: 1px;
+        border: 1px solid #000000;
+        padding: 1px 7px 2px 14px;
+        font-size: 15px;
+        margin-left: -197px;
+  }
+         .button-container {
+    display: flex
+;
+    gap: 10px;
+    justify-content: left;
+    margin-right: 550px;
+    margin-left: 213px;
+    width: 100%;
+}
+  #accessprescription{
+     width: 107px !important;
+        height: 43px !important;
+        top: 274px;
+        left: 232px;
+        border-radius: 30px;
+        border: 1px solid #000000;
+        padding: 3px 5px 2px 14px;
+        font-size: 14px;
+        margin-left: -7px;
+  }
+  #shareprescription{
+
+            width: 98px !important;
+        height: 43px !important;
+        top: 274px;
+        left: 69px;
+        border-radius: 30px;
+        border-width: 1px;
+        border: 1px solid #000000;
+        padding: 3px 5px 2px 14px;
+        font-size: 14px;
+        margin-left: -3px;
     }
+    #UserSelect{
+                     width: 129px !important;
+        height: 43px !important;
+        top: 265px;
+        left: 1178px;
+        border-width: 1px !important;
+        border: 1px solid #000000 !important;
+        padding: 3px 54px 2px 14px !important;
+        margin-bottom: 18px;
+        justify-content: right !important;
+        margin-right: 467px;
+        margin-left: 198px !important;
+        margin-top: 34px;
 
-    td:last-child {
-        border-bottom: none;
-    }
+  }
 
+
+
+      #prescriptionTable {
+    width: 100%;
+    border-collapse: collapse;
+    
+    display: table !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+
+}
+      .modal-backdrop {
+    background: rgba(0, 0, 0, 0.5); /* Adjust transparency */
+}
+
+.modal {
+    z-index: 1050 !important; /* Ensure modal is above but does not affect table */
+}
+.person-header {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 8px;
+}
+
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.field-name {
+    font-weight: bold;
+    background-color: lightblue;
+    padding: 8px;
+    width: 40%;
+}
+
+td {
+    padding: 8px;
+    width: 60%;
+}
+
+.action-row td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edit-btn {
+    background-color: lightblue;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.action-icons {
+ 
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+
+             .row .col-8
+      {
+              padding: 10px !important;
+    border: 1px solid #ced4da !important;
+    border-radius: 30px !important;
+    height: 49px !important;
+    width: 212px !important;
+    margin-left: 131px !important;
+    margin-top: -40px !important;
+      }
+          .familyprescription-row .col-8 input {
+    border:none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    border-radius: 5px !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 5px !important;
+}
+      .familyprescription-row .col-8 select {
+    border:none!important;
+    box-shadow: none !important;
+    outline: none !important;
+    border-radius: 5px !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 5px !important;
+}
+   }
+   .row .col-8{
+       padding: 10px; border: 1px solid #ced4da ; border-radius: 30px ; height: 49px; width: 285px;margin-left: 165px;margin-top: -40px;
+   }
+
+    .select2-container--default select2-selection select2-selection--multiple{
+             width: 183px !important;
+overflow: visible !important;
+border: none !important;
+background: transparent !important;
+ }
+
+.select2-container {
+    z-index: 9999 !important; /* Ensures Select2 is above modal */
+    position: absolute !important;
+}
+
+.select2-dropdown {
+    z-index: 10000 !important; /* Make sure it's on top */
+    position: absolute !important;
+    left: 0 !important;
+    width: 100% !important;
+}
+
+.modal {
+    overflow-y: auto !important; /* Allows dropdown to be fully visible */
+}
+
+.select2-container--default .select2-selection--multiple {
+    display: block !important;
+    padding: 6px 12px !important;
+    border-radius: 4px !important;
+    min-height: 40px !important;
+}
+
+.select2-selection__rendered {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 5px; /* Adds space between selected items */
+}
+
+.select2-selection__choice {
+    display: inline-flex !important;
+    align-items: center;
+    background-color: transparent; /* Change to match your design */
+    color: black;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin: 2px;
+}
+.familyprescription-row .col-8 select {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    border-radius: 5px !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 5px 52px !important;
+}
+.familyprescription-row .col-8 input {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    border-radius: 5px !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 5px 52px !important;
+}
+                     .share-btn {
+               display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 15px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 7px;
+        text-decoration: none;
+        color: black;
+        margin: 10px;
+        border: none;
+        border: 2px solid dimgray;
+            width: 165px;
+        }
+
+   
+
+        .share-btn img {
+            margin-right: 8px;
+        }
+
+ @media (min-width: 769px) {
+    .mobile-view { display: none; }
+}
+@media (max-width: 768px) {
+    #prescriptionTableBody { display: none; }
 }
 
             </style>
-                <script type="text/javascript">
-                    document.addEventListener("DOMContentLoaded", function () {
-                        var conditionSelect = document.getElementById("ConditionSelect");
-                        var otherConditionRow = document.getElementById("otherConditionRow");
+            <meta name="viewport" content="width=device-width, initial-scale=1">
 
-                        if (conditionSelect) {
-                            // Run only when the dropdown value changes
-                            conditionSelect.addEventListener("change", function () {
-                                debugger
-                                if (this.options[this.selectedIndex].text === "Others") {
-                                    otherConditionRow.style.display = "flex"; // Show the textbox row
-                                } else {
-                                    otherConditionRow.style.display = "none"; // Hide the textbox row
-                                }
-                            });
-                        }
-                    });
-                </script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+            <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
+             <script type="text/javascript">
+                 document.addEventListener("DOMContentLoaded", function () {
+                     var conditionSelect = document.getElementById("ConditionSelect");
+                     var otherConditionRow = document.getElementById("otherConditionRow");
+
+                     if (conditionSelect) {
+                         // Run only when the dropdown value changes
+                         conditionSelect.addEventListener("change", function () {
+                             debugger
+                             if (this.options[this.selectedIndex].text === "Others") {
+                                 otherConditionRow.style.display = "flex"; // Show the textbox row
+                             } else {
+                                 otherConditionRow.style.display = "none"; // Hide the textbox row
+                             }
+                         });
+                     }
+                 });
+               
+                 $(document).ready(function () {
+                     $('#Power').select2({
+                         dropdownParent: $('#exampleModal'), // Ensure dropdown is inside modal
+                         width: '285px',
+                         theme: "bootstrap-5",
+                         dropdownAutoWidth: true,
+                         containerCssClass: "custom-select2",
+                         dropdownCssClass: "custom-select2-dropdown",
+                       
+                     });
+                 }); $(document).ready(function () {
+                     $('#Schedule option[value="0"]').remove();
+                 });
+                 $('#Power').select2()
+
+             </script>
             <div id="contentpdf">
                 <div class="row">
-                    <div style="display: flex; margin: auto; justify-content: center">
-                        <div style="display: flex; margin-left: auto;">
-                            <img src="journal-page-images/article/familyprescriptionlogo.jpeg" style="width: 60px;" />
-                         
-                            <h1 style="color: #0331b5; margin-top: auto; margin-bottom: auto;">Family Prescription</h1>
+                <div style="display: flex;margin-left: 322px;height: 51px;text-align: center;width: 100%;justify-content: center;overflow-wrap: normal;">
+                            <img src="/journal-page-images/article/familyprescriptionlogo.jpeg" style="width: 60px;">
+                            <h1 style="color: #0331b5;margin-top: auto;margin-bottom: auto;margin-right: 702px;">Family Prescription</h1>
                         </div>
+                     <%--   <div style="display: flex; margin-left: auto;">
+                            <img src="/journal-page-images/article/familyprescriptionlogo.jpeg" style="width: 60px;" />
+                            <h1 style="color: #0331b5; margin-top: auto; margin-bottom: auto;">Family Prescription</h1>
+                        </div>--%>
                         <div style="display: flex; margin-left: auto; margin-right: 25px; margin-bottom: 10px; margin-top: 10px;">
                             <select class="form-select select-user" id="UserSelect" name="user[]">
                                 <option value="" selected>All User</option>
@@ -294,40 +1140,62 @@ thead {
                         </div>
                     </div>
                 </div>
-                <div class="row" style="max-width: 98vw; margin: auto">
-                    <div class="table-responsive"  style="overflow-x: auto;">
+
+
+
+  <div class="button-container">
+    <button type="button" class="btn-custom" id="addprescription"  onclick="addPrescription()"  >
+        <img src="journal-page-images/article/plus.png" />
+         Add
+    </button>
+    <button type="button" class="btn-custom" id="accessprescription" data-bs-toggle="modal" data-bs-target="#AccessModal"  >
+         <img src="journal-page-images/article/color.png" />Access
+    </button>
+    <button type="button" class="btn-custom"  id="shareprescription" data-bs-toggle="modal" data-bs-target="#ShareModal">
+        <img src="journal-page-images/article/icon_share.png" />  Share
+    </button>
+</div>
+              
+
+                <div class="row" style="max-width: 98vw; margin: auto; overflow:scroll;">
+                    <div class="table-responsive">
+
                         <table id="prescription" class="table" style="border: solid; border-color: #dee2e6; border-width: thin;">
                             <thead>
                                 <tr>
                                     <th hidden>Id</th>
-                                    <th style="background-color: white; text-align: center;">
-                                        <button style="height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text">Member</button>
+                                    <th>
+                                        <button >Member</button>
                                     </th>
-                                    <th style="background-color: white; text-align: center;">
-                                        <button style="height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text">Condition</button>
+                                    <th >
+                                        <button >Condition</button>
                                     </th>
-                                    <th style="background-color: white; text-align: center;">
-                                        <button style="height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text">Medication</button>
+                                    <th >
+                                        <button >Medication</button>
                                     </th>
-                                    <th style="background-color: white; text-align: center;">
-                                        <button style="height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text">Dosage</button>
+                                    <th >
+                                        <button >Dosage</button>
                                     </th>
-                                    <th style="background-color: white; text-align: center;">
-                                        <button style="height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text">Schedule</button>
+                                    <th >
+                                        <button >Schedule</button>
                                     </th>
-                                    <th style="background-color: white; text-align: center;">
-                                        <button style="height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text">Timing</button>
+                                    <th >
+                                        <button >Timing</button>
                                     </th>
-                                    <th style="background-color: white; text-align: center;">
-                                        <button style="height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text">Action</button>
+                                    <th >
+                                        <button >Action</button>
                                     </th>
                                 </tr>
                             </thead>
-                          <tbody id="prescriptionTableBody">
+                            <tbody id="prescriptionTableBody"></tbody>
+                         
+                             </table>
+                            <div id="mobileTableBody" class="mobile-view" style="margin-left: -132px;display:none;"></div>
+                          <%--<tbody id="prescriptionTableBody">--%>
                            
-                        </tbody>
+                      
 
-                        </table>
+                       
                         <%--</thead>
                             <tbody id="prescriptionTableBody">
                                 <!-- Default rows will be inserted here -->
@@ -342,7 +1210,7 @@ thead {
 
 
 
-            <div style="display: flex; justify-content: end;">
+           <%-- <div style="display: flex; justify-content: end;">
                 <div style="padding: 10px; bottom: 0;">
                     <button type="button" class="responsive-button" id="addprescription" onclick="addPrescription()">Add <i class="fa fa-add" style="color: #ffd101"></i></button>
                     <button type="button" class="responsive-button" id="accessprescription" data-bs-toggle="modal" data-bs-target="#AccessModal">Access <i class="fa fa-check-circle-o" style="color: #ffd101"></i></button>
@@ -350,7 +1218,7 @@ thead {
                 </div>
 
 
-            </div>
+            </div>--%>
 
 
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -362,40 +1230,40 @@ thead {
                         </div>
                         <div class="modal-body">
                             <div class="row grid-row familyprescription-row">
-                                <div class="row">
+                                <div class="row member" >
                                     <div class="col-4" style="text-align: center; padding-top: 12px">
-                                        <button style="height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text; pointer-events: none;" class="skip-tab" tabindex="-1">Member</button>
+                                        <button style="height: 40px; width: 100px; background-color: #ACEDFF; border: none; border-radius: 5px; cursor: text; pointer-events: none;" class="skip-tab" tabindex="-1">Member</button>
                                     </div>
-                                    <div class="col col-8" style="padding: 10px">
+                                    <div class="col col-8 " style="padding: 10px">
                                         <input type="hidden" id="PrescriptionId" name="Id[]">
                                         <select class="form-select member-select" id="MemberSelect" name="member[]">
                                             <option value="" disabled selected>Select Member</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="row">
-                                 <div class="col-4" style="text-align: center; padding-top: 12px">
-                                     <button style="pointer-events: none; height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text" class="skip-tab" tabindex="-1">Condition</button>
-                                 </div>
-                                 <div class="col col-8" style="padding: 10px">
-                                     <select class="form-select condition-select" id="ConditionSelect" name="condition[]" style="width: 100%">
-                                         <option value="" disabled selected>Select Condition</option>
-                                     </select>
+                                <div class="row condition">
+                                    <div class="col-4" style="text-align: center; padding-top: 12px">
+                                        <button style="pointer-events: none; height: 40px; width: 100px; background-color: #ACEDFF; border: none; border-radius: 5px; cursor: text" class="skip-tab" tabindex="-1">Condition</button>
+                                    </div>
+                                    <div class="col col-8 " style="padding: 10px">
+                                        <select class="form-select condition-select" id="ConditionSelect" name="condition[]" style="width: 100%">
+                                            <option value="" disabled selected>Select Condition</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row othercondition" id="otherConditionRow" style="display:none;">
+    <div>
 
-                                 </div>
-                             </div>
-                             <div class="row" id="otherConditionRow" style="display:none;">
-                                 <div>
+    </div>
+    <div>
+          <input type="text" class="form-control" style="width: 291px; margin-left: 154px;" id="othercondition" placeholder="Type Other Condition" name="othercondition[]" />
+    </div>
 
-                                 </div>
-                                 <div>
-                                       <input type="text" class="form-control" style="width: 291px; margin-left: 154px;" id="othercondition" placeholder="Type Other Condition" name="othercondition[]" />
-                                 </div>
-
-                             </div>
+</div>
+                                <div class="medicationspan"> Medication:<asp:Label ID="lblcount" class="medication-label" Text="1" runat="server"></asp:Label>
                                 <div class="row">
                                     <div class="col-4" style="text-align: center; padding-top: 12px">
-                                        <button style="pointer-events: none; height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text" class="skip-tab" tabindex="-1">Medication</button>
+                                        <button style="pointer-events: none; height: 40px; width: 100px; background-color: #ACEDFF; border: none; border-radius: 5px; cursor: text" class="skip-tab" tabindex="-1">Medication</button>
                                     </div>
                                     <div class="col col-8" style="padding: 10px">
                                         <input type="text" class="form-control" id="Medication" placeholder="Type Medication" name="medication[]" />
@@ -404,7 +1272,7 @@ thead {
 
                                 <div class="row">
                                     <div class="col-4" style="text-align: center; padding-top: 12px">
-                                        <button style="pointer-events: none; height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text" class="skip-tab" tabindex="-1">Dosage</button>
+                                        <button style="pointer-events: none; height: 40px; width: 100px; background-color: #ACEDFF; border: none; border-radius: 5px; cursor: text" class="skip-tab" tabindex="-1">Dosage</button>
                                     </div>
                                     <div class="col col-8" style="padding: 10px">
                                         <input type="text" class="form-control" id="Dosage" placeholder="Type Dosage" name="dosage[]" />
@@ -412,12 +1280,12 @@ thead {
                                 </div>
                                 <div class="row">
                                     <div class="col-4" style="text-align: center; padding-top: 12px">
-                                        <button style="pointer-events: none; height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text" class="skip-tab" tabindex="-1">Schedule</button>
+                                        <button style="pointer-events: none; height: 40px; width: 100px; background-color: #ACEDFF; border: none; border-radius: 5px; cursor: text" class="skip-tab" tabindex="-1">Schedule</button>
                                     </div>
-                                    <div class="col col-8" style="padding: 10px">
+                                    <div class="col col-8">
                                         <%--<input type="text" class="form-control" id="Power" placeholder="Power" name="power[]" />--%>
-                                        <select class="form-select" id="Power" name="power[]">
-                                            <option value="" disabled selected>Select Schedule</option>
+                                        <select class="form-select" id="Power" name="power[]" multiple >
+                                           <%-- <option value="" disabled >Select Schedule</option>--%>
                                             <option>All Days</option>
                                             <option>Sunday</option>
                                             <option>Monday</option>
@@ -431,43 +1299,31 @@ thead {
                                 </div>
                                 <div class="row">
                                     <div class="col-4" style="text-align: center; padding-top: 12px">
-                                        <button style="pointer-events: none; height: 40px; width: 100px; background-color: #8cbcfa; border: none; border-radius: 5px; cursor: text" class="skip-tab" tabindex="-1">Timings</button>
+                                        <button style="pointer-events: none; height: 40px; width: 100px; background-color: #ACEDFF; border: none; border-radius: 5px; cursor: text" class="skip-tab" tabindex="-1">Timings</button>
                                     </div>
                                     <div class="col col-8" style="padding: 10px">
                                         <%--<input type="text" class="form-control" id="Timings" placeholder="Timings" name="timings[]" />--%>
                                         <select class="form-select" id="Timings" name="timings[]">
                                             <option value="" disabled selected>Select Timings</option>
-                                            <option>12 AM</option>
-                                            <option>1 AM</option>
-                                            <option>2 AM</option>
-                                            <option>3 AM</option>
-                                            <option>4 AM</option>
-                                            <option>5 AM</option>
-                                            <option>6 AM</option>
-                                            <option>7 AM</option>
-                                            <option>8 AM</option>
-                                            <option>9 AM</option>
-                                            <option>10 AM</option>
-                                            <option>11 AM</option>
-                                            <option>12 PM</option>
-                                            <option>1 PM</option>
-                                            <option>2 PM</option>
-                                            <option>3 PM</option>
-                                            <option>4 PM</option>
-                                            <option>5 PM</option>
-                                            <option>6 PM</option>
-                                            <option>7 PM</option>
-                                            <option>8 PM</option>
-                                            <option>9 PM</option>
-                                            <option>10 PM</option>
-                                            <option>11 PM</option>
+                                            <option>After BreakFast</option>
+                                            <option>Before BreakFast</option>
+                                            <option>After Lunch</option>
+                                            <option>Before Lunch</option>
+                                            <option>After Dinner</option>
+                                            <option>Before Dinner</option>
+                                            <option>With a Meal</option>
+                                            <option>Noon</option>
+                                            <option>Tea Time</option>
+                                         
                                         </select>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
+                        </div>
                         <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="addMoreBtn">Add More</button>
                             <button type="submit" class="btn btn-primary" id="saveprescription" onclick="submitForm(event)">Save</button>
                             <button type="button" class="btn btn-secondary" id="closeModalBtn" data-bs-dismiss="modal">Close</button>
                         </div>
@@ -487,19 +1343,20 @@ thead {
 
                         <!-- Modal Body -->
                         <div class="modal-body">
+                              <span style="font-size:14px;">(If a Member is selected, Prescription access will be granted to them.)</span><br /><br />
                             <div id="checkboxContainer" style="display: flex; justify-content: space-evenly; width: 40%;"></div>
                         </div>
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-primary" id="SetAccess">Save changes</button>
+
                         </div>
 
                     </div>
                 </div>
             </div>
-     
-                       <div class="modal fade" id="ShareModal" tabindex="-1" aria-labelledby="ShareModalLabel" aria-hidden="true">
+                             <div class="modal fade" id="ShareModal" tabindex="-1" aria-labelledby="ShareModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- Modal Header -->
@@ -522,19 +1379,24 @@ thead {
         </div>
     </div>
 </div>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-             <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
-
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
             <script>
                 var FetchedData = [];
                 var AccessMember = [];
                 var memberOptionsFetched = false;
                 var conditionOptionsFetched = false;
                 var currentUser = [];
-                var dataList = [];
+                var memberVal = '';
+                var conditionVal = '';
+                const desktopTable = document.getElementById("prescription");
+                const desktopTableBody = document.getElementById("prescriptionTableBody");
+                const mobileTableBody = document.getElementById("mobileTableBody");
+
                 GetAccessData();
                 function fetchData() {
                     FetchedData = [];
@@ -545,7 +1407,9 @@ thead {
                         dataType: "json",
                         success: function (response) {
                             console.log("Data fetched successfully:", response.d);
-                             dataList = JSON.parse(response.d);
+
+                            
+                            const dataList = JSON.parse(response.d);
                             FetchedData = dataList;
 
                             // Fetch the member options and condition options only once
@@ -571,164 +1435,105 @@ thead {
                             console.error("Error fetching data:", error);
                         }
                     });
-
-                   
                 }
-               
-                document.addEventListener("DOMContentLoaded", () => {
-                    
-                    if (typeof dataList !== "undefined" && dataList.length > 0) {
-                        populateMobileView(dataList);
-                    } else {
-                        console.log("No data found");
-                    }
+                //window.addEventListener("load", () => populateTableWithData(FetchedData));
+                //window.addEventListener("resize", () => populateTableWithData(FetchedData));
+                window.addEventListener("resize", function () {
+                    console.log("Window Resized");
+                    populateTableWithData(FetchedData);
                 });
-                
-                
-                //window.addEventListener("resize", () => {
-                //    if (window.innerWidth <= 768) {
-                //        document.querySelector(".table-responsive").style.overflowX = "auto";
-                //    } else {
-                //        document.querySelector(".table-responsive").style.overflowX = "unset";
-                //    }
-                //});
-                function populateTableWithData(dataList) {
-                    const tableBody = document.querySelector("#prescriptionTableBody");
-                    tableBody.innerHTML = ""; // Clear previous data
+                function populateTableWithData(dataList)
+                {
 
-                    const isMobile = window.innerWidth <= 768; // Detect mobile
-                    let filledRows = 0;
-                    if (isMobile) {
-                        
-
-                        for (let i = 0; i < 6; i++) {
-                            const rowData = dataList[i] || {};
-                            populateMobileView(rowData);
-                            filledRows++;
-                        }
-
-
-                        for (let i = filledRows; i < dataList.length; i++) {
-                            populateMobileView(dataList[i]);
-                        }// Switch to horizontal mobile layout
-                    } else {
-                        for (let i = 0; i < 6; i++) {
-                            const rowData = dataList[i] || {};
-                            addRecordTable(rowData);
-                            filledRows++;
-                        }
-
-
-                        for (let i = filledRows; i < dataList.length; i++) {
-                            addRecordTable(dataList);
-                        }// Switch to horizontal mobile layout
-                        // Default table layout
-                    }
-                }
-
-                // 🟢 Desktop Layout - Normal Table Format
-                function populateDesktopView(dataList) {
-                    const tableBody = document.querySelector("#prescriptionTableBody");
-                    debugger
-                    let conditionName = "";
-                   
-                    dataList.forEach(rowData => {
-
-                        if (rowData.Conditions) {
-                            const conditionId = parseInt(rowData.Conditions); // Convert to number
-                            const condition = conditionMaster.find(opt => opt.Id === conditionId);
-
-                            if (condition.ConditionName == "Others") {
-                                conditionName = rowData.otherConditions;
-                            }
-                            else {
-                                conditionName = condition ? condition.ConditionName : "";
-                            }// Assign name if found
-                        }
-                        const newRow = document.createElement("tr");
-                        newRow.innerHTML = `
-            <td>${rowData.user_firstname || '—'}</td>
-            <td>${conditionName || '—'}</td>
-            <td>${rowData.Medication || '—'}</td>
-            <td>${rowData.Dosage || '—'}</td>
-            <td>${rowData.Power || '—'}</td>
-            <td>${rowData.Timings || '—'}</td>
-            <td>
-                <i class="fas fa-edit action-icons" title="Edit" style="cursor:pointer" onclick="editPrescription(${rowData.Id})"></i>
-                &nbsp;
-                <i class="fas fa-trash action-icons" title="Remove" style="cursor:pointer" onclick="removeRow(${rowData.Id})"></i>
-            </td>
-        `;
-                        tableBody.appendChild(newRow);
-                    });
-                }
-
-                // 🔵 Mobile Layout - Horizontal Format
-                function populateMobileView(dataList) {
-                    const tableBody = document.querySelector("#prescriptionTableBody");
-                    tableBody.innerHTML = ""; // Clear previous data
-
-                    dataList.forEach(rowData => {
-                        const newRow = document.createElement("tr");
-
-                        newRow.innerHTML = `
-            <td>
-                <button class="header-btn">Member</button>
-            </td>
-            <td>${rowData.user_firstname || '—'}</td>
-        </tr>
-        <tr>
-            <td>
-                <button class="header-btn">Condition</button>
-            </td>
-            <td>${rowData.ConditionNames || '—'}</td>
-        </tr>
-        <tr>
-            <td>
-                <button class="header-btn">Medication</button>
-            </td>
-            <td>${rowData.Medication || '—'}</td>
-        </tr>
-        <tr>
-            <td>
-                <button class="header-btn">Dosage</button>
-            </td>
-            <td>${rowData.Dosage || '—'}</td>
-        </tr>
-        <tr>
-            <td>
-                <button class="header-btn">Schedule</button>
-            </td>
-            <td>${rowData.Power || '—'}</td>
-        </tr>
-        <tr>
-            <td>
-                <button class="header-btn">Timing</button>
-            </td>
-            <td>${rowData.Timings || '—'}</td>
-        </tr>
-        <tr>
-            <td>
-                <button class="header-btn">Action</button>
-            </td>
-            <td>
-                <button class="btn btn-primary" onclick="editPrescription(${rowData.Id})">Edit</button>
-                <button class="btn btn-danger" onclick="removeRow(${rowData.Id})">Delete</button>
-            </td>
-        </tr>
-        `;
-
-                        tableBody.appendChild(newRow);
-                    });
-                }
-
+                    const isMobile = window.innerWidth <= 768;
                     
+                    let filledRows = 0;
+                    // Clear previous content
+                   
+                    desktopTableBody.innerHTML = "";
+                    mobileTableBody.innerHTML = "";
+                   // let cardBody = document.querySelector("#mo");
 
-                    // Run the function when the page loads
+                 
+                       
+                    
+                    if (isMobile)
+                    {
+                        desktopTable.innerHTML = "";
+                        desktopTable.style.display = "none"; // Hide desktop table
+                        mobileTableBody.style.display = "block";
+                        populateMobileView(dataList, mobileTableBody);
+                    }
+                    else {
+                        desktopTable.style.display = "table"; // Show desktop table
+                        mobileTableBody.style.display = "none"; 
+                        for (let i = 0; i < 14; i++) {
+                            const rowData = dataList[i] || {};
+                            addRecordTable(rowData, desktopTableBody);
+                            filledRows++;
+                        }
+
+
+                        for (let i = filledRows; i < dataList.length; i++) {
+                            addRecordTable(dataList[i], desktopTableBody);
+                        }
+                    }
+                  
+                }
               
+                function populateMobileView(dataList, container) {
+                    container.innerHTML = "";
+                  // Clearing previous data
+                    dataList.forEach(data => {
+                        var hiddenData = "";
+                        if (currentUser[0].user_id != data.UserId) {
+                            hiddenData = "display:none;";
+                        }
+                        const conditions = conditionMaster.filter(opt => data.Conditions && data.Conditions.includes(opt.Id));
+                        const conditionNames = conditions.map(condition => condition.ConditionName).join(', ');
 
-                // 🟡 Refresh Data on Screen Resize
-               
+                        // Creating the mobile view container
+                        const rowHTML = `
+        <div class="mobile-table-container" data-id="${data.Id || ''}" style="${hiddenData}">
+            <table class="mobile-table">
+                <tr><th>Member</th><td>${data.user_firstname || ''}</td></tr>
+                <tr><th>Condition</th><td>${conditionNames || ''}</td></tr>
+                <tr><th>Medication</th><td>${data.Medication || ''}</td></tr>
+                <tr><th>Dosage</th><td>${data.Dosage || ''}</td></tr>
+                <tr><th>Schedule</th><td>${data.Power || ''}</td></tr>
+                <tr><th>Timing</th><td>${data.Timings || ''}</td></tr>
+                <tr>
+                    <th>Actions</th>
+                    <td>
+                        <button class="edit-btn" onclick="editPrescription(${data.Id || ''})">Edit</button>
+                        <i class="fas fa-trash action-icons" onclick="removeRow(${data.Id || ''})"></i>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        `;
+
+                        // Convert the string into an actual DOM element
+                        const tempDiv = document.createElement("div");
+                        tempDiv.innerHTML = rowHTML.trim(); // Ensure clean parsing
+
+                        // Ensure the element is correctly created before appending
+                        const mobileContainer = tempDiv.firstElementChild;
+                        if (mobileContainer) {
+                            container.appendChild(mobileContainer);
+                        } else {
+                            console.error("Failed to create mobile table container.");
+                        }
+                    });
+                }
+
+
+
+
+
+
+         
+
                 function loadEmptyRows() {
                     const tableBody = document.querySelector("#prescriptionTableBody");
                     // Ensure that we load 6 empty rows initially
@@ -759,6 +1564,8 @@ thead {
 
 
                 function GetAccessData() {
+                    desktopTable.style.display = "table";
+
                     FetchedData = [];
                     $.ajax({
                         type: "POST", // Use POST instead of GET
@@ -783,12 +1590,10 @@ thead {
                 let modal = new bootstrap.Modal(modalElement);
 
               
-
-
                 function addPrescription(data = {}) {
 
                     modal.show();
-
+                 
 
                     $("#PrescriptionId").val(data.Id || '');
                     $("#MemberSelect").val(data.MemberId || '');
@@ -810,13 +1615,14 @@ thead {
                    
 
                     $("#UserSelect").on("change", function () {
+                        debugger
                         const selectedValue = $(this).val(); 
                         const tableBody = document.querySelector("#prescriptionTableBody");
                         tableBody.innerHTML = ''; 
-
+                        
                         if (selectedValue != "") {
-                          
-                            const FilteredData = FetchedData.filter(opt => opt.UserId == parseInt(selectedValue));
+
+                            const FilteredData = FetchedData.filter(opt => opt.MemberId == parseInt(selectedValue));
                             populateRows(FilteredData); 
                         } else {
                            
@@ -829,35 +1635,48 @@ thead {
 
                
                 function populateRows(dataList) {
-                    const tableBody = document.querySelector("#prescriptionTableBody");
-                    let filledRows = 0;
-
-                   
-                    for (let i = 0; i < 14; i++) {
-                        const rowData = dataList[i] || {}; 
-                        addRecordTable(rowData);
-                        filledRows++;
-                    }
+                    debugger
 
                   
-                    for (let i = filledRows; i < dataList.length; i++) {
-                        addRecordTable(dataList[i]);
+
+                    const tableBody = document.querySelector("#prescriptionTableBody");
+                    let filledRows = 0;
+                    desktopTableBody.innerHTML = "";
+                    mobileTableBody.innerHTML = "";
+                    const isMobile = window.innerWidth <= 768;
+
+                    
+                  
+                    if (isMobile) {
+                        populateMobileView(dataList, mobileTableBody);
                     }
+                    else {
+                        for (let i = 0; i < 14; i++) {
+                            const rowData = dataList[i] || {};
+                            addRecordTable(rowData, desktopTableBody);
+                            filledRows++;
+                        }
+
+
+                        for (let i = filledRows; i < dataList.length; i++) {
+                            addRecordTable(dataList[i], desktopTableBody);
+                        }
+                    }
+
+                    
                 }
 
               
-                function addRecordTable(rowData) {
-                   
+            
+                function addRecordTable(rowData, container) {
                     
-                    var hiddenData = "";
-                    if (currentUser[0].user_id != rowData.UserId) {
-                        hiddenData = "display:none;";
-                    }
-                    const tableBody = document.querySelector("#prescriptionTableBody");
+                    //var hiddenData = "";
+                    //    if (currentUser[0].user_id != rowData.UserId) {   
+                    //        hiddenData = "display:none;";
+                    //    }
 
-                   
                     const newRow = document.createElement("tr");
-                    const memberName = memberMaster.find(opt => opt.user_id == parseInt(rowData.MemberId));
+                    newRow.setAttribute("data-id", rowData.Id || '');
                     let conditionName = "";
                     if (rowData.Conditions) {
                         const conditionId = parseInt(rowData.Conditions); // Convert to number
@@ -870,131 +1689,150 @@ thead {
                             conditionName = condition ? condition.ConditionName : "";
                         }// Assign name if found
                     }
-                    newRow.setAttribute('data-id', rowData.Id || '');
+                    const isEmptyRow = !rowData.user_firstname && !conditionName && !rowData.Medication && !rowData.Dosage && !rowData.Power && !rowData.Timings;
                     newRow.innerHTML = `
-                        <td hidden>${rowData.Id || ''}</td>
-                        <td style="text-align:center">${rowData.user_firstname || ''}</td>
-                        <td style="text-align:center">${conditionName || ''}</td>
-                        <td style="text-align:center">${rowData.Medication || ''}</td>
-                        <td style="text-align:center">${rowData.Dosage || ''}</td>
-                        <td style="text-align:center">${rowData.Power || ''}</td>
-                        <td style="text-align:center">${rowData.Timings || ''}</td>
-                        <td style="text-align:center;${hiddenData}">
-                            <i class="fas fa-edit action-icons" title="Edit" style="cursor:pointer" onclick="editPrescription(${rowData.Id || ''})"></i>
-                            &nbsp;
-                            <i class="fas fa-trash action-icons" title="Remove" style="cursor:pointer" onclick="removeRow(${rowData.Id || ''})"></i>
-                        </td>
-                        `;
+        <td hidden>${rowData.Id || ''}</td>
+        <td style="text-align:center">${rowData.user_firstname || ''}</td>
+        <td style="text-align:center">${conditionName || ''}</td>
+        <td style="text-align:center">${rowData.Medication || ''}</td>
+        <td style="text-align:center">${rowData.Dosage || ''}</td>
+        <td style="text-align:center">${rowData.Power || ''}</td>
+        <td style="text-align:center">${rowData.Timings || ''}</td>
+        <td style="text-align:center;">
+           ${!isEmptyRow ? `
+            <i class="fas fa-edit action-icons" onclick="editPrescription(${rowData.Id || ''})"></i>
+            &nbsp;
+            <i class="fas fa-trash action-icons" onclick="removeRow(${rowData.Id || ''})"></i>` : ''}
+        </td>
+    
+       
+    `;
 
-                   
-                    tableBody.appendChild(newRow);
+                    container.appendChild(newRow);
                 }
-                               
+         
 
                 function fetchMemberOptions() {
                     return new Promise((resolve, reject) => {
+                        $.ajax({
+                            type: "POST",
+                            url: "FamilyPrescription.aspx/UserData",
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            success: function (response) {
+                                const userData = JSON.parse(response.d);
+                                currentUser = userData;
+                                console.log(userData);
 
-                      
-                        setTimeout(() => {
-                            $.ajax({
-                                type: "POST", 
-                                url: "FamilyPrescription.aspx/UserData",
-                                contentType: "application/json; charset=utf-8",
-                                dataType: "json",
-                                success: function (response) {
-                                    const userData = JSON.parse(response.d);
-                                    currentUser = userData;
-                                    console.log(userData);
-                                    $.ajax({
-                                        type: "POST", 
-                                        url: "MedicalHistory.aspx/GetUserMembers",
-                                        contentType: "application/json; charset=utf-8",
-                                        dataType: "json",
-                                        success: function (response) {
-                                            const Data = JSON.parse(response.d);
-                                            memberMaster = Data;
-                                            const dependentMember = Data.filter(opt => opt.IsDependent == 1);
-                                            const IndependentMember = Data.filter(opt => opt.IsDependent == 0);
+                                $.ajax({
+                                    type: "POST",
+                                    url: "MedicalHistory.aspx/GetUserMembers",
+                                    contentType: "application/json; charset=utf-8",
+                                    dataType: "json",
+                                    success: function (response) {
+                                        const Data = JSON.parse(response.d);
+                                        memberMaster = Data;
+                                        const dependentMember = Data.filter(opt => opt.IsDependent == 1);
+                                        const IndependentMember = Data.filter(opt => opt.IsDependent == 0);
 
-                                            console.log("Members", Data);
-                                            const select = document.getElementById('MemberSelect');
-                                            const userselect = document.getElementById('UserSelect');
-                                            const opt = document.createElement('option');
-                                            opt.value = currentUser[0].user_id; 
-                                            opt.textContent = currentUser[0].user_firstname;
-                                            select.appendChild(opt); 
+                                        console.log("Members", Data);
+                                        const select = document.getElementById('MemberSelect');
+                                        const userselect = document.getElementById('UserSelect');
 
-                                            const myopt = document.createElement('option');
-                                            myopt.value = currentUser[0].user_id; 
-                                            myopt.textContent = currentUser[0].user_firstname; 
-                                            myopt.selected = true; 
-                                            userselect.appendChild(myopt);
-                                           
+                                        // Clear previous options
+                                        select.innerHTML = "";
+                                        userselect.innerHTML = "";
 
-                                            dependentMember.forEach(option => {
-                                                const opt = document.createElement('option');
-                                                opt.value = option.user_id;
-                                                opt.textContent = option.user_FirstName; 
-                                                select.appendChild(opt); 
-                                            });
+                                        const placeholderOption = document.createElement('option');
+                                        placeholderOption.value = "";
+                                        placeholderOption.textContent = "Select Member";
+                                        placeholderOption.disabled = true;
+                                        placeholderOption.selected = true;
+                                        select.appendChild(placeholderOption);
 
-                                            console.log('Member Options Fetched');
-                                            const container = document.getElementById("checkboxContainer");
+                                        const placeholderOption1 = document.createElement('option');
+                                        placeholderOption1.value = "";
+                                        placeholderOption1.textContent = "All User";
+                                        placeholderOption1.disabled = true;
+                                        placeholderOption1.selected = true;
+                                        userselect.appendChild(placeholderOption1);
 
-                                            IndependentMember.forEach(pair => {
-                                               
-                                                const checkbox = document.createElement("input");
-                                                checkbox.type = "checkbox";
-                                                checkbox.id = pair.user_id; 
-                                                checkbox.name = "options";
-                                                checkbox.value = pair.user_id;
-                                                if (AccessMember.includes(pair.user_id)) {
-                                                    checkbox.checked = true;
-                                                }
-                                                
-                                                const label = document.createElement("label");
-                                                label.htmlFor = pair.user_id;
-                                                label.textContent = pair.user_FirstName; 
+                                        // Add Current User Option
+                                        const opt1 = document.createElement('option');
+                                        opt1.value = currentUser[0].user_id;
+                                        opt1.textContent = currentUser[0].user_firstname;
+                                        select.appendChild(opt1);
 
-                                             
-                                                container.appendChild(checkbox);
-                                                container.appendChild(label);
+                                        const opt2 = document.createElement('option');
+                                        opt2.value = currentUser[0].user_id;
+                                        opt2.textContent = currentUser[0].user_firstname;
+                                        userselect.appendChild(opt2);
 
+                                        // Adding Dependent Members
+                                        dependentMember.forEach(option => {
+                                            const opt1 = document.createElement('option');
+                                            opt1.value = option.user_id;
+                                            opt1.textContent = option.user_FirstName;
+                                            select.appendChild(opt1);
 
-                                                const opt = document.createElement('option');
-                                                opt.value = pair.user_id; 
-                                                opt.textContent = pair.user_FirstName; 
-                                                userselect.appendChild(opt); 
+                                            const opt2 = document.createElement('option');
+                                            opt2.value = option.user_id;
+                                            opt2.textContent = option.user_FirstName;
+                                            userselect.appendChild(opt2);
+                                        });
 
+                                        console.log('Member Options Fetched');
+                                        const container = document.getElementById("checkboxContainer");
+                                        container.innerHTML = ""; // Clear previous checkboxes
 
+                                        // Adding Independent Members
+                                        IndependentMember.forEach(pair => {
+                                            const checkbox = document.createElement("input");
+                                            checkbox.type = "checkbox";
+                                            checkbox.id = pair.user_id;
+                                            checkbox.name = "options";
+                                            checkbox.value = pair.user_id;
+                                            if (AccessMember.includes(pair.user_id)) {
+                                                checkbox.checked = true;
+                                            }
 
-                                                
-                                                container.appendChild(document.createElement("br"));
-                                            });
+                                            const label = document.createElement("label");
+                                            label.htmlFor = pair.user_id;
+                                            label.textContent = pair.user_FirstName;
 
+                                            container.appendChild(checkbox);
+                                            container.appendChild(label);
 
+                                            // Create separate option elements for each dropdown
+                                            const opt1 = document.createElement('option');
+                                            opt1.value = pair.user_id;
+                                            opt1.textContent = pair.user_FirstName;
+                                            userselect.appendChild(opt1);
 
+                                            const opt2 = document.createElement('option');
+                                            opt2.value = pair.user_id;
+                                            opt2.textContent = pair.user_FirstName;
+                                            select.appendChild(opt2);
 
-                                            resolve(); 
-                                        },
-                                        error: function () {
-                                            console.error('Error fetching members data');
-                                           
-                                            resolve();
-                                        }
-                                    });
-                                }
-                            });
+                                            container.appendChild(document.createElement("br"));
+                                        });
 
-
-                        }, 500);
+                                        resolve();
+                                    },
+                                    error: function () {
+                                        console.error('Error fetching members data');
+                                        resolve();
+                                    }
+                                });
+                            }
+                        });
                     });
                 }
 
-                function fetchConditionOptions() {
+                        function fetchConditionOptions() {
                     return new Promise((resolve, reject) => {
                         // Simulate async operation
-                        setTimeout(() => {
+                     
                             $.ajax({
                                 type: "POST", // Use POST instead of GET
                                 url: "MedicalHistory.aspx/GetCondionList",
@@ -1039,7 +1877,7 @@ thead {
                                 }
                             });
 
-                        }, 500);
+                       
                     });
                 }
 
@@ -1048,14 +1886,19 @@ thead {
                 fetchData();
 
                 function removeRow(rowId) {
-
-                    const row = document.querySelector(`tr[data-id='${rowId}']`); 
+                    debugger
+                    const isMobile = window.innerWidth <= 768;
+                    var row = 0;
+                    if (isMobile) {
+                         row = document.querySelector(`.mobile-table-container[data-id='${rowId}']`);
+                    }
+                    else { row = document.querySelector(`tr[data-id='${rowId}']`); }
                     if (row) {
 
                         console.log(`Row with ID ${rowId} removed`); 
                         $.ajax({
                             type: "POST",
-                            url: "MedicalHistory.aspx/RemoveFamilyPrescription",  
+                            url: "FamilyPrescription.aspx/RemoveFamilyPrescription",  
                             data: JSON.stringify({ recordId: rowId }),  
                             contentType: "application/json; charset=utf-8",  // Set content type as JSON
                             dataType: "json",  // Expect JSON response
@@ -1074,74 +1917,158 @@ thead {
                         });
                     }
                 }
+                $(document).ready(function () {
+                    var medicationCount = 1; // Start with Medication 1
+                    var isFirstDisabled = false; // Track if first row is disabled
+                    $(".medication-label").text(medicationCount);
+                  
+                        $("#addMoreBtn").click(function () {
+                            debugger
+                            var lastRow = $(".familyprescription-row").last();
+                            var newRow = lastRow.clone(); // Clone last row
+                            medicationCount++; // Increment count
+
+                            // Update Medication Label
+                            newRow.find(".medication-label").text(medicationCount);
+                            newRow.find('input, select, textarea').prop('disabled', false);
+                            // Keep previous Member & Condition values
+                            var memberVal = lastRow.find('select[name="member[]"]').val();
+                            var conditionVal = lastRow.find('select[name="condition[]"]').val();
+                            var otherconditionVal = lastRow.find('input[name="othercondition[]"]').val();
+                            newRow.find('.member').hide();
+                            newRow.find('.condition').hide();
+                            newRow.find('.othercondition').hide();
+                            // Remove Member and Condition fields from the new row
+                            newRow.find('select[name="member[]"]').val(memberVal);
+                            newRow.find('select[name="condition[]"]').val(conditionVal);
+                            newRow.find('select[name="othercondition[]"]').val(otherconditionVal);
+                            // Clear medication-specific fields
+                            newRow.find('input[name="medication[]"]').val('');
+                            newRow.find('select[name="power[]"]').val('').trigger('change');
+                            newRow.find('input[name="dosage[]"]').val('');
+                            newRow.find('select[name="timings[]"]').val('').trigger('change');
+
+                          
+                            // Make sure the new row has a `.medicationspan`
+                            newRow.find('.medicationspan').each(function () {
+                                $(this).removeAttr('id'); // Remove duplicate IDs
+                            });
+
+                            // Append the new row after the last row
+                            lastRow.after(newRow);
+                        });
+                    
+
+
+
+
+                });
 
 
                 function submitForm(event) {
                     event.preventDefault();
                     var data = [];
                     var isValid = true;
+
                     $('.familyprescription-row').each(function () {
-                        var row = $(this); 
-                        var memberId = row.find('select[name="member[]"]').val(); 
-                        if (!memberId) { 
-                            isValid = false;  
-                          
-                            toastr.error('Member is required.');
-                            return false; 
-                        }
-                        var conditions = row.find('select[name="condition[]"]').val(); 
+                        var row = $(this);
+                        //var memberId = row.find('select[name="member[]"]').val();
+                        //if (!memberId) {
+                        //    isValid = false;
 
-                       
-                        data.push({
-                            id: row.find('input[name="Id[]"]').val(),  
-                            memberId: memberId || '',  
-                            condition: conditions || '',  
-                            otherCondition: row.find('input[name="othercondition[]"]').val(),
-                            medication: row.find('input[name="medication[]"]').val(),
-                            power: row.find('select[name="power[]"]').val(),
-                            dosage: row.find('input[name="dosage[]"]').val(),
-                            timings: row.find('select[name="timings[]"]').val(),
-                        });
-                    });
-                    console.log(data);
-                    if (data.length == 0 && isValid) {
-                        isValid = false;  // Set form as invalid
-                        toastr.error('Add atleast one prescription.');
-                    }
-                    if (isValid) {
-                        $.ajax({
-                            type: "POST",
-                            url: "MedicalHistory.aspx/SaveFamilyPrescription",
-                            data: JSON.stringify({ data: data }),
-                            contentType: "application/json; charset=utf-8",  // Send JSON
-                            dataType: "json",
-                            success: function (response) {
-                                $('#gridContainer').html('');
-                               
+                        //    toastr.error('Member is required.');
+                        //    return false;
+                        //}
+                        //var conditions = row.find('select[name="condition[]"]').val(); 
 
-                                modal.hide();
-                                if (parseInt(data[0].id) > 0) {
-                                    toastr.success('User Prescription Updated Successfully!');
-                                    setTimeout(function () {
-                                        location.reload();
-                                    }, 200);
-                                }
-                                else {
-                                    toastr.success('User Prescription Added Successfully!');
-                                    setTimeout(function () {
-                                        location.reload();
-                                    }, 200);
-                                }
+                        row.find('.medicationspan').each(function () {
+                            var medicationRow = $(this);
 
+                            // Get input values
+                            var id = medicationRow.find('input[name="Id[]"]').val() || 0;
+                            var memberId =medicationRow.find('select[name="member[]"]').val() || row.find('select[name="member[]"]').val();
+                            var condition = medicationRow.find('select[name="condition[]"]').val() || row.find('select[name="condition[]"]').val();
+                            var otherCondition = medicationRow.find('input[name="othercondition[]"]').val() || row.find('input[name="othercondition[]"]').val();
+                            var medication = medicationRow.find('input[name="medication[]"]').val();
+                            var powerValues = medicationRow.find('select[name="power[]"]').val() || [];
+                            var dosage = medicationRow.find('input[name="dosage[]"]').val();
+                            var timingsValues = medicationRow.find('select[name="timings[]"]').val() || [];
+
+                            // Ensure timings is always an array
+                            var timings = Array.isArray(timingsValues) ? timingsValues : timingsValues;
+
+                            // **🚀 Only add row if it contains actual data**
+                            if (memberId || condition || otherCondition || medication || dosage || timings.length > 0) {
+                                data.push({
+                                    id: id,
+                                    memberId: memberId,
+                                    condition: condition,
+                                    otherCondition: otherCondition,
+                                    medication: medication,
+                                    power: powerValues.join(','), // Join array into a string
+                                    dosage: dosage,
+                                    timings: timings  // Keep it as an array
+                                });
                             }
                         });
+                    });
 
+                    console.log("Final Data to Send:", data);
+
+                    if (data.length == 0 && isValid) {
+                        isValid = false;
+                        toastr.error('Add at least one prescription.');
+                    }
+
+                    //if (isValid) {
+                    //    $.ajax({
+                    //        type: "POST",
+                    //        url: "/MedicalHistory.aspx/SaveFamilyPrescription",
+                    //        data: JSON.stringify({ data:data }),
+                    //        contentType: "application/json; charset=utf-8",
+                    //        dataType: "json",
+                    //        success: function (response) {
+                    //            $('#gridContainer').html('');
+                    //            modal.hide();
+                    //            toastr.success('User Prescription Saved Successfully!');
+                    //            setTimeout(function () {
+                    //                location.reload();
+                    //            }, 200);
+                    //        }
+                    //    });
+                    //}
+                    if(isValid){
+                        $.ajax({
+                            type: "POST",
+                            url: "FamilyPrescription.aspx/SaveFamilyPrescription",  // Updated URL
+                            data: JSON.stringify({ jsonData: JSON.stringify(data) }),
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            success: function (response) {
+                                if (response.d) {
+                                    var result = JSON.parse(response.d);  // Parse response
+                                    if (result.success) {
+                                        $('#gridContainer').html('');
+                                        modal.hide();
+                                        toastr.success(result.message);
+                                        setTimeout(function () {
+                                            location.reload();
+                                        }, 200);
+                                    } else {
+                                        toastr.error(result.message);
+                                    }
+                                }
+                            },
+                            error: function (xhr, status, error) {
+                                console.error("AJAX Error:", error);
+                                toastr.error("Error saving prescription.");
+                            }
+                        });
                     }
 
 
-                    // Here you can send the form data to the server (e.g., through Ajax)
-
                 }
+
 
 
 
@@ -1173,8 +2100,6 @@ thead {
 
 
 
-           
-                
                 function getBase64Image(url) {
                     return new Promise((resolve, reject) => {
                         let img = new Image();
@@ -1256,11 +2181,12 @@ thead {
                         type: "POST",
                         url: "FamilyPrescription.aspx/ShareFileAsLink",
                         contentType: "application/json; charset=utf-8",
-                        data: JSON.stringify({ base64PDF: pdfData.split(',')[1]?.trim(), shareTo: 'WhatsApp' }), // Remove "data:application/pdf;base64,"
+                        data: JSON.stringify({ base64PDF: pdfData.split(",")[1], shareTo: 'WhatsApp' }), // Remove "data:application/pdf;base64,"
                         dataType: "json",
                         success: function (response) {
                             console.log(response);
                             window.open(response.d, '_blank');
+                           // fetchData();
                         },
                         error: function (error) {
                             console.log("Error Share File As Link:", error);
@@ -1284,17 +2210,16 @@ thead {
                         success: function (response) {
                             console.log(response);
                             window.open(response.d, '_blank');
+                          //  fetchData();
                         },
                         error: function (error) {
-                               console.log("Error Share File As Link:", error);
+                            console.log("Error Share File As Link:", error);
                         }
                     });
                 }
-                      
+
 
             </script>
-
-           
 
 
 
@@ -1302,3 +2227,4 @@ thead {
     </asp:UpdatePanel>
 </asp:Content>
 
+ 

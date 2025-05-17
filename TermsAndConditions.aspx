@@ -23,22 +23,22 @@
         ul li {
             margin: 10px 0;
         }
-        .back-arrow-btn {
+       .back-arrow-btn {
             position: absolute;
             left: 10%;
             top: 10%;
-            /* color: #0512b9; */
+            color: #0512b9; 
             padding: 5px 20px;
             border-radius: 50px;
             border: 0;
             outline: 0;
             color: gray;
             cursor: pointer;
-            margin-top: 34px;
+            margin-top: 20px;
             font-family: 'Red Hat Display', Sans-serif !important;
             font-weight: 700;
             font-size: 16px;
-           
+           /* background-color: #fdd001;*/
         }
 
         @media (max-width:540px) {
@@ -130,11 +130,14 @@
 
     <div class="privacy_main h-100vh h-xl-90vh">
 
+
+          <a class="back-arrow-btn" href="index4.aspx">Back</a>
+
         <img class="blue_trangle_top_left" src="../Terms & Conditions/blue-trangle1.png" alt="">
         <img class="blue_trangle_top_right" src="../Terms & Conditions/blue-trangle2.png" alt="">
         <img class="plus_top_left" src="../Terms & Conditions/plus-1.png" alt="">
 
-        <a class="back-arrow-btn" href="index4.aspx">Back</a>
+       
 
         <div class="mt-5 mt-lg-0" style="height: 90%;">
             <div class="d-flex justify-content-center align-items-center h-100">

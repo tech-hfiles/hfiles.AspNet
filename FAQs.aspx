@@ -83,7 +83,7 @@
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <strong>5 members and 2 pets can be added, if not pets then just 5 members.
+                                <strong>You can add only 5 members for free; to add more, you'll need to upgrade your plan..
                                 </strong>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <strong>A total of 500 MB disk space is allocated for an individual with free account.
+                                <strong>A total of 100 MB disk space is allocated for an individual with free account.
                                 </strong>
                             </div>
                         </div>

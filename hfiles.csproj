@@ -52,9 +52,6 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
       <HintPath>packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
-    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
-      <HintPath>packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
-    </Reference>
     <Reference Include="CKEditor.NET">
       <HintPath>..\..\Signage\Signage\bin\CKEditor.NET.dll</HintPath>
     </Reference>
@@ -63,6 +60,9 @@
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Ghostscript.NET, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Ghostscript.NET.1.3.0-rc.2\lib\netstandard2.0\Ghostscript.NET.dll</HintPath>
     </Reference>
     <Reference Include="Google.Protobuf, Version=3.21.9.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>packages\Google.Protobuf.3.21.9\lib\net45\Google.Protobuf.dll</HintPath>
@@ -76,6 +76,9 @@
     <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
       <HintPath>packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
     </Reference>
+    <Reference Include="Magick.NET.Core, Version=14.6.0.0, Culture=neutral, PublicKeyToken=2004825badfa91ec, processorArchitecture=MSIL">
+      <HintPath>packages\Magick.NET.Core.14.6.0\lib\netstandard20\Magick.NET.Core.dll</HintPath>
+    </Reference>
     <Reference Include="MailKit, Version=4.1.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
       <HintPath>packages\MailKit.4.1.0\lib\net47\MailKit.dll</HintPath>
     </Reference>
@@ -86,8 +89,23 @@
       <HintPath>packages\Microsoft.Bcl.TimeProvider.8.0.1\lib\net462\Microsoft.Bcl.TimeProvider.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=7.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=8.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.8.0.1\lib\net462\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.Abstractions.8.0.2\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=8.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.8.0.1\lib\net462\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Options.8.0.2\lib\net462\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Primitives.8.0.0\lib\net462\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Graph, Version=5.63.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Graph.5.63.0\lib\netstandard2.0\Microsoft.Graph.dll</HintPath>
@@ -140,6 +158,9 @@
     <Reference Include="Microsoft.ScriptManager.MSAjax, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Win32.Registry, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Win32.Registry.5.0.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
     <Reference Include="MimeKit, Version=4.1.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
       <HintPath>packages\MimeKit.4.1.0\lib\net47\MimeKit.dll</HintPath>
     </Reference>
@@ -148,6 +169,42 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PDFiumSharp, Version=1.4660.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\PDFiumSharp.1.4660.0-alpha1\lib\netstandard2.0\PDFiumSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfiumViewer, Version=2.13.0.0, Culture=neutral, PublicKeyToken=91e4789cfb0609e0, processorArchitecture=MSIL">
+      <HintPath>packages\PdfiumViewer.2.13.0.0\lib\net20\PdfiumViewer.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp, Version=6.2.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>packages\PDFsharp.6.2.0-preview-3\lib\netstandard2.0\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.BarCodes, Version=6.2.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>packages\PDFsharp.6.2.0-preview-3\lib\netstandard2.0\PdfSharp.BarCodes.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=6.2.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>packages\PDFsharp.6.2.0-preview-3\lib\netstandard2.0\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Cryptography, Version=6.2.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>packages\PDFsharp.6.2.0-preview-3\lib\netstandard2.0\PdfSharp.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Quality, Version=6.2.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>packages\PDFsharp.6.2.0-preview-3\lib\netstandard2.0\PdfSharp.Quality.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Shared, Version=6.2.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>packages\PDFsharp.6.2.0-preview-3\lib\netstandard2.0\PdfSharp.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Snippets, Version=6.2.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>packages\PDFsharp.6.2.0-preview-3\lib\netstandard2.0\PdfSharp.Snippets.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.System, Version=6.2.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>packages\PDFsharp.6.2.0-preview-3\lib\netstandard2.0\PdfSharp.System.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.WPFonts, Version=6.2.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>packages\PDFsharp.6.2.0-preview-3\lib\netstandard2.0\PdfSharp.WPFonts.dll</HintPath>
+    </Reference>
+    <Reference Include="Razorpay, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Razorpay.3.1.4\lib\net47\Razorpay.dll</HintPath>
     </Reference>
     <Reference Include="Std.UriTemplate, Version=2.0.1.0, Culture=neutral, PublicKeyToken=c118b0afb4598f9a, processorArchitecture=MSIL">
       <HintPath>packages\Std.UriTemplate.2.0.1\lib\netstandard2.0\Std.UriTemplate.dll</HintPath>
@@ -158,14 +215,20 @@
     <Reference Include="System.ClientModel, Version=1.1.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
       <HintPath>packages\System.ClientModel.1.1.0\lib\netstandard2.0\System.ClientModel.dll</HintPath>
     </Reference>
-    <Reference Include="System.Diagnostics.DiagnosticSource, Version=7.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>packages\System.Diagnostics.DiagnosticSource.7.0.2\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Drawing.Common.8.0.8\lib\net462\System.Drawing.Common.dll</HintPath>
     </Reference>
     <Reference Include="System.Formats.Asn1, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Formats.Asn1.7.0.0\lib\net462\System.Formats.Asn1.dll</HintPath>
     </Reference>
     <Reference Include="System.IdentityModel.Tokens.Jwt, Version=8.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\System.IdentityModel.Tokens.Jwt.8.2.0\lib\net472\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Abstractions, Version=22.0.12.0, Culture=neutral, PublicKeyToken=96bf224d23c43e59, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Abstractions.22.0.12\lib\net472\System.IO.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
@@ -189,6 +252,15 @@
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.AccessControl.5.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Pkcs, Version=8.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Pkcs.8.0.1\lib\net462\System.Security.Cryptography.Pkcs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Text.Encodings.Web.8.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
     </Reference>
@@ -211,6 +283,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -218,6 +291,15 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="TestableIO.System.IO.Abstractions, Version=22.0.12.0, Culture=neutral, PublicKeyToken=96bf224d23c43e59, processorArchitecture=MSIL">
+      <HintPath>packages\TestableIO.System.IO.Abstractions.22.0.12\lib\net472\TestableIO.System.IO.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="TestableIO.System.IO.Abstractions.Wrappers, Version=22.0.12.0, Culture=neutral, PublicKeyToken=96bf224d23c43e59, processorArchitecture=MSIL">
+      <HintPath>packages\TestableIO.System.IO.Abstractions.Wrappers.22.0.12\lib\net472\TestableIO.System.IO.Abstractions.Wrappers.dll</HintPath>
+    </Reference>
+    <Reference Include="Testably.Abstractions.FileSystem.Interface, Version=9.0.0.0, Culture=neutral, PublicKeyToken=f24346c8579fcb48, processorArchitecture=MSIL">
+      <HintPath>packages\Testably.Abstractions.FileSystem.Interface.9.0.0\lib\netstandard2.0\Testably.Abstractions.FileSystem.Interface.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -285,6 +367,7 @@
     <Content Include="addbasicdetails.aspx" />
     <Content Include="AddMembers.aspx" />
     <Content Include="AllReports.aspx" />
+    <Content Include="article.aspx" />
     <Content Include="assets2\family-prescription-logo.jpeg" />
     <Content Include="assets\Full Logo Rectangle.png" />
     <Content Include="assets\membershipcard\2.png" />
@@ -292,6 +375,7 @@
     <Content Include="assets\membershipcard\4.png" />
     <Content Include="assets\membershipcard\5.png" />
     <Content Include="captchacode.aspx" />
+    <Content Include="Charge.aspx" />
     <Content Include="ClinicLogo\18a190a4-1472-4f56-b919-94fac0b72d85.jpg" />
     <Content Include="ClinicLogo\3064a499-404c-4d78-a5c9-44c5a482c5cc.jpg" />
     <Content Include="ClinicLogo\43436644-b1f2-41bc-ae7a-6ec75d107e03.jpg" />
@@ -304,8 +388,10 @@
     <Content Include="ClinicLogo\ebfdf648-2458-466c-b975-7441e58c2895.jpg" />
     <Content Include="ClinicLogo\fe68738c-976a-4d27-b560-7bd12ada54d0.jpg" />
     <Content Include="ContentDeliver.aspx" />
+    <Content Include="CreateAbhaCard.aspx" />
     <Content Include="css\index3.css" />
     <Content Include="css\index4.css" />
+    <Content Include="css\main.css" />
     <Content Include="Error.aspx" />
     <Content Include="FamilyPrescription.aspx" />
     <Content Include="FeedBack.aspx" />
@@ -314,8 +400,13 @@
     <Content Include="index2.aspx" />
     <Content Include="index3 .aspx" />
     <Content Include="index3.aspx" />
-    <Content Include="index4.aspx" />
+    <Content Include="index.aspx" />
     <Content Include="journal-page-images\article\404img.png" />
+    <Content Include="journal-page-images\article\5.png" />
+    <Content Include="journal-page-images\article\6.png" />
+    <Content Include="journal-page-images\article\7.png" />
+    <Content Include="journal-page-images\article\8.png" />
+    <Content Include="journal-page-images\article\9.png" />
     <Content Include="journal-page-images\article\abha-id.png" />
     <Content Include="journal-page-images\article\Abhay.png" />
     <Content Include="journal-page-images\article\Active.jpeg" />
@@ -822,7 +913,7 @@
     <Content Include="Help Page\blue-trangle6.png" />
     <Content Include="Help Page\blue-trangle7.png" />
     <Content Include="Help Page\home-icon.png" />
-    <Content Include="index.aspx" />
+    <Content Include="index__.aspx" />
     <Content Include="journal-page-images\961B8877-6322-4557-9520-5D0C9F5D9506 %28enhanced%29.wav" />
     <Content Include="journal-page-images\Article.jpg" />
     <Content Include="journal-page-images\article\Article.jpg" />
@@ -1452,60 +1543,6 @@
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Xml.XPath.XDocument.dll" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\vbc.exe" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\VBCSCompiler.exe" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn3.11\cs\cs\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn3.11\cs\de\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn3.11\cs\es\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn3.11\cs\fr\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn3.11\cs\it\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn3.11\cs\ja\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn3.11\cs\ko\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn3.11\cs\Microsoft.Extensions.Logging.Generators.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn3.11\cs\pl\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn3.11\cs\pt-BR\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn3.11\cs\ru\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn3.11\cs\tr\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn3.11\cs\zh-Hans\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn3.11\cs\zh-Hant\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.0\cs\cs\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.0\cs\de\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.0\cs\es\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.0\cs\fr\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.0\cs\it\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.0\cs\ja\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.0\cs\ko\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.0\cs\Microsoft.Extensions.Logging.Generators.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.0\cs\pl\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.0\cs\pt-BR\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.0\cs\ru\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.0\cs\tr\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.0\cs\zh-Hans\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.0\cs\zh-Hant\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.4\cs\cs\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.4\cs\de\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.4\cs\es\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.4\cs\fr\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.4\cs\it\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.4\cs\ja\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.4\cs\ko\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.4\cs\Microsoft.Extensions.Logging.Generators.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.4\cs\pl\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.4\cs\pt-BR\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.4\cs\ru\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.4\cs\tr\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.4\cs\zh-Hans\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\analyzers\dotnet\roslyn4.4\cs\zh-Hant\Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\Icon.png" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\lib\net462\Microsoft.Extensions.Logging.Abstractions.xml" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\lib\net6.0\Microsoft.Extensions.Logging.Abstractions.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\lib\net6.0\Microsoft.Extensions.Logging.Abstractions.xml" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\lib\net7.0\Microsoft.Extensions.Logging.Abstractions.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\lib\net7.0\Microsoft.Extensions.Logging.Abstractions.xml" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.xml" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\LICENSE.TXT" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\THIRD-PARTY-NOTICES.TXT" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\useSharedDesignerContext.txt" />
     <Content Include="packages\Microsoft.Graph.5.63.0\lib\net5.0\Microsoft.Graph.dll" />
     <Content Include="packages\Microsoft.Graph.5.63.0\lib\net5.0\Microsoft.Graph.xml" />
     <Content Include="packages\Microsoft.Graph.5.63.0\lib\netstandard2.0\Microsoft.Graph.dll" />
@@ -1757,18 +1794,6 @@
     <Content Include="packages\System.ClientModel.1.1.0\lib\net6.0\System.ClientModel.xml" />
     <Content Include="packages\System.ClientModel.1.1.0\lib\netstandard2.0\System.ClientModel.dll" />
     <Content Include="packages\System.ClientModel.1.1.0\lib\netstandard2.0\System.ClientModel.xml" />
-    <Content Include="packages\System.Diagnostics.DiagnosticSource.7.0.2\Icon.png" />
-    <Content Include="packages\System.Diagnostics.DiagnosticSource.7.0.2\lib\net462\System.Diagnostics.DiagnosticSource.dll" />
-    <Content Include="packages\System.Diagnostics.DiagnosticSource.7.0.2\lib\net462\System.Diagnostics.DiagnosticSource.xml" />
-    <Content Include="packages\System.Diagnostics.DiagnosticSource.7.0.2\lib\net6.0\System.Diagnostics.DiagnosticSource.dll" />
-    <Content Include="packages\System.Diagnostics.DiagnosticSource.7.0.2\lib\net6.0\System.Diagnostics.DiagnosticSource.xml" />
-    <Content Include="packages\System.Diagnostics.DiagnosticSource.7.0.2\lib\net7.0\System.Diagnostics.DiagnosticSource.dll" />
-    <Content Include="packages\System.Diagnostics.DiagnosticSource.7.0.2\lib\net7.0\System.Diagnostics.DiagnosticSource.xml" />
-    <Content Include="packages\System.Diagnostics.DiagnosticSource.7.0.2\lib\netstandard2.0\System.Diagnostics.DiagnosticSource.dll" />
-    <Content Include="packages\System.Diagnostics.DiagnosticSource.7.0.2\lib\netstandard2.0\System.Diagnostics.DiagnosticSource.xml" />
-    <Content Include="packages\System.Diagnostics.DiagnosticSource.7.0.2\LICENSE.TXT" />
-    <Content Include="packages\System.Diagnostics.DiagnosticSource.7.0.2\THIRD-PARTY-NOTICES.TXT" />
-    <Content Include="packages\System.Diagnostics.DiagnosticSource.7.0.2\useSharedDesignerContext.txt" />
     <Content Include="packages\System.Formats.Asn1.7.0.0\Icon.png" />
     <Content Include="packages\System.Formats.Asn1.7.0.0\lib\net462\System.Formats.Asn1.dll" />
     <Content Include="packages\System.Formats.Asn1.7.0.0\lib\net462\System.Formats.Asn1.xml" />
@@ -2523,6 +2548,13 @@
     <Compile Include="AllReports.aspx.designer.cs">
       <DependentUpon>AllReports.aspx</DependentUpon>
     </Compile>
+    <Compile Include="article.aspx.cs">
+      <DependentUpon>article.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="article.aspx.designer.cs">
+      <DependentUpon>article.aspx</DependentUpon>
+    </Compile>
     <Compile Include="captchacode.aspx.cs">
       <DependentUpon>captchacode.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2530,12 +2562,23 @@
     <Compile Include="captchacode.aspx.designer.cs">
       <DependentUpon>captchacode.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Charge.aspx.cs">
+      <DependentUpon>Charge.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="ContentDeliver.aspx.cs">
       <DependentUpon>ContentDeliver.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ContentDeliver.aspx.designer.cs">
       <DependentUpon>ContentDeliver.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateAbhaCard.aspx.cs">
+      <DependentUpon>CreateAbhaCard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateAbhaCard.aspx.designer.cs">
+      <DependentUpon>CreateAbhaCard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
@@ -2637,12 +2680,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="index.aspx.cs">
-      <DependentUpon>index.aspx</DependentUpon>
+    <Compile Include="index__.aspx.cs">
+      <DependentUpon>index__.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="index.aspx.designer.cs">
-      <DependentUpon>index.aspx</DependentUpon>
+    <Compile Include="index__.aspx.designer.cs">
+      <DependentUpon>index__.aspx</DependentUpon>
     </Compile>
     <Compile Include="journal.aspx.cs">
       <DependentUpon>journal.aspx</DependentUpon>
@@ -2809,6 +2852,7 @@
     <Content Include="journal-page-images\hfiles article 2- Dr. Shubhangini Sharma.pdf" />
     <Content Include="Avatar2\Final Resize.zip" />
     <Content Include=".gitignore" />
+    <Content Include="journal-page-images\article\Mar 04, 2025.zip" />
     <None Include="packages.config" />
     <Content Include="user.Master" />
     <Content Include="upload\report\DentalReport08_05_2023_05_18_22_895.pdf" />
@@ -2908,13 +2952,6 @@
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\vbc.exe.config" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\vbc.rsp" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\VBCSCompiler.exe.config" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\.signature.p7s" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\buildTransitive\net461\Microsoft.Extensions.Logging.Abstractions.targets" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\buildTransitive\net462\Microsoft.Extensions.Logging.Abstractions.targets" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\buildTransitive\net6.0\Microsoft.Extensions.Logging.Abstractions.targets" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\buildTransitive\netcoreapp2.0\Microsoft.Extensions.Logging.Abstractions.targets" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\buildTransitive\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.targets" />
-    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\Microsoft.Extensions.Logging.Abstractions.7.0.1.nupkg" />
     <Content Include="packages\Microsoft.Graph.5.63.0\.signature.p7s" />
     <Content Include="packages\Microsoft.Graph.5.63.0\Microsoft.Graph.5.63.0.nupkg" />
     <Content Include="packages\Microsoft.Graph.5.63.0\README.md" />
@@ -2992,12 +3029,6 @@
     <Content Include="packages\System.ClientModel.1.1.0\CHANGELOG.md" />
     <Content Include="packages\System.ClientModel.1.1.0\README.md" />
     <Content Include="packages\System.ClientModel.1.1.0\System.ClientModel.1.1.0.nupkg" />
-    <Content Include="packages\System.Diagnostics.DiagnosticSource.7.0.2\.signature.p7s" />
-    <Content Include="packages\System.Diagnostics.DiagnosticSource.7.0.2\buildTransitive\net461\System.Diagnostics.DiagnosticSource.targets" />
-    <Content Include="packages\System.Diagnostics.DiagnosticSource.7.0.2\buildTransitive\net462\_._" />
-    <Content Include="packages\System.Diagnostics.DiagnosticSource.7.0.2\buildTransitive\net6.0\_._" />
-    <Content Include="packages\System.Diagnostics.DiagnosticSource.7.0.2\buildTransitive\netcoreapp2.0\System.Diagnostics.DiagnosticSource.targets" />
-    <Content Include="packages\System.Diagnostics.DiagnosticSource.7.0.2\System.Diagnostics.DiagnosticSource.7.0.2.nupkg" />
     <Content Include="packages\System.Formats.Asn1.7.0.0\.signature.p7s" />
     <Content Include="packages\System.Formats.Asn1.7.0.0\buildTransitive\net461\System.Formats.Asn1.targets" />
     <Content Include="packages\System.Formats.Asn1.7.0.0\buildTransitive\net462\_._" />
@@ -3104,6 +3135,7 @@
     <Content Include="TempPDFs\d6864630-c6b9-4b09-8d78-9cfe7d26f9ec.pdf" />
     <Content Include="TempPDFs\db47877e-3fa8-4544-a2e0-73e1844f48bd.pdf" />
     <Content Include="README.md" />
+    <Content Include="Uploaded_Abha_cards\ABHA_Card %282%29.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3154,7 +3186,9 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets'))" />
   </Target>
+  <Import Project="packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -39,9 +39,16 @@ namespace hfiles
             {
                 // Ensure memberId exists and is valid
                 int memberId = 0;
+                int user_referenceId = Convert.ToInt32(Session["user_reference"]);
                 if (Session["memberId"] != null && int.TryParse(Session["memberId"].ToString(), out memberId) && memberId > 0)
                 {
-                    if (Session["Membersname"] != null)
+                    if (Session["Membersname"] != null && user_referenceId==0)
+                    {
+                        string membersName = Session["username"].ToString();
+                        string formattedName = char.ToUpper(membersName[0]) + membersName.Substring(1).ToLower();
+                        lblUploadHeader.Text = "Upload " + formattedName + "'s Report";
+                    }
+                    else if (Session["Membersname"] != null)
                     {
                         string membersName = Session["Membersname"].ToString();
                         string formattedName = char.ToUpper(membersName[0]) + membersName.Substring(1).ToLower();

@@ -249,12 +249,12 @@ namespace hfiles
                     connection.Open();
 
                     // Prepare the stored procedure command
-                    using (MySqlCommand cmd = new MySqlCommand("USP_GetAllReports", connection))
+                    using (MySqlCommand cmd = new MySqlCommand("GetUserAllReports", connection))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("p_UserId", selectedName);
-                        cmd.Parameters.AddWithValue("p_membersId", selectedName);
-                        cmd.Parameters.AddWithValue("p_SearchQuery", searchQuery);
+                        cmd.Parameters.AddWithValue("p_MemberId", selectedName);
+                        //cmd.Parameters.AddWithValue("p_SearchQuery", searchQuery);
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
                             GridView1.DataSource = reader;
@@ -615,7 +615,10 @@ namespace hfiles
                 }
 
                 // Open the file directly in a new browser tab or window
-                Response.Redirect(filePath);
+                 Response.Redirect(filePath);
+
+                //string script = $"window.open('{filePath}', '_blank');";
+                //ScriptManager.RegisterStartupScript(this, GetType(), "openFile", script, true);
             }
             else
             {

@@ -40,7 +40,7 @@ html, body {
 }
 
 .nav {
-    display: none;
+    display: none ;
 
 }
 .active {
@@ -124,7 +124,7 @@ html, body {
 
 @media(min-width: 425px){
     .signup {
-        display: flex !important; /* Force visibility */
+        display: flex ; /* Force visibility */
         background-color: #FFD100;
         width: 7rem;
         font-family: Montserrat;
@@ -150,12 +150,12 @@ html, body {
         }
 
         .hamburger {
-            display: none;
+            display: none ;
         }
 
         /* Navigation Menu */
         .nav {
-            display: flex;
+            display: flex !important;
             margin-right: 54px;
         }
 
@@ -2488,7 +2488,7 @@ html, body {
 .article_image {
     border-radius: 8px;
     width: 36%;
-    height: -webkit-fit-content;
+    height: auto;
     margin: 0px 14px 14px 14px;
 }
 .article_content {

@@ -15,13 +15,13 @@ namespace hfiles
     {
 
         /// <summary>
-        /// SearchInput control.
+        /// gvMemberslist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SearchInput;
+        protected global::System.Web.UI.WebControls.Repeater gvMemberslist;
 
         /// <summary>
         /// rptRequests control.
@@ -31,24 +31,6 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptRequests;
-
-        /// <summary>
-        /// uplManageMembers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel uplManageMembers;
-
-        /// <summary>
-        /// gvMembers1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater gvMembers1;
 
         /// <summary>
         /// Panel1 control.

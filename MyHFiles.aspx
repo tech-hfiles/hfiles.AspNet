@@ -490,6 +490,22 @@
     filter: invert(1); /* Inverts black to white */
 }
         /*avatar responsive*/
+
+        @media screen and (max-width: 1180px) and (min-width: 820px){
+            .col-lg-8{
+                margin-top: 107px;
+            }
+            .col-lg-4{
+
+                }
+            .avatar .row{
+              margin-top: 15px;
+                }
+
+               .avatar {
+          background-position-y: 55%;
+    }
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
