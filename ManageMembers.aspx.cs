@@ -265,13 +265,102 @@ namespace hfiles
             return result1;
 
         }
+        private string GetUserSubscription(int userId)
+        {
+            string plan = "";
+
+            using (MySqlConnection con = new MySqlConnection(cs))
+            {
+                string query = "SELECT subscriptionplan_status FROM user_details WHERE user_id = @UserID";
+                using (MySqlCommand cmd = new MySqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", userId);
+                    con.Open();
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        plan = rdr["subscriptionplan_status"].ToString();
+                    }
+                    con.Close();
+                }
+            }
+            return plan;
+        }
+        public bool CanAddMoreMembers(int userId)
+        {
+            // Get user plan from DB
+            string plan = GetUserSubscription(userId); // You should implement this method
+
+            // Get current member count from DB
+            int currentMemberCount = GetMemberCountByUser(userId); // Implement this too
+
+            // Get allowed member count
+            int maxMembers = GetMaxMembersAllowed(plan);
+
+            return currentMemberCount < maxMembers;
+        }
+        public int GetMemberCountByUser(int userId)
+        {
+            int count = 0;
+            using (MySqlConnection conn = new MySqlConnection(cs))
+            {
+                using (MySqlCommand cmd = new MySqlCommand("sp_GetMemberCountByUser", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("in_userId", userId);
+
+                    var outputParam = new MySqlParameter("out_memberCount", MySqlDbType.Int32);
+                    outputParam.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(outputParam);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    count = Convert.ToInt32(outputParam.Value);
+                    if (outputParam.Value != DBNull.Value)
+                    {
+                        count = Convert.ToInt32(outputParam.Value);
+                    }
+                    else
+                    {
+                        count = 0;
+                    }
+                }
+            }
+            return count;
+        }
+        public int GetMaxMembersAllowed(string plan)
+        {
+            switch (plan.ToLower())
+            {
+                case "basic":
+                    return 4;
+                case "standard":
+                    return 6;
+                case "premium":
+                    return 9;
+                default:
+                    return 0;
+            }
+        }
+
+
+
         protected void acceptBtn_Click(object sender, EventArgs e)
         {
             LinkButton lbtn = sender as LinkButton;
-            int int16 = (int)Convert.ToInt16((sender as LinkButton).CommandArgument);
+            int int16 = Convert.ToInt16(lbtn.CommandArgument);
             RepeaterItem rv = lbtn.NamingContainer as RepeaterItem;
 
             HiddenField hfDependentUserId = rv.FindControl("hfDependentUserId") as HiddenField;
+            int userId = DAL.validateInt(this.Session["Userid"]);
+
+            // ✅ Check if user can add more members
+            if (!CanAddMoreMembers(userId))
+            {
+                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", "toastr.error('Member limit exceeded! Please upgrade your plan..');", true);
+                return;
+            }
 
             using (MySqlConnection connection = new MySqlConnection(this.cs))
             {
@@ -279,28 +368,26 @@ namespace hfiles
                 using (MySqlCommand mySqlCommand = new MySqlCommand("usp_acceptRequest", connection))
                 {
                     mySqlCommand.CommandType = CommandType.StoredProcedure;
-                    mySqlCommand.Parameters.AddWithValue("_user_id", (object)DAL.validateInt(this.Session["Userid"]));
-                    mySqlCommand.Parameters.AddWithValue("_requestedid", (object)int16);
-                    mySqlCommand.Parameters.AddWithValue("_accepted", (object)1);
-                    mySqlCommand.Parameters.AddWithValue("_rejected", (object)0);
-                    mySqlCommand.Parameters.AddWithValue("_dependentUserId", DAL.validateInt(hfDependentUserId.Value)); 
+                    mySqlCommand.Parameters.AddWithValue("_user_id", userId);
+                    mySqlCommand.Parameters.AddWithValue("_requestedid", int16);
+                    mySqlCommand.Parameters.AddWithValue("_accepted", 1);
+                    mySqlCommand.Parameters.AddWithValue("_rejected", 0);
+                    mySqlCommand.Parameters.AddWithValue("_dependentUserId", DAL.validateInt(hfDependentUserId.Value));
+
                     mySqlCommand.ExecuteNonQuery();
                     connection.Close();
-                    //icon = "assets/select.png";
-                    //message = "Request Accepted !";
-                    //string script = "<script type=\"text/javascript\"> launch_toast('" + message + "','" + icon + "'); </script>";
-                    //ClientScript.RegisterStartupScript(this.GetType(), "requestalert", script);
-                    //System.Web.UI.ScriptManager.RegisterClientScriptBlock((Page)this, this.GetType(), "alertMessage", "alert('Request Accepted')", true);
 
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Request Accepted');", true);
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", "toastr.success('Request Accepted');", true);
 
                     Label requestDot = Master.FindControl("requestDot") as Label;
                     requestDot.Visible = false;
                 }
             }
+
             requests();
             user_members();
         }
+
         protected void friendrequests_RowDataBound(object sender, GridViewRowEventArgs e)
         {
         }

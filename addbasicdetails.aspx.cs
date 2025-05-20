@@ -89,7 +89,14 @@ namespace hfiles
                     //    cityDropDownList.Visible = false;
                     //}
                     getbasicdetails(userid);
+                    string plan = GetUserSubscription(Session["Userid"].ToString()); // e.g., "Gold"
 
+                    if (plan == "Basic")
+                        profileImageContainer.Attributes["class"] += " ring-basic";
+                    else if (plan == "Standard")
+                        profileImageContainer.Attributes["class"] += " ring-standard";
+                    else if (plan == "Premium")
+                        profileImageContainer.Attributes["class"] += " ring-premium";
                     //firstNameTextBox.Value = Session["firstname"].ToString();
                     //lastNameTextBox.Value = Session["lastname"].ToString();
                     //emailTextBox.Value = Session["email"].ToString();
@@ -102,7 +109,27 @@ namespace hfiles
                 Response.Redirect("~/login.aspx");
             }
         }
+        private string GetUserSubscription(string userId)
+        {
+            string plan = "";
 
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                string query = "SELECT subscriptionplan_status FROM user_details WHERE user_id = @UserID";
+                using (MySqlCommand cmd = new MySqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", userId);
+                    con.Open();
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        plan = rdr["subscriptionplan_status"].ToString();
+                    }
+                    con.Close();
+                }
+            }
+            return plan;
+        }
         public static string UploadImage(string base64String)
         {
             try
@@ -350,9 +377,9 @@ namespace hfiles
                             txtpincode.Value = reader["pincode"].ToString();
                             string userState = stateTextBox.Value;
                             string userCity = cityTextBox.Value;
-                            if (reader["user_country"].ToString() != string.Empty)
+                            if (reader["countrycode"].ToString() != string.Empty)
                             {
-                                if (reader["user_country"].ToString().ToLower() == "india")
+                                if (reader["countrycode"].ToString().Trim() == "IND +91")
                                 {
                                     //ddlCountry.Items.FindByText(reader["user_country"].ToString()).Selected = true;
                                     //ddlCountry_SelectedIndexChanged(null, null);
@@ -367,12 +394,20 @@ namespace hfiles
                                         getstatelist();
                                         stateDropDownList.SelectedItem.Text = userState;
                                         getcitylist(userState);
-                                        cityDropDownList.SelectedValue = userCity;
+                                        cityDropDownList.SelectedItem.Text = userCity;
 
+                                    }
+                                    else if (reader["user_state"].ToString() != string.Empty)
+                                    {
+                                        cityDropDownList.SelectedItem.Text = userCity;
                                     }
                                 }
                                 else
                                 {
+
+                                    string dialingCode = reader["dialingcode"].ToString();
+                                    string countryCode = GetCountryCodeFromDialCode(dialingCode);
+                                    flagImage.Src = GetFlagApiUrl(countryCode);
                                     //ddlCountry.Items.FindByText(reader["user_country"].ToString()).Selected = true;
                                     //ddlCountry_SelectedIndexChanged(null, null);
                                     if (reader["user_state"].ToString() != string.Empty)
@@ -656,14 +691,14 @@ namespace hfiles
             string selectedStateText = stateDropDownList.SelectedItem?.Text.Trim().ToLower() ?? "";
             string selectedStateValue = stateDropDownList.SelectedValue;
 
-            if (selectedStateText == "no state found" || selectedStateValue == "0" || selectedStateText.Contains("please select"))
+            if (selectedStateText == "no state found" || selectedStateValue == "0" || selectedStateText.Contains("select state"))
             {
                 // Handle state fallback to textbox
-                //stateTextBox.Visible = true;
-                //rfvstateTextbox.Enabled = true;
+                stateTextBox.Visible = false;
+                rfvstateTextbox.Enabled = false;
 
                 stateDropDownList.Visible = true;
-                rfvstateDropDownList.Enabled = true;
+                rfvstateDropDownList.Enabled = false;
 
                 // City must also switch to manual
                 cityDropDownList.Visible = true;
@@ -684,8 +719,8 @@ namespace hfiles
                 cityDropDownList.Visible = true;
                 rfvcityDropDownList.Enabled = true;
 
-                //cityTextBox.Visible = false;
-                //rfvcityTextBox.Enabled = false;
+                cityTextBox.Visible = false;
+                rfvcityTextBox.Enabled = false;
 
                 // Load cities
                 if (!IsPostBack || cityDropDownList.Items.Count <= 1)
@@ -700,17 +735,19 @@ namespace hfiles
         }
         private void HandleCityVisibility(string state)
         {
-            
-            string selectedCityText = cityDropDownList.SelectedItem?.Text.Trim().ToLower() ?? "";
-            string selectedCityValue = cityDropDownList.SelectedValue;
 
-            if (selectedCityText == "no city found" || selectedCityValue == "0" || selectedCityText.Contains("please select"))
+            //string selectedCityText = cityDropDownList.SelectedItem?.Text.Trim().ToLower() ?? "";
+            //string selectedCityValue = cityDropDownList.SelectedValue;
+            string selectedStateText = stateDropDownList.SelectedItem?.Text.Trim().ToLower() ?? "";
+            string selectedStateValue = stateDropDownList.SelectedValue;
+
+            if (selectedStateText == "no city found" || selectedStateText == "0" || selectedStateText.Contains("please select"))
             {
                 // Fallback to textbox
-                cityTextBox.Visible = true;
+                cityTextBox.Visible = false;
                 rfvcityTextBox.Enabled = true;
 
-                cityDropDownList.Visible = false;
+                cityDropDownList.Visible = true;
                 rfvcityDropDownList.Enabled = false;
             }
             else

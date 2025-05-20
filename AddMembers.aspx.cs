@@ -78,13 +78,106 @@ namespace hfiles
                 Response.Redirect("Login.aspx");
             }
         }
+        public int GetMaxMembersAllowed(string plan)
+        {
+            switch (plan.ToLower())
+            {
+                case "basic":
+                    return 4;
+                case "standard":
+                    return 6;
+                case "premium":
+                    return 9;
+                default:
+                    return 0;
+            }
+        }
+        private string GetUserSubscription(int userId)
+        {
+            string plan = "";
+
+            using (MySqlConnection con = new MySqlConnection(cs))
+            {
+                string query = "SELECT subscriptionplan_status FROM user_details WHERE user_id = @UserID";
+                using (MySqlCommand cmd = new MySqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", userId);
+                    con.Open();
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        plan = rdr["subscriptionplan_status"].ToString();
+                    }
+                    con.Close();
+                }
+            }
+            return plan;
+        }
+        public bool CanAddMoreMembers(int userId)
+        {
+            // Get user plan from DB
+            string plan = GetUserSubscription(userId); // You should implement this method
+
+            // Get current member count from DB
+            int currentMemberCount = GetMemberCountByUser(userId); // Implement this too
+
+            // Get allowed member count
+            int maxMembers = GetMaxMembersAllowed(plan);
+
+            return currentMemberCount < maxMembers;
+        }
+        public int GetMemberCountByUser(int userId)
+        {
+            int count = 0;
+            using (MySqlConnection conn = new MySqlConnection(cs))
+            {
+                using (MySqlCommand cmd = new MySqlCommand("sp_GetMemberCountByUser", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("in_userId", userId);
+
+                    var outputParam = new MySqlParameter("out_memberCount", MySqlDbType.Int32);
+                    outputParam.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(outputParam);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    count = Convert.ToInt32(outputParam.Value);
+                    if (outputParam.Value != DBNull.Value)
+                    {
+                        count = Convert.ToInt32(outputParam.Value);
+                    }
+                    else
+                    {
+                        count = 0;
+                    }
+                }
+            }
+            return count;
+        }
+
         protected void btn_Submit_ServerClick(object sender, EventArgs e)
         {
-            if (firstnameTextBox.Value != string.Empty)
-            {
-                AddMember(sender);
+            int userId = Convert.ToInt32(Session["UserID"]); // or however you manage login
 
+            if (CanAddMoreMembers(userId))
+            {
+                // Proceed to add member logic
+                AddMember(sender); // Implement this method
+
+                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Member added successfully!');", true);
             }
+            else
+            {
+
+                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.warning('You have reached the maximum member limit for your subscription plan.');", true);
+            }
+            //if (firstnameTextBox.Value != string.Empty)
+            //{
+            //    AddMember(sender);
+
+            //}
 
 
         }

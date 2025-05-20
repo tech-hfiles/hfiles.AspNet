@@ -144,24 +144,61 @@ namespace hfiles
                 Response.Redirect("~/login.aspx");
             }
         }
+        private string GetUserSubscription(int userId)
+        {
+            string plan = "";
+
+            using (MySqlConnection con = new MySqlConnection(cs))
+            {
+                string query = "SELECT subscriptionplan_status FROM user_details WHERE user_id = @UserID";
+                using (MySqlCommand cmd = new MySqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", userId);
+                    con.Open();
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        plan = rdr["subscriptionplan_status"].ToString();
+                    }
+                    con.Close();
+                }
+            }
+            return plan;
+        }
         public void showmembersdiv(object sender)
         {
             listmembers.Controls.Clear();
-            int remainingCount = 5 - rptMember.Items.Count;
-            //int remainingCount1 = 7 - Repeater1.Items.Count;
 
-            if (remainingCount == 5)
+            // Assume you are fetching subscription plan from Session or Database
+            // Example here using a string (you can replace it)
+            string subscriptionPlan = GetUserSubscription(DAL.validateInt(Session["Userid"]));
+
+            int maxMembers = 4; // default Basic
+
+            if (subscriptionPlan == "Standard")
+            {
+                maxMembers = 6;
+            }
+            else if (subscriptionPlan == "Premium")
+            {
+                maxMembers = 9;
+            }
+
+            int remainingCount = maxMembers - rptMember.Items.Count;
+
+            if (remainingCount == maxMembers)
             {
                 repeaterdiv.Visible = false;
-                //repeaterdiv1.Visible = false;
             }
+
             if (remainingCount == 0)
             {
-                //repeaterdiv.Visible = false;
-                // ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You can add only 7 members !')", true);
-                //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Logged in successfully');", true);
+                // Show alert if max limit is reached
+                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", $"toastr.warning('You can add only {maxMembers} members!');", true);
+                return; // Stop further execution
             }
-            // Generate additional list items
+
+            // Generate additional list items for adding new members
             for (int i = 0; i < remainingCount; i++)
             {
                 HtmlGenericControl li = new HtmlGenericControl("li");
@@ -187,34 +224,6 @@ namespace hfiles
 
                 listmembers.Controls.Add(li);
             }
-
-            //newly added for mobile view
-            //for (int i = 0; i < remainingCount1; i++)
-            //{
-            //    HtmlGenericControl li1 = new HtmlGenericControl("li1");
-            //    li1.Attributes["class"] = "border-bottom w-100px text-center mb-2 mb-lg-2 mb-xxl-4";
-
-            //    HtmlAnchor a = new HtmlAnchor();
-            //    a.HRef = "AddMembers.aspx";
-
-            //    HtmlImage img = new HtmlImage();
-            //    img.Src = "../Avatar/add-icon.png";
-            //    img.Alt = "";
-            //    img.Width = 30;
-
-            //    HtmlGenericControl div = new HtmlGenericControl("div");
-
-            //    HtmlGenericControl small = new HtmlGenericControl("small");
-            //    small.Attributes["class"] = "add-member-name";
-            //    small.InnerHtml = "add member";
-
-            //    div.Controls.Add(small);
-            //    a.Controls.Add(img);
-            //    a.Controls.Add(div);
-            //    li1.Controls.Add(a);
-
-            //    listmembers1.Controls.Add(li1);
-            //}
         }
 
         public static int GetAge(DateTime reference, DateTime birthday)
@@ -877,36 +886,64 @@ namespace hfiles
                 using (MySqlConnection con = new MySqlConnection(cs))
                 {
                     con.Open();
+                    // Step 1: Get Used Storage
                     using (MySqlCommand cmd = new MySqlCommand("usp_getusedstorage", con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("_UserId", UserId);
-                        string usedStorage1 = "0";//cmd.ExecuteScalar().ToString();
                         double usedStorage = DAL.validateDouble_(cmd.ExecuteScalar());
                         Session["CurrentusedStorage"] = usedStorage;
-                        double TotalAllotStorage = DAL.validateDouble_(ConfigurationManager.AppSettings["StorageLimit"].ToString());
-                        storageused.InnerText = (usedStorage).ToString() + " MB Storage Used ";
-                        storageleft.InnerText = (Math.Round(TotalAllotStorage - usedStorage, 2)).ToString() + " of " + TotalAllotStorage.ToString() + " MB Left";
-                        storageusedm.InnerText = (usedStorage).ToString() + " MB Storage Used ";
-                        storageleftm.InnerText = (Math.Round(TotalAllotStorage - usedStorage, 2)).ToString() + " of " + TotalAllotStorage.ToString() + " MB Left";
-                        if (usedStorage >= TotalAllotStorage)
+
+                        // Step 2: Get User's Subscription Plan
+                        string subscriptionPlan = GetUserSubscription(UserId);
+
+
+                        // Step 3: Set Total Allotted Storage Based on Plan
+                        double totalAllotStorage = 0;
+                        switch (subscriptionPlan.ToLower())
+                        {
+                            case "basic":
+                                totalAllotStorage = 100; // 100 MB
+                                break;
+                            case "standard":
+                                totalAllotStorage = 300; // 300 MB
+                                break;
+                            case "premium":
+                                totalAllotStorage = 1000; // 1000 MB
+                                break;
+                            case "advanced":
+                                totalAllotStorage = 1000000; // Assume Unlimited as 1 TB (or a very large number)
+                                break;
+                            default:
+                                totalAllotStorage = 100; // Default to Basic if plan not found
+                                break;
+                        }
+
+                        // Step 4: Display
+                        storageused.InnerText = usedStorage.ToString("F2") + " MB Storage Used ";
+                        storageleft.InnerText = Math.Round(totalAllotStorage - usedStorage, 2).ToString() + " of " + totalAllotStorage.ToString() + " MB Left";
+
+                        storageusedm.InnerText = usedStorage.ToString("F2") + " MB Storage Used ";
+                        storageleftm.InnerText = Math.Round(totalAllotStorage - usedStorage, 2).ToString() + " of " + totalAllotStorage.ToString() + " MB Left";
+
+                        // Optional: disable submit button if over limit
+                        if (usedStorage >= totalAllotStorage)
                         {
                             //btnSubmit.Enabled = false;
-                            //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", " toastr.success('Logged in successfully');", true);
                         }
                         else
                         {
                             //btnSubmit.Enabled = true;
-
                         }
                     }
                 }
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-
+                // Log the exception
             }
         }
+
 
         //protected void totalmembers()
         //{

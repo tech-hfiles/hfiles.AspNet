@@ -17,7 +17,8 @@ namespace hfiles
     {
         string connectionString = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
         int requestCount;
-        public Dictionary<int,string> bloodGroups = new Dictionary<int, string>
+        int userid;
+        public Dictionary<int, string> bloodGroups = new Dictionary<int, string>
 {
             { 0, "" },
     { 1, "A+" },
@@ -42,18 +43,28 @@ namespace hfiles
                     Response.Redirect("~/login.aspx");
                 }
 
-              
-                       
-              
+
+
+
                 //Response.Redirect("~/login.aspx");
             }
             else
             {
+                int userid = DAL.validateInt(Session["Userid"]);
+                string plan = GetUserSubscription(userid); // e.g., "Gold"
+
+                if (plan == "Basic")
+                    profileImageContainer.Attributes["class"] += " ring-basic";
+                else if (plan == "Standard")
+                    profileImageContainer.Attributes["class"] += " ring-standard";
+                else if (plan == "Premium")
+                    profileImageContainer.Attributes["class"] += " ring-premium";
+
                 //sesion user_membernumber replaced by username
                 if (Session["username"] != null)
                 {
                     // Check if there are any requests
-                  
+
                     //ReqCount.Text = requestCount.ToString();
                     using (MySqlConnection con = new MySqlConnection(connectionString))
                     {
@@ -88,7 +99,7 @@ namespace hfiles
                             {
                                 // Handle case when requestDot is not found
                                 requestDot.Text = "";
-                            }               
+                            }
                         }
                     }
                     //managerMembersTab.Text = $"Manager Members ({requestCount})";
@@ -109,7 +120,7 @@ namespace hfiles
                 }
             }
         }
-       
+
         public void getbasicdetails()
         {
             using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -125,7 +136,7 @@ namespace hfiles
                         if (reader.Read())
                         {
                             // Populate the HTML controls with user details.
-                            string Name = reader["user_firstname"].ToString() + " "+ reader["user_lastname"].ToString();
+                            string Name = reader["user_firstname"].ToString() + " " + reader["user_lastname"].ToString();
                             string ubg = reader["user_bloodgroup"].ToString();
                             if (string.IsNullOrEmpty(ubg))
                             {
@@ -148,12 +159,23 @@ namespace hfiles
                 }
             }
         }
-        public string LoadMembershipCard(string UnserNameText,string BloodGroupText,string EmergencyContact,string ExpiryText,string UserPlan,string memberIdText)
+        public string LoadMembershipCard(string UnserNameText, string BloodGroupText, string EmergencyContact, string ExpiryText, string UserPlan, string memberIdText)
         {
 
             //Change Image According to User Plan
-            //string imagePath = Server.MapPath("~/assets/membershipcard/2.png");
-            string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "membershipcard", "2.png");
+            string imagePath;
+
+            //int userid = DAL.validateInt(Session["UserID"].ToString());
+            string plan = GetUserSubscription(userid); // e.g., "Gold"
+
+            if (UserPlan == "Advanced")
+                imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "membershipcard", "5.png");
+            else if (UserPlan == "Standard")
+                imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "membershipcard", "2.png");
+            else if (UserPlan == "Premium")
+                imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "membershipcard", "3.png");
+            else
+                imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "membershipcard", "4.png");
 
 
             Bitmap bitmap = new Bitmap(imagePath);
@@ -171,21 +193,21 @@ namespace hfiles
             Brush brush = new SolidBrush(Color.Black); // Text color
 
             // Calculate the position to center the text
-            
+
             string CustomerServiceContact = ConfigurationManager.AppSettings["customerServiceMobile"].ToString();
 
             SizeF textSize = graphics.MeasureString(memberIdText, font);
-            PointF memberIdPosition = new PointF(((bitmap.Width - textSize.Width) / 2)+80, ((bitmap.Height - textSize.Height) / 2) - 65);
-            PointF userNamePosition = new PointF(((bitmap.Width - textSize.Width) / 2)+80, ((bitmap.Height - textSize.Height) / 2) + 35);
-            PointF BloodGroupPosition = new PointF(((bitmap.Width - textSize.Width) / 2)+80, ((bitmap.Height - textSize.Height) / 2) + 105);
-            PointF BloodGroupDataPosition = new PointF(((bitmap.Width - textSize.Width) / 2)+220, ((bitmap.Height - textSize.Height) / 2) + 105);
+            PointF memberIdPosition = new PointF(((bitmap.Width - textSize.Width) / 2) + 80, ((bitmap.Height - textSize.Height) / 2) - 65);
+            PointF userNamePosition = new PointF(((bitmap.Width - textSize.Width) / 2) + 80, ((bitmap.Height - textSize.Height) / 2) + 35);
+            PointF BloodGroupPosition = new PointF(((bitmap.Width - textSize.Width) / 2) + 80, ((bitmap.Height - textSize.Height) / 2) + 105);
+            PointF BloodGroupDataPosition = new PointF(((bitmap.Width - textSize.Width) / 2) + 220, ((bitmap.Height - textSize.Height) / 2) + 105);
 
-            PointF ExpiryPosition = new PointF(((bitmap.Width - textSize.Width) / 2)+390, ((bitmap.Height - textSize.Height) / 2) + 105);
-            PointF ExpiryDataPosition = new PointF(((bitmap.Width - textSize.Width) / 2)+465, ((bitmap.Height - textSize.Height) / 2) + 105);
-            PointF ContactPosition = new PointF(((bitmap.Width - textSize.Width) / 2)+80, ((bitmap.Height - textSize.Height) / 2) + 165);
-            PointF ContactDataPosition = new PointF(((bitmap.Width - textSize.Width) / 2)+285, ((bitmap.Height - textSize.Height) / 2) + 165);
-            PointF CustomerServicePosition = new PointF(((bitmap.Width - textSize.Width) / 2)+360, ((bitmap.Height - textSize.Height) / 2) + 275);
-            PointF CustomerServiceDataPosition = new PointF(((bitmap.Width - textSize.Width) / 2)+510, ((bitmap.Height - textSize.Height) / 2) + 275);
+            PointF ExpiryPosition = new PointF(((bitmap.Width - textSize.Width) / 2) + 390, ((bitmap.Height - textSize.Height) / 2) + 105);
+            PointF ExpiryDataPosition = new PointF(((bitmap.Width - textSize.Width) / 2) + 465, ((bitmap.Height - textSize.Height) / 2) + 105);
+            PointF ContactPosition = new PointF(((bitmap.Width - textSize.Width) / 2) + 80, ((bitmap.Height - textSize.Height) / 2) + 165);
+            PointF ContactDataPosition = new PointF(((bitmap.Width - textSize.Width) / 2) + 285, ((bitmap.Height - textSize.Height) / 2) + 165);
+            PointF CustomerServicePosition = new PointF(((bitmap.Width - textSize.Width) / 2) + 360, ((bitmap.Height - textSize.Height) / 2) + 275);
+            PointF CustomerServiceDataPosition = new PointF(((bitmap.Width - textSize.Width) / 2) + 510, ((bitmap.Height - textSize.Height) / 2) + 275);
 
             // Add the text to the image
             graphics.DrawString(memberIdText, font, brush, memberIdPosition);
@@ -209,7 +231,11 @@ namespace hfiles
             string Image = "data:image/png;base64," + Convert.ToBase64String(memoryStream.ToArray());
             // Dispose the bitmap as we don't need it anymore
             bitmap.Dispose();
+
             return Image;
+
+
+
         }
 
 
@@ -265,7 +291,27 @@ namespace hfiles
             }
         }
 
+        private string GetUserSubscription(int userId)
+        {
+            string plan = "";
 
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                string query = "SELECT subscriptionplan_status FROM user_details WHERE user_id = @UserID";
+                using (MySqlCommand cmd = new MySqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", userId);
+                    con.Open();
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        plan = rdr["subscriptionplan_status"].ToString();
+                    }
+                    con.Close();
+                }
+            }
+            return plan;
+        }
         protected void upgradeMemberButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/SubscriptionPlan.aspx");

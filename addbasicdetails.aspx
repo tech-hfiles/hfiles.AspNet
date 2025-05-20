@@ -656,7 +656,9 @@
 
                     <div class="profile-container">
                         <div class="text-center profile-img">
-                            <img id="imagePreview" class="" alt="profile_image" runat="server" style="border: 1px solid #FFD100; border-radius: 50%;" />
+                             <div class="profile-ring" id="profileImageContainer" runat="server">
+ <img id="imagePreview" class="" alt="profile_image" runat="server" style="border: 1px solid transparent; border-radius: 50%;" />
+     </div>
                             <%-- <img id="imagePreview" runat="server" class="w-75" src="../My Data/default-user-profile.png" alt="" />--%>
                             <div class="Addbasicbtnboth">
                                 <asp:Button ID="showInputButton" CssClass="button-change" runat="server" Text="Change Profile Image" OnClientClick="showFileUpload(); return false;" />
