@@ -13,7 +13,9 @@
             padding: 0 0 0 0 !important;
             height: 100%;
         }
+        body{
 
+        }
 
         .footer {
             position: fixed;
