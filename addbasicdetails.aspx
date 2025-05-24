@@ -120,7 +120,12 @@
                 color: #ccc;
                 font-weight: 500;
             }
-
+            .profile-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
             .signin-form .form-select {
                 color: #0331B5;
                 font-size: 12px;
@@ -656,9 +661,9 @@
 
                     <div class="profile-container">
                         <div class="text-center profile-img">
-                             <div class="profile-ring" id="profileImageContainer" runat="server">
- <img id="imagePreview" class="" alt="profile_image" runat="server" style="border: 1px solid transparent; border-radius: 50%;" />
-     </div>
+                            <div class="profile-ring" id="profileImageContainer" runat="server">
+<img id="imagePreview" class="" alt="profile_image" runat="server" style="border: 1px solid transparent; border-radius: 50%;" />
+    </div>
                             <%-- <img id="imagePreview" runat="server" class="w-75" src="../My Data/default-user-profile.png" alt="" />--%>
                             <div class="Addbasicbtnboth">
                                 <asp:Button ID="showInputButton" CssClass="button-change" runat="server" Text="Change Profile Image" OnClientClick="showFileUpload(); return false;" />
@@ -694,25 +699,43 @@
                                     <div class="col-12">
                                         <%--<span for="" class="imp-star">*</span>--%>
                                         <i class="fa-solid fa-circle-user form-control-feedback"></i>
-                                        <input required id="firstNameTextBox" runat="server" type="text" class="form-control" placeholder="First Name">
+                                        <input required id="firstNameTextBox" runat="server" type="text" class="form-control" placeholder="First Name" style="color: #707070;">
                                     </div>
 
                                     <%--Last Name--%>
                                     <div class="col-12">
                                         <%--<span for="" class="imp-star">*</span>--%>
                                         <i class="fa-solid fa-circle-user form-control-feedback"></i>
-                                        <input required id="lastNameTextBox" runat="server" type="text" class="form-control" placeholder="Last Name">
+                                        <input required id="lastNameTextBox" runat="server" type="text" class="form-control" placeholder="Last Name" style="color: #707070;">
                                     </div>
 
                                     <%--DOB--%>
 
-                                    <div class="col-12">
+                                   <%-- <div class="col-12">
                                         <i class="fa-solid fa-cake-candles form-control-feedback"></i>
-                                        <asp:TextBox runat="server" placeholder="dd-mm-yyyy" ID="txtDate" required class="form-control" />
+                                        <asp:TextBox runat="server" placeholder="dd-mm-yyyy" ID="txtDate" ClientIDMode="Static"  AutoComplete="Off" required class="form-control" style="color: #707070;"/>
                                         <ajaxToolkit:CalendarExtender ID="dateajax" runat="server" Format="dd-mm-yyyy" Enabled="true" TargetControlID="txtDate" />
+                                        
+                                        <input runat="server" id="dobTextBox1" onclick="setMaxDate()" value="2025-01-01" style="display: none; visibility: hidden; padding-right: 10px !important;" type="date" class="form-control" placeholder="" max="" />
+                                        <span id="dobError" style="color: red; display: none;">Please enter correct DOB</span>
+                                    </div>--%>
 
-                                        <input runat="server" id="dobTextBox1" onclick="setMaxDate()" style="display: none; visibility: hidden; padding-right: 10px !important;" type="date" class="form-control" placeholder="" max="" />
-                                    </div>
+                                    <div class="col-12">
+    <i class="fa-solid fa-cake-candles form-control-feedback"></i>
+
+    <!-- Date TextBox -->
+    <asp:TextBox runat="server" placeholder="dd-mm-yyyy" ID="txtDate" ClientIDMode="Static" AutoComplete="Off" required="required" CssClass="form-control" Style="color: #707070;" />
+
+    <!-- CalendarExtender with Correct Format -->
+    <ajaxToolkit:CalendarExtender ID="dateajax" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDate" Enabled="true" />
+
+    <!-- Hidden HTML5 Date Input -->
+    <input runat="server" id="dobTextBox1" onclick="setMaxDate()" value="2025-01-01" style="display: none; visibility: hidden; padding-right: 10px !important;" type="date" class="form-control" placeholder="" max="" />
+
+    <!-- Error Span -->
+    <span id="dobError" style="color: red; display: none;">Please enter correct DOB</span>
+</div>
+
 
                                     <%--Phone--%>
                                     <div class="col-12 input-wrapper">
@@ -722,7 +745,7 @@
                                         </span>--%>
 
                                         <input class="form-control" required id="contactTextBox" name="phone" readonly="true"
-                                            runat="server" type="tel" placeholder="Contact Number" />
+                                            runat="server" type="tel" placeholder="Contact Number" style="color: #707070;"/>
 
                                         <img class="country-flag" id="flagImage" runat="server" src="" />
                                     </div>
@@ -733,7 +756,7 @@
                                     <div class="col-12">
                                         <%--<span for="" class="imp-star">*</span>--%>
                                         <i class="fa-solid fa-envelope form-control-feedback"></i>
-                                        <input id="emailTextBox" readonly="true" runat="server" type="email" class="form-control" placeholder="Email ID" required />
+                                        <input id="emailTextBox" readonly="true" runat="server" type="email" class="form-control" placeholder="Email ID" required  style="color: #707070;"/>
                                     </div>
                                 </div>
 
@@ -849,7 +872,7 @@
 
                             <div class="profile_buttons">
                                 <div class="text-center">
-                                    <asp:Button ID="submitButton" runat="server" CssClass="update-button" OnClick="submitButton_Click" ValidationGroup="updateProfile" Text="Update"></asp:Button>
+                                    <asp:Button ID="submitButton" runat="server" CssClass="update-button" OnClick="submitButton_Click" ValidationGroup="updateProfile" Text="Update" OnClientClick="return validateDOBOnSubmit();"></asp:Button>
                                 </div>
 
                                 <a href="ChangePassword.aspx" class="change-password-link">
@@ -1057,6 +1080,27 @@
                 console.error("Element with ID 'dobTextBox1' not found");
             }
         }
+        function validateDOB(input) {
+            const dobValue = input.value.trim();
+            const errorSpan = document.getElementById("dobError");
+
+            const dobRegex = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(19|20)\d{2}$/;
+
+            if (!dobRegex.test(dobValue)) {
+                errorSpan.style.display = "inline";
+                input.classList.add("is-invalid");
+                return false;
+            } else {
+                errorSpan.style.display = "none";
+                input.classList.remove("is-invalid");
+                return true;
+            }
+        }
+
+        function validateDOBOnSubmit() {
+            const dobInput = document.getElementById("<%= txtDate.ClientID %>");
+        return validateDOB(dobInput); // If false, it prevents submission
+    }
 
     </script>
     <script> 
@@ -1132,10 +1176,12 @@
 </script>
  
 
-  <script type="text/javascript">
-      window.onload = function () {
-          const txtPincode = document.getElementById('<%= txtpincode.ClientID %>');
+ 
+    <script type="text/javascript">
+        let cityToSelect = "";
 
+        function bindPincodeEvent() {
+            const txtPincode = document.getElementById('<%= txtpincode.ClientID %>');
         if (!txtPincode) return;
 
         txtPincode.addEventListener('input', function () {
@@ -1143,9 +1189,13 @@
 
             if (pincode.length === 6 && /^\d{6}$/.test(pincode)) {
                 PageMethods.GetCityStateByPincode(pincode, function (response) {
-                    if (response) {
-                        // Autofill State
-                        var stateDDL = document.getElementById("<%= stateDropDownList.ClientID %>");
+                    if (response && response.state && response.city) {
+
+                        // Save the city to be selected after postback
+                        cityToSelect = response.city;
+
+                        // Set state
+                        const stateDDL = document.getElementById("<%= stateDropDownList.ClientID %>");
                         for (var i = 0; i < stateDDL.options.length; i++) {
                             if (stateDDL.options[i].text.trim().toLowerCase() === response.state.trim().toLowerCase()) {
                                 stateDDL.selectedIndex = i;
@@ -1153,29 +1203,59 @@
                             }
                         }
 
-                        // Trigger postback to populate city dropdown
+                        // Trigger postback to update city dropdown
                         __doPostBack('<%= stateDropDownList.UniqueID %>', '');
-
-                        // Autofill City (after postback if cities depend on state)
-                        setTimeout(function () {
-                            var cityDDL = document.getElementById("<%= cityDropDownList.ClientID %>");
-                            for (var i = 0; i < cityDDL.options.length; i++) {
-                                if (cityDDL.options[i].text.trim().toLowerCase() === response.city.trim().toLowerCase()) {
-                                    cityDDL.selectedIndex = i;
-                                    break;
-                                }
-                            }
-                        }, 500);
-                    } else {
-                        alert("Pincode not found.");
                     }
                 }, function (err) {
-                    console.error("WebMethod Error:", err);
+                    console.error("WebMethod error:", err);
                 });
             }
         });
-      };
-  </script>
+    }
+
+    // After postback completes, select the city
+    function selectCityAfterPostback() {
+        if (!cityToSelect) return;
+        const cityDDL = document.getElementById("<%= cityDropDownList.ClientID %>");
+            if (!cityDDL) return;
+
+            for (var i = 0; i < cityDDL.options.length; i++) {
+                if (cityDDL.options[i].text.trim().toLowerCase() === cityToSelect.trim().toLowerCase()) {
+                    cityDDL.selectedIndex = i;
+                    break;
+                }
+            }
+
+            // Reset temp variable
+            cityToSelect = "";
+        }
+
+        // Rebind events on every full or partial load
+        Sys.Application.add_load(function () {
+            bindPincodeEvent();
+        });
+
+        // Detect when postback (city refresh) finishes
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
+            selectCityAfterPostback();
+        });
+
+        // This will reformat the selected date if needed
+        function formatSelectedDate() {
+            var txtDate = document.getElementById('txtDate');
+            var value = txtDate.value;
+            var parts = value.split('/');
+            if (parts.length === 3) {
+                txtDate.value = parts[1] + '-' + parts[0] + '-' + parts[2]; // mm-dd-yyyy to dd-mm-yyyy
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById('txtDate').addEventListener('change', formatSelectedDate);
+        });
+    </script>
+
+
 
 </asp:Content>
 

@@ -247,7 +247,11 @@
   </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
    <h2 style="text-align:center;color: #0331b5;margin-top: 15px;">Shared Reports</h2>
+   
+    <asp:Image ID="imgError" runat="server" CssClass="error-image"  Style="display: block; margin: 0 auto; width: 40%; height: auto;" Visible="false" />
+     <asp:Label ID="lblExpireLink" runat="server" ForeColor="Red" Visible="false" style="margin-left: 50px;font-size: 35px;"></asp:Label>
           <div class="gridviewscroll">
               <br />
               

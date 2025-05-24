@@ -97,6 +97,7 @@ namespace hfiles
                         profileImageContainer.Attributes["class"] += " ring-standard";
                     else if (plan == "Premium")
                         profileImageContainer.Attributes["class"] += " ring-premium";
+
                     //firstNameTextBox.Value = Session["firstname"].ToString();
                     //lastNameTextBox.Value = Session["lastname"].ToString();
                     //emailTextBox.Value = Session["email"].ToString();

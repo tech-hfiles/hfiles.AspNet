@@ -22,18 +22,81 @@ namespace hfiles
         private object reportType;
         private int reportCount;
         private int reportId;
-
+        DateTime time;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //string reportIdsParam = Request.QueryString["reports"];
+            // time = Convert.ToDateTime(Request.QueryString["time"]);
+            //if (!string.IsNullOrEmpty(reportIdsParam))
+            //{
+            //    List<int> reportIds = reportIdsParam.Split(',').Select(int.Parse).ToList();
+            //    BindReports(reportIds);
+
+            //}
+            //GenerateWhatsAppUrlFP(reportIdsParam);
+            //if (!IsPostBack)
+            //{
+
+            //    string reportIdsParam1 = Request.QueryString["reports"];
+            //    time = Convert.ToDateTime(Request.QueryString["time"]);
+            //    if (!string.IsNullOrEmpty(reportIdsParam))
+            //    {
+            //        List<int> reportIds = reportIdsParam.Split(',').Select(int.Parse).ToList();
+            //        BindReports(reportIds);
+
+            //    }
+            //    GenerateWhatsAppUrlFP(reportIdsParam1);
+
+
+
+            //}
+
+            string reportIdsParam = Request.QueryString["reports"];
+            string timeParam = Request.QueryString["time"];
+
+            // Validate query parameters
+            if (string.IsNullOrEmpty(reportIdsParam) || string.IsNullOrEmpty(timeParam))
+            {
+                Response.Write("Invalid or missing link parameters.");
+                return;
+            }
+
+            // Parse time from query string
+            if (!DateTime.TryParseExact(timeParam, "dd-MM-yyyy HH:mm:ss",
+                System.Globalization.CultureInfo.InvariantCulture,
+                System.Globalization.DateTimeStyles.None,
+                out DateTime linkTime))
+            {
+                Response.Write("Invalid time format.");
+                return;
+            }
+
+            // Get current IST time
+            DateTime utcNow = DateTime.UtcNow;
+            TimeZoneInfo istTimeZone = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+            DateTime currentIST = TimeZoneInfo.ConvertTimeFromUtc(utcNow, istTimeZone);
+
+            // Expiry check: allow up to 5 minutes from link time
+            if ((currentIST - linkTime).TotalMinutes > 60)
+            {
+
+                lblExpireLink.Text = "The link you are trying to access has expired..";
+                lblExpireLink.Visible = true;
+
+                imgError.ImageUrl = "/journal-page-images/article/expirelink.jpeg";
+                imgError.Visible = true;
+                return;
+            }
+
+            // ✅ Valid and not expired — continue loading reports
+            List<int> reportIds = reportIdsParam.Split(',').Select(int.Parse).ToList();
+
             if (!IsPostBack)
             {
-                string reportIdsParam = Request.QueryString["reports"];
-                if (!string.IsNullOrEmpty(reportIdsParam))
-                {
-                    List<int> reportIds = reportIdsParam.Split(',').Select(int.Parse).ToList();
-                    BindReports(reportIds);
-                }
+                BindReports(reportIds);
+                GenerateWhatsAppUrlFP(reportIdsParam); // You can remove the duplicate call below
             }
+
         }
         private void BindReports(List<int> reportIds)
         {
@@ -85,7 +148,7 @@ namespace hfiles
                 if (!string.IsNullOrEmpty(fileUrl))
                 {
                     string whatsappMessage = fileUrl;
-                    whatsappUrl = GenerateWhatsAppUrl(whatsappMessage);
+                    whatsappUrl = GenerateWhatsAppUrlFP(whatsappMessage);
 
                     // Open both the report and WhatsApp in new tabs
                     string script = $"window.open('{whatsappUrl}', '_blank');";
@@ -144,42 +207,105 @@ namespace hfiles
 
             return string.IsNullOrEmpty(filePath) ? string.Empty : "https://hfiles.in" + filePath;
         }
-        public string GenerateWhatsAppUrl(string reportList)
+        //public string GenerateWhatsAppUrl(string reportList)
+        //{
+        //    DateTime utcNow = DateTime.UtcNow;
+
+        //    // Define IST timezone
+        //    TimeZoneInfo istTimeZone = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+
+        //    // Convert UTC to IST
+        //    DateTime indiaTime = TimeZoneInfo.ConvertTimeFromUtc(utcNow, istTimeZone);
+
+        //    // Set expiry time as 1 hour from now (based on generation time)
+        //    //DateTime expiryTime = indiaTime.AddHours(1);
+        //    DateTime expiryTime = indiaTime.AddMinutes(2);
+        //    Guid tokenId = Guid.NewGuid();
+
+        //    var tokenData = new { FilePath = reportList, Expiry = expiryTime };
+
+        //    // Store token in Cache with 1 hour expiry
+        //    HttpContext.Current.Cache.Insert(
+        //        tokenId.ToString(),       // Key
+        //        tokenData,                // Value
+        //        null,                     // Dependencies
+        //        expiryTime,               // Absolute Expiry Time
+        //        Cache.NoSlidingExpiration, // No sliding expiration
+        //        CacheItemPriority.Normal,
+        //        null);
+
+        //    string signedUrl = $"https://hfiles.in/ContentDeliver.aspx?token={tokenId}";
+
+        //    return signedUrl; // this is sent via WhatsApp
+        //}
+
+        //public string GenerateWhatsAppUrlFP(string reportList)
+        //{
+
+
+        //    DateTime utcNow = DateTime.UtcNow;
+
+        //    // Define the IST timezone
+        //    TimeZoneInfo istTimeZone = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+
+        //    // Convert UTC to IST
+        //    DateTime indiaTime = TimeZoneInfo.ConvertTimeFromUtc(utcNow, istTimeZone).AddMinutes(5);
+
+
+
+        //    Guid tokenId = Guid.NewGuid();
+
+        //    var tokenData = new { FilePath = reportList, Expiry = time };
+
+        //    // Storing data in Cache using tokenId as key
+        //    HttpContext.Current.Cache.Insert(
+        //        tokenId.ToString(),      // Key
+        //        tokenData,               // Value
+        //        null,                    // Dependencies (none in this case)
+        //        time, // Absolute Expiry Time
+        //        Cache.NoSlidingExpiration, // No sliding expiration
+        //        CacheItemPriority.Normal, // Cache item priority
+        //        null);
+        //    string signedUrl = $"https://hfiles.in/ContentDeliver.aspx?token={tokenId}";
+        //    // Callback (if needed)
+        //    // Store token data using tokenId as key (e.g., in MemoryCache, Database, etc.)
+
+
+
+        //    // Return the WhatsApp-ready link
+        //    return signedUrl;
+        //}
+
+        public string GenerateWhatsAppUrlFP(string reportList)
         {
-
-
+            // Get current UTC time
             DateTime utcNow = DateTime.UtcNow;
 
-            // Define the IST timezone
+            // Convert to IST
             TimeZoneInfo istTimeZone = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+            DateTime indiaTime = TimeZoneInfo.ConvertTimeFromUtc(utcNow, istTimeZone);
 
-            // Convert UTC to IST
-            DateTime indiaTime = TimeZoneInfo.ConvertTimeFromUtc(utcNow, istTimeZone).AddMinutes(60);
-
-
+            // Set expiry 5 minutes from now
+            DateTime expiryTime = indiaTime.AddMinutes(60);
 
             Guid tokenId = Guid.NewGuid();
 
-            var tokenData = new { FilePath = reportList, Expiry = indiaTime };
+            // Store reportList and expiry in cache
+            var tokenData = new { FilePath = reportList, Expiry = expiryTime };
 
-            // Storing data in Cache using tokenId as key
             HttpContext.Current.Cache.Insert(
-                tokenId.ToString(),      // Key
-                tokenData,               // Value
-                null,                    // Dependencies (none in this case)
-                indiaTime.AddMinutes(30), // Absolute Expiry Time
-                Cache.NoSlidingExpiration, // No sliding expiration
-                CacheItemPriority.Normal, // Cache item priority
-                null);
+                tokenId.ToString(),     // Key
+                tokenData,              // Value
+                null,
+                expiryTime,             // Absolute expiration (IST + 5 min)
+                Cache.NoSlidingExpiration);
+
+            // Create the URL with the token
             string signedUrl = $"https://hfiles.in/ContentDeliver.aspx?token={tokenId}";
-            // Callback (if needed)
-            // Store token data using tokenId as key (e.g., in MemoryCache, Database, etc.)
 
-
-
-            // Return the WhatsApp-ready link
             return signedUrl;
         }
+
 
     }
 }

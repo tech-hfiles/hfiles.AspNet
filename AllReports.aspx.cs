@@ -136,7 +136,7 @@ namespace hfiles
                     Session["UserId"] = UserId;
                     Session["MemberIds"] = p_membersId;
 
-                   
+
                     using (MySqlConnection connection = new MySqlConnection(cs))
                     {
                         connection.Open();
@@ -159,14 +159,14 @@ namespace hfiles
                             }
                             using (MySqlDataReader reader = cmd.ExecuteReader())
                             {
-                                if(reader.HasRows == true)
+                                if (reader.HasRows == true)
                                 {
                                     GridView1.DataSource = reader;
                                     GridView1.DataBind();
                                 }
                                 else
                                 {
-                                    gridLabel.Visible=true;
+                                    gridLabel.Visible = true;
                                     gridLabel.Text = "No Data Found!";
                                 }
                             }
@@ -443,8 +443,48 @@ namespace hfiles
         //    //  Response.Redirect(whatsstring);
         //}
 
+        //protected void sharewhatsapp_Click(object sender, EventArgs e)
+        //{
+        //    string baseWhatsAppUrl = "https://wa.me/?text=";
+        //    List<int> selectedReportIds = new List<int>();
+
+        //    // Iterate through the GridView rows to find selected CheckBox
+        //    foreach (GridViewRow row in GridView1.Rows)
+        //    {
+        //        CheckBox chkSelect = (CheckBox)row.FindControl("chkSelect");
+
+        //        if (chkSelect != null && chkSelect.Checked)
+        //        {
+        //            HiddenField hfReportId = (HiddenField)row.FindControl("hfReportUrl");
+        //            if (hfReportId != null && int.TryParse(hfReportId.Value, out int reportId))
+        //            {
+        //                selectedReportIds.Add(reportId);
+        //            }
+        //        }
+        //    }
+
+        //    // If no reports were selected, show an alert
+        //    if (selectedReportIds.Count == 0)
+        //    {
+        //        ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Please select at least one report.');setTimeout(function() { location.reload(); }, 1000);", true);
+        //        return;
+        //    }
+
+        //    // Generate a single shared report link
+        //    string reportPageUrl = "https://hfiles.in/ShareReports.aspx?reports=" + string.Join(",", selectedReportIds);
+        //    string encodedMessage = HttpUtility.UrlEncode("View your reports here: " + reportPageUrl);
+        //    string fullWhatsAppUrl = baseWhatsAppUrl + encodedMessage;
+
+        //    // Open WhatsApp in a new tab
+        //    string script = $"window.open('{fullWhatsAppUrl}', '_blank');setTimeout(function() {{ location.reload(); }}, 1000);";
+        //    ScriptManager.RegisterStartupScript(this, GetType(), "openWhatsApp", script, true);
+        //}
+
         protected void sharewhatsapp_Click(object sender, EventArgs e)
         {
+            // Store the current timestamp
+            DateTime clickTime = DateTime.Now; // Or use DateTime.UtcNow for UTC time
+
             string baseWhatsAppUrl = "https://wa.me/?text=";
             List<int> selectedReportIds = new List<int>();
 
@@ -471,14 +511,19 @@ namespace hfiles
             }
 
             // Generate a single shared report link
-            string reportPageUrl = "https://hfiles.in/ShareReports.aspx?reports=" + string.Join(",", selectedReportIds);
+            string reportPageUrl = "https://hfiles.in/ShareReports.aspx?time="+clickTime+"&&reports=" + string.Join(",", selectedReportIds);
             string encodedMessage = HttpUtility.UrlEncode("View your reports here: " + reportPageUrl);
             string fullWhatsAppUrl = baseWhatsAppUrl + encodedMessage;
 
             // Open WhatsApp in a new tab
             string script = $"window.open('{fullWhatsAppUrl}', '_blank');setTimeout(function() {{ location.reload(); }}, 1000);";
             ScriptManager.RegisterStartupScript(this, GetType(), "openWhatsApp", script, true);
+
+            // Optionally, you can log or use the timestamp later
+            // For example:
+            // Logger.Log("WhatsApp share clicked at: " + clickTime.ToString());
         }
+
 
 
 
@@ -552,7 +597,7 @@ namespace hfiles
                 Cache.NoSlidingExpiration, // No sliding expiration
                 CacheItemPriority.Normal, // Cache item priority
                 null);
-            string signedUrl = $"https://hfiles.in/ContentDeliver.aspx?token={tokenId} \n";
+            string signedUrl = $"https://hfiles.in/ContentDeliver.aspx?token={tokenId}";
             // Callback (if needed)
             // Store token data using tokenId as key (e.g., in MemoryCache, Database, etc.)
 
@@ -588,7 +633,7 @@ namespace hfiles
                 Cache.NoSlidingExpiration, // No sliding expiration
                 CacheItemPriority.Normal, // Cache item priority
                 null);
-            string signedUrl = $"https://hfiles.in/ContentDeliver.aspx?token={tokenId} \n";
+            string signedUrl = $"https://hfiles.in/ContentDeliver.aspx?token={tokenId}";
             // Callback (if needed)
             // Store token data using tokenId as key (e.g., in MemoryCache, Database, etc.)
 
@@ -732,6 +777,8 @@ namespace hfiles
 
         protected void shareEmail_Click(object sender, EventArgs e)
         {
+            DateTime clickTime = DateTime.Now;
+
             List<int> selectedReportIds = new List<int>();
 
             // Iterate through the GridView rows to find selected CheckBox
@@ -757,7 +804,8 @@ namespace hfiles
             }
 
             // Generate a single shared report link
-            string reportPageUrl = "https://hfiles.in/ShareReports.aspx?reports=" + string.Join(",", selectedReportIds);
+            //string reportPageUrl = "https://hfiles.in/ShareReports.aspx?reports=" + string.Join(",", selectedReportIds);
+            string reportPageUrl = "https://hfiles.in/ShareReports.aspx?time=" + clickTime + "&&reports=" + string.Join(",", selectedReportIds);
             string encodedMessage = "View your reports here: " + reportPageUrl;
 
             // Generate a universal mailto URL (works for all email clients)
