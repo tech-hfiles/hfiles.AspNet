@@ -1072,7 +1072,7 @@
                                                 </asp:Label>
                                             </div>
 
-                                            </asp:Label>
+                                            <%--</asp:Label>--%>
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
 
@@ -1199,9 +1199,9 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>--%>
-    <%--   <asp:UpdatePanel ID="uplManageMembers" runat="server">
+       <asp:UpdatePanel ID="uplManageMembers" runat="server">
                 <ContentTemplate>
-                    <div class="row">--%>
+               <%--     <div class="row">--%>
     <%-- <div class="col-md-4 col-lg-3 my-2">--%>
 
     <%--  <h2 class="text-center heading mb-5">Requests </h2>--%>
@@ -1327,109 +1327,7 @@
 
 
 
-    <%-- <div class="container-fluid member-cards hide-mobile">
-                        <div class="row justify-content-center gap-3">--%>
-    <%--<div class="d-flex justify-content-between w-100 d-sm-none">
-            <h2 class="heading my-2">Members List</h2>
-            <h2 class="heading my-2">Request List</h2>
-        </div>--%>
-
-
-    <%--<h2 class="text-center heading my-3 hide-mobile">Members List</h2>
-                                <asp:Repeater ID="gvMembers1" runat="server">
-                                    <ItemTemplate>
-                                        <div class="profile-card">
-                                            <!-- Profile Image -->
-                                            <img class="members-image" src='<%# ResolveUrl(string.Format("~/upload/{0}", string.IsNullOrEmpty(Eval("user_image").ToString()) ? "../My Data/default-user-profile.png" : Eval("user_image"))) %>'
-                                                alt="<%# Eval("user_firstname") %>" class="img-fluid" />
-
-                                            <h5 class="font-weight-bold u-name">
-                                                <%# Eval("user_firstname") + " " + Eval("user_lastname") %>
-                                            </h5>
-                                            <ul class="list-unstyled text-left mx-auto">
-                                                <li><strong>HF - ID :</strong> <%# Eval("user_membernumber") %></li>
-                                                <li><strong>Email:</strong> <%# Eval("user_email") %></li>
-                                                <li><strong>Mobile No :</strong> <%# Eval("user_contact") %></li>
-                                            </ul>
-
-
-
-                                            <asp:LinkButton ID="LinkButtonEdit" class="btn btn-primary" runat="server" Text="Edit" OnClick="editBtn_Click" CommandArgument='<%# Eval("user_id") %>' Visible='<%# Convert.ToInt32(Eval("User_Reference")) != 0 %>'>
-                                            </asp:LinkButton>
-
-
-
-
-                                            <asp:LinkButton ID="lbtnRemove" class="btn btn-delete" runat="server" OnClick="lbtnRemove_Click"
-                                                OnClientClick='<%# "return confirmDelete(" + Eval("User_Reference") + ");" %>' Text="Delete"
-                                                CommandArgument='<%# Eval("user_id") + "|" + Eval("user_relation") + "|" + Eval("DependentUserId") + "|" + Eval("User_Reference") %>'>
-                                            </asp:LinkButton>
-
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:Repeater>
-
-                            </div>
-                        </div>--%>
-
-
-
-    <%--<asp:GridView ID="gvMembers" runat="server" CssClass="table table-bordered manage-members-table" AutoGenerateColumns="false" OnRowDataBound="gvMembers_RowDataBound" AlternatingRowStyle-BackColor="Wheat">
-                 <Columns>
-                     <asp:TemplateField HeaderText="Serial Number">
-                         <ItemTemplate>
-                             <asp:Label ID="lblSerialNumber" runat="server"></asp:Label>
-                         </ItemTemplate>
-                     </asp:TemplateField>
-                     <asp:TemplateField HeaderText="HFiles Number">
-                         <ItemTemplate>
-                             <asp:Label ID="lblHFilesNumber" Text='<%#Eval("user_membernumber") %>' runat="server"></asp:Label>
-                         </ItemTemplate>
-                     </asp:TemplateField>
-
-                     <asp:TemplateField HeaderText="Image">
-                         <ItemTemplate>
-                             <asp:Image ID="profileImage" runat="server" ImageUrl='<%# string.IsNullOrEmpty(Eval("user_image").ToString()) ? "../My Data/default-user-profile.png" : "~/upload/" + Eval("user_image") %>' Height="50px" Width="50px"></asp:Image>
-                         </ItemTemplate>
-                     </asp:TemplateField>
-
-                     <asp:TemplateField HeaderText="Full Name">
-                         <ItemTemplate>
-                             <asp:Label ID="lblFullname" Text='<%#Eval("user_firstname") %>' runat="server"></asp:Label>
-                         </ItemTemplate>
-                     </asp:TemplateField>
-                     <asp:TemplateField HeaderText="Email ID">
-                         <ItemTemplate>
-                             <asp:Label ID="lblEmail" Text='<%#Eval("user_email") %>' runat="server"></asp:Label>
-                         </ItemTemplate>
-                     </asp:TemplateField>
-                     <asp:TemplateField HeaderText="Contat No.">
-                         <ItemTemplate>
-
-                             <asp:Label ID="lblContact" Text='<%#Eval("user_contact") %>' runat="server"></asp:Label>
-                         </ItemTemplate>
-                     </asp:TemplateField>
-
-                     <asp:TemplateField HeaderText="Actions">
-                         <ItemTemplate>
-                             <%-- <asp:LinkButton ID="LbtnEdit" runat="server" OnClick="LbtnEdit_Click" CommandArgument='<%#Eval("user_id") %>'>
-                         <i class="fa-solid fa-pen-to-square fa-1x color-thm-blue"></i>
-                     </asp:LinkButton>--%>
-    <%--<a href='<%# "AddMembers.aspx?UserId=" + Eval("user_id") %>'>
-                         <i class="fa-solid fa-pen-to-square fa-1x color-thm-blue"></i>
-                     </a>--%>
-
-    <%--  <a href="#" onclick="return confirm('Are you sure you want to delete this user?');">
-                         
-                         <i class="fa-solid fa-trash fa-1x color-thm-danger"></i>
-                     </a>--%>
-
-    <%--   </ItemTemplate>
-                     </asp:TemplateField>
-
-                 </Columns>
-
-             </asp:GridView>--%>
+  
     <div id="toast">
         <div id="img">
             <img src="assets/h-file-logo-white.png" />
@@ -1575,9 +1473,9 @@
                                 </div>
                             </div>
                         </div>--%>
-        </div>
+      <%--  </div>
 
-    </div>
+    </div>--%>
     <script>
         function launch_toast(message, icon) {
             var x = document.getElementById("toast")

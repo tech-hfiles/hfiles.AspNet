@@ -570,38 +570,65 @@ namespace hfiles
 
         }
 
-      
+
+        //protected void GetUserDetails(string userId)
+        //{
+        //    txtEmail.Text = "";
+        //    txtMobile.Text = "";
+
+
+
+        //    using (MySqlConnection connection = new MySqlConnection(cs))
+        //    {
+        //        connection.Open();
+        //        string query = "SELECT user_email, user_contact FROM user_details WHERE user_id ="+userId;
+        //        using (MySqlCommand cmd = new MySqlCommand(query, connection))
+        //        {
+
+        //            MySqlDataReader reader = cmd.ExecuteReader();
+
+        //                while (reader.Read())
+        //                {
+
+        //                txtEmail.Text = reader["user_email"].ToString();
+        //                txtMobile.Text = reader["user_contact"].ToString();
+        //                   ScriptManager.RegisterStartupScript(this, this.GetType(), "showModal", "$('#editUserModal').modal('show');", true);
+
+        //               }
+
+        //        }
+        //    }
+
+        //}
         protected void GetUserDetails(string userId)
         {
             txtEmail.Text = "";
             txtMobile.Text = "";
 
-
-
             using (MySqlConnection connection = new MySqlConnection(cs))
             {
                 connection.Open();
-                string query = "SELECT user_email, user_contact FROM user_details WHERE user_id ="+userId;
+                string query = "SELECT user_email, user_contact FROM user_details WHERE user_id = @userId";
+
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
-                   
-                    MySqlDataReader reader = cmd.ExecuteReader();
-                    
-                        while (reader.Read())
+                    cmd.Parameters.AddWithValue("@userId", userId);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
                         {
-
-                        txtEmail.Text = reader["user_email"].ToString();
+                            txtEmail.Text = reader["user_email"].ToString();
                             txtMobile.Text = reader["user_contact"].ToString();
-                           ScriptManager.RegisterStartupScript(this, this.GetType(), "showModal", "$('#editUserModal').modal('show');", true);
-
-                       }
-                    
+                        }
+                    }
                 }
             }
-            
+
+            // Show modal after data is populated
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "showModal", "$('#editUserModal').modal('show');", true);
         }
 
-       
+
         protected void lbtnSave_Click(object sender, EventArgs e)
         {
             try

@@ -80,7 +80,7 @@ namespace hfiles
             if ((currentIST - linkTime).TotalMinutes > 60)
             {
 
-                lblExpireLink.Text = "The link you are trying to access has expired..";
+                lblExpireLink.Text = "The link you are trying to access has <span style='color:blue;'>expired...</span>";
                 lblExpireLink.Visible = true;
 
                 imgError.ImageUrl = "/journal-page-images/article/expirelink.jpeg";

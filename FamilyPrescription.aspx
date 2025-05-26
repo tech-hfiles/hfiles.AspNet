@@ -898,13 +898,13 @@ overflow: visible !important;
     visibility: visible !important;
 
 }
-      .modal-backdrop {
-    background: rgba(0, 0, 0, 0.5); /* Adjust transparency */
-}
+      /*.modal-backdrop {
+    background: rgba(0, 0, 0, 0.5);*/ /* Adjust transparency */
+/*}
 
 .modal {
-    z-index: 1050 !important; /* Ensure modal is above but does not affect table */
-}
+    z-index: 1050 !important;*/ /* Ensure modal is above but does not affect table */
+/*}*/
 .person-header {
     font-size: 18px;
     font-weight: bold;

@@ -244,6 +244,28 @@
     }
 }
 
+             .expire-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   /* height: 60vh;*/ /* Adjust height as needed */
+    text-align: center;
+    padding: 20px;
+}
+
+.expire-message {
+    font-size: 2rem; /* Scales on mobile too */
+    font-weight: bold;
+    color: black !important;
+    word-break: break-word;
+}
+
+@media (max-width: 768px) {
+    .expire-message {
+        font-size: 1.5rem;
+    }
+}
+
   </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -251,7 +273,14 @@
    <h2 style="text-align:center;color: #0331b5;margin-top: 15px;">Shared Reports</h2>
    
     <asp:Image ID="imgError" runat="server" CssClass="error-image"  Style="display: block; margin: 0 auto; width: 40%; height: auto;" Visible="false" />
-     <asp:Label ID="lblExpireLink" runat="server" ForeColor="Red" Visible="false" style="margin-left: 50px;font-size: 35px;"></asp:Label>
+    <%-- <asp:Label ID="lblExpireLink" runat="server" ForeColor="Red" Visible="false" style="margin-left: 50px;font-size: 35px;"></asp:Label>--%>
+    <div class="expire-container">
+    <asp:Label ID="lblExpireLink" runat="server" 
+        ForeColor="Red" 
+        Visible="false" 
+        CssClass="expire-message">
+    </asp:Label>
+</div>
           <div class="gridviewscroll">
               <br />
               
