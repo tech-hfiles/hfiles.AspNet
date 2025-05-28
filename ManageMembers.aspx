@@ -542,7 +542,7 @@
 
             .back-arrow-btn-2 {
                 position: absolute;
-                color: #333333;
+                /*color: #333333;*/
                 display: inline-block;
                 padding: 20px 20px 5px 20px;
                 border-radius: 50px;
@@ -986,7 +986,7 @@
     <div class="container-search mt-3 w-100">
         <div class="row d-flex align-items-center w-100">
             <%--<div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">--%>
-            <a class="back-arrow-btn-2" href="Dashboard.aspx"><i class="fa fa-chevron-left" style="margin-top: 2px;" aria-hidden="true"></i>Back to Home
+            <a class="back-arrow-btn-2" href="Dashboard.aspx">Back to Home
             </a>
 
         </div>

@@ -114,7 +114,7 @@
 
                 .back-arrow-btn-2 {
                     position: absolute;
-                    color: #333333;
+                    /*color: #333333;*/
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -300,7 +300,7 @@
             </style>
 
             <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
-                <a class="back-arrow-btn-2" href="dashboard.aspx"><i class="fa-solid fa-chevron-left"></i>Back to Home
+                <a class="back-arrow-btn-2" href="dashboard.aspx">Back to Home
                 </a>
             </div>
 

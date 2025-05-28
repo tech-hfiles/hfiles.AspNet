@@ -294,7 +294,8 @@ align-self: center;
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    
-
+     <a class="back-arrow-btn-2" href="Dashboard.aspx">Back to Home
+ </a>
 
 
   <div class="w-full text-center pt-5 px-4 sm:px-8  md:mt-2 md:px-12">
@@ -598,7 +599,7 @@ class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-2 border-[#ffd
      
 
            <div id="input-container" class="mt-4 hidden transition-all duration-300 ease-in-out">
-  <div class="flex flex-col sm:flex-row gap-2">
+  <%--<div class="flex flex-col sm:flex-row gap-2">
     <asp:TextBox id="txtSurgeryName" runat="server" placeholder="Surgery Name"
       class="w-full sm:w-[60%] border border-gray-400 rounded-md px-3 py-2 text-sm" />
       <asp:TextBox ID="txthostname" runat="server" placeholder="Enter hospital Name"
@@ -611,7 +612,66 @@ class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-2 border-[#ffd
       class="w-full sm:w-[40%] border border-gray-400 rounded-md px-3 py-2 text-sm" />
       <ajaxToolkit:CalendarExtender ID="dateajax" runat="server" Format="dd-MM-yyyy"
                                    Enabled="true" TargetControlID="txtSurgeryDate" />
+  </div>--%>
+               <!-- First Row: Surgery Name & Hospital Name -->
+<div class="flex flex-col sm:flex-row gap-2">
+  <!-- Surgery Name -->
+  <div class="flex flex-col w-full sm:w-[60%]">
+    <asp:TextBox ID="txtSurgeryName" runat="server" placeholder="Surgery Name"
+      CssClass="border border-gray-400 rounded-md px-3 py-2 text-sm" />
+    <asp:RequiredFieldValidator ID="rfvSurgeryName" runat="server"
+      ControlToValidate="txtSurgeryName"
+      ErrorMessage="Please enter surgery name."
+      Display="Dynamic"
+      ForeColor="Red"
+      CssClass="text-red-500 text-sm mt-1" />
   </div>
+
+  <!-- Hospital Name -->
+  <div class="flex flex-col w-full sm:w-[40%]">
+    <asp:TextBox ID="txthostname" runat="server" placeholder="Enter hospital Name"
+      CssClass="border border-gray-400 rounded-md px-3 py-2 text-sm" />
+    <asp:RequiredFieldValidator ID="rfvHospitalName" runat="server"
+      ControlToValidate="txthostname"
+      ErrorMessage="Please enter hospital name."
+      Display="Dynamic"
+      ForeColor="Red"
+      CssClass="text-red-500 text-sm mt-1" />
+  </div>
+</div>
+<br />
+
+<!-- Second Row: Doctor Name & Surgery Date -->
+<div class="flex flex-col sm:flex-row gap-2">
+  <!-- Doctor Name -->
+  <div class="flex flex-col w-full sm:w-[60%]">
+    <asp:TextBox ID="txtdrname" runat="server" placeholder="Enter Dr. Name"
+      CssClass="border border-gray-400 rounded-md px-3 py-2 text-sm" />
+    <asp:RequiredFieldValidator ID="rfvDrName" runat="server"
+      ControlToValidate="txtdrname"
+      ErrorMessage="Please enter Dr. name."
+      Display="Dynamic"
+      ForeColor="Red"
+      CssClass="text-red-500 text-sm mt-1" />
+  </div>
+
+  <!-- Surgery Date -->
+  <div class="flex flex-col w-full sm:w-[40%]">
+    <asp:TextBox ID="txtSurgeryDate" runat="server" placeholder="DD-MM-YYYY"
+      CssClass="border border-gray-400 rounded-md px-3 py-2 text-sm" />
+    <ajaxToolkit:CalendarExtender ID="dateajax" runat="server"
+      Format="dd-MM-yyyy"
+      Enabled="true"
+      TargetControlID="txtSurgeryDate" />
+    <asp:RequiredFieldValidator ID="rfvSurgeryDate" runat="server"
+      ControlToValidate="txtSurgeryDate"
+      ErrorMessage="Please enter Date in dd-mm-yyyy format."
+      Display="Dynamic"
+      ForeColor="Red"
+      CssClass="text-red-500 text-sm mt-1" />
+  </div>
+</div>
+
 
 
   <%--<button type="button"
@@ -692,21 +752,79 @@ class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-2 border-[#ffd
    Add More
  </button>--%>
          <div id="input-container1" class="mt-4 hidden transition-all duration-300 ease-in-out">
-<div class="flex flex-col sm:flex-row gap-2">
+<%--<div class="flex flex-col sm:flex-row gap-2">
   <asp:TextBox id="txtSurgeryName1" runat="server" placeholder="Surgery Name"
-    class="w-full sm:w-[60%] border border-gray-400 rounded-md px-3 py-2 text-sm" />
+    class="w-full sm:w-[60%] border border-gray-400 rounded-md px-3 py-2 text-sm"/>
+    <br/>
+    <asp:RequiredFieldValidator ID="RequiredFieldsurgeryname" runat="server"  ControlToValidate="txtSurgeryName1" ErrorMessage="Please enter surgery name." Display="Dynamic"   ForeColor="Red"></asp:RequiredFieldValidator>
   <asp:TextBox ID="txthostname1" runat="server" placeholder="Enter hospital Name"
       class="w-full sm:w-[40%] border border-gray-400 rounded-md px-3 py-2 text-sm"/>
+    <br/>
+     <asp:RequiredFieldValidator ID="RequiredFieldhostname" runat="server"  ControlToValidate="txthostname1" ErrorMessage="Please enter Hostpital name." Display="Dynamic"   ForeColor="Red"></asp:RequiredFieldValidator>
     </div><br />
     <div class="flex flex-col sm:flex-row gap-2">
     <asp:TextBox ID="txtdrname1" runat="server" placeholder="Enter Dr. Name"
       class="w-full sm:w-[60%] border border-gray-400 rounded-md px-3 py-2 text-sm"/>
+         <asp:RequiredFieldValidator ID="RequiredFielddrname" runat="server"  ControlToValidate="txtdrname1" ErrorMessage="Please enter Dr. name." Display="Dynamic"   ForeColor="Red"></asp:RequiredFieldValidator>
   <asp:TextBox id="txtSurgeryDate1" runat="server" placeholder="DD-MM-YYYY"
     class="w-full sm:w-[40%] border border-gray-400 rounded-md px-3 py-2 text-sm" />
     <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy"
                                    Enabled="true" TargetControlID="txtSurgeryDate1" />
     <span id="dobError" style="color:red; display:none;">Please enter Date in dd-mm-yyyy format</span>
+</div>--%>
+             <div class="flex flex-col sm:flex-row gap-4">
+  <!-- Surgery Name -->
+  <div class="flex flex-col w-full sm:w-[60%]">
+    <asp:TextBox ID="txtSurgeryName1" runat="server" placeholder="Surgery Name"
+      CssClass="border border-gray-400 rounded-md px-3 py-2 text-sm" />
+    <asp:RequiredFieldValidator ID="RequiredFieldsurgeryname" runat="server" 
+      ControlToValidate="txtSurgeryName1"
+      ErrorMessage="Please enter surgery name." 
+      Display="Dynamic" 
+      ForeColor="Red" 
+      CssClass="text-red-500 text-sm mt-1" />
+  </div>
+
+  <!-- Hospital Name -->
+  <div class="flex flex-col w-full sm:w-[40%]">
+    <asp:TextBox ID="txthostname1" runat="server" placeholder="Enter hospital Name"
+      CssClass="border border-gray-400 rounded-md px-3 py-2 text-sm" />
+    <asp:RequiredFieldValidator ID="RequiredFieldhostname" runat="server" 
+      ControlToValidate="txthostname1"
+      ErrorMessage="Please enter Hospital name." 
+      Display="Dynamic" 
+      ForeColor="Red"
+      CssClass="text-red-500 text-sm mt-1" />
+  </div>
 </div>
+
+<br />
+
+<div class="flex flex-col sm:flex-row gap-4">
+  <!-- Doctor Name -->
+  <div class="flex flex-col w-full sm:w-[60%]">
+    <asp:TextBox ID="txtdrname1" runat="server" placeholder="Enter Dr. Name"
+      CssClass="border border-gray-400 rounded-md px-3 py-2 text-sm" />
+    <asp:RequiredFieldValidator ID="RequiredFielddrname" runat="server" 
+      ControlToValidate="txtdrname1"
+      ErrorMessage="Please enter Dr. name." 
+      Display="Dynamic" 
+      ForeColor="Red"
+      CssClass="text-red-500 text-sm mt-1" />
+  </div>
+
+  <!-- Surgery Date -->
+  <div class="flex flex-col w-full sm:w-[40%]">
+    <asp:TextBox ID="txtSurgeryDate1" runat="server" placeholder="DD-MM-YYYY"
+      CssClass="border border-gray-400 rounded-md px-3 py-2 text-sm" />
+    <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" 
+      Format="dd-MM-yyyy" Enabled="true" TargetControlID="txtSurgeryDate1" />
+    <span id="dobError" style="color:red; display:none;" class="text-red-500 text-sm mt-1">
+      Please enter Date in dd-mm-yyyy format
+    </span>
+  </div>
+</div>
+
                          <asp:Button ID="btnSaveSurgerygrid" runat="server" Text="Save" OnClick="btnSaveSurgerygrid_Click" onblur="validateDOB(this)"
 CssClass="bg-yellow-200 w-full mt-4 poppins text-[#333333] font-semibold px-6 py-3 rounded-lg shadow-sm hover:bg-[#ffd100] transition text-center" />
 </div>
@@ -866,7 +984,8 @@ Text="Your Allergies" />
 
         <div class="d-flex justify-content-end gap-2">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary">Save</button>
+         <%-- <button type="button" class="btn btn-primary">Save</button>--%>
+            <asp:Button ID="btnsursave" class="btn btn-primary" runat="server" Text="Save" OnClick="btnsursave_Click1" />
         </div>
       </div>
     </div>
@@ -1207,6 +1326,7 @@ Text="Your Allergies" />
 
 
         function showSaveButton() {
+            debugger
             const btnDiv = document.getElementById("<%= saveWrapper.ClientID %>");   // Desktop/Tablet
             const btnDiv1 = document.getElementById("<%= saveWrapperM.ClientID %>"); // Mobile
 

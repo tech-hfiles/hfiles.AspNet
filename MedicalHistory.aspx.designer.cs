@@ -303,6 +303,15 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.TextBox txtSurgeryName;
 
         /// <summary>
+        /// rfvSurgeryName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvSurgeryName;
+
+        /// <summary>
         /// txthostname control.
         /// </summary>
         /// <remarks>
@@ -312,6 +321,15 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.TextBox txthostname;
 
         /// <summary>
+        /// rfvHospitalName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvHospitalName;
+
+        /// <summary>
         /// txtdrname control.
         /// </summary>
         /// <remarks>
@@ -319,6 +337,15 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtdrname;
+
+        /// <summary>
+        /// rfvDrName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDrName;
 
         /// <summary>
         /// txtSurgeryDate control.
@@ -337,6 +364,15 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.CalendarExtender dateajax;
+
+        /// <summary>
+        /// rfvSurgeryDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvSurgeryDate;
 
         /// <summary>
         /// btnSaveSurgery control.
@@ -375,6 +411,15 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.TextBox txtSurgeryName1;
 
         /// <summary>
+        /// RequiredFieldsurgeryname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldsurgeryname;
+
+        /// <summary>
         /// txthostname1 control.
         /// </summary>
         /// <remarks>
@@ -384,6 +429,15 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.TextBox txthostname1;
 
         /// <summary>
+        /// RequiredFieldhostname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldhostname;
+
+        /// <summary>
         /// txtdrname1 control.
         /// </summary>
         /// <remarks>
@@ -391,6 +445,15 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtdrname1;
+
+        /// <summary>
+        /// RequiredFielddrname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFielddrname;
 
         /// <summary>
         /// txtSurgeryDate1 control.
@@ -454,6 +517,15 @@ namespace hfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnmedical;
+
+        /// <summary>
+        /// btnsursave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnsursave;
 
         /// <summary>
         /// txtdiseaseName control.

@@ -202,7 +202,7 @@
             border-radius: 50px;
             border: 0;
             outline: 0;
-            color: #333333;
+            /*color: #333333;*/
             cursor: pointer;
             margin-top: 3px !important;
             font-family: 'Red Hat Display', Sans-serif !important;
@@ -650,7 +650,7 @@
             <div class="user-info-main" style="padding-bottom: 20vh" runat="server">
                 <div class="col-md-4 d-flex justify-content-md-start justify-content-start py-1">
 
-                    <a class="back-arrow-btn-2" href="Dashboard.aspx"><i class="fa-solid fa-chevron-left"></i>Back to Home
+                    <a class="back-arrow-btn-2" href="Dashboard.aspx">Back to Home
                     </a>
                 </div>
                 <div class="container">
@@ -744,7 +744,7 @@
                                             <asp:Label ID="dialcode" Style="color: #fdd001; font-weight: 600" Text="" runat="server"></asp:Label>
                                         </span>--%>
 
-                                        <input class="form-control" required id="contactTextBox" name="phone" readonly="true"
+                                        <input class="form-control" required id="contactTextBox" name="phone" 
                                             runat="server" type="tel" placeholder="Contact Number" style="color: #707070;"/>
 
                                         <img class="country-flag" id="flagImage" runat="server" src="" />
@@ -756,7 +756,7 @@
                                     <div class="col-12">
                                         <%--<span for="" class="imp-star">*</span>--%>
                                         <i class="fa-solid fa-envelope form-control-feedback"></i>
-                                        <input id="emailTextBox" readonly="true" runat="server" type="email" class="form-control" placeholder="Email ID" required  style="color: #707070;"/>
+                                        <input id="emailTextBox"  runat="server" type="email" class="form-control" placeholder="Email ID" required  style="color: #707070;"/>
                                     </div>
                                 </div>
 

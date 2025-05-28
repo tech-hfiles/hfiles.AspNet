@@ -2120,11 +2120,59 @@ background: transparent !important;
                     });
                 }
 
+                //async function generatePDF() {
+                //    const { jsPDF } = window.jspdf;
+                //    const doc = new jsPDF("landscape");
+
+                //    const table = document.getElementById("prescription");
+                //    if (!table) {
+                //        console.error("Error: Table element not found!");
+                //        return null;
+                //    }
+
+                //    try {
+                //        const base64Image = await getBase64Image("/journal-page-images/article/familyprescriptionlogo.jpeg");
+
+                //        const pageWidth = doc.internal.pageSize.getWidth(); // Get page width
+                //        const imageWidth = 30; // Image width
+                //        const xImage = (pageWidth - imageWidth) / 2; // Center image horizontally
+
+                //        // Add centered image
+                //        doc.addImage(base64Image, "JPEG", xImage, 5, imageWidth, 20);
+
+                //        // Center text
+                //        const text = "Family Prescription";
+                //        const textWidth = doc.getTextWidth(text);
+                //        const xText = (pageWidth - textWidth) / 2;
+
+                //        doc.setFontSize(16);
+                //        doc.setTextColor(0, 0, 255);
+                //        doc.setFont("helvetica", "bold");
+                //        doc.text(text, xText, 30); // Text below the image
+
+                //        // Generate Table
+                //        doc.autoTable({
+                //            html: table,
+                //            startY: 40, // Adjust position to avoid overlapping with the image and text
+                //            theme: "grid",
+                //            headStyles: { fillColor: [0, 150, 136], textColor: 255 },
+                //            styles: { fontSize: 10, cellPadding: 2 },
+                //            margin: { top: 10, left: 10, right: 10 }
+                //        });
+
+                //        return doc.output("datauristring");
+
+                //    } catch (error) {
+                //        console.error("Error generating PDF:", error);
+                //        return null;
+                //    }
+                //}
+
                 async function generatePDF() {
                     const { jsPDF } = window.jspdf;
                     const doc = new jsPDF("landscape");
 
-                    const table = document.getElementById("prescription");
+                    const table = document.getElementById("prescription"); // Always use desktop version
                     if (!table) {
                         console.error("Error: Table element not found!");
                         return null;
@@ -2133,14 +2181,12 @@ background: transparent !important;
                     try {
                         const base64Image = await getBase64Image("/journal-page-images/article/familyprescriptionlogo.jpeg");
 
-                        const pageWidth = doc.internal.pageSize.getWidth(); // Get page width
-                        const imageWidth = 30; // Image width
-                        const xImage = (pageWidth - imageWidth) / 2; // Center image horizontally
+                        const pageWidth = doc.internal.pageSize.getWidth();
+                        const imageWidth = 30;
+                        const xImage = (pageWidth - imageWidth) / 2;
 
-                        // Add centered image
                         doc.addImage(base64Image, "JPEG", xImage, 5, imageWidth, 20);
 
-                        // Center text
                         const text = "Family Prescription";
                         const textWidth = doc.getTextWidth(text);
                         const xText = (pageWidth - textWidth) / 2;
@@ -2148,12 +2194,11 @@ background: transparent !important;
                         doc.setFontSize(16);
                         doc.setTextColor(0, 0, 255);
                         doc.setFont("helvetica", "bold");
-                        doc.text(text, xText, 30); // Text below the image
+                        doc.text(text, xText, 30);
 
-                        // Generate Table
                         doc.autoTable({
                             html: table,
-                            startY: 40, // Adjust position to avoid overlapping with the image and text
+                            startY: 40,
                             theme: "grid",
                             headStyles: { fillColor: [0, 150, 136], textColor: 255 },
                             styles: { fontSize: 10, cellPadding: 2 },
@@ -2165,6 +2210,65 @@ background: transparent !important;
                     } catch (error) {
                         console.error("Error generating PDF:", error);
                         return null;
+                    }
+                }
+
+                async function generatePDF() {
+                    const { jsPDF } = window.jspdf;
+                    const doc = new jsPDF("landscape");
+
+                    // Detect mobile view
+                    const isMobile = window.innerWidth <= 768;
+
+                    // Use appropriate table based on device
+                    const table = isMobile
+                        ? document.getElementById("mobileTableBody")
+                        : document.getElementById("prescription");
+
+                    if (!table) {
+                        console.error("Error: Table element not found!");
+                        return null;
+                    }
+
+                    // Temporarily override display if hidden
+                    const originalDisplay = table.style.display;
+                    table.style.display = "table"; // or "block" for div-style tables
+
+                    try {
+                        const base64Image = await getBase64Image("/journal-page-images/article/familyprescriptionlogo.jpeg");
+
+                        const pageWidth = doc.internal.pageSize.getWidth();
+                        const imageWidth = 30;
+                        const xImage = (pageWidth - imageWidth) / 2;
+
+                        doc.addImage(base64Image, "JPEG", xImage, 5, imageWidth, 20);
+
+                        const text = "Family Prescription";
+                        const textWidth = doc.getTextWidth(text);
+                        const xText = (pageWidth - textWidth) / 2;
+
+                        doc.setFontSize(16);
+                        doc.setTextColor(0, 0, 255);
+                        doc.setFont("helvetica", "bold");
+                        doc.text(text, xText, 30);
+
+                        doc.autoTable({
+                            html: table,
+                            startY: 40,
+                            theme: "grid",
+                            headStyles: { fillColor: [0, 150, 136], textColor: 255 },
+                            styles: { fontSize: 10, cellPadding: 2 },
+                            margin: { top: 10, left: 10, right: 10 }
+                        });
+
+                        return doc.output("datauristring");
+
+                    } catch (error) {
+                        console.error("Error generating PDF:", error);
+                        return null;
+                    } finally {
+                        // Restore original display
+                        table.style.display = originalDisplay;
                     }
                 }
 
@@ -2218,6 +2322,7 @@ background: transparent !important;
                     });
                 }
 
+               
 
             </script>
 
