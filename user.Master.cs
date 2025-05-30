@@ -144,7 +144,7 @@ namespace hfiles
                             }
                             int BloodGroup = Convert.ToInt32(ubg);
                             string Contact = reader["user_icecontact"].ToString();
-                            string Expiry = reader["user_expiry"].ToString();
+                            string Expiry = reader["date_ofExpiryPlan"].ToString();
                             string UserPlan = reader["subscriptionplan_status"].ToString();
 
                             string bgroup = "";

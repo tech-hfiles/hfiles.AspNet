@@ -23,6 +23,7 @@ namespace hfiles
     public partial class MedicalHistory : System.Web.UI.Page
     {
         string cs = ConfigurationManager.ConnectionStrings["signage"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] == null)
@@ -1221,43 +1222,28 @@ namespace hfiles
             }
         }
 
-        //protected void btnsursave_Click(object sender, EventArgs e)
+        //protected void btnsurgerysave_Click(object sender, EventArgs e)
         //{
+        //    string surgeryName = modalSurgeryDetail.Text.Trim();
+        //    string hostname = modalHospitalName.Text.Trim();
+        //    string drname = modalCreatedBy.Text.Trim();
+        //    string surgeryDate = modalSurgeryYear.Text.Trim();
 
-        //}
+        //    int UserId = !string.IsNullOrEmpty(DropDownfordesktop.SelectedValue) && DropDownfordesktop.SelectedValue != "0"
+        //        ? DAL.validateInt(DropDownfordesktop.SelectedValue)
+        //        : DAL.validateInt(Session["UserID"].ToString());
 
-        protected void btnsursave_Click1(object sender, EventArgs e)
-        {
-
-        }
-
-        //protected void surpopsave_Click(object sender, EventArgs e)
-        //{
-        //    string surgeryName = modalSurgeryDetail.Value.Trim();
-        //    string hostname = modalHospitalName.Value.Trim();
-        //    string drname = modalCreatedBy.Value.Trim();
-        //    string surgeryDate = modalSurgeryYear.InnerText.Trim();
-
-        //    // Determine UserId
-        //    int UserId;
-        //    if (!string.IsNullOrEmpty(DropDownfordesktop.SelectedValue) && DropDownfordesktop.SelectedValue != "0")
-        //    {
-        //        UserId = DAL.validateInt(DropDownfordesktop.SelectedValue);
-        //    }
-        //    else
-        //    {
-        //        UserId = DAL.validateInt(Session["UserID"].ToString());
-        //    }
-
-        //    if (!string.IsNullOrEmpty(surgeryName) && !string.IsNullOrEmpty(surgeryDate))
+        //    if (!string.IsNullOrEmpty(surgeryName) && !string.IsNullOrEmpty(drname))
         //    {
         //        using (MySqlConnection conn = new MySqlConnection(cs))
         //        {
-        //            string query = @"INSERT INTO user_surgery_details 
-        //        (user_id, user_surgery_details, hostname, drname, user_surgery_year) 
-        //        VALUES (@user_id, @details, @hostname, @drname, @year)";
+        //            string query = @"UPDATE user_surgery_details SET user_surgery_details = @details, hostname = @hostname,drname = @drname, 
+        //                                            user_surgery_year = @year 
+        //                                        WHERE  user_surgery_id = @surgery_id";
+
 
         //            MySqlCommand cmd = new MySqlCommand(query, conn);
+        //            //cmd.Parameters.AddWithValue("@surgery_id", surgeryId);
         //            cmd.Parameters.AddWithValue("@user_id", UserId);
         //            cmd.Parameters.AddWithValue("@details", surgeryName);
         //            cmd.Parameters.AddWithValue("@hostname", hostname);
@@ -1269,14 +1255,53 @@ namespace hfiles
         //            conn.Close();
 
         //            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage",
-        //                "toastr.options = { 'timeOut': 1000, 'extendedTimeOut': 200 };toastr.success('Surgery Details Saved Successfully');",
-        //                true);
+        //                "toastr.success('Surgery Details Updated Successfully');", true);
         //        }
 
-        //        // Re-bind the grid
         //        BindSurgeryHistory(UserId);
         //    }
         //}
+
+        protected void btnsurgerysave_Click(object sender, EventArgs e)
+        {
+            string surgeryName = modalSurgeryDetail.Text.Trim();
+            string hostname = modalHospitalName.Text.Trim();
+            string drname = modalCreatedBy.Text.Trim();
+            string surgeryDate = modalSurgeryYear.Text.Trim();
+            int surgeryId = DAL.validateInt(hiddenSurgeryId.Value); // Fetch the hidden surgery ID
+
+            int UserId = !string.IsNullOrEmpty(DropDownfordesktop.SelectedValue) && DropDownfordesktop.SelectedValue != "0"
+                ? DAL.validateInt(DropDownfordesktop.SelectedValue)
+                : DAL.validateInt(Session["UserID"].ToString());
+
+            if (!string.IsNullOrEmpty(surgeryName) && !string.IsNullOrEmpty(drname) && surgeryId > 0)
+            {
+                using (MySqlConnection conn = new MySqlConnection(cs))
+                {
+                    string query = @"UPDATE user_surgery_details 
+                             SET user_surgery_details = @details, hostname = @hostname, drname = @drname, 
+                                 user_surgery_year = @year 
+                             WHERE user_surgery_id = @surgery_id";
+
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@surgery_id", surgeryId);
+                    cmd.Parameters.AddWithValue("@details", surgeryName);
+                    cmd.Parameters.AddWithValue("@hostname", hostname);
+                    cmd.Parameters.AddWithValue("@drname", drname);
+                    cmd.Parameters.AddWithValue("@year", surgeryDate);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage",
+                        "toastr.success('Surgery Details Updated Successfully');", true);
+                }
+
+                BindSurgeryHistory(UserId);
+            }
+        }
+
 
     }
 }

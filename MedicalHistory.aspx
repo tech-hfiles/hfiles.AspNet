@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user.Master" AutoEventWireup="true" CodeBehind="MedicalHistory.aspx.cs" Inherits="hfiles.MedicalHistory" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user.Master"  CodeBehind="MedicalHistory.aspx.cs" Inherits="hfiles.MedicalHistory" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -710,7 +710,7 @@ class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-2 border-[#ffd
        <asp:TemplateField HeaderText="Surgery Details">
     <ItemTemplate>
          <div class="flex justify-between items-center px-2 py-1 hover:bg-blue-50 transition-all duration-200 rounded-md cursor-pointer"
-       onclick='showModal("<%# Eval("user_surgery_details") %>", "<%# Eval("user_surgery_year") %>", "<%# Eval("hostname") %>", "<%# Eval("drname") %>")'>
+       onclick='showModal("<%# Eval("user_surgery_id") %>","<%# Eval("user_surgery_details") %>", "<%# Eval("user_surgery_year") %>", "<%# Eval("hostname") %>", "<%# Eval("drname") %>")'>
 
     <span class="text-sm text-gray-800"><%# Eval("user_surgery_details") %></span>
     </ItemTemplate>
@@ -947,11 +947,12 @@ Text="Your Allergies" />
    <%-- gridview Popup for surgery--%>
   
     <!-- Bootstrap Modal -->
-<div class="modal fade" id="surgeryModal" tabindex="-1" aria-labelledby="surgeryModalLabel" aria-hidden="true" >
+
+<%--<div class="modal fade" id="surgeryModal" tabindex="-1" aria-labelledby="surgeryModalLabel" aria-hidden="true" >
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-container">
     <div class="modal-content rounded-4 overflow-hidden modal-subcontainer" style="border: 1px solid black;">
       <div style="padding-bottom: 5px;" class="modal-header bg-white border-0 justify-content-center position-relative">
-       <%-- <span class="position-absolute top-0 end-0 m-3 fs-4 text-black cursor-pointer" onclick="closeModal()" style="z-index: 1056;">&times;</span>--%>
+       <%-- <span class="position-absolute top-0 end-0 m-3 fs-4 text-black cursor-pointer" onclick="closeModal()" style="z-index: 1056;">&times;</span>
           
         <h5 style="font-size:22px; color: #0331B5" class="modal-title fw-bold" id="surgeryModalLabel">Surgical History</h5>
       </div>
@@ -962,17 +963,17 @@ Text="Your Allergies" />
         </button>
 
         <div class="mb-3 rounded-2 p-2 " style="border: 1px solid black">
-          <textarea id="modalSurgeryDetail" class="form-control border-0" rows="4"></textarea>
+          <textarea id="modalSurgeryDetail" class="form-control border-0" runat="server" rows="4"></textarea>
         </div>
 
           <div class="mb-3">
   <label class="form-label fw-bold">Doctor’s Name :</label>
-  <input type="text" class="form-control" id="modalCreatedBy" style="border: 1px solid black;"/>
+  <input type="text" class="form-control" id="modalCreatedBy" runat="server" style="border: 1px solid black;"/>
 </div>
 
         <div class="mb-3">
           <label class="form-label fw-bold">Hospital Name :</label>
-          <input type="text" class="form-control" id="modalHospitalName" style="border: 1px solid black;"/>
+          <input type="text" class="form-control" id="modalHospitalName" runat="server" style="border: 1px solid black;"/>
         </div>
 
         <div class="modal-content-divider"></div>
@@ -984,14 +985,58 @@ Text="Your Allergies" />
 
         <div class="d-flex justify-content-end gap-2">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-         <%-- <button type="button" class="btn btn-primary">Save</button>--%>
-            <asp:Button ID="btnsursave" class="btn btn-primary" runat="server" Text="Save" OnClick="btnsursave_Click1" />
+        <%--  <button type="button" class="btn btn-primary" runat="server" onclick="surpopsave_Click">Save</button>
+         <asp:Button ID="btnsurgerysave" runat="server" Text="Save" class="btn btn-primary" OnClick="btnsurgerysave_Click" CausesValidation="false" />
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>--%>
+
+    <div class="modal fade" id="surgeryModal" tabindex="-1" aria-labelledby="surgeryModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-container">
+    <div class="modal-content rounded-4 overflow-hidden modal-subcontainer" style="border: 1px solid black;">
+      <div class="modal-header bg-white border-0 justify-content-center position-relative" style="padding-bottom: 5px;">
+        <h5 style="font-size:22px; color: #0331B5" class="modal-title fw-bold" id="surgeryModalLabel">Surgical History</h5>
+      </div>
+      <div class="modal-divider"></div>
+
+      <div class="modal-body" style="padding: 0px;">
+        <button class="btn w-100 mb-3 text-dark fw-semibold" style="background-color: #c5f2fd; border: 1px solid black;">
+          Surgery Details
+        </button>
+            <asp:HiddenField ID="hiddenSurgeryId" runat="server" ClientIDMode="Static" />
+        <div class="mb-3 rounded-2 p-2" style="border: 1px solid black">
+          <asp:TextBox ID="modalSurgeryDetail" runat="server" CssClass="form-control border-0" TextMode="MultiLine" ClientIDMode="Static" Rows="4" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold">Doctor’s Name :</label>
+          <asp:TextBox ID="modalCreatedBy" runat="server" CssClass="form-control" ClientIDMode="Static" Style="border: 1px solid black;" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold">Hospital Name :</label>
+          <asp:TextBox ID="modalHospitalName" runat="server" CssClass="form-control" ClientIDMode="Static" Style="border: 1px solid black;" />
+        </div>
+
+        <div class="modal-content-divider"></div>
+
+        <div class="mb-5 mt-3">
+          <label class="form-label fw-bold" style="color: #0331B5;">Surgery Date</label><br />
+          <asp:TextBox ID="modalSurgeryYear" runat="server" ClientIDMode="Static" CssClass="form-control" Style="border: 1px solid black;" />
+        </div>
+        
+        <div class="d-flex justify-content-end gap-2">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <asp:Button ID="btnsurgerysave" runat="server" Text="Save" CssClass="btn btn-primary"
+                      OnClick="btnsurgerysave_Click" CausesValidation="false" />
         </div>
       </div>
     </div>
   </div>
 </div>
-
 
 
      <!--disease Popup Overlay -->
@@ -1556,18 +1601,39 @@ Text="Your Allergies" />
             setTimeout(applyRadioSelections, 100); // Triggers on resize (mobile ↔ desktop)
         };
 
-        function showModal(surgeryDetails, surgeryYear, hospitalName, doctorName) {
-            // Safely insert values into modal inputs
-            document.getElementById("modalSurgeryDetail").value = surgeryDetails;
-            document.getElementById("modalSurgeryYear").innerText = surgeryYear;
-            document.getElementById("modalHospitalName").value = hospitalName;
-            document.getElementById("modalCreatedBy").value = doctorName;
+        //function showModal(surgeryDetails, surgeryYear, hospitalName, doctorName) {
+        //    // Safely insert values into modal inputs
+        //    document.getElementById("modalSurgeryDetail").value = surgeryDetails;
+        //    document.getElementById("modalSurgeryYear").innerText = surgeryYear;
+        //    document.getElementById("modalHospitalName").value = hospitalName;
+        //    document.getElementById("modalCreatedBy").value = doctorName;
 
 
-            // Show the modal using Bootstrap 5 API
+        //    // Show the modal using Bootstrap 5 API
+        //    var myModal = new bootstrap.Modal(document.getElementById("surgeryModal"));
+        //    myModal.show();
+        //}
+
+        function showModal(surgeryId,surgeryDetails, surgeryYear, hospitalName, doctorName) {
+            const detail = document.getElementById("modalSurgeryDetail");
+            const year = document.getElementById("modalSurgeryYear");
+            const hospital = document.getElementById("modalHospitalName");
+            const doctor = document.getElementById("modalCreatedBy");
+            const surgeryIdField = document.getElementById("hiddenSurgeryId");
+
+            if (surgeryIdField) surgeryIdField.value = surgeryId;
+            if (detail) detail.value = surgeryDetails;
+            if (year) year.value = surgeryYear;
+            if (hospital) hospital.value = hospitalName;
+            if (doctor) doctor.value = doctorName;
+           
+
             var myModal = new bootstrap.Modal(document.getElementById("surgeryModal"));
             myModal.show();
         }
+
+
+
 
     </script>
 

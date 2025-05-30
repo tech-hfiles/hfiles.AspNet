@@ -519,13 +519,58 @@ namespace hfiles
         protected global::System.Web.UI.WebControls.Button btnmedical;
 
         /// <summary>
-        /// btnsursave control.
+        /// hiddenSurgeryId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnsursave;
+        protected global::System.Web.UI.WebControls.HiddenField hiddenSurgeryId;
+
+        /// <summary>
+        /// modalSurgeryDetail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox modalSurgeryDetail;
+
+        /// <summary>
+        /// modalCreatedBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox modalCreatedBy;
+
+        /// <summary>
+        /// modalHospitalName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox modalHospitalName;
+
+        /// <summary>
+        /// modalSurgeryYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox modalSurgeryYear;
+
+        /// <summary>
+        /// btnsurgerysave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnsurgerysave;
 
         /// <summary>
         /// txtdiseaseName control.
