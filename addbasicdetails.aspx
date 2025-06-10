@@ -699,14 +699,14 @@
                                     <div class="col-12">
                                         <%--<span for="" class="imp-star">*</span>--%>
                                         <i class="fa-solid fa-circle-user form-control-feedback"></i>
-                                        <input required id="firstNameTextBox" runat="server" type="text" class="form-control" placeholder="First Name" style="color: #707070;">
+                                        <input required id="firstNameTextBox" runat="server" type="text" class="form-control" placeholder="First Name" style="color: #707070;" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"/>
                                     </div>
 
                                     <%--Last Name--%>
                                     <div class="col-12">
                                         <%--<span for="" class="imp-star">*</span>--%>
                                         <i class="fa-solid fa-circle-user form-control-feedback"></i>
-                                        <input required id="lastNameTextBox" runat="server" type="text" class="form-control" placeholder="Last Name" style="color: #707070;">
+                                        <input required id="lastNameTextBox" runat="server" type="text" class="form-control" placeholder="Last Name" style="color: #707070;" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"/>
                                     </div>
 
                                     <%--DOB--%>
@@ -744,8 +744,8 @@
                                             <asp:Label ID="dialcode" Style="color: #fdd001; font-weight: 600" Text="" runat="server"></asp:Label>
                                         </span>--%>
 
-                                        <input class="form-control" required id="contactTextBox" name="phone" 
-                                            runat="server" type="tel" placeholder="Contact Number" style="color: #707070;"/>
+                                        <input class="form-control" required id="contactTextBox" name="phone" readonly="true"
+                                            runat="server" type="tel" placeholder="Contact Number" style="color: #707070;" onkeyup="this.value = this.value.replace(/(?!^\+)[^\d]/g, '').replace(/^([^+])/, '+$1')"/>
 
                                         <img class="country-flag" id="flagImage" runat="server" src="" />
                                     </div>
@@ -756,7 +756,7 @@
                                     <div class="col-12">
                                         <%--<span for="" class="imp-star">*</span>--%>
                                         <i class="fa-solid fa-envelope form-control-feedback"></i>
-                                        <input id="emailTextBox"  runat="server" type="email" class="form-control" placeholder="Email ID" required  style="color: #707070;"/>
+                                        <input id="emailTextBox"  runat="server" type="email" class="form-control" placeholder="Email ID" readonly="true" required  style="color: #707070;"/>
                                     </div>
                                 </div>
 
@@ -796,7 +796,7 @@
                                     <div class="col-12">
                                         <%--<span for="" class="imp-star">&nbsp;</span>--%>
                                         <i class="fa-solid fa-map-pin form-control-feedback"></i>
-                                        <input id="txtpincode" runat="server" type="text" class="form-control pincode-input" placeholder="Pincode" />
+                                        <input id="txtpincode" runat="server" type="text" class="form-control pincode-input" placeholder="Pincode" onkeyup="this.value = this.value.replace(/[^0-9]/g, '')" maxlength="6" />
                                         <span id="error-message" class="pincode-input-error">Invalid Pincode</span>
                                     </div>
 
@@ -841,7 +841,7 @@
                                     <div class="col-12">
                                         <%--<span for="" class="imp-star">&nbsp;</span>--%>
                                         <i class="fa-solid fa-phone-volume form-control-feedback"></i>
-                                        <input id="icecontactTextBox" runat="server" type="tel" class="form-control" placeholder="Emergency Contact Number" />
+                                        <input id="icecontactTextBox" runat="server" type="tel" class="form-control" placeholder="Emergency Contact Number"  maxlength="10"/>
                                     </div>
                                 </div>
 
@@ -1099,8 +1099,8 @@
 
         function validateDOBOnSubmit() {
             const dobInput = document.getElementById("<%= txtDate.ClientID %>");
-        return validateDOB(dobInput); // If false, it prevents submission
-    }
+            return validateDOB(dobInput); // If false, it prevents submission
+        }
 
     </script>
     <script> 
@@ -1139,41 +1139,41 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const txtDate = document.getElementById("<%= txtDate.ClientID %>");
-       let prevValue = "";
+            let prevValue = "";
 
-       txtDate.addEventListener("input", function () {
-           let value = txtDate.value.replace(/[^0-9]/g, '');
-           let formatted = "";
-           const isDeleting = txtDate.value.length < prevValue.length;
+            txtDate.addEventListener("input", function () {
+                let value = txtDate.value.replace(/[^0-9]/g, '');
+                let formatted = "";
+                const isDeleting = txtDate.value.length < prevValue.length;
 
-           if (value.length >= 1) {
-               formatted += value.substring(0, 2);
-               if (value.length >= 2) {
-                   formatted += '-';
-               }
-           }
-           if (value.length >= 3) {
-               formatted += value.substring(2, 4);
-               if (value.length >= 4) {
-                   formatted += '-';
-               }
-           }
-           if (value.length >= 5) {
-               formatted += value.substring(4, 8);
-           }
+                if (value.length >= 1) {
+                    formatted += value.substring(0, 2);
+                    if (value.length >= 2) {
+                        formatted += '-';
+                    }
+                }
+                if (value.length >= 3) {
+                    formatted += value.substring(2, 4);
+                    if (value.length >= 4) {
+                        formatted += '-';
+                    }
+                }
+                if (value.length >= 5) {
+                    formatted += value.substring(4, 8);
+                }
 
-           if (isDeleting && prevValue.length === 6 && txtDate.value.length === 5) {
-               formatted = formatted.slice(0, 5);
-           } else if (isDeleting && prevValue.length === 3 && txtDate.value.length === 2) {
-               formatted = formatted.slice(0, 2);
-           }
+                if (isDeleting && prevValue.length === 6 && txtDate.value.length === 5) {
+                    formatted = formatted.slice(0, 5);
+                } else if (isDeleting && prevValue.length === 3 && txtDate.value.length === 2) {
+                    formatted = formatted.slice(0, 2);
+                }
 
-           txtDate.value = formatted.slice(0, 10);
-           prevValue = txtDate.value;
-       });
-   });
+                txtDate.value = formatted.slice(0, 10);
+                prevValue = txtDate.value;
+            });
+        });
 
-</script>
+    </script>
  
 
  
@@ -1255,7 +1255,6 @@
         });
     </script>
 
-
+  
 
 </asp:Content>
-

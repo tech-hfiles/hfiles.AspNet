@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user.Master"  CodeBehind="MedicalHistory.aspx.cs" Inherits="hfiles.MedicalHistory" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user.Master" AutoEventWireup="true" CodeBehind="MedicalHistory.aspx.cs"  Inherits="hfiles.MedicalHistory" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,9 +84,17 @@
         margin-right: 0px; /* or any other value */
     }
 }
-
+/*mobile*/
+ @media (max-width: 768px) {
+    #surgeryModal .modal-content {
+      height: 566px !important;
+        margin-top: -61px;
+    }
+  }
 
 </style>
+
+    
 
     <script>
         function toggleDropdown() {
@@ -95,20 +103,33 @@
             dropdown.classList.toggle('hidden');
             arrow.classList.toggle('rotate-180');
         }
+        //Allergy popup
         function showModal() {
-            document.getElementById("allergyModal").classList.remove("hidden");
+            const modal = document.getElementById("allergyModal");
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
         }
 
         function hideModal() {
-            document.getElementById("allergyModal").classList.add("hidden");
+            const modal = document.getElementById("allergyModal");
+            modal.classList.remove("flex");
+            modal.classList.add("hidden");
         }
+
         function showModal1() {
-            document.getElementById("medicalPopup").classList.remove("hidden");
+            const modal = document.getElementById("medicalPopup");
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
         }
 
         function hideModal1() {
-            document.getElementById("medicalPopup").classList.add("hidden");
+            const modal = document.getElementById("medicalPopup");
+            modal.classList.remove("flex");
+            modal.classList.add("hidden");
         }
+
+       
+        
     </script>
   
 
@@ -121,6 +142,9 @@
                   arrow.classList.toggle('rotate-180');
               }
           </script>
+
+
+
 
     <style>
         
@@ -294,6 +318,7 @@ align-self: center;
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    
+   
      <a class="back-arrow-btn-2" href="Dashboard.aspx">Back to Home
  </a>
 
@@ -411,12 +436,12 @@ class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-2 border-[#ffd
     <asp:HiddenField ID="hfDoyouSmokem" runat="server" ClientIDMode="Static" />
     <div class="flex gap-4">
         <label class="flex items-center gap-1 text-xs">
-            <asp:RadioButton ID="rdsmoke_yes" runat="server" GroupName="smoke"
+            <asp:RadioButton ID="rdsmoke_yes" runat="server" GroupName="smoke" onclick="handleSelectSmoke(1)"
                 CssClass="accent-yellow-400"  />
             Yes
         </label>
         <label class="flex items-center gap-1 text-xs">
-            <asp:RadioButton ID="rdsmoke_no" runat="server" GroupName="smoke"
+            <asp:RadioButton ID="rdsmoke_no" runat="server" GroupName="smoke" onclick="handleSelectSmoke(0)"
                 CssClass="accent-blue-700" />
             No
         </label>
@@ -448,7 +473,7 @@ class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-2 border-[#ffd
         <div id="saveWrapperM" runat="server" style="display:none;">
     
         <%--          <asp:Button Text="Save" ID="btnUpdateAdditionalM"  CssClass="bg-[#0331b5] text-white px-6 py-2 rounded shadow hover:bg-blue-800"  OnClick="btnUpdateAdditional_Click" runat="server" />--%>
-            <asp:LinkButton ID="btnUpdateAdditionalM" runat="server"  OnClick="btnUpdateAdditionalM_Click" CssClass="bg-[#FCE588] poppins hover:bg-[#ffd100] text-[#333333] font-bold py-3 px-4 rounded-md text-sm flex items-center gap-2 w-[80%] sm:w-[11rem] mx-auto justify-center">
+            <asp:LinkButton ID="btnUpdateAdditionalM" runat="server" CausesValidation="false" OnClick="btnUpdateAdditionalM_Click" CssClass="bg-[#FCE588] poppins hover:bg-[#ffd100] text-[#333333] font-bold py-3 px-4 rounded-md text-sm flex items-center gap-2 w-[80%] sm:w-[11rem] mx-auto justify-center">
               <i class="fa-solid fa-plus"></i> Save Changes
             </asp:LinkButton>
         </div>
@@ -539,12 +564,12 @@ class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-2 border-[#ffd
           <div class="flex gap-6 justify-center sm:justify-start">
             <label class="flex flex-col items-center gap-1">
               <span class="text-xs">Yes</span>
-              <input type="radio" name="smoke" runat="server" id="smoke_yes"  class="w-4 h-4 accent-yellow-400" />
+              <input type="radio" name="smoke" runat="server" onclick="handleSelectSmoke(1)" id="smoke_yes"  class="w-4 h-4 accent-yellow-400" />
                  
             </label>
             <label class="flex flex-col items-center gap-1">
               <span class="text-xs">No</span>
-              <input type="radio" name="smoke" runat="server" id="smoke_no"  class="w-4 h-4 accent-blue-700" checked />
+              <input type="radio" name="smoke" runat="server" onclick="handleSelectSmoke(0)" id="smoke_no"  class="w-4 h-4 accent-blue-700" checked />
                  
             </label>
                
@@ -558,12 +583,12 @@ class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-2 border-[#ffd
           <div class="flex gap-6 justify-center sm:justify-start">
             <label class="flex flex-col items-center gap-1">
               <span class="text-xs">Yes</span>
-              <input type="radio" name="alcohol"  runat="server" id="alcohol_yes"  class="w-4 h-4 accent-yellow-400" checked />
+              <input type="radio" name="alcohol"  runat="server"  onclick='handleSelectAlcohol(1)' id="alcohol_yes"  class="w-4 h-4 accent-yellow-400" checked />
                  
             </label>
             <label class="flex flex-col items-center gap-1">
               <span class="text-xs">No</span>
-              <input type="radio" name="alcohol" runat="server" id="alcohol_no"  class="w-4 h-4 accent-blue-700" />
+              <input type="radio" name="alcohol" runat="server" id="alcohol_no" onclick='handleSelectAlcohol(0)'  class="w-4 h-4 accent-blue-700" />
                  
             </label>
           </div>
@@ -617,7 +642,7 @@ class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-2 border-[#ffd
 <div class="flex flex-col sm:flex-row gap-2">
   <!-- Surgery Name -->
   <div class="flex flex-col w-full sm:w-[60%]">
-    <asp:TextBox ID="txtSurgeryName" runat="server" placeholder="Surgery Name"
+    <asp:TextBox ID="txtSurgeryName" runat="server" placeholder="Surgery Name" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
       CssClass="border border-gray-400 rounded-md px-3 py-2 text-sm" />
     <asp:RequiredFieldValidator ID="rfvSurgeryName" runat="server"
       ControlToValidate="txtSurgeryName"
@@ -629,7 +654,7 @@ class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-2 border-[#ffd
 
   <!-- Hospital Name -->
   <div class="flex flex-col w-full sm:w-[40%]">
-    <asp:TextBox ID="txthostname" runat="server" placeholder="Enter hospital Name"
+    <asp:TextBox ID="txthostname" runat="server" placeholder="Enter hospital Name" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
       CssClass="border border-gray-400 rounded-md px-3 py-2 text-sm" />
     <asp:RequiredFieldValidator ID="rfvHospitalName" runat="server"
       ControlToValidate="txthostname"
@@ -645,7 +670,7 @@ class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-2 border-[#ffd
 <div class="flex flex-col sm:flex-row gap-2">
   <!-- Doctor Name -->
   <div class="flex flex-col w-full sm:w-[60%]">
-    <asp:TextBox ID="txtdrname" runat="server" placeholder="Enter Dr. Name"
+    <asp:TextBox ID="txtdrname" runat="server" placeholder="Enter Dr. Name" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
       CssClass="border border-gray-400 rounded-md px-3 py-2 text-sm" />
     <asp:RequiredFieldValidator ID="rfvDrName" runat="server"
       ControlToValidate="txtdrname"
@@ -726,7 +751,7 @@ class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-2 border-[#ffd
 
     <span class="text-sm text-gray-800"><%# Eval("user_surgery_year") %></span>
 
-    <asp:LinkButton ID="btnDelete" runat="server" CommandName="Delete"
+    <asp:LinkButton ID="btnDelete" runat="server" CommandName="Delete" CausesValidation="false"
         OnClientClick="return confirm('Are you sure you want to delete this record?');"
         CssClass="ml-2">
         <i class="fa-solid fa-trash-can text-black-600 hover:text-black-800 text-lg"></i>
@@ -775,7 +800,7 @@ class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-2 border-[#ffd
              <div class="flex flex-col sm:flex-row gap-4">
   <!-- Surgery Name -->
   <div class="flex flex-col w-full sm:w-[60%]">
-    <asp:TextBox ID="txtSurgeryName1" runat="server" placeholder="Surgery Name"
+    <asp:TextBox ID="txtSurgeryName1" runat="server" placeholder="Surgery Name" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
       CssClass="border border-gray-400 rounded-md px-3 py-2 text-sm" />
     <asp:RequiredFieldValidator ID="RequiredFieldsurgeryname" runat="server" 
       ControlToValidate="txtSurgeryName1"
@@ -787,7 +812,7 @@ class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-2 border-[#ffd
 
   <!-- Hospital Name -->
   <div class="flex flex-col w-full sm:w-[40%]">
-    <asp:TextBox ID="txthostname1" runat="server" placeholder="Enter hospital Name"
+    <asp:TextBox ID="txthostname1" runat="server" placeholder="Enter hospital Name" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
       CssClass="border border-gray-400 rounded-md px-3 py-2 text-sm" />
     <asp:RequiredFieldValidator ID="RequiredFieldhostname" runat="server" 
       ControlToValidate="txthostname1"
@@ -803,7 +828,7 @@ class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-2 border-[#ffd
 <div class="flex flex-col sm:flex-row gap-4">
   <!-- Doctor Name -->
   <div class="flex flex-col w-full sm:w-[60%]">
-    <asp:TextBox ID="txtdrname1" runat="server" placeholder="Enter Dr. Name"
+    <asp:TextBox ID="txtdrname1" runat="server" placeholder="Enter Dr. Name" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
       CssClass="border border-gray-400 rounded-md px-3 py-2 text-sm" />
     <asp:RequiredFieldValidator ID="RequiredFielddrname" runat="server" 
       ControlToValidate="txtdrname1"
@@ -816,16 +841,22 @@ class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-2 border-[#ffd
   <!-- Surgery Date -->
   <div class="flex flex-col w-full sm:w-[40%]">
     <asp:TextBox ID="txtSurgeryDate1" runat="server" placeholder="DD-MM-YYYY"
-      CssClass="border border-gray-400 rounded-md px-3 py-2 text-sm" />
+      CssClass="border border-gray-400 rounded-md px-3 py-2 text-sm"  onkeyup="validateDOBOnSubmit();" />
     <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" 
-      Format="dd-MM-yyyy" Enabled="true" TargetControlID="txtSurgeryDate1" />
+      Format="dd-MM-yyyy" Enabled="true" TargetControlID="txtSurgeryDate1"/>
+      <asp:RequiredFieldValidator ID="RequiredFieldValidatorDate" runat="server" 
+  ControlToValidate="txtSurgeryDate1"
+  ErrorMessage="Please select Date." 
+  Display="Dynamic" 
+  ForeColor="Red"
+  CssClass="text-red-500 text-sm mt-1" />
     <span id="dobError" style="color:red; display:none;" class="text-red-500 text-sm mt-1">
       Please enter Date in dd-mm-yyyy format
     </span>
   </div>
 </div>
 
-                         <asp:Button ID="btnSaveSurgerygrid" runat="server" Text="Save" OnClick="btnSaveSurgerygrid_Click" onblur="validateDOB(this)"
+                         <asp:Button ID="btnSaveSurgerygrid" runat="server" Text="Save" OnClick="btnSaveSurgerygrid_Click" 
 CssClass="bg-yellow-200 w-full mt-4 poppins text-[#333333] font-semibold px-6 py-3 rounded-lg shadow-sm hover:bg-[#ffd100] transition text-center" />
 </div>
 
@@ -853,7 +884,7 @@ CssClass="bg-yellow-200 w-full mt-4 poppins text-[#333333] font-semibold px-6 py
     
       <div id="saveWrapper" runat="server" style="display:none;margin-top: -29px !important;">
         <%--  <asp:Button Text="Save" ID="btnUpdateAdditional"  CssClass="bg-[#FCE588]  poppins hover:bg-[#ffd100] text-[#333333] font-bold py-3 px-4 rounded-md text-sm flex items-center gap-2 w-[80%] sm:w-[21rem] mx-auto justify-center"  OnClick="btnUpdateAdditional_Click" runat="server" />--%>
-    <asp:LinkButton ID="btnUpdateAdditional" runat="server" OnClick="btnUpdateAdditional_Click" CssClass="bg-[#FCE588] poppins hover:bg-[#ffd100] text-[#333333] font-bold py-3 px-4 rounded-md text-sm flex items-center gap-2 w-[80%] sm:w-[11rem] mx-auto justify-center">
+    <asp:LinkButton ID="btnUpdateAdditional" runat="server" CausesValidation="false" OnClick="btnUpdateAdditional_Click" CssClass="bg-[#FCE588] poppins hover:bg-[#ffd100] text-[#333333] font-bold py-3 px-4 rounded-md text-sm flex items-center gap-2 w-[80%] sm:w-[11rem] mx-auto justify-center">
   <i class="fa-solid fa-plus"></i> Save Changes
 </asp:LinkButton>
       </div>
@@ -874,13 +905,15 @@ CssClass="bg-yellow-200 w-full mt-4 poppins text-[#333333] font-semibold px-6 py
         Allergies can strike anytime - know what affects you and take control of your health. Add your allergies now and ensure you're always ready!
       </p>
      <%--<button id="openAllergyModal" runat="server" onclick="openAllergyModal_Click" class=" bg-[#0331b5] poppins text-white text-sm px-4 w-[80%] mt-4 py-3  sm:py-3 rounded-md">Your Allergies</button>--%>
- <asp:Button 
+<asp:Button 
 ID="openAllergy1Modal" 
 runat="server" 
-OnClick="openAllergy1Modal_Click"
+OnClick="openAllergy1Modal_Click" CausesValidation="false"
 CssClass="bg-[#0331b5] poppins text-white text-sm px-4 w-[80%] mt-4 py-3 sm:py-3 rounded-md" 
 Text="Your Allergies" />
 
+          <%--<asp:Button ID="openAllergy1Modal" runat="server" Text="Your Allergies" OnClick="openAllergy1Modal_Click"
+    CssClass="bg-[#0331b5] poppins text-white text-sm px-4 w-[80%] mt-4 py-3 sm:py-3 rounded-md"  />--%>
         </div>
     
         <!-- Card 2 -->
@@ -897,9 +930,10 @@ Text="Your Allergies" />
              <img src="/journal-page-images/article/medical-history.png" alt="Health Risk"/>
                <div class="border-t mb-4 border-black w-full mt-[-1px]"></div>
 
-         <asp:Button ID="btnmedical" runat="server" OnClick="btnmedical_Click" class="bg-[#0331b5] poppins text-white text-sm px-4  w-[80%] mt-4 py-3  sm:py-3 rounded-md whitespace-normal" Text="Update Medical History"/>
+        <asp:Button ID="btnmedical" runat="server" CausesValidation="false" OnClick="btnmedical_Click" class="bg-[#0331b5] poppins text-white text-sm px-4  w-[80%] mt-4 py-3  sm:py-3 rounded-md whitespace-normal" Text="Update Medical History"/>
            
-
+           <%-- <asp:Button ID="btnmedical" runat="server" Text="Update Medical History" OnClick="btnmedical_Click" 
+ class="bg-[#0331b5] poppins text-white text-sm px-4  w-[80%] mt-4 py-3  sm:py-3 rounded-md whitespace-normal" />--%>
         </div>
 
         <!-- Tablet-only message card with fully centered text -->
@@ -1008,24 +1042,24 @@ Text="Your Allergies" />
         </button>
             <asp:HiddenField ID="hiddenSurgeryId" runat="server" ClientIDMode="Static" />
         <div class="mb-3 rounded-2 p-2" style="border: 1px solid black">
-          <asp:TextBox ID="modalSurgeryDetail" runat="server" CssClass="form-control border-0" TextMode="MultiLine" ClientIDMode="Static" Rows="4" />
+          <asp:TextBox ID="modalSurgeryDetail" runat="server" CssClass="form-control border-0" TextMode="MultiLine" ClientIDMode="Static" Rows="4" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')" />
         </div>
 
         <div class="mb-3">
           <label class="form-label fw-bold">Doctor’s Name :</label>
-          <asp:TextBox ID="modalCreatedBy" runat="server" CssClass="form-control" ClientIDMode="Static" Style="border: 1px solid black;" />
+          <asp:TextBox ID="modalCreatedBy" runat="server" CssClass="form-control" ClientIDMode="Static" Style="border: 1px solid black;" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')" />
         </div>
 
         <div class="mb-3">
           <label class="form-label fw-bold">Hospital Name :</label>
-          <asp:TextBox ID="modalHospitalName" runat="server" CssClass="form-control" ClientIDMode="Static" Style="border: 1px solid black;" />
+          <asp:TextBox ID="modalHospitalName" runat="server" CssClass="form-control" ClientIDMode="Static" Style="border: 1px solid black;" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')" />
         </div>
 
         <div class="modal-content-divider"></div>
 
         <div class="mb-5 mt-3">
           <label class="form-label fw-bold" style="color: #0331B5;">Surgery Date</label><br />
-          <asp:TextBox ID="modalSurgeryYear" runat="server" ClientIDMode="Static" CssClass="form-control" Style="border: 1px solid black;" />
+          <asp:TextBox ID="modalSurgeryYear" runat="server" ClientIDMode="Static" CssClass="form-control" Style="border: 1px solid black;" ReadOnly="true" />
         </div>
         
         <div class="d-flex justify-content-end gap-2">
@@ -1047,7 +1081,7 @@ Text="Your Allergies" />
        
           <asp:TextBox ID="txtdiseaseName" runat="server"  class="p-2 border border-gray-300 rounded mt-4 w-full" placeholder="Enter disease name"></asp:TextBox>
       <span id="errorDisease" style="color: red; display: none;"></span>
-         <asp:Button ID="btndisease" runat="server" Text="Save" class="mt-4 bg-blue-600 text-white p-2 rounded"  OnClick="btndisease_Click"  OnClientClick='<%# "return validateInput(" + txtdiseaseName.ClientID + ");" %>' />
+         <asp:Button ID="btndisease" runat="server" Text="Save" class="mt-4 bg-blue-600 text-white p-2 rounded" CausesValidation="false"  OnClick="btndisease_Click"  OnClientClick='<%# "return validateInput(" + txtdiseaseName.ClientID + ");" %>' />
     </div>
 </div>
 
@@ -1153,14 +1187,13 @@ Text="Your Allergies" />
    onclick="openModal()">
   <span> Your disease isn’t here? Add your own . . . </span>
 </a>
-    <asp:Button 
+     <asp:Button 
         ID="btnMedicalHistory" 
         Text="Save" 
         CssClass="bg-[#0331b5] text-white px-6 py-2 rounded shadow hover:bg-blue-800" 
-        OnClick="btnMedicalHistory_Click" 
-        runat="server" 
-        UseSubmitBehavior="false" 
-        OnClientClick="togglePopup(false);" />
+         OnClick="btnMedicalHistory_Click"
+        runat="server" OnClientClick="togglePopup(false); return true;"
+        CausesValidation="false"/>
 </div>
     </div>
 </div>
@@ -1202,17 +1235,17 @@ Text="Your Allergies" />
 
             <!-- Dropdown Wrapper (hidden by default) -->
             <asp:Panel ID="pnlMedications" runat="server" Visible="false" CssClass="relative  max-w-[300px] mt-2">
-                <div id="dropAArow" runat="server" onclick="toggleDropdownAllergy(this)" class="absolute  right-0 cursor-pointer text-sm font-semibold flex items-center justify-end top-[-9px] !important pdleft">
+                <div onclick="toggleDropdownAllergy(this)" class="absolute  right-0 cursor-pointer text-sm font-semibold flex items-center justify-end top-[-9px] !important">
                     <i class="fa fa-angle-down"></i>
                 </div>
-                <div class="allergyDropdownWrapper hidden absolute  top-full mt-2 z-[9999] rounded-lg  ">
+                <div class="allergyDropdownWrapper hidden absolute  top-full mt-2 z-[9999] rounded-lg ">
                    <%-- <asp:DropDownList ID="AlleryMedications" runat="server" Width="498%"
                                       CssClass="w-full p-2 rounded-md border border-gray-300">
                     </asp:DropDownList>--%>
-                    <asp:TextBox ID="txtMedication"  runat="server" TextMode="MultiLine" Rows="3" CssClass="w-full p-2 border border-gray-300 rounded fixaliclass responsive-width" Style="margin-top: 10px;" />
-                    <asp:Button ID="btnEdit" runat="server" Text="Save Changes"  OnClick="btnEdit_Click" CssClass="bg-[#FCE588] poppins hover:bg-[#ffd100] text-[#333333] font-bold py-3 rounded-md text-sm flex items-center gap-2 w-[80%] sm:w-[11rem] mx-auto justify-center"/>
-
+                      <asp:TextBox ID="txtMedication"  runat="server" TextMode="MultiLine" Rows="3" CssClass="w-full p-2 border border-gray-300 rounded fixaliclass responsive-width" Style="margin-top: 10px;" />
+                    <asp:Button ID="btnEdit" runat="server" Text="Save Changes"  CausesValidation="false" OnClick="btnEdit_Click" CssClass="bg-[#FCE588] poppins hover:bg-[#ffd100] text-[#333333] font-bold py-3 rounded-md text-sm flex items-center gap-2 w-[80%] sm:w-[11rem] mx-auto justify-center"/>
                 </div>
+           
             </asp:Panel>
 
             <!-- Yes Option -->
@@ -1241,7 +1274,7 @@ Text="Your Allergies" />
  </div>
          
         <!-- Save Button -->
-        <div class="flex justify-between items-center px-4 py-3">
+       <div class="flex justify-between items-center px-4 py-3">
            <a href="#"
    class="text-[#0331b5] font-semibold sm:text-[15px] hover:underline poppins text-[13px] text-sm textclass line-clamp-2"
    onclick="openModal1()">
@@ -1255,6 +1288,10 @@ Text="Your Allergies" />
 </div>  
 
 
+  
+
+
+
        
 
 
@@ -1264,23 +1301,7 @@ Text="Your Allergies" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 
     <script src="../js/main.js"></script>
-    <script>
-        function togglePopup(show) {
-            const popup = document.getElementById("medicalPopup");
-            popup.classList.toggle("hidden", !show);
-        }
-
-        function openModal() {
-            document.getElementById('myModal').classList.remove('hidden');
-        }
-
-        function closeModal() {
-            document.getElementById('myModal').classList.add('hidden');
-        }
-        function closeModal() {
-            document.getElementById('surgeryModal').classList.add('hidden');
-        }
-    </script>
+    
 
     <script>
         let startYear = 1800;
@@ -1387,39 +1408,47 @@ Text="Your Allergies" />
         }
 
 
-
-        window.onload = function () {
+        window.addEventListener('load', function () {
             const ids = [
-    '<%= weightTextBox.ClientID %>',
-    '<%= heightfeetTextBox.ClientID %>',
-    '<%= heightinchTextBox.ClientID %>',
-    '<%= DropDownList1.ClientID %>',
-    '<%= smoke_yes.ClientID %>',
-    '<%= smoke_no.ClientID %>',
-    '<%= alcohol_yes.ClientID %>',
-    '<%= alcohol_no.ClientID %>'
-            ];
+        '<%= weightTextBox.ClientID %>',
+        '<%= heightfeetTextBox.ClientID %>',
+        '<%= heightinchTextBox.ClientID %>',
+        '<%= DropDownList1.ClientID %>',
+        '<%= smoke_yes.ClientID %>',
+        '<%= smoke_no.ClientID %>',
+        '<%= alcohol_yes.ClientID %>',
+        '<%= alcohol_no.ClientID %>'
+    ];
 
-            const ids1 = [
-    '<%= txtweight.ClientID %>',
-    '<%= txtheightfeet.ClientID %>',
-    '<%= txtheightinch.ClientID %>',
-    '<%= DropDownbloodgrp.ClientID %>',
-    '<%= rdsmoke_yes.ClientID %>',
-    '<%= rdsmoke_no.ClientID %>',
-    '<%= rdalcohol_yes.ClientID %>',
-            '<%= rdalcohol_no.ClientID %>'
-            ];
+    const ids1 = [
+        '<%= txtweight.ClientID %>',
+        '<%= txtheightfeet.ClientID %>',
+        '<%= txtheightinch.ClientID %>',
+        '<%= DropDownbloodgrp.ClientID %>',
+        '<%= rdsmoke_yes.ClientID %>',
+        '<%= rdsmoke_no.ClientID %>',
+        '<%= rdalcohol_yes.ClientID %>',
+        '<%= rdalcohol_no.ClientID %>'
+    ];
 
-            [...ids, ...ids1].forEach(function (id) {
-                const element = document.getElementById(id);
-                if (element) {
-                    element.addEventListener('change', showSaveButton);
-                    element.addEventListener('input', showSaveButton);
-                    element.addEventListener('click', showSaveButton);
-                }
-            });
-        };
+    [...ids, ...ids1].forEach(function (id) {
+        const element = document.getElementById(id);
+        if (element) {
+            element.addEventListener('change', showSaveButton);
+            element.addEventListener('input', showSaveButton);
+            element.addEventListener('click', showSaveButton);
+        } else {
+            console.warn("Missing element:", id);
+        }
+    });
+});
+
+        // Second onload functionality
+        window.addEventListener('load', function () {
+            setControlIds();
+            setTimeout(applyRadioSelections, 100); // Delay ensures DOM is ready
+        });
+
 
         // These IDs are injected from server-side
         var txtMedicationNameClientID = '<%= txtMedicationName.ClientID %>';
@@ -1458,14 +1487,36 @@ Text="Your Allergies" />
         }
 
 
-        function openModal() {
-            document.getElementById('myModal').classList.remove('hidden');
-        }
+        //function showModal(surgeryDetails, surgeryYear, hospitalName, doctorName) {
+        //    // Safely insert values into modal inputs
+        //    document.getElementById("modalSurgeryDetail").value = surgeryDetails;
+        //    document.getElementById("modalSurgeryYear").innerText = surgeryYear;
+        //    document.getElementById("modalHospitalName").value = hospitalName;
+        //    document.getElementById("modalCreatedBy").value = doctorName;
 
-        //function closeModal() {
-        //    document.getElementById('myModal').classList.add('hidden');
+
+        //    // Show the modal using Bootstrap 5 API
+        //    var myModal = new bootstrap.Modal(document.getElementById("surgeryModal"));
+        //    myModal.show();
         //}
 
+        function showModal(surgeryId, surgeryDetails, surgeryYear, hospitalName, doctorName) {
+            const detail = document.getElementById("modalSurgeryDetail");
+            const year = document.getElementById("modalSurgeryYear");
+            const hospital = document.getElementById("modalHospitalName");
+            const doctor = document.getElementById("modalCreatedBy");
+            const surgeryIdField = document.getElementById("hiddenSurgeryId");
+
+            if (surgeryIdField) surgeryIdField.value = surgeryId;
+            if (detail) detail.value = surgeryDetails;
+            if (year) year.value = surgeryYear;
+            if (hospital) hospital.value = hospitalName;
+            if (doctor) doctor.value = doctorName;
+
+
+            var myModal = new bootstrap.Modal(document.getElementById("surgeryModal"));
+            myModal.show();
+        }
         function submitDisease() {
             const disease = document.getElementById('diseaseName').value;
             if (disease) {
@@ -1476,17 +1527,7 @@ Text="Your Allergies" />
                 alert('Please enter a disease name.');
             }
         }
-        // Allergy popup
-        function openModal1() {
-            document.getElementById("OtherallergyModal").classList.remove("hidden");
-        }
-
-        function closeModal1() {
-            document.getElementById("OtherallergyModal").classList.add("hidden");
-        }
-
-
-
+       
 
         function validateInput(inputId, errorSpanId) {
             var input = document.getElementById(inputId);
@@ -1601,36 +1642,198 @@ Text="Your Allergies" />
             setTimeout(applyRadioSelections, 100); // Triggers on resize (mobile ↔ desktop)
         };
 
-        //function showModal(surgeryDetails, surgeryYear, hospitalName, doctorName) {
-        //    // Safely insert values into modal inputs
-        //    document.getElementById("modalSurgeryDetail").value = surgeryDetails;
-        //    document.getElementById("modalSurgeryYear").innerText = surgeryYear;
-        //    document.getElementById("modalHospitalName").value = hospitalName;
-        //    document.getElementById("modalCreatedBy").value = doctorName;
+     
+        // These IDs are injected from server-side
+        var txtMedicationNameClientID = '<%= txtMedicationName.ClientID %>';
+        var medicationPopupID = 'medicationPopup';
+
+        function handleYesClick(radio, allergyName) {
+            if (allergyName.trim().toLowerCase() === "medications") {
+                setTimeout(() => {
+                    const txtBox = document.getElementById(txtMedicationNameClientID);
+                    const popup = document.getElementById(medicationPopupID);
+
+                    if (txtBox && popup) {
+                        txtBox.value = '';
+                        popup.style.display = 'flex';
+                    } else {
+                        console.warn("Textbox or popup not found");
+                    }
+                });
+            }
+        }
+
+        function closePopup() {
+            document.getElementById(medicationPopupID).style.display = 'none';
+        }
 
 
-        //    // Show the modal using Bootstrap 5 API
-        //    var myModal = new bootstrap.Modal(document.getElementById("surgeryModal"));
-        //    myModal.show();
+        function toggleDropdownAllergy(el) {
+            const wrapper = el.nextElementSibling;
+            if (wrapper.classList.contains("hidden")) {
+                wrapper.classList.remove("hidden");
+                el.querySelector("i").classList.add("rotate-180");
+            } else {
+                wrapper.classList.add("hidden");
+                el.querySelector("i").classList.remove("rotate-180");
+            }
+        }
+
+
+        function openModal() {
+            document.getElementById('myModal').classList.remove('hidden');
+        }
+
+        //function closeModal() {
+        //    document.getElementById('myModal').classList.add('hidden');
         //}
 
-        function showModal(surgeryId,surgeryDetails, surgeryYear, hospitalName, doctorName) {
-            const detail = document.getElementById("modalSurgeryDetail");
-            const year = document.getElementById("modalSurgeryYear");
-            const hospital = document.getElementById("modalHospitalName");
-            const doctor = document.getElementById("modalCreatedBy");
-            const surgeryIdField = document.getElementById("hiddenSurgeryId");
-
-            if (surgeryIdField) surgeryIdField.value = surgeryId;
-            if (detail) detail.value = surgeryDetails;
-            if (year) year.value = surgeryYear;
-            if (hospital) hospital.value = hospitalName;
-            if (doctor) doctor.value = doctorName;
-           
-
-            var myModal = new bootstrap.Modal(document.getElementById("surgeryModal"));
-            myModal.show();
+        function submitDisease() {
+            const disease = document.getElementById('diseaseName').value;
+            if (disease) {
+                alert('Disease added: ' + disease);
+                // You can send the disease to the backend or do other actions here.
+                closeModal();  // Close the modal after submitting.
+            } else {
+                alert('Please enter a disease name.');
+            }
         }
+        // Allergy popup
+        function openModal1() {
+            document.getElementById("OtherallergyModal").classList.remove("hidden");
+        }
+
+        function closeModal1() {
+            document.getElementById("OtherallergyModal").classList.add("hidden");
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            if (modal) {
+                modal.classList.add("hidden");
+            }
+        }
+
+
+        
+            document.addEventListener("DOMContentLoaded", function () {
+            const txtDate = document.getElementById("<%= txtSurgeryDate1.ClientID %>");
+            let prevValue = "";
+
+            txtDate.addEventListener("input", function () {
+                let value = txtDate.value.replace(/[^0-9]/g, '');
+            let formatted = "";
+            const isDeleting = txtDate.value.length < prevValue.length;
+
+           if (value.length >= 1) {
+                formatted += value.substring(0, 2);
+               if (value.length >= 2) {
+                formatted += '-';
+               }
+           }
+           if (value.length >= 3) {
+                formatted += value.substring(2, 4);
+               if (value.length >= 4) {
+                formatted += '-';
+               }
+           }
+           if (value.length >= 5) {
+                formatted += value.substring(4, 8);
+           }
+
+            if (isDeleting && prevValue.length === 6 && txtDate.value.length === 5) {
+                formatted = formatted.slice(0, 5);
+           } else if (isDeleting && prevValue.length === 3 && txtDate.value.length === 2) {
+                formatted = formatted.slice(0, 2);
+           }
+
+            txtDate.value = formatted.slice(0, 10);
+            prevValue = txtDate.value;
+       });
+            });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const txtDate = document.getElementById("<%= txtSurgeryDate.ClientID %>");
+             let prevValue = "";
+
+             txtDate.addEventListener("input", function () {
+                 let value = txtDate.value.replace(/[^0-9]/g, '');
+                 let formatted = "";
+                 const isDeleting = txtDate.value.length < prevValue.length;
+
+                 if (value.length >= 1) {
+                     formatted += value.substring(0, 2);
+                     if (value.length >= 2) {
+                         formatted += '-';
+                     }
+                 }
+                 if (value.length >= 3) {
+                     formatted += value.substring(2, 4);
+                     if (value.length >= 4) {
+                         formatted += '-';
+                     }
+                 }
+                 if (value.length >= 5) {
+                     formatted += value.substring(4, 8);
+                 }
+
+                 if (isDeleting && prevValue.length === 6 && txtDate.value.length === 5) {
+                     formatted = formatted.slice(0, 5);
+                 } else if (isDeleting && prevValue.length === 3 && txtDate.value.length === 2) {
+                     formatted = formatted.slice(0, 2);
+                 }
+
+                 txtDate.value = formatted.slice(0, 10);
+                 prevValue = txtDate.value;
+             });
+         });
+
+
+
+        
+        function validateDOBOnSubmit() {
+            var input = document.getElementById('<%= txtSurgeryDate1.ClientID %>');
+                var dobValue = input.value.trim();
+                var errorSpan = document.getElementById("dobError");
+
+                // Regex check for format DD-MM-YYYY
+                var dobRegex = /^(0[1-9]|[12][0-9]|3[01])[-](0[1-9]|1[0-2])[-](19|20)\d{2}$/;
+
+                if (!dobRegex.test(dobValue)) {
+                    showError();
+                    return;
+                }
+
+                // Logical check
+                var parts = dobValue.split("-");
+                var day = parseInt(parts[0], 10);
+                var month = parseInt(parts[1], 10);
+                var year = parseInt(parts[2], 10);
+                var date = new Date(year, month - 1, day);
+
+                if (
+                    date.getFullYear() !== year ||
+                    date.getMonth() !== month - 1 ||
+                    date.getDate() !== day
+                ) {
+                    showError();
+                    return;
+                }
+
+                hideError();
+
+                function showError() {
+                    errorSpan.style.display = "inline";
+                    input.classList.add("is-invalid");
+                }
+
+                function hideError() {
+                    errorSpan.style.display = "none";
+                    input.classList.remove("is-invalid");
+                }
+            }
+    
 
 
 

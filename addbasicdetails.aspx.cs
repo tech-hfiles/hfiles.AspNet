@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Security.Cryptography.X509Certificates;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Services;
 using System.Web.UI;
@@ -70,7 +71,7 @@ namespace hfiles
                     int userid = Convert.ToInt32(Session["Userid"]);
 
 
-                    getbasicdetails(userid);
+                  ;
 
 
                     using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -93,10 +94,10 @@ namespace hfiles
                         }
                     }
 
-
-                    getstatelist();
+                    getstatelist();           // Step 1: load states
+                    getbasicdetails(userid);
                     dateajax.EndDate = DateTime.Now.AddDays(0);
-                   
+
                     string plan = GetUserSubscription(Session["Userid"].ToString()); // e.g., "Gold"
 
                     if (plan == "Basic")
@@ -111,7 +112,7 @@ namespace hfiles
                     //emailTextBox.Value = Session["email"].ToString();
                     //contactTextBox.Value = Session["phone"].ToString();
                 }
-                HandleStateVisibility();
+                //HandleStateVisibility();
             }
             else
             {
@@ -211,7 +212,7 @@ namespace hfiles
                 con.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                stateDropDownList.Items.Add(new System.Web.UI.WebControls.ListItem("Select State", "0"));
+                // stateDropDownList.Items.Add(new System.Web.UI.WebControls.ListItem("Select State", "0"));
 
                 while (reader.Read())
                 {
@@ -239,7 +240,8 @@ namespace hfiles
         //}
         private void getcitylist(string state)
         {
-            //cityDropDownList.Items.Clear();
+            cityDropDownList.Items.Clear(); // ✅ Clear existing cities
+
             using (MySqlConnection con = new MySqlConnection(connectionString))
             {
                 string query = "SELECT DISTINCT city FROM scp WHERE state = @state ORDER BY city";
@@ -249,7 +251,7 @@ namespace hfiles
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                cityDropDownList.Items.Add(new System.Web.UI.WebControls.ListItem("Select City", "0"));
+                cityDropDownList.Items.Add(new System.Web.UI.WebControls.ListItem("Select City", "0")); // ✅ Default entry
 
                 while (reader.Read())
                 {
@@ -260,6 +262,7 @@ namespace hfiles
                 con.Close();
             }
         }
+
 
         public static string GenerateId()
         {
@@ -308,13 +311,18 @@ namespace hfiles
             string fullNumber = contactTextBox.Value.Trim(); // "+91 8779840384"
             string dialingCode = "";
             string phoneNumber = "";
-
-            int spaceIndex = fullNumber.IndexOf(' ');
-            if (spaceIndex > 0)
+            // e.g. "+91 8779840384"
+            var match = Regex.Match(fullNumber, @"^(\+\d{1,2})(\s*\d+)$");
+            if (match.Success)
             {
-                dialingCode = fullNumber.Substring(0, spaceIndex); // "+91"
-                phoneNumber = fullNumber.Substring(spaceIndex + 1); // "8779840384"
+                dialingCode = match.Groups[1].Value;  // "+91"
+                phoneNumber = match.Groups[2].Value.Trim();  // "8779840384"
             }
+            else
+            {
+                // handle invalid format
+            }
+
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
@@ -345,7 +353,7 @@ namespace hfiles
                     command.Parameters.AddWithValue("_user_id", DAL.validateInt(Session["Userid"]));
                     command.Parameters.AddWithValue("_user_firstname", firstNameTextBox.Value);
                     command.Parameters.AddWithValue("_user_lastname", lastNameTextBox.Value);
-                    command.Parameters.AddWithValue("_user_dob", txtDate.Text);       
+                    command.Parameters.AddWithValue("_user_dob", txtDate.Text);
                     command.Parameters.AddWithValue("_user_contact", phoneNumber);
                     command.Parameters.AddWithValue("_user_email", emailTextBox.Value);
                     command.Parameters.AddWithValue("_countrycode", countryCode);
@@ -355,18 +363,37 @@ namespace hfiles
                     command.Parameters.AddWithValue("_user_bloodgroup", bloodgroup.Value);
                     command.Parameters.AddWithValue("_user_pincode", txtpincode.Value);
                     //command.Parameters.AddWithValue("_user_state", stateTextBox.Value);
-                    command.Parameters.AddWithValue("_user_state", stateDropDownList.SelectedItem.Text);
-                  
+                    //command.Parameters.AddWithValue("_user_state", stateDropDownList.SelectedItem.Text);
+                    //command.Parameters.AddWithValue("_user_state", countryCode == "IND +91" ? (stateDropDownList.SelectedItem.Text.ToLower() == "no state found" || stateDropDownList.SelectedItem.Text.ToLower() == "select state") == true ? "" : stateDropDownList.SelectedItem.Text : stateTextBox.Value);
+                    string userState = "";
+                    if (stateDropDownList.Visible)
+                    {
+                        string stateVal = stateDropDownList.SelectedItem.Text.Trim().ToLower();
+                        if (stateVal == "select state" || stateVal == "no state found" || stateDropDownList.SelectedValue == "0")
+                        {
+                            userState = stateTextBox.Value.Trim();
+                        }
+                        else
+                        {
+                            userState = stateDropDownList.SelectedItem.Text.Trim();
+                        }
+                    }
+                    else
+                    {
+                        userState = stateTextBox.Value.Trim();
+                    }
+                    command.Parameters.AddWithValue("_user_state", userState);
+
                     string userCity = "";
 
-                    if (cityDropDownList.Visible && cityDropDownList.SelectedItem != null)
+                    if (cityDropDownList.Visible)
                     {
                         userCity = cityDropDownList.SelectedItem.Text;
                     }
                     else if (cityTextBox.Visible)
                     {
                         userCity = cityTextBox.Value;
-                    }  
+                    }
                     command.Parameters.AddWithValue("_user_city", userCity);
                     //command.Parameters.AddWithValue("_user_country", ddlCountry.SelectedItem.Text);
                     //command.Parameters.AddWithValue("_user_country", ddlCountry.SelectedValue);
@@ -408,112 +435,88 @@ namespace hfiles
                 using (MySqlCommand command = new MySqlCommand("getUserDetails", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    // Add parameters to the command
                     command.Parameters.AddWithValue("_Id", id);
+
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            // Populate the HTML controls with user details.
                             firstNameTextBox.Value = reader["user_firstname"].ToString();
                             lastNameTextBox.Value = reader["user_lastname"].ToString();
                             selectgender.Value = reader["user_gender"].ToString();
-                            //dobTextBox1.Value = reader["user_dob"].ToString();
-                            DateTime dob = Convert.ToDateTime(reader["user_dob"]);
-                            txtDate.Text = dob.ToString("dd-MM-yyyy");
+                            txtDate.Text = Convert.ToDateTime(reader["user_dob"]).ToString("dd-MM-yyyy");
                             bloodgroup.Value = reader["user_bloodgroup"].ToString();
-                            //dialcode.Text = ddlCountry.SelectedValue.ToString();
-                            //stateTextBox.Value = reader["user_state"].ToString();
-                            cityTextBox.Value = reader["user_city"].ToString();
+                            contactTextBox.Value = reader["user_contact"].ToString();
+                            emailTextBox.Value = reader["user_email"].ToString();
+                            icecontactTextBox.Value = reader["user_icecontact"].ToString();
                             txtpincode.Value = reader["pincode"].ToString();
-                            string userState = stateTextBox.Value;
-                            string userCity = cityTextBox.Value;
-                            if (reader["countrycode"].ToString() != string.Empty)
+
+                            string userState = reader["user_state"].ToString().Trim();
+                            string userCity = reader["user_city"].ToString().Trim();
+
+                            if (reader["countrycode"].ToString().Trim() == "IND +91")
                             {
-                                if (reader["countrycode"].ToString().Trim() == "IND +91")
+                                string dialingCode = reader["dialingcode"].ToString();
+                                string countryCode = GetCountryCodeFromDialCode(dialingCode);
+                                flagImage.Src = GetFlagApiUrl(countryCode);
+
+                                // 🟢 1. Bind State first
+                                getstatelist();
+
+                                System.Web.UI.WebControls.ListItem stateItem = stateDropDownList.Items.FindByText(userState);
+                                if (stateItem != null)
+                                    stateItem.Selected = true;
+
+                                // 🟢 2. Bind City list now that state is selected
+                                getcitylist(userState);
+
+                                // 🟢 3. Select the matching city (ignore case, trim)
+                                bool cityMatched = false;
+                                string cleanCity = userCity.ToLower();
+                                foreach (System.Web.UI.WebControls.ListItem item in cityDropDownList.Items)
                                 {
-                                    //ddlCountry.Items.FindByText(reader["user_country"].ToString()).Selected = true;
-                                    //ddlCountry_SelectedIndexChanged(null, null);
-                                    string dialingCode = reader["dialingcode"].ToString();
-                                    //dialcode.Text = dialingCode;
-
-                                    string countryCode = GetCountryCodeFromDialCode(dialingCode);
-                                    flagImage.Src = GetFlagApiUrl(countryCode);
-
-                                    if (reader["user_state"].ToString() != string.Empty)
+                                    if (item.Text.Trim().ToLower() == cleanCity)
                                     {
-                                        getstatelist();
-                                        stateDropDownList.SelectedItem.Text = reader["user_state"].ToString(); ;
-                                        getcitylist(userState);
-                                        cityDropDownList.SelectedItem.Text = userCity;
-
-                                    }
-                                    else if (reader["user_state"].ToString() != string.Empty)
-                                    {
-                                        cityDropDownList.SelectedItem.Text = userCity;
-                                    }
-                                }
-                                else
-                                {
-
-                                    string dialingCode = reader["dialingcode"].ToString();
-                                     countryCode = GetCountryCodeFromDialCode(dialingCode);
-                                    Session["countryCode"] = countryCode;
-                                    flagImage.Src = GetFlagApiUrl(countryCode);
-                                    //ddlCountry.Items.FindByText(reader["user_country"].ToString()).Selected = true;
-                                    //ddlCountry_SelectedIndexChanged(null, null);
-                                    if (reader["user_state"].ToString() != string.Empty)
-                                    {
-                                        stateTextBox.Value = reader["user_state"].ToString();
-                                        //getcitylist(stateDropDownList.SelectedItem.Text);
-
-                                    }
-                                    if (reader["user_city"].ToString() != string.Empty)
-                                    {
-                                        cityTextBox.Value = reader["user_city"].ToString();
+                                        cityDropDownList.ClearSelection();
+                                        item.Selected = true;
+                                        cityMatched = true;
+                                        break;
                                     }
                                 }
 
+                                cityDropDownList.Visible = cityMatched;
+                                cityTextBox.Visible = !cityMatched;
+
+                                if (!cityMatched)
+                                    cityTextBox.Value = userCity;
                             }
-
-                            //ddlState.SelectedItem.Text = reader["user_state"].ToString();
-                            //cityDropDownList.SelectedItem.Text = reader["user_city"].ToString();
-
                             else
                             {
-                                //cityDropDownList.SelectedItem.Text = "Mumbai";
+                                // Non-Indian fallback
+                                stateTextBox.Value = userState;
+                                cityTextBox.Value = userCity;
+
+                                stateTextBox.Visible = true;
+                                stateDropDownList.Visible = false;
+
+                                cityTextBox.Visible = true;
+                                cityDropDownList.Visible = false;
                             }
 
-                            //if (ddlCountry.SelectedItem.Text == "India")
-                            //{
-                            //    stateDropDownList.SelectedItem.Text = reader["user_state"].ToString();
-                            //    cityDropDownList.SelectedItem.Text = reader["user_city"].ToString();
-                            //}
-                            contactTextBox.Value = reader["user_contact"].ToString();
-                            icecontactTextBox.Value = reader["user_icecontact"].ToString();
-                            //relativecontactTextBox.Value = reader["user_relativecontact"].ToString();
-                            emailTextBox.Value = reader["user_email"].ToString();
-                            //famdocTextBox.Value = reader["user_doctor"].ToString();
-
+                            // Profile image
                             string imagePath = "~/upload/" + reader["user_image"].ToString();
-
-                            // Check if the database value is blank
                             if (string.IsNullOrEmpty(reader["user_image"].ToString()))
-                            {
-                                // Use a default image when the database value is blank
                                 imagePath = "../My Data/default-user-profile.png";
-                            }
-                            Session["ProfileImage"] = reader["user_image"].ToString(); ;
-                            imagePreview.Src = imagePath;
 
-                            //imagePreview.Src = "~/upload/"+reader["user_image"].ToString();
+                            Session["ProfileImage"] = reader["user_image"].ToString();
+                            imagePreview.Src = imagePath;
                         }
                     }
-                    command.ExecuteNonQuery();
-                    connection.Close();
                 }
+                connection.Close();
             }
         }
+
 
         protected int Bind()
         {
@@ -806,7 +809,7 @@ namespace hfiles
 
             bool invalidCity = selectedCityText == "no city found" || selectedCityValue == "0" || selectedCityText.Contains("please select");
 
-            cityTextBox.Visible =!invalidCity;
+            cityTextBox.Visible = !invalidCity;
             rfvcityTextBox.Enabled = !invalidCity;
 
             cityDropDownList.Visible = invalidCity;
@@ -829,7 +832,7 @@ namespace hfiles
 
                 // Clear and reset city dropdown
                 cityDropDownList.Items.Clear();
-                cityDropDownList.Items.Add(new System.Web.UI.WebControls.ListItem("Select City", "0"));
+                //cityDropDownList.Items.Add(new System.Web.UI.WebControls.ListItem("Select City", "0"));
             }
             else
             {
@@ -852,6 +855,6 @@ namespace hfiles
             getcitylist(stateDropDownList.SelectedItem.Text);
         }
 
-       
+
     }
 }

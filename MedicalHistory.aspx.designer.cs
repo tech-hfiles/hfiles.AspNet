@@ -474,6 +474,15 @@ namespace hfiles
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
 
         /// <summary>
+        /// RequiredFieldValidatorDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorDate;
+
+        /// <summary>
         /// btnSaveSurgerygrid control.
         /// </summary>
         /// <remarks>

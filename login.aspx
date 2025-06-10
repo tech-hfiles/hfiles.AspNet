@@ -1067,27 +1067,7 @@
                             <br />
                             <h1 class="color-white pl-3">Welcome Back!</h1>
                         </div>
-                        <%-- <div>
-                            <asp:TextBox ID="emailTextBox" CssClass="w-95 login-input" required TextMode="SingleLine" placeholder="Email Id / Contact No." runat="server" Style="border-radius: 30px"></asp:TextBox>
-                            
-                        </div>--%>
-
-
-                        <%--<div>
-    <div class="form-control" style="background-color:white;border-radius:20px;display:flex;padding:0;margin-top:7px;margin-bottom:7px">
-        <!-- Dropdown for email or contact selection -->
-        <asp:DropDownList ID="ddlCountry" runat="server" CssClass="form-select"
-            style="border:none !important;padding-left:12px !important;max-width:120px !important;height:49px !important; display:block;">
-            <asp:ListItem Text="Email" Value="Email" Selected="True"></asp:ListItem>
-            <asp:ListItem Text="Phone" Value="Phone"></asp:ListItem>
-        </asp:DropDownList>
-
-        <!-- Input for email or phone -->
-        <asp:TextBox ID="emailTextBox" CssClass="w-95 login-input" required TextMode="SingleLine"
-          placeholder="Email Id / Contact No."   runat="server" Style="border:none !important; padding-left:5px !important; flex-grow:1;" 
-             oninput="toggleDropdown()"></asp:TextBox>
-    </div>
-</div>--%>
+                     
 
                         <div style="position: relative; width: 350px;">
                             <div class="form-control" id="inputWrapper"

@@ -534,6 +534,7 @@
                 background-position: right 30px bottom 70px;
                 background-repeat: no-repeat;
                 background-size: 450px;
+                padding-bottom: 512px;
             }
 
             .member-container {
